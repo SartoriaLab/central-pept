@@ -1,7 +1,7 @@
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 
-const PROTECTED = ['/admin/assistente', '/api/assistente'];
+const PROTECTED = ['/admin/assistente', '/admin/afiliados', '/api/assistente'];
 const BLOCKED_CRAWLERS = [
   'mj12bot',
   'ahrefsbot',
