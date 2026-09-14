@@ -160,6 +160,10 @@ export default function Article() {
         procedência comprovada.
       </p>
 
+      <div className="my-8 not-prose">
+        <AffiliateBox productId="fornecedor_oficial" slot="blog-sema-vs-tirze-mid" peptide="tirzepatida" />
+      </div>
+
       <h2>Qual escolher?</h2>
       <ul>
         <li><strong>Se o foco é perda máxima de peso:</strong> tirzepatida tem vantagem consistente nos ensaios</li>
@@ -180,10 +184,20 @@ export default function Article() {
         {' '}com os dados corretos do rótulo.
       </p>
 
+      <h2>Leia também</h2>
+      <ul>
+        <li><Link href="/blog/onde-comprar-tirzepatida">Onde comprar tirzepatida com segurança</Link></li>
+        <li><Link href="/blog/tirzepatida-preco-quanto-custa">Quanto custa tirzepatida por dose</Link></li>
+        <li><Link href="/blog/como-reconstituir-tirzepatida">Como reconstituir tirzepatida 5, 10 e 15 mg</Link></li>
+        <li><Link href="/blog/mounjaro-falso-como-identificar">Mounjaro falso: como identificar</Link></li>
+        <li><Link href="/blog/tirzepatida-manipulada-seguranca">Tirzepatida manipulada: riscos e como escolher a farmácia</Link></li>
+      </ul>
+
       <div className="my-8 not-prose">
         <AffiliateBox
           productId="fornecedor_oficial"
           slot="blog-sema-vs-tirze"
+          peptide="tirzepatida"
         />
       </div>
     </ArticleLayout>

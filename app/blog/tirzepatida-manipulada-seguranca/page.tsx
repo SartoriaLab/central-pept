@@ -42,6 +42,10 @@ export default function Article() {
         <li>Prescrição médica obrigatória — fuja se vender sem receita</li>
       </ul>
 
+      <div className="my-8 not-prose">
+        <AffiliateBox productId="fornecedor_oficial" slot="blog-tirze-manipulada-mid" peptide="tirzepatida" />
+      </div>
+
       <h2>Como usar com segurança</h2>
       <ul>
         <li>Armazenar refrigerado (2-8°C) desde o recebimento</li>
@@ -60,10 +64,19 @@ export default function Article() {
         Se o orçamento permite, industrializado é sempre mais seguro. Se o preço é barreira, manipulada pode ser opção <em>com farmácia validada</em> e acompanhamento médico — não como escolha &quot;de primeira&quot;.
       </p>
 
+      <h2>Leia também</h2>
+      <ul>
+        <li><Link href="/blog/onde-comprar-tirzepatida">Onde comprar tirzepatida com segurança</Link></li>
+        <li><Link href="/blog/tirzepatida-preco-quanto-custa">Quanto custa tirzepatida por dose</Link></li>
+        <li><Link href="/blog/como-reconstituir-tirzepatida">Como reconstituir tirzepatida 5, 10 e 15 mg</Link></li>
+        <li><Link href="/blog/mounjaro-falso-como-identificar">Mounjaro falso: como identificar</Link></li>
+      </ul>
+
       <div className="my-8 not-prose">
         <AffiliateBox
           productId="fornecedor_oficial"
           slot="blog-tirze-manipulada"
+          peptide="tirzepatida"
         />
       </div>
     </ArticleLayout>
