@@ -68,18 +68,20 @@ export default function Article() {
         faixa de dose e referências —, consulte a{' '}
         <Link href="/peptideos/sermorelina">ficha técnica da sermorelina</Link>.
       </p>
-      <table>
-        <thead>
-          <tr><th>Dado</th><th>Valor</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Classe</td><td>Análogo do GHRH (GRF 1-29)</td></tr>
-          <tr><td>Meia-vida</td><td>~11-12 minutos</td></tr>
-          <tr><td>Dose diagnóstica histórica (Geref)</td><td>~0,3 µg/kg IV</td></tr>
-          <tr><td>Uso off-label em manipulação</td><td>~0,2-0,5 mg SC à noite</td></tr>
-          <tr><td>Status regulatório</td><td>Descontinuada / sem registro ativo</td></tr>
-        </tbody>
-      </table>
+      <div className="overflow-x-auto">
+        <table>
+          <thead>
+            <tr><th>Dado</th><th>Valor</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Classe</td><td>Análogo do GHRH (GRF 1-29)</td></tr>
+            <tr><td>Meia-vida</td><td>~11-12 minutos</td></tr>
+            <tr><td>Dose diagnóstica histórica (Geref)</td><td>~0,3 µg/kg IV</td></tr>
+            <tr><td>Uso off-label em manipulação</td><td>~0,2-0,5 mg SC à noite</td></tr>
+            <tr><td>Status regulatório</td><td>Descontinuada / sem registro ativo</td></tr>
+          </tbody>
+        </table>
+      </div>
 
       <h2>Como funciona: agonista de GHRH e GH pulsátil</h2>
       <p>

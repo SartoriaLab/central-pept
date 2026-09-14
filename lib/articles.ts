@@ -44,7 +44,7 @@ export const ARTICLES: Article[] = [
     tldr: 'Tirzepatida se compra em farmácia (caneta Mounjaro, com receita), em farmácia de manipulação (frasco, com receita) ou com fornecedor especializado (frasco liofilizado). Em qualquer canal exija lote, certificado de análise com HPLC, envio refrigerado e comprovante. Marketplace, Instagram sem CNPJ e preço fora da curva são os três maiores sinais de golpe.',
     publishedAt: '2026-09-14',
     readMinutes: 10,
-    tags: ['tirzepatida', 'segurança', 'onde comprar'],
+    tags: ['tirzepatida', 'segurança', 'onde comprar', 'glp-1'],
     relatedPeptides: ['tirzepatida'],
     coverColor: 'from-green-500/20 to-teal-500/10',
   },
@@ -55,7 +55,7 @@ export const ARTICLES: Article[] = [
     tldr: 'Frasco de 10 mg com 2 ml de água = 5 mg/ml. Dose de 2,5 mg = 50 unidades; 5 mg = 100 unidades. Para doses altas use menos água ou frasco maior. Reconstitua escorrendo a água pela parede, gire sem agitar e guarde de 2-8 °C por até 28 dias.',
     publishedAt: '2026-09-14',
     readMinutes: 9,
-    tags: ['tirzepatida', 'reconstituição', 'passo-a-passo'],
+    tags: ['tirzepatida', 'reconstituição', 'passo-a-passo', 'glp-1'],
     relatedPeptides: ['tirzepatida'],
     coverColor: 'from-blue-500/20 to-teal-500/10',
   },
@@ -66,7 +66,7 @@ export const ARTICLES: Article[] = [
     tldr: 'Mounjaro original no Brasil é caneta KwikPen da Eli Lilly, vendida em farmácia com receita. Sinais de falsificação: preço muito abaixo de R$ 1.000, venda em marketplace ou rede social, lote da caixa diferente do lote da caneta, rótulo adesivo, líquido turvo. Em frasco liofilizado, exija COA com lote batendo com o rótulo. Não aplique produto suspeito e notifique via Notivisa.',
     publishedAt: '2026-09-14',
     readMinutes: 7,
-    tags: ['tirzepatida', 'mounjaro', 'segurança'],
+    tags: ['tirzepatida', 'mounjaro', 'segurança', 'glp-1'],
     relatedPeptides: ['tirzepatida'],
     coverColor: 'from-red-500/20 to-orange-500/10',
   },
@@ -100,6 +100,7 @@ export const ARTICLES: Article[] = [
     publishedAt: '2026-04-16',
     readMinutes: 6,
     tags: ['reconstituição', 'armazenamento', 'guia-básico'],
+    relatedPeptides: ['semaglutida', 'tirzepatida'],
     coverColor: 'from-teal-500/20 to-green-500/10',
   },
   {
@@ -110,7 +111,7 @@ export const ARTICLES: Article[] = [
     publishedAt: '2026-04-16',
     readMinutes: 9,
     tags: ['semaglutida', 'emagrecimento', 'off-label'],
-    relatedPeptides: ['semaglutida'],
+    relatedPeptides: ['semaglutida', 'tirzepatida'],
     coverColor: 'from-blue-500/20 to-teal-500/10',
   },
   {
@@ -121,7 +122,7 @@ export const ARTICLES: Article[] = [
     publishedAt: '2026-04-16',
     readMinutes: 7,
     tags: ['semaglutida', 'efeitos-colaterais', 'segurança'],
-    relatedPeptides: ['semaglutida'],
+    relatedPeptides: ['semaglutida', 'tirzepatida'],
     coverColor: 'from-amber-500/20 to-blue-500/10',
   },
   {
@@ -132,7 +133,7 @@ export const ARTICLES: Article[] = [
     publishedAt: '2026-04-16',
     readMinutes: 5,
     tags: ['armazenamento', 'ozempic', 'wegovy', 'guia-básico'],
-    relatedPeptides: ['semaglutida'],
+    relatedPeptides: ['semaglutida', 'tirzepatida'],
     coverColor: 'from-teal-500/20 to-green-500/10',
   },
   {
@@ -143,7 +144,7 @@ export const ARTICLES: Article[] = [
     publishedAt: '2026-04-16',
     readMinutes: 6,
     tags: ['ozempic', 'segurança', 'regulatório'],
-    relatedPeptides: ['semaglutida'],
+    relatedPeptides: ['semaglutida', 'tirzepatida'],
     coverColor: 'from-red-500/20 to-amber-500/10',
   },
   {
@@ -165,7 +166,7 @@ export const ARTICLES: Article[] = [
     publishedAt: '2026-04-16',
     readMinutes: 6,
     tags: ['ozempic', 'semaglutida', 'expectativas'],
-    relatedPeptides: ['semaglutida'],
+    relatedPeptides: ['semaglutida', 'tirzepatida'],
     coverColor: 'from-blue-500/20 to-teal-500/10',
   },
   {
@@ -176,7 +177,7 @@ export const ARTICLES: Article[] = [
     publishedAt: '2026-04-16',
     readMinutes: 7,
     tags: ['semaglutida', 'emagrecimento', 'manutenção'],
-    relatedPeptides: ['semaglutida'],
+    relatedPeptides: ['semaglutida', 'tirzepatida'],
     coverColor: 'from-amber-500/20 to-orange-500/10',
   },
   {
@@ -187,7 +188,7 @@ export const ARTICLES: Article[] = [
     publishedAt: '2026-04-16',
     readMinutes: 5,
     tags: ['ozempic', 'efeitos-colaterais', 'dicas'],
-    relatedPeptides: ['semaglutida'],
+    relatedPeptides: ['semaglutida', 'tirzepatida'],
     coverColor: 'from-green-500/20 to-teal-500/10',
   },
   {

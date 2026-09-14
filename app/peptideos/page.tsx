@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { getPeptides } from '@/lib/peptides';
 import PeptideBrowser from '@/components/peptide/PeptideBrowser';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
+import AffiliateBox from '@/components/affiliate/AffiliateBox';
 
 export const metadata: Metadata = {
   title: 'Peptídeos',
@@ -32,6 +33,11 @@ export default function PeptideosPage() {
 
       <div className="max-w-6xl mx-auto px-4 md:px-6 py-8 md:py-10">
         <PeptideBrowser peptides={peptides} />
+
+        <section className="mt-10">
+          <AffiliateBox productId="fornecedor_oficial" slot="peptideos-index" />
+        </section>
+
         <MedicalDisclaimer variant="prominent" />
       </div>
     </>

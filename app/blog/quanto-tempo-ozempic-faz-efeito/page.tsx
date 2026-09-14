@@ -71,6 +71,7 @@ export default function Article() {
         <AffiliateBox
           productId="fornecedor_oficial"
           slot="blog-quanto-tempo-ozempic"
+          peptide="tirzepatida"
         />
       </div>
     </ArticleLayout>

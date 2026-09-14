@@ -2,6 +2,10 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getArticles, type Article } from '@/lib/articles';
+import AffiliateBox from '@/components/affiliate/AffiliateBox';
+
+// Tags em que o CTA usa a copy de tirzepatida (leads do fornecedor).
+const TIRZE_TAGS = new Set(['tirzepatida', 'mounjaro']);
 
 type Params = { tag: string };
 
@@ -38,9 +42,12 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const { tag: tagSlug } = await params;
   const { tag, articles } = articlesForTagSlug(tagSlug);
   if (!tag) return { title: 'Tag não encontrada', robots: { index: false, follow: true } };
+  const description = TIRZE_TAGS.has(tagSlug)
+    ? `Guias de tirzepatida (Mounjaro, Zepbound): preço por dose, onde comprar com procedência, reconstituição e como identificar produto falso. ${articles.length} artigos.`
+    : `Artigos e guias da Central Peptídeos com a tag "${tag}".`;
   return {
     title: `${tag} — ${articles.length} artigo${articles.length > 1 ? 's' : ''}`,
-    description: `Artigos e guias da Central Peptídeos com a tag "${tag}".`,
+    description,
     alternates: { canonical: `/blog/tag/${tagSlug}` },
   };
 }
@@ -70,6 +77,16 @@ export default async function TagPage({ params }: { params: Promise<Params> }) {
       </section>
 
       <div className="max-w-6xl mx-auto px-4 md:px-6 py-10 md:py-14">
+        {TIRZE_TAGS.has(tagSlug) && (
+          <div className="mb-8">
+            <AffiliateBox
+              productId="fornecedor_oficial"
+              slot={`tag-${tagSlug}`}
+              peptide="tirzepatida"
+            />
+          </div>
+        )}
+
         {articles.length === 0 ? (
           <div className="card p-10 text-center text-ink-3">
             Nenhum artigo com esta tag ainda.

@@ -1,9 +1,11 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { affiliateHref, getAffiliate, getAffiliateCopy } from '@/lib/affiliates';
+import AffiliateLink from './AffiliateLink';
 
-const DISMISS_KEY = 'wa-sticky-dismissed';
+const DISMISS_PREFIX = 'wa-sticky-dismissed';
 const SHOW_AFTER = 0.4; // fração da página rolada
+const BAR_HEIGHT = 88; // altura da barra + margem — compensa no body
 
 type Props = {
   productId: string;
@@ -19,14 +21,15 @@ type Props = {
 export default function WhatsAppStickyBar({ productId, slot, peptide }: Props) {
   const [visible, setVisible] = useState(false);
   const [dismissed, setDismissed] = useState(true); // true até hidratar → nunca pisca no SSR
+  const dismissKey = `${DISMISS_PREFIX}:${peptide ?? 'default'}`;
 
   useEffect(() => {
     try {
-      setDismissed(sessionStorage.getItem(DISMISS_KEY) === '1');
+      setDismissed(sessionStorage.getItem(dismissKey) === '1');
     } catch {
       setDismissed(false);
     }
-  }, []);
+  }, [dismissKey]);
 
   useEffect(() => {
     if (dismissed) return;
@@ -41,6 +44,22 @@ export default function WhatsAppStickyBar({ productId, slot, peptide }: Props) {
     return () => window.removeEventListener('scroll', onScroll);
   }, [dismissed]);
 
+  // Compensa a altura da barra no fim da página (só no breakpoint em que ela aparece).
+  const shown = visible && !dismissed;
+  useEffect(() => {
+    if (!shown) return;
+    const mq = window.matchMedia('(max-width: 767px)');
+    const apply = () => {
+      document.body.style.paddingBottom = mq.matches ? `${BAR_HEIGHT}px` : '';
+    };
+    apply();
+    mq.addEventListener('change', apply);
+    return () => {
+      mq.removeEventListener('change', apply);
+      document.body.style.paddingBottom = '';
+    };
+  }, [shown]);
+
   const product = getAffiliate(productId);
   if (!product || dismissed || !visible) return null;
 
@@ -48,7 +67,7 @@ export default function WhatsAppStickyBar({ productId, slot, peptide }: Props) {
   const href = affiliateHref(product.id, slot, peptide);
 
   const close = () => {
-    try { sessionStorage.setItem(DISMISS_KEY, '1'); } catch { /* ignore */ }
+    try { sessionStorage.setItem(dismissKey, '1'); } catch { /* ignore */ }
     setDismissed(true);
   };
 
@@ -56,13 +75,13 @@ export default function WhatsAppStickyBar({ productId, slot, peptide }: Props) {
     <div
       role="complementary"
       aria-label={copy.title}
-      className="lg:hidden no-print fixed bottom-0 inset-x-0 z-40 animate-slide-up"
+      className="md:hidden no-print fixed bottom-0 inset-x-0 z-40 animate-slide-up"
     >
       <div className="mx-3 mb-3 rounded-2xl border-2 border-green-500 bg-white dark:bg-green-950 shadow-xl flex items-center gap-3 p-3">
-        <a
+        <AffiliateLink
           href={href}
-          target="_blank"
-          rel="nofollow sponsored noopener"
+          slot={slot}
+          peptide={peptide}
           className="flex-1 min-w-0 flex items-center gap-3"
         >
           <span className="flex-shrink-0 w-10 h-10 rounded-full bg-green-500 flex items-center justify-center">
@@ -74,7 +93,7 @@ export default function WhatsAppStickyBar({ productId, slot, peptide }: Props) {
             <span className="block font-extrabold text-sm text-green-800 dark:text-green-200 leading-tight truncate">{copy.title}</span>
             <span className="block text-xs text-green-700 dark:text-green-300 leading-snug truncate">{copy.cta} →</span>
           </span>
-        </a>
+        </AffiliateLink>
         <button
           type="button"
           onClick={close}

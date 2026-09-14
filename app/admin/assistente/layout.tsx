@@ -7,6 +7,7 @@ const NAV = [
   { href: '/admin/assistente/duvidas', label: 'Dúvidas' },
   { href: '/admin/assistente/metricas', label: 'Métricas' },
   { href: '/admin/utm', label: 'UTM Builder' },
+  { href: '/admin/afiliados', label: 'Afiliados' },
 ];
 
 export default function AssistenteLayout({ children }: { children: ReactNode }) {

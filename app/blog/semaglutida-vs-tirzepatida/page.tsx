@@ -27,47 +27,49 @@ export default function Article() {
       </p>
 
       <h2>Resumo rápido</h2>
-      <table>
-        <thead>
-          <tr>
-            <th></th>
-            <th>Semaglutida</th>
-            <th>Tirzepatida</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Marcas</strong></td>
-            <td>Ozempic · Wegovy · Rybelsus</td>
-            <td>Mounjaro · Zepbound</td>
-          </tr>
-          <tr>
-            <td><strong>Mecanismo</strong></td>
-            <td>Agonista GLP-1</td>
-            <td>Agonista GLP-1 <em>+</em> GIP (dual)</td>
-          </tr>
-          <tr>
-            <td><strong>Meia-vida</strong></td>
-            <td>~7 dias</td>
-            <td>~5 dias</td>
-          </tr>
-          <tr>
-            <td><strong>Dose máxima</strong></td>
-            <td>2,4 mg/semana</td>
-            <td>15 mg/semana</td>
-          </tr>
-          <tr>
-            <td><strong>Perda de peso (48-72 sem)</strong></td>
-            <td>~15%</td>
-            <td>~21%</td>
-          </tr>
-          <tr>
-            <td><strong>Aprovação FDA</strong></td>
-            <td>2017 (DM2), 2021 (obesidade)</td>
-            <td>2022 (DM2), 2023 (obesidade)</td>
-          </tr>
-        </tbody>
-      </table>
+      <div className="overflow-x-auto">
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+              <th>Semaglutida</th>
+              <th>Tirzepatida</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Marcas</strong></td>
+              <td>Ozempic · Wegovy · Rybelsus</td>
+              <td>Mounjaro · Zepbound</td>
+            </tr>
+            <tr>
+              <td><strong>Mecanismo</strong></td>
+              <td>Agonista GLP-1</td>
+              <td>Agonista GLP-1 <em>+</em> GIP (dual)</td>
+            </tr>
+            <tr>
+              <td><strong>Meia-vida</strong></td>
+              <td>~7 dias</td>
+              <td>~5 dias</td>
+            </tr>
+            <tr>
+              <td><strong>Dose máxima</strong></td>
+              <td>2,4 mg/semana</td>
+              <td>15 mg/semana</td>
+            </tr>
+            <tr>
+              <td><strong>Perda de peso (48-72 sem)</strong></td>
+              <td>~15%</td>
+              <td>~21%</td>
+            </tr>
+            <tr>
+              <td><strong>Aprovação FDA</strong></td>
+              <td>2017 (DM2), 2021 (obesidade)</td>
+              <td>2022 (DM2), 2023 (obesidade)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
       <h2>Como agem no corpo</h2>
       <p>
@@ -119,21 +121,23 @@ export default function Article() {
         Os dois compartilham o mesmo perfil (efeitos gastrointestinais), com
         magnitudes ligeiramente diferentes:
       </p>
-      <table>
-        <thead>
-          <tr>
-            <th>Efeito</th>
-            <th>Semaglutida (2,4 mg)</th>
-            <th>Tirzepatida (15 mg)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>Náusea</td><td>44%</td><td>33%</td></tr>
-          <tr><td>Diarreia</td><td>30%</td><td>22%</td></tr>
-          <tr><td>Vômito</td><td>25%</td><td>10%</td></tr>
-          <tr><td>Constipação</td><td>24%</td><td>17%</td></tr>
-        </tbody>
-      </table>
+      <div className="overflow-x-auto">
+        <table>
+          <thead>
+            <tr>
+              <th>Efeito</th>
+              <th>Semaglutida (2,4 mg)</th>
+              <th>Tirzepatida (15 mg)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Náusea</td><td>44%</td><td>33%</td></tr>
+            <tr><td>Diarreia</td><td>30%</td><td>22%</td></tr>
+            <tr><td>Vômito</td><td>25%</td><td>10%</td></tr>
+            <tr><td>Constipação</td><td>24%</td><td>17%</td></tr>
+          </tbody>
+        </table>
+      </div>
       <p>
         Curiosamente, apesar da maior perda de peso, a tirzepatida tende a apresentar
         <em> menos</em> efeitos gastrointestinais em percentual de pacientes —

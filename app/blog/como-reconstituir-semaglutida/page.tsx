@@ -60,16 +60,18 @@ export default function Article() {
         {' '}</strong>para evitar erros. Como referência, combinações comuns com frasco de 5 mg:
       </p>
 
-      <table>
-        <thead>
-          <tr><th>Frasco</th><th>Água</th><th>Concentração</th><th>Dose 0,25 mg</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>5 mg</td><td>1 ml</td><td>5 mg/ml</td><td>5 U</td></tr>
-          <tr><td>5 mg</td><td>2 ml</td><td>2,5 mg/ml</td><td>10 U</td></tr>
-          <tr><td>5 mg</td><td>3 ml</td><td>1,67 mg/ml</td><td>15 U</td></tr>
-        </tbody>
-      </table>
+      <div className="overflow-x-auto">
+        <table>
+          <thead>
+            <tr><th>Frasco</th><th>Água</th><th>Concentração</th><th>Dose 0,25 mg</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>5 mg</td><td>1 ml</td><td>5 mg/ml</td><td>5 U</td></tr>
+            <tr><td>5 mg</td><td>2 ml</td><td>2,5 mg/ml</td><td>10 U</td></tr>
+            <tr><td>5 mg</td><td>3 ml</td><td>1,67 mg/ml</td><td>15 U</td></tr>
+          </tbody>
+        </table>
+      </div>
 
       <p>
         <strong>Dica:</strong> 10-30 U na seringa é a faixa mais fácil de medir com
@@ -140,6 +142,7 @@ export default function Article() {
         <AffiliateBox
           productId="fornecedor_oficial"
           slot="blog-reconstituir-sema"
+          peptide="tirzepatida"
         />
       </div>
     </ArticleLayout>

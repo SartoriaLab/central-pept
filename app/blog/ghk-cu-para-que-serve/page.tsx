@@ -74,17 +74,19 @@ export default function Article() {
         Esta é a parte que mais gera dúvida. As duas formas usam a mesma molécula, mas estão em
         situações regulatórias completamente diferentes:
       </p>
-      <table>
-        <thead>
-          <tr><th>Aspecto</th><th>Tópico (cosmético)</th><th>Injetável (SC/IM)</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Situação regulatória</td><td>Permitido e amplamente usado</td><td>Sem aprovação para uso humano</td></tr>
-          <tr><td>Concentração / dose</td><td>0,05% a 2% em cosméticos</td><td>Não estabelecida para humanos</td></tr>
-          <tr><td>Histórico de uso</td><td>Décadas, com segurança documentada</td><td>Dados humanos muito limitados</td></tr>
-          <tr><td>Origem dos produtos</td><td>Cosméticos regulados</td><td>Rotulados "apenas para pesquisa"</td></tr>
-        </tbody>
-      </table>
+      <div className="overflow-x-auto">
+        <table>
+          <thead>
+            <tr><th>Aspecto</th><th>Tópico (cosmético)</th><th>Injetável (SC/IM)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Situação regulatória</td><td>Permitido e amplamente usado</td><td>Sem aprovação para uso humano</td></tr>
+            <tr><td>Concentração / dose</td><td>0,05% a 2% em cosméticos</td><td>Não estabelecida para humanos</td></tr>
+            <tr><td>Histórico de uso</td><td>Décadas, com segurança documentada</td><td>Dados humanos muito limitados</td></tr>
+            <tr><td>Origem dos produtos</td><td>Cosméticos regulados</td><td>Rotulados "apenas para pesquisa"</td></tr>
+          </tbody>
+        </table>
+      </div>
       <p>
         Na prática: o <strong>tópico</strong> é o que a maioria das pessoas encontra em séruns
         anti-idade, pós-procedimento e cuidados capilares — um ingrediente cosmético consagrado.

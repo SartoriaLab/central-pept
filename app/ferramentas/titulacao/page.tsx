@@ -82,6 +82,7 @@ export default function TitulacaoPage() {
         <AffiliateBox
           productId="fornecedor_oficial"
           slot="titulacao-bottom"
+          peptide="tirzepatida"
         />
       </div>
 

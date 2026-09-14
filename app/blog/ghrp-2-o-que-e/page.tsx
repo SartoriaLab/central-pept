@@ -91,16 +91,18 @@ export default function Article() {
         provocada pela hexarelina e pelo GHRP-6. No apetite, vale a mesma lógica — ele estimula a
         fome, porém menos que o GHRP-6.
       </p>
-      <table>
-        <thead>
-          <tr><th>Característica</th><th>GHRP-2</th><th>GHRP-6</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Estímulo de apetite</td><td>Moderado</td><td>Muito intenso (o maior da classe)</td></tr>
-          <tr><td>Cortisol / prolactina</td><td>Elevação dose-dependente</td><td>Elevação mais marcada</td></tr>
-          <tr><td>Status regulatório</td><td>Aprovado no Japão (diagnóstico)</td><td>Nunca aprovado (pesquisa)</td></tr>
-        </tbody>
-      </table>
+      <div className="overflow-x-auto">
+        <table>
+          <thead>
+            <tr><th>Característica</th><th>GHRP-2</th><th>GHRP-6</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Estímulo de apetite</td><td>Moderado</td><td>Muito intenso (o maior da classe)</td></tr>
+            <tr><td>Cortisol / prolactina</td><td>Elevação dose-dependente</td><td>Elevação mais marcada</td></tr>
+            <tr><td>Status regulatório</td><td>Aprovado no Japão (diagnóstico)</td><td>Nunca aprovado (pesquisa)</td></tr>
+          </tbody>
+        </table>
+      </div>
       <p>
         Para aprofundar, veja a{' '}
         <Link href="/comparar/ghrp-2-vs-ghrp-6">comparação GHRP-2 vs GHRP-6</Link>, a{' '}
