@@ -441,6 +441,36 @@ Migrado de GitHub Pages para **Vercel** em 16/04/2026.
 
 ---
 
+## Sessão 14/09/2026 — Cluster tirzepatida (leads WhatsApp)
+
+Objetivo: mais leads de tirzepatida para o afiliado "Fornecedor Oficial" (WhatsApp). Spec em `docs/superpowers/specs/2026-09-14-tirzepatida-leads-design.md`, plano em `docs/superpowers/plans/2026-09-14-tirzepatida-leads.md`.
+
+### Conversão
+- ✅ **Copy por peptídeo** — `PEPTIDE_COPY` em `lib/affiliates.ts`; só slugs no mapa mudam o card (hoje: `tirzepatida` → "Tirzepatida com procedência / Quero tirzepatida"). Outros peptídeos inalterados.
+- ✅ **`pep=` no `/api/click`** — `affiliateHref(productId, slot, peptide?)`; slug vai para `utm_content` em `affiliate_clicks`; mensagem do WhatsApp vira "…quero informações sobre Tirzepatida."
+- ✅ **`WhatsAppStickyBar`** (`components/affiliate/WhatsAppStickyBar.tsx`) — barra mobile (`lg:hidden`) após 40% de scroll, dismiss em `sessionStorage`. Renderiza em `/peptideos/[slug]` e `ArticleLayout` só quando o peptídeo está em `PEPTIDE_COPY`.
+- ✅ **Box nas calculadoras** — reconstituição (slot `reconstituicao-result-tirzepatida`) e titulação (`titulacao-result-tirzepatida`), só com tirzepatida selecionada.
+- ✅ **FAQ com link** — `FAQItem.link` opcional (fora do JSON-LD); 2 perguntas comerciais no FAQ de `/peptideos/tirzepatida`.
+
+### SEO — 4 posts novos (tag `tirzepatida` agora com 6)
+- ✅ `/blog/tirzepatida-preco-quanto-custa` — tabela custo/mês por dose e forma
+- ✅ `/blog/onde-comprar-tirzepatida` — 3 canais + checklist de procedência (COA, lote, frio)
+- ✅ `/blog/como-reconstituir-tirzepatida` — tabela de unidades por frasco/água/dose
+- ✅ `/blog/mounjaro-falso-como-identificar` — espelho do post de Ozempic falso
+- ✅ Posts antigos (`tirzepatida-manipulada-seguranca`, `semaglutida-vs-tirzepatida`) com box no meio, `peptide="tirzepatida"` e "Leia também"
+
+### Slots novos em `affiliate_clicks`
+`blog-tirze-preco[-mid]`, `blog-onde-comprar-tirze[-mid]`, `blog-reconstituir-tirze[-mid]`, `blog-mounjaro-falso[-mid]`, `blog-tirze-manipulada-mid`, `blog-sema-vs-tirze-mid`, `sticky-peptide-tirzepatida`, `sticky-blog-<slug>`, `reconstituicao-result-tirzepatida`, `titulacao-result-tirzepatida`.
+
+### Métrica
+Comparar cliques em slots contendo `tirze` (e `utm_content = 'tirzepatida'`) 30 dias antes/depois de 14/09/2026 na tabela `affiliate_clicks`.
+
+### Observações de ambiente
+- `npm run lint` quebrado antes desta sessão: ESLint 9 sem `eslint.config.js`.
+- `npm run build` local exige `DATABASE_URL` (rota `/api/assistente/channels`); no Vercel já está definida. Shell padrão usa Node 16; usar Node ≥ 20 (nvm `v24.14.0`).
+
+---
+
 ## Verificação rápida
 
 Para testar localmente antes de publicar:
