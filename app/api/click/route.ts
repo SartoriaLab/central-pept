@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createHash } from 'crypto';
-import { getAffiliate } from '@/lib/affiliates';
+import { buildAffiliateMessage, getAffiliate } from '@/lib/affiliates';
+import { getPeptideBySlug } from '@/lib/peptides';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -25,6 +26,9 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ error: 'unknown product' }, { status: 404 });
   }
 
+  const pepSlug = searchParams.get('pep');
+  const peptide = pepSlug ? getPeptideBySlug(pepSlug) : undefined;
+
   const ip =
     req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ??
     req.headers.get('x-real-ip') ??
@@ -41,7 +45,7 @@ export async function GET(req: NextRequest) {
         utmSource: searchParams.get('utm_source'),
         utmMedium: searchParams.get('utm_medium'),
         utmCampaign: searchParams.get('utm_campaign'),
-        utmContent: searchParams.get('utm_content'),
+        utmContent: searchParams.get('utm_content') ?? peptide?.slug ?? null,
         referer: req.headers.get('referer'),
         ipHash: hashIp(ip),
         userAgent: req.headers.get('user-agent'),
@@ -52,9 +56,10 @@ export async function GET(req: NextRequest) {
   }
 
   let redirectUrl = product.url;
-  if (product.message) {
+  const message = buildAffiliateMessage(product, peptide?.name);
+  if (message) {
     const sep = redirectUrl.includes('?') ? '&' : '?';
-    redirectUrl += `${sep}text=${encodeURIComponent(product.message)}`;
+    redirectUrl += `${sep}text=${encodeURIComponent(message)}`;
   }
 
   return NextResponse.redirect(redirectUrl, { status: 302 });

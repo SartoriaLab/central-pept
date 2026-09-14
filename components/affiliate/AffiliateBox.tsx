@@ -1,8 +1,10 @@
-import { getAffiliate } from '@/lib/affiliates';
+import { affiliateHref, getAffiliate, getAffiliateCopy } from '@/lib/affiliates';
 
 type Props = {
   productId: string;
   slot: string;
+  /** Slug do peptídeo em contexto. Muda copy (se houver em PEPTIDE_COPY) e a mensagem do WhatsApp. */
+  peptide?: string;
   variant?: 'inline' | 'compact';
   title?: string;
   blurb?: string;
@@ -12,6 +14,7 @@ type Props = {
 export default function AffiliateBox({
   productId,
   slot,
+  peptide,
   variant = 'compact',
   title,
   blurb,
@@ -20,11 +23,12 @@ export default function AffiliateBox({
   const product = getAffiliate(productId);
   if (!product) return null;
 
-  const displayTitle = title ?? product.title;
-  const displayBlurb = blurb ?? product.blurb;
-  const displayCta = cta ?? product.cta;
+  const copy = getAffiliateCopy(product, peptide);
+  const displayTitle = title ?? copy.title;
+  const displayBlurb = blurb ?? copy.blurb;
+  const displayCta = cta ?? copy.cta;
 
-  const href = `/api/click?p=${encodeURIComponent(product.id)}&slot=${encodeURIComponent(slot)}`;
+  const href = affiliateHref(product.id, slot, peptide);
 
   return (
     <a
