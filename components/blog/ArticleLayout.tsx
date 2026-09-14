@@ -4,6 +4,8 @@ import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
 import ShareButtons from '@/components/ui/ShareButtons';
 import RelatedPosts from '@/components/blog/RelatedPosts';
 import Breadcrumb from '@/components/ui/Breadcrumb';
+import WhatsAppStickyBar from '@/components/affiliate/WhatsAppStickyBar';
+import { PEPTIDE_COPY } from '@/lib/affiliates';
 
 const SITE = process.env.SITE_URL || 'https://centralpeptideos.com.br';
 
@@ -47,6 +49,7 @@ export default function ArticleLayout({ article, children }: Props) {
   };
 
   const related = getRelatedArticles(article);
+  const ctaPeptide = article.relatedPeptides?.find((s) => s in PEPTIDE_COPY);
 
   return (
     <>
@@ -165,6 +168,14 @@ export default function ArticleLayout({ article, children }: Props) {
         )}
 
         <RelatedPosts posts={related} />
+
+        {ctaPeptide && (
+          <WhatsAppStickyBar
+            productId="fornecedor_oficial"
+            slot={`sticky-blog-${article.slug}`}
+            peptide={ctaPeptide}
+          />
+        )}
 
         <MedicalDisclaimer variant="prominent" />
       </article>

@@ -74,5 +74,18 @@ export function buildPeptideFaq(p: Peptide): FAQItem[] {
     });
   }
 
+  if (p.slug === 'tirzepatida') {
+    faqs.push({
+      q: 'Quanto custa tirzepatida no Brasil?',
+      a: 'Depende da forma: caneta Mounjaro (industrializada) custa na faixa de R$ 1.100-1.400 por caneta de 4 doses; frascos manipulados ou liofilizados de 10 mg ficam entre R$ 500-900. Valores de mercado em 2026, variam por região e dose.',
+      link: { label: 'Ver tabela de preços por dose', href: '/blog/tirzepatida-preco-quanto-custa' },
+    });
+    faqs.push({
+      q: 'Onde comprar tirzepatida com segurança?',
+      a: 'Em farmácia com registro, em farmácia de manipulação com farmacêutico responsável ou em fornecedor que apresente certificado de análise (COA/HPLC), lote e cadeia de frio. Evite marketplaces e ofertas sem lote ou sem nota.',
+      link: { label: 'Guia de procedência', href: '/blog/onde-comprar-tirzepatida' },
+    });
+  }
+
   return faqs;
 }

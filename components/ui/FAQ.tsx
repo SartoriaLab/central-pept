@@ -1,4 +1,11 @@
-export type FAQItem = { q: string; a: string };
+import Link from 'next/link';
+
+export type FAQItem = {
+  q: string;
+  a: string;
+  /** Link interno opcional exibido abaixo da resposta (não entra no JSON-LD). */
+  link?: { label: string; href: string };
+};
 
 export default function FAQ({
   items,
@@ -51,6 +58,11 @@ export default function FAQ({
             <p className="mt-3 text-sm text-ink-2 leading-relaxed whitespace-pre-wrap">
               {item.a}
             </p>
+            {item.link && (
+              <Link href={item.link.href} className="inline-block mt-2 text-sm font-semibold text-teal-700 hover:underline">
+                {item.link.label} →
+              </Link>
+            )}
           </details>
         ))}
       </div>

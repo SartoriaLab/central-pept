@@ -15,6 +15,7 @@ import FAQ, { type FAQItem } from '@/components/ui/FAQ';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
 import AffiliateBox from '@/components/affiliate/AffiliateBox';
+import { PEPTIDE_COPY } from '@/lib/affiliates';
 import { SITE_URL } from '@/lib/site';
 
 type Params = { slug: string };
@@ -130,7 +131,11 @@ export default async function ComparisonPage({ params }: { params: Promise<Param
         )}
 
         <div className="mt-8">
-          <AffiliateBox productId="fornecedor_oficial" slot={`comparar-${slug}`} />
+          <AffiliateBox
+            productId="fornecedor_oficial"
+            slot={`comparar-${slug}`}
+            peptide={c.peptideSlugs.find((s) => s in PEPTIDE_COPY)}
+          />
         </div>
 
         <FAQ items={faq} title={`Perguntas frequentes: ${c.title}`} />

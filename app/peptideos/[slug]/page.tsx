@@ -12,6 +12,8 @@ import FAQ from '@/components/ui/FAQ';
 import { buildPeptideFaq } from '@/lib/peptide-faqs';
 import { getArticlesByPeptide } from '@/lib/articles';
 import AffiliateBox from '@/components/affiliate/AffiliateBox';
+import WhatsAppStickyBar from '@/components/affiliate/WhatsAppStickyBar';
+import { PEPTIDE_COPY } from '@/lib/affiliates';
 
 const SITE = process.env.SITE_URL || 'https://centralpeptideos.com.br';
 
@@ -177,6 +179,7 @@ export default async function PeptidePage({
           <AffiliateBox
             productId="fornecedor_oficial"
             slot={`peptide-${p.slug}`}
+            peptide={p.slug}
           />
         </section>
 
@@ -327,6 +330,14 @@ export default async function PeptidePage({
         </div>
 
         <FAQ items={faq} title={`Perguntas frequentes sobre ${p.name}`} />
+
+        {p.slug in PEPTIDE_COPY && (
+          <WhatsAppStickyBar
+            productId="fornecedor_oficial"
+            slot={`sticky-peptide-${p.slug}`}
+            peptide={p.slug}
+          />
+        )}
 
         <div className="mt-10 pt-6 border-t border-border">
           <ShareButtons title={`${p.name} — Central Peptídeos`} url={`/peptideos/${p.slug}`} />
