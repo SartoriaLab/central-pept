@@ -193,7 +193,7 @@ export const PEPTIDES: Peptide[] = [
     typicalDose: 2.5,
     doseUnit: 'mg',
     frequency: '1x por semana',
-    shortDescription: 'Agonista duplo GIP/GLP-1. Usado para controle glicêmico e perda de peso.',
+    shortDescription: 'Agonista duplo GIP/GLP-1 (Mounjaro, Zepbound). Usado para controle glicêmico e perda de peso.',
     commonAmounts: [5, 10, 15],
     category: 'glp-1',
     doseRange: '2,5-15 mg/semana (subcutâneo, titulação a cada ≥4 semanas)',

@@ -95,15 +95,17 @@ export default function Article() {
         mais de <strong>900 participantes</strong>. E os resultados foram, na melhor das
         hipóteses, modestos.
       </p>
-      <table>
-        <thead>
-          <tr><th>Estudo</th><th>Resultado</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Estudos iniciais (12 semanas)</td><td>-2,6 kg vs -0,8 kg com placebo</td></tr>
-          <tr><td>Fase IIb (24 semanas, 536 pacientes)</td><td>Não atingiu significância estatística</td></tr>
-        </tbody>
-      </table>
+      <div className="overflow-x-auto">
+        <table>
+          <thead>
+            <tr><th>Estudo</th><th>Resultado</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Estudos iniciais (12 semanas)</td><td>-2,6 kg vs -0,8 kg com placebo</td></tr>
+            <tr><td>Fase IIb (24 semanas, 536 pacientes)</td><td>Não atingiu significância estatística</td></tr>
+          </tbody>
+        </table>
+      </div>
       <p>
         A diferença de peso nos estudos iniciais foi pequena — menos de 2 kg acima do placebo.
         E o estudo decisivo, a fase IIb com 536 pacientes ao longo de 24 semanas, não alcançou

@@ -77,15 +77,17 @@ export default function Article() {
       <p>
         Os números vêm dos ensaios controlados:
       </p>
-      <table>
-        <thead>
-          <tr><th>Estudo</th><th>Duração</th><th>Perda de peso média</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Fase 2 (NEJM, 2023) — 12 mg/sem</td><td>48 semanas</td><td>~24%</td></tr>
-          <tr><td>TRIUMPH-4 (fase 3, 2025)</td><td>68 semanas</td><td>~28,7%</td></tr>
-        </tbody>
-      </table>
+      <div className="overflow-x-auto">
+        <table>
+          <thead>
+            <tr><th>Estudo</th><th>Duração</th><th>Perda de peso média</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Fase 2 (NEJM, 2023) — 12 mg/sem</td><td>48 semanas</td><td>~24%</td></tr>
+            <tr><td>TRIUMPH-4 (fase 3, 2025)</td><td>68 semanas</td><td>~28,7%</td></tr>
+          </tbody>
+        </table>
+      </div>
       <p>
         Para comparação, a tirzepatida chegou a ~20,9% no SURMOUNT-1 e a semaglutida a ~15%
         no STEP-1. Vale lembrar que são médias de ensaio, com acompanhamento e titulação
@@ -136,7 +138,7 @@ export default function Article() {
       </div>
 
       <div className="my-8 not-prose">
-        <AffiliateBox productId="fornecedor_oficial" slot="blog-retatrutida" />
+        <AffiliateBox productId="fornecedor_oficial" slot="blog-retatrutida" peptide="tirzepatida" />
       </div>
     </ArticleLayout>
   );

@@ -183,6 +183,27 @@ export default async function PeptidePage({
           />
         </section>
 
+        {guides.length > 0 && (
+          <section className="mt-8 mb-4">
+            <h2 className="text-xl font-bold mb-4">Guias sobre {p.name}</h2>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {guides.map((a) => (
+                <Link
+                  key={a.slug}
+                  href={`/blog/${a.slug}`}
+                  className="card-hover p-4 block group"
+                >
+                  <h3 className="font-semibold text-sm leading-snug text-ink group-hover:text-teal-700 transition-colors">
+                    {a.title}
+                  </h3>
+                  <p className="mt-1.5 text-xs text-ink-2 line-clamp-2 leading-relaxed">{a.excerpt}</p>
+                  <div className="mt-2 text-xs text-ink-3">{a.readMinutes} min de leitura</div>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
+
 
         {/* Info cards — grid de 4 com ícones */}
         <section className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
@@ -343,26 +364,6 @@ export default async function PeptidePage({
           <ShareButtons title={`${p.name} — Central Peptídeos`} url={`/peptideos/${p.slug}`} />
         </div>
 
-        {guides.length > 0 && (
-          <section className="mt-12">
-            <h2 className="text-xl font-bold mb-4">Guias sobre {p.name}</h2>
-            <div className="grid gap-3 sm:grid-cols-2">
-              {guides.map((a) => (
-                <Link
-                  key={a.slug}
-                  href={`/blog/${a.slug}`}
-                  className="card-hover p-4 block group"
-                >
-                  <h3 className="font-semibold text-sm leading-snug text-ink group-hover:text-teal-700 transition-colors">
-                    {a.title}
-                  </h3>
-                  <p className="mt-1.5 text-xs text-ink-2 line-clamp-2 leading-relaxed">{a.excerpt}</p>
-                  <div className="mt-2 text-xs text-ink-3">{a.readMinutes} min de leitura</div>
-                </Link>
-              ))}
-            </div>
-          </section>
-        )}
 
         {related.length > 0 && (
           <section className="mt-12">

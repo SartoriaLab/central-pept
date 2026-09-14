@@ -4,7 +4,7 @@ import Image from 'next/image';
 export default function Footer() {
   return (
     <footer role="contentinfo" className="border-t border-border bg-surface mt-16 no-print">
-      <div className="max-w-6xl mx-auto px-4 md:px-6 py-10 md:py-14 grid gap-10 md:grid-cols-[2fr_1fr_1fr_1fr] text-sm">
+      <div className="max-w-6xl mx-auto px-4 md:px-6 py-10 md:py-14 grid gap-10 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr_1fr] text-sm">
         <div>
           <Image
             src="/logo.png"
@@ -50,6 +50,17 @@ export default function Footer() {
                 <span className="text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-orange-100 text-orange-700">novo</span>
               </Link>
             </li>
+          </ul>
+        </div>
+
+        <div>
+          <div className="font-bold text-ink mb-3 uppercase text-xs tracking-wider">Tirzepatida</div>
+          <ul className="space-y-2 text-ink-2">
+            <li><Link href="/peptideos/tirzepatida" className="hover:text-teal-700">Ficha completa</Link></li>
+            <li><Link href="/blog/onde-comprar-tirzepatida" className="hover:text-teal-700">Onde comprar</Link></li>
+            <li><Link href="/blog/tirzepatida-preco-quanto-custa" className="hover:text-teal-700">Quanto custa</Link></li>
+            <li><Link href="/blog/como-reconstituir-tirzepatida" className="hover:text-teal-700">Como reconstituir</Link></li>
+            <li><Link href="/blog/mounjaro-falso-como-identificar" className="hover:text-teal-700">Mounjaro falso</Link></li>
           </ul>
         </div>
 

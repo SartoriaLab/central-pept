@@ -471,6 +471,60 @@ Comparar cliques em slots contendo `tirze` (e `utm_content = 'tirzepatida'`) 30 
 
 ---
 
+## Sessão 14/09/2026 — Revisão mobile + conversão (parte 2)
+
+Continuação do cluster tirzepatida. Foco: corrigir o que quebrava no celular e ampliar
+o alcance interno dos 4 posts novos.
+
+### Correções de mobile
+- **Barra fixa do WhatsApp** (`components/affiliate/WhatsAppStickyBar.tsx`):
+  - chave de dispensa passou a ser por peptídeo (`wa-sticky-dismissed:<peptide>`);
+    antes, fechar em uma página sumia com a barra no site inteiro na sessão;
+  - `padding-bottom` de 88 px aplicado ao `body` enquanto a barra está visível
+    (via `matchMedia('(max-width: 767px)')`), para o disclaimer não ficar escondido;
+  - breakpoint `lg:hidden` → `md:hidden` (em tablet a box inline já aparece).
+- **`AffiliateBox`** empilha em telas `< sm`: ícone + texto na primeira linha, CTA em
+  largura total abaixo. `whitespace-nowrap` só a partir de `sm`. Prop `variant` removida
+  (não era usada).
+- **Tabelas dos posts antigos** envolvidas em `<div className="overflow-x-auto">`
+  (9 arquivos, 10 tabelas). Antes a página inteira rolava na horizontal em 360 px.
+- **`/comparar/[slug]`** passou a montar a barra fixa (`sticky-comparar-<slug>`).
+
+### Conversão e alcance interno
+- `lib/articles.ts`: tag `glp-1` nos 4 posts de tirzepatida e `'tirzepatida'` em
+  `relatedPeptides` de 8 posts de Ozempic/semaglutida. Efeito: `getRelatedArticles`
+  passa a cruzar os dois grupos e `ArticleLayout` monta a barra de tirzepatida
+  nesses posts.
+- `peptide="tirzepatida"` nas boxes genéricas de 10 posts GLP-1 e de
+  `app/ferramentas/titulacao`.
+- Footer com coluna "Tirzepatida" (ficha + 4 guias), presente em todas as páginas.
+- Ficha de peptídeo: bloco "Guias sobre X" movido para logo abaixo da box, antes dos
+  info cards.
+- CTA novo em `/blog/tag/tirzepatida`, `/blog/tag/mounjaro` (slots `tag-tirzepatida`,
+  `tag-mounjaro`) e no fim de `/peptideos` (`peptideos-index`).
+- `shortDescription` da tirzepatida agora cita "Mounjaro, Zepbound" — a busca da
+  enciclopédia varre esse campo.
+
+### Medição
+- **`/admin/afiliados`** (nova rota, `noindex` pelo layout de admin): cliques dos
+  últimos 30 dias agrupados por `slot` e por `utm_content`, com destaque verde nas
+  linhas de tirzepatida e três cards no topo (total, slots tirze, `utm_content`).
+  Link adicionado ao menu do assistente.
+- `components/affiliate/AffiliateLink.tsx` (client): dispara evento Plausible
+  `outbound-whatsapp` com props `{slot, peptide}` no clique. Só funciona se
+  `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` estiver definida.
+
+### Slots novos
+`tag-tirzepatida`, `tag-mounjaro`, `peptideos-index`, `sticky-comparar-<slug>`,
+`sticky-blog-<slug>` nos 8 posts de Ozempic/semaglutida.
+
+### Pendente
+- Teste real em celular (não foi possível nesta sessão).
+- Lead magnet de tirzepatida (PDF de reconstituição) capturando contato — depende de
+  decisão de negócio.
+
+---
+
 ## Verificação rápida
 
 Para testar localmente antes de publicar:

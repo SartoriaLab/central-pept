@@ -161,6 +161,7 @@ export default function Article() {
         <AffiliateBox
           productId="fornecedor_oficial"
           slot="blog-agua-bact"
+          peptide="tirzepatida"
         />
       </div>
     </ArticleLayout>

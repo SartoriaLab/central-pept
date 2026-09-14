@@ -149,15 +149,17 @@ export default function Article() {
       <p>
         A gonadorelina tem um passado clínico sólido. Foi aprovada pela FDA sob duas marcas:
       </p>
-      <table>
-        <thead>
-          <tr><th>Marca</th><th>Forma</th><th>Indicação aprovada</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Factrel</td><td>Gonadorelina hidrocloreto</td><td>Diagnóstico (puberdade atrasada, hipogonadismo hipogonadotrófico)</td></tr>
-          <tr><td>Lutrepulse</td><td>Gonadorelina acetato</td><td>Indução de ovulação (bomba de infusão pulsátil)</td></tr>
-        </tbody>
-      </table>
+      <div className="overflow-x-auto">
+        <table>
+          <thead>
+            <tr><th>Marca</th><th>Forma</th><th>Indicação aprovada</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Factrel</td><td>Gonadorelina hidrocloreto</td><td>Diagnóstico (puberdade atrasada, hipogonadismo hipogonadotrófico)</td></tr>
+            <tr><td>Lutrepulse</td><td>Gonadorelina acetato</td><td>Indução de ovulação (bomba de infusão pulsátil)</td></tr>
+          </tbody>
+        </table>
+      </div>
       <p>
         Ambas foram <strong>descontinuadas comercialmente</strong> nos EUA. Vale repetir: a
         retirada foi comercial — ligada à complexidade do regime pulsátil e ao mercado — e{' '}

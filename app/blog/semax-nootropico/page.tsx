@@ -111,17 +111,19 @@ export default function Article() {
         contorna a meia-vida plasmática muito curta — de poucos minutos —, enquanto os efeitos
         centrais persistem por várias horas.
       </p>
-      <table>
-        <thead>
-          <tr><th>Parâmetro</th><th>Referência (uso russo)</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Via</td><td>Intranasal (gotas/spray)</td></tr>
-          <tr><td>Concentração</td><td>0,1% ou 1%</td></tr>
-          <tr><td>Faixa de dose</td><td>200 a 2000 mcg/dia, em 1-2 aplicações</td></tr>
-          <tr><td>Meia-vida</td><td>Plasmática de minutos; efeitos centrais por horas</td></tr>
-        </tbody>
-      </table>
+      <div className="overflow-x-auto">
+        <table>
+          <thead>
+            <tr><th>Parâmetro</th><th>Referência (uso russo)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Via</td><td>Intranasal (gotas/spray)</td></tr>
+            <tr><td>Concentração</td><td>0,1% ou 1%</td></tr>
+            <tr><td>Faixa de dose</td><td>200 a 2000 mcg/dia, em 1-2 aplicações</td></tr>
+            <tr><td>Meia-vida</td><td>Plasmática de minutos; efeitos centrais por horas</td></tr>
+          </tbody>
+        </table>
+      </div>
       <p>
         Quem obtém o Semax como pó liofilizado no mercado cinza precisa reconstituí-lo antes do
         uso — o mesmo princípio de qualquer peptídeo injetável ou nasal, detalhado na{' '}

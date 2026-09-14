@@ -72,6 +72,7 @@ export default function Article() {
         <AffiliateBox
           productId="fornecedor_oficial"
           slot="blog-nausea-ozempic"
+          peptide="tirzepatida"
         />
       </div>
     </ArticleLayout>

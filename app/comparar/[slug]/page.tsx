@@ -15,6 +15,7 @@ import FAQ, { type FAQItem } from '@/components/ui/FAQ';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
 import AffiliateBox from '@/components/affiliate/AffiliateBox';
+import WhatsAppStickyBar from '@/components/affiliate/WhatsAppStickyBar';
 import { PEPTIDE_COPY } from '@/lib/affiliates';
 import { SITE_URL } from '@/lib/site';
 
@@ -92,6 +93,7 @@ export default async function ComparisonPage({ params }: { params: Promise<Param
   const faq = buildComparisonFaq(items);
   const post = c.relatedPost ? getArticleBySlug(c.relatedPost) : undefined;
   const others = COMPARISONS.filter((x) => x.slug !== c.slug);
+  const ctaPeptide = c.peptideSlugs.find((s) => s in PEPTIDE_COPY);
 
   return (
     <>
@@ -134,9 +136,17 @@ export default async function ComparisonPage({ params }: { params: Promise<Param
           <AffiliateBox
             productId="fornecedor_oficial"
             slot={`comparar-${slug}`}
-            peptide={c.peptideSlugs.find((s) => s in PEPTIDE_COPY)}
+            peptide={ctaPeptide}
           />
         </div>
+
+        {ctaPeptide && (
+          <WhatsAppStickyBar
+            productId="fornecedor_oficial"
+            slot={`sticky-comparar-${slug}`}
+            peptide={ctaPeptide}
+          />
+        )}
 
         <FAQ items={faq} title={`Perguntas frequentes: ${c.title}`} />
 

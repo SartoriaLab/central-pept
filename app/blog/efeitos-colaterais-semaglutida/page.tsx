@@ -79,6 +79,7 @@ export default function Article() {
         <AffiliateBox
           productId="fornecedor_oficial"
           slot="blog-efeitos-colaterais"
+          peptide="tirzepatida"
         />
       </div>
     </ArticleLayout>

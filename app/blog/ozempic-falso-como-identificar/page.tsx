@@ -68,6 +68,7 @@ export default function Article() {
         <AffiliateBox
           productId="fornecedor_oficial"
           slot="blog-ozempic-falso"
+          peptide="tirzepatida"
         />
       </div>
     </ArticleLayout>

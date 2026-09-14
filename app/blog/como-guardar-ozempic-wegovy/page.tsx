@@ -55,6 +55,7 @@ export default function Article() {
         <AffiliateBox
           productId="fornecedor_oficial"
           slot="blog-como-guardar"
+          peptide="tirzepatida"
         />
       </div>
     </ArticleLayout>
