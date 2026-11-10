@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
       title: `${c.title} — comparativo`,
       description,
       url: `/comparar/${slug}`,
-      images: [{ url: `/api/og?title=${encodeURIComponent(c.title)}&eyebrow=Comparativo`, width: 1200, height: 630, alt: c.title }],
+      images: [{ url: `/og/comparar/${slug}`, width: 1200, height: 630, alt: c.title }],
     },
   };
 }

@@ -1,23 +1,46 @@
 /* eslint-disable @next/next/no-img-element */
 import { ImageResponse } from 'next/og';
-import type { NextRequest } from 'next/server';
+import { getArticleBySlug, getArticleSlugs } from '@/lib/articles';
+import { getComparison, getComparisonSlugs } from '@/lib/comparisons';
 
-export const runtime = 'nodejs';
+// Imagens OG geradas no build (uma por artigo/comparativo). Nada é renderizado
+// em runtime: slug fora da lista → 404, sem invocar função.
+export const dynamic = 'force-static';
+export const dynamicParams = false;
 
 const size = { width: 1200, height: 630 };
 
-// Aceita só hex #rrggbb — evita injeção de valor arbitrário no style.
-function sanitizeHex(v: string | null): string | null {
-  return v && /^#[0-9a-fA-F]{6}$/.test(v) ? v : null;
+type Params = { kind: string; slug: string };
+
+export function generateStaticParams(): Params[] {
+  return [
+    ...getArticleSlugs().map((slug) => ({ kind: 'blog', slug })),
+    ...getComparisonSlugs().map((slug) => ({ kind: 'comparar', slug })),
+  ];
 }
 
-// GET /api/og?title=...&eyebrow=...&accent=#rrggbb
-// Imagem 1200x630 para OpenGraph/Twitter dos posts (e outras páginas sem OG própria).
-export async function GET(req: NextRequest) {
-  const { searchParams } = new URL(req.url);
-  const title = (searchParams.get('title') || 'Central Peptídeos').slice(0, 140);
-  const eyebrow = (searchParams.get('eyebrow') || 'Blog').slice(0, 40);
-  const accent = sanitizeHex(searchParams.get('accent')) || '#0d9488';
+function resolve(kind: string, slug: string): { title: string; eyebrow: string } | null {
+  if (kind === 'blog') {
+    const a = getArticleBySlug(slug);
+    return a ? { title: a.title, eyebrow: a.tags[0] ?? 'Blog' } : null;
+  }
+  if (kind === 'comparar') {
+    const c = getComparison(slug);
+    return c ? { title: c.title, eyebrow: 'Comparativo' } : null;
+  }
+  return null;
+}
+
+// GET /og/blog/<slug> e /og/comparar/<slug>
+// Imagem 1200x630 para OpenGraph/Twitter.
+export async function GET(_req: Request, { params }: { params: Promise<Params> }) {
+  const { kind, slug } = await params;
+  const data = resolve(kind, slug);
+  if (!data) return new Response('Not found', { status: 404 });
+
+  const title = data.title.slice(0, 140);
+  const eyebrow = data.eyebrow.slice(0, 40);
+  const accent = '#0d9488';
 
   const titleSize = title.length > 78 ? 58 : title.length > 48 ? 68 : 80;
 

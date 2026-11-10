@@ -429,11 +429,10 @@ export function getRelatedArticles(article: Article, limit = 3): Article[] {
 
 const iso = (d: string): string => (d.includes('T') ? d : `${d}T00:00:00-03:00`);
 
-// URL da imagem OG dinâmica do artigo (gerada em /api/og). Relativa —
+// URL da imagem OG do artigo (gerada no build em /og/blog/<slug>). Relativa —
 // resolvida por metadataBase.
 export function articleOgImageUrl(article: Article): string {
-  const eyebrow = article.tags[0] ?? 'Blog';
-  return `/api/og?title=${encodeURIComponent(article.title)}&eyebrow=${encodeURIComponent(eyebrow)}`;
+  return `/og/blog/${article.slug}`;
 }
 
 // Bloco openGraph/twitter de artigo — para plugar em posts já existentes
