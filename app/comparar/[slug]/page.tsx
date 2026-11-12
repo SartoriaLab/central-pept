@@ -14,7 +14,6 @@ import { getArticleBySlug } from '@/lib/articles';
 import FAQ, { type FAQItem } from '@/components/ui/FAQ';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
-import EbookPromo from '@/components/ebook/EbookPromo';
 import { SITE_URL } from '@/lib/site';
 
 type Params = { slug: string };
@@ -154,7 +153,6 @@ export default async function ComparisonPage({ params }: { params: Promise<Param
           </Link>
         )}
 
-        <EbookPromo peptideSlugs={c.peptideSlugs} source={`comparar-${c.slug}`} className="mt-10" />
 
         <FAQ items={faq} title={`Perguntas frequentes: ${c.title}`} />
 

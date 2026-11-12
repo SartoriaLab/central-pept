@@ -1,7 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { getPeptides } from '@/lib/peptides';
 import { getArticles } from '@/lib/articles';
-import { getEbookSlugs } from '@/lib/ebooks';
 import { getComparisonSlugs } from '@/lib/comparisons';
 import { getGlossarySlugs } from '@/lib/glossary';
 import { CONTENT_UPDATED_AT } from '@/lib/site';
@@ -112,12 +111,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: 'monthly' as const,
       priority: 0.75,
-    })),
-    ...getEbookSlugs().map((slug) => ({
-      url: url(`/ebook/${slug}`),
-      lastModified: now,
-      changeFrequency: 'monthly' as const,
-      priority: 0.9, // alta — são páginas de conversão
     })),
   ];
 }

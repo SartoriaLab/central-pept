@@ -5,7 +5,6 @@ import Breadcrumb from '@/components/ui/Breadcrumb';
 import RelatedLinks, { type RelatedLink } from '@/components/ui/RelatedLinks';
 import FAQ from '@/components/ui/FAQ';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
-import EbookPromo from '@/components/ebook/EbookPromo';
 import { getBrand, getBrandSlugs, getBrands } from '@/lib/brands';
 import { getPeptideBySlug } from '@/lib/peptides';
 import { TITRATION_SCHEMES } from '@/lib/titration';
@@ -261,7 +260,6 @@ export default async function BrandPage({ params }: { params: Promise<Params> })
           </section>
         ) : null}
 
-        <EbookPromo peptideSlugs={[b.peptideSlug]} tags={['glp-1']} source={`marca-${b.slug}`} className="mt-10" />
 
         <RelatedLinks links={tools} title={`Ferramentas para quem usa ${b.name}`} />
 

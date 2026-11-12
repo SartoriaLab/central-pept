@@ -4,7 +4,6 @@ import { notFound } from 'next/navigation';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import FAQ from '@/components/ui/FAQ';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
-import EbookPromo from '@/components/ebook/EbookPromo';
 import {
   getCategoryPage,
   getCategoryPages,
@@ -183,7 +182,6 @@ export default async function CategoryPage({ params }: { params: Promise<Params>
           </ul>
         </section>
 
-        <EbookPromo tags={c.ebookTags} source={`categoria-${c.slug}`} className="mt-10" />
 
         {brands.length > 0 && (
           <section className="mt-10" aria-labelledby="marcas">

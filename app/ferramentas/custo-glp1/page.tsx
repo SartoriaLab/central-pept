@@ -3,7 +3,6 @@ import Breadcrumb from '@/components/ui/Breadcrumb';
 import RelatedLinks, { type RelatedLink } from '@/components/ui/RelatedLinks';
 import GlpCostCalculator from '@/components/calculator/GlpCostCalculator';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
-import EbookPromo from '@/components/ebook/EbookPromo';
 import FAQ, { type FAQItem } from '@/components/ui/FAQ';
 import ToolSchema from '@/components/ui/ToolSchema';
 import { SITE_URL } from '@/lib/site';
@@ -95,7 +94,6 @@ export default function CustoGlp1Page() {
         </ol>
       </section>
 
-      <EbookPromo tags={['glp-1']} source="custo-glp1" className="mt-10 max-w-3xl" />
 
       <RelatedLinks links={RELATED_LINKS} />
 

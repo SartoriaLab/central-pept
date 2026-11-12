@@ -3,7 +3,6 @@ import Link from 'next/link';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import RelatedLinks, { type RelatedLink } from '@/components/ui/RelatedLinks';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
-import EbookPromo from '@/components/ebook/EbookPromo';
 import FAQ, { type FAQItem } from '@/components/ui/FAQ';
 import PrintButton from '@/components/ui/PrintButton';
 import { calcByVolume, fmt } from '@/components/calculator/calc';
@@ -225,7 +224,6 @@ export default function TabelaDosesGlp1Page() {
         </p>
       </section>
 
-      <EbookPromo tags={['glp-1']} source="tabela-doses-glp1" className="mt-10 max-w-3xl" />
 
       <RelatedLinks links={RELATED_LINKS} />
 

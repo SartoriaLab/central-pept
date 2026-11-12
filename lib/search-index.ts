@@ -1,6 +1,5 @@
 import { getPeptides, CATEGORY_LABELS } from './peptides';
 import { getArticles } from './articles';
-import { getEbooks } from './ebooks';
 import { getGlossary } from './glossary';
 import { COMPARISONS } from './comparisons';
 import { getBrands } from './brands';
@@ -46,18 +45,6 @@ export function buildSearchIndex(): SearchResult[] {
       type: 'article',
       url: `/blog/${a.slug}`,
       keywords: [a.title, a.excerpt, ...a.tags].join(' ').toLowerCase(),
-    });
-  }
-
-  // Ebooks
-  for (const e of getEbooks()) {
-    items.push({
-      id: `eb-${e.slug}`,
-      title: e.title,
-      subtitle: e.hook,
-      type: 'ebook',
-      url: `/ebook/${e.slug}`,
-      keywords: [e.title, e.subtitle, e.hook, ...(e.relatedTags ?? [])].join(' ').toLowerCase(),
     });
   }
 

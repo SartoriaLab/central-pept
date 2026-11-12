@@ -4,7 +4,6 @@ import { notFound } from 'next/navigation';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import FAQ, { type FAQItem } from '@/components/ui/FAQ';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
-import EbookPromo from '@/components/ebook/EbookPromo';
 import RelatedLinks, { type RelatedLink } from '@/components/ui/RelatedLinks';
 import ToolSchema from '@/components/ui/ToolSchema';
 import ReconstitutionCalculator from '@/components/calculator/ReconstitutionCalculator';
@@ -285,7 +284,6 @@ export default async function PeptideReconstitutionPage({ params }: { params: Pr
         )}
       </section>
 
-      <EbookPromo peptideSlugs={[p.slug]} source={`calc-${p.slug}`} className="mt-10 max-w-3xl" />
 
       <RelatedLinks links={related} title={`Mais sobre ${p.name}`} />
 
