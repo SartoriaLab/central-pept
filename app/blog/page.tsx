@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { getArticles } from '@/lib/articles';
 import NewsletterSignup from '@/components/ui/NewsletterSignup';
-import AffiliateBox from '@/components/affiliate/AffiliateBox';
 
 export const metadata: Metadata = {
   title: 'Blog',
@@ -31,13 +30,6 @@ export default function BlogPage() {
       <div className="max-w-6xl mx-auto px-4 md:px-6 py-10 md:py-14">
         <div className="mb-10">
           <NewsletterSignup />
-        </div>
-
-        <div className="mb-10">
-          <AffiliateBox
-            productId="fornecedor_oficial"
-            slot="blog-index"
-          />
         </div>
 
         {articles.length === 0 ? (

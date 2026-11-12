@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import AffiliateBox from '@/components/affiliate/AffiliateBox';
 
 export const metadata: Metadata = {
   title: 'Ferramentas',
@@ -102,13 +101,6 @@ export default function FerramentasPage() {
               </Wrapper>
             );
           })}
-        </div>
-
-        <div className="mt-10">
-          <AffiliateBox
-            productId="fornecedor_oficial"
-            slot="ferramentas-hub"
-          />
         </div>
       </div>
     </>

@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import ArticleLayout from '@/components/blog/ArticleLayout';
 import { getArticleBySlug, articleOpenGraph } from '@/lib/articles';
-import AffiliateBox from '@/components/affiliate/AffiliateBox';
 
 const SLUG = 'tirzepatida-manipulada-seguranca';
 export const metadata: Metadata = {
@@ -42,10 +41,6 @@ export default function Article() {
         <li>Prescrição médica obrigatória — fuja se vender sem receita</li>
       </ul>
 
-      <div className="my-8 not-prose">
-        <AffiliateBox productId="fornecedor_oficial" slot="blog-tirze-manipulada-mid" peptide="tirzepatida" />
-      </div>
-
       <h2>Como usar com segurança</h2>
       <ul>
         <li>Armazenar refrigerado (2-8°C) desde o recebimento</li>
@@ -71,14 +66,6 @@ export default function Article() {
         <li><Link href="/blog/como-reconstituir-tirzepatida">Como reconstituir tirzepatida 5, 10 e 15 mg</Link></li>
         <li><Link href="/blog/mounjaro-falso-como-identificar">Mounjaro falso: como identificar</Link></li>
       </ul>
-
-      <div className="my-8 not-prose">
-        <AffiliateBox
-          productId="fornecedor_oficial"
-          slot="blog-tirze-manipulada"
-          peptide="tirzepatida"
-        />
-      </div>
     </ArticleLayout>
   );
 }

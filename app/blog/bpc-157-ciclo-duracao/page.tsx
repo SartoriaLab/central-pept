@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import ArticleLayout from '@/components/blog/ArticleLayout';
 import { getArticleBySlug, articleOpenGraph } from '@/lib/articles';
-import AffiliateBox from '@/components/affiliate/AffiliateBox';
 
 const SLUG = 'bpc-157-ciclo-duracao';
 export const metadata: Metadata = {
@@ -61,13 +60,6 @@ export default function Article() {
         <li>Qualquer sintoma sistêmico incomum (palpitação, falta de ar, náusea persistente)</li>
         <li>Antes de iniciar qualquer protocolo, especialmente com comorbidades ou medicamentos em uso</li>
       </ul>
-
-      <div className="my-8 not-prose">
-        <AffiliateBox
-          productId="fornecedor_oficial"
-          slot="blog-bpc157-ciclo"
-        />
-      </div>
     </ArticleLayout>
   );
 }

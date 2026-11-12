@@ -1,7 +1,6 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import AffiliateBox from '@/components/affiliate/AffiliateBox';
 
 type Scheme = {
   id: string;
@@ -285,16 +284,6 @@ export default function TitrationCalculator() {
               );
             })}
           </ol>
-
-          {schemeId.startsWith('tirzepatida-') && (
-            <div className="mt-5">
-              <AffiliateBox
-                productId="fornecedor_oficial"
-                slot="titulacao-result-tirzepatida"
-                peptide="tirzepatida"
-              />
-            </div>
-          )}
 
           <div className="mt-5 pt-5 border-t border-border text-xs text-ink-3 leading-relaxed">
             <p className="font-semibold text-ink-2 mb-1">Observações do protocolo:</p>

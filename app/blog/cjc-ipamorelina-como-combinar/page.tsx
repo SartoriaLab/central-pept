@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import ArticleLayout from '@/components/blog/ArticleLayout';
 import { getArticleBySlug, articleOpenGraph } from '@/lib/articles';
-import AffiliateBox from '@/components/affiliate/AffiliateBox';
 
 const SLUG = 'cjc-ipamorelina-como-combinar';
 export const metadata: Metadata = {
@@ -69,13 +68,6 @@ export default function Article() {
       <p>
         Use a <Link href="/ferramentas/mistura">calculadora de mistura</Link> para combinar os dois no mesmo frasco e descobrir quantas unidades puxar em cada aplicação.
       </p>
-
-      <div className="my-8 not-prose">
-        <AffiliateBox
-          productId="fornecedor_oficial"
-          slot="blog-cjc-ipa"
-        />
-      </div>
     </ArticleLayout>
   );
 }

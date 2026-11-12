@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import ArticleLayout from '@/components/blog/ArticleLayout';
 import { getArticleBySlug, articleOpenGraph } from '@/lib/articles';
-import AffiliateBox from '@/components/affiliate/AffiliateBox';
 
 const SLUG = 'semaglutida-vs-tirzepatida';
 
@@ -164,10 +163,6 @@ export default function Article() {
         procedência comprovada.
       </p>
 
-      <div className="my-8 not-prose">
-        <AffiliateBox productId="fornecedor_oficial" slot="blog-sema-vs-tirze-mid" peptide="tirzepatida" />
-      </div>
-
       <h2>Qual escolher?</h2>
       <ul>
         <li><strong>Se o foco é perda máxima de peso:</strong> tirzepatida tem vantagem consistente nos ensaios</li>
@@ -196,14 +191,6 @@ export default function Article() {
         <li><Link href="/blog/mounjaro-falso-como-identificar">Mounjaro falso: como identificar</Link></li>
         <li><Link href="/blog/tirzepatida-manipulada-seguranca">Tirzepatida manipulada: riscos e como escolher a farmácia</Link></li>
       </ul>
-
-      <div className="my-8 not-prose">
-        <AffiliateBox
-          productId="fornecedor_oficial"
-          slot="blog-sema-vs-tirze"
-          peptide="tirzepatida"
-        />
-      </div>
     </ArticleLayout>
   );
 }

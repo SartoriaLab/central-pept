@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import ArticleLayout from '@/components/blog/ArticleLayout';
 import { getArticleBySlug, articleOpenGraph } from '@/lib/articles';
-import AffiliateBox from '@/components/affiliate/AffiliateBox';
 
 const SLUG = 'como-reconstituir-semaglutida';
 
@@ -137,14 +136,6 @@ export default function Article() {
         referências da FDA — acesse a{' '}
         <Link href="/peptideos/semaglutida">ficha técnica da semaglutida</Link>.
       </p>
-
-      <div className="my-8 not-prose">
-        <AffiliateBox
-          productId="fornecedor_oficial"
-          slot="blog-reconstituir-sema"
-          peptide="tirzepatida"
-        />
-      </div>
     </ArticleLayout>
   );
 }

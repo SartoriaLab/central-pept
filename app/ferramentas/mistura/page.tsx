@@ -7,7 +7,6 @@ import { getPeptides } from '@/lib/peptides';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
 import FAQ, { type FAQItem } from '@/components/ui/FAQ';
 import ToolSchema from '@/components/ui/ToolSchema';
-import AffiliateBox from '@/components/affiliate/AffiliateBox';
 
 const FAQ_ITEMS: FAQItem[] = [
   {
@@ -75,13 +74,6 @@ export default function MisturaPage() {
       </header>
 
       <MixCalculator peptides={peptides} />
-
-      <div className="mt-8">
-        <AffiliateBox
-          productId="fornecedor_oficial"
-          slot="mistura-bottom"
-        />
-      </div>
 
       <RelatedLinks links={RELATED_LINKS} />
 

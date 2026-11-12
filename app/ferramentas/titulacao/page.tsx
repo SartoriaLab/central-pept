@@ -6,7 +6,6 @@ import TitrationCalculator from '@/components/calculator/TitrationCalculator';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
 import FAQ, { type FAQItem } from '@/components/ui/FAQ';
 import ToolSchema from '@/components/ui/ToolSchema';
-import AffiliateBox from '@/components/affiliate/AffiliateBox';
 
 const FAQ_ITEMS: FAQItem[] = [
   {
@@ -77,14 +76,6 @@ export default function TitulacaoPage() {
       </header>
 
       <TitrationCalculator />
-
-      <div className="mt-8">
-        <AffiliateBox
-          productId="fornecedor_oficial"
-          slot="titulacao-bottom"
-          peptide="tirzepatida"
-        />
-      </div>
 
       <RelatedLinks links={RELATED_LINKS} />
 

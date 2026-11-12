@@ -4,7 +4,6 @@ import Comparator from '@/components/peptide/Comparator';
 import { getPeptides } from '@/lib/peptides';
 import { COMPARISONS } from '@/lib/comparisons';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
-import AffiliateBox from '@/components/affiliate/AffiliateBox';
 
 export const metadata: Metadata = {
   title: 'Comparador de Peptídeos',
@@ -49,10 +48,6 @@ export default function CompararPage() {
         </div>
 
         <Comparator peptides={peptides} />
-
-        <div className="mt-8">
-          <AffiliateBox productId="fornecedor_oficial" slot="comparar-bottom" />
-        </div>
 
         <MedicalDisclaimer variant="prominent" />
       </div>

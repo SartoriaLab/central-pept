@@ -3,7 +3,6 @@ import Link from 'next/link';
 import ArticleLayout from '@/components/blog/ArticleLayout';
 import { getArticleBySlug, buildArticleMetadata } from '@/lib/articles';
 import FAQ, { type FAQItem } from '@/components/ui/FAQ';
-import AffiliateBox from '@/components/affiliate/AffiliateBox';
 
 const SLUG = 'onde-comprar-tirzepatida';
 
@@ -116,10 +115,6 @@ export default function Article() {
         </li>
       </ol>
 
-      <div className="my-8 not-prose">
-        <AffiliateBox productId="fornecedor_oficial" slot="blog-onde-comprar-tirze-mid" peptide="tirzepatida" />
-      </div>
-
       <h2>Sinais de golpe</h2>
       <ul>
         <li><strong>Marketplace</strong> (Mercado Livre, Shopee, OLX): a ANVISA proíbe a venda de medicamento nesses canais. Anúncio ativo já é irregular.</li>
@@ -175,10 +170,6 @@ export default function Article() {
 
       <div className="not-prose">
         <FAQ items={FAQ_ITEMS} />
-      </div>
-
-      <div className="my-8 not-prose">
-        <AffiliateBox productId="fornecedor_oficial" slot="blog-onde-comprar-tirze" peptide="tirzepatida" />
       </div>
     </ArticleLayout>
   );

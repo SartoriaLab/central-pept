@@ -3,7 +3,6 @@ import Link from 'next/link';
 import ArticleLayout from '@/components/blog/ArticleLayout';
 import { getArticleBySlug, buildArticleMetadata } from '@/lib/articles';
 import FAQ, { type FAQItem } from '@/components/ui/FAQ';
-import AffiliateBox from '@/components/affiliate/AffiliateBox';
 
 const SLUG = 'mounjaro-falso-como-identificar';
 
@@ -80,10 +79,6 @@ export default function Article() {
         <li>Tampa e cores da apresentação <strong>coerentes com a dose</strong> impressa na caixa</li>
       </ul>
 
-      <div className="my-8 not-prose">
-        <AffiliateBox productId="fornecedor_oficial" slot="blog-mounjaro-falso-mid" peptide="tirzepatida" />
-      </div>
-
       <h2>E se for frasco (tirzepatida liofilizada)?</h2>
       <p>
         Então não é Mounjaro: é tirzepatida manipulada ou de fornecedor, e a verificação é
@@ -127,10 +122,6 @@ export default function Article() {
 
       <div className="not-prose">
         <FAQ items={FAQ_ITEMS} />
-      </div>
-
-      <div className="my-8 not-prose">
-        <AffiliateBox productId="fornecedor_oficial" slot="blog-mounjaro-falso" peptide="tirzepatida" />
       </div>
     </ArticleLayout>
   );

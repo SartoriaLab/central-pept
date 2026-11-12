@@ -68,6 +68,7 @@ export default async function AfiliadosPage() {
             Origem: tabela <code className="text-xs bg-gray-100 px-1">affiliate_clicks</code>,
             gravada em <code className="text-xs bg-gray-100 px-1">/api/click</code>. Cada linha é
             um clique que virou redirect para o WhatsApp do fornecedor — não é venda.
+            Redirect desativado: só histórico, sem registros novos.
           </p>
         </header>
 

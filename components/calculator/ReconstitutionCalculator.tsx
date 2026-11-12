@@ -10,8 +10,6 @@ import {
   fmtConcentration,
 } from './calc';
 import Syringe from './Syringe';
-import AffiliateBox from '@/components/affiliate/AffiliateBox';
-import { PEPTIDE_COPY } from '@/lib/affiliates';
 
 type Mode = 'volume' | 'units';
 type SyringeSize = 30 | 50 | 100;
@@ -780,16 +778,6 @@ export default function ReconstitutionCalculator({ peptides }: Props) {
                       <span>{a.msg}</span>
                     </div>
                   ))}
-                </div>
-              )}
-
-              {peptide && peptide.slug in PEPTIDE_COPY && (
-                <div className="p-3 border-t border-border">
-                  <AffiliateBox
-                    productId="fornecedor_oficial"
-                    slot={`reconstituicao-result-${peptide.slug}`}
-                    peptide={peptide.slug}
-                  />
                 </div>
               )}
             </div>

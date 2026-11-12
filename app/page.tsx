@@ -3,7 +3,6 @@ import type { Metadata } from 'next';
 import { getPeptides } from '@/lib/peptides';
 import { getArticles } from '@/lib/articles';
 import NewsletterSignup from '@/components/ui/NewsletterSignup';
-import AffiliateBox from '@/components/affiliate/AffiliateBox';
 
 export const metadata: Metadata = {
   title: {
@@ -207,11 +206,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ═══ FORNECEDOR OFICIAL ═══ */}
-      <section className="max-w-5xl mx-auto px-4 md:px-6 pt-10">
-        <AffiliateBox productId="fornecedor_oficial" slot="home-pre-ferramentas" />
-      </section>
-
       {/* ═══ FERRAMENTAS ═══ */}
       <section className="max-w-6xl mx-auto px-4 md:px-6 py-16 md:py-20">
         <div className="text-center mb-10">
@@ -361,14 +355,6 @@ export default function HomePage() {
             ))}
           </div>
         </div>
-      </section>
-
-      {/* ═══ FORNECEDOR OFICIAL ═══ */}
-      <section className="max-w-5xl mx-auto px-4 md:px-6 py-8 md:py-12">
-        <AffiliateBox
-          productId="fornecedor_oficial"
-          slot="home-featured"
-        />
       </section>
 
       {/* ═══ NEWSLETTER ═══ */}

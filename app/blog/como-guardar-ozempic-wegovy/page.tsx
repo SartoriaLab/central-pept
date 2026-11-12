@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import ArticleLayout from '@/components/blog/ArticleLayout';
 import { getArticleBySlug, articleOpenGraph } from '@/lib/articles';
-import AffiliateBox from '@/components/affiliate/AffiliateBox';
 
 const SLUG = 'como-guardar-ozempic-wegovy';
 export const metadata: Metadata = {
@@ -50,14 +49,6 @@ export default function Article() {
       <p>
         Pens e seringas usadas vão em <strong>recipiente perfurocortante</strong> (Descarpack ou similar). Nunca no lixo comum. Farmácias e UBS aceitam entregas de material de descarte.
       </p>
-
-      <div className="my-8 not-prose">
-        <AffiliateBox
-          productId="fornecedor_oficial"
-          slot="blog-como-guardar"
-          peptide="tirzepatida"
-        />
-      </div>
     </ArticleLayout>
   );
 }

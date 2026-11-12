@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import ArticleLayout from '@/components/blog/ArticleLayout';
 import { getArticleBySlug, articleOpenGraph } from '@/lib/articles';
-import AffiliateBox from '@/components/affiliate/AffiliateBox';
 
 const SLUG = 'agua-bacteriostatica-guia';
 
@@ -156,14 +155,6 @@ export default function Article() {
         <strong>Posso congelar o frasco?</strong><br />
         Não. Congelamento quebra a estrutura do peptídeo após reconstituição.
       </p>
-
-      <div className="my-8 not-prose">
-        <AffiliateBox
-          productId="fornecedor_oficial"
-          slot="blog-agua-bact"
-          peptide="tirzepatida"
-        />
-      </div>
     </ArticleLayout>
   );
 }

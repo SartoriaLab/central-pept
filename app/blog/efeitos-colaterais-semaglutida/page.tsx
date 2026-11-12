@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import ArticleLayout from '@/components/blog/ArticleLayout';
 import { getArticleBySlug, articleOpenGraph } from '@/lib/articles';
-import AffiliateBox from '@/components/affiliate/AffiliateBox';
 
 const SLUG = 'efeitos-colaterais-semaglutida';
 export const metadata: Metadata = {
@@ -74,14 +73,6 @@ export default function Article() {
         <li>STEP-1 NEJM 2021</li>
         <li>FAERS — FDA Adverse Event Reporting System</li>
       </ul>
-
-      <div className="my-8 not-prose">
-        <AffiliateBox
-          productId="fornecedor_oficial"
-          slot="blog-efeitos-colaterais"
-          peptide="tirzepatida"
-        />
-      </div>
     </ArticleLayout>
   );
 }

@@ -14,9 +14,6 @@ import { getArticleBySlug } from '@/lib/articles';
 import FAQ, { type FAQItem } from '@/components/ui/FAQ';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
-import AffiliateBox from '@/components/affiliate/AffiliateBox';
-import WhatsAppStickyBar from '@/components/affiliate/WhatsAppStickyBar';
-import { PEPTIDE_COPY } from '@/lib/affiliates';
 import { SITE_URL } from '@/lib/site';
 
 type Params = { slug: string };
@@ -93,7 +90,6 @@ export default async function ComparisonPage({ params }: { params: Promise<Param
   const faq = buildComparisonFaq(items);
   const post = c.relatedPost ? getArticleBySlug(c.relatedPost) : undefined;
   const others = COMPARISONS.filter((x) => x.slug !== c.slug);
-  const ctaPeptide = c.peptideSlugs.find((s) => s in PEPTIDE_COPY);
 
   return (
     <>
@@ -130,22 +126,6 @@ export default async function ComparisonPage({ params }: { params: Promise<Param
               <p className="mt-1 text-sm text-ink-2 line-clamp-2">{post.excerpt}</p>
             </div>
           </Link>
-        )}
-
-        <div className="mt-8">
-          <AffiliateBox
-            productId="fornecedor_oficial"
-            slot={`comparar-${slug}`}
-            peptide={ctaPeptide}
-          />
-        </div>
-
-        {ctaPeptide && (
-          <WhatsAppStickyBar
-            productId="fornecedor_oficial"
-            slot={`sticky-comparar-${slug}`}
-            peptide={ctaPeptide}
-          />
         )}
 
         <FAQ items={faq} title={`Perguntas frequentes: ${c.title}`} />

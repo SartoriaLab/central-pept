@@ -2,9 +2,8 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getArticles, type Article } from '@/lib/articles';
-import AffiliateBox from '@/components/affiliate/AffiliateBox';
 
-// Tags em que o CTA usa a copy de tirzepatida (leads do fornecedor).
+// Tags de tirzepatida: usam meta description própria.
 const TIRZE_TAGS = new Set(['tirzepatida', 'mounjaro']);
 
 type Params = { tag: string };
@@ -77,16 +76,6 @@ export default async function TagPage({ params }: { params: Promise<Params> }) {
       </section>
 
       <div className="max-w-6xl mx-auto px-4 md:px-6 py-10 md:py-14">
-        {TIRZE_TAGS.has(tagSlug) && (
-          <div className="mb-8">
-            <AffiliateBox
-              productId="fornecedor_oficial"
-              slot={`tag-${tagSlug}`}
-              peptide="tirzepatida"
-            />
-          </div>
-        )}
-
         {articles.length === 0 ? (
           <div className="card p-10 text-center text-ink-3">
             Nenhum artigo com esta tag ainda.

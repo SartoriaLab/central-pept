@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import ArticleLayout from '@/components/blog/ArticleLayout';
 import { getArticleBySlug, articleOpenGraph } from '@/lib/articles';
-import AffiliateBox from '@/components/affiliate/AffiliateBox';
 
 const SLUG = 'quanto-tempo-ozempic-faz-efeito';
 export const metadata: Metadata = {
@@ -66,14 +65,6 @@ export default function Article() {
       <p>
         Use a <Link href="/ferramentas/titulacao">calculadora de titulação</Link> para ver sua linha do tempo exata de subida de dose.
       </p>
-
-      <div className="my-8 not-prose">
-        <AffiliateBox
-          productId="fornecedor_oficial"
-          slot="blog-quanto-tempo-ozempic"
-          peptide="tirzepatida"
-        />
-      </div>
     </ArticleLayout>
   );
 }

@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import ArticleLayout from '@/components/blog/ArticleLayout';
 import { getArticleBySlug, articleOpenGraph } from '@/lib/articles';
-import AffiliateBox from '@/components/affiliate/AffiliateBox';
 
 const SLUG = 'ozempic-para-perder-peso-sem-diabetes';
 export const metadata: Metadata = {
@@ -58,14 +57,6 @@ export default function Article() {
       <p>
         Se considerar uso: <strong>procure endocrinologista ou bariatra</strong>, não compre em marketplace, e use a <Link href="/ferramentas/titulacao">calculadora de titulação</Link> para entender o esquema de subida de dose.
       </p>
-
-      <div className="my-8 not-prose">
-        <AffiliateBox
-          productId="fornecedor_oficial"
-          slot="blog-ozempic-sem-diabetes"
-          peptide="tirzepatida"
-        />
-      </div>
     </ArticleLayout>
   );
 }

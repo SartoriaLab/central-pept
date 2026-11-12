@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import ArticleLayout from '@/components/blog/ArticleLayout';
 import { getArticleBySlug, articleOpenGraph } from '@/lib/articles';
-import AffiliateBox from '@/components/affiliate/AffiliateBox';
 
 const SLUG = 'nausea-ozempic-como-lidar';
 export const metadata: Metadata = {
@@ -67,14 +66,6 @@ export default function Article() {
         <li>Perda de peso muito rápida (&gt;4 kg/semana)</li>
         <li>Febre, icterícia, dor nas costas alta</li>
       </ul>
-
-      <div className="my-8 not-prose">
-        <AffiliateBox
-          productId="fornecedor_oficial"
-          slot="blog-nausea-ozempic"
-          peptide="tirzepatida"
-        />
-      </div>
     </ArticleLayout>
   );
 }

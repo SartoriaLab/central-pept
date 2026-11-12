@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import ArticleLayout from '@/components/blog/ArticleLayout';
 import { getArticleBySlug, articleOpenGraph } from '@/lib/articles';
-import AffiliateBox from '@/components/affiliate/AffiliateBox';
 
 const SLUG = 'efeito-rebote-apos-parar-semaglutida';
 export const metadata: Metadata = {
@@ -58,14 +57,6 @@ export default function Article() {
       <p>
         Parar semaglutida sem estratégia de substituição leva a rebote previsível. Continuar indefinidamente é opção clínica válida. Decisão deve ser tomada com médico considerando resposta ao medicamento, efeitos adversos tolerados, custo de longo prazo e alternativas (cirurgia bariátrica, mudança de estilo de vida, outros medicamentos).
       </p>
-
-      <div className="my-8 not-prose">
-        <AffiliateBox
-          productId="fornecedor_oficial"
-          slot="blog-efeito-rebote"
-          peptide="tirzepatida"
-        />
-      </div>
     </ArticleLayout>
   );
 }

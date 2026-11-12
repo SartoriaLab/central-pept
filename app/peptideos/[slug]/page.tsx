@@ -11,9 +11,6 @@ import InjectionSiteGuide from '@/components/peptide/InjectionSiteGuide';
 import FAQ from '@/components/ui/FAQ';
 import { buildPeptideFaq } from '@/lib/peptide-faqs';
 import { getArticlesByPeptide } from '@/lib/articles';
-import AffiliateBox from '@/components/affiliate/AffiliateBox';
-import WhatsAppStickyBar from '@/components/affiliate/WhatsAppStickyBar';
-import { PEPTIDE_COPY } from '@/lib/affiliates';
 
 const SITE = process.env.SITE_URL || 'https://centralpeptideos.com.br';
 
@@ -174,14 +171,6 @@ export default async function PeptidePage({
       {/* ═══ CONTEÚDO ═══ */}
       <div className="max-w-4xl mx-auto px-4 md:px-6 py-8 md:py-12">
         <QuickCalcWidget peptide={p} />
-
-        <section className="mt-6 mb-2">
-          <AffiliateBox
-            productId="fornecedor_oficial"
-            slot={`peptide-${p.slug}`}
-            peptide={p.slug}
-          />
-        </section>
 
         {guides.length > 0 && (
           <section className="mt-8 mb-4">
@@ -351,14 +340,6 @@ export default async function PeptidePage({
         </div>
 
         <FAQ items={faq} title={`Perguntas frequentes sobre ${p.name}`} />
-
-        {p.slug in PEPTIDE_COPY && (
-          <WhatsAppStickyBar
-            productId="fornecedor_oficial"
-            slot={`sticky-peptide-${p.slug}`}
-            peptide={p.slug}
-          />
-        )}
 
         <div className="mt-10 pt-6 border-t border-border">
           <ShareButtons title={`${p.name} — Central Peptídeos`} url={`/peptideos/${p.slug}`} />
