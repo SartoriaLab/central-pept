@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import RelatedLinks, { type RelatedLink } from '@/components/ui/RelatedLinks';
 import { SITE_URL } from '@/lib/site';
@@ -7,6 +8,7 @@ import { getPeptides } from '@/lib/peptides';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
 import FAQ, { type FAQItem } from '@/components/ui/FAQ';
 import ToolSchema from '@/components/ui/ToolSchema';
+import EmbedSnippet from '@/components/ui/EmbedSnippet';
 
 const FAQ_ITEMS: FAQItem[] = [
   {
@@ -43,9 +45,9 @@ const RELATED_LINKS: RelatedLink[] = [
 ];
 
 export const metadata: Metadata = {
-  title: 'Calculadora de Reconstituição',
+  title: 'Calculadora de Peptídeos: reconstituição e unidades na seringa',
   description:
-    'Calcule a proporção ideal de reconstituição de peptídeos: concentração, unidades por dose e doses por frasco. Resultado em tempo real, 21 peptídeos catalogados.',
+    'Calcule quanta água bacteriostática usar e quantas unidades puxar na seringa: concentração, unidades por dose e doses por frasco em tempo real. 21 peptídeos, incluindo tirzepatida e semaglutida.',
   openGraph: {
     title: 'Calculadora de Reconstituição de Peptídeos',
     description:
@@ -79,6 +81,32 @@ export default function ReconstitucaoPage() {
       </header>
 
       <ReconstitutionCalculator peptides={peptides} />
+
+      <section className="mt-12 no-print" aria-labelledby="por-peptideo">
+        <h2 id="por-peptideo" className="text-xl font-bold mb-2">Calculadora por peptídeo</h2>
+        <p className="text-sm text-ink-2 mb-4 max-w-2xl">
+          Páginas já preenchidas com a dose de referência, os frascos mais comuns e uma tabela
+          pronta de unidades na seringa.
+        </p>
+        <div className="flex flex-wrap gap-2">
+          {peptides.map((p) => (
+            <Link
+              key={p.slug}
+              href={`/ferramentas/reconstituicao/${p.slug}`}
+              className="inline-flex items-center px-3 py-1.5 text-sm font-semibold rounded-full border border-border bg-surface text-ink-2 hover:border-teal hover:text-teal-700 hover:bg-teal-50 transition-colors"
+            >
+              {p.name}
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <EmbedSnippet
+        embedUrl={`${SITE_URL}/embed/reconstituicao`}
+        creditUrl={`${SITE_URL}/ferramentas/reconstituicao`}
+        creditLabel="Calculadora de reconstituição de peptídeos"
+        title="Calculadora de reconstituição de peptídeos"
+      />
 
       <RelatedLinks links={RELATED_LINKS} />
 

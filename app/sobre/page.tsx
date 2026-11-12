@@ -39,7 +39,7 @@ export default function SobrePage() {
           </li>
           <li>
             <Link href="/blog" className="text-teal-700 font-semibold hover:underline">
-              Blog (em construção)
+              Blog
             </Link>
             {' '}— guias práticos, protocolos e comparações.
           </li>
@@ -70,7 +70,7 @@ export default function SobrePage() {
         <h2 className="text-sm font-bold uppercase tracking-wider text-ink-3 mb-3">O que este site não é</h2>
         <ul className="space-y-2 text-ink-2 leading-relaxed">
           <li>❌ <strong>Não é prescrição médica.</strong> As doses típicas são referências da literatura, não recomendações individuais.</li>
-          <li>❌ <strong>Não vende peptídeos</strong> nem indica fornecedores.</li>
+          <li>❌ <strong>Não vende peptídeos</strong>, não indica fornecedores e não recebe comissão por indicação. O site se mantém com a venda de ebooks próprios.</li>
           <li>❌ <strong>Não incentiva uso</strong> de compostos não aprovados ou proibidos em esporte.</li>
           <li>❌ <strong>Não é aconselhamento jurídico</strong> sobre compra, importação ou uso.</li>
         </ul>

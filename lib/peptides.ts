@@ -226,8 +226,8 @@ export const PEPTIDES: Peptide[] = [
   },
 
   {
-    slug: 'retatrutide',
-    name: 'Retatrutide',
+    slug: 'retatrutida',
+    name: 'Retatrutida',
     typicalDose: 2,
     doseUnit: 'mg',
     frequency: '1x por semana',
@@ -891,8 +891,14 @@ export function getPeptides(): Peptide[] {
   return PEPTIDES;
 }
 
+// Slugs antigos que ainda podem chegar por link salvo, parâmetro de URL ou localStorage.
+const SLUG_ALIASES: Record<string, string> = {
+  retatrutide: 'retatrutida',
+};
+
 export function getPeptideBySlug(slug: string): Peptide | undefined {
-  return PEPTIDES.find((p) => p.slug === slug);
+  const resolved = SLUG_ALIASES[slug] ?? slug;
+  return PEPTIDES.find((p) => p.slug === resolved);
 }
 
 export function getPeptideSlugs(): string[] {

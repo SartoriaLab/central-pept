@@ -2,9 +2,9 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Ferramentas',
+  title: 'Calculadoras de Peptídeos: reconstituição, dose e custo',
   description:
-    'Calculadoras e utilitários para trabalhar com peptídeos: reconstituição, mistura, conversão de unidades.',
+    'Calculadoras gratuitas de peptídeos: reconstituição, mistura, conversor de unidades, cronograma, subida de dose, custo por dose e tabela de doses GLP-1.',
   alternates: { canonical: '/ferramentas' },
 };
 
@@ -44,6 +44,18 @@ const TOOLS: Tool[] = [
     slug: 'titulacao',
     title: 'Subida de Dose — Ozempic e Mounjaro',
     desc: 'Calendário semana a semana de escalonamento para semaglutida (Ozempic/Wegovy) e tirzepatida (Mounjaro/Zepbound). Com datas e export .ics.',
+    status: 'ativa',
+  },
+  {
+    slug: 'custo-glp1',
+    title: 'Custo por Dose — Mounjaro, Ozempic e tirzepatida',
+    desc: 'Informe o preço pago e os mg da embalagem: custo por mg, por aplicação, por mês e por ano, já contando a perda do frasco após 28 dias.',
+    status: 'ativa',
+  },
+  {
+    slug: 'tabela-doses-glp1',
+    title: 'Tabela de Doses GLP-1 para imprimir',
+    desc: 'Escada de titulação de tirzepatida, semaglutida e retatrutida e unidades na seringa por frasco, em uma página pronta para impressão.',
     status: 'ativa',
   },
 ];

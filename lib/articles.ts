@@ -21,11 +21,76 @@ export type Article = {
   author?: Author;
   reviewedBy?: Author;
   tldr?: string;       // resumo curto (aparece em destaque + melhora featured snippet)
+  /** Fontes específicas do artigo. As referências das fichas dos peptídeos citados entram automaticamente. */
+  references?: { title: string; url: string }[];
 };
 
 // Fase 3: hard-coded. Fase 2 Supabase moveria isso.
 // Cada artigo é uma página TSX em app/blog/[slug]/page.tsx (controle total sobre estilo)
 export const ARTICLES: Article[] = [
+  {
+    slug: 'efeitos-colaterais-tirzepatida',
+    title: 'Tirzepatida (Mounjaro) faz mal? Efeitos colaterais documentados',
+    excerpt: 'Frequência de náusea, diarreia, constipação e vômito em cada dose, os riscos raros descritos em bula e quem não deve usar.',
+    tldr: 'Os efeitos mais comuns da tirzepatida são gastrointestinais: no estudo SURMOUNT-1, náusea atingiu 25-33% dos participantes, diarreia 19-23%, constipação 12-17% e vômito 8-12%, quase sempre leves e na fase de subida de dose. Menos de 8% pararam o tratamento por efeito adverso. Riscos raros incluem pancreatite e problemas de vesícula; é contraindicada em histórico de carcinoma medular de tireoide ou NEM 2.',
+    publishedAt: '2026-11-12',
+    readMinutes: 8,
+    tags: ['tirzepatida', 'mounjaro', 'efeitos-colaterais', 'segurança', 'glp-1'],
+    relatedPeptides: ['tirzepatida'],
+    coverColor: 'from-red-500/20 to-teal-500/10',
+    references: [
+      { title: 'Jastreboff AM, et al. Tirzepatide Once Weekly for the Treatment of Obesity (SURMOUNT-1). N Engl J Med. 2022.', url: 'https://doi.org/10.1056/NEJMoa2206038' },
+      { title: 'Mounjaro (tirzepatide) — Prescribing Information. Eli Lilly.', url: 'https://pi.lilly.com/us/mounjaro-uspi.pdf' },
+      { title: 'Zepbound (tirzepatide) — Prescribing Information. Eli Lilly.', url: 'https://pi.lilly.com/us/zepbound-uspi.pdf' },
+    ],
+  },
+  {
+    slug: 'quanto-tempo-tirzepatida-faz-efeito',
+    title: 'Quanto tempo a tirzepatida (Mounjaro) leva para fazer efeito?',
+    excerpt: 'O que muda nas primeiras semanas, quando chega a dose de manutenção e em quanto tempo aparece o resultado medido nos estudos.',
+    tldr: 'A tirzepatida age desde a primeira aplicação, mas as 4 primeiras semanas são de dose inicial (2,5 mg), que não é dose de manutenção para perda de peso. A concentração estável leva cerca de 4 semanas em cada dose, e a dose máxima só é alcançada na 21ª semana. Nos estudos, a perda de peso continuou por mais de um ano: 15% a 20,9% em 72 semanas, conforme a dose.',
+    publishedAt: '2026-11-12',
+    readMinutes: 7,
+    tags: ['tirzepatida', 'mounjaro', 'expectativas', 'glp-1'],
+    relatedPeptides: ['tirzepatida'],
+    coverColor: 'from-blue-500/20 to-teal-500/10',
+    references: [
+      { title: 'Jastreboff AM, et al. Tirzepatide Once Weekly for the Treatment of Obesity (SURMOUNT-1). N Engl J Med. 2022.', url: 'https://doi.org/10.1056/NEJMoa2206038' },
+      { title: 'Frías JP, et al. Tirzepatide versus Semaglutide Once Weekly in Patients with Type 2 Diabetes (SURPASS-2). N Engl J Med. 2021.', url: 'https://doi.org/10.1056/NEJMoa2107519' },
+      { title: 'Mounjaro (tirzepatide) — Prescribing Information. Eli Lilly.', url: 'https://pi.lilly.com/us/mounjaro-uspi.pdf' },
+    ],
+  },
+  {
+    slug: 'efeito-rebote-apos-parar-tirzepatida',
+    title: 'Efeito rebote após parar tirzepatida (Mounjaro): o que esperar',
+    excerpt: 'O estudo SURMOUNT-4 mediu o que acontece com o peso quando o tratamento é interrompido — e o que ajuda a manter o resultado.',
+    tldr: 'No estudo SURMOUNT-4, quem trocou a tirzepatida por placebo depois de 36 semanas recuperou em média 14% do peso em um ano, enquanto quem continuou perdeu mais 5,5%. Ainda assim, quem parou terminou 9,9% abaixo do peso inicial. O peso volta porque o efeito sobre o apetite depende da presença do medicamento; a saída deve ser planejada com o médico.',
+    publishedAt: '2026-11-12',
+    readMinutes: 7,
+    tags: ['tirzepatida', 'mounjaro', 'emagrecimento', 'manutenção', 'glp-1'],
+    relatedPeptides: ['tirzepatida', 'semaglutida'],
+    coverColor: 'from-orange-500/20 to-teal-500/10',
+    references: [
+      { title: 'Aronne LJ, et al. Continued Treatment With Tirzepatide for Maintenance of Weight Reduction (SURMOUNT-4). JAMA. 2024.', url: 'https://doi.org/10.1001/jama.2023.24945' },
+      { title: 'Wilding JPH, et al. Weight regain and cardiometabolic effects after withdrawal of semaglutide: the STEP 1 trial extension. Diabetes Obes Metab. 2022.', url: 'https://doi.org/10.1111/dom.14725' },
+      { title: 'Zepbound (tirzepatide) — Prescribing Information. Eli Lilly.', url: 'https://pi.lilly.com/us/zepbound-uspi.pdf' },
+    ],
+  },
+  {
+    slug: 'nausea-tirzepatida-como-lidar',
+    title: 'Náusea na tirzepatida (Mounjaro): como aliviar e quando procurar médico',
+    excerpt: 'Por que o enjoo aparece, em que momento do tratamento, o que ajuda na prática e quais sinais pedem atendimento.',
+    tldr: 'Náusea atinge de 25% a 33% de quem usa tirzepatida, quase sempre leve e concentrada nos dias seguintes a cada aumento de dose. Ajuda comer porções menores e devagar, evitar gordura e álcool, manter hidratação e não subir a dose enquanto o enjoo persistir. Dor abdominal forte, vômito por mais de 24 horas ou sinais de desidratação pedem atendimento médico.',
+    publishedAt: '2026-11-12',
+    readMinutes: 7,
+    tags: ['tirzepatida', 'mounjaro', 'efeitos-colaterais', 'dicas', 'glp-1'],
+    relatedPeptides: ['tirzepatida'],
+    coverColor: 'from-green-500/20 to-teal-500/10',
+    references: [
+      { title: 'Jastreboff AM, et al. Tirzepatide Once Weekly for the Treatment of Obesity (SURMOUNT-1). N Engl J Med. 2022.', url: 'https://doi.org/10.1056/NEJMoa2206038' },
+      { title: 'Mounjaro (tirzepatide) — Prescribing Information. Eli Lilly.', url: 'https://pi.lilly.com/us/mounjaro-uspi.pdf' },
+    ],
+  },
   {
     slug: 'tirzepatida-preco-quanto-custa',
     title: 'Tirzepatida: quanto custa no Brasil em 2026 (Mounjaro, manipulada e frasco)',
@@ -221,7 +286,7 @@ export const ARTICLES: Article[] = [
     publishedAt: '2026-07-17',
     readMinutes: 8,
     tags: ['retatrutida', 'glp-1', 'emagrecimento', 'em-desenvolvimento'],
-    relatedPeptides: ['retatrutide', 'tirzepatida', 'semaglutida'],
+    relatedPeptides: ['retatrutida', 'tirzepatida', 'semaglutida'],
     coverColor: 'from-blue-500/20 to-teal-500/10',
   },
   {

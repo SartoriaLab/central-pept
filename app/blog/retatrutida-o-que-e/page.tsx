@@ -59,7 +59,7 @@ export default function Article() {
       <p>
         Para ver os dados técnicos completos — meia-vida, faixa de dose e referências dos
         ensaios — consulte a{' '}
-        <Link href="/peptideos/retatrutide">ficha técnica da retatrutida</Link>.
+        <Link href="/peptideos/retatrutida">ficha técnica da retatrutida</Link>.
       </p>
 
       <h2>Como funciona o agonismo triplo</h2>
@@ -127,8 +127,8 @@ export default function Article() {
         Se você quer entender as diferenças lado a lado, veja as comparações:
       </p>
       <ul>
-        <li><Link href="/comparar/tirzepatida-vs-retatrutide">Tirzepatida vs Retatrutide</Link></li>
-        <li><Link href="/comparar/semaglutida-vs-retatrutide">Semaglutida vs Retatrutide</Link></li>
+        <li><Link href="/comparar/tirzepatida-vs-retatrutida">Tirzepatida vs Retatrutida</Link></li>
+        <li><Link href="/comparar/semaglutida-vs-retatrutida">Semaglutida vs Retatrutida</Link></li>
         <li><Link href="/blog/semaglutida-vs-tirzepatida">Semaglutida vs Tirzepatida: comparativo</Link></li>
       </ul>
 

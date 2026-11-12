@@ -101,7 +101,7 @@ export const EBOOKS: Ebook[] = [
         a: 'Sim. Checkout processado pela Kiwify (infraestrutura brasileira com criptografia SSL, gateway antifraude). Aceita cartão, Pix e boleto.',
       },
     ],
-    relatedPeptides: ['retatrutide', 'semaglutida', 'tirzepatida'],
+    relatedPeptides: ['retatrutida', 'semaglutida', 'tirzepatida'],
     relatedTags: ['glp-1', 'emagrecimento', 'comparação'],
     checkoutUrl: CHECKOUT_RETATRUTIDA,
   },

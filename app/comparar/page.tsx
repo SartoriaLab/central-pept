@@ -6,8 +6,8 @@ import { COMPARISONS } from '@/lib/comparisons';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
 
 export const metadata: Metadata = {
-  title: 'Comparador de Peptídeos',
-  description: 'Compare até 4 peptídeos lado a lado: mecanismo, dose, meia-vida, efeitos e status regulatório.',
+  title: 'Comparador de Peptídeos: dose, meia-vida e efeitos lado a lado',
+  description: 'Compare até 4 peptídeos lado a lado: mecanismo, dose, meia-vida, efeitos e status regulatório. Comparativos prontos de semaglutida, tirzepatida, BPC-157, ipamorelina e outros.',
   alternates: { canonical: '/comparar' },
 };
 

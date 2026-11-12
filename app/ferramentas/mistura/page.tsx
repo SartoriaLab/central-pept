@@ -39,7 +39,7 @@ const RELATED_LINKS: RelatedLink[] = [
 ];
 
 export const metadata: Metadata = {
-  title: 'Calculadora de Mistura',
+  title: 'Calculadora de Mistura de Peptídeos na mesma seringa',
   description:
     'Combine 2 a 4 peptídeos em um frasco e descubra a dose exata de cada um entregue em uma única aplicação.',
   openGraph: {

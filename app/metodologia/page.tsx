@@ -68,7 +68,8 @@ export default function MetodologiaPage() {
         <ul>
           <li>Não recebemos pagamento de fabricantes de medicamentos</li>
           <li>Não promovemos marcas específicas em troca de comissão no conteúdo editorial</li>
-          <li>Links afiliados (quando houver) são <strong>sempre declarados</strong> com selo visível</li>
+          <li>Não exibimos banners nem links de afiliado de fornecedores de peptídeos; se isso mudar, será <strong>declarado</strong> com selo visível</li>
+          <li>O site se mantém com a venda de ebooks próprios, identificados como produto da Central Peptídeos</li>
           <li>Patrocínios são claramente marcados como &quot;Conteúdo patrocinado&quot;</li>
         </ul>
 
@@ -76,9 +77,7 @@ export default function MetodologiaPage() {
         <p>
           Erros acontecem. Quando publicamos uma correção significativa, atualizamos
           o texto e sinalizamos a mudança com a data nova. Histórico de grandes
-          atualizações fica no{' '}
-          <Link href="/changelog">changelog</Link>
-          {' '}(em construção).
+          atualizações ficará em um changelog público (em construção).
         </p>
         <p>
           Encontrou um erro? Abra uma issue no{' '}

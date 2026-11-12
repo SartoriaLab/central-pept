@@ -18,7 +18,7 @@ export default function QuickCalcWidget({ peptide }: Props) {
     return calcByVolume(mg, waterMl, doseMg);
   }, [mg, waterMl, dose, peptide.doseUnit]);
 
-  const shareHref = `/ferramentas/reconstituicao?peptide=${peptide.slug}&mg=${mg}&water=${waterMl}&dose=${dose}`;
+  const shareHref = `/ferramentas/reconstituicao/${peptide.slug}?mg=${mg}&water=${waterMl}&dose=${dose}`;
 
   return (
     <section className="card p-5 md:p-6 mb-6 bg-gradient-to-br from-teal-50/50 to-transparent border-teal-100">

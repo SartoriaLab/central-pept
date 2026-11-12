@@ -19,11 +19,12 @@ export default function Header() {
       <div className="max-w-6xl mx-auto px-4 md:px-6 h-16 md:h-20 flex items-center justify-between gap-3">
         <Link href="/" className="flex items-center group shrink-0" aria-label="Central Peptídeos — página inicial">
           <Image
-            src="/logo.png"
+            src="/logo.webp"
             alt="Central Peptídeos"
-            width={384}
-            height={256}
+            width={400}
+            height={128}
             priority
+            unoptimized
             sizes="(max-width: 768px) 140px, 200px"
             className="h-10 md:h-14 w-auto dark:bg-white keep-white dark:rounded-md dark:p-1 transition-transform group-hover:scale-[1.02]"
           />

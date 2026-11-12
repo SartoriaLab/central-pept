@@ -51,7 +51,7 @@ export default function Article() {
 
       <h2>Como calcular dose</h2>
       <p>
-        Use a <Link href="/ferramentas/reconstituicao?peptide=bpc-157">calculadora</Link> com BPC-157 pré-selecionado. Protocolo comum: frasco 5 mg + 2 ml de água = 2,5 mg/ml → dose de 250 mcg = 10 unidades na seringa.
+        Use a <Link href="/ferramentas/reconstituicao/bpc-157">calculadora</Link> com BPC-157 pré-selecionado. Protocolo comum: frasco 5 mg + 2 ml de água = 2,5 mg/ml → dose de 250 mcg = 10 unidades na seringa.
       </p>
 
       <h2>Quando procurar médico</h2>

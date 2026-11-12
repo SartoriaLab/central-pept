@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     absolute: 'Peptídeos: Calculadoras, Enciclopédia e Guias | Central Peptídeos',
   },
   description:
-    'Calculadoras de reconstituição, mistura, conversão mg/mcg/UI e subida de dose GLP-1. Enciclopédia de 21 peptídeos com doses e protocolos. Grátis, sem cadastro.',
+    'Calculadoras de reconstituição, subida de dose e custo de GLP-1, comparativos e enciclopédia de 21 peptídeos com doses e referências. Grátis, sem cadastro e sem propaganda.',
   alternates: { canonical: '/' },
 };
 

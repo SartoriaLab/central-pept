@@ -10,12 +10,15 @@ import {
   fmtConcentration,
 } from './calc';
 import Syringe from './Syringe';
+import { EVENTS, track, trackOnce } from '@/lib/track';
 
 type Mode = 'volume' | 'units';
 type SyringeSize = 30 | 50 | 100;
 
 type Props = {
   peptides: Peptide[];
+  /** Peptídeo pré-selecionado (páginas /ferramentas/reconstituicao/<slug>). `?peptide=` na URL tem precedência. */
+  initialPeptideSlug?: string;
 };
 
 const LS_STATE_KEY = 'peptidecalc:state:v1';
@@ -24,8 +27,10 @@ const LS_CUSTOMS_KEY = 'peptidecalc:customs:v1';
 // Tamanhos de frasco padrão para sugerir (mg). Merged com commonAmounts do peptídeo.
 const STANDARD_VIAL_SIZES = [5, 10, 15, 20, 30];
 
-export default function ReconstitutionCalculator({ peptides }: Props) {
-  const [peptide, setPeptide] = useState<Peptide | null>(null);
+export default function ReconstitutionCalculator({ peptides, initialPeptideSlug }: Props) {
+  // Pré-seleção já no render do servidor: a página por peptídeo sai com a calculadora preenchida.
+  const initialPeptide = initialPeptideSlug ? peptides.find((p) => p.slug === initialPeptideSlug) ?? null : null;
+  const [peptide, setPeptide] = useState<Peptide | null>(initialPeptide);
   const [customs, setCustoms] = useState<Peptide[]>([]);
   const [comboOpen, setComboOpen] = useState(false);
   const [comboQuery, setComboQuery] = useState('');
@@ -35,10 +40,10 @@ export default function ReconstitutionCalculator({ peptides }: Props) {
   const [customDose, setCustomDose] = useState('');
   const [customUnit, setCustomUnit] = useState<DoseUnit>('mcg');
 
-  const [mg, setMg] = useState<number | ''>('');
+  const [mg, setMg] = useState<number | ''>(initialPeptide && initialPeptide.commonAmounts.length === 1 ? initialPeptide.commonAmounts[0] : '');
   const [waterMl, setWaterMl] = useState<number | ''>('');
   const [units, setUnits] = useState<number | ''>('');
-  const [dose, setDose] = useState<number | ''>('');
+  const [dose, setDose] = useState<number | ''>(initialPeptide ? initialPeptide.typicalDose : '');
   const [mode, setMode] = useState<Mode>('volume');
   const [syringe, setSyringe] = useState<SyringeSize>(50);
   const [toast, setToast] = useState<string | null>(null);
@@ -62,7 +67,7 @@ export default function ReconstitutionCalculator({ peptides }: Props) {
     } catch { /* ignore */ }
 
     const params = new URLSearchParams(window.location.search);
-    const urlSlug = params.get('peptide');
+    const urlSlug = params.get('peptide') ?? initialPeptideSlug ?? null;
     const combined = [...customList, ...peptides];
 
     // Parâmetros completos de cálculo para compartilhamento
@@ -249,6 +254,16 @@ export default function ReconstitutionCalculator({ peptides }: Props) {
     return calcByVolume(Number(mg), Number(waterMl), doseMg);
   }, [peptide, mg, waterMl, units, dose, mode]);
 
+  // Métrica de uso: um evento por peptídeo quando o cálculo fica válido.
+  // Peptídeo personalizado vai sem nome — o que o usuário digita não sai do navegador.
+  useEffect(() => {
+    if (!hydrated || !peptide || !result) return;
+    if (!Number.isFinite(result.unitsPerDose) || result.unitsPerDose <= 0) return;
+    trackOnce(EVENTS.reconstitution, {
+      peptideo: peptide.category === 'custom' ? 'personalizado' : peptide.slug,
+    });
+  }, [hydrated, peptide, result]);
+
   // Alertas
   const alerts = useMemo(() => {
     if (!result) return [];
@@ -288,6 +303,7 @@ export default function ReconstitutionCalculator({ peptides }: Props) {
       `Unidades/dose: ${fmt(result.unitsPerDose, 1)} U (seringa ${syringe} U)`,
       `Doses/frasco: ${fmt(result.dosesPerVial, 1)}`,
     ].join('\n');
+    track(EVENTS.copyResult);
     navigator.clipboard?.writeText(text)
       .then(() => setToast('Copiado!'))
       .catch(() => setToast('Não foi possível copiar.'));
@@ -305,6 +321,7 @@ export default function ReconstitutionCalculator({ peptides }: Props) {
     params.set('mode', mode);
     params.set('syringe', String(syringe));
     const url = `${window.location.origin}${window.location.pathname}?${params.toString()}`;
+    track(EVENTS.share);
 
     // Usa Web Share API se disponível (mobile), senão copia para clipboard
     const nav = window.navigator as Navigator & { share?: (data: ShareData) => Promise<void> };
@@ -693,7 +710,10 @@ export default function ReconstitutionCalculator({ peptides }: Props) {
                   </button>
                   <button
                     type="button"
-                    onClick={() => typeof window !== 'undefined' && window.print()}
+                    onClick={() => {
+                      track(EVENTS.print, { pagina: window.location.pathname });
+                      window.print();
+                    }}
                     title="Imprimir / Salvar como PDF"
                     aria-label="Imprimir resultado"
                     className="w-9 h-9 rounded-md border border-border bg-surface text-ink-2 hover:border-teal hover:text-teal-700 hover:bg-teal-50 flex items-center justify-center"

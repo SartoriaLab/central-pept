@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from 'react';
 import type { Peptide } from '@/lib/peptides';
+import { EVENTS, track } from '@/lib/track';
 
 type Props = { peptides: Peptide[] };
 
@@ -119,6 +120,7 @@ export default function ScheduleCalculator({ peptides }: Props) {
     const a = document.createElement('a');
     a.href = url;
     a.download = `cronograma-${peptide.slug}.ics`;
+    track(EVENTS.icsDownload, { ferramenta: 'cronograma', peptideo: peptide.slug });
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);

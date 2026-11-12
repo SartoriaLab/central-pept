@@ -117,7 +117,7 @@ export default function Article() {
       </p>
       <p>
         Para qualquer combinação fora da tabela, a{' '}
-        <Link href="/ferramentas/reconstituicao?peptide=tirzepatida">calculadora de reconstituição</Link>{' '}
+        <Link href="/ferramentas/reconstituicao/tirzepatida">calculadora de reconstituição</Link>{' '}
         faz a conta e desenha a seringa com a marcação exata.
       </p>
 

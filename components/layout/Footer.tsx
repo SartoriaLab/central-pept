@@ -7,10 +7,11 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-4 md:px-6 py-10 md:py-14 grid gap-10 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr_1fr] text-sm">
         <div>
           <Image
-            src="/logo.png"
+            src="/logo.webp"
             alt="Central Peptídeos"
-            width={384}
-            height={256}
+            width={400}
+            height={128}
+            unoptimized
             sizes="180px"
             loading="lazy"
             className="h-10 w-auto dark:bg-white keep-white dark:rounded-md dark:p-1 mb-3"
@@ -29,6 +30,8 @@ export default function Footer() {
             <li><Link href="/ferramentas/conversor" className="hover:text-teal-700">Conversor</Link></li>
             <li><Link href="/ferramentas/cronograma" className="hover:text-teal-700">Cronograma</Link></li>
             <li><Link href="/ferramentas/titulacao" className="hover:text-teal-700">Subida de Dose GLP-1</Link></li>
+            <li><Link href="/ferramentas/custo-glp1" className="hover:text-teal-700">Custo por Dose GLP-1</Link></li>
+            <li><Link href="/ferramentas/tabela-doses-glp1" className="hover:text-teal-700">Tabela de Doses GLP-1</Link></li>
           </ul>
         </div>
 
@@ -36,6 +39,8 @@ export default function Footer() {
           <div className="font-bold text-ink mb-3 uppercase text-xs tracking-wider">Conteúdo</div>
           <ul className="space-y-2 text-ink-2">
             <li><Link href="/peptideos" className="hover:text-teal-700">Enciclopédia</Link></li>
+            <li><Link href="/medicamentos" className="hover:text-teal-700">Mounjaro, Ozempic e Wegovy</Link></li>
+            <li><Link href="/peptideos/categoria/emagrecimento" className="hover:text-teal-700">Peptídeos para emagrecer</Link></li>
             <li><Link href="/comparar" className="hover:text-teal-700">Comparador</Link></li>
             <li><Link href="/blog" className="hover:text-teal-700">Blog</Link></li>
             <li><Link href="/glossario" className="hover:text-teal-700">Glossário</Link></li>
@@ -57,6 +62,8 @@ export default function Footer() {
           <div className="font-bold text-ink mb-3 uppercase text-xs tracking-wider">Tirzepatida</div>
           <ul className="space-y-2 text-ink-2">
             <li><Link href="/peptideos/tirzepatida" className="hover:text-teal-700">Ficha completa</Link></li>
+            <li><Link href="/medicamentos/mounjaro" className="hover:text-teal-700">Mounjaro</Link></li>
+            <li><Link href="/blog/efeitos-colaterais-tirzepatida" className="hover:text-teal-700">Efeitos colaterais</Link></li>
             <li><Link href="/blog/onde-comprar-tirzepatida" className="hover:text-teal-700">Onde comprar</Link></li>
             <li><Link href="/blog/tirzepatida-preco-quanto-custa" className="hover:text-teal-700">Quanto custa</Link></li>
             <li><Link href="/blog/como-reconstituir-tirzepatida" className="hover:text-teal-700">Como reconstituir</Link></li>

@@ -147,7 +147,7 @@ export default function Article() {
         <li>
           Reconstitua com{' '}
           <Link href="/blog/agua-bacteriostatica-guia">água bacteriostática</Link> usando a{' '}
-          <Link href="/ferramentas/reconstituicao?peptide=tirzepatida">calculadora</Link>. O
+          <Link href="/ferramentas/reconstituicao/tirzepatida">calculadora</Link>. O
           passo a passo com tabela de unidades está em{' '}
           <Link href="/blog/como-reconstituir-tirzepatida">como reconstituir tirzepatida</Link>.
         </li>

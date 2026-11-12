@@ -45,7 +45,7 @@ export default function Article() {
       <ul>
         <li>Armazenar refrigerado (2-8°C) desde o recebimento</li>
         <li>Reconstituir com <Link href="/blog/agua-bacteriostatica-guia">água bacteriostática</Link></li>
-        <li>Usar <Link href="/ferramentas/reconstituicao?peptide=tirzepatida">calculadora de reconstituição</Link> para dose exata</li>
+        <li>Usar <Link href="/ferramentas/reconstituicao/tirzepatida">calculadora de reconstituição</Link> para dose exata</li>
         <li>Começar em dose baixa mesmo se experiência prévia com Mounjaro</li>
         <li>Acompanhamento clínico periódico (peso, glicemia, pressão)</li>
       </ul>

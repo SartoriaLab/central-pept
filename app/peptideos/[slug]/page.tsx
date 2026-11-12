@@ -11,6 +11,9 @@ import InjectionSiteGuide from '@/components/peptide/InjectionSiteGuide';
 import FAQ from '@/components/ui/FAQ';
 import { buildPeptideFaq } from '@/lib/peptide-faqs';
 import { getArticlesByPeptide } from '@/lib/articles';
+import { getComparisonsByPeptide } from '@/lib/comparisons';
+import { getCategoryPageForPeptide } from '@/lib/categories';
+import { getBrandsByPeptide } from '@/lib/brands';
 
 const SITE = process.env.SITE_URL || 'https://centralpeptideos.com.br';
 
@@ -41,13 +44,14 @@ export async function generateMetadata({
   const { slug } = await params;
   const p = getPeptideBySlug(slug);
   if (!p) return { title: 'Peptídeo não encontrado' };
+  const description = `${p.shortDescription} Dose típica de ${p.typicalDose} ${p.doseUnit} (${p.frequency}). Mecanismo, efeitos colaterais, contraindicações e referências.`;
   return {
-    title: p.name,
-    description: p.shortDescription,
+    title: `${p.name}: o que é, dose, efeitos colaterais e meia-vida`,
+    description,
     alternates: { canonical: `/peptideos/${slug}` },
     openGraph: {
       title: `${p.name} — Central Peptídeos`,
-      description: p.shortDescription,
+      description,
       url: `/peptideos/${slug}`,
       type: 'article',
     },
@@ -63,11 +67,15 @@ export default async function PeptidePage({
   const p = getPeptideBySlug(slug);
   if (!p) notFound();
 
+  const categoryPage = getCategoryPageForPeptide(p);
+  const brands = getBrandsByPeptide(p.slug);
+
   const related = p.category
     ? getPeptides().filter((x) => x.category === p.category && x.slug !== p.slug).slice(0, 3)
     : [];
 
   const guides = getArticlesByPeptide(p.slug);
+  const comparisons = getComparisonsByPeptide(p.slug);
 
   const faq = buildPeptideFaq(p);
   const isApprovedDrug = p.regulatoryStatus === 'fda-approved' || p.regulatoryStatus === 'discontinued';
@@ -122,9 +130,12 @@ export default async function PeptidePage({
 
           <div className="flex flex-wrap items-center gap-2 mb-4">
             {p.category && typeof p.category === 'string' && (p.category in CATEGORY_LABELS) && (
-              <span className="text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-surface/70 backdrop-blur text-ink-2 border border-border">
+              <Link
+                href={categoryPage ? `/peptideos/categoria/${categoryPage.slug}` : '/peptideos'}
+                className="text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-surface/70 backdrop-blur text-ink-2 border border-border hover:border-teal hover:text-teal-700 transition-colors"
+              >
                 {CATEGORY_LABELS[p.category as keyof typeof CATEGORY_LABELS]}
-              </span>
+              </Link>
             )}
             {p.regulatoryStatus && <RegulatoryBadge status={p.regulatoryStatus} />}
             {p.wadaProhibited && <WadaBadge />}
@@ -136,10 +147,23 @@ export default async function PeptidePage({
           <p className="mt-4 text-lg md:text-xl text-ink-2 leading-relaxed max-w-2xl">
             {p.shortDescription}
           </p>
+          {brands.length > 0 && (
+            <p className="mt-3 text-sm text-ink-2">
+              Marcas comerciais:{' '}
+              {brands.map((b, i) => (
+                <span key={b.slug}>
+                  {i > 0 && ' · '}
+                  <Link href={`/medicamentos/${b.slug}`} className="font-semibold text-teal-700 hover:underline">
+                    {b.name}
+                  </Link>
+                </span>
+              ))}
+            </p>
+          )}
 
           <div className="mt-6 flex flex-wrap items-center gap-3">
             <Link
-              href={`/ferramentas/reconstituicao?peptide=${p.slug}`}
+              href={`/ferramentas/reconstituicao/${p.slug}`}
               className="btn-teal"
             >
               Calcular dose
@@ -147,7 +171,14 @@ export default async function PeptidePage({
             </Link>
             {(p.lastReviewed || p.reviewedBy) && (
               <p className="text-xs text-ink-3">
-                {p.lastReviewed && <>Revisado em {p.lastReviewed}</>}
+                {p.lastReviewed && (
+                  <>
+                    Revisado em{' '}
+                    <time dateTime={p.lastReviewed}>
+                      {new Date(`${p.lastReviewed}T12:00:00-03:00`).toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' })}
+                    </time>
+                  </>
+                )}
                 {p.lastReviewed && p.reviewedBy && ' · '}
                 {p.reviewedBy && (
                   <>
@@ -345,6 +376,23 @@ export default async function PeptidePage({
           <ShareButtons title={`${p.name} — Central Peptídeos`} url={`/peptideos/${p.slug}`} />
         </div>
 
+
+        {comparisons.length > 0 && (
+          <section className="mt-12">
+            <h2 className="text-xl font-bold mb-4">Compare {p.name} com outros peptídeos</h2>
+            <div className="flex flex-wrap gap-2">
+              {comparisons.map((c) => (
+                <Link
+                  key={c.slug}
+                  href={`/comparar/${c.slug}`}
+                  className="inline-flex items-center px-3 py-1.5 text-sm font-semibold rounded-full border border-border bg-surface text-ink-2 hover:border-teal hover:text-teal-700 hover:bg-teal-50 transition-colors"
+                >
+                  {c.title}
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
 
         {related.length > 0 && (
           <section className="mt-12">

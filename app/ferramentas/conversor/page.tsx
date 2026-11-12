@@ -38,7 +38,7 @@ const RELATED_LINKS: RelatedLink[] = [
 ];
 
 export const metadata: Metadata = {
-  title: 'Conversor de Unidades',
+  title: 'Conversor mg, mcg e UI para peptídeos',
   description:
     'Conversão rápida entre mg, mcg e UI considerando o peptídeo específico. Mostra a quantidade como múltiplo da dose típica.',
   openGraph: {

@@ -1,8 +1,12 @@
 import type { MetadataRoute } from 'next';
-import { getPeptideSlugs } from '@/lib/peptides';
+import { getPeptides } from '@/lib/peptides';
 import { getArticles } from '@/lib/articles';
 import { getEbookSlugs } from '@/lib/ebooks';
 import { getComparisonSlugs } from '@/lib/comparisons';
+import { getGlossarySlugs } from '@/lib/glossary';
+import { CONTENT_UPDATED_AT } from '@/lib/site';
+import { getBrandSlugs } from '@/lib/brands';
+import { getCategoryPageSlugs } from '@/lib/categories';
 
 export const dynamic = 'force-static';
 
@@ -13,7 +17,12 @@ function url(path: string): string {
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
+  // Datas reais, não a hora do build: <lastmod> só é útil se refletir mudança de conteúdo.
+  const day = (d: string) => new Date(d.includes('T') ? d : `${d}T12:00:00-03:00`);
+  const now = day(CONTENT_UPDATED_AT);
+  const latest = (...dates: (string | undefined)[]) =>
+    day(dates.filter((d): d is string => !!d).sort().pop() ?? CONTENT_UPDATED_AT);
+  const peptides = getPeptides();
 
   const staticPaths: Array<{ path: string; priority: number; changeFrequency: 'daily' | 'weekly' | 'monthly' }> = [
     { path: '/',                            priority: 1.0, changeFrequency: 'weekly' },
@@ -24,6 +33,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/ferramentas/conversor',       priority: 0.8, changeFrequency: 'monthly' },
     { path: '/ferramentas/cronograma',      priority: 0.8, changeFrequency: 'monthly' },
     { path: '/ferramentas/titulacao',       priority: 0.85, changeFrequency: 'monthly' },
+    { path: '/ferramentas/custo-glp1',      priority: 0.85, changeFrequency: 'monthly' },
+    { path: '/ferramentas/tabela-doses-glp1', priority: 0.85, changeFrequency: 'monthly' },
+    { path: '/medicamentos',                priority: 0.85, changeFrequency: 'monthly' },
     { path: '/comparar',                    priority: 0.85, changeFrequency: 'weekly' },
     { path: '/blog',                        priority: 0.85, changeFrequency: 'weekly' },
     { path: '/glossario',                   priority: 0.7, changeFrequency: 'monthly' },
@@ -49,21 +61,49 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: p.changeFrequency,
       priority: p.priority,
     })),
-    ...getPeptideSlugs().map((slug) => ({
-      url: url(`/peptideos/${slug}`),
+    ...peptides.map((p) => ({
+      url: url(`/peptideos/${p.slug}`),
+      lastModified: latest(p.lastReviewed, CONTENT_UPDATED_AT),
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    })),
+    // Calculadora de reconstituição por peptídeo
+    ...peptides.map(({ slug }) => ({
+      url: url(`/ferramentas/reconstituicao/${slug}`),
       lastModified: now,
       changeFrequency: 'monthly' as const,
       priority: 0.8,
     })),
+    // Marcas comerciais (Mounjaro, Ozempic...)
+    ...getBrandSlugs().map((slug) => ({
+      url: url(`/medicamentos/${slug}`),
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.85,
+    })),
+    // Peptídeos por objetivo
+    ...getCategoryPageSlugs().map((slug) => ({
+      url: url(`/peptideos/categoria/${slug}`),
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    })),
+    ...getGlossarySlugs().map((slug) => ({
+      url: url(`/glossario/${slug}`),
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
+    })),
     ...publishedArticles.map((a) => ({
       url: url(`/blog/${a.slug}`),
-      lastModified: a.updatedAt ? new Date(a.updatedAt) : a.publishedAt ? new Date(a.publishedAt) : now,
+      lastModified: latest(a.updatedAt ?? a.publishedAt),
       changeFrequency: 'monthly' as const,
       priority: 0.7,
     })),
     ...allTags.map((t) => ({
       url: url(`/blog/tag/${slugify(t)}`),
-      lastModified: now,
+      // Arquivo de tag muda quando entra ou é atualizado um artigo com a tag
+      lastModified: latest(...publishedArticles.filter((a) => a.tags.includes(t)).map((a) => a.updatedAt ?? a.publishedAt)),
       changeFrequency: 'weekly' as const,
       priority: 0.5,
     })),

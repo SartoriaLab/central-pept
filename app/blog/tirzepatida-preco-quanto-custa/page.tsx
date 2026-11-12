@@ -150,7 +150,7 @@ export default function Article() {
         <li><strong>Escolha o frasco compatível com a dose</strong>: sobra que vence em 28 dias é dinheiro jogado fora.</li>
         <li>
           Use a{' '}
-          <Link href="/ferramentas/reconstituicao?peptide=tirzepatida">calculadora de reconstituição</Link>{' '}
+          <Link href="/ferramentas/reconstituicao/tirzepatida">calculadora de reconstituição</Link>{' '}
           para não desperdiçar nenhuma unidade na seringa.
         </li>
         <li>

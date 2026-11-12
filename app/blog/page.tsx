@@ -4,8 +4,8 @@ import { getArticles } from '@/lib/articles';
 import NewsletterSignup from '@/components/ui/NewsletterSignup';
 
 export const metadata: Metadata = {
-  title: 'Blog',
-  description: 'Artigos e guias sobre peptídeos: reconstituição, comparações, armazenamento e protocolos.',
+  title: 'Blog de Peptídeos: guias de dose, reconstituição e GLP-1',
+  description: 'Guias práticos sobre peptídeos: como reconstituir, quanto custa, como identificar produto falso, efeitos colaterais e comparações entre semaglutida, tirzepatida e outros.',
   alternates: { canonical: '/blog' },
 };
 

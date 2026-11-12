@@ -4,6 +4,8 @@ import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
 import ShareButtons from '@/components/ui/ShareButtons';
 import RelatedPosts from '@/components/blog/RelatedPosts';
 import Breadcrumb from '@/components/ui/Breadcrumb';
+import { getPeptideBySlug } from '@/lib/peptides';
+import { getBrandsByPeptide } from '@/lib/brands';
 
 const SITE = process.env.SITE_URL || 'https://centralpeptideos.com.br';
 
@@ -12,7 +14,19 @@ type Props = {
   children: React.ReactNode;
 };
 
+const formatDate = (d: string) =>
+  new Date(d.includes('T') ? d : `${d}T12:00:00-03:00`).toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' });
+
 export default function ArticleLayout({ article, children }: Props) {
+  const citedPeptides = (article.relatedPeptides ?? [])
+    .map((slug) => getPeptideBySlug(slug))
+    .filter((p): p is NonNullable<typeof p> => !!p);
+
+  // Referências: as do próprio artigo + as das fichas dos peptídeos citados, sem repetir URL.
+  const references = [...(article.references ?? []), ...citedPeptides.flatMap((p) => p.references ?? [])].filter(
+    (r, i, arr) => arr.findIndex((x) => x.url === r.url) === i,
+  );
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -44,6 +58,11 @@ export default function ArticleLayout({ article, children }: Props) {
     },
     mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE}/blog/${article.slug}` },
     keywords: article.tags.join(', '),
+    inLanguage: 'pt-BR',
+    isAccessibleForFree: true,
+    ...(references.length > 0 && {
+      citation: references.map((r) => ({ '@type': 'CreativeWork', name: r.title, url: r.url })),
+    }),
   };
 
   const related = getRelatedArticles(article);
@@ -87,10 +106,13 @@ export default function ArticleLayout({ article, children }: Props) {
             </div>
           )}
           <div className="mt-5 flex flex-wrap items-center gap-3 text-sm text-ink-3">
-            <time dateTime={article.publishedAt}>
-              {article.updatedAt ? 'Atualizado em ' : 'Publicado em '}
-              {new Date(article.updatedAt || article.publishedAt).toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' })}
-            </time>
+            <time dateTime={article.publishedAt}>Publicado em {formatDate(article.publishedAt)}</time>
+            {article.updatedAt && article.updatedAt !== article.publishedAt && (
+              <>
+                <span>·</span>
+                <time dateTime={article.updatedAt}>Atualizado em {formatDate(article.updatedAt)}</time>
+              </>
+            )}
             <span>·</span>
             <span>{article.readMinutes} min de leitura</span>
             {article.author && (
@@ -106,6 +128,15 @@ export default function ArticleLayout({ article, children }: Props) {
                     <span className="font-semibold">{article.author.name}</span>
                   )}
                   {article.author.credentials && <span className="text-ink-3">, {article.author.credentials}</span>}
+                </span>
+              </>
+            )}
+            {!article.author && (
+              <>
+                <span>·</span>
+                <span>
+                  por{' '}
+                  <Link href="/sobre" className="text-teal-700 hover:underline font-semibold">Equipe Central Peptídeos</Link>
                 </span>
               </>
             )}
@@ -138,6 +169,33 @@ export default function ArticleLayout({ article, children }: Props) {
         )}
         {children}
 
+        {references.length > 0 && (
+          <section className="mt-10 pt-8 border-t border-border not-prose" aria-labelledby="referencias">
+            <h2 id="referencias" className="text-sm font-bold uppercase tracking-wider text-ink-3 mb-3">Referências</h2>
+            <ol className="space-y-2 text-sm list-decimal pl-5">
+              {references.map((r) => (
+                <li key={r.url}>
+                  <a href={r.url} target="_blank" rel="noreferrer noopener" className="text-ink-2 hover:text-teal-700 hover:underline leading-relaxed">
+                    {r.title} <span className="text-ink-3" aria-hidden>↗</span>
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </section>
+        )}
+
+        {/* Transparência editorial */}
+        <aside className="mt-10 not-prose card p-5" aria-label="Como este conteúdo é produzido">
+          <h2 className="text-sm font-bold uppercase tracking-wider text-ink-3 mb-2">Como este conteúdo é produzido</h2>
+          <p className="text-sm text-ink-2 leading-relaxed">
+            Escrito a partir de bulas, ensaios clínicos e documentos regulatórios, seguindo a nossa{' '}
+            <Link href="/metodologia" className="text-teal-700 font-semibold hover:underline">metodologia editorial</Link>.
+            A Central Peptídeos não vende peptídeos, não indica fornecedores e não recebe comissão por indicação.
+            Encontrou um erro?{' '}
+            <Link href="/contato" className="text-teal-700 font-semibold hover:underline">Avise a gente</Link> — correção de dado incorreto é prioridade.
+          </p>
+        </aside>
+
         {/* Social share */}
         <div className="mt-10 pt-8 border-t border-border not-prose">
           <ShareButtons title={article.title} url={`/blog/${article.slug}`} />
@@ -156,8 +214,14 @@ export default function ArticleLayout({ article, children }: Props) {
                   href={`/peptideos/${slug}`}
                   className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-semibold rounded-full border border-border bg-surface text-ink-2 hover:border-teal hover:text-teal-700 hover:bg-teal-50 transition-colors"
                 >
-                  {slug}
+                  {citedPeptides.find((p) => p.slug === slug)?.name ?? slug}
                   <svg viewBox="0 0 20 20" width={12} height={12} fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M5 10h10M10 5l5 5-5 5" /></svg>
+                </Link>
+              ))}
+              {/* Marcas comerciais do peptídeo principal do artigo */}
+              {getBrandsByPeptide(article.relatedPeptides[0]).map((b) => (
+                <Link key={b.slug} href={`/medicamentos/${b.slug}`} className="inline-flex items-center px-3 py-1.5 text-sm font-semibold rounded-full border border-border bg-surface text-ink-2 hover:border-teal hover:text-teal-700 hover:bg-teal-50 transition-colors">
+                  {b.name}
                 </Link>
               ))}
             </div>

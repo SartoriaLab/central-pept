@@ -2,11 +2,14 @@ import type { Metadata } from 'next';
 import { getPeptides } from '@/lib/peptides';
 import PeptideBrowser from '@/components/peptide/PeptideBrowser';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
+import Link from 'next/link';
+import { getCategoryPages } from '@/lib/categories';
+import { getBrands } from '@/lib/brands';
 
 export const metadata: Metadata = {
-  title: 'Peptídeos',
+  title: 'Enciclopédia de Peptídeos: dose, efeitos e status de 21 compostos',
   description:
-    'Enciclopédia de peptídeos: dose típica, frequência e descrição de 21 compostos. Busca e filtro por categoria.',
+    'Fichas de 21 peptídeos — semaglutida, tirzepatida, BPC-157, ipamorelina e outros — com dose típica, meia-vida, efeitos colaterais, status regulatório e referências.',
   alternates: { canonical: '/peptideos' },
 };
 
@@ -32,6 +35,31 @@ export default function PeptideosPage() {
 
       <div className="max-w-6xl mx-auto px-4 md:px-6 py-8 md:py-10">
         <PeptideBrowser peptides={peptides} />
+
+        <section className="mt-12" aria-labelledby="por-objetivo">
+          <h2 id="por-objetivo" className="text-xl font-bold mb-2">Peptídeos por objetivo</h2>
+          <p className="text-sm text-ink-2 mb-4 max-w-2xl">
+            Listas comparadas por finalidade, com dose, meia-vida e status regulatório lado a lado.
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {getCategoryPages().map((c) => (
+              <Link key={c.slug} href={`/peptideos/categoria/${c.slug}`} className="inline-flex items-center px-3 py-1.5 text-sm font-semibold rounded-full border border-border bg-surface text-ink-2 hover:border-teal hover:text-teal-700 hover:bg-teal-50 transition-colors">
+                {c.title}
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        <section className="mt-10" aria-labelledby="por-marca">
+          <h2 id="por-marca" className="text-xl font-bold mb-2">Procurando pela marca?</h2>
+          <div className="flex flex-wrap gap-2">
+            {getBrands().map((b) => (
+              <Link key={b.slug} href={`/medicamentos/${b.slug}`} className="inline-flex items-center px-3 py-1.5 text-sm font-semibold rounded-full border border-border bg-surface text-ink-2 hover:border-teal hover:text-teal-700 hover:bg-teal-50 transition-colors">
+                {b.name} ({b.activeIngredient.toLowerCase()})
+              </Link>
+            ))}
+          </div>
+        </section>
 
         <MedicalDisclaimer variant="prominent" />
       </div>

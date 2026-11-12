@@ -1,6 +1,10 @@
 import { getPeptides, CATEGORY_LABELS } from './peptides';
 import { getArticles } from './articles';
 import { getEbooks } from './ebooks';
+import { getGlossary } from './glossary';
+import { COMPARISONS } from './comparisons';
+import { getBrands } from './brands';
+import { getCategoryPages } from './categories';
 
 export type SearchResult = {
   id: string;
@@ -64,6 +68,8 @@ export function buildSearchIndex(): SearchResult[] {
     { slug: 'conversor', title: 'Conversor mg ↔ mcg ↔ UI', desc: 'Conversão entre unidades' },
     { slug: 'cronograma', title: 'Cronograma de Doses', desc: 'Agenda + export .ics' },
     { slug: 'titulacao', title: 'Subida de Dose — Ozempic e Mounjaro', desc: 'Escada de doses semaglutida / tirzepatida, com datas' },
+    { slug: 'custo-glp1', title: 'Custo por Dose — Mounjaro, Ozempic e tirzepatida', desc: 'Custo por mg, por dose e por mês; preço' },
+    { slug: 'tabela-doses-glp1', title: 'Tabela de Doses GLP-1 para imprimir', desc: 'Escada de titulação e unidades na seringa' },
   ];
   for (const t of tools) {
     items.push({
@@ -76,9 +82,70 @@ export function buildSearchIndex(): SearchResult[] {
     });
   }
 
+  // Calculadora por peptídeo
+  for (const p of getPeptides()) {
+    items.push({
+      id: `tc-${p.slug}`,
+      title: `Calculadora de ${p.name}`,
+      subtitle: 'Unidades na seringa por dose',
+      type: 'tool',
+      url: `/ferramentas/reconstituicao/${p.slug}`,
+      keywords: ['calculadora', 'reconstituição', 'unidades', 'seringa', 'dose', p.name, p.slug].join(' ').toLowerCase(),
+    });
+  }
+
+  // Comparativos
+  for (const c of COMPARISONS) {
+    items.push({
+      id: `c-${c.slug}`,
+      title: c.title,
+      subtitle: 'Comparativo lado a lado',
+      type: 'page',
+      url: `/comparar/${c.slug}`,
+      keywords: [c.title, c.slug, 'comparar', 'diferença', 'versus'].join(' ').toLowerCase(),
+    });
+  }
+
+  // Marcas comerciais
+  for (const b of getBrands()) {
+    items.push({
+      id: `m-${b.slug}`,
+      title: `${b.name} (${b.activeIngredient.toLowerCase()})`,
+      subtitle: b.summary,
+      type: 'page',
+      url: `/medicamentos/${b.slug}`,
+      keywords: [b.name, b.activeIngredient, b.manufacturer, 'marca', 'medicamento', 'caneta', 'dose'].join(' ').toLowerCase(),
+    });
+  }
+
+  // Peptídeos por objetivo
+  for (const c of getCategoryPages()) {
+    items.push({
+      id: `cat-${c.slug}`,
+      title: c.title,
+      subtitle: c.summary,
+      type: 'page',
+      url: `/peptideos/categoria/${c.slug}`,
+      keywords: [c.title, c.label, c.slug, 'categoria', 'objetivo', 'lista'].join(' ').toLowerCase(),
+    });
+  }
+
+  // Glossário
+  for (const t of getGlossary()) {
+    items.push({
+      id: `g-${t.slug}`,
+      title: t.term,
+      subtitle: t.definition,
+      type: 'page',
+      url: `/glossario/${t.slug}`,
+      keywords: [t.term, t.slug, 'glossário', 'o que é'].join(' ').toLowerCase(),
+    });
+  }
+
   // Páginas
   const pages = [
     { url: '/comparar', title: 'Comparador de peptídeos', desc: 'Até 4 peptídeos lado a lado' },
+    { url: '/medicamentos', title: 'Mounjaro, Ozempic, Wegovy e Zepbound', desc: 'Diferenças entre as marcas' },
     { url: '/glossario', title: 'Glossário', desc: 'Termos técnicos explicados' },
     { url: '/blog', title: 'Blog', desc: 'Artigos e guias' },
     { url: '/sobre', title: 'Sobre', desc: 'Metodologia editorial' },

@@ -55,7 +55,7 @@ export default function Article() {
       </p>
       <p>
         Regra geral: <strong>use a{' '}
-        <Link href="/ferramentas/reconstituicao?peptide=semaglutida">calculadora de reconstituição</Link>
+        <Link href="/ferramentas/reconstituicao/semaglutida">calculadora de reconstituição</Link>
         {' '}</strong>para evitar erros. Como referência, combinações comuns com frasco de 5 mg:
       </p>
 
@@ -128,7 +128,7 @@ export default function Article() {
         Depois de ter o frasco reconstituído, o próximo cálculo importante é a{' '}
         <strong>titulação</strong> — você começa em dose baixa (0,25 mg/semana) e sobe
         gradualmente. Use a{' '}
-        <Link href="/ferramentas/reconstituicao?peptide=semaglutida">calculadora</Link>{' '}
+        <Link href="/ferramentas/reconstituicao/semaglutida">calculadora</Link>{' '}
         para ajustar cada etapa sem precisar rediluir.
       </p>
       <p>

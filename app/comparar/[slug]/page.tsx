@@ -9,11 +9,12 @@ import {
   REGULATORY_LABELS,
   type Peptide,
 } from '@/lib/peptides';
-import { COMPARISONS, getComparison, getComparisonSlugs } from '@/lib/comparisons';
+import { getComparison, getComparisonSlugs, getRelatedComparisons } from '@/lib/comparisons';
 import { getArticleBySlug } from '@/lib/articles';
 import FAQ, { type FAQItem } from '@/components/ui/FAQ';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
+import EbookPromo from '@/components/ebook/EbookPromo';
 import { SITE_URL } from '@/lib/site';
 
 type Params = { slug: string };
@@ -89,7 +90,7 @@ export default async function ComparisonPage({ params }: { params: Promise<Param
     .filter((p): p is Peptide => !!p);
   const faq = buildComparisonFaq(items);
   const post = c.relatedPost ? getArticleBySlug(c.relatedPost) : undefined;
-  const others = COMPARISONS.filter((x) => x.slug !== c.slug);
+  const others = getRelatedComparisons(c, 12);
 
   return (
     <>
@@ -112,6 +113,31 @@ export default async function ComparisonPage({ params }: { params: Promise<Param
       <div className="max-w-6xl mx-auto px-4 md:px-6 py-8 md:py-10">
         <Comparator peptides={peptides} initialSlugs={c.peptideSlugs} />
 
+        <section className="mt-10" aria-labelledby="resumo-comparativo">
+          <h2 id="resumo-comparativo" className="text-xl font-bold mb-4">Resumo de cada um</h2>
+          <div className={`grid gap-4 ${items.length > 2 ? 'md:grid-cols-3' : 'md:grid-cols-2'}`}>
+            {items.map((p) => (
+              <div key={p.slug} className="card p-5">
+                <h3 className="font-bold text-ink">{p.name}</h3>
+                <p className="mt-1 text-sm text-ink-2 leading-relaxed">{p.shortDescription}</p>
+                <dl className="mt-3 space-y-1 text-sm">
+                  <div className="flex justify-between gap-3"><dt className="text-ink-3">Categoria</dt><dd className="font-semibold text-right">{categoryLabel(p)}</dd></div>
+                  <div className="flex justify-between gap-3"><dt className="text-ink-3">Dose típica</dt><dd className="font-semibold text-right tabular-nums">{p.typicalDose} {p.doseUnit}</dd></div>
+                  <div className="flex justify-between gap-3"><dt className="text-ink-3">Frequência</dt><dd className="font-semibold text-right">{p.frequency}</dd></div>
+                  {p.halfLife && (
+                    <div className="flex justify-between gap-3"><dt className="text-ink-3">Meia-vida</dt><dd className="font-semibold text-right">{p.halfLife}</dd></div>
+                  )}
+                  <div className="flex justify-between gap-3"><dt className="text-ink-3">Status</dt><dd className="font-semibold text-right">{regLabel(p)}</dd></div>
+                </dl>
+                <div className="mt-4 flex flex-wrap gap-x-4 gap-y-1 text-sm font-semibold">
+                  <Link href={`/peptideos/${p.slug}`} className="text-teal-700 hover:underline">Ficha completa →</Link>
+                  <Link href={`/ferramentas/reconstituicao/${p.slug}`} className="text-teal-700 hover:underline">Calculadora de dose →</Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {post && (
           <Link
             href={`/blog/${post.slug}`}
@@ -127,6 +153,8 @@ export default async function ComparisonPage({ params }: { params: Promise<Param
             </div>
           </Link>
         )}
+
+        <EbookPromo peptideSlugs={c.peptideSlugs} source={`comparar-${c.slug}`} className="mt-10" />
 
         <FAQ items={faq} title={`Perguntas frequentes: ${c.title}`} />
 

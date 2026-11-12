@@ -4,6 +4,7 @@ import Script from 'next/script';
 import { Analytics } from '@vercel/analytics/next';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import SiteChrome from '@/components/layout/SiteChrome';
 import './globals.css';
 
 const inter = Inter({
@@ -53,8 +54,8 @@ const organizationJsonLd = {
   logo: {
     '@type': 'ImageObject',
     url: `${SITE_URL}/logo.png`,
-    width: 1536,
-    height: 1024,
+    width: 794,
+    height: 255,
   },
   sameAs: [
     // adicionar perfis em redes sociais quando houver
@@ -79,7 +80,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'pt_BR',
     siteName: 'Central Peptídeos',
-    images: [{ url: '/logo.png', width: 1536, height: 1024, alt: 'Central Peptídeos' }],
+    images: [{ url: '/logo.png', width: 794, height: 255, alt: 'Central Peptídeos' }],
   },
   twitter: {
     card: 'summary_large_image',
@@ -117,7 +118,7 @@ export default function RootLayout({
         {/* RSS/Atom discovery */}
         <link rel="alternate" type="application/rss+xml" title="Central Peptídeos — Blog" href="/feed.xml" />
         {/* Preload logo pra melhorar LCP */}
-        <link rel="preload" as="image" href="/logo.png" fetchPriority="high" />
+        <link rel="preload" as="image" href="/logo.webp" type="image/webp" fetchPriority="high" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
@@ -141,9 +142,10 @@ export default function RootLayout({
         >
           Pular para o conteúdo
         </a>
-        <Header />
+        {/* /embed/* roda em iframe de terceiros: sem cabeçalho nem rodapé */}
+        <SiteChrome><Header /></SiteChrome>
         <main id="main" tabIndex={-1} className="flex-1 outline-none">{children}</main>
-        <Footer />
+        <SiteChrome><Footer /></SiteChrome>
         <Analytics />
       </body>
     </html>
