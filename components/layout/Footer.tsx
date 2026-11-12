@@ -14,7 +14,7 @@ export default function Footer() {
             unoptimized
             sizes="180px"
             loading="lazy"
-            className="h-10 w-auto dark:bg-white keep-white dark:rounded-md dark:p-1 mb-3"
+            className="h-10 w-auto dark:[filter:brightness(1.45)_saturate(1.1)] mb-3"
           />
           <p className="text-ink-2 leading-relaxed max-w-md">
             Central brasileira de informação sobre peptídeos. Calculadoras,

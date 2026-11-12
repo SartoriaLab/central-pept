@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { getPeptides } from '@/lib/peptides';
 import { getArticles } from '@/lib/articles';
 import NewsletterSignup from '@/components/ui/NewsletterSignup';
+import HeroCalc, { type HeroPeptide } from '@/components/home/HeroCalc';
 import ToolIcon, { toolColor } from '@/components/ui/ToolIcon';
 
 export const metadata: Metadata = {
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
     absolute: 'Peptídeos: Calculadoras, Enciclopédia e Guias | Central Peptídeos',
   },
   description:
-    'Calculadoras de reconstituição, subida de dose e custo de GLP-1, comparativos e enciclopédia de 21 peptídeos com doses e referências. Grátis, sem cadastro e sem propaganda.',
+    'Calculadoras de reconstituição, subida de dose e custo de GLP-1, comparativos e enciclopédia de peptídeos com doses e referências. Grátis, sem cadastro e sem propaganda.',
   alternates: { canonical: '/' },
 };
 
@@ -51,7 +52,7 @@ const STEPS = [
   {
     n: '1',
     title: 'Escolha o peptídeo',
-    desc: 'Busque na lista de 21 peptídeos ou adicione um personalizado.',
+    desc: 'Busque na lista de peptídeos ou adicione um personalizado.',
   },
   {
     n: '2',
@@ -70,6 +71,9 @@ export default function HomePage() {
   const fdaApproved = peptides.filter((p) => p.regulatoryStatus === 'fda-approved').length;
   const articles = getArticles();
   const recentPosts = articles.slice(0, 3);
+  const heroPeptides: HeroPeptide[] = peptides
+    .filter((p) => p.commonAmounts.length > 0)
+    .map((p) => ({ slug: p.slug, name: p.name, typicalDose: p.typicalDose, doseUnit: p.doseUnit, vialMg: p.commonAmounts[0] }));
   return (
     <div>
       {/* ═══ HERO ═══ */}
@@ -108,43 +112,10 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Preview visual da seringa */}
-            <div className="relative hidden lg:block">
+            {/* Calculadora de verdade */}
+            <div className="relative">
               <div className="absolute -inset-6 bg-gradient-teal opacity-10 blur-3xl rounded-full" aria-hidden />
-              <div className="relative card p-6 shadow-xl">
-                <div className="text-xs font-bold uppercase tracking-wider text-ink-3 mb-2">Exemplo em tempo real</div>
-                <div className="flex items-baseline gap-2 mb-4">
-                  <span className="text-5xl font-extrabold tracking-tight text-teal tabular-nums">10</span>
-                  <span className="text-lg font-semibold text-ink-3">U</span>
-                  <span className="text-sm text-ink-3 ml-1">= 0,10 ml</span>
-                </div>
-                {/* Seringa ilustrativa */}
-                <svg viewBox="0 0 320 60" className="w-full h-auto" aria-hidden>
-                  <rect x="10" y="18" width="280" height="24" rx="4" fill="var(--surface)" stroke="var(--border-2)" strokeWidth="1.5" />
-                  <rect x="10" y="18" width="28" height="24" fill="var(--teal-50)" stroke="var(--teal)" strokeWidth="1.5" rx="4" />
-                  <line x1="40" y1="12" x2="40" y2="48" stroke="var(--teal)" strokeWidth="2.5" />
-                  <g stroke="var(--border-2)" strokeWidth="1">
-                    {[70, 100, 130, 160, 190, 220, 250, 280].map((x) => (
-                      <line key={x} x1={x} y1="18" x2={x} y2="22" />
-                    ))}
-                  </g>
-                  <circle cx="300" cy="30" r="4" fill="var(--border-2)" />
-                  <text x="40" y="58" fontSize="10" fill="var(--teal)" fontWeight="bold" textAnchor="middle">10 U</text>
-                </svg>
-                <div className="mt-4 grid grid-cols-2 gap-3 text-sm">
-                  <div className="p-3 rounded-lg bg-bg">
-                    <div className="text-xs font-bold uppercase tracking-wider text-ink-3">Concentração</div>
-                    <div className="font-bold tabular-nums">2,5 mg/ml</div>
-                  </div>
-                  <div className="p-3 rounded-lg bg-bg">
-                    <div className="text-xs font-bold uppercase tracking-wider text-ink-3">Doses/frasco</div>
-                    <div className="font-bold tabular-nums">20</div>
-                  </div>
-                </div>
-                <div className="mt-3 p-2.5 rounded-lg bg-green-50 border border-green-200 text-xs text-green-800 flex items-center gap-2">
-                  <span>✓</span>Faixa ideal (10–50 U). Fácil de medir.
-                </div>
-              </div>
+              <HeroCalc peptides={heroPeptides} initialSlug="tirzepatida" />
             </div>
           </div>
 

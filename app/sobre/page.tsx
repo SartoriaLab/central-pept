@@ -1,3 +1,4 @@
+import { getPeptides } from '@/lib/peptides';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
@@ -34,7 +35,7 @@ export default function SobrePage() {
             <Link href="/peptideos" className="text-teal-700 font-semibold hover:underline">
               Enciclopédia de peptídeos
             </Link>
-            {' '}— 21 fichas técnicas com dose típica, mecanismo, efeitos colaterais,
+            {' '}— {getPeptides().length} fichas técnicas com dose típica, mecanismo, efeitos colaterais,
             contraindicações, status regulatório (FDA / WADA) e referências primárias.
           </li>
           <li>
@@ -70,7 +71,7 @@ export default function SobrePage() {
         <h2 className="text-sm font-bold uppercase tracking-wider text-ink-3 mb-3">O que este site não é</h2>
         <ul className="space-y-2 text-ink-2 leading-relaxed">
           <li>❌ <strong>Não é prescrição médica.</strong> As doses típicas são referências da literatura, não recomendações individuais.</li>
-          <li>❌ <strong>Não vende peptídeos</strong>, não indica fornecedores e não recebe comissão por indicação. O site se mantém com a venda de ebooks próprios.</li>
+          <li>❌ <strong>Não vende peptídeos</strong>, não indica fornecedores e não recebe comissão por indicação.</li>
           <li>❌ <strong>Não incentiva uso</strong> de compostos não aprovados ou proibidos em esporte.</li>
           <li>❌ <strong>Não é aconselhamento jurídico</strong> sobre compra, importação ou uso.</li>
         </ul>
@@ -79,7 +80,7 @@ export default function SobrePage() {
       <section className="card p-6 mb-6">
         <h2 className="text-sm font-bold uppercase tracking-wider text-ink-3 mb-3">Fases do projeto</h2>
         <ol className="space-y-2 text-ink-2 list-decimal pl-5">
-          <li><strong>Fase 1 ✅</strong> — Calculadora de reconstituição, enciclopédia com 21 peptídeos, status regulatório</li>
+          <li><strong>Fase 1 ✅</strong> — Calculadora de reconstituição, enciclopédia com {getPeptides().length} peptídeos, status regulatório</li>
           <li><strong>Fase 2</strong> — Supabase + painel editorial para atualizar conteúdo sem redeploy</li>
           <li><strong>Fase 3</strong> — Blog com artigos aprofundados e comparações</li>
           <li><strong>Fase 4</strong> — Novas calculadoras: mistura em seringa única, conversor de unidades, cronograma</li>

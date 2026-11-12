@@ -138,78 +138,6 @@ html.dark {
     background-size: 24px 24px;
   }
 
-  /* ═══════════════════════════════════════════════════════════
-     Gradientes dos CTAs de ebook/combo — com versão dark mode
-     ═══════════════════════════════════════════════════════════ */
-  .cta-ebook-soft {
-    background:
-      linear-gradient(120deg, rgba(253,186,116,0.18) 0%, rgba(94,234,212,0.15) 50%, rgba(147,197,253,0.18) 100%),
-      var(--surface);
-  }
-  html.dark .cta-ebook-soft {
-    background:
-      linear-gradient(120deg, rgba(249,115,22,0.14) 0%, rgba(20,184,166,0.12) 50%, rgba(59,130,246,0.14) 100%),
-      var(--surface);
-  }
-
-  .cta-ebook-sticky {
-    background:
-      linear-gradient(120deg, rgba(253,186,116,0.25) 0%, rgba(94,234,212,0.22) 50%, rgba(147,197,253,0.25) 100%),
-      var(--surface);
-  }
-  html.dark .cta-ebook-sticky {
-    background:
-      linear-gradient(120deg, rgba(249,115,22,0.18) 0%, rgba(20,184,166,0.16) 50%, rgba(59,130,246,0.18) 100%),
-      var(--surface);
-  }
-
-  .cta-bundle-sticky {
-    background:
-      linear-gradient(120deg, rgba(253,186,116,0.35) 0%, rgba(254,240,138,0.3) 50%, rgba(94,234,212,0.25) 100%),
-      var(--surface);
-  }
-  html.dark .cta-bundle-sticky {
-    background:
-      linear-gradient(120deg, rgba(249,115,22,0.22) 0%, rgba(234,179,8,0.18) 50%, rgba(20,184,166,0.18) 100%),
-      var(--surface);
-  }
-
-  .cta-bundle-banner {
-    background: linear-gradient(120deg, #fff7ed 0%, #fef3c7 40%, #ecfeff 100%);
-  }
-  html.dark .cta-bundle-banner {
-    background:
-      linear-gradient(120deg, rgba(249,115,22,0.18) 0%, rgba(234,179,8,0.14) 40%, rgba(20,184,166,0.16) 100%),
-      var(--surface);
-  }
-
-  .cta-bundle-section {
-    background: linear-gradient(135deg, #fef3c7 0%, #fff7ed 45%, #ecfeff 100%);
-  }
-  html.dark .cta-bundle-section {
-    background:
-      linear-gradient(135deg, rgba(234,179,8,0.16) 0%, rgba(249,115,22,0.14) 45%, rgba(20,184,166,0.16) 100%),
-      var(--surface);
-  }
-
-  /* Pills laranja — escuro ajustado para dark */
-  .pill-orange {
-    @apply inline-flex items-center text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-orange-100 text-orange-700 border border-orange-200;
-  }
-  html.dark .pill-orange {
-    background: rgba(249,115,22,0.15);
-    color: #fdba74;
-    border-color: rgba(249,115,22,0.35);
-  }
-
-  /* Bordas laranja para CTAs — versão dark mais clara */
-  html.dark .cta-border-orange {
-    border-color: rgba(249,115,22,0.45) !important;
-  }
-  html.dark .cta-border-teal-soft {
-    border-color: rgba(20,184,166,0.35) !important;
-  }
-
   /* Estilo de artigo (blog) */
   .prose-article {
     @apply text-ink-2 leading-relaxed;
@@ -351,9 +279,7 @@ html.dark .text-purple-800 { color: #c4b5fd !important; }
 html.dark .text-pink-700,
 html.dark .text-pink-800 { color: #f9a8d4 !important; }
 
-/* bg-white hardcoded em cards/popovers — exceto em gradients (hero do ebook).
-   Excluímos elementos dentro de .cta-bundle-section/banner e dentro do hero
-   do ebook através do :not() */
+/* bg-white fixo em cards/popovers vira superfície escura; .keep-white preserva o branco */
 html.dark .bg-white:not(.keep-white) { background-color: var(--surface) !important; }
 html.dark .hover\:bg-yellow-50:hover { background-color: rgba(234,179,8,0.14) !important; }
 

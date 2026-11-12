@@ -69,7 +69,6 @@ export default function MetodologiaPage() {
           <li>Não recebemos pagamento de fabricantes de medicamentos</li>
           <li>Não promovemos marcas específicas em troca de comissão no conteúdo editorial</li>
           <li>Não exibimos banners nem links de afiliado de fornecedores de peptídeos; se isso mudar, será <strong>declarado</strong> com selo visível</li>
-          <li>O site se mantém com a venda de ebooks próprios, identificados como produto da Central Peptídeos</li>
           <li>Patrocínios são claramente marcados como &quot;Conteúdo patrocinado&quot;</li>
         </ul>
 

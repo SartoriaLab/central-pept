@@ -6,10 +6,12 @@ import Link from 'next/link';
 import { getCategoryPages } from '@/lib/categories';
 import { getBrands } from '@/lib/brands';
 
+const TOTAL = getPeptides().length;
+
 export const metadata: Metadata = {
-  title: 'Enciclopédia de Peptídeos: dose, efeitos e status de 21 compostos',
+  title: `Enciclopédia de Peptídeos: dose, efeitos e status de ${TOTAL} compostos`,
   description:
-    'Fichas de 21 peptídeos — semaglutida, tirzepatida, BPC-157, ipamorelina e outros — com dose típica, meia-vida, efeitos colaterais, status regulatório e referências.',
+    `Fichas de ${TOTAL} peptídeos — semaglutida, tirzepatida, BPC-157, ipamorelina e outros — com dose típica, meia-vida, efeitos colaterais, status regulatório e referências.`,
   alternates: { canonical: '/peptideos' },
 };
 

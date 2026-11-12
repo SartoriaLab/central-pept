@@ -44,10 +44,12 @@ const RELATED_LINKS: RelatedLink[] = [
   { href: '/ferramentas/mistura', label: 'Calculadora de mistura', desc: 'Combine peptídeos e veja a dose de cada um.' },
 ];
 
+const TOTAL = getPeptides().length;
+
 export const metadata: Metadata = {
   title: 'Calculadora de Peptídeos: reconstituição e unidades na seringa',
   description:
-    'Calcule quanta água bacteriostática usar e quantas unidades puxar na seringa: concentração, unidades por dose e doses por frasco em tempo real. 21 peptídeos, incluindo tirzepatida e semaglutida.',
+    `Calcule quanta água bacteriostática usar e quantas unidades puxar na seringa: concentração, unidades por dose e doses por frasco em tempo real. ${TOTAL} peptídeos, incluindo tirzepatida e semaglutida.`,
   openGraph: {
     title: 'Calculadora de Reconstituição de Peptídeos',
     description:
@@ -63,7 +65,7 @@ export default function ReconstitucaoPage() {
     <div className="max-w-6xl mx-auto px-4 md:px-6 py-6 md:py-10">
       <ToolSchema
         name="Calculadora de Reconstituição de Peptídeos"
-        description="Calcule concentração, unidades por dose e doses por frasco em tempo real, com 21 peptídeos catalogados."
+        description={`Calcule concentração, unidades por dose e doses por frasco em tempo real, com ${TOTAL} peptídeos catalogados.`}
         path="/ferramentas/reconstituicao"
       />
       <div className="mb-4 no-print">

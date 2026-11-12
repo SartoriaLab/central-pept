@@ -19,7 +19,6 @@ export type CategoryPage = {
   /** O que pesa na avaliação dos peptídeos desta categoria. */
   keyPoints: string[];
   faq: { q: string; a: string; link?: { label: string; href: string } }[];
-  /** Tags de ebook relacionadas (lib/ebooks.ts), se houver. */
 };
 
 export const CATEGORY_PAGES: CategoryPage[] = [
