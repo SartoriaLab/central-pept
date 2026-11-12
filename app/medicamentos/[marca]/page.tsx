@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Breadcrumb from '@/components/ui/Breadcrumb';
+import InfoCard from '@/components/ui/InfoCard';
 import RelatedLinks, { type RelatedLink } from '@/components/ui/RelatedLinks';
 import FAQ from '@/components/ui/FAQ';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
@@ -102,6 +103,33 @@ export default async function BrandPage({ params }: { params: Promise<Params> })
       </section>
 
       <div className="max-w-4xl mx-auto px-4 md:px-6 py-8 md:py-12">
+        <section aria-label="Dados rápidos" className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
+          <InfoCard
+            label="Aplicação"
+            value="1× por semana"
+            icon={<path d="M8 2v4M16 2v4M3 10h18M5 6h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z" />}
+          />
+          <InfoCard
+            label="Meia-vida"
+            value={peptide?.halfLife ?? '—'}
+            icon={<path d="M12 6v6l4 2M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" />}
+          />
+          {scheme && (
+            <InfoCard
+              label="Dose inicial"
+              value={`${num(scheme.steps[0].dose)} mg`}
+              icon={<path d="M5 12h14M12 5v14" />}
+            />
+          )}
+          {scheme && (
+            <InfoCard
+              label="Dose máxima"
+              value={`${num(scheme.steps[scheme.steps.length - 1].dose)} mg`}
+              icon={<path d="M3 17l6-6 4 4 8-8M14 7h7v7" />}
+            />
+          )}
+        </section>
+
         <section aria-labelledby="resumo" className="card overflow-x-auto">
           <h2 id="resumo" className="sr-only">Resumo do {b.name}</h2>
           <table className="w-full text-sm">
@@ -169,7 +197,17 @@ export default async function BrandPage({ params }: { params: Promise<Params> })
                         <td className="p-3 tabular-nums">
                           {next ? `${step.week} a ${next.week - 1}` : `${step.week} em diante`}
                         </td>
-                        <td className="p-3 font-semibold tabular-nums">{num(step.dose)} mg</td>
+                        <td className="p-3 font-semibold tabular-nums">
+                          <div className="flex items-center gap-3">
+                            <span className="w-16 shrink-0">{num(step.dose)} mg</span>
+                            <span className="hidden sm:block h-2 flex-1 max-w-[220px] rounded-full bg-teal-50" aria-hidden>
+                              <span
+                                className={`block h-2 rounded-full ${last ? 'bg-teal-700' : 'bg-teal'}`}
+                                style={{ width: `${(step.dose / scheme.steps[scheme.steps.length - 1].dose) * 100}%` }}
+                              />
+                            </span>
+                          </div>
+                        </td>
                         <td className="p-3 text-ink-2">
                           {i === 0 ? 'Dose inicial' : last ? 'Dose máxima' : 'Subida'}
                         </td>

@@ -782,8 +782,10 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug 
 
               {/* Duração do frasco */}
               <VialDuration
+                key={peptide?.slug}
                 dosesPerVial={result.dosesPerVial}
                 peptideName={peptide?.name}
+                frequency={peptide?.frequency}
               />
 
               {/* Safety scale visual */}
@@ -1103,8 +1105,18 @@ function PrintIcon() {
     </svg>
   );
 }
-function VialDuration({ dosesPerVial, peptideName }: { dosesPerVial: number; peptideName?: string }) {
-  const [freq, setFreq] = useState<'daily' | '2x-day' | '3x-week' | 'weekly'>('weekly');
+type VialFreq = 'daily' | '2x-day' | '3x-week' | 'weekly';
+
+/** Frequência inicial a partir do texto do peptídeo ("1-2x por dia", "1x por semana"...). */
+function defaultVialFreq(frequency?: string): VialFreq {
+  const m = frequency?.match(/^(\d)(?:-(\d))?x por (dia|semana)/);
+  if (!m) return 'daily';
+  if (m[3] === 'dia') return Number(m[1]) >= 2 ? '2x-day' : 'daily';
+  return m[1] === '3' || m[2] === '3' ? '3x-week' : 'weekly';
+}
+
+function VialDuration({ dosesPerVial, peptideName, frequency }: { dosesPerVial: number; peptideName?: string; frequency?: string }) {
+  const [freq, setFreq] = useState<VialFreq>(() => defaultVialFreq(frequency));
 
   const durationDays = useMemo(() => {
     if (!(dosesPerVial > 0)) return 0;

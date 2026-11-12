@@ -59,6 +59,15 @@ const TOOLS = [
       <path d="M8 2v4M16 2v4M3 10h18M5 6h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z" />
     ),
   },
+  {
+    slug: 'custo-glp1',
+    title: 'Custo de GLP-1',
+    desc: 'Quanto sai por dose, por mês e por mg em cada apresentação.',
+    color: 'orange',
+    icon: (
+      <path d="M12 2v20M17 6H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+    ),
+  },
 ];
 
 const STEPS = [
@@ -82,8 +91,8 @@ const STEPS = [
 export default function HomePage() {
   const peptides = getPeptides();
   const fdaApproved = peptides.filter((p) => p.regulatoryStatus === 'fda-approved').length;
-  const wadaBanned = peptides.filter((p) => p.wadaProhibited).length;
-  const recentPosts = getArticles().slice(0, 3);
+  const articles = getArticles();
+  const recentPosts = articles.slice(0, 3);
   return (
     <div>
       {/* ═══ HERO ═══ */}
@@ -166,8 +175,8 @@ export default function HomePage() {
           <div className="mt-12 md:mt-16 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
             <Stat n={peptides.length} label="Peptídeos catalogados" />
             <Stat n={fdaApproved} label="Aprovados pela FDA" />
-            <Stat n={wadaBanned} label="Proibidos no esporte (WADA)" />
-            <Stat n="5" label="Calculadoras ativas" />
+            <Stat n={articles.length} label="Guias e artigos" />
+            <Stat n={TOOLS.length} label="Calculadoras ativas" />
           </div>
         </div>
       </section>

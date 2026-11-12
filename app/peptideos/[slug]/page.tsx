@@ -14,23 +14,11 @@ import { getArticlesByPeptide } from '@/lib/articles';
 import { getComparisonsByPeptide } from '@/lib/comparisons';
 import { getCategoryPageForPeptide } from '@/lib/categories';
 import { getBrandsByPeptide } from '@/lib/brands';
+import InfoCard from '@/components/ui/InfoCard';
 
 const SITE = process.env.SITE_URL || 'https://centralpeptideos.com.br';
 
 type Params = { slug: string };
-
-// Cor de acento por categoria (gradient hero)
-const CATEGORY_GRADIENT: Record<string, string> = {
-  'healing':     'from-green-500/20 to-green-500/0',
-  'glp-1':       'from-blue-500/20 to-blue-500/0',
-  'gh':          'from-violet-500/20 to-violet-500/0',
-  'sexual':      'from-pink-500/20 to-pink-500/0',
-  'cosmetic':    'from-amber-500/20 to-amber-500/0',
-  'longevity':   'from-teal-500/20 to-teal-500/0',
-  'weight-loss': 'from-orange-500/20 to-orange-500/0',
-  'cognitive':   'from-indigo-500/20 to-indigo-500/0',
-  'hormone':     'from-rose-500/20 to-rose-500/0',
-};
 
 export async function generateStaticParams(): Promise<Params[]> {
   return getPeptideSlugs().map((slug) => ({ slug }));
@@ -111,15 +99,13 @@ export default async function PeptidePage({
     audience: { '@type': 'MedicalAudience', audienceType: 'patient' },
   };
 
-  const gradientClass = (p.category && CATEGORY_GRADIENT[p.category]) || 'from-teal-500/20 to-teal-500/0';
-
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(substanceJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }} />
 
       {/* ═══ HERO ═══ */}
-      <section className={`relative overflow-hidden bg-gradient-to-br ${gradientClass}`}>
+      <section className="bg-gradient-mesh border-b border-border">
         <div className="max-w-4xl mx-auto px-4 md:px-6 pt-8 pb-10 md:pt-12 md:pb-14">
           <div className="mb-5">
             <Breadcrumb items={[
@@ -426,20 +412,6 @@ export default async function PeptidePage({
         <MedicalDisclaimer variant="prominent" />
       </div>
     </>
-  );
-}
-
-function InfoCard({ label, value, icon, small }: { label: string; value: string; icon: React.ReactNode; small?: boolean }) {
-  return (
-    <div className="card p-4">
-      <div className="flex items-center gap-2 mb-1.5 text-ink-3">
-        <svg viewBox="0 0 24 24" width={14} height={14} fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-          {icon}
-        </svg>
-        <span className="text-[11px] font-bold uppercase tracking-wider">{label}</span>
-      </div>
-      <div className={`font-bold text-ink tabular-nums ${small ? 'text-sm' : 'text-lg'}`}>{value}</div>
-    </div>
   );
 }
 

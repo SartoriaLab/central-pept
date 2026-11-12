@@ -114,7 +114,8 @@ export default async function CategoryPage({ params }: { params: Promise<Params>
 
         <section className="mt-10" aria-labelledby="lista">
           <h2 id="lista" className="text-2xl font-bold mb-4">Lista comparada</h2>
-          <div className="card overflow-x-auto">
+          {/* relative: prende o sr-only do cabeçalho dentro da área de rolagem (senão alarga a página no celular) */}
+          <div className="card overflow-x-auto relative">
             <table className="w-full text-sm">
               <thead>
                 <tr className="text-left text-[11px] uppercase tracking-wider text-ink-3 border-b border-border">
