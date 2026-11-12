@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { getArticles } from '@/lib/articles';
 import NewsletterSignup from '@/components/ui/NewsletterSignup';
+import ArticleCard from '@/components/blog/ArticleCard';
 
 export const metadata: Metadata = {
   title: 'Blog de Peptídeos: guias de dose, reconstituição e GLP-1',
@@ -37,39 +38,9 @@ export default function BlogPage() {
             Primeiros artigos em breve.
           </div>
         ) : (
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-4 md:gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {articles.map((a) => (
-              <Link
-                key={a.slug}
-                href={`/blog/${a.slug}`}
-                className="group card-hover block overflow-hidden"
-              >
-                <div className={`h-32 bg-gradient-to-br ${a.coverColor || 'from-teal-500/20 to-teal-500/0'} relative`}>
-                  <div className="absolute inset-0 bg-dots opacity-30" aria-hidden />
-                </div>
-                <div className="p-5">
-                  <div className="flex flex-wrap gap-1.5 mb-2">
-                    {a.tags.slice(0, 2).map((tag) => (
-                      <span key={tag} className="text-[10px] font-semibold uppercase tracking-wider text-ink-3">
-                        #{tag}
-                      </span>
-                    ))}
-                  </div>
-                  <h2 className="font-bold text-lg leading-tight group-hover:text-teal-700 transition-colors line-clamp-2">
-                    {a.title}
-                  </h2>
-                  <p className="mt-2 text-sm text-ink-2 line-clamp-2 leading-relaxed">
-                    {a.excerpt}
-                  </p>
-                  <div className="mt-3 flex items-center gap-2 text-xs text-ink-3">
-                    <time dateTime={a.publishedAt}>
-                      {new Date(a.publishedAt).toLocaleDateString('pt-BR', { day: '2-digit', month: 'short' })}
-                    </time>
-                    <span>·</span>
-                    <span>{a.readMinutes} min</span>
-                  </div>
-                </div>
-              </Link>
+              <ArticleCard key={a.slug} article={a} />
             ))}
           </div>
         )}

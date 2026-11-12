@@ -118,7 +118,7 @@ export default async function PeptidePage({
             {p.category && typeof p.category === 'string' && (p.category in CATEGORY_LABELS) && (
               <Link
                 href={categoryPage ? `/peptideos/categoria/${categoryPage.slug}` : '/peptideos'}
-                className="text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-surface/70 backdrop-blur text-ink-2 border border-border hover:border-teal hover:text-teal-700 transition-colors"
+                className="text-xs font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-surface/70 backdrop-blur text-ink-2 border border-border hover:border-teal hover:text-teal-700 transition-colors"
               >
                 {CATEGORY_LABELS[p.category as keyof typeof CATEGORY_LABELS]}
               </Link>
@@ -337,8 +337,8 @@ export default async function PeptidePage({
         <FAQ items={faq} title={`Perguntas frequentes sobre ${p.name}`} />
 
         {guides.length > 0 && (
-          <section className="mt-12" aria-labelledby="guias">
-            <h2 id="guias" className="text-xl font-bold mb-4">Guias sobre {p.name}</h2>
+          <section className="mt-10" aria-labelledby="guias">
+            <h2 id="guias" className="text-xl md:text-2xl font-bold mb-4">Guias sobre {p.name}</h2>
             <div className="grid gap-3 sm:grid-cols-2">
               {guides.slice(0, 4).map((a) => (
                 <GuideCard key={a.slug} slug={a.slug} title={a.title} excerpt={a.excerpt} readMinutes={a.readMinutes} />
@@ -366,14 +366,14 @@ export default async function PeptidePage({
 
 
         {comparisons.length > 0 && (
-          <section className="mt-12">
-            <h2 className="text-xl font-bold mb-4">Compare {p.name} com outros peptídeos</h2>
+          <section className="mt-10">
+            <h2 className="text-xl md:text-2xl font-bold mb-4">Compare {p.name} com outros peptídeos</h2>
             <div className="flex flex-wrap gap-2">
               {comparisons.map((c) => (
                 <Link
                   key={c.slug}
                   href={`/comparar/${c.slug}`}
-                  className="inline-flex items-center px-3 py-1.5 text-sm font-semibold rounded-full border border-border bg-surface text-ink-2 hover:border-teal hover:text-teal-700 hover:bg-teal-50 transition-colors"
+                  className="chip-lg"
                 >
                   {c.title}
                 </Link>
@@ -383,8 +383,8 @@ export default async function PeptidePage({
         )}
 
         {related.length > 0 && (
-          <section className="mt-12">
-            <h2 className="text-xl font-bold mb-4">Peptídeos relacionados</h2>
+          <section className="mt-10">
+            <h2 className="text-xl md:text-2xl font-bold mb-4">Peptídeos relacionados</h2>
             <div className="grid gap-3 sm:grid-cols-3">
               {related.map((r) => (
                 <Link
@@ -394,7 +394,7 @@ export default async function PeptidePage({
                 >
                   <div className="flex items-start justify-between gap-2">
                     <h3 className="font-semibold text-sm leading-tight">{r.name}</h3>
-                    <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded-full bg-teal-50 text-teal-700 border border-teal-100 whitespace-nowrap flex-shrink-0">
+                    <span className="text-xs font-semibold px-1.5 py-0.5 rounded-full bg-teal-50 text-teal-700 border border-teal-100 whitespace-nowrap flex-shrink-0">
                       {r.typicalDose} {r.doseUnit}
                     </span>
                   </div>

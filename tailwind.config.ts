@@ -10,14 +10,15 @@ const config: Config = {
     extend: {
       colors: {
         // tokens dinâmicos que respondem ao modo claro/escuro via CSS var
+        // canais RGB + <alpha-value>: aceita opacidade (bg-surface/80, bg-ink/50…)
         teal: {
-          DEFAULT: 'var(--teal)',
-          50:  'var(--teal-50)',
-          100: 'var(--teal-100)',
+          DEFAULT: 'rgb(var(--teal-rgb) / <alpha-value>)',
+          50:  'rgb(var(--teal-50-rgb) / <alpha-value>)',
+          100: 'rgb(var(--teal-100-rgb) / <alpha-value>)',
           400: '#2dd4bf',
           500: '#14b8a6',
           600: '#0d9488',
-          700: 'var(--teal-700)',
+          700: 'rgb(var(--teal-700-rgb) / <alpha-value>)',
         },
         // Cor secundária — laranja para energia/highlights
         orange: {
@@ -29,14 +30,14 @@ const config: Config = {
           700: '#c2410c',
         },
         ink: {
-          DEFAULT: 'var(--text)',
-          2: 'var(--text-2)',
-          3: 'var(--text-3)',
+          DEFAULT: 'rgb(var(--text-rgb) / <alpha-value>)',
+          2: 'rgb(var(--text-2-rgb) / <alpha-value>)',
+          3: 'rgb(var(--text-3-rgb) / <alpha-value>)',
         },
-        surface: 'var(--surface)',
-        bg:      'var(--bg)',
-        border:  'var(--border)',
-        'border-2': 'var(--border-2)',
+        surface: 'rgb(var(--surface-rgb) / <alpha-value>)',
+        bg:      'rgb(var(--bg-rgb) / <alpha-value>)',
+        border:  'rgb(var(--border-rgb) / <alpha-value>)',
+        'border-2': 'rgb(var(--border-2-rgb) / <alpha-value>)',
       },
       fontFamily: {
         sans: ['var(--font-inter)', 'system-ui', '-apple-system', 'sans-serif'],

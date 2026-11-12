@@ -2,7 +2,7 @@ import { REGULATORY_LABELS, type RegulatoryStatus } from '@/lib/peptides';
 
 const TONE_CLASS = {
   success: 'bg-green-50 border-green-200 text-green-800',
-  neutral: 'bg-slate-100 border-slate-200 text-slate-700',
+  neutral: 'bg-bg border-border-2 text-ink-2',
   warn:    'bg-amber-50 border-amber-200 text-amber-900',
   danger:  'bg-red-50 border-red-200 text-red-800',
 } as const;
@@ -17,7 +17,7 @@ export function RegulatoryBadge({
   size?: Size;
 }) {
   const cfg = REGULATORY_LABELS[status];
-  const sz = size === 'sm' ? 'text-[10px] px-1.5 py-0.5' : 'text-xs px-2 py-0.5';
+  const sz = size === 'sm' ? 'text-xs px-2 py-0.5' : 'text-xs px-2 py-0.5';
   return (
     <span
       className={`inline-flex items-center font-semibold rounded-full border whitespace-nowrap ${sz} ${TONE_CLASS[cfg.tone]}`}
@@ -29,7 +29,7 @@ export function RegulatoryBadge({
 }
 
 export function WadaBadge({ size = 'md' }: { size?: Size }) {
-  const sz = size === 'sm' ? 'text-[10px] px-1.5 py-0.5' : 'text-xs px-2 py-0.5';
+  const sz = size === 'sm' ? 'text-xs px-2 py-0.5' : 'text-xs px-2 py-0.5';
   return (
     <span
       className={`inline-flex items-center gap-1 font-semibold rounded-full border whitespace-nowrap ${sz} bg-red-50 border-red-200 text-red-800`}

@@ -35,13 +35,13 @@ export default function MedicamentosPage() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto px-4 md:px-6 py-6 md:py-10">
+    <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <section className="bg-gradient-mesh border-b border-border">
+        <div className="max-w-4xl mx-auto px-4 md:px-6 pt-10 pb-8 md:pt-14 md:pb-12">
       <div className="mb-4">
         <Breadcrumb items={[{ label: 'Medicamentos' }]} siteUrl={SITE_URL} />
       </div>
-
-      <div className="mb-8">
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight">
           Mounjaro, Ozempic, Wegovy e Zepbound: <span className="text-teal-700">o que muda entre as marcas</span>
         </h1>
@@ -50,12 +50,15 @@ export default function MedicamentosPage() {
           Lilly; Ozempic e Wegovy são semaglutida, da Novo Nordisk. O que separa cada par é a indicação
           registrada em bula e a dose máxima.
         </p>
-      </div>
+        </div>
+      </section>
+
+      <div className="max-w-4xl mx-auto px-4 md:px-6 py-8 md:py-12">
 
       <div className="grid gap-4 sm:grid-cols-2">
         {brands.map((b) => (
           <Link key={b.slug} href={`/medicamentos/${b.slug}`} className="card-hover p-5 block group">
-            <span className="text-[11px] font-bold uppercase tracking-wider text-teal-700">
+            <span className="text-xs font-bold uppercase tracking-wider text-teal-700">
               {b.activeIngredient} · {b.manufacturer}
             </span>
             <h2 className="mt-1 text-xl font-extrabold text-ink group-hover:text-teal-700 transition-colors">{b.name}</h2>
@@ -64,12 +67,12 @@ export default function MedicamentosPage() {
         ))}
       </div>
 
-      <section className="mt-12" aria-labelledby="comparativo">
-        <h2 id="comparativo" className="text-2xl font-bold mb-4">Comparativo rápido</h2>
+      <section className="mt-10" aria-labelledby="comparativo">
+        <h2 id="comparativo" className="text-xl md:text-2xl font-bold mb-4">Comparativo rápido</h2>
         <div className="card overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
-              <tr className="text-left text-[11px] uppercase tracking-wider text-ink-3 border-b border-border">
+              <tr className="text-left text-xs uppercase tracking-wider text-ink-3 border-b border-border">
                 <th scope="col" className="p-3 font-bold">Marca</th>
                 <th scope="col" className="p-3 font-bold">Princípio ativo</th>
                 <th scope="col" className="p-3 font-bold">Indicação principal (bula FDA)</th>
@@ -106,6 +109,7 @@ export default function MedicamentosPage() {
       </section>
 
       <MedicalDisclaimer variant="prominent" />
-    </div>
+      </div>
+    </>
   );
 }

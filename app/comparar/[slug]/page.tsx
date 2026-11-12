@@ -113,7 +113,7 @@ export default async function ComparisonPage({ params }: { params: Promise<Param
         <Comparator peptides={peptides} initialSlugs={c.peptideSlugs} />
 
         <section className="mt-10" aria-labelledby="resumo-comparativo">
-          <h2 id="resumo-comparativo" className="text-xl font-bold mb-4">Resumo de cada um</h2>
+          <h2 id="resumo-comparativo" className="text-xl md:text-2xl font-bold mb-4">Resumo de cada um</h2>
           <div className={`grid gap-4 ${items.length > 2 ? 'md:grid-cols-3' : 'md:grid-cols-2'}`}>
             {items.map((p) => (
               <div key={p.slug} className="card p-5">
@@ -156,7 +156,7 @@ export default async function ComparisonPage({ params }: { params: Promise<Param
 
         <FAQ items={faq} title={`Perguntas frequentes: ${c.title}`} />
 
-        <section className="mt-12">
+        <section className="mt-10">
           <h2 className="text-sm font-bold uppercase tracking-wider text-ink-3 mb-3">Outras comparações</h2>
           <div className="flex flex-wrap gap-2">
             {others.map((o) => (

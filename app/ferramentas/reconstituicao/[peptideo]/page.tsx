@@ -173,8 +173,8 @@ export default async function PeptideReconstitutionPage({ params }: { params: Pr
       <ReconstitutionCalculator peptides={peptides} initialPeptideSlug={p.slug} />
 
       {rows.length > 0 && (
-        <section className="mt-12" aria-labelledby="tabela-pronta">
-          <h2 id="tabela-pronta" className="text-xl font-bold mb-2">
+        <section className="mt-10" aria-labelledby="tabela-pronta">
+          <h2 id="tabela-pronta" className="text-xl md:text-2xl font-bold mb-2">
             Tabela pronta: {p.name} em unidades na seringa
           </h2>
           <p className="text-sm text-ink-2 mb-4 max-w-3xl">
@@ -184,7 +184,7 @@ export default async function PeptideReconstitutionPage({ params }: { params: Pr
           <div className="card overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="text-left text-[11px] uppercase tracking-wider text-ink-3 border-b border-border">
+                <tr className="text-left text-xs uppercase tracking-wider text-ink-3 border-b border-border">
                   <th scope="col" className="p-3 font-bold">Frasco</th>
                   <th scope="col" className="p-3 font-bold">Água</th>
                   <th scope="col" className="p-3 font-bold">Concentração</th>
@@ -217,7 +217,7 @@ export default async function PeptideReconstitutionPage({ params }: { params: Pr
 
       {titrationDoses.length > 0 && (
         <section className="mt-10" aria-labelledby="tabela-titulacao">
-          <h2 id="tabela-titulacao" className="text-xl font-bold mb-2">
+          <h2 id="tabela-titulacao" className="text-xl md:text-2xl font-bold mb-2">
             Unidades em cada dose da subida ({p.name})
           </h2>
           <p className="text-sm text-ink-2 mb-4 max-w-3xl">
@@ -227,7 +227,7 @@ export default async function PeptideReconstitutionPage({ params }: { params: Pr
           <div className="card overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="text-left text-[11px] uppercase tracking-wider text-ink-3 border-b border-border">
+                <tr className="text-left text-xs uppercase tracking-wider text-ink-3 border-b border-border">
                   <th scope="col" className="p-3 font-bold">Dose semanal</th>
                   {p.commonAmounts.map((v) => (
                     <th key={v} scope="col" className="p-3 font-bold">
@@ -268,7 +268,7 @@ export default async function PeptideReconstitutionPage({ params }: { params: Pr
       )}
 
       <section className="mt-10 max-w-3xl" aria-labelledby="como-calcular">
-        <h2 id="como-calcular" className="text-xl font-bold mb-3">Como a conta é feita</h2>
+        <h2 id="como-calcular" className="text-xl md:text-2xl font-bold mb-3">Como a conta é feita</h2>
         <ol className="space-y-2 text-ink-2 list-decimal pl-5 leading-relaxed">
           <li><strong>Concentração</strong> = mg do frasco ÷ ml de água adicionada.</li>
           <li><strong>Volume da dose</strong> = dose em mg ÷ concentração.</li>
@@ -289,7 +289,7 @@ export default async function PeptideReconstitutionPage({ params }: { params: Pr
 
       <FAQ items={faq} title={`Perguntas frequentes: calculadora de ${p.name}`} />
 
-      <section className="mt-12 no-print" aria-labelledby="outras-calculadoras">
+      <section className="mt-10 no-print" aria-labelledby="outras-calculadoras">
         <h2 id="outras-calculadoras" className="text-sm font-bold uppercase tracking-wider text-ink-3 mb-3">
           Calculadora de outros peptídeos
         </h2>
@@ -298,7 +298,7 @@ export default async function PeptideReconstitutionPage({ params }: { params: Pr
             <Link
               key={o.slug}
               href={`/ferramentas/reconstituicao/${o.slug}`}
-              className="inline-flex items-center px-3 py-1.5 text-sm font-semibold rounded-full border border-border bg-surface text-ink-2 hover:border-teal hover:text-teal-700 hover:bg-teal-50 transition-colors"
+              className="chip-lg"
             >
               {o.name}
             </Link>

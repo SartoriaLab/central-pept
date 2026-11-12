@@ -76,14 +76,14 @@ export const metadata: Metadata = {
   alternates: { canonical: PATH },
 };
 
-const th = 'p-2.5 font-bold text-left text-[11px] uppercase tracking-wider text-ink-3';
-const td = 'p-2.5 tabular-nums';
+const th = 'p-2.5 font-bold text-left text-xs uppercase tracking-wider text-ink-3';
+const td = 'p-2.5 tabular-nums whitespace-nowrap';
 
 export default function TabelaDosesGlp1Page() {
   const schemes = uniqueSchemes();
 
   return (
-    <div className="max-w-5xl mx-auto px-4 md:px-6 py-6 md:py-10">
+    <div className="max-w-6xl mx-auto px-4 md:px-6 py-6 md:py-10">
       <div className="mb-4">
         <Breadcrumb items={[{ label: 'Ferramentas', href: '/ferramentas' }, { label: 'Tabela de doses GLP-1' }]} siteUrl={SITE_URL} />
       </div>
@@ -103,7 +103,7 @@ export default function TabelaDosesGlp1Page() {
       </div>
 
       <section aria-labelledby="escada">
-        <h2 id="escada" className="text-xl font-bold mb-3">1. Escada de doses (titulação)</h2>
+        <h2 id="escada" className="text-xl md:text-2xl font-bold mb-3">1. Escada de doses (titulação)</h2>
         <div className="grid gap-4 md:grid-cols-2">
           {schemes.map(({ scheme, label }) => (
             <div key={scheme.id} className="card overflow-hidden">
@@ -141,7 +141,7 @@ export default function TabelaDosesGlp1Page() {
       </section>
 
       <section className="mt-10" aria-labelledby="unidades">
-        <h2 id="unidades" className="text-xl font-bold mb-1">2. Unidades na seringa (frasco reconstituído)</h2>
+        <h2 id="unidades" className="text-xl md:text-2xl font-bold mb-1">2. Unidades na seringa (frasco reconstituído)</h2>
         <p className="text-sm text-ink-2 mb-4 max-w-3xl">
           Seringa de insulina U100: 100 unidades = 1 ml. Só para frasco reconstituído — não vale para caneta.
           &quot;—&quot; indica dose maior que o frasco ou acima de 100 U (não cabe em uma seringa de 1 ml).
@@ -153,15 +153,16 @@ export default function TabelaDosesGlp1Page() {
             const doses = getTitrationDoses(slug);
             const cols = p.commonAmounts.flatMap((vial) => WATER_VOLUMES.map((water) => ({ vial, water })));
             return (
-              <div key={slug} className="card overflow-x-auto">
+              <div key={slug} className="card overflow-x-auto relative">
                 <h3 className="px-3 pt-3 font-bold text-ink">{p.name}</h3>
                 <table className="w-full text-sm mt-1">
                   <thead>
                     <tr className="border-b border-border">
-                      <th scope="col" className={th}>Dose</th>
+                      <th scope="col" className={`${th} sticky left-0 bg-surface`}>Dose</th>
                       {cols.map((c) => (
-                        <th key={`${c.vial}-${c.water}`} scope="col" className={th}>
-                          {fmt(c.vial, 2)} mg + {fmt(c.water, 1)} ml
+                        <th key={`${c.vial}-${c.water}`} scope="col" className={`${th} whitespace-nowrap`}>
+                          <span className="block text-ink-2">{fmt(c.vial, 2)} mg</span>
+                          <span className="block font-semibold normal-case tracking-normal">+ {fmt(c.water, 1)} ml</span>
                         </th>
                       ))}
                     </tr>
@@ -169,7 +170,7 @@ export default function TabelaDosesGlp1Page() {
                   <tbody>
                     {doses.map((d) => (
                       <tr key={d} className="border-b border-border last:border-0">
-                        <td className={`${td} font-semibold`}>{fmt(d, 2)} mg</td>
+                        <th scope="row" className={`${td} font-semibold text-left whitespace-nowrap sticky left-0 bg-surface`}>{fmt(d, 2)} mg</th>
                         {cols.map((c) => {
                           const r = d <= c.vial ? calcByVolume(c.vial, c.water, d) : null;
                           const ok = r && r.unitsPerDose <= 100;
@@ -194,7 +195,7 @@ export default function TabelaDosesGlp1Page() {
       </section>
 
       <section className="mt-10" aria-labelledby="registro">
-        <h2 id="registro" className="text-xl font-bold mb-3">3. Registro das aplicações</h2>
+        <h2 id="registro" className="text-xl md:text-2xl font-bold mb-3">3. Registro das aplicações</h2>
         <div className="card overflow-x-auto">
           <table className="w-full text-sm">
             <thead>

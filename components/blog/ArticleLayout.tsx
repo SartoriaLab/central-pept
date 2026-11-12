@@ -88,7 +88,7 @@ export default function ArticleLayout({ article, children }: Props) {
                 <Link
                   key={tag}
                   href={`/blog/tag/${slug}`}
-                  className="text-[11px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full bg-surface/70 backdrop-blur text-ink-2 border border-border hover:border-teal hover:text-teal-700 transition-colors"
+                  className="text-xs font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full bg-surface/70 backdrop-blur text-ink-2 border border-border hover:border-teal hover:text-teal-700 transition-colors"
                 >
                   #{tag}
                 </Link>
@@ -203,7 +203,7 @@ export default function ArticleLayout({ article, children }: Props) {
 
         {/* Peptídeos relacionados */}
         {article.relatedPeptides && article.relatedPeptides.length > 0 && (
-          <section className="mt-12 pt-8 border-t border-border not-prose">
+          <section className="mt-10 pt-8 border-t border-border not-prose">
             <h2 className="text-sm font-bold uppercase tracking-wider text-ink-3 mb-3">
               Peptídeos citados neste artigo
             </h2>
@@ -220,7 +220,7 @@ export default function ArticleLayout({ article, children }: Props) {
               ))}
               {/* Marcas comerciais do peptídeo principal do artigo */}
               {getBrandsByPeptide(article.relatedPeptides[0]).map((b) => (
-                <Link key={b.slug} href={`/medicamentos/${b.slug}`} className="inline-flex items-center px-3 py-1.5 text-sm font-semibold rounded-full border border-border bg-surface text-ink-2 hover:border-teal hover:text-teal-700 hover:bg-teal-50 transition-colors">
+                <Link key={b.slug} href={`/medicamentos/${b.slug}`} className="chip-lg">
                   {b.name}
                 </Link>
               ))}

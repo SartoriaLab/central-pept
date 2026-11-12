@@ -42,7 +42,7 @@ export default function InjectionSiteGuide() {
               <path d="M12 2a8 8 0 0 0-8 8c0 6 8 12 8 12s8-6 8-12a8 8 0 0 0-8-8z" />
             </svg>
           </span>
-          <h2 className="text-xl font-bold text-ink">Onde aplicar</h2>
+          <h2 className="text-xl md:text-2xl font-bold text-ink">Onde aplicar</h2>
         </div>
         <p className="text-sm text-ink-2 ml-12">
           Peptídeos subcutâneos podem ser aplicados em 3 regiões principais. Revezar é importante para evitar lipohipertrofia.
@@ -54,7 +54,7 @@ export default function InjectionSiteGuide() {
         <div className="p-6 flex items-center justify-center bg-bg/50">
           <svg viewBox="0 0 240 400" className="w-full max-w-[220px] h-auto" aria-label="Boneco humano com locais de aplicação">
             {/* Body outline */}
-            <g fill="var(--border-2)" stroke="var(--ink-3)" strokeWidth="1.5" opacity="0.35">
+            <g fill="var(--border-2)" stroke="var(--text-3)" strokeWidth="1.5" opacity="0.35">
               {/* Head */}
               <circle cx="120" cy="40" r="22" />
               {/* Neck */}
@@ -115,11 +115,11 @@ export default function InjectionSiteGuide() {
 
             <div className="grid grid-cols-2 gap-3 mb-4">
               <div className="p-3 rounded-lg bg-bg">
-                <div className="text-[10px] font-bold uppercase tracking-wider text-ink-3">Absorção</div>
+                <div className="text-xs font-bold uppercase tracking-wider text-ink-3">Absorção</div>
                 <div className="font-bold text-ink text-sm mt-0.5">{activeSite.absorption}</div>
               </div>
               <div className="p-3 rounded-lg bg-bg">
-                <div className="text-[10px] font-bold uppercase tracking-wider text-ink-3">Facilidade</div>
+                <div className="text-xs font-bold uppercase tracking-wider text-ink-3">Facilidade</div>
                 <div className="font-bold text-ink text-sm mt-0.5">{activeSite.ease}</div>
               </div>
             </div>

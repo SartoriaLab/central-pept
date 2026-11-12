@@ -3,12 +3,13 @@
 import { useMemo, useState } from 'react';
 import { TITRATION_SCHEMES } from '@/lib/titration';
 import { EVENTS, track } from '@/lib/track';
+import { parseLocalDate, todayLocalISO } from '@/lib/dates';
 
 const SCHEMES = TITRATION_SCHEMES;
 
 export default function TitrationCalculator() {
   const [schemeId, setSchemeId] = useState<string>(SCHEMES[1].id);
-  const [startDate, setStartDate] = useState(() => new Date().toISOString().slice(0, 10));
+  const [startDate, setStartDate] = useState(() => todayLocalISO());
   const [weeksPerStep, setWeeksPerStep] = useState(4);
 
   const scheme = useMemo(() => SCHEMES.find((s) => s.id === schemeId)!, [schemeId]);
@@ -22,7 +23,8 @@ export default function TitrationCalculator() {
   }, [scheme, weeksPerStep]);
 
   const dateFor = (weekNumber: number): string => {
-    const start = new Date(startDate);
+    const start = parseLocalDate(startDate);
+    if (Number.isNaN(start.getTime())) return '—';
     const d = new Date(start);
     d.setDate(start.getDate() + (weekNumber - 1) * 7);
     return d.toLocaleDateString('pt-BR', { day: '2-digit', month: 'short', year: 'numeric' });
@@ -37,7 +39,7 @@ export default function TitrationCalculator() {
       `${d.getUTCFullYear()}${pad(d.getUTCMonth() + 1)}${pad(d.getUTCDate())}T090000Z`;
     const uid = () => `${Date.now()}-${Math.random().toString(36).slice(2, 8)}@centralpeptideos`;
 
-    const start = new Date(startDate + 'T09:00:00');
+    const start = parseLocalDate(startDate, 9);
     const events = schedule.map((step) => {
       const startDt = new Date(start);
       startDt.setDate(start.getDate() + (step.week - 1) * 7);
@@ -78,7 +80,7 @@ export default function TitrationCalculator() {
   }
 
   return (
-    <div className="grid grid-cols-1 gap-6 lg:grid-cols-[460px_minmax(0,1fr)] items-start">
+    <div className="grid grid-cols-1 gap-6 md:grid-cols-[minmax(0,340px)_minmax(0,1fr)] lg:grid-cols-[460px_minmax(0,1fr)] items-start">
       {/* Inputs */}
       <div className="flex flex-col gap-5">
         <section className="card p-6">
@@ -90,7 +92,7 @@ export default function TitrationCalculator() {
             {SCHEMES.map((s) => (
               <label
                 key={s.id}
-                className={`flex items-start gap-3 p-3 rounded-lg border-[1.5px] cursor-pointer transition-all ${
+                className={`relative flex items-start gap-3 p-3 rounded-lg border-[1.5px] cursor-pointer transition-all has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-teal ${
                   schemeId === s.id
                     ? 'border-teal bg-teal-50'
                     : 'border-border-2 bg-surface hover:border-teal'
@@ -130,17 +132,18 @@ export default function TitrationCalculator() {
                 type="date"
                 value={startDate}
                 onChange={(e) => setStartDate(e.target.value)}
-                className="h-11 px-3 border-[1.5px] border-border-2 rounded bg-surface text-sm outline-none focus:border-teal focus:ring-[3px] focus:ring-teal-50"
+                className="input"
               />
             </label>
-            <label className="flex flex-col gap-1.5">
-              <span className="text-xs font-semibold text-ink-2">Semanas em cada etapa</span>
-              <div className="flex gap-2">
+            <div className="flex flex-col gap-1.5">
+              <span id="semanas-etapa" className="text-xs font-semibold text-ink-2">Semanas em cada etapa</span>
+              <div className="flex gap-2" role="group" aria-labelledby="semanas-etapa">
                 {[4, 6, 8].map((w) => (
                   <button
                     key={w}
                     type="button"
                     onClick={() => setWeeksPerStep(w)}
+                    aria-pressed={weeksPerStep === w}
                     className={`flex-1 h-11 rounded border-[1.5px] font-bold text-sm tabular-nums transition-all ${
                       weeksPerStep === w
                         ? 'border-teal bg-teal-50 text-teal-700'
@@ -151,10 +154,10 @@ export default function TitrationCalculator() {
                   </button>
                 ))}
               </div>
-              <span className="text-[11px] text-ink-3">
+              <span className="text-xs text-ink-3">
                 Bula padrão: 4 semanas por etapa. Para minimizar náusea, considere 6-8.
               </span>
-            </label>
+            </div>
           </div>
         </section>
       </div>

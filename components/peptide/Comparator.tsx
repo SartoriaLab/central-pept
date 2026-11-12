@@ -142,7 +142,7 @@ export default function Comparator({ peptides, initialSlugs = [] }: Props) {
       render: (p) => p.commonAmounts.length > 0
         ? <span className="inline-flex flex-wrap gap-1">
             {p.commonAmounts.map((a) => (
-              <span key={a} className="text-[11px] font-semibold px-1.5 py-0.5 rounded bg-teal-50 text-teal-700 border border-teal-100 tabular-nums">{a} mg</span>
+              <span key={a} className="text-xs font-semibold px-1.5 py-0.5 rounded bg-teal-50 text-teal-700 border border-teal-100 tabular-nums">{a} mg</span>
             ))}
           </span>
         : <span className="text-ink-3">—</span>,
@@ -237,16 +237,16 @@ export default function Comparator({ peptides, initialSlugs = [] }: Props) {
           )}
 
           {/* ═══ DESKTOP: Tabela sticky ═══ */}
-          <div className="hidden md:block card overflow-hidden">
-            <div className="overflow-x-auto">
+          <div className="hidden md:block card overflow-hidden lg:overflow-visible">
+            <div className="overflow-x-auto lg:overflow-visible">
               <table className="w-full text-sm">
-                <thead className="sticky top-20 bg-surface z-10">
+                <thead className="bg-surface lg:sticky lg:top-20 z-10 shadow-[0_1px_0_rgb(var(--border-rgb))]">
                   <tr className="border-b border-border">
-                    <th className="sticky left-0 bg-surface text-left py-3 px-4 text-[11px] font-bold uppercase tracking-wider text-ink-3 w-48 z-10">
+                    <th className="sticky left-0 bg-surface text-left py-3 px-4 text-xs font-bold uppercase tracking-wider text-ink-3 w-48 z-10 lg:rounded-tl-xl">
                       Critério
                     </th>
                     {items.map((p) => (
-                      <th key={p.slug} className="text-left py-3 px-4 font-bold min-w-[180px]">
+                      <th key={p.slug} className="bg-surface text-left py-3 px-4 font-bold min-w-[180px] lg:last:rounded-tr-xl">
                         <span className="flex items-center gap-1.5">
                           {p.category && (
                             <span className={`w-1.5 h-6 rounded ${CATEGORY_ACCENT[p.category] || 'bg-teal-500'}`} aria-hidden />
@@ -262,10 +262,10 @@ export default function Comparator({ peptides, initialSlugs = [] }: Props) {
                 <tbody className="divide-y divide-border">
                   {metrics.map((m) => {
                     const isDiff = diffKeys.has(m.key);
-                    const bg = m.highlightDiff && isDiff ? 'bg-amber-50/40' : '';
+                    const bg = m.highlightDiff && isDiff ? 'bg-amber-50' : '';
                     return (
                       <tr key={m.key} className={bg}>
-                        <th className={`sticky left-0 bg-surface ${bg} text-left py-3 px-4 text-[11px] font-bold uppercase tracking-wider text-ink-3 align-top`}>
+                        <th scope="row" className={`sticky left-0 ${bg || 'bg-surface'} text-left py-3 px-4 text-xs font-bold uppercase tracking-wider text-ink-3 align-top`}>
                           {m.label}
                         </th>
                         {items.map((p) => (
@@ -277,12 +277,12 @@ export default function Comparator({ peptides, initialSlugs = [] }: Props) {
                     );
                   })}
                   <tr>
-                    <th className="sticky left-0 bg-surface"></th>
+                    <td className="sticky left-0 bg-surface lg:rounded-bl-xl"></td>
                     {items.map((p) => (
                       <td key={p.slug} className="py-3 px-4">
                         <Link
                           href={`/peptideos/${p.slug}`}
-                          className="inline-flex items-center gap-1 text-xs font-semibold text-teal-700 hover:underline"
+                          className="inline-flex items-center gap-1 py-1 text-sm font-semibold text-teal-700 hover:underline"
                         >
                           Ver ficha completa
                           <svg viewBox="0 0 20 20" width={12} height={12} fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M5 10h10M10 5l5 5-5 5" /></svg>
@@ -302,15 +302,15 @@ export default function Comparator({ peptides, initialSlugs = [] }: Props) {
               return (
                 <details
                   key={m.key}
-                  className={`card overflow-hidden ${m.highlightDiff && isDiff ? 'ring-1 ring-amber-200' : ''}`}
+                  className={`group card overflow-hidden ${m.highlightDiff && isDiff ? 'ring-1 ring-amber-200' : ''}`}
                   open={m.key === 'desc' || m.key === 'dose'}
                 >
-                  <summary className="list-none cursor-pointer p-4 flex items-center justify-between gap-3">
+                  <summary className="list-none [&::-webkit-details-marker]:hidden cursor-pointer p-4 flex items-center justify-between gap-3">
                     <div className="flex items-center gap-2">
                       <span className="text-sm font-bold text-ink">{m.label}</span>
                       {m.highlightDiff && isDiff && (
-                        <span className="text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full bg-amber-100 text-amber-800">
-                          ≠
+                        <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-amber-100 text-amber-800">
+                          diferente
                         </span>
                       )}
                     </div>
@@ -340,7 +340,7 @@ export default function Comparator({ peptides, initialSlugs = [] }: Props) {
                 <Link
                   key={p.slug}
                   href={`/peptideos/${p.slug}`}
-                  className="flex-1 min-w-[140px] inline-flex items-center justify-center gap-1 px-3 py-2 text-xs font-semibold rounded border border-border bg-surface text-ink-2 hover:border-teal hover:text-teal-700 hover:bg-teal-50"
+                  className="flex-1 min-w-[140px] inline-flex items-center justify-center gap-1 min-h-11 px-3 text-sm font-semibold rounded border border-border bg-surface text-ink-2 hover:border-teal hover:text-teal-700 hover:bg-teal-50"
                 >
                   {p.name}
                   <svg viewBox="0 0 20 20" width={12} height={12} fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M5 10h10M10 5l5 5-5 5" /></svg>
@@ -383,7 +383,7 @@ function SelectedCard({
       <span className={`w-1 h-8 rounded ${accent}`} aria-hidden />
       <div className="flex flex-col gap-0.5">
         <span className="font-bold text-sm leading-none">{peptide.name}</span>
-        <span className="text-[11px] text-ink-3 tabular-nums">{peptide.typicalDose} {peptide.doseUnit}</span>
+        <span className="text-xs text-ink-3 tabular-nums">{peptide.typicalDose} {peptide.doseUnit}</span>
       </div>
       <div className="flex items-center gap-0.5 ml-1">
         <button
@@ -391,7 +391,7 @@ function SelectedCard({
           onClick={() => setPicking(!picking)}
           aria-label={`Trocar ${peptide.name}`}
           title="Trocar peptídeo"
-          className="w-7 h-7 flex items-center justify-center rounded-md text-ink-3 hover:bg-teal-50 hover:text-teal-700"
+          className="w-9 h-9 flex items-center justify-center rounded-md text-ink-3 hover:bg-teal-50 hover:text-teal-700"
         >
           <svg viewBox="0 0 20 20" width={14} height={14} fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
             <path d="M4 7h11M13 5l2 2-2 2M16 13H5M7 11l-2 2 2 2" />
@@ -401,7 +401,7 @@ function SelectedCard({
           type="button"
           onClick={onRemove}
           aria-label={`Remover ${peptide.name}`}
-          className="w-7 h-7 flex items-center justify-center rounded-md text-ink-3 hover:bg-red-50 hover:text-red-600"
+          className="w-9 h-9 flex items-center justify-center rounded-md text-ink-3 hover:bg-red-50 hover:text-red-600"
         >
           <svg viewBox="0 0 20 20" width={14} height={14} fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" aria-hidden>
             <path d="M5 5l10 10M15 5L5 15" />
@@ -438,6 +438,7 @@ function AddCard({
       <button
         type="button"
         onClick={() => setOpen(!open)}
+        aria-expanded={open}
         className={`flex items-center gap-2 px-4 py-2.5 rounded-xl border-2 border-dashed transition-colors ${
           existingCount === 0
             ? 'border-teal bg-teal-50 text-teal-700 animate-pulse-subtle'
@@ -524,7 +525,7 @@ function PeptidePicker({
   return (
     <div
       ref={ref}
-      className={`absolute ${posClass} top-full mt-2 z-40 w-[300px] max-w-[90vw] bg-surface border border-border rounded-xl shadow-xl overflow-hidden animate-slide-up`}
+      className={`absolute ${posClass} top-full mt-2 z-40 w-[300px] max-w-[calc(100vw-2rem)] bg-surface border border-border rounded-xl shadow-xl overflow-hidden animate-slide-up`}
     >
       <div className="flex items-center gap-2 px-3 py-2.5 border-b border-border">
         <svg viewBox="0 0 20 20" width={16} height={16} fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden className="text-ink-3">
@@ -532,8 +533,11 @@ function PeptidePicker({
         </svg>
         <input
           ref={inputRef}
-          type="search"
-          placeholder="Buscar peptídeo..."
+          type="text"
+          inputMode="search"
+          aria-label="Buscar peptídeo"
+          autoComplete="off"
+          placeholder="Buscar peptídeo…"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onKeyDown={(e) => {
@@ -548,7 +552,7 @@ function PeptidePicker({
               if (filtered[highlight]) onPick(filtered[highlight].slug);
             }
           }}
-          className="flex-1 bg-transparent outline-none text-sm text-ink"
+          className="flex-1 h-8 bg-transparent outline-none text-base text-ink placeholder:text-ink-3"
         />
       </div>
       <ul ref={listRef} role="listbox" className="list-none m-0 p-1 max-h-72 overflow-y-auto">
@@ -564,17 +568,17 @@ function PeptidePicker({
                 aria-selected={highlight === i}
                 data-idx={i}
                 onMouseEnter={() => setHighlight(i)}
-                onMouseDown={(e) => { e.preventDefault(); onPick(p.slug); }}
-                className={`flex items-center gap-2 px-2.5 py-2 rounded-lg cursor-pointer ${
+                onClick={() => onPick(p.slug)}
+                className={`flex items-center gap-2 px-2.5 py-2.5 rounded-lg cursor-pointer ${
                   highlight === i ? 'bg-teal-50' : 'hover:bg-teal-50'
                 }`}
               >
                 <span className={`w-1 h-8 rounded ${accent}`} aria-hidden />
                 <div className="min-w-0 flex-1">
                   <div className="font-semibold text-sm truncate text-ink">{p.name}</div>
-                  <div className="text-[11px] text-ink-3 truncate">{p.frequency}</div>
+                  <div className="text-xs text-ink-3 truncate">{p.frequency}</div>
                 </div>
-                <span className="text-[10px] font-bold text-teal-700 tabular-nums flex-shrink-0">
+                <span className="text-xs font-bold text-teal-700 tabular-nums flex-shrink-0">
                   {p.typicalDose} {p.doseUnit}
                 </span>
               </li>

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 type Props = {
   title: string;
@@ -11,15 +11,14 @@ type Props = {
 export default function ShareButtons({ title, url, compact }: Props) {
   const [copied, setCopied] = useState(false);
 
-  const getUrl = () => {
-    if (url) {
-      if (url.startsWith('http')) return url;
-      return typeof window !== 'undefined' ? `${window.location.origin}${url}` : url;
-    }
-    return typeof window !== 'undefined' ? window.location.href : '';
-  };
+  // Endereço absoluto só depois de montar: ler `window` durante a renderização
+  // faz o HTML do servidor divergir do cliente.
+  const [shareUrl, setShareUrl] = useState(url ?? '');
+  useEffect(() => {
+    if (url) setShareUrl(url.startsWith('http') ? url : `${window.location.origin}${url}`);
+    else setShareUrl(window.location.href);
+  }, [url]);
 
-  const shareUrl = getUrl();
   const encodedUrl = encodeURIComponent(shareUrl);
   const encodedTitle = encodeURIComponent(title);
 
@@ -43,7 +42,7 @@ export default function ShareButtons({ title, url, compact }: Props) {
     {
       name: 'X (Twitter)',
       href: `https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`,
-      color: 'bg-ink hover:bg-ink-2',
+      color: 'bg-slate-900 hover:bg-slate-700 dark:bg-slate-700 dark:hover:bg-slate-600',
       icon: (
         <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
       ),
@@ -142,7 +141,7 @@ export default function ShareButtons({ title, url, compact }: Props) {
             </>
           )}
         </svg>
-        {copied ? 'Copiado!' : 'Copiar link'}
+        <span role="status">{copied ? 'Copiado!' : 'Copiar link'}</span>
       </button>
     </div>
   );

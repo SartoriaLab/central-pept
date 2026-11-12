@@ -9,7 +9,7 @@ export type SearchResult = {
   id: string;
   title: string;
   subtitle?: string;
-  type: 'peptide' | 'article' | 'tool' | 'page' | 'ebook';
+  type: 'peptide' | 'article' | 'tool' | 'page';
   url: string;
   keywords: string;
 };

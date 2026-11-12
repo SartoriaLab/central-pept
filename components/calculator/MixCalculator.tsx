@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from 'react';
 import type { Peptide } from '@/lib/peptides';
+import DecimalInput from '@/components/ui/DecimalInput';
 
 type Row = {
   id: string;
@@ -87,7 +88,7 @@ export default function MixCalculator({ peptides }: Props) {
     n.toLocaleString('pt-BR', { maximumFractionDigits: dec, minimumFractionDigits: 0 });
 
   return (
-    <div className="grid grid-cols-1 gap-6 lg:grid-cols-[500px_minmax(0,1fr)] items-start">
+    <div className="grid grid-cols-1 gap-6 md:grid-cols-[minmax(0,400px)_minmax(0,1fr)] lg:grid-cols-[500px_minmax(0,1fr)] items-start">
       {/* Inputs */}
       <div className="flex flex-col gap-5">
         <section className="card p-6">
@@ -106,7 +107,7 @@ export default function MixCalculator({ peptides }: Props) {
                     <select
                       value={r.slug}
                       onChange={(e) => updateRow(r.id, { slug: e.target.value })}
-                      className="min-w-0 w-full h-11 px-3 border-[1.5px] border-border-2 rounded bg-surface text-ink text-sm outline-none focus:border-teal focus:ring-[3px] focus:ring-teal-50"
+                      className="input min-w-0 w-full"
                       aria-label={`Peptídeo ${i + 1}`}
                     >
                       <option value="">— selecionar —</option>
@@ -117,15 +118,11 @@ export default function MixCalculator({ peptides }: Props) {
                         ))}
                     </select>
                     <div className="flex items-center border-[1.5px] border-border-2 rounded bg-surface h-11 overflow-hidden focus-within:border-teal focus-within:ring-[3px] focus-within:ring-teal-50">
-                      <input
-                        type="number"
-                        min="0"
-                        step="any"
-                        inputMode="decimal"
+                      <DecimalInput
                         value={r.mg}
-                        onChange={(e) => updateRow(r.id, { mg: e.target.value === '' ? '' : parseFloat(e.target.value) })}
+                        onChange={(n) => updateRow(r.id, { mg: n })}
                         placeholder={selected?.commonAmounts[0]?.toString() ?? '5'}
-                        className="flex-1 min-w-0 h-full border-none bg-transparent px-2.5 text-sm font-bold text-ink outline-none tabular-nums"
+                        className="flex-1 min-w-0 h-full border-none bg-transparent px-2.5 text-base font-bold text-ink outline-none tabular-nums"
                         aria-label={`Miligramas do peptídeo ${i + 1}`}
                       />
                       <span className="px-2 text-xs font-bold text-ink-3 border-l border-border h-full flex items-center flex-shrink-0">
@@ -171,13 +168,9 @@ export default function MixCalculator({ peptides }: Props) {
             <label className="flex flex-col gap-1.5">
               <span className="text-xs font-semibold text-ink-2">Água bacteriostática</span>
               <div className="flex items-center border-[1.5px] border-border-2 rounded bg-surface h-[52px] overflow-hidden focus-within:border-teal focus-within:ring-[3px] focus-within:ring-teal-50">
-                <input
-                  type="number"
-                  min="0"
-                  step="any"
-                  inputMode="decimal"
+                <DecimalInput
                   value={waterMl}
-                  onChange={(e) => setWaterMl(e.target.value === '' ? '' : parseFloat(e.target.value))}
+                  onChange={setWaterMl}
                   placeholder="2"
                   className="flex-1 min-w-0 h-full border-none bg-transparent px-4 text-[22px] font-bold text-ink outline-none tabular-nums"
                 />
@@ -190,13 +183,10 @@ export default function MixCalculator({ peptides }: Props) {
             <label className="flex flex-col gap-1.5">
               <span className="text-xs font-semibold text-ink-2">Unidades a puxar na seringa</span>
               <div className="flex items-center border-[1.5px] border-border-2 rounded bg-surface h-[52px] overflow-hidden focus-within:border-teal focus-within:ring-[3px] focus-within:ring-teal-50">
-                <input
-                  type="number"
-                  min="0"
-                  step={1}
-                  inputMode="decimal"
+                <DecimalInput
+                  integer
                   value={units}
-                  onChange={(e) => setUnits(e.target.value === '' ? '' : parseFloat(e.target.value))}
+                  onChange={setUnits}
                   placeholder="20"
                   className="flex-1 min-w-0 h-full border-none bg-transparent px-4 text-[22px] font-bold text-ink outline-none tabular-nums"
                 />
@@ -223,7 +213,7 @@ export default function MixCalculator({ peptides }: Props) {
                     }`}
                   >
                     <strong className={`text-[15px] ${syringe === s ? 'text-teal-700' : 'text-ink'}`}>{s} U</strong>
-                    <small className="text-[11px] text-ink-3">{s / 100} ml</small>
+                    <small className="text-xs text-ink-3">{s / 100} ml</small>
                   </button>
                 ))}
               </div>
@@ -234,7 +224,7 @@ export default function MixCalculator({ peptides }: Props) {
 
       {/* Resultado */}
       <div>
-        <div className="lg:sticky lg:top-20">
+        <div className="md:sticky md:top-24">
           {tooFew ? (
             <div className="bg-surface border-[1.5px] border-dashed border-border-2 rounded-xl p-8 text-center">
               <div className="w-14 h-14 mx-auto mb-4 rounded-full bg-teal-50 text-teal-700 flex items-center justify-center">
@@ -292,7 +282,7 @@ export default function MixCalculator({ peptides }: Props) {
                     <li key={r.peptide.slug} className="px-5 py-4">
                       <div className="flex items-center justify-between gap-3 mb-1">
                         <strong className="text-ink">{r.peptide.name}</strong>
-                        <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-teal-50 text-teal-700 border border-teal-100 whitespace-nowrap">
+                        <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-teal-50 text-teal-700 border border-teal-100 whitespace-nowrap">
                           {fmt(r.concMg, 3)} mg/ml
                         </span>
                       </div>

@@ -2,33 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Tokens em canais RGB: permitem opacidade no Tailwind (bg-surface/80, bg-ink/50…).
+   Os nomes sem sufixo (--teal, --surface…) derivam dos canais e seguem valendo em CSS/SVG. */
 :root {
-  --teal:       #0d9488;
-  --teal-50:    #f0fdfa;
-  --teal-100:   #ccfbf1;
-  --teal-700:   #0f766e;
-  --bg:         #f8fafc;
-  --surface:    #ffffff;
-  --border:     #e2e8f0;
-  --border-2:   #cbd5e1;
-  --text:       #0f172a;
-  --text-2:     #475569;
-  --text-3:     #64748b;
+  --teal-rgb:     13 148 136;   /* #0d9488 */
+  --teal-50-rgb:  240 253 250;  /* #f0fdfa */
+  --teal-100-rgb: 204 251 241;  /* #ccfbf1 */
+  --teal-700-rgb: 15 118 110;   /* #0f766e */
+  --bg-rgb:       248 250 252;  /* #f8fafc */
+  --surface-rgb:  255 255 255;  /* #ffffff */
+  --border-rgb:   226 232 240;  /* #e2e8f0 */
+  --border-2-rgb: 203 213 225;  /* #cbd5e1 */
+  --text-rgb:     15 23 42;     /* #0f172a */
+  --text-2-rgb:   71 85 105;    /* #475569 */
+  --text-3-rgb:   100 116 139;  /* #64748b */
+
+  --teal:       rgb(var(--teal-rgb));
+  --teal-50:    rgb(var(--teal-50-rgb));
+  --teal-100:   rgb(var(--teal-100-rgb));
+  --teal-700:   rgb(var(--teal-700-rgb));
+  --bg:         rgb(var(--bg-rgb));
+  --surface:    rgb(var(--surface-rgb));
+  --border:     rgb(var(--border-rgb));
+  --border-2:   rgb(var(--border-2-rgb));
+  --text:       rgb(var(--text-rgb));
+  --text-2:     rgb(var(--text-2-rgb));
+  --text-3:     rgb(var(--text-3-rgb));
 }
 
 /* Dark mode via class="dark" no <html> */
 html.dark {
-  --teal:       #2dd4bf;
-  --teal-50:    #0f2e2b;
-  --teal-100:   #134e4a;
-  --teal-700:   #5eead4;
-  --bg:         #0b1220;
-  --surface:    #111a2b;
-  --border:     #1f2a3d;
-  --border-2:   #2d3b52;
-  --text:       #e5edf5;
-  --text-2:     #aab8cc;
-  --text-3:     #6a798f;
+  --teal-rgb:     45 212 191;   /* #2dd4bf */
+  --teal-50-rgb:  15 46 43;     /* #0f2e2b */
+  --teal-100-rgb: 19 78 74;     /* #134e4a */
+  --teal-700-rgb: 94 234 212;   /* #5eead4 */
+  --bg-rgb:       11 18 32;     /* #0b1220 */
+  --surface-rgb:  17 26 43;     /* #111a2b */
+  --border-rgb:   31 42 61;     /* #1f2a3d */
+  --border-2-rgb: 45 59 82;     /* #2d3b52 */
+  --text-rgb:     229 237 245;  /* #e5edf5 */
+  --text-2-rgb:   170 184 204;  /* #aab8cc */
+  --text-3-rgb:   106 121 143;  /* #6a798f */
   color-scheme: dark;
 }
 
@@ -105,9 +119,19 @@ html.dark {
   .btn-outline {
     @apply btn bg-surface border border-border text-ink-2 hover:border-teal hover:text-teal-700 hover:bg-teal-50;
   }
+  .input {
+    @apply h-11 px-3 border-[1.5px] border-border-2 rounded bg-surface text-base text-ink outline-none transition-shadow placeholder:text-ink-3 focus:border-teal focus:ring-[3px] focus:ring-teal-50 disabled:opacity-50;
+  }
   .chip {
     @apply inline-flex items-center px-3 py-1 text-xs font-semibold rounded-full border border-border-2 bg-surface text-ink-2 hover:border-teal hover:text-teal-700 hover:bg-teal-50 cursor-pointer transition-colors;
   }
+  /* Pílula de link (marcas, comparativos, categorias relacionadas) */
+  .chip-lg {
+    @apply inline-flex items-center min-h-9 px-3.5 py-1.5 text-sm font-semibold rounded-full border border-border bg-surface text-ink-2 hover:border-teal hover:text-teal-700 hover:bg-teal-50 transition-colors;
+  }
+  /* Linha rolável sem barra visível (filtros no celular) */
+  .no-scrollbar { scrollbar-width: none; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
   /* Pattern decorativo sutil */
   .bg-dots {
     background-image: radial-gradient(circle, var(--border-2) 1px, transparent 1px);
@@ -221,6 +245,14 @@ html.dark {
   .prose-article table {
     @apply w-full border-collapse my-6 text-sm;
   }
+  /* Tabela solta no texto (sem card em volta): vira bloco rolável no celular */
+  @media (max-width: 767px) {
+    .prose-article > table {
+      display: block;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+  }
   .prose-article th {
     @apply bg-bg text-left font-bold px-3 py-2 border border-border;
   }
@@ -329,17 +361,17 @@ html.dark .hover\:bg-yellow-50:hover { background-color: rgba(234,179,8,0.14) !i
 @media print {
   html.dark {
     /* Imprimir em claro mesmo no dark mode */
-    --teal:       #0d9488;
-    --teal-50:    #f0fdfa;
-    --teal-100:   #ccfbf1;
-    --teal-700:   #0f766e;
-    --bg:         #ffffff;
-    --surface:    #ffffff;
-    --border:     #e2e8f0;
-    --border-2:   #cbd5e1;
-    --text:       #0f172a;
-    --text-2:     #475569;
-    --text-3:     #64748b;
+    --teal-rgb:     13 148 136;
+    --teal-50-rgb:  240 253 250;
+    --teal-100-rgb: 204 251 241;
+    --teal-700-rgb: 15 118 110;
+    --bg-rgb:       255 255 255;
+    --surface-rgb:  255 255 255;
+    --border-rgb:   226 232 240;
+    --border-2-rgb: 203 213 225;
+    --text-rgb:     15 23 42;
+    --text-2-rgb:   71 85 105;
+    --text-3-rgb:   100 116 139;
     color-scheme: light;
   }
   header, footer, nav, button, details { display: none !important; }

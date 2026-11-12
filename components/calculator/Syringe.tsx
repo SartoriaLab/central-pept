@@ -28,7 +28,7 @@ export default function Syringe({ units, maxUnits }: Props) {
         y1={by + bh}
         x2={x.toFixed(1)}
         y2={(by + bh + th).toFixed(1)}
-        stroke="#94a3b8"
+        stroke="var(--text-3)"
         strokeWidth={big ? 1.2 : 0.7}
       />
     );
@@ -39,8 +39,8 @@ export default function Syringe({ units, maxUnits }: Props) {
           x={x.toFixed(1)}
           y={by + bh + th + 11}
           textAnchor="middle"
-          fontSize={9}
-          fill="#94a3b8"
+          fontSize={11}
+          fill="var(--text-3)"
           fontFamily="Inter,sans-serif"
         >
           {i}
@@ -62,11 +62,11 @@ export default function Syringe({ units, maxUnits }: Props) {
       </defs>
 
       {/* agulha */}
-      <line x1={bx + bw + 12} y1={by + bh / 2} x2={bx + bw + 52} y2={by + bh / 2} stroke="#94a3b8" strokeWidth={2} strokeLinecap="round" />
-      <rect x={bx + bw} y={by + bh / 2 - 4} width={14} height={8} fill="#cbd5e1" rx={1} />
+      <line x1={bx + bw + 12} y1={by + bh / 2} x2={bx + bw + 52} y2={by + bh / 2} stroke="var(--text-3)" strokeWidth={2} strokeLinecap="round" />
+      <rect x={bx + bw} y={by + bh / 2 - 4} width={14} height={8} fill="var(--border-2)" rx={1} />
 
       {/* corpo */}
-      <rect x={bx} y={by} width={bw} height={bh} fill="#f8fafc" stroke="#cbd5e1" strokeWidth={1.5} rx={3} />
+      <rect x={bx} y={by} width={bw} height={bh} fill="var(--bg)" stroke="var(--border-2)" strokeWidth={1.5} rx={3} />
 
       {/* líquido */}
       <g clipPath="url(#syringe-clip)">
@@ -85,7 +85,7 @@ export default function Syringe({ units, maxUnits }: Props) {
       {ticks}
 
       {/* borda por cima do líquido */}
-      <rect x={bx} y={by} width={bw} height={bh} fill="none" stroke="#cbd5e1" strokeWidth={1.5} rx={3} />
+      <rect x={bx} y={by} width={bw} height={bh} fill="none" stroke="var(--border-2)" strokeWidth={1.5} rx={3} />
 
       {/* marcador */}
       <line x1={markX.toFixed(1)} y1={by - 4} x2={markX.toFixed(1)} y2={by + bh + 3} stroke="#0d9488" strokeWidth={1.5} strokeDasharray="3 2" />
@@ -95,10 +95,10 @@ export default function Syringe({ units, maxUnits }: Props) {
       </text>
 
       {/* êmbolo */}
-      <rect x={rodX} y={by + bh / 2 - 3} width={rodW} height={6} fill="#94a3b8" rx={2} />
-      <rect x={rodX - 8} y={by + bh / 2 - 12} width={10} height={24} fill="#64748b" rx={2} />
-      <rect x={bx - 6} y={by - 2} width={7} height={bh + 4} fill="#e2e8f0" rx={1} />
-      <rect x={bx - 1} y={by - 5} width={2} height={bh + 10} fill="#94a3b8" />
+      <rect x={rodX} y={by + bh / 2 - 3} width={rodW} height={6} fill="var(--text-3)" rx={2} />
+      <rect x={rodX - 8} y={by + bh / 2 - 12} width={10} height={24} fill="var(--text-2)" rx={2} />
+      <rect x={bx - 6} y={by - 2} width={7} height={bh + 4} fill="var(--border)" rx={1} />
+      <rect x={bx - 1} y={by - 5} width={2} height={bh + 10} fill="var(--text-3)" />
     </svg>
   );
 }

@@ -145,7 +145,7 @@ export default async function BrandPage({ params }: { params: Promise<Params> })
                 ['Primeira aprovação FDA', String(b.fdaApprovalYear)],
               ].map(([label, value]) => (
                 <tr key={label} className="border-b border-border last:border-0">
-                  <th scope="row" className="p-3 text-left text-[11px] font-bold uppercase tracking-wider text-ink-3 w-2/5 align-top">
+                  <th scope="row" className="p-3 text-left text-xs font-bold uppercase tracking-wider text-ink-3 w-2/5 align-top">
                     {label}
                   </th>
                   <td className="p-3 text-ink">{value}</td>
@@ -173,7 +173,7 @@ export default async function BrandPage({ params }: { params: Promise<Params> })
 
         {scheme && (
           <section className="mt-10" aria-labelledby="doses">
-            <h2 id="doses" className="text-2xl font-bold mb-2">Doses do {b.name}: a escada de titulação</h2>
+            <h2 id="doses" className="text-xl md:text-2xl font-bold mb-2">Doses do {b.name}: a escada de titulação</h2>
             <p className="text-ink-2 mb-4">
               A dose sobe aos poucos para o corpo se adaptar e os efeitos gastrointestinais ficarem
               menores. Cada degrau dura pelo menos 4 semanas; o médico pode manter uma dose por mais
@@ -182,7 +182,7 @@ export default async function BrandPage({ params }: { params: Promise<Params> })
             <div className="card overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="text-left text-[11px] uppercase tracking-wider text-ink-3 border-b border-border">
+                  <tr className="text-left text-xs uppercase tracking-wider text-ink-3 border-b border-border">
                     <th scope="col" className="p-3 font-bold">Semanas</th>
                     <th scope="col" className="p-3 font-bold">Dose semanal</th>
                     <th scope="col" className="p-3 font-bold">Etapa</th>
@@ -228,14 +228,14 @@ export default async function BrandPage({ params }: { params: Promise<Params> })
 
         {sibling && (
           <section className="mt-10" aria-labelledby="diferenca">
-            <h2 id="diferenca" className="text-2xl font-bold mb-2">
+            <h2 id="diferenca" className="text-xl md:text-2xl font-bold mb-2">
               {b.name} e {sibling.name}: qual a diferença
             </h2>
             <p className="text-ink-2 leading-relaxed">{b.sibling.difference}</p>
             <div className="card overflow-x-auto mt-4">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="text-left text-[11px] uppercase tracking-wider text-ink-3 border-b border-border">
+                  <tr className="text-left text-xs uppercase tracking-wider text-ink-3 border-b border-border">
                     <th scope="col" className="p-3 font-bold" />
                     <th scope="col" className="p-3 font-bold">{b.name}</th>
                     <th scope="col" className="p-3 font-bold">
@@ -251,7 +251,7 @@ export default async function BrandPage({ params }: { params: Promise<Params> })
                     ['Aprovação FDA', String(b.fdaApprovalYear), String(sibling.fdaApprovalYear)],
                   ].map(([label, mine, theirs]) => (
                     <tr key={label} className="border-b border-border last:border-0 align-top">
-                      <th scope="row" className="p-3 text-left text-[11px] font-bold uppercase tracking-wider text-ink-3">{label}</th>
+                      <th scope="row" className="p-3 text-left text-xs font-bold uppercase tracking-wider text-ink-3">{label}</th>
                       <td className="p-3">{mine}</td>
                       <td className="p-3">{theirs}</td>
                     </tr>
@@ -263,7 +263,7 @@ export default async function BrandPage({ params }: { params: Promise<Params> })
         )}
 
         <section className="mt-10" aria-labelledby="estudos">
-          <h2 id="estudos" className="text-2xl font-bold mb-4">O que os estudos mostram</h2>
+          <h2 id="estudos" className="text-xl md:text-2xl font-bold mb-4">O que os estudos mostram</h2>
           <div className="grid gap-3">
             {b.evidence.map((e) => (
               <div key={e.trial} className="card p-4">
@@ -303,7 +303,7 @@ export default async function BrandPage({ params }: { params: Promise<Params> })
 
         {articles.length > 0 && (
           <section className="mt-10" aria-labelledby="guias">
-            <h2 id="guias" className="text-2xl font-bold mb-4">Guias sobre {b.name} e {ingredient}</h2>
+            <h2 id="guias" className="text-xl md:text-2xl font-bold mb-4">Guias sobre {b.name} e {ingredient}</h2>
             <div className="grid gap-3 sm:grid-cols-2">
               {articles.map((a) => (
                 <Link key={a.slug} href={`/blog/${a.slug}`} className="card-hover p-4 block group">
@@ -325,7 +325,7 @@ export default async function BrandPage({ params }: { params: Promise<Params> })
                 <Link
                   key={c.slug}
                   href={`/comparar/${c.slug}`}
-                  className="inline-flex items-center px-3 py-1.5 text-sm font-semibold rounded-full border border-border bg-surface text-ink-2 hover:border-teal hover:text-teal-700 hover:bg-teal-50 transition-colors"
+                  className="chip-lg"
                 >
                   {c.title}
                 </Link>
@@ -343,7 +343,7 @@ export default async function BrandPage({ params }: { params: Promise<Params> })
               <Link
                 key={o.slug}
                 href={`/medicamentos/${o.slug}`}
-                className="inline-flex items-center px-3 py-1.5 text-sm font-semibold rounded-full border border-border bg-surface text-ink-2 hover:border-teal hover:text-teal-700 hover:bg-teal-50 transition-colors"
+                className="chip-lg"
               >
                 {o.name} ({o.activeIngredient.toLowerCase()})
               </Link>

@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState, useEffect, useRef } from 'react';
+import { createContext, useContext, useId, useMemo, useState, useEffect, useRef } from 'react';
 import type { Peptide, DoseUnit } from '@/lib/peptides';
 import {
   doseToMg,
@@ -10,6 +10,7 @@ import {
   fmtConcentration,
 } from './calc';
 import Syringe from './Syringe';
+import DecimalInput from '@/components/ui/DecimalInput';
 import { EVENTS, track, trackOnce } from '@/lib/track';
 
 type Mode = 'volume' | 'units';
@@ -64,6 +65,10 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug 
   const comboRef = useRef<HTMLDivElement>(null);
   const searchRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLUListElement>(null);
+  const triggerRef = useRef<HTMLDivElement>(null);
+  const resultRef = useRef<HTMLDivElement>(null);
+  // Barra fixa do celular: só enquanto o resultado está abaixo da tela.
+  const [resultBelow, setResultBelow] = useState(false);
 
   // Lista unificada: peptídeos da lib + personalizados salvos
   const allPeptides = useMemo(() => [...customs, ...peptides], [customs, peptides]);
@@ -269,6 +274,18 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug 
     return calcByVolume(Number(mg), Number(waterMl), doseMg);
   }, [peptide, mg, waterMl, units, dose, mode]);
 
+  // Resultado fora da tela (abaixo)? Então a barra fixa aparece.
+  const hasResult = Boolean(result);
+  useEffect(() => {
+    const el = resultRef.current;
+    if (!hasResult || !el || typeof IntersectionObserver === 'undefined') { setResultBelow(false); return; }
+    const io = new IntersectionObserver(([entry]) => {
+      setResultBelow(!entry.isIntersecting && entry.boundingClientRect.top > 0);
+    }, { threshold: 0.15 });
+    io.observe(el);
+    return () => io.disconnect();
+  }, [hasResult]);
+
   // Métrica de uso: um evento por peptídeo quando o cálculo fica válido.
   // Peptídeo personalizado vai sem nome — o que o usuário digita não sai do navegador.
   useEffect(() => {
@@ -354,7 +371,7 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug 
   }
 
   return (
-    <div className="grid grid-cols-1 gap-6 lg:grid-cols-[460px_minmax(0,1fr)] items-start">
+    <div className="grid grid-cols-1 gap-6 md:grid-cols-[minmax(0,340px)_minmax(0,1fr)] lg:grid-cols-[460px_minmax(0,1fr)] items-start">
       {/* ── Inputs ── */}
       <div className="flex flex-col gap-5 no-print">
         {/* Peptídeo */}
@@ -366,10 +383,14 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug 
               role="combobox"
               aria-haspopup="listbox"
               aria-expanded={comboOpen}
+              ref={triggerRef}
+              aria-controls="peptide-listbox"
+              aria-label={peptide ? `Peptídeo: ${peptide.name}` : 'Escolher peptídeo'}
               tabIndex={0}
               onClick={() => setComboOpen((v) => !v)}
               onKeyDown={(e) => {
                 if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setComboOpen((v) => !v); }
+                if (e.key === 'ArrowDown') { e.preventDefault(); setComboOpen(true); }
                 if (e.key === 'Escape') setComboOpen(false);
               }}
               className={`flex items-center gap-3 h-[52px] px-4 border-[1.5px] rounded bg-surface cursor-pointer transition-all ${
@@ -393,12 +414,15 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug 
                   <SearchIcon />
                   <input
                     ref={searchRef}
-                    type="search"
+                    type="text"
+                    inputMode="search"
+                    aria-label="Buscar peptídeo"
+                    autoComplete="off"
                     placeholder="Buscar…"
                     value={comboQuery}
                     onChange={(e) => setComboQuery(e.target.value)}
                     onKeyDown={(e) => {
-                      if (e.key === 'Escape') { setComboOpen(false); return; }
+                      if (e.key === 'Escape') { setComboOpen(false); triggerRef.current?.focus(); return; }
                       if (e.key === 'ArrowDown') {
                         e.preventDefault();
                         setHighlight((h) => Math.min(h + 1, Math.max(filtered.length - 1, 0)));
@@ -408,13 +432,13 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug 
                       } else if (e.key === 'Enter') {
                         e.preventDefault();
                         const p = filtered[highlight];
-                        if (p) selectPeptide(p);
+                        if (p) { selectPeptide(p); triggerRef.current?.focus(); }
                       }
                     }}
                     aria-autocomplete="list"
                     aria-controls="peptide-listbox"
                     aria-activedescendant={filtered[highlight] ? `peptide-opt-${filtered[highlight].slug}` : undefined}
-                    className="flex-1 bg-transparent outline-none text-sm text-ink"
+                    className="flex-1 h-9 bg-transparent outline-none text-base text-ink placeholder:text-ink-3"
                   />
                 </div>
                 <ul
@@ -444,13 +468,13 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug 
                               : active ? 'bg-teal-50' : 'hover:bg-teal-50'
                           }`}
                           onMouseEnter={() => setHighlight(i)}
-                          onMouseDown={(e) => { e.preventDefault(); selectPeptide(p); }}
+                          onClick={() => { selectPeptide(p); triggerRef.current?.focus(); }}
                         >
                           <div className="min-w-0 flex-1">
                             <div className="font-semibold text-sm flex items-center gap-1.5">
                               <span className="truncate">{p.name}</span>
                               {isCustom && (
-                                <span className="text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-amber-100 text-amber-800 border border-amber-200">
+                                <span className="text-xs font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-amber-100 text-amber-800 border border-amber-200">
                                   seu
                                 </span>
                               )}
@@ -465,8 +489,8 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug 
                               <button
                                 type="button"
                                 aria-label={`Remover ${p.name}`}
-                                onMouseDown={(e) => { e.preventDefault(); e.stopPropagation(); deleteCustom(p.slug); }}
-                                className="w-6 h-6 flex items-center justify-center rounded text-ink-3 hover:bg-red-50 hover:text-red-600"
+                                onClick={(e) => { e.stopPropagation(); deleteCustom(p.slug); }}
+                                className="w-8 h-8 flex items-center justify-center rounded text-ink-3 hover:bg-red-50 hover:text-red-600"
                               >
                                 <CloseIcon />
                               </button>
@@ -480,12 +504,11 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug 
                 <div className="border-t border-border p-1">
                   <button
                     type="button"
-                    onMouseDown={(e) => {
-                      e.preventDefault();
+                    onClick={() => {
                       setComboOpen(false);
                       setCustomFormOpen((v) => !v);
                     }}
-                    className="flex items-center gap-2 w-full px-3 py-2.5 text-sm font-semibold text-teal-700 rounded hover:bg-teal-50"
+                    className="flex items-center gap-2 w-full min-h-11 px-3 text-sm font-semibold text-teal-700 rounded hover:bg-teal-50"
                   >
                     <PlusIcon />
                     Outro peptídeo (personalizado)
@@ -498,7 +521,7 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug 
           {/* Form de peptídeo custom */}
           {customFormOpen && (
             <div className="mt-3 p-3.5 bg-bg border border-dashed border-border-2 rounded flex flex-col gap-3">
-              <div className="grid grid-cols-2 gap-2.5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                 <label className="flex flex-col gap-1.5 text-xs font-semibold text-ink-2">
                   Nome
                   <input
@@ -507,27 +530,26 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug 
                     onChange={(e) => setCustomName(e.target.value)}
                     onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); submitCustom(); } }}
                     placeholder="Ex.: Novo peptídeo"
-                    className="h-9 px-2.5 border-[1.5px] border-border-2 rounded-md text-sm bg-surface outline-none focus:border-teal focus:ring-[3px] focus:ring-teal-50"
+                    className="input"
                   />
                 </label>
                 <label className="flex flex-col gap-1.5 text-xs font-semibold text-ink-2">
                   Dose típica
                   <div className="flex gap-1.5">
                     <input
-                      type="number"
-                      min="0"
-                      step="any"
+                      type="text"
                       inputMode="decimal"
                       value={customDose}
-                      onChange={(e) => setCustomDose(e.target.value)}
+                      onChange={(e) => setCustomDose(e.target.value.replace(/[^\d.,]/g, '').replace(',', '.'))}
                       onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); submitCustom(); } }}
                       placeholder="0"
-                      className="flex-1 h-9 px-2.5 border-[1.5px] border-border-2 rounded-md text-sm bg-surface outline-none focus:border-teal focus:ring-[3px] focus:ring-teal-50 min-w-0"
+                      className="input flex-1 min-w-0"
                     />
                     <select
                       value={customUnit}
                       onChange={(e) => setCustomUnit(e.target.value as DoseUnit)}
-                      className="h-9 px-2 border-[1.5px] border-border-2 rounded-md text-sm bg-surface outline-none focus:border-teal"
+                      aria-label="Unidade da dose"
+                      className="input !px-2"
                     >
                       <option value="mg">mg</option>
                       <option value="mcg">mcg</option>
@@ -536,7 +558,7 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug 
                   </div>
                 </label>
               </div>
-              <button type="button" onClick={submitCustom} className="btn-teal h-9 text-sm self-start">
+              <button type="button" onClick={submitCustom} className="btn-teal text-sm self-start">
                 Usar este peptídeo
               </button>
             </div>
@@ -554,7 +576,7 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug 
               <button
                 type="button"
                 onClick={clearPeptide}
-                className="w-7 h-7 flex items-center justify-center rounded-md bg-teal-700/10 text-teal-700 hover:bg-teal-700/20 flex-shrink-0"
+                className="w-9 h-9 flex items-center justify-center rounded-md bg-teal-700/10 text-teal-700 hover:bg-teal-700/20 flex-shrink-0"
                 aria-label="Remover peptídeo"
               >
                 <CloseIcon />
@@ -669,7 +691,7 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug 
                     }`}
                   >
                     <strong className={`text-[15px] ${syringe === s ? 'text-teal-700' : 'text-ink'}`}>{s} U</strong>
-                    <small className="text-[11px] text-ink-3">{s / 100} ml</small>
+                    <small className="text-xs text-ink-3">{s / 100} ml</small>
                   </button>
                 ))}
               </div>
@@ -680,7 +702,7 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug 
 
       {/* ── Resultado ── */}
       <div>
-        <div className="lg:sticky lg:top-20">
+        <div className="md:sticky md:top-24">
           {!result ? (
             <div className="bg-surface border-[1.5px] border-dashed border-border-2 rounded-xl p-8 text-center">
               <div className="w-14 h-14 mx-auto mb-4 rounded-full bg-teal-50 text-teal-700 flex items-center justify-center">
@@ -705,12 +727,12 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug 
                 </svg>
                 Carregar exemplo
               </button>
-              <p className="mt-3 text-[11px] text-ink-3">
+              <p className="mt-3 text-xs text-ink-3">
                 Preenche {peptide ? peptide.name : 'BPC-157'} {peptide?.commonAmounts[0] ?? 5} mg em 2 ml de água para você ver funcionando.
               </p>
             </div>
           ) : (
-            <div id="calc-result" className="bg-surface border border-border rounded-xl shadow-lg overflow-hidden animate-slide-up">
+            <div id="calc-result" ref={resultRef} className="bg-surface border border-border rounded-xl shadow-lg overflow-hidden animate-slide-up">
               <div className="flex items-center justify-between gap-2.5 px-5 pt-5">
                 <div className="text-sm font-bold text-ink-2 truncate">{peptide?.name}</div>
                 <div className="flex items-center gap-1.5 flex-shrink-0 no-print">
@@ -748,6 +770,9 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug 
               </div>
 
               {/* Hero */}
+              <p className="sr-only" role="status">
+                Puxe até {fmt(result.unitsPerDose, 1)} unidades na seringa de {syringe} U.
+              </p>
               <div className="px-5 pt-5 text-center">
                 <div className="text-xs font-bold uppercase tracking-wider text-ink-3 mb-1.5">Puxe até</div>
                 <div className="flex items-baseline justify-center gap-2 flex-wrap">
@@ -823,23 +848,18 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug 
       </div>
 
       {/* Mini-resultado flutuante (só mobile quando há resultado) */}
-      {result && (
+      {result && resultBelow && !comboOpen && (
         <button
           type="button"
-          onClick={() => {
-            if (typeof window !== 'undefined') {
-              const el = document.getElementById('calc-result');
-              el?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }
-          }}
-          className="lg:hidden fixed bottom-4 left-4 right-4 z-30 flex items-center justify-between gap-3 px-4 py-3 rounded-xl bg-ink text-white shadow-xl animate-slide-up"
+          onClick={() => resultRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+          className="md:hidden no-print fixed left-4 right-4 bottom-[max(1rem,env(safe-area-inset-bottom))] z-30 flex items-center justify-between gap-3 px-4 py-3 rounded-xl bg-ink text-bg shadow-xl animate-slide-up"
           aria-label="Ir para o resultado"
         >
           <div className="flex items-baseline gap-1.5">
             <span className="text-2xl font-extrabold text-teal-100 tabular-nums leading-none">
               {fmt(result.unitsPerDose, 1)}
             </span>
-            <span className="text-xs font-semibold text-white/80">U na seringa</span>
+            <span className="text-xs font-semibold text-bg/80">U na seringa</span>
           </div>
           <div className="flex items-center gap-1.5 text-xs font-semibold">
             Ver detalhes
@@ -852,7 +872,7 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug 
 
       {/* Toast */}
       {toast && (
-        <div className="fixed bottom-20 lg:bottom-6 left-1/2 -translate-x-1/2 bg-ink text-white px-4 py-2.5 rounded-md text-sm font-semibold shadow-lg z-[300]">
+        <div role="status" className="fixed bottom-24 md:bottom-6 left-1/2 -translate-x-1/2 bg-ink text-bg px-4 py-2.5 rounded-md text-sm font-semibold shadow-lg z-[300] whitespace-nowrap">
           {toast}
         </div>
       )}
@@ -885,28 +905,46 @@ function Field({
   tip?: string;
   children: React.ReactNode;
 }) {
+  const id = useId();
   return (
-    <label className="flex flex-col gap-1.5">
-      <span className="flex items-center gap-1.5 text-xs font-semibold text-ink-2">
-        {label}
+    <div className="flex flex-col gap-1.5">
+      <div className="flex items-center gap-1.5 text-xs font-semibold text-ink-2">
+        <label htmlFor={id}>{label}</label>
         {tip && <HelpTip text={tip} />}
-      </span>
-      {children}
-    </label>
+      </div>
+      <FieldIdContext.Provider value={id}>{children}</FieldIdContext.Provider>
+    </div>
   );
 }
 
+/** id do campo dentro de um <Field>, para o <label htmlFor>. */
+const FieldIdContext = createContext<string | undefined>(undefined);
+
 function HelpTip({ text }: { text: string }) {
+  const [open, setOpen] = useState(false);
+  const id = useId();
   return (
     <span className="relative group inline-flex">
+      {/* área de toque de 28 px em volta do círculo de 18 px */}
       <button
         type="button"
-        className="w-[17px] h-[17px] rounded-full border-[1.5px] border-border-2 bg-surface text-[10px] font-bold text-ink-3 flex items-center justify-center hover:border-teal hover:text-teal-700 hover:bg-teal-50 leading-none"
+        onClick={() => setOpen((v) => !v)}
+        onBlur={() => setOpen(false)}
+        onKeyDown={(e) => { if (e.key === 'Escape') setOpen(false); }}
         aria-label="Ajuda"
+        aria-expanded={open}
+        aria-describedby={id}
+        className="-m-[5px] w-7 h-7 flex items-center justify-center rounded-full text-ink-3 hover:text-teal-700"
       >
-        ?
+        <span className="w-[18px] h-[18px] rounded-full border-[1.5px] border-current bg-surface text-xs font-bold flex items-center justify-center leading-none" aria-hidden>
+          ?
+        </span>
       </button>
-      <span className="pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-56 p-2.5 bg-ink text-white text-xs leading-relaxed rounded-md opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity shadow-lg z-10">
+      <span
+        id={id}
+        role="tooltip"
+        className={`pointer-events-none absolute bottom-full -left-24 sm:left-1/2 sm:-translate-x-1/2 mb-2 w-60 max-w-[75vw] p-2.5 bg-ink text-bg text-xs font-normal leading-relaxed rounded-md transition-opacity shadow-lg z-20 group-hover:opacity-100 ${open ? 'opacity-100' : 'opacity-0'}`}
+      >
         {text}
       </span>
     </span>
@@ -926,18 +964,14 @@ function InputWithUnit({
   unit: string;
   step?: number | 'any';
 }) {
+  const id = useContext(FieldIdContext);
   return (
     <div className="flex items-center border-[1.5px] border-border-2 rounded bg-surface h-[52px] overflow-hidden focus-within:border-teal focus-within:ring-[3px] focus-within:ring-teal-50 transition-all">
-      <input
-        type="number"
-        min="0"
-        step={step}
-        inputMode="decimal"
+      <DecimalInput
+        id={id}
+        integer={step === 1}
         value={value}
-        onChange={(e) => {
-          const v = e.target.value;
-          onChange(v === '' ? '' : parseFloat(v));
-        }}
+        onChange={onChange}
         placeholder={placeholder}
         className="flex-1 min-w-0 h-full border-none bg-transparent px-4 text-[22px] font-bold text-ink outline-none tabular-nums placeholder:text-[20px] placeholder:font-normal placeholder:text-ink-3"
       />
@@ -956,7 +990,7 @@ function Chips({
   onPick: (v: number) => void;
 }) {
   return (
-    <div className="flex flex-wrap gap-1.5 mt-1">
+    <div className="flex flex-wrap gap-2 mt-1">
       {options.map((opt) => (
         <button
           key={opt.value}
@@ -964,8 +998,8 @@ function Chips({
           onClick={() => onPick(opt.value)}
           className={
             opt.highlight
-              ? 'inline-flex items-center px-3 py-1 text-xs font-bold rounded-full border border-teal bg-teal-50 text-teal-700 hover:bg-teal-100 cursor-pointer transition-colors'
-              : 'chip'
+              ? 'inline-flex items-center min-h-8 px-3 text-xs font-bold rounded-full border border-teal bg-teal-50 text-teal-700 hover:bg-teal-100 cursor-pointer transition-colors'
+              : 'chip min-h-8'
           }
           title={opt.highlight ? 'Tamanho comum para este peptídeo' : undefined}
         >
@@ -1035,7 +1069,7 @@ function Metric({
 }) {
   return (
     <div className={`p-4 flex flex-col gap-1 ${className}`}>
-      <span className="text-[11px] font-bold uppercase tracking-wider text-ink-3">{label}</span>
+      <span className="text-xs font-bold uppercase tracking-wider text-ink-3">{label}</span>
       <span className="text-[22px] font-bold text-ink tabular-nums tracking-tight">
         {value}
         {unit && <small className="text-[13px] font-semibold text-ink-3 ml-1">{unit}</small>}
@@ -1140,11 +1174,11 @@ function VialDuration({ dosesPerVial, peptideName, frequency }: { dosesPerVial: 
 
   return (
     <div className="border-t border-border bg-bg px-5 py-4">
-      <div className="flex items-center justify-between gap-2 mb-2.5">
-        <span className="text-[11px] font-bold uppercase tracking-wider text-ink-3">
+      <div className="flex flex-wrap items-center justify-between gap-2 mb-2.5">
+        <span className="text-xs font-bold uppercase tracking-wider text-ink-3">
           Duração do frasco
         </span>
-        <div className="flex gap-0.5 p-0.5 bg-surface border border-border rounded">
+        <div role="group" aria-label="Frequência de aplicação" className="flex gap-0.5 p-0.5 bg-surface border border-border rounded">
           {[
             { id: 'daily',   label: '1×/dia' },
             { id: '2x-day',  label: '2×/dia' },
@@ -1155,8 +1189,9 @@ function VialDuration({ dosesPerVial, peptideName, frequency }: { dosesPerVial: 
               key={f.id}
               type="button"
               onClick={() => setFreq(f.id as typeof freq)}
-              className={`px-2 py-1 text-[10px] font-bold rounded transition-colors ${
-                freq === f.id ? 'bg-teal text-white' : 'text-ink-2 hover:bg-teal-50'
+              aria-pressed={freq === f.id}
+              className={`min-h-8 px-2.5 text-xs font-bold rounded-md transition-colors ${
+                freq === f.id ? 'bg-teal-700 text-white dark:text-bg' : 'text-ink-2 hover:bg-teal-50'
               }`}
             >
               {f.label}
@@ -1207,8 +1242,8 @@ function DoseSafetyScale({
   return (
     <div className="border-t border-border px-5 py-4">
       <div className="flex items-center justify-between gap-2 mb-3">
-        <span className="text-[11px] font-bold uppercase tracking-wider text-ink-3">Posição da dose</span>
-        <span className={`text-[10px] font-bold uppercase tracking-wider text-white px-2 py-0.5 rounded-full ${status.color}`}>
+        <span className="text-xs font-bold uppercase tracking-wider text-ink-3">Posição da dose</span>
+        <span className={`text-xs font-bold uppercase tracking-wider text-white px-2 py-0.5 rounded-full ${status.color}`}>
           {status.label}
         </span>
       </div>
@@ -1226,7 +1261,7 @@ function DoseSafetyScale({
           aria-hidden
         />
       </div>
-      <div className="flex items-center justify-between text-[10px] text-ink-3 mt-1.5 tabular-nums">
+      <div className="flex items-center justify-between text-xs text-ink-3 mt-1.5 tabular-nums">
         <span>{fmt(minDose, 2)} {unit}</span>
         <span className="font-semibold text-ink-2">Típica: {typicalDose} {unit}</span>
         <span>{fmt(maxDose, 2)} {unit}</span>

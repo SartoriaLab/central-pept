@@ -22,9 +22,9 @@ export function Skeleton({ className = '', rounded = 'md' }: Props) {
 export function SkeletonCard({ lines = 3 }: { lines?: number }) {
   return (
     <div className="card p-5" aria-hidden>
-      <Skeleton className="h-5 w-3/4 mb-3" />
+      <Skeleton className="block h-5 w-3/4 mb-3" />
       {Array.from({ length: lines }).map((_, i) => (
-        <Skeleton key={i} className={`h-3 w-${i === lines - 1 ? '1/2' : 'full'} mb-2`} />
+        <Skeleton key={i} className={`block h-3 mb-2 ${i === lines - 1 ? 'w-1/2' : 'w-full'}`} />
       ))}
     </div>
   );

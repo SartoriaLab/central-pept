@@ -5,7 +5,7 @@ import type { Article } from '@/lib/articles';
 export default function RelatedPosts({ posts }: { posts: Article[] }) {
   if (posts.length === 0) return null;
   return (
-    <section className="mt-12 pt-8 border-t border-border not-prose" aria-label="Artigos relacionados">
+    <section className="mt-10 pt-8 border-t border-border not-prose" aria-label="Artigos relacionados">
       <h2 className="text-sm font-bold uppercase tracking-wider text-ink-3 mb-4">Leia também</h2>
       <div className="grid gap-4 sm:grid-cols-3">
         {posts.map((a) => (

@@ -32,7 +32,7 @@ export default function Article() {
       <div className="not-prose card overflow-x-auto my-6">
         <table className="w-full text-sm">
           <thead>
-            <tr className="text-left text-[11px] uppercase tracking-wider text-ink-3 border-b border-border">
+            <tr className="text-left text-xs uppercase tracking-wider text-ink-3 border-b border-border">
               <th scope="col" className="p-3 font-bold" />
               <th scope="col" className="p-3 font-bold">Continuou tirzepatida</th>
               <th scope="col" className="p-3 font-bold">Passou para placebo</th>

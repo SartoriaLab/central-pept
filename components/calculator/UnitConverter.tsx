@@ -1,5 +1,6 @@
 'use client';
 
+import DecimalInput from '@/components/ui/DecimalInput';
 import { useMemo, useState, useEffect } from 'react';
 import type { Peptide, DoseUnit } from '@/lib/peptides';
 
@@ -63,7 +64,7 @@ export default function UnitConverter({ peptides }: Props) {
   }, [peptide, mg]);
 
   return (
-    <div className="grid grid-cols-1 gap-6 lg:grid-cols-[460px_minmax(0,1fr)] items-start">
+    <div className="grid grid-cols-1 gap-6 md:grid-cols-[minmax(0,340px)_minmax(0,1fr)] lg:grid-cols-[460px_minmax(0,1fr)] items-start">
       {/* Inputs */}
       <div className="flex flex-col gap-5">
         <section className="card p-6">
@@ -72,9 +73,10 @@ export default function UnitConverter({ peptides }: Props) {
             Peptídeo (opcional)
           </h2>
           <select
+            aria-label="Peptídeo"
             value={slug}
             onChange={(e) => { setSlug(e.target.value); setQty(''); }}
-            className="w-full h-[52px] px-4 border-[1.5px] border-border-2 rounded bg-surface text-ink outline-none focus:border-teal focus:ring-[3px] focus:ring-teal-50"
+            className="input w-full !h-[52px] !px-4"
           >
             <option value="">— Converter sem peptídeo específico —</option>
             {peptides.map((p) => (
@@ -95,13 +97,10 @@ export default function UnitConverter({ peptides }: Props) {
             Quantidade e unidade
           </h2>
           <div className="flex items-center border-[1.5px] border-border-2 rounded bg-surface h-[52px] overflow-hidden focus-within:border-teal focus-within:ring-[3px] focus-within:ring-teal-50 transition-all">
-            <input
-              type="number"
-              min="0"
-              step="any"
-              inputMode="decimal"
+            <DecimalInput
+              aria-label="Quantidade a converter"
               value={qty}
-              onChange={(e) => setQty(e.target.value === '' ? '' : parseFloat(e.target.value))}
+              onChange={setQty}
               placeholder="0"
               className="flex-1 min-w-0 h-full border-none bg-transparent px-4 text-[22px] font-bold text-ink outline-none tabular-nums placeholder:text-[20px] placeholder:font-normal placeholder:text-ink-3"
             />
@@ -111,9 +110,10 @@ export default function UnitConverter({ peptides }: Props) {
                   key={u}
                   type="button"
                   onClick={() => setUnit(u)}
-                  className={`px-3 text-sm font-bold transition-colors h-full ${
+                  aria-pressed={unit === u}
+                  className={`min-w-11 px-3 text-sm font-bold transition-colors h-full ${
                     unit === u
-                      ? 'bg-teal text-white'
+                      ? 'bg-teal-700 text-white dark:text-bg'
                       : 'bg-surface text-ink-2 hover:bg-teal-50 hover:text-teal-700'
                   }`}
                 >
@@ -127,7 +127,7 @@ export default function UnitConverter({ peptides }: Props) {
 
       {/* Resultado */}
       <div>
-        <div className="lg:sticky lg:top-20">
+        <div className="md:sticky md:top-24">
           {mg == null ? (
             <div className="bg-surface border-[1.5px] border-dashed border-border-2 rounded-xl p-12 text-center text-sm text-ink-3">
               <p>Digite uma quantidade válida para ver a conversão.</p>
@@ -146,7 +146,7 @@ export default function UnitConverter({ peptides }: Props) {
                 )}
               </div>
 
-              <div className={`grid grid-cols-1 sm:grid-cols-${uiFactor ? '3' : '2'} divide-y sm:divide-y-0 sm:divide-x divide-border`}>
+              <div role="status" className={`grid grid-cols-1 ${uiFactor ? 'sm:grid-cols-3' : 'sm:grid-cols-2'} divide-y sm:divide-y-0 sm:divide-x divide-border`}>
                 <Result label="mg" value={fmt(mg, 4)} highlight={unit === 'mg'} />
                 <Result label="mcg" value={fmt(mg * 1000, 1)} highlight={unit === 'mcg'} />
                 {uiFactor && (
@@ -174,11 +174,11 @@ export default function UnitConverter({ peptides }: Props) {
 function Result({ label, value, highlight, subtitle }: { label: string; value: string; highlight?: boolean; subtitle?: string }) {
   return (
     <div className={`p-5 ${highlight ? 'bg-teal-50' : ''}`}>
-      <div className="text-[11px] font-bold uppercase tracking-wider text-ink-3">{label}</div>
+      <div className="text-xs font-bold uppercase tracking-wider text-ink-3">{label}</div>
       <div className={`text-2xl font-bold tabular-nums tracking-tight mt-1 ${highlight ? 'text-teal-700' : 'text-ink'}`}>
         {value}
       </div>
-      {subtitle && <div className="text-[11px] text-ink-3 mt-1">{subtitle}</div>}
+      {subtitle && <div className="text-xs text-ink-3 mt-1">{subtitle}</div>}
     </div>
   );
 }

@@ -2,7 +2,9 @@
 
 import { useState, useMemo } from 'react';
 import type { Peptide } from '@/lib/peptides';
+import DecimalInput from '@/components/ui/DecimalInput';
 import { EVENTS, track } from '@/lib/track';
+import { todayLocalISO } from '@/lib/dates';
 
 type Props = { peptides: Peptide[] };
 
@@ -21,7 +23,7 @@ export default function ScheduleCalculator({ peptides }: Props) {
   const [doseAmount, setDoseAmount] = useState<number | ''>('');
   const [frequency, setFrequency] = useState<Frequency>('daily');
   const [customDays, setCustomDays] = useState<number | ''>(7);
-  const [startDate, setStartDate] = useState(() => new Date().toISOString().slice(0, 10));
+  const [startDate, setStartDate] = useState(() => todayLocalISO());
   const [durationWeeks, setDurationWeeks] = useState<number | ''>(4);
   const [timeOfDay, setTimeOfDay] = useState('08:00');
 
@@ -130,7 +132,7 @@ export default function ScheduleCalculator({ peptides }: Props) {
   const preview = schedule.slice(0, 6);
 
   return (
-    <div className="grid grid-cols-1 gap-6 lg:grid-cols-[460px_minmax(0,1fr)] items-start">
+    <div className="grid grid-cols-1 gap-6 md:grid-cols-[minmax(0,340px)_minmax(0,1fr)] lg:grid-cols-[460px_minmax(0,1fr)] items-start">
       {/* Inputs */}
       <div className="flex flex-col gap-5">
         <section className="card p-6">
@@ -144,7 +146,7 @@ export default function ScheduleCalculator({ peptides }: Props) {
               <select
                 value={slug}
                 onChange={(e) => selectPeptide(e.target.value)}
-                className="h-11 px-3 border-[1.5px] border-border-2 rounded bg-surface text-ink outline-none focus:border-teal focus:ring-[3px] focus:ring-teal-50"
+                className="input"
               >
                 <option value="">— selecionar —</option>
                 {peptides.map((p) => (
@@ -155,13 +157,9 @@ export default function ScheduleCalculator({ peptides }: Props) {
             <label className="flex flex-col gap-1.5">
               <span className="text-xs font-semibold text-ink-2">Dose por aplicação</span>
               <div className="flex items-center border-[1.5px] border-border-2 rounded bg-surface h-11 overflow-hidden focus-within:border-teal focus-within:ring-[3px] focus-within:ring-teal-50">
-                <input
-                  type="number"
-                  min={0}
-                  step="any"
-                  inputMode="decimal"
+                <DecimalInput
                   value={doseAmount}
-                  onChange={(e) => setDoseAmount(e.target.value === '' ? '' : parseFloat(e.target.value))}
+                  onChange={setDoseAmount}
                   placeholder={peptide?.typicalDose.toString() ?? '0'}
                   className="flex-1 min-w-0 h-full bg-transparent px-3 text-base font-bold tabular-nums outline-none"
                 />
@@ -184,7 +182,7 @@ export default function ScheduleCalculator({ peptides }: Props) {
               <select
                 value={frequency}
                 onChange={(e) => setFrequency(e.target.value as Frequency)}
-                className="h-11 px-3 border-[1.5px] border-border-2 rounded bg-surface text-ink outline-none focus:border-teal focus:ring-[3px] focus:ring-teal-50"
+                className="input"
               >
                 {(Object.keys(FREQUENCY_LABELS) as Frequency[]).map((f) => (
                   <option key={f} value={f}>{FREQUENCY_LABELS[f]}</option>
@@ -194,14 +192,11 @@ export default function ScheduleCalculator({ peptides }: Props) {
             {frequency === 'custom' && (
               <label className="flex flex-col gap-1.5">
                 <span className="text-xs font-semibold text-ink-2">A cada X dias</span>
-                <input
-                  type="number"
-                  min={1}
-                  max={30}
-                  inputMode="numeric"
+                <DecimalInput
+                  integer
                   value={customDays}
-                  onChange={(e) => setCustomDays(e.target.value === '' ? '' : parseInt(e.target.value))}
-                  className="h-11 px-3 border-[1.5px] border-border-2 rounded bg-surface text-sm tabular-nums outline-none focus:border-teal focus:ring-[3px] focus:ring-teal-50"
+                  onChange={(n) => setCustomDays(n === '' ? '' : Math.min(30, n))}
+                  className="input tabular-nums"
                 />
               </label>
             )}
@@ -212,7 +207,7 @@ export default function ScheduleCalculator({ peptides }: Props) {
                   type="date"
                   value={startDate}
                   onChange={(e) => setStartDate(e.target.value)}
-                  className="h-11 px-3 border-[1.5px] border-border-2 rounded bg-surface text-sm outline-none focus:border-teal focus:ring-[3px] focus:ring-teal-50"
+                  className="input"
                 />
               </label>
               <label className="flex flex-col gap-1.5">
@@ -221,20 +216,17 @@ export default function ScheduleCalculator({ peptides }: Props) {
                   type="time"
                   value={timeOfDay}
                   onChange={(e) => setTimeOfDay(e.target.value)}
-                  className="h-11 px-3 border-[1.5px] border-border-2 rounded bg-surface text-sm outline-none focus:border-teal focus:ring-[3px] focus:ring-teal-50"
+                  className="input"
                 />
               </label>
             </div>
             <label className="flex flex-col gap-1.5">
               <span className="text-xs font-semibold text-ink-2">Duração (semanas)</span>
-              <input
-                type="number"
-                min={1}
-                max={52}
-                inputMode="numeric"
+              <DecimalInput
+                integer
                 value={durationWeeks}
-                onChange={(e) => setDurationWeeks(e.target.value === '' ? '' : parseInt(e.target.value))}
-                className="h-11 px-3 border-[1.5px] border-border-2 rounded bg-surface text-sm tabular-nums outline-none focus:border-teal focus:ring-[3px] focus:ring-teal-50"
+                onChange={(n) => setDurationWeeks(n === '' ? '' : Math.min(52, n))}
+                className="input tabular-nums"
               />
             </label>
           </div>

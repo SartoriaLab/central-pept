@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { getPeptides } from '@/lib/peptides';
 import { getArticles } from '@/lib/articles';
 import NewsletterSignup from '@/components/ui/NewsletterSignup';
+import ToolIcon, { toolColor } from '@/components/ui/ToolIcon';
 
 export const metadata: Metadata = {
   title: {
@@ -18,55 +19,31 @@ const TOOLS = [
     slug: 'reconstituicao',
     title: 'Reconstituição',
     desc: 'Quantas unidades puxar na seringa, em tempo real.',
-    color: 'teal',
-    icon: (
-      <path d="M9 2h6M10 2v4M14 2v4M9 6h6l2 5v9a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-9zM7 13h10" />
-    ),
   },
   {
     slug: 'mistura',
     title: 'Mistura',
     desc: 'Combine peptídeos num mesmo frasco e veja a dose de cada um.',
-    color: 'orange',
-    icon: (
-      <path d="M8 2h8M9 2v5l-4 10a3 3 0 0 0 3 4h8a3 3 0 0 0 3-4l-4-10V2" />
-    ),
   },
   {
     slug: 'conversor',
     title: 'Conversor',
     desc: 'mg ↔ mcg ↔ UI por peptídeo, com multiplicador de dose.',
-    color: 'teal',
-    icon: (
-      <path d="M7 7h10M7 7l3-3M7 7l3 3M17 17H7M17 17l-3-3M17 17l-3 3" />
-    ),
   },
   {
     slug: 'titulacao',
     title: 'Subida de Dose GLP-1',
     desc: 'Escalonamento semana a semana para Ozempic, Wegovy, Mounjaro e Zepbound.',
-    color: 'orange',
-    icon: (
-      <path d="M3 17l6-6 4 4 8-8M14 7h7v7" />
-    ),
   },
   {
     slug: 'cronograma',
     title: 'Cronograma',
     desc: 'Monte o calendário de doses e exporte .ics pro Google Calendar.',
-    color: 'teal',
-    icon: (
-      <path d="M8 2v4M16 2v4M3 10h18M5 6h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z" />
-    ),
   },
   {
     slug: 'custo-glp1',
     title: 'Custo de GLP-1',
     desc: 'Quanto sai por dose, por mês e por mg em cada apresentação.',
-    color: 'orange',
-    icon: (
-      <path d="M12 2v20M17 6H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-    ),
   },
 ];
 
@@ -156,11 +133,11 @@ export default function HomePage() {
                 </svg>
                 <div className="mt-4 grid grid-cols-2 gap-3 text-sm">
                   <div className="p-3 rounded-lg bg-bg">
-                    <div className="text-[10px] font-bold uppercase tracking-wider text-ink-3">Concentração</div>
+                    <div className="text-xs font-bold uppercase tracking-wider text-ink-3">Concentração</div>
                     <div className="font-bold tabular-nums">2,5 mg/ml</div>
                   </div>
                   <div className="p-3 rounded-lg bg-bg">
-                    <div className="text-[10px] font-bold uppercase tracking-wider text-ink-3">Doses/frasco</div>
+                    <div className="text-xs font-bold uppercase tracking-wider text-ink-3">Doses/frasco</div>
                     <div className="font-bold tabular-nums">20</div>
                   </div>
                 </div>
@@ -224,7 +201,7 @@ export default function HomePage() {
           </p>
         </div>
 
-        <div className="grid gap-4 md:gap-6 md:grid-cols-3">
+        <div className="grid gap-4 md:gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {TOOLS.map((t) => (
             <Link
               key={t.slug}
@@ -233,20 +210,12 @@ export default function HomePage() {
             >
               <div
                 className={`absolute top-0 right-0 w-32 h-32 rounded-full blur-2xl opacity-20 group-hover:opacity-40 transition-opacity -translate-y-1/2 translate-x-1/2 ${
-                  t.color === 'orange' ? 'bg-orange-400' : 'bg-teal'
+                  toolColor(t.slug) === 'orange' ? 'bg-orange-400' : 'bg-teal'
                 }`}
                 aria-hidden
               />
               <div className="relative">
-                <div
-                  className={`w-12 h-12 rounded-lg flex items-center justify-center mb-4 ${
-                    t.color === 'orange' ? 'bg-orange-100 text-orange-600' : 'bg-teal-50 text-teal-700'
-                  }`}
-                >
-                  <svg viewBox="0 0 24 24" width={24} height={24} fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-                    {t.icon}
-                  </svg>
-                </div>
+                <ToolIcon slug={t.slug} className="mb-4" />
                 <h3 className="text-lg font-bold text-ink leading-tight">{t.title}</h3>
                 <p className="text-sm text-ink-2 mt-2 leading-relaxed">{t.desc}</p>
                 <div className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-teal-700 group-hover:gap-2 transition-all">
@@ -311,7 +280,7 @@ export default function HomePage() {
             >
               <div className="flex items-start justify-between gap-2">
                 <h3 className="font-bold leading-tight text-ink">{p.name}</h3>
-                <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-teal-50 text-teal-700 border border-teal-100 whitespace-nowrap flex-shrink-0">
+                <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-teal-50 text-teal-700 border border-teal-100 whitespace-nowrap flex-shrink-0">
                   {p.typicalDose} {p.doseUnit}
                 </span>
               </div>

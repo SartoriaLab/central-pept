@@ -113,12 +113,12 @@ export default async function CategoryPage({ params }: { params: Promise<Params>
         </div>
 
         <section className="mt-10" aria-labelledby="lista">
-          <h2 id="lista" className="text-2xl font-bold mb-4">Lista comparada</h2>
+          <h2 id="lista" className="text-xl md:text-2xl font-bold mb-4">Lista comparada</h2>
           {/* relative: prende o sr-only do cabeçalho dentro da área de rolagem (senão alarga a página no celular) */}
           <div className="card overflow-x-auto relative">
             <table className="w-full text-sm">
               <thead>
-                <tr className="text-left text-[11px] uppercase tracking-wider text-ink-3 border-b border-border">
+                <tr className="text-left text-xs uppercase tracking-wider text-ink-3 border-b border-border">
                   <th scope="col" className="p-3 font-bold">Peptídeo</th>
                   <th scope="col" className="p-3 font-bold">Dose de referência</th>
                   <th scope="col" className="p-3 font-bold">Frequência</th>
@@ -163,7 +163,7 @@ export default async function CategoryPage({ params }: { params: Promise<Params>
         </section>
 
         <section className="mt-10" aria-labelledby="resumo-peptideos">
-          <h2 id="resumo-peptideos" className="text-2xl font-bold mb-4">Cada peptídeo em uma frase</h2>
+          <h2 id="resumo-peptideos" className="text-xl md:text-2xl font-bold mb-4">Cada peptídeo em uma frase</h2>
           <div className="grid gap-3 sm:grid-cols-2">
             {peptides.map((p) => (
               <Link key={p.slug} href={`/peptideos/${p.slug}`} className="card-hover p-4 block group">
@@ -175,7 +175,7 @@ export default async function CategoryPage({ params }: { params: Promise<Params>
         </section>
 
         <section className="mt-10" aria-labelledby="pontos">
-          <h2 id="pontos" className="text-2xl font-bold mb-3">O que pesa na avaliação</h2>
+          <h2 id="pontos" className="text-xl md:text-2xl font-bold mb-3">O que pesa na avaliação</h2>
           <ul className="space-y-2 text-ink-2 list-disc pl-5 leading-relaxed">
             {c.keyPoints.map((k) => (
               <li key={k}>{k}</li>
@@ -192,7 +192,7 @@ export default async function CategoryPage({ params }: { params: Promise<Params>
                 <Link
                   key={b.slug}
                   href={`/medicamentos/${b.slug}`}
-                  className="inline-flex items-center px-3 py-1.5 text-sm font-semibold rounded-full border border-border bg-surface text-ink-2 hover:border-teal hover:text-teal-700 hover:bg-teal-50 transition-colors"
+                  className="chip-lg"
                 >
                   {b.name} ({b.activeIngredient.toLowerCase()})
                 </Link>
@@ -209,7 +209,7 @@ export default async function CategoryPage({ params }: { params: Promise<Params>
                 <Link
                   key={x.slug}
                   href={`/comparar/${x.slug}`}
-                  className="inline-flex items-center px-3 py-1.5 text-sm font-semibold rounded-full border border-border bg-surface text-ink-2 hover:border-teal hover:text-teal-700 hover:bg-teal-50 transition-colors"
+                  className="chip-lg"
                 >
                   {x.title}
                 </Link>
@@ -220,7 +220,7 @@ export default async function CategoryPage({ params }: { params: Promise<Params>
 
         {articles.length > 0 && (
           <section className="mt-10" aria-labelledby="guias">
-            <h2 id="guias" className="text-2xl font-bold mb-4">Guias e artigos</h2>
+            <h2 id="guias" className="text-xl md:text-2xl font-bold mb-4">Guias e artigos</h2>
             <div className="grid gap-3 sm:grid-cols-2">
               {articles.slice(0, 10).map((a) => (
                 <Link key={a.slug} href={`/blog/${a.slug}`} className="card-hover p-4 block group">
@@ -241,7 +241,7 @@ export default async function CategoryPage({ params }: { params: Promise<Params>
               <Link
                 key={o.slug}
                 href={`/peptideos/categoria/${o.slug}`}
-                className="inline-flex items-center px-3 py-1.5 text-sm font-semibold rounded-full border border-border bg-surface text-ink-2 hover:border-teal hover:text-teal-700 hover:bg-teal-50 transition-colors"
+                className="chip-lg"
               >
                 {o.label}
               </Link>

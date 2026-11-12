@@ -31,7 +31,7 @@ export default function FAQ({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <h2 className="text-xl font-bold mb-4">{title}</h2>
+      <h2 className="text-xl md:text-2xl font-bold mb-4">{title}</h2>
       <div className="flex flex-col gap-2">
         {items.map((item, i) => (
           <details

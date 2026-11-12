@@ -1,5 +1,6 @@
 'use client';
 
+import DecimalInput from '@/components/ui/DecimalInput';
 import { useEffect, useMemo, useState } from 'react';
 import { getTitrationDoses } from '@/lib/titration';
 import { EVENTS, trackOnce } from '@/lib/track';
@@ -68,10 +69,10 @@ export default function GlpCostCalculator() {
   }
 
   return (
-    <div className="grid gap-6 lg:grid-cols-2">
+    <div className="grid gap-6 md:grid-cols-2">
       <section className="card p-5 md:p-6" aria-label="Dados do cálculo">
         <fieldset>
-          <legend className="text-[11px] font-bold uppercase tracking-wider text-ink-3 mb-2">Medicamento</legend>
+          <legend className="text-xs font-bold uppercase tracking-wider text-ink-3 mb-2">Medicamento</legend>
           <div className="flex flex-wrap gap-2">
             {MEDS.map((m) => (
               <button
@@ -98,7 +99,7 @@ export default function GlpCostCalculator() {
         </div>
 
         <div className="mt-3">
-          <div className="text-[11px] font-bold uppercase tracking-wider text-ink-3 mb-1.5">Embalagens comuns (mg)</div>
+          <div className="text-xs font-bold uppercase tracking-wider text-ink-3 mb-1.5">Embalagens comuns (mg)</div>
           <div className="flex flex-wrap gap-1.5">
             {med.packages.map((mg) => (
               <Chip key={mg} active={totalMg === mg} onClick={() => setTotalMg(mg)}>{num(mg)} mg</Chip>
@@ -108,7 +109,7 @@ export default function GlpCostCalculator() {
 
         {doses.length > 0 && (
           <div className="mt-3">
-            <div className="text-[11px] font-bold uppercase tracking-wider text-ink-3 mb-1.5">Doses da titulação (mg/semana)</div>
+            <div className="text-xs font-bold uppercase tracking-wider text-ink-3 mb-1.5">Doses da titulação (mg/semana)</div>
             <div className="flex flex-wrap gap-1.5">
               {doses.map((d) => (
                 <Chip key={d} active={dose === d} onClick={() => setDose(d)}>{num(d)}</Chip>
@@ -176,7 +177,7 @@ export default function GlpCostCalculator() {
               Vale para frasco; em caneta o preço costuma ser por caixa, independente da dose.
             </caption>
             <thead>
-              <tr className="text-left text-[11px] uppercase tracking-wider text-ink-3 border-y border-border">
+              <tr className="text-left text-xs uppercase tracking-wider text-ink-3 border-y border-border">
                 <th scope="col" className="p-3 font-bold">Dose semanal</th>
                 <th scope="col" className="p-3 font-bold">Por dose</th>
                 <th scope="col" className="p-3 font-bold">Por mês</th>
@@ -213,23 +214,15 @@ function Field({
 }) {
   return (
     <label className="flex flex-col">
-      <span className="text-[11px] font-bold uppercase tracking-wider text-ink-3 mb-1">{label}</span>
+      <span className="text-xs font-bold uppercase tracking-wider text-ink-3 mb-1">{label}</span>
       <div className="flex items-center border-[1.5px] border-border-2 rounded bg-surface h-11 overflow-hidden focus-within:border-teal focus-within:ring-[3px] focus-within:ring-teal-50">
-        <input
-          type="number"
-          min={0}
-          step="any"
-          inputMode="decimal"
+        <DecimalInput
           value={value}
           placeholder={placeholder}
-          onChange={(e) => {
-            if (e.target.value === '') return onChange('');
-            const n = parseFloat(e.target.value);
-            if (Number.isFinite(n) && n >= 0) onChange(n);
-          }}
-          className="flex-1 min-w-0 h-full bg-transparent px-3 text-sm font-bold tabular-nums outline-none"
+          onChange={onChange}
+          className="flex-1 min-w-0 h-full bg-transparent px-3 text-base font-bold tabular-nums outline-none"
         />
-        <span className="px-2.5 text-[11px] font-bold text-ink-3 border-l border-border h-full flex items-center flex-shrink-0">
+        <span className="px-2.5 text-xs font-bold text-ink-3 border-l border-border h-full flex items-center flex-shrink-0">
           {unit}
         </span>
       </div>
@@ -243,7 +236,7 @@ function Chip({ active, onClick, children }: { active: boolean; onClick: () => v
       type="button"
       onClick={onClick}
       aria-pressed={active}
-      className={`px-2.5 py-1 text-xs font-semibold rounded-full border tabular-nums transition-colors ${
+      className={`min-h-8 px-3 text-xs font-semibold rounded-full border tabular-nums transition-colors ${
         active
           ? 'border-teal bg-teal-50 text-teal-700'
           : 'border-border bg-surface text-ink-2 hover:border-teal hover:text-teal-700'
@@ -257,7 +250,7 @@ function Chip({ active, onClick, children }: { active: boolean; onClick: () => v
 function Stat({ label, value, highlight }: { label: string; value: string; highlight?: boolean }) {
   return (
     <div>
-      <div className="text-[10px] font-bold uppercase tracking-wider text-ink-3">{label}</div>
+      <div className="text-xs font-bold uppercase tracking-wider text-ink-3">{label}</div>
       <div className={`font-extrabold tabular-nums leading-tight ${highlight ? 'text-2xl text-teal' : 'text-lg text-ink'}`}>
         {value}
       </div>

@@ -23,53 +23,53 @@ export default function Footer() {
         </div>
 
         <div>
-          <div className="font-bold text-ink mb-3 uppercase text-xs tracking-wider">Ferramentas</div>
-          <ul className="space-y-2 text-ink-2">
-            <li><Link href="/ferramentas/reconstituicao" className="hover:text-teal-700">Reconstituição</Link></li>
-            <li><Link href="/ferramentas/mistura" className="hover:text-teal-700">Mistura</Link></li>
-            <li><Link href="/ferramentas/conversor" className="hover:text-teal-700">Conversor</Link></li>
-            <li><Link href="/ferramentas/cronograma" className="hover:text-teal-700">Cronograma</Link></li>
-            <li><Link href="/ferramentas/titulacao" className="hover:text-teal-700">Subida de Dose GLP-1</Link></li>
-            <li><Link href="/ferramentas/custo-glp1" className="hover:text-teal-700">Custo por Dose GLP-1</Link></li>
-            <li><Link href="/ferramentas/tabela-doses-glp1" className="hover:text-teal-700">Tabela de Doses GLP-1</Link></li>
+          <div className="font-bold text-ink mb-1.5 uppercase text-xs tracking-wider">Ferramentas</div>
+          <ul className="text-ink-2">
+            <li><Link href="/ferramentas/reconstituicao" className="inline-block py-1.5 hover:text-teal-700">Reconstituição</Link></li>
+            <li><Link href="/ferramentas/mistura" className="inline-block py-1.5 hover:text-teal-700">Mistura</Link></li>
+            <li><Link href="/ferramentas/conversor" className="inline-block py-1.5 hover:text-teal-700">Conversor</Link></li>
+            <li><Link href="/ferramentas/cronograma" className="inline-block py-1.5 hover:text-teal-700">Cronograma</Link></li>
+            <li><Link href="/ferramentas/titulacao" className="inline-block py-1.5 hover:text-teal-700">Subida de Dose GLP-1</Link></li>
+            <li><Link href="/ferramentas/custo-glp1" className="inline-block py-1.5 hover:text-teal-700">Custo por Dose GLP-1</Link></li>
+            <li><Link href="/ferramentas/tabela-doses-glp1" className="inline-block py-1.5 hover:text-teal-700">Tabela de Doses GLP-1</Link></li>
           </ul>
         </div>
 
         <div>
-          <div className="font-bold text-ink mb-3 uppercase text-xs tracking-wider">Conteúdo</div>
-          <ul className="space-y-2 text-ink-2">
-            <li><Link href="/peptideos" className="hover:text-teal-700">Enciclopédia</Link></li>
-            <li><Link href="/medicamentos" className="hover:text-teal-700">Mounjaro, Ozempic e Wegovy</Link></li>
-            <li><Link href="/peptideos/categoria/emagrecimento" className="hover:text-teal-700">Peptídeos para emagrecer</Link></li>
-            <li><Link href="/comparar" className="hover:text-teal-700">Comparador</Link></li>
-            <li><Link href="/blog" className="hover:text-teal-700">Blog</Link></li>
-            <li><Link href="/glossario" className="hover:text-teal-700">Glossário</Link></li>
+          <div className="font-bold text-ink mb-1.5 uppercase text-xs tracking-wider">Conteúdo</div>
+          <ul className="text-ink-2">
+            <li><Link href="/peptideos" className="inline-block py-1.5 hover:text-teal-700">Enciclopédia</Link></li>
+            <li><Link href="/medicamentos" className="inline-block py-1.5 hover:text-teal-700">Mounjaro, Ozempic e Wegovy</Link></li>
+            <li><Link href="/peptideos/categoria/emagrecimento" className="inline-block py-1.5 hover:text-teal-700">Peptídeos para emagrecer</Link></li>
+            <li><Link href="/comparar" className="inline-block py-1.5 hover:text-teal-700">Comparador</Link></li>
+            <li><Link href="/blog" className="inline-block py-1.5 hover:text-teal-700">Blog</Link></li>
+            <li><Link href="/glossario" className="inline-block py-1.5 hover:text-teal-700">Glossário</Link></li>
           </ul>
         </div>
 
         <div>
-          <div className="font-bold text-ink mb-3 uppercase text-xs tracking-wider">Tirzepatida</div>
-          <ul className="space-y-2 text-ink-2">
-            <li><Link href="/peptideos/tirzepatida" className="hover:text-teal-700">Ficha completa</Link></li>
-            <li><Link href="/medicamentos/mounjaro" className="hover:text-teal-700">Mounjaro</Link></li>
-            <li><Link href="/blog/efeitos-colaterais-tirzepatida" className="hover:text-teal-700">Efeitos colaterais</Link></li>
-            <li><Link href="/blog/onde-comprar-tirzepatida" className="hover:text-teal-700">Onde comprar</Link></li>
-            <li><Link href="/blog/tirzepatida-preco-quanto-custa" className="hover:text-teal-700">Quanto custa</Link></li>
-            <li><Link href="/blog/como-reconstituir-tirzepatida" className="hover:text-teal-700">Como reconstituir</Link></li>
-            <li><Link href="/blog/mounjaro-falso-como-identificar" className="hover:text-teal-700">Mounjaro falso</Link></li>
+          <div className="font-bold text-ink mb-1.5 uppercase text-xs tracking-wider">Tirzepatida</div>
+          <ul className="text-ink-2">
+            <li><Link href="/peptideos/tirzepatida" className="inline-block py-1.5 hover:text-teal-700">Ficha completa</Link></li>
+            <li><Link href="/medicamentos/mounjaro" className="inline-block py-1.5 hover:text-teal-700">Mounjaro</Link></li>
+            <li><Link href="/blog/efeitos-colaterais-tirzepatida" className="inline-block py-1.5 hover:text-teal-700">Efeitos colaterais</Link></li>
+            <li><Link href="/blog/onde-comprar-tirzepatida" className="inline-block py-1.5 hover:text-teal-700">Onde comprar</Link></li>
+            <li><Link href="/blog/tirzepatida-preco-quanto-custa" className="inline-block py-1.5 hover:text-teal-700">Quanto custa</Link></li>
+            <li><Link href="/blog/como-reconstituir-tirzepatida" className="inline-block py-1.5 hover:text-teal-700">Como reconstituir</Link></li>
+            <li><Link href="/blog/mounjaro-falso-como-identificar" className="inline-block py-1.5 hover:text-teal-700">Mounjaro falso</Link></li>
           </ul>
         </div>
 
         <div>
-          <div className="font-bold text-ink mb-3 uppercase text-xs tracking-wider">Institucional</div>
-          <ul className="space-y-2 text-ink-2">
-            <li><Link href="/sobre" className="hover:text-teal-700">Sobre</Link></li>
-            <li><Link href="/metodologia" className="hover:text-teal-700">Metodologia</Link></li>
-            <li><Link href="/contato" className="hover:text-teal-700">Contato</Link></li>
-            <li><Link href="/privacidade" className="hover:text-teal-700">Privacidade</Link></li>
-            <li><Link href="/termos" className="hover:text-teal-700">Termos</Link></li>
+          <div className="font-bold text-ink mb-1.5 uppercase text-xs tracking-wider">Institucional</div>
+          <ul className="text-ink-2">
+            <li><Link href="/sobre" className="inline-block py-1.5 hover:text-teal-700">Sobre</Link></li>
+            <li><Link href="/metodologia" className="inline-block py-1.5 hover:text-teal-700">Metodologia</Link></li>
+            <li><Link href="/contato" className="inline-block py-1.5 hover:text-teal-700">Contato</Link></li>
+            <li><Link href="/privacidade" className="inline-block py-1.5 hover:text-teal-700">Privacidade</Link></li>
+            <li><Link href="/termos" className="inline-block py-1.5 hover:text-teal-700">Termos</Link></li>
             <li>
-              <a href="/feed.xml" className="hover:text-teal-700 inline-flex items-center gap-1">
+              <a href="/feed.xml" className="py-1.5 hover:text-teal-700 inline-flex items-center gap-1">
                 RSS
                 <svg viewBox="0 0 20 20" width={11} height={11} fill="currentColor" aria-hidden>
                   <path d="M3.5 3.5v3A10 10 0 0 1 13.5 16.5h3A13 13 0 0 0 3.5 3.5zm0 5v3a5 5 0 0 1 5 5h3a8 8 0 0 0-8-8zm2 6.5a1.5 1.5 0 1 0 3 0 1.5 1.5 0 0 0-3 0z" />

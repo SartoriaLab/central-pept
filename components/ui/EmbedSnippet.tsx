@@ -37,8 +37,8 @@ export default function EmbedSnippet({ embedUrl, creditUrl, creditLabel, title, 
   }
 
   return (
-    <section className="mt-12 no-print max-w-3xl" aria-labelledby="incorporar">
-      <h2 id="incorporar" className="text-xl font-bold mb-2">Incorporar no seu site</h2>
+    <section className="mt-10 no-print max-w-3xl" aria-labelledby="incorporar">
+      <h2 id="incorporar" className="text-xl md:text-2xl font-bold mb-2">Incorporar no seu site</h2>
       <p className="text-sm text-ink-2 mb-3 leading-relaxed">
         Tem um blog, clínica ou farmácia? Cole o código abaixo na sua página para exibir a calculadora.
         É gratuito — pedimos apenas que o link de crédito seja mantido.

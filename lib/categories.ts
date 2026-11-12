@@ -20,7 +20,6 @@ export type CategoryPage = {
   keyPoints: string[];
   faq: { q: string; a: string; link?: { label: string; href: string } }[];
   /** Tags de ebook relacionadas (lib/ebooks.ts), se houver. */
-  ebookTags?: string[];
 };
 
 export const CATEGORY_PAGES: CategoryPage[] = [
@@ -62,7 +61,6 @@ export const CATEGORY_PAGES: CategoryPage[] = [
         link: { label: 'Efeito rebote após parar tirzepatida', href: '/blog/efeito-rebote-apos-parar-tirzepatida' },
       },
     ],
-    ebookTags: ['glp-1', 'emagrecimento'],
   },
   {
     slug: 'cicatrizacao',
@@ -267,7 +265,6 @@ export const CATEGORY_PAGES: CategoryPage[] = [
         a: 'Em geral se recomenda aplicar em horários diferentes: fórmulas ácidas podem interferir na estabilidade do complexo de cobre.',
       },
     ],
-    ebookTags: ['pele', 'anti-idade'],
   },
   {
     slug: 'hormonal',

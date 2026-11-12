@@ -13,7 +13,7 @@ export default function RelatedLinks({
 }) {
   if (links.length === 0) return null;
   return (
-    <section className="mt-12" aria-label={title}>
+    <section className="mt-10" aria-label={title}>
       <h2 className="text-sm font-bold uppercase tracking-wider text-ink-3 mb-3">{title}</h2>
       <div className="grid gap-3 sm:grid-cols-2">
         {links.map((l) => (

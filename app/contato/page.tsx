@@ -10,7 +10,7 @@ export default function ContatoPage() {
   return (
     <div className="max-w-3xl mx-auto px-4 md:px-6 py-12">
       <header className="mb-10">
-        <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight">Contato</h1>
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight">Contato</h1>
         <p className="mt-3 text-lg text-ink-2 leading-relaxed">
           Encontrou um erro, referência quebrada, quer sugerir um peptídeo para
           catalogar ou tem uma dúvida editorial? Use os canais abaixo.

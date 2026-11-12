@@ -82,8 +82,8 @@ export default function ReconstitucaoPage() {
 
       <ReconstitutionCalculator peptides={peptides} />
 
-      <section className="mt-12 no-print" aria-labelledby="por-peptideo">
-        <h2 id="por-peptideo" className="text-xl font-bold mb-2">Calculadora por peptídeo</h2>
+      <section className="mt-10 no-print" aria-labelledby="por-peptideo">
+        <h2 id="por-peptideo" className="text-xl md:text-2xl font-bold mb-2">Calculadora por peptídeo</h2>
         <p className="text-sm text-ink-2 mb-4 max-w-2xl">
           Páginas já preenchidas com a dose de referência, os frascos mais comuns e uma tabela
           pronta de unidades na seringa.
@@ -93,7 +93,7 @@ export default function ReconstitucaoPage() {
             <Link
               key={p.slug}
               href={`/ferramentas/reconstituicao/${p.slug}`}
-              className="inline-flex items-center px-3 py-1.5 text-sm font-semibold rounded-full border border-border bg-surface text-ink-2 hover:border-teal hover:text-teal-700 hover:bg-teal-50 transition-colors"
+              className="chip-lg"
             >
               {p.name}
             </Link>

@@ -60,23 +60,24 @@ export default function PeptideBrowser({ peptides }: Props) {
   return (
     <>
       <div className="flex flex-col md:flex-row gap-3 mb-5">
-        <div className="flex-1 flex items-center gap-2 h-11 px-3.5 border-[1.5px] border-border-2 bg-surface rounded focus-within:border-teal focus-within:ring-[3px] focus-within:ring-teal-50 transition-all">
+        <div className="md:flex-1 shrink-0 flex items-center gap-2 h-12 px-3.5 border-[1.5px] border-border-2 bg-surface rounded focus-within:border-teal focus-within:ring-[3px] focus-within:ring-teal-50 transition-all">
           <svg viewBox="0 0 20 20" width={18} height={18} fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden className="text-ink-3">
             <circle cx={9} cy={9} r={6} /><path d="m16 16-3.5-3.5" />
           </svg>
           <input
             type="search"
             placeholder="Buscar peptídeo…"
+            aria-label="Buscar peptídeo"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="flex-1 bg-transparent outline-none text-sm text-ink"
+            className="flex-1 h-full bg-transparent outline-none text-base text-ink placeholder:text-ink-3"
           />
           {query && (
             <button
               type="button"
               onClick={() => setQuery('')}
               aria-label="Limpar busca"
-              className="text-ink-3 hover:text-ink-2"
+              className="w-8 h-8 -mr-1.5 flex items-center justify-center rounded-md text-xl leading-none text-ink-3 hover:text-ink"
             >
               ×
             </button>
@@ -85,12 +86,13 @@ export default function PeptideBrowser({ peptides }: Props) {
       </div>
 
       <div className="mb-3">
-        <div className="text-[11px] font-bold uppercase tracking-wider text-ink-3 mb-1.5">Categoria</div>
-        <div className="flex flex-wrap gap-1.5">
+        <div className="text-xs font-bold uppercase tracking-wider text-ink-3 mb-1.5">Categoria</div>
+        <div className="flex flex-nowrap md:flex-wrap gap-2 md:gap-1.5 overflow-x-auto md:overflow-visible no-scrollbar -mx-4 px-4 md:mx-0 md:px-0 pb-1">
           <button
             type="button"
             onClick={() => setCat('all')}
-            className={`px-3 py-1 text-xs font-semibold rounded-full border transition-colors ${
+            aria-pressed={cat === 'all'}
+            className={`shrink-0 whitespace-nowrap min-h-9 md:min-h-8 px-3.5 md:px-3 text-sm md:text-xs font-semibold rounded-full border transition-colors ${
               cat === 'all'
                 ? 'bg-teal-50 border-teal text-teal-700'
                 : 'bg-surface border-border text-ink-2 hover:border-teal'
@@ -105,7 +107,8 @@ export default function PeptideBrowser({ peptides }: Props) {
                 key={c}
                 type="button"
                 onClick={() => setCat(c)}
-                className={`px-3 py-1 text-xs font-semibold rounded-full border transition-colors ${
+                aria-pressed={cat === c}
+                className={`shrink-0 whitespace-nowrap min-h-9 md:min-h-8 px-3.5 md:px-3 text-sm md:text-xs font-semibold rounded-full border transition-colors ${
                   cat === c
                     ? 'bg-teal-50 border-teal text-teal-700'
                     : 'bg-surface border-border text-ink-2 hover:border-teal'
@@ -119,12 +122,13 @@ export default function PeptideBrowser({ peptides }: Props) {
       </div>
 
       <div className="mb-6">
-        <div className="text-[11px] font-bold uppercase tracking-wider text-ink-3 mb-1.5">Status regulatório</div>
-        <div className="flex flex-wrap gap-1.5">
+        <div className="text-xs font-bold uppercase tracking-wider text-ink-3 mb-1.5">Status regulatório</div>
+        <div className="flex flex-nowrap md:flex-wrap gap-2 md:gap-1.5 overflow-x-auto md:overflow-visible no-scrollbar -mx-4 px-4 md:mx-0 md:px-0 pb-1">
           <button
             type="button"
             onClick={() => setStatus('all')}
-            className={`px-3 py-1 text-xs font-semibold rounded-full border transition-colors ${
+            aria-pressed={status === 'all'}
+            className={`shrink-0 whitespace-nowrap min-h-9 md:min-h-8 px-3.5 md:px-3 text-sm md:text-xs font-semibold rounded-full border transition-colors ${
               status === 'all'
                 ? 'bg-teal-50 border-teal text-teal-700'
                 : 'bg-surface border-border text-ink-2 hover:border-teal'
@@ -139,7 +143,8 @@ export default function PeptideBrowser({ peptides }: Props) {
                 key={s}
                 type="button"
                 onClick={() => setStatus(s)}
-                className={`px-3 py-1 text-xs font-semibold rounded-full border transition-colors ${
+                aria-pressed={status === s}
+                className={`shrink-0 whitespace-nowrap min-h-9 md:min-h-8 px-3.5 md:px-3 text-sm md:text-xs font-semibold rounded-full border transition-colors ${
                   status === s
                     ? 'bg-teal-50 border-teal text-teal-700'
                     : 'bg-surface border-border text-ink-2 hover:border-teal'
@@ -153,7 +158,8 @@ export default function PeptideBrowser({ peptides }: Props) {
             <button
               type="button"
               onClick={() => setStatus('wada')}
-              className={`px-3 py-1 text-xs font-semibold rounded-full border transition-colors ${
+              aria-pressed={status === 'wada'}
+              className={`shrink-0 whitespace-nowrap min-h-9 md:min-h-8 px-3.5 md:px-3 text-sm md:text-xs font-semibold rounded-full border transition-colors ${
                 status === 'wada'
                   ? 'bg-red-50 border-red-400 text-red-800'
                   : 'bg-surface border-border text-ink-2 hover:border-red-300'
@@ -166,7 +172,7 @@ export default function PeptideBrowser({ peptides }: Props) {
       </div>
 
       {filtered.length === 0 ? (
-        <div className="card p-8 text-center text-ink-3 text-sm">
+        <div className="card p-8 text-center text-ink-3 text-sm" role="status">
           Nenhum peptídeo encontrado com esses filtros.
         </div>
       ) : (
@@ -186,7 +192,7 @@ export default function PeptideBrowser({ peptides }: Props) {
                 />
                 <div className="flex items-start justify-between gap-2 mb-2">
                   <h2 className="font-bold leading-tight text-ink group-hover:text-teal-700 transition-colors">{p.name}</h2>
-                  <span className="text-[11px] font-bold px-2 py-0.5 rounded-full bg-teal-50 text-teal-700 border border-teal-100 whitespace-nowrap flex-shrink-0 tabular-nums">
+                  <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-teal-50 text-teal-700 border border-teal-100 whitespace-nowrap flex-shrink-0 tabular-nums">
                     {p.typicalDose} {p.doseUnit}
                   </span>
                 </div>

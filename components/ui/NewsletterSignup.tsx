@@ -55,18 +55,18 @@ export default function NewsletterSignup({ variant = 'card', endpoint }: Props) 
           onChange={(e) => setEmail(e.target.value)}
           placeholder="seu@email.com"
           disabled={status === 'loading'}
-          className="flex-1 h-11 px-3.5 border-[1.5px] border-border-2 rounded bg-surface text-sm outline-none focus:border-teal focus:ring-[3px] focus:ring-teal-50 disabled:opacity-50"
+          aria-label="Seu email"
+          autoComplete="email"
+          className="input sm:flex-1 shrink-0 !h-12"
         />
         <button
           type="submit"
           disabled={status === 'loading' || !email}
-          className="btn-teal !h-11 disabled:opacity-60"
+          className="btn-teal !h-12 disabled:opacity-60"
         >
           {status === 'loading' ? 'Enviando...' : 'Inscrever-se'}
         </button>
-        {message && (
-          <p className={`text-xs mt-1 ${status === 'error' ? 'text-red-700' : 'text-teal-700'}`}>{message}</p>
-        )}
+        <p role="status" className={`text-sm mt-1 empty:hidden ${status === 'error' ? 'text-red-700' : 'text-teal-700'}`}>{message}</p>
       </form>
     );
   }
@@ -95,12 +95,14 @@ export default function NewsletterSignup({ variant = 'card', endpoint }: Props) 
               onChange={(e) => setEmail(e.target.value)}
               placeholder="seu@email.com"
               disabled={status === 'loading'}
-              className="flex-1 h-11 px-3.5 border-[1.5px] border-border-2 rounded bg-surface text-sm outline-none focus:border-teal focus:ring-[3px] focus:ring-teal-50 disabled:opacity-50"
+              aria-label="Seu email"
+              autoComplete="email"
+              className="input sm:flex-1 shrink-0 !h-12"
             />
             <button
               type="submit"
               disabled={status === 'loading' || !email}
-              className="btn-teal !h-11 disabled:opacity-60 whitespace-nowrap"
+              className="btn-teal !h-12 disabled:opacity-60 whitespace-nowrap"
             >
               {status === 'loading' ? 'Enviando...' : 'Inscrever-se'}
               {status !== 'loading' && (
@@ -110,11 +112,9 @@ export default function NewsletterSignup({ variant = 'card', endpoint }: Props) 
               )}
             </button>
           </form>
-          {message && (
-            <p className={`text-xs mt-2 ${status === 'error' ? 'text-red-700' : 'text-teal-700'}`}>
-              {message}
-            </p>
-          )}
+          <p role="status" className={`text-sm mt-2 empty:hidden ${status === 'error' ? 'text-red-700' : 'text-teal-700'}`}>
+            {message}
+          </p>
         </div>
       </div>
     </section>

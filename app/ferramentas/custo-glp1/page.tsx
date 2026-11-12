@@ -81,8 +81,8 @@ export default function CustoGlp1Page() {
 
       <GlpCostCalculator />
 
-      <section className="mt-12 max-w-3xl" aria-labelledby="como-funciona">
-        <h2 id="como-funciona" className="text-xl font-bold mb-3">Como a conta é feita</h2>
+      <section className="mt-10 max-w-3xl" aria-labelledby="como-funciona">
+        <h2 id="como-funciona" className="text-xl md:text-2xl font-bold mb-3">Como a conta é feita</h2>
         <ol className="space-y-2 text-ink-2 list-decimal pl-5 leading-relaxed">
           <li><strong>Custo por mg</strong> = preço pago ÷ mg totais da embalagem.</li>
           <li><strong>Custo por dose</strong> = custo por mg × dose semanal em mg.</li>
