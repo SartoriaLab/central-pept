@@ -144,7 +144,7 @@ export default function ScheduleCalculator({ peptides }: Props) {
               <select
                 value={slug}
                 onChange={(e) => selectPeptide(e.target.value)}
-                className="h-11 px-3 border-[1.5px] border-border-2 rounded-DEFAULT bg-surface text-ink outline-none focus:border-teal focus:ring-[3px] focus:ring-teal-50"
+                className="h-11 px-3 border-[1.5px] border-border-2 rounded bg-surface text-ink outline-none focus:border-teal focus:ring-[3px] focus:ring-teal-50"
               >
                 <option value="">— selecionar —</option>
                 {peptides.map((p) => (
@@ -154,7 +154,7 @@ export default function ScheduleCalculator({ peptides }: Props) {
             </label>
             <label className="flex flex-col gap-1.5">
               <span className="text-xs font-semibold text-ink-2">Dose por aplicação</span>
-              <div className="flex items-center border-[1.5px] border-border-2 rounded-DEFAULT bg-surface h-11 overflow-hidden focus-within:border-teal focus-within:ring-[3px] focus-within:ring-teal-50">
+              <div className="flex items-center border-[1.5px] border-border-2 rounded bg-surface h-11 overflow-hidden focus-within:border-teal focus-within:ring-[3px] focus-within:ring-teal-50">
                 <input
                   type="number"
                   min={0}
@@ -184,7 +184,7 @@ export default function ScheduleCalculator({ peptides }: Props) {
               <select
                 value={frequency}
                 onChange={(e) => setFrequency(e.target.value as Frequency)}
-                className="h-11 px-3 border-[1.5px] border-border-2 rounded-DEFAULT bg-surface text-ink outline-none focus:border-teal focus:ring-[3px] focus:ring-teal-50"
+                className="h-11 px-3 border-[1.5px] border-border-2 rounded bg-surface text-ink outline-none focus:border-teal focus:ring-[3px] focus:ring-teal-50"
               >
                 {(Object.keys(FREQUENCY_LABELS) as Frequency[]).map((f) => (
                   <option key={f} value={f}>{FREQUENCY_LABELS[f]}</option>
@@ -201,7 +201,7 @@ export default function ScheduleCalculator({ peptides }: Props) {
                   inputMode="numeric"
                   value={customDays}
                   onChange={(e) => setCustomDays(e.target.value === '' ? '' : parseInt(e.target.value))}
-                  className="h-11 px-3 border-[1.5px] border-border-2 rounded-DEFAULT bg-surface text-sm tabular-nums outline-none focus:border-teal focus:ring-[3px] focus:ring-teal-50"
+                  className="h-11 px-3 border-[1.5px] border-border-2 rounded bg-surface text-sm tabular-nums outline-none focus:border-teal focus:ring-[3px] focus:ring-teal-50"
                 />
               </label>
             )}
@@ -212,7 +212,7 @@ export default function ScheduleCalculator({ peptides }: Props) {
                   type="date"
                   value={startDate}
                   onChange={(e) => setStartDate(e.target.value)}
-                  className="h-11 px-3 border-[1.5px] border-border-2 rounded-DEFAULT bg-surface text-sm outline-none focus:border-teal focus:ring-[3px] focus:ring-teal-50"
+                  className="h-11 px-3 border-[1.5px] border-border-2 rounded bg-surface text-sm outline-none focus:border-teal focus:ring-[3px] focus:ring-teal-50"
                 />
               </label>
               <label className="flex flex-col gap-1.5">
@@ -221,7 +221,7 @@ export default function ScheduleCalculator({ peptides }: Props) {
                   type="time"
                   value={timeOfDay}
                   onChange={(e) => setTimeOfDay(e.target.value)}
-                  className="h-11 px-3 border-[1.5px] border-border-2 rounded-DEFAULT bg-surface text-sm outline-none focus:border-teal focus:ring-[3px] focus:ring-teal-50"
+                  className="h-11 px-3 border-[1.5px] border-border-2 rounded bg-surface text-sm outline-none focus:border-teal focus:ring-[3px] focus:ring-teal-50"
                 />
               </label>
             </div>
@@ -234,7 +234,7 @@ export default function ScheduleCalculator({ peptides }: Props) {
                 inputMode="numeric"
                 value={durationWeeks}
                 onChange={(e) => setDurationWeeks(e.target.value === '' ? '' : parseInt(e.target.value))}
-                className="h-11 px-3 border-[1.5px] border-border-2 rounded-DEFAULT bg-surface text-sm tabular-nums outline-none focus:border-teal focus:ring-[3px] focus:ring-teal-50"
+                className="h-11 px-3 border-[1.5px] border-border-2 rounded bg-surface text-sm tabular-nums outline-none focus:border-teal focus:ring-[3px] focus:ring-teal-50"
               />
             </label>
           </div>

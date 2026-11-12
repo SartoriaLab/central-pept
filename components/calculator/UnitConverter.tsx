@@ -74,7 +74,7 @@ export default function UnitConverter({ peptides }: Props) {
           <select
             value={slug}
             onChange={(e) => { setSlug(e.target.value); setQty(''); }}
-            className="w-full h-[52px] px-4 border-[1.5px] border-border-2 rounded-DEFAULT bg-surface text-ink outline-none focus:border-teal focus:ring-[3px] focus:ring-teal-50"
+            className="w-full h-[52px] px-4 border-[1.5px] border-border-2 rounded bg-surface text-ink outline-none focus:border-teal focus:ring-[3px] focus:ring-teal-50"
           >
             <option value="">— Converter sem peptídeo específico —</option>
             {peptides.map((p) => (
@@ -82,7 +82,7 @@ export default function UnitConverter({ peptides }: Props) {
             ))}
           </select>
           {peptide && (
-            <div className="mt-3 flex items-center gap-2 px-3.5 py-2.5 bg-teal-50 border-[1.5px] border-teal-100 rounded-DEFAULT text-sm">
+            <div className="mt-3 flex items-center gap-2 px-3.5 py-2.5 bg-teal-50 border-[1.5px] border-teal-100 rounded text-sm">
               <strong className="text-teal-700">{peptide.name}</strong>
               <span className="text-ink-2">· dose típica: {peptide.typicalDose} {peptide.doseUnit} · {peptide.frequency}</span>
             </div>
@@ -94,7 +94,7 @@ export default function UnitConverter({ peptides }: Props) {
             <span className="inline-flex w-[22px] h-[22px] rounded-full bg-teal text-white text-xs font-bold items-center justify-center mr-2 align-middle">2</span>
             Quantidade e unidade
           </h2>
-          <div className="flex items-center border-[1.5px] border-border-2 rounded-DEFAULT bg-surface h-[52px] overflow-hidden focus-within:border-teal focus-within:ring-[3px] focus-within:ring-teal-50 transition-all">
+          <div className="flex items-center border-[1.5px] border-border-2 rounded bg-surface h-[52px] overflow-hidden focus-within:border-teal focus-within:ring-[3px] focus-within:ring-teal-50 transition-all">
             <input
               type="number"
               min="0"

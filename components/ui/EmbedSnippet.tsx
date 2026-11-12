@@ -49,7 +49,7 @@ export default function EmbedSnippet({ embedUrl, creditUrl, creditLabel, title, 
         rows={5}
         aria-label="Código para incorporar a calculadora"
         onFocus={(e) => e.currentTarget.select()}
-        className="w-full rounded-DEFAULT border border-border-2 bg-surface p-3 font-mono text-xs text-ink-2 leading-relaxed"
+        className="w-full rounded border border-border-2 bg-surface p-3 font-mono text-xs text-ink-2 leading-relaxed"
       />
       <div className="mt-2 flex flex-wrap items-center gap-3">
         <button type="button" onClick={copy} className="btn-teal !h-10 text-sm">

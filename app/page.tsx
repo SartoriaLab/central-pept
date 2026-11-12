@@ -374,7 +374,7 @@ export default function HomePage() {
           </p>
           <Link
             href="/ferramentas/reconstituicao"
-            className="mt-8 inline-flex items-center gap-2 px-6 h-12 rounded-DEFAULT bg-white keep-white text-teal-700 font-bold text-base hover:bg-teal-50 transition-colors shadow-xl"
+            className="mt-8 inline-flex items-center gap-2 px-6 h-12 rounded bg-white keep-white text-teal-700 font-bold text-base hover:bg-teal-50 transition-colors shadow-xl"
           >
             Abrir calculadora
             <svg viewBox="0 0 20 20" width={16} height={16} fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M4 10h12M10 4l6 6-6 6" /></svg>

@@ -46,7 +46,7 @@ export default function Header() {
           <ThemeToggle />
           <Link
             href="/ferramentas/reconstituicao"
-            className="ml-1 inline-flex items-center gap-1.5 px-4 h-9 rounded-DEFAULT bg-teal text-white font-bold text-sm hover:bg-teal-700 transition-colors shadow-sm"
+            className="ml-1 inline-flex items-center gap-1.5 px-4 h-9 rounded bg-teal text-white font-bold text-sm hover:bg-teal-700 transition-colors shadow-sm"
           >
             Calcular
             <svg viewBox="0 0 20 20" width={14} height={14} fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M4 10h12M10 4l6 6-6 6" /></svg>

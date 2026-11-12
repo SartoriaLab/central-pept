@@ -106,7 +106,7 @@ export default function MixCalculator({ peptides }: Props) {
                     <select
                       value={r.slug}
                       onChange={(e) => updateRow(r.id, { slug: e.target.value })}
-                      className="min-w-0 w-full h-11 px-3 border-[1.5px] border-border-2 rounded-DEFAULT bg-surface text-ink text-sm outline-none focus:border-teal focus:ring-[3px] focus:ring-teal-50"
+                      className="min-w-0 w-full h-11 px-3 border-[1.5px] border-border-2 rounded bg-surface text-ink text-sm outline-none focus:border-teal focus:ring-[3px] focus:ring-teal-50"
                       aria-label={`Peptídeo ${i + 1}`}
                     >
                       <option value="">— selecionar —</option>
@@ -116,7 +116,7 @@ export default function MixCalculator({ peptides }: Props) {
                           <option key={p.slug} value={p.slug}>{p.name}</option>
                         ))}
                     </select>
-                    <div className="flex items-center border-[1.5px] border-border-2 rounded-DEFAULT bg-surface h-11 overflow-hidden focus-within:border-teal focus-within:ring-[3px] focus-within:ring-teal-50">
+                    <div className="flex items-center border-[1.5px] border-border-2 rounded bg-surface h-11 overflow-hidden focus-within:border-teal focus-within:ring-[3px] focus-within:ring-teal-50">
                       <input
                         type="number"
                         min="0"
@@ -170,7 +170,7 @@ export default function MixCalculator({ peptides }: Props) {
           <div className="flex flex-col gap-4">
             <label className="flex flex-col gap-1.5">
               <span className="text-xs font-semibold text-ink-2">Água bacteriostática</span>
-              <div className="flex items-center border-[1.5px] border-border-2 rounded-DEFAULT bg-surface h-[52px] overflow-hidden focus-within:border-teal focus-within:ring-[3px] focus-within:ring-teal-50">
+              <div className="flex items-center border-[1.5px] border-border-2 rounded bg-surface h-[52px] overflow-hidden focus-within:border-teal focus-within:ring-[3px] focus-within:ring-teal-50">
                 <input
                   type="number"
                   min="0"
@@ -189,7 +189,7 @@ export default function MixCalculator({ peptides }: Props) {
 
             <label className="flex flex-col gap-1.5">
               <span className="text-xs font-semibold text-ink-2">Unidades a puxar na seringa</span>
-              <div className="flex items-center border-[1.5px] border-border-2 rounded-DEFAULT bg-surface h-[52px] overflow-hidden focus-within:border-teal focus-within:ring-[3px] focus-within:ring-teal-50">
+              <div className="flex items-center border-[1.5px] border-border-2 rounded bg-surface h-[52px] overflow-hidden focus-within:border-teal focus-within:ring-[3px] focus-within:ring-teal-50">
                 <input
                   type="number"
                   min="0"
@@ -216,7 +216,7 @@ export default function MixCalculator({ peptides }: Props) {
                     role="radio"
                     aria-checked={syringe === s}
                     onClick={() => setSyringe(s as SyringeSize)}
-                    className={`flex flex-col items-center gap-0.5 py-2.5 border-[1.5px] rounded-DEFAULT cursor-pointer transition-all ${
+                    className={`flex flex-col items-center gap-0.5 py-2.5 border-[1.5px] rounded cursor-pointer transition-all ${
                       syringe === s
                         ? 'border-teal bg-teal-50 ring-1 ring-teal'
                         : 'border-border-2 bg-surface hover:border-teal'

@@ -87,7 +87,7 @@ function MiniInput({
   return (
     <label className="flex flex-col">
       <span className="text-[10px] font-bold uppercase tracking-wider text-ink-3 mb-1">{label}</span>
-      <div className="flex items-center border-[1.5px] border-border-2 rounded-DEFAULT bg-surface h-10 overflow-hidden focus-within:border-teal focus-within:ring-[3px] focus-within:ring-teal-50">
+      <div className="flex items-center border-[1.5px] border-border-2 rounded bg-surface h-10 overflow-hidden focus-within:border-teal focus-within:ring-[3px] focus-within:ring-teal-50">
         <input
           type="number"
           min={0}

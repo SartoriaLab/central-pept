@@ -55,7 +55,7 @@ export default function NewsletterSignup({ variant = 'card', endpoint }: Props) 
           onChange={(e) => setEmail(e.target.value)}
           placeholder="seu@email.com"
           disabled={status === 'loading'}
-          className="flex-1 h-11 px-3.5 border-[1.5px] border-border-2 rounded-DEFAULT bg-surface text-sm outline-none focus:border-teal focus:ring-[3px] focus:ring-teal-50 disabled:opacity-50"
+          className="flex-1 h-11 px-3.5 border-[1.5px] border-border-2 rounded bg-surface text-sm outline-none focus:border-teal focus:ring-[3px] focus:ring-teal-50 disabled:opacity-50"
         />
         <button
           type="submit"
@@ -95,7 +95,7 @@ export default function NewsletterSignup({ variant = 'card', endpoint }: Props) 
               onChange={(e) => setEmail(e.target.value)}
               placeholder="seu@email.com"
               disabled={status === 'loading'}
-              className="flex-1 h-11 px-3.5 border-[1.5px] border-border-2 rounded-DEFAULT bg-surface text-sm outline-none focus:border-teal focus:ring-[3px] focus:ring-teal-50 disabled:opacity-50"
+              className="flex-1 h-11 px-3.5 border-[1.5px] border-border-2 rounded bg-surface text-sm outline-none focus:border-teal focus:ring-[3px] focus:ring-teal-50 disabled:opacity-50"
             />
             <button
               type="submit"

@@ -15,6 +15,13 @@ import { EVENTS, track, trackOnce } from '@/lib/track';
 type Mode = 'volume' | 'units';
 type SyringeSize = 30 | 50 | 100;
 
+/** Menor seringa em que a dose padrão (frasco mais comum + 2 ml) cabe. */
+function fittingSyringe(p: Peptide, mg: number, waterMl: number, dose: number): SyringeSize {
+  const units = (doseToMg(dose, p.doseUnit) / (mg / waterMl)) * 100;
+  if (!Number.isFinite(units)) return 50;
+  return units <= 30 ? 30 : units <= 50 ? 50 : 100;
+}
+
 type Props = {
   peptides: Peptide[];
   /** Peptídeo pré-selecionado (páginas /ferramentas/reconstituicao/<slug>). `?peptide=` na URL tem precedência. */
@@ -40,12 +47,17 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug 
   const [customDose, setCustomDose] = useState('');
   const [customUnit, setCustomUnit] = useState<DoseUnit>('mcg');
 
-  const [mg, setMg] = useState<number | ''>(initialPeptide && initialPeptide.commonAmounts.length === 1 ? initialPeptide.commonAmounts[0] : '');
-  const [waterMl, setWaterMl] = useState<number | ''>('');
+  // Página por peptídeo: frasco mais comum + 2 ml, para o resultado aparecer de cara.
+  const [mg, setMg] = useState<number | ''>(initialPeptide?.commonAmounts[0] ?? '');
+  const [waterMl, setWaterMl] = useState<number | ''>(initialPeptide ? 2 : '');
   const [units, setUnits] = useState<number | ''>('');
   const [dose, setDose] = useState<number | ''>(initialPeptide ? initialPeptide.typicalDose : '');
   const [mode, setMode] = useState<Mode>('volume');
-  const [syringe, setSyringe] = useState<SyringeSize>(50);
+  const [syringe, setSyringe] = useState<SyringeSize>(
+    initialPeptide && initialPeptide.commonAmounts[0]
+      ? fittingSyringe(initialPeptide, initialPeptide.commonAmounts[0], 2, initialPeptide.typicalDose)
+      : 50,
+  );
   const [toast, setToast] = useState<string | null>(null);
   const [hydrated, setHydrated] = useState(false);
 
@@ -90,12 +102,15 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug 
         setPeptide(p);
         setDose(urlDose !== '' ? urlDose : p.typicalDose);
         if (urlMg !== '') setMg(urlMg);
-        else if (p.commonAmounts.length === 1) setMg(p.commonAmounts[0]);
+        else if (p.commonAmounts.length > 0) setMg(p.commonAmounts[0]);
         if (urlWater !== '') setWaterMl(urlWater);
+        else if (urlUnits === '') setWaterMl(2);
         if (urlUnits !== '') setUnits(urlUnits);
         if (urlMode === 'volume' || urlMode === 'units') setMode(urlMode);
         if (urlSyringe === '30' || urlSyringe === '50' || urlSyringe === '100') {
           setSyringe(parseInt(urlSyringe) as SyringeSize);
+        } else if (urlMg === '' && urlWater === '' && urlUnits === '' && urlDose === '' && p.commonAmounts[0]) {
+          setSyringe(fittingSyringe(p, p.commonAmounts[0], 2, p.typicalDose));
         }
         setHydrated(true);
         return;
@@ -196,9 +211,9 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug 
     if (mode === 'volume' && !waterMl) setWaterMl(2);
   }
 
-  // Carregar exemplo pronto (BPC-157 padrão)
+  // Carregar exemplo pronto: o peptídeo já escolhido ou, sem escolha, BPC-157
   function loadExample() {
-    const example = peptides.find((p) => p.slug === 'bpc-157') || peptides[0];
+    const example = peptide ?? peptides.find((p) => p.slug === 'bpc-157') ?? peptides[0];
     if (!example) return;
     setPeptide(example);
     setDose(example.typicalDose);
@@ -357,7 +372,7 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug 
                 if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setComboOpen((v) => !v); }
                 if (e.key === 'Escape') setComboOpen(false);
               }}
-              className={`flex items-center gap-3 h-[52px] px-4 border-[1.5px] rounded-DEFAULT bg-surface cursor-pointer transition-all ${
+              className={`flex items-center gap-3 h-[52px] px-4 border-[1.5px] rounded bg-surface cursor-pointer transition-all ${
                 comboOpen
                   ? 'border-teal ring-[3px] ring-teal-50 rounded-b-none'
                   : 'border-border-2 hover:border-teal'
@@ -373,7 +388,7 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug 
             </div>
 
             {comboOpen && (
-              <div className="absolute left-0 right-0 top-[51px] z-50 bg-surface border-[1.5px] border-t-0 border-teal rounded-b-DEFAULT shadow-lg overflow-hidden">
+              <div className="absolute left-0 right-0 top-[51px] z-50 bg-surface border-[1.5px] border-t-0 border-teal rounded-b shadow-lg overflow-hidden">
                 <div className="flex items-center gap-2 px-3 py-2 border-b border-border text-ink-3">
                   <SearchIcon />
                   <input
@@ -482,7 +497,7 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug 
 
           {/* Form de peptídeo custom */}
           {customFormOpen && (
-            <div className="mt-3 p-3.5 bg-bg border border-dashed border-border-2 rounded-DEFAULT flex flex-col gap-3">
+            <div className="mt-3 p-3.5 bg-bg border border-dashed border-border-2 rounded flex flex-col gap-3">
               <div className="grid grid-cols-2 gap-2.5">
                 <label className="flex flex-col gap-1.5 text-xs font-semibold text-ink-2">
                   Nome
@@ -529,7 +544,7 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug 
 
           {/* Pill com peptídeo selecionado */}
           {peptide && (
-            <div className="mt-3 flex items-center justify-between gap-2.5 px-3.5 py-2.5 bg-teal-50 border-[1.5px] border-teal-100 rounded-DEFAULT">
+            <div className="mt-3 flex items-center justify-between gap-2.5 px-3.5 py-2.5 bg-teal-50 border-[1.5px] border-teal-100 rounded">
               <div className="flex flex-col gap-0.5">
                 <strong className="text-sm text-teal-700">{peptide.name}</strong>
                 <span className="text-xs text-ink-2">
@@ -647,7 +662,7 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug 
                     role="radio"
                     aria-checked={syringe === s}
                     onClick={() => setSyringe(s as SyringeSize)}
-                    className={`flex flex-col items-center gap-0.5 py-2.5 border-[1.5px] rounded-DEFAULT font-sans cursor-pointer transition-all ${
+                    className={`flex flex-col items-center gap-0.5 py-2.5 border-[1.5px] rounded font-sans cursor-pointer transition-all ${
                       syringe === s
                         ? 'border-teal bg-teal-50 ring-1 ring-teal'
                         : 'border-border-2 bg-surface hover:border-teal'
@@ -691,7 +706,7 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug 
                 Carregar exemplo
               </button>
               <p className="mt-3 text-[11px] text-ink-3">
-                Preenche BPC-157 5 mg em 2 ml de água para você ver funcionando.
+                Preenche {peptide ? peptide.name : 'BPC-157'} {peptide?.commonAmounts[0] ?? 5} mg em 2 ml de água para você ver funcionando.
               </p>
             </div>
           ) : (
@@ -910,7 +925,7 @@ function InputWithUnit({
   step?: number | 'any';
 }) {
   return (
-    <div className="flex items-center border-[1.5px] border-border-2 rounded-DEFAULT bg-surface h-[52px] overflow-hidden focus-within:border-teal focus-within:ring-[3px] focus-within:ring-teal-50 transition-all">
+    <div className="flex items-center border-[1.5px] border-border-2 rounded bg-surface h-[52px] overflow-hidden focus-within:border-teal focus-within:ring-[3px] focus-within:ring-teal-50 transition-all">
       <input
         type="number"
         min="0"
@@ -969,7 +984,7 @@ function ModeTabs({
   return (
     <div>
       <div className="text-xs font-semibold text-ink-2 mb-1.5">O que você já decidiu?</div>
-      <div role="tablist" aria-label="Modo de cálculo" className="grid grid-cols-2 gap-1 p-1 bg-bg border border-border rounded-DEFAULT">
+      <div role="tablist" aria-label="Modo de cálculo" className="grid grid-cols-2 gap-1 p-1 bg-bg border border-border rounded">
         <button
           role="tab"
           type="button"
@@ -1117,7 +1132,7 @@ function VialDuration({ dosesPerVial, peptideName }: { dosesPerVial: number; pep
         <span className="text-[11px] font-bold uppercase tracking-wider text-ink-3">
           Duração do frasco
         </span>
-        <div className="flex gap-0.5 p-0.5 bg-surface border border-border rounded-DEFAULT">
+        <div className="flex gap-0.5 p-0.5 bg-surface border border-border rounded">
           {[
             { id: 'daily',   label: '1×/dia' },
             { id: '2x-day',  label: '2×/dia' },

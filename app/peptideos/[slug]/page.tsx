@@ -203,30 +203,8 @@ export default async function PeptidePage({
       <div className="max-w-4xl mx-auto px-4 md:px-6 py-8 md:py-12">
         <QuickCalcWidget peptide={p} />
 
-        {guides.length > 0 && (
-          <section className="mt-8 mb-4">
-            <h2 className="text-xl font-bold mb-4">Guias sobre {p.name}</h2>
-            <div className="grid gap-3 sm:grid-cols-2">
-              {guides.map((a) => (
-                <Link
-                  key={a.slug}
-                  href={`/blog/${a.slug}`}
-                  className="card-hover p-4 block group"
-                >
-                  <h3 className="font-semibold text-sm leading-snug text-ink group-hover:text-teal-700 transition-colors">
-                    {a.title}
-                  </h3>
-                  <p className="mt-1.5 text-xs text-ink-2 line-clamp-2 leading-relaxed">{a.excerpt}</p>
-                  <div className="mt-2 text-xs text-ink-3">{a.readMinutes} min de leitura</div>
-                </Link>
-              ))}
-            </div>
-          </section>
-        )}
-
-
         {/* Info cards — grid de 4 com ícones */}
-        <section className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
+        <section className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-8 mb-8">
           <InfoCard
             label="Dose típica"
             value={`${p.typicalDose} ${p.doseUnit}`}
@@ -372,6 +350,30 @@ export default async function PeptidePage({
 
         <FAQ items={faq} title={`Perguntas frequentes sobre ${p.name}`} />
 
+        {guides.length > 0 && (
+          <section className="mt-12" aria-labelledby="guias">
+            <h2 id="guias" className="text-xl font-bold mb-4">Guias sobre {p.name}</h2>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {guides.slice(0, 4).map((a) => (
+                <GuideCard key={a.slug} slug={a.slug} title={a.title} excerpt={a.excerpt} readMinutes={a.readMinutes} />
+              ))}
+            </div>
+            {guides.length > 4 && (
+              <details className="mt-3 group/more">
+                <summary className="btn-outline cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+                  <span className="group-open/more:hidden">Ver mais {guides.length - 4} guias</span>
+                  <span className="hidden group-open/more:inline">Mostrar menos</span>
+                </summary>
+                <div className="mt-3 grid gap-3 sm:grid-cols-2">
+                  {guides.slice(4).map((a) => (
+                    <GuideCard key={a.slug} slug={a.slug} title={a.title} excerpt={a.excerpt} readMinutes={a.readMinutes} />
+                  ))}
+                </div>
+              </details>
+            )}
+          </section>
+        )}
+
         <div className="mt-10 pt-6 border-t border-border">
           <ShareButtons title={`${p.name} — Central Peptídeos`} url={`/peptideos/${p.slug}`} />
         </div>
@@ -471,5 +473,15 @@ function DetailSection({
       </h2>
       <div className="pl-12">{children}</div>
     </section>
+  );
+}
+
+function GuideCard({ slug, title, excerpt, readMinutes }: { slug: string; title: string; excerpt: string; readMinutes: number }) {
+  return (
+    <Link href={`/blog/${slug}`} className="card-hover p-4 block group">
+      <h3 className="font-semibold text-sm leading-snug text-ink group-hover:text-teal-700 transition-colors">{title}</h3>
+      <p className="mt-1.5 text-xs text-ink-2 line-clamp-2 leading-relaxed">{excerpt}</p>
+      <div className="mt-2 text-xs text-ink-3">{readMinutes} min de leitura</div>
+    </Link>
   );
 }

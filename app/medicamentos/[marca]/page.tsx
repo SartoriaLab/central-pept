@@ -94,7 +94,7 @@ export default async function BrandPage({ params }: { params: Promise<Params> })
             <Link href="/ferramentas/titulacao" className="btn-teal">Ver calendário de doses</Link>
             <Link
               href={`/peptideos/${b.peptideSlug}`}
-              className="inline-flex items-center px-4 h-11 rounded-DEFAULT border border-border bg-surface font-semibold text-sm text-ink-2 hover:border-teal hover:text-teal-700 transition-colors"
+              className="inline-flex items-center px-4 h-11 rounded border border-border bg-surface font-semibold text-sm text-ink-2 hover:border-teal hover:text-teal-700 transition-colors"
             >
               Ficha da {ingredient}
             </Link>
@@ -147,7 +147,7 @@ export default async function BrandPage({ params }: { params: Promise<Params> })
         {scheme && (
           <section className="mt-10" aria-labelledby="doses">
             <h2 id="doses" className="text-2xl font-bold mb-2">Doses do {b.name}: a escada de titulação</h2>
-            <p className="text-ink-2 mb-4 max-w-3xl">
+            <p className="text-ink-2 mb-4">
               A dose sobe aos poucos para o corpo se adaptar e os efeitos gastrointestinais ficarem
               menores. Cada degrau dura pelo menos 4 semanas; o médico pode manter uma dose por mais
               tempo ou parar em um degrau intermediário.
@@ -194,7 +194,7 @@ export default async function BrandPage({ params }: { params: Promise<Params> })
             <h2 id="diferenca" className="text-2xl font-bold mb-2">
               {b.name} e {sibling.name}: qual a diferença
             </h2>
-            <p className="text-ink-2 max-w-3xl leading-relaxed">{b.sibling.difference}</p>
+            <p className="text-ink-2 leading-relaxed">{b.sibling.difference}</p>
             <div className="card overflow-x-auto mt-4">
               <table className="w-full text-sm">
                 <thead>

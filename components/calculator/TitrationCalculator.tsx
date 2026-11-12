@@ -130,7 +130,7 @@ export default function TitrationCalculator() {
                 type="date"
                 value={startDate}
                 onChange={(e) => setStartDate(e.target.value)}
-                className="h-11 px-3 border-[1.5px] border-border-2 rounded-DEFAULT bg-surface text-sm outline-none focus:border-teal focus:ring-[3px] focus:ring-teal-50"
+                className="h-11 px-3 border-[1.5px] border-border-2 rounded bg-surface text-sm outline-none focus:border-teal focus:ring-[3px] focus:ring-teal-50"
               />
             </label>
             <label className="flex flex-col gap-1.5">
@@ -141,7 +141,7 @@ export default function TitrationCalculator() {
                     key={w}
                     type="button"
                     onClick={() => setWeeksPerStep(w)}
-                    className={`flex-1 h-11 rounded-DEFAULT border-[1.5px] font-bold text-sm tabular-nums transition-all ${
+                    className={`flex-1 h-11 rounded border-[1.5px] font-bold text-sm tabular-nums transition-all ${
                       weeksPerStep === w
                         ? 'border-teal bg-teal-50 text-teal-700'
                         : 'border-border-2 bg-surface text-ink-2 hover:border-teal'

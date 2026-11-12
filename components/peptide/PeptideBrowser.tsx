@@ -60,7 +60,7 @@ export default function PeptideBrowser({ peptides }: Props) {
   return (
     <>
       <div className="flex flex-col md:flex-row gap-3 mb-5">
-        <div className="flex-1 flex items-center gap-2 h-11 px-3.5 border-[1.5px] border-border-2 bg-surface rounded-DEFAULT focus-within:border-teal focus-within:ring-[3px] focus-within:ring-teal-50 transition-all">
+        <div className="flex-1 flex items-center gap-2 h-11 px-3.5 border-[1.5px] border-border-2 bg-surface rounded focus-within:border-teal focus-within:ring-[3px] focus-within:ring-teal-50 transition-all">
           <svg viewBox="0 0 20 20" width={18} height={18} fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden className="text-ink-3">
             <circle cx={9} cy={9} r={6} /><path d="m16 16-3.5-3.5" />
           </svg>

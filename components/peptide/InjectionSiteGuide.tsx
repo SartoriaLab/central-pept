@@ -99,7 +99,7 @@ export default function InjectionSiteGuide() {
                 key={s.id}
                 type="button"
                 onClick={() => setActive(s.id)}
-                className={`flex-1 px-3 py-2 text-sm font-bold rounded-DEFAULT transition-all ${
+                className={`flex-1 px-3 py-2 text-sm font-bold rounded transition-all ${
                   active === s.id
                     ? 'bg-teal text-white'
                     : 'bg-bg text-ink-2 hover:bg-teal-50 hover:text-teal-700'

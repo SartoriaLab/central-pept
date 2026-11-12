@@ -123,7 +123,7 @@ export default function ShareButtons({ title, url, compact }: Props) {
           target="_blank"
           rel="noreferrer noopener"
           aria-label={`Compartilhar no ${t.name}`}
-          className={`inline-flex items-center gap-1.5 px-3 h-9 rounded-DEFAULT text-white text-sm font-semibold transition-colors ${t.color}`}
+          className={`inline-flex items-center gap-1.5 px-3 h-9 rounded text-white text-sm font-semibold transition-colors ${t.color}`}
         >
           <svg viewBox="0 0 24 24" width={14} height={14} fill="currentColor" aria-hidden>{t.icon}</svg>
           {t.name}
@@ -132,7 +132,7 @@ export default function ShareButtons({ title, url, compact }: Props) {
       <button
         type="button"
         onClick={copyLink}
-        className="inline-flex items-center gap-1.5 px-3 h-9 rounded-DEFAULT text-ink-2 text-sm font-semibold border border-border bg-surface hover:border-teal hover:text-teal-700 hover:bg-teal-50"
+        className="inline-flex items-center gap-1.5 px-3 h-9 rounded text-ink-2 text-sm font-semibold border border-border bg-surface hover:border-teal hover:text-teal-700 hover:bg-teal-50"
       >
         <svg viewBox="0 0 20 20" width={14} height={14} fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
           {copied ? <path d="m5 10 3 3 7-7" /> : (

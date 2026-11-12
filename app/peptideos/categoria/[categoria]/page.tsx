@@ -94,7 +94,7 @@ export default async function CategoryPage({ params }: { params: Promise<Params>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <section className="bg-gradient-mesh border-b border-border">
-        <div className="max-w-5xl mx-auto px-4 md:px-6 pt-10 pb-8 md:pt-14 md:pb-12">
+        <div className="max-w-4xl mx-auto px-4 md:px-6 pt-10 pb-8 md:pt-14 md:pb-12">
           <div className="mb-4">
             <Breadcrumb items={[{ label: 'Peptídeos', href: '/peptideos' }, { label: c.label }]} siteUrl={SITE_URL} />
           </div>
@@ -106,8 +106,8 @@ export default async function CategoryPage({ params }: { params: Promise<Params>
         </div>
       </section>
 
-      <div className="max-w-5xl mx-auto px-4 md:px-6 py-8 md:py-12">
-        <div className="prose-article max-w-3xl">
+      <div className="max-w-4xl mx-auto px-4 md:px-6 py-8 md:py-12">
+        <div className="prose-article">
           {c.intro.map((paragraph, i) => (
             <p key={i}>{paragraph}</p>
           ))}
@@ -174,7 +174,7 @@ export default async function CategoryPage({ params }: { params: Promise<Params>
           </div>
         </section>
 
-        <section className="mt-10 max-w-3xl" aria-labelledby="pontos">
+        <section className="mt-10" aria-labelledby="pontos">
           <h2 id="pontos" className="text-2xl font-bold mb-3">O que pesa na avaliação</h2>
           <ul className="space-y-2 text-ink-2 list-disc pl-5 leading-relaxed">
             {c.keyPoints.map((k) => (
@@ -183,7 +183,7 @@ export default async function CategoryPage({ params }: { params: Promise<Params>
           </ul>
         </section>
 
-        <EbookPromo tags={c.ebookTags} source={`categoria-${c.slug}`} className="mt-10 max-w-3xl" />
+        <EbookPromo tags={c.ebookTags} source={`categoria-${c.slug}`} className="mt-10" />
 
         {brands.length > 0 && (
           <section className="mt-10" aria-labelledby="marcas">

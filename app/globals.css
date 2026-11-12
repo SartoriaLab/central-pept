@@ -83,7 +83,7 @@ html.dark {
     @apply card hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200;
   }
   .btn {
-    @apply inline-flex items-center justify-center gap-2 px-5 h-11 rounded-DEFAULT font-bold text-sm transition-all cursor-pointer whitespace-nowrap;
+    @apply inline-flex items-center justify-center gap-2 px-5 h-11 rounded font-bold text-sm transition-all cursor-pointer whitespace-nowrap;
   }
   .btn-teal {
     @apply btn bg-teal-700 text-white hover:bg-teal;
@@ -229,6 +229,20 @@ html.dark {
   }
   .prose-article .not-prose {
     font-size: initial;
+  }
+  /* Tabela dentro de card: o card já é a moldura */
+  .prose-article .not-prose table {
+    @apply my-0;
+  }
+  .prose-article .not-prose th,
+  .prose-article .not-prose td {
+    @apply border-x-0;
+  }
+  .prose-article .not-prose tr:first-child th {
+    @apply border-t-0;
+  }
+  .prose-article .not-prose tr:last-child td {
+    @apply border-b-0;
   }
 }
 
