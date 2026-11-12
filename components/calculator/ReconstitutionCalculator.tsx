@@ -334,6 +334,8 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug 
       `Dose: ${fmt(Number(dose), 3)} ${peptide.doseUnit}`,
       `Unidades/dose: ${fmt(result.unitsPerDose, 1)} U (seringa ${syringe} U)`,
       `Doses/frasco: ${fmt(result.dosesPerVial, 1)}`,
+      '',
+      `Refazer a conta: centralpeptideos.com.br/ferramentas/reconstituicao${peptides.some((x) => x.slug === peptide.slug) ? `/${peptide.slug}` : ''}`,
     ].join('\n');
     track(EVENTS.copyResult);
     navigator.clipboard?.writeText(text)

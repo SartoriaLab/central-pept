@@ -6,6 +6,8 @@ import RelatedPosts from '@/components/blog/RelatedPosts';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import { getPeptideBySlug } from '@/lib/peptides';
 import { getBrandsByPeptide } from '@/lib/brands';
+import { COMPARISONS } from '@/lib/comparisons';
+import RelatedLinks, { type RelatedLink } from '@/components/ui/RelatedLinks';
 
 const SITE = process.env.SITE_URL || 'https://centralpeptideos.com.br';
 
@@ -66,6 +68,23 @@ export default function ArticleLayout({ article, children }: Props) {
   };
 
   const related = getRelatedArticles(article);
+
+  // Artigo → calculadora de cada peptídeo citado (até 2) + comparativos que o envolvem.
+  const mainPeptides = citedPeptides.slice(0, 2);
+  const cited = new Set(citedPeptides.map((p) => p.slug));
+  const comparisons = COMPARISONS.map((c) => ({ c, hits: c.peptideSlugs.filter((s) => cited.has(s)).length }))
+    .filter((x) => x.hits > 0)
+    .sort((a, b) => b.hits - a.hits)
+    .slice(0, 4 - mainPeptides.length)
+    .map((x) => x.c);
+  const toolLinks: RelatedLink[] = [
+    ...mainPeptides.map((p) => ({
+      href: `/ferramentas/reconstituicao/${p.slug}`,
+      label: `Calculadora de ${p.name}`,
+      desc: 'Frasco, água e dose convertidos em unidades na seringa.',
+    })),
+    ...comparisons.map((c) => ({ href: `/comparar/${c.slug}`, label: c.title, desc: 'Comparativo lado a lado.' })),
+  ];
 
   return (
     <>
@@ -226,6 +245,13 @@ export default function ArticleLayout({ article, children }: Props) {
               ))}
             </div>
           </section>
+        )}
+
+        {/* Ferramentas e comparativos dos peptídeos citados */}
+        {toolLinks.length > 0 && (
+          <div className="not-prose">
+            <RelatedLinks links={toolLinks} title="Calcule e compare" />
+          </div>
         )}
 
         <RelatedPosts posts={related} />

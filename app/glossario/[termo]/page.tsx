@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import GlossaryText from '@/components/ui/GlossaryText';
+import { social } from '@/lib/og';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Breadcrumb from '@/components/ui/Breadcrumb';
@@ -25,7 +27,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
     title,
     description,
     alternates: { canonical: `/glossario/${t.slug}` },
-    openGraph: { title, description, url: `/glossario/${t.slug}`, type: 'article' },
+    ...social({ kind: 'glossario', slug: t.slug, path: `/glossario/${t.slug}`, title, description, type: 'article' }),
   };
 }
 
@@ -74,7 +76,7 @@ export default async function GlossaryTermPage({ params }: { params: Promise<Par
         <div className="prose-article">
           <h2>Entenda melhor</h2>
           {t.body.map((paragraph, i) => (
-            <p key={i}>{paragraph}</p>
+            <p key={i}><GlossaryText text={paragraph} exclude={t.slug} max={3} /></p>
           ))}
         </div>
 

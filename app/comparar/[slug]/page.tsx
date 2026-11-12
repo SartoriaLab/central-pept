@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const names = c.peptideSlugs.map((s) => getPeptideBySlug(s)?.name ?? s).join(' e ');
   const description = `Compare ${names} lado a lado: mecanismo, dose, meia-vida, efeitos colaterais e status regulatório. Tabela objetiva, em português.`;
   return {
-    title: `${c.title}: comparativo completo`,
+    title: `${c.title}: diferenças de dose, efeitos e status`,
     description,
     alternates: { canonical: `/comparar/${slug}` },
     openGraph: {
@@ -90,6 +90,7 @@ export default async function ComparisonPage({ params }: { params: Promise<Param
   const faq = buildComparisonFaq(items);
   const post = c.relatedPost ? getArticleBySlug(c.relatedPost) : undefined;
   const others = getRelatedComparisons(c, 12);
+  const reviewed = items.map((p) => p.lastReviewed).filter((d): d is string => !!d).sort().pop();
 
   return (
     <>
@@ -106,6 +107,24 @@ export default async function ComparisonPage({ params }: { params: Promise<Param
             {items.map((p) => p.name).join(' e ')} lado a lado: mecanismo, dose,
             meia-vida, efeitos e status regulatório numa tabela única.
           </p>
+          {/* Resposta direta: o essencial de cada um em uma linha */}
+          <ul className="mt-4 space-y-1.5 text-ink-2 max-w-3xl">
+            {items.map((p) => (
+              <li key={p.slug}>
+                <strong className="text-ink">{p.name}:</strong> {p.typicalDose} {p.doseUnit}, {p.frequency}
+                {p.halfLife ? `; meia-vida ${p.halfLife}` : ''}; {regLabel(p).toLowerCase()}.
+              </li>
+            ))}
+          </ul>
+          {reviewed && (
+            <p className="mt-4 text-xs text-ink-3">
+              Dados das fichas revisados em{' '}
+              <time dateTime={reviewed}>
+                {new Date(`${reviewed}T12:00:00-03:00`).toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' })}
+              </time>{' '}
+              · <Link href="/metodologia" className="text-teal-700 hover:underline">como revisamos</Link>
+            </p>
+          )}
         </div>
       </section>
 

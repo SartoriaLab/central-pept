@@ -6,6 +6,7 @@ import { getGlossarySlugs } from '@/lib/glossary';
 import { CONTENT_UPDATED_AT } from '@/lib/site';
 import { getBrandSlugs } from '@/lib/brands';
 import { getCategoryPageSlugs } from '@/lib/categories';
+import { getVialPages, vialPath } from '@/lib/vials';
 
 export const dynamic = 'force-static';
 
@@ -72,6 +73,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: 'monthly' as const,
       priority: 0.8,
+    })),
+    // Tabela por frasco (peptídeo × mg)
+    ...getVialPages().map(({ peptide, mg }) => ({
+      url: url(vialPath(peptide, mg)),
+      lastModified: latest(peptide.lastReviewed, CONTENT_UPDATED_AT),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
     })),
     // Marcas comerciais (Mounjaro, Ozempic...)
     ...getBrandSlugs().map((slug) => ({

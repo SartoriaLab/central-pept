@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { social } from '@/lib/og';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import RelatedLinks, { type RelatedLink } from '@/components/ui/RelatedLinks';
 import { SITE_URL } from '@/lib/site';
@@ -45,10 +46,11 @@ const RELATED_LINKS: RelatedLink[] = [
 export const metadata: Metadata = {
   title: 'Plano de Subida de Dose — Ozempic, Wegovy e Mounjaro',
   description: 'Calendário de subida de dose para semaglutida (Ozempic/Wegovy) e tirzepatida (Mounjaro/Zepbound). Semana a semana, com datas automáticas e export para o Google Calendar.',
-  openGraph: {
+  ...social({
+    kind: 'pagina', slug: 'titulacao', path: '/ferramentas/titulacao',
     title: 'Plano de Subida de Dose GLP-1 — Ozempic e Mounjaro',
     description: 'Subida de dose semana a semana, com datas automáticas.',
-  },
+  }),
   alternates: { canonical: '/ferramentas/titulacao' },
 };
 

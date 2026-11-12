@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { social } from '@/lib/og';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import RelatedLinks, { type RelatedLink } from '@/components/ui/RelatedLinks';
 import GlpCostCalculator from '@/components/calculator/GlpCostCalculator';
@@ -49,11 +50,11 @@ export const metadata: Metadata = {
   title: 'Calculadora de Custo: Mounjaro, Ozempic e tirzepatida por dose e por mês',
   description:
     'Descubra quanto custa cada dose de tirzepatida, semaglutida ou retatrutida: custo por mg, por aplicação, por mês e por ano, com a perda do frasco após 28 dias.',
-  openGraph: {
+  ...social({
+    kind: 'pagina', slug: 'custo-glp1', path: PATH,
     title: 'Calculadora de Custo GLP-1 — por dose e por mês',
     description: 'Custo por mg, por aplicação, por mês e por ano a partir do preço que você pagou.',
-    url: PATH,
-  },
+  }),
   alternates: { canonical: PATH },
 };
 

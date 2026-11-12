@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { social } from '@/lib/og';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import RelatedLinks, { type RelatedLink } from '@/components/ui/RelatedLinks';
 import { SITE_URL } from '@/lib/site';
@@ -41,10 +42,11 @@ export const metadata: Metadata = {
   title: 'Conversor mg, mcg e UI para peptídeos',
   description:
     'Conversão rápida entre mg, mcg e UI considerando o peptídeo específico. Mostra a quantidade como múltiplo da dose típica.',
-  openGraph: {
+  ...social({
+    kind: 'pagina', slug: 'conversor', path: '/ferramentas/conversor',
     title: 'Conversor mg ↔ mcg ↔ UI',
     description: 'Conversor de unidades para peptídeos.',
-  },
+  }),
   alternates: { canonical: '/ferramentas/conversor' },
 };
 

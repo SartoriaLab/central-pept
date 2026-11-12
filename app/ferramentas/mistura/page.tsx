@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { social } from '@/lib/og';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import RelatedLinks, { type RelatedLink } from '@/components/ui/RelatedLinks';
 import { SITE_URL } from '@/lib/site';
@@ -42,10 +43,11 @@ export const metadata: Metadata = {
   title: 'Calculadora de Mistura de Peptídeos na mesma seringa',
   description:
     'Combine 2 a 4 peptídeos em um frasco e descubra a dose exata de cada um entregue em uma única aplicação.',
-  openGraph: {
+  ...social({
+    kind: 'pagina', slug: 'mistura', path: '/ferramentas/mistura',
     title: 'Calculadora de Mistura de Peptídeos',
     description: 'Dose correta de cada peptídeo numa seringa combinada.',
-  },
+  }),
   alternates: { canonical: '/ferramentas/mistura' },
 };
 

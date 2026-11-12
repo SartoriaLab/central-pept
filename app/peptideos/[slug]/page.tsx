@@ -15,6 +15,8 @@ import { getComparisonsByPeptide } from '@/lib/comparisons';
 import { getCategoryPageForPeptide } from '@/lib/categories';
 import { getBrandsByPeptide } from '@/lib/brands';
 import InfoCard from '@/components/ui/InfoCard';
+import GlossaryText from '@/components/ui/GlossaryText';
+import { vialPath } from '@/lib/vials';
 
 const SITE = process.env.SITE_URL || 'https://centralpeptideos.com.br';
 
@@ -43,6 +45,8 @@ export async function generateMetadata({
       url: `/peptideos/${slug}`,
       type: 'article',
     },
+    // Sem isto o cartão do X herdaria a imagem genérica do layout.
+    twitter: { card: 'summary_large_image', images: [`/peptideos/${slug}/opengraph-image`] },
   };
 }
 
@@ -249,7 +253,7 @@ export default async function PeptidePage({
             icon={<path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />}
           >
             <div className="text-ink-2 leading-relaxed whitespace-pre-wrap">
-              {p.longDescription}
+              <GlossaryText text={p.longDescription} />
             </div>
           </DetailSection>
         )}
@@ -259,7 +263,7 @@ export default async function PeptidePage({
             title="Mecanismo de ação"
             icon={<path d="M9 3h6l2 3h3v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6h3zM9 11v6M12 8v9M15 11v6" />}
           >
-            <div className="text-ink-2 leading-relaxed whitespace-pre-wrap">{p.mechanism}</div>
+            <div className="text-ink-2 leading-relaxed whitespace-pre-wrap"><GlossaryText text={p.mechanism} max={4} /></div>
           </DetailSection>
         )}
 
@@ -364,6 +368,22 @@ export default async function PeptidePage({
           <ShareButtons title={`${p.name} — Central Peptídeos`} url={`/peptideos/${p.slug}`} />
         </div>
 
+
+        {p.commonAmounts.length > 0 && (
+          <section className="mt-10">
+            <h2 className="text-xl md:text-2xl font-bold mb-4">Quantas unidades puxar, por frasco</h2>
+            <div className="flex flex-wrap gap-2">
+              {p.commonAmounts.map((v) => (
+                <Link key={v} href={vialPath(p, v)} className="chip-lg">
+                  {p.name} {v} mg
+                </Link>
+              ))}
+              <Link href={`/ferramentas/reconstituicao/${p.slug}`} className="chip-lg">
+                Calculadora de {p.name}
+              </Link>
+            </div>
+          </section>
+        )}
 
         {comparisons.length > 0 && (
           <section className="mt-10">

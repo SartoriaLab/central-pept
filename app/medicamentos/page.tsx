@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { social } from '@/lib/og';
 import Link from 'next/link';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
@@ -12,11 +13,11 @@ export const metadata: Metadata = {
   description:
     'Qual o princípio ativo de cada marca, para que serve, as doses da bula e a diferença entre Mounjaro e Zepbound, Ozempic e Wegovy.',
   alternates: { canonical: PATH },
-  openGraph: {
+  ...social({
+    kind: 'pagina', slug: 'medicamentos', path: PATH,
     title: 'Mounjaro, Ozempic, Wegovy e Zepbound — guia das marcas',
     description: 'Princípio ativo, indicação, doses e diferenças entre as quatro marcas.',
-    url: PATH,
-  },
+  }),
 };
 
 export default function MedicamentosPage() {

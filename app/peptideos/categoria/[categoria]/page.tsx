@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { social } from '@/lib/og';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Breadcrumb from '@/components/ui/Breadcrumb';
@@ -34,7 +35,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
     title,
     description,
     alternates: { canonical: `/peptideos/categoria/${c.slug}` },
-    openGraph: { title, description, url: `/peptideos/categoria/${c.slug}` },
+    ...social({ kind: 'categoria', slug: c.slug, path: `/peptideos/categoria/${c.slug}`, title, description }),
   };
 }
 

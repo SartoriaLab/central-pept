@@ -80,11 +80,11 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'pt_BR',
     siteName: 'Central Peptídeos',
-    images: [{ url: '/logo.png', width: 794, height: 255, alt: 'Central Peptídeos' }],
+    images: [{ url: '/og/pagina/home', width: 1200, height: 630, alt: 'Central Peptídeos' }],
   },
   twitter: {
     card: 'summary_large_image',
-    images: ['/logo.png'],
+    images: ['/og/pagina/home'],
   },
   icons: {
     icon: [

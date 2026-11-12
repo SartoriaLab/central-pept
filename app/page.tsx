@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { socialImage } from '@/lib/og';
 import { getPeptides } from '@/lib/peptides';
 import { getArticles } from '@/lib/articles';
 import NewsletterSignup from '@/components/ui/NewsletterSignup';
@@ -13,6 +14,7 @@ export const metadata: Metadata = {
   description:
     'Calculadoras de reconstituição, subida de dose e custo de GLP-1, comparativos e enciclopédia de peptídeos com doses e referências. Grátis, sem cadastro e sem propaganda.',
   alternates: { canonical: '/' },
+  ...socialImage('pagina', 'home', '/'),
 };
 
 const TOOLS = [

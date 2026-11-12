@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { social } from '@/lib/og';
 import Link from 'next/link';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import RelatedLinks, { type RelatedLink } from '@/components/ui/RelatedLinks';
@@ -50,11 +51,11 @@ export const metadata: Metadata = {
   title: 'Calculadora de Peptídeos: reconstituição e unidades na seringa',
   description:
     `Calcule quanta água bacteriostática usar e quantas unidades puxar na seringa: concentração, unidades por dose e doses por frasco em tempo real. ${TOTAL} peptídeos, incluindo tirzepatida e semaglutida.`,
-  openGraph: {
+  ...social({
+    kind: 'pagina', slug: 'reconstituicao', path: '/ferramentas/reconstituicao',
     title: 'Calculadora de Reconstituição de Peptídeos',
-    description:
-      'Calcule concentração, unidades por dose e doses por frasco em tempo real.',
-  },
+    description: 'Calcule concentração, unidades por dose e doses por frasco em tempo real.',
+  }),
   alternates: { canonical: '/ferramentas/reconstituicao' },
 };
 

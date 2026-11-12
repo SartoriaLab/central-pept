@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import ShareButtons from '@/components/ui/ShareButtons';
+import { social } from '@/lib/og';
 import Link from 'next/link';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import RelatedLinks, { type RelatedLink } from '@/components/ui/RelatedLinks';
@@ -68,11 +70,11 @@ export const metadata: Metadata = {
   title: 'Tabela de Doses de Mounjaro, Ozempic e Wegovy para imprimir',
   description:
     'Tabela de doses de tirzepatida (Mounjaro), semaglutida (Ozempic/Wegovy) e retatrutida: escada de titulação semana a semana e unidades na seringa por frasco. Pronta para imprimir.',
-  openGraph: {
+  ...social({
+    kind: 'pagina', slug: 'tabela-doses-glp1', path: PATH,
     title: 'Tabela de Doses GLP-1 para imprimir',
     description: 'Escada de titulação e unidades na seringa de tirzepatida, semaglutida e retatrutida.',
-    url: PATH,
-  },
+  }),
   alternates: { canonical: PATH },
 };
 
@@ -97,8 +99,9 @@ export default function TabelaDosesGlp1Page() {
           Escada de titulação semana a semana e unidades na seringa para cada frasco, em uma
           página pensada para imprimir e deixar junto da medicação.
         </p>
-        <div className="mt-4">
+        <div className="mt-4 flex flex-wrap items-center gap-4 no-print">
           <PrintButton />
+          <ShareButtons title="Tabela de doses de Mounjaro, Ozempic e Wegovy" url={PATH} compact />
         </div>
       </div>
 

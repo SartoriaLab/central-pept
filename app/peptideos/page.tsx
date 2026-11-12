@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { socialImage } from '@/lib/og';
 import { getPeptides } from '@/lib/peptides';
 import PeptideBrowser from '@/components/peptide/PeptideBrowser';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
@@ -13,6 +14,7 @@ export const metadata: Metadata = {
   description:
     `Fichas de ${TOTAL} peptídeos — semaglutida, tirzepatida, BPC-157, ipamorelina e outros — com dose típica, meia-vida, efeitos colaterais, status regulatório e referências.`,
   alternates: { canonical: '/peptideos' },
+  ...socialImage('pagina', 'peptideos', '/peptideos'),
 };
 
 export default function PeptideosPage() {

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { socialImage } from '@/lib/og';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import RelatedLinks, { type RelatedLink } from '@/components/ui/RelatedLinks';
 import { SITE_URL } from '@/lib/site';
@@ -41,6 +42,7 @@ export const metadata: Metadata = {
   title: 'Cronograma de Doses de Peptídeos (exporta para a agenda)',
   description: 'Monte um cronograma de aplicações e baixe como arquivo .ics para importar no Google Calendar, Apple Calendar ou Outlook.',
   alternates: { canonical: '/ferramentas/cronograma' },
+  ...socialImage('pagina', 'cronograma', '/ferramentas/cronograma'),
 };
 
 export default function CronogramaPage() {

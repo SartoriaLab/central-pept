@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { social } from '@/lib/og';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Breadcrumb from '@/components/ui/Breadcrumb';
@@ -19,6 +20,7 @@ import { getArticlesByPeptide } from '@/lib/articles';
 import { COMPARISONS } from '@/lib/comparisons';
 import { getTitrationDoses } from '@/lib/titration';
 import { SITE_URL } from '@/lib/site';
+import { vialPath } from '@/lib/vials';
 
 type Params = { peptideo: string };
 
@@ -44,7 +46,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
     title,
     description,
     alternates: { canonical: `/ferramentas/reconstituicao/${p.slug}` },
-    openGraph: { title, description, url: `/ferramentas/reconstituicao/${p.slug}` },
+    ...social({ kind: 'calculadora', slug: p.slug, path: `/ferramentas/reconstituicao/${p.slug}`, title, description }),
   };
 }
 
@@ -168,6 +170,21 @@ export default async function PeptideReconstitutionPage({ params }: { params: Pr
           Informe o frasco e a água bacteriostática: a calculadora mostra quantas unidades
           puxar na seringa para a dose de {p.name}. Dose de referência: {doseLabel(p)} ({p.frequency}).
         </p>
+        {example && (
+          <p className="mt-2 text-ink-2 max-w-2xl">
+            Resposta rápida: frasco de {fmt(example.vial, 2)} mg com {fmt(example.water, 1)} ml de água →{' '}
+            <strong className="text-ink">{fmt(example.units, 1)} unidades</strong> por dose de {doseLabel(p)}.
+          </p>
+        )}
+        {p.lastReviewed && (
+          <p className="mt-2 text-xs text-ink-3">
+            Dados da ficha revisados em{' '}
+            <time dateTime={p.lastReviewed}>
+              {new Date(`${p.lastReviewed}T12:00:00-03:00`).toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' })}
+            </time>{' '}
+            · <Link href="/metodologia" className="text-teal-700 hover:underline">como revisamos</Link>
+          </p>
+        )}
       </header>
 
       <ReconstitutionCalculator peptides={peptides} initialPeptideSlug={p.slug} />
@@ -211,6 +228,14 @@ export default async function PeptideReconstitutionPage({ params }: { params: Pr
                 })}
               </tbody>
             </table>
+          </div>
+          <div className="mt-4 flex flex-wrap items-center gap-2 no-print">
+            <span className="text-sm text-ink-2">Tabela completa por frasco:</span>
+            {p.commonAmounts.map((v) => (
+              <Link key={v} href={vialPath(p, v)} className="chip-lg">
+                {p.name} {fmt(v, 2)} mg
+              </Link>
+            ))}
           </div>
         </section>
       )}

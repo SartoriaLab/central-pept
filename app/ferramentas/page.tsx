@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { socialImage } from '@/lib/og';
 import ToolIcon, { toolColor } from '@/components/ui/ToolIcon';
 
 export const metadata: Metadata = {
@@ -7,6 +8,7 @@ export const metadata: Metadata = {
   description:
     'Calculadoras gratuitas de peptídeos: reconstituição, mistura, conversor de unidades, cronograma, subida de dose, custo por dose e tabela de doses GLP-1.',
   alternates: { canonical: '/ferramentas' },
+  ...socialImage('pagina', 'ferramentas', '/ferramentas'),
 };
 
 type Tool = {

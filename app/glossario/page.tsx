@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { socialImage } from '@/lib/og';
 import Link from 'next/link';
 import { getGlossary, type GlossaryTerm } from '@/lib/glossary';
 import { SITE_URL } from '@/lib/site';
@@ -8,6 +9,7 @@ export const metadata: Metadata = {
   description:
     'Glossário de peptídeos em português: reconstituição, água bacteriostática, meia-vida, titulação, GLP-1, GIP, COA, HPLC e outros termos explicados de forma clara.',
   alternates: { canonical: '/glossario' },
+  ...socialImage('pagina', 'glossario', '/glossario'),
 };
 
 export default function GlossarioPage() {
