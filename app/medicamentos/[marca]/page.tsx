@@ -60,19 +60,24 @@ export default async function BrandPage({ params }: { params: Promise<Params> })
     { href: `/ferramentas/reconstituicao/${b.peptideSlug}`, label: `Calculadora de ${ingredient} em frasco`, desc: 'Unidades na seringa — só para frasco liofilizado, não para caneta.' },
   ];
 
+  // Não usar '@type': 'Drug': no schema.org Drug também é Product, e o Google passa a
+  // exigir offers/review/aggregateRating (erro "Snippets do produto" no Search Console).
+  // A página é informativa, não vende nada → MedicalWebPage sobre uma substância.
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'Drug',
-    name: b.name,
-    nonProprietaryName: b.activeIngredient,
-    activeIngredient: b.activeIngredient,
-    drugClass: b.drugClass,
+    '@type': 'MedicalWebPage',
+    name: `${b.name} (${b.activeIngredient})`,
     description: b.summary,
     url: `${SITE_URL}/medicamentos/${b.slug}`,
-    manufacturer: { '@type': 'Organization', name: b.manufacturer },
-    administrationRoute: 'Subcutânea',
-    prescriptionStatus: 'https://schema.org/PrescriptionOnly',
-    dosageForm: b.presentation,
+    inLanguage: 'pt-BR',
+    audience: { '@type': 'MedicalAudience', audienceType: 'patient' },
+    about: {
+      '@type': 'MedicalSubstance',
+      name: b.name,
+      alternateName: b.activeIngredient,
+      activeIngredient: b.activeIngredient,
+      description: `${b.drugClass}. ${b.presentation}. Fabricante: ${b.manufacturer}. Venda sob prescrição.`,
+    },
   };
 
   return (

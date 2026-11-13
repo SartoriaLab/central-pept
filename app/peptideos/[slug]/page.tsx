@@ -70,10 +70,11 @@ export default async function PeptidePage({
   const comparisons = getComparisonsByPeptide(p.slug);
 
   const faq = buildPeptideFaq(p);
-  const isApprovedDrug = p.regulatoryStatus === 'fda-approved' || p.regulatoryStatus === 'discontinued';
   const substanceJsonLd: Record<string, unknown> = {
     '@context': 'https://schema.org',
-    '@type': isApprovedDrug ? 'Drug' : 'MedicalSubstance',
+    // Nunca 'Drug': no schema.org Drug também é Product, e o Google passa a exigir
+    // offers/review/aggregateRating (erro "Snippets do produto" no Search Console).
+    '@type': 'MedicalSubstance',
     name: p.name,
     alternateName: p.slug,
     description: p.shortDescription,
