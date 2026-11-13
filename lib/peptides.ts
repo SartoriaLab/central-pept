@@ -885,6 +885,238 @@ export const PEPTIDES: Peptide[] = [
     regulatoryStatus: 'discontinued',
     wadaProhibited: false,
   },
+
+  {
+    slug: 'timosina-alfa-1',
+    name: 'Timosina Alfa-1',
+    typicalDose: 1.6,
+    doseUnit: 'mg',
+    frequency: '2x por semana',
+    shortDescription: 'Peptídeo imunomodulador de 28 aminoácidos, aprovado em vários países como adjuvante em hepatites virais e imunodeficiências.',
+    commonAmounts: [1.6, 5, 10],
+    category: 'longevity',
+    doseRange: '1,6 mg SC, 2x/semana (esquema da bula do Zadaxin em hepatite B)',
+    halfLife: '~2h',
+    longDescription:
+      'A timosina alfa-1 (Tα1, timalfasina) é um peptídeo de 28 aminoácidos originalmente isolado do timo. A forma sintética é comercializada como Zadaxin em cerca de 35 países, principalmente na Ásia, como adjuvante em hepatite B e C crônicas e para reforçar a resposta imune a vacinas em idosos e imunodeprimidos.\n\nNão tem aprovação do FDA, da EMA nem da ANVISA. Circula também em protocolos informais de "longevidade" e recuperação de infecções, com evidência clínica limitada fora das indicações regionais.',
+    mechanism:
+      'Atua sobre receptores toll-like (TLR2 e TLR9) em células dendríticas, favorecendo maturação de linfócitos T, aumento da atividade de células NK e produção de citocinas como IFN-γ e IL-2. O efeito é de modulação, não de estimulação imune indiscriminada.',
+    sideEffects: [
+      'Reações no local da injeção (dor, eritema)',
+      'Em geral bem tolerada nos estudos clínicos de hepatite',
+      'Dados de uso prolongado fora das indicações aprovadas são limitados',
+    ],
+    contraindications: [
+      'Hipersensibilidade ao peptídeo',
+      'Pacientes em imunossupressão pós-transplante (risco teórico de reduzir o efeito do tratamento)',
+      'Gestantes e lactantes (sem dados suficientes)',
+    ],
+    references: [
+      { title: 'Thymalfasin — Wikipedia', url: 'https://en.wikipedia.org/wiki/Thymalfasin' },
+    ],
+    lastReviewed: '2026-11-13',
+    regulatoryStatus: 'regional-approved',
+    wadaProhibited: false,
+  },
+
+  {
+    slug: 'kpv',
+    name: 'KPV',
+    typicalDose: 500,
+    doseUnit: 'mcg',
+    frequency: '1x por dia',
+    shortDescription: 'Tripeptídeo (Lys-Pro-Val) derivado do α-MSH com ação anti-inflamatória estudada em pele e intestino.',
+    commonAmounts: [5, 10],
+    category: 'healing',
+    doseRange: 'Sem dose clínica estabelecida; protocolos informais de 200-1000 mcg/dia',
+    longDescription:
+      'KPV é o tripeptídeo C-terminal do hormônio α-MSH (Lys-Pro-Val). Preserva a ação anti-inflamatória do hormônio sem os efeitos de pigmentação, porque não ativa o receptor MC1R da mesma forma.\n\nA evidência vem de modelos animais (colite, dermatite) e estudos in vitro. Não há aprovação regulatória e não existem ensaios clínicos robustos em humanos.',
+    mechanism:
+      'Entra na célula pelo transportador PepT1 e inibe a ativação do NF-κB e de vias de MAP quinase, reduzindo a produção de citocinas inflamatórias (TNF-α, IL-6, IL-1β). Em modelos de colite, a ação local no epitélio intestinal foi a mais estudada.',
+    sideEffects: [
+      'Perfil de segurança em humanos não caracterizado',
+      'Relatos anedóticos de reação local e desconforto gastrointestinal',
+      'Qualidade e pureza do mercado cinza variáveis',
+    ],
+    contraindications: [
+      'Gestantes e lactantes (sem estudos)',
+      'Uso como substituto de tratamento de doença inflamatória intestinal sem acompanhamento médico',
+    ],
+    references: [
+      { title: 'Melanocyte-stimulating hormone (α-MSH) — Wikipedia', url: 'https://en.wikipedia.org/wiki/Melanocyte-stimulating_hormone' },
+    ],
+    lastReviewed: '2026-11-13',
+    regulatoryStatus: 'research-only',
+    wadaProhibited: false,
+  },
+
+  {
+    slug: 'dsip',
+    name: 'DSIP (Delta Sleep-Inducing Peptide)',
+    typicalDose: 100,
+    doseUnit: 'mcg',
+    frequency: '1x por dia, à noite',
+    shortDescription: 'Nonapeptídeo isolado nos anos 1970 e associado ao sono de ondas lentas. Evidência clínica fraca.',
+    commonAmounts: [5],
+    category: 'cognitive',
+    doseRange: 'Estudos antigos: 25-100 nmol/kg IV; uso informal: 100-300 mcg SC à noite',
+    halfLife: '~7-8 min (plasma)',
+    longDescription:
+      'DSIP (Trp-Ala-Gly-Gly-Asp-Ala-Ser-Gly-Glu) foi isolado do sangue de coelhos em 1977 após estimulação do sono de ondas lentas. Os estudos em humanos são pequenos, antigos e de resultados inconsistentes para insônia, abstinência de álcool e dor.\n\nNão há aprovação em nenhuma jurisdição, e o papel fisiológico do peptídeo no sono segue incerto.',
+    mechanism:
+      'O mecanismo é pouco definido. Hipóteses incluem modulação de receptores GABA-A e glutamato, interação com o eixo do estresse (CRH/ACTH) e ação sobre a regulação de temperatura e do ritmo circadiano.',
+    sideEffects: [
+      'Sonolência diurna, cefaleia e tontura relatadas',
+      'Dados de segurança de longo prazo inexistentes',
+      'Pureza e estabilidade variáveis em produtos de mercado cinza',
+    ],
+    contraindications: [
+      'Gestantes e lactantes',
+      'Uso combinado com sedativos ou álcool',
+      'Direção de veículos após a aplicação',
+    ],
+    references: [
+      { title: 'Delta sleep-inducing peptide — Wikipedia', url: 'https://en.wikipedia.org/wiki/Delta_sleep-inducing_peptide' },
+    ],
+    lastReviewed: '2026-11-13',
+    regulatoryStatus: 'research-only',
+    wadaProhibited: false,
+  },
+
+  {
+    slug: 'cagrilintida',
+    name: 'Cagrilintida',
+    typicalDose: 0.25,
+    doseUnit: 'mg',
+    frequency: '1x por semana (dose inicial, aumentar gradualmente)',
+    shortDescription: 'Análogo de amilina de ação prolongada, em fase 3, isolado ou combinado com semaglutida (CagriSema).',
+    commonAmounts: [5, 10],
+    category: 'weight-loss',
+    doseRange: 'Ensaios clínicos: 0,25 mg até 2,4 mg/semana SC, com titulação',
+    halfLife: '~7 dias',
+    longDescription:
+      'A cagrilintida é um análogo da amilina, hormônio co-secretado com a insulina pelas células beta do pâncreas, desenvolvido pela Novo Nordisk para administração semanal. É estudada em monoterapia e na combinação fixa com semaglutida (CagriSema) para obesidade e diabetes tipo 2.\n\nAinda não é aprovada como medicamento. Qualquer produto vendido fora de ensaios clínicos não passou por controle regulatório.',
+    mechanism:
+      'Agonista dos receptores de amilina e calcitonina. Reduz o apetite por ação no tronco encefálico (área postrema) e no hipotálamo, retarda o esvaziamento gástrico e inibe o glucagon pós-prandial. O mecanismo é complementar ao do GLP-1, o que explica a combinação com semaglutida.',
+    sideEffects: [
+      'Náusea, vômito e constipação (dose-dependentes, mais frequentes na fase de titulação)',
+      'Reações no local da injeção',
+      'Redução excessiva do apetite e risco de perda de massa magra sem acompanhamento nutricional',
+    ],
+    contraindications: [
+      'Gestantes e lactantes',
+      'Histórico de pancreatite',
+      'Gastroparesia grave',
+      'Uso fora de ensaios clínicos ou prescrição médica',
+    ],
+    references: [
+      { title: 'Cagrilintide — Wikipedia', url: 'https://en.wikipedia.org/wiki/Cagrilintide' },
+    ],
+    lastReviewed: '2026-11-13',
+    regulatoryStatus: 'investigational',
+    wadaProhibited: false,
+  },
+
+  {
+    slug: 'liraglutida',
+    name: 'Liraglutida',
+    typicalDose: 0.6,
+    doseUnit: 'mg',
+    frequency: '1x por dia (dose inicial, aumentar gradualmente)',
+    shortDescription: 'Agonista do receptor GLP-1 de aplicação diária. Aprovado para diabetes tipo 2 (Victoza) e obesidade (Saxenda).',
+    commonAmounts: [18],
+    category: 'glp-1',
+    doseRange: 'Diabetes: 0,6 mg a 1,8 mg/dia. Obesidade: até 3 mg/dia, com titulação semanal',
+    halfLife: '~13h',
+    longDescription:
+      'A liraglutida foi o primeiro GLP-1 de uso diário amplamente difundido. É aprovada pelo FDA, pela EMA e pela ANVISA para diabetes tipo 2 (Victoza) e, em dose de 3 mg, para controle crônico de peso (Saxenda). Também tem indicação de redução de risco cardiovascular em diabéticos de alto risco.\n\nNo emagrecimento, perde em eficácia para semaglutida e tirzepatida, mas tem o maior histórico de segurança da classe, incluindo uso pediátrico a partir de 12 anos.',
+    mechanism:
+      'Agonista do receptor de GLP-1 com 97% de homologia com o hormônio nativo. A cadeia lateral de ácido graxo liga-se à albumina, o que prolonga a ação. Estimula a secreção de insulina dependente de glicose, reduz glucagon, retarda o esvaziamento gástrico e aumenta a saciedade por ação hipotalâmica.',
+    sideEffects: [
+      'Náusea, diarreia, constipação e vômito (mais comuns, em geral transitórios)',
+      'Aumento da frequência cardíaca',
+      'Pancreatite e colelitíase (raras, mas descritas)',
+      'Reações no local da injeção',
+    ],
+    contraindications: [
+      'Histórico pessoal ou familiar de carcinoma medular de tireoide ou NEM2 (alerta em bula)',
+      'Histórico de pancreatite',
+      'Gestação',
+      'Hipersensibilidade à liraglutida',
+    ],
+    references: [
+      { title: 'Liraglutide — Wikipedia', url: 'https://en.wikipedia.org/wiki/Liraglutide' },
+      { title: 'Liraglutide — DrugBank', url: 'https://go.drugbank.com/drugs/DB06655' },
+    ],
+    lastReviewed: '2026-11-13',
+    regulatoryStatus: 'fda-approved',
+    wadaProhibited: false,
+  },
+
+  {
+    slug: 'kisspeptina-10',
+    name: 'Kisspeptina-10',
+    typicalDose: 50,
+    doseUnit: 'mcg',
+    frequency: 'Variável (uso experimental)',
+    shortDescription: 'Fragmento ativo da kisspeptina, regulador hipotalâmico do eixo reprodutivo. Usado em pesquisa de fertilidade.',
+    commonAmounts: [5, 10],
+    category: 'hormone',
+    doseRange: 'Estudos: 0,24-1 nmol/kg em bolus; infusões de 1-9 pmol/kg/min',
+    halfLife: '~4 min (IV)',
+    longDescription:
+      'A kisspeptina é o principal ativador dos neurônios de GnRH no hipotálamo, e a kisspeptina-10 é o menor fragmento com atividade plena sobre o receptor KISS1R. Estudos em humanos em centros acadêmicos (principalmente no Imperial College de Londres) avaliam seu uso diagnóstico e terapêutico em hipogonadismo hipotalâmico, ovulação e libido.\n\nNão há aprovação regulatória. O uso fora de protocolos de pesquisa não tem base clínica consolidada.',
+    mechanism:
+      'Liga-se ao receptor KISS1R (GPR54) nos neurônios de GnRH, estimulando a liberação pulsátil de GnRH e, em consequência, de LH e FSH. Por agir acima da hipófise, preserva o feedback fisiológico do eixo.',
+    sideEffects: [
+      'Poucos eventos adversos nos estudos de curta duração (rubor e reação local)',
+      'Taquifilaxia com infusão contínua (dessensibilização do receptor)',
+      'Segurança de longo prazo desconhecida',
+    ],
+    contraindications: [
+      'Gestantes (exceto em protocolos de pesquisa)',
+      'Condições hormônio-dependentes (ex.: câncer de mama ou próstata)',
+      'Uso sem avaliação endocrinológica',
+    ],
+    references: [
+      { title: 'Kisspeptin — Wikipedia', url: 'https://en.wikipedia.org/wiki/Kisspeptin' },
+    ],
+    lastReviewed: '2026-11-13',
+    regulatoryStatus: 'research-only',
+    wadaProhibited: false,
+  },
+
+  {
+    slug: 'll-37',
+    name: 'LL-37',
+    typicalDose: 100,
+    doseUnit: 'mcg',
+    frequency: '1x por dia (uso experimental)',
+    shortDescription: 'Peptídeo antimicrobiano humano (catelicidina) estudado em cicatrização de feridas e infecções.',
+    commonAmounts: [5],
+    category: 'healing',
+    doseRange: 'Ensaio em úlcera venosa (tópico): 0,5-3,2 mg/mL; uso sistêmico sem dose estabelecida',
+    longDescription:
+      'LL-37 é o fragmento C-terminal ativo da catelicidina humana (hCAP18), peptídeo de 37 aminoácidos que faz parte da imunidade inata na pele e nas mucosas. Tem ação antimicrobiana direta e modula a resposta inflamatória e a cicatrização.\n\nUm ensaio de fase 2 com aplicação tópica em úlceras venosas de perna mostrou benefício em doses intermediárias. Não há aprovação regulatória, e o uso injetável sistêmico não tem evidência clínica consistente.',
+    mechanism:
+      'Rompe membranas de bactérias, fungos e alguns vírus por interação eletrostática. Também recruta células imunes por receptores como FPR2 e P2X7, estimula angiogênese e migração de queratinócitos, e neutraliza lipopolissacarídeo.',
+    sideEffects: [
+      'Reação local e dor na aplicação',
+      'Em excesso, pode favorecer inflamação (níveis elevados se associam a psoríase e rosácea)',
+      'Segurança sistêmica em humanos não caracterizada',
+    ],
+    contraindications: [
+      'Psoríase e rosácea (risco teórico de piora)',
+      'Doenças autoimunes ativas',
+      'Gestantes e lactantes',
+    ],
+    references: [
+      { title: 'Cathelicidin — Wikipedia', url: 'https://en.wikipedia.org/wiki/Cathelicidin' },
+    ],
+    lastReviewed: '2026-11-13',
+    regulatoryStatus: 'research-only',
+    wadaProhibited: false,
+  },
 ];
 
 export function getPeptides(): Peptide[] {
