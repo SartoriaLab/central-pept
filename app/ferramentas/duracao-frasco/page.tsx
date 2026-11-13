@@ -4,6 +4,8 @@ import Breadcrumb from '@/components/ui/Breadcrumb';
 import RelatedLinks, { type RelatedLink } from '@/components/ui/RelatedLinks';
 import { SITE_URL } from '@/lib/site';
 import VialPlanner from '@/components/calculator/VialPlanner';
+import EbookOffer from '@/components/ebook/EbookOffer';
+import { ebookForTool, toOffer } from '@/lib/ebooks';
 import { getPeptides } from '@/lib/peptides';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
 import FAQ, { type FAQItem } from '@/components/ui/FAQ';
@@ -72,6 +74,8 @@ export default function DuracaoFrascoPage() {
       </header>
 
       <VialPlanner peptides={getPeptides()} />
+
+      <EbookOffer variant="result" offer={toOffer(ebookForTool('duracao-frasco'))} className="mt-6 max-w-3xl" />
 
       <RelatedLinks links={RELATED_LINKS} />
 

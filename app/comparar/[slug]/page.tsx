@@ -16,6 +16,8 @@ import Breadcrumb from '@/components/ui/Breadcrumb';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
 import { SITE_URL } from '@/lib/site';
 import { social } from '@/lib/og';
+import EbookOffer from '@/components/ebook/EbookOffer';
+import { ebookForComparison, toOffer } from '@/lib/ebooks';
 
 type Params = { slug: string };
 
@@ -170,6 +172,7 @@ export default async function ComparisonPage({ params }: { params: Promise<Param
           </Link>
         )}
 
+        <EbookOffer offer={toOffer(ebookForComparison(c.peptideSlugs))} />
 
         <FAQ items={faq} title={`Perguntas frequentes: ${c.title}`} />
 

@@ -8,6 +8,8 @@ import { getPeptideBySlug } from '@/lib/peptides';
 import { getBrandsByPeptide } from '@/lib/brands';
 import { COMPARISONS } from '@/lib/comparisons';
 import RelatedLinks, { type RelatedLink } from '@/components/ui/RelatedLinks';
+import EbookOffer from '@/components/ebook/EbookOffer';
+import { ebookForPost, toOffer } from '@/lib/ebooks';
 
 import { SITE_URL as SITE } from '@/lib/site';
 
@@ -68,6 +70,7 @@ export default function ArticleLayout({ article, children }: Props) {
   };
 
   const related = getRelatedArticles(article);
+  const offer = toOffer(ebookForPost(article.slug, article.relatedPeptides));
 
   // Artigo → calculadora de cada peptídeo citado (até 2) + comparativos que o envolvem.
   const mainPeptides = citedPeptides.slice(0, 2);
@@ -186,6 +189,7 @@ export default function ArticleLayout({ article, children }: Props) {
             <p className="text-sm text-ink-2 leading-relaxed">{article.tldr}</p>
           </aside>
         )}
+        <EbookOffer offer={offer} variant="line" className="-mt-2" />
         {children}
 
         {references.length > 0 && (
@@ -203,13 +207,16 @@ export default function ArticleLayout({ article, children }: Props) {
           </section>
         )}
 
+        <EbookOffer offer={offer} />
+
         {/* Transparência editorial */}
         <aside className="mt-10 not-prose card p-5" aria-label="Como este conteúdo é produzido">
           <h2 className="text-sm font-bold uppercase tracking-wider text-ink-3 mb-2">Como este conteúdo é produzido</h2>
           <p className="text-sm text-ink-2 leading-relaxed">
             Escrito a partir de bulas, ensaios clínicos e documentos regulatórios, seguindo a nossa{' '}
             <Link href="/metodologia" className="text-teal-700 font-semibold hover:underline">metodologia editorial</Link>.
-            A Central Peptídeos não vende peptídeos, não indica fornecedores e não recebe comissão por indicação.
+            A Central Peptídeos não vende peptídeos, não indica fornecedores e não recebe comissão por indicação;
+            os guias em PDF oferecidos no site são produção própria.
             Encontrou um erro?{' '}
             <Link href="/contato" className="text-teal-700 font-semibold hover:underline">Avise a gente</Link> — correção de dado incorreto é prioridade.
           </p>

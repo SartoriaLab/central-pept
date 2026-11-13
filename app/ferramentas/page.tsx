@@ -3,6 +3,8 @@ import type { Metadata } from 'next';
 import { socialImage } from '@/lib/og';
 import ToolIcon, { toolColor } from '@/components/ui/ToolIcon';
 import { TOOLS } from '@/lib/tools';
+import EbookOffer from '@/components/ebook/EbookOffer';
+import { ebookForHub, toOffer } from '@/lib/ebooks';
 
 export const metadata: Metadata = {
   title: 'Calculadoras de Peptídeos: reconstituição, dose e custo',
@@ -58,6 +60,8 @@ export default function FerramentasPage() {
             );
           })}
         </div>
+
+        <EbookOffer offer={toOffer(ebookForHub())} className="max-w-4xl mx-auto" />
       </div>
     </>
   );

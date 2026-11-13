@@ -6,6 +6,8 @@ import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
 import Link from 'next/link';
 import { getCategoryPages } from '@/lib/categories';
 import { getBrands } from '@/lib/brands';
+import EbookOffer from '@/components/ebook/EbookOffer';
+import { ebookForHub, toOffer } from '@/lib/ebooks';
 
 const TOTAL = getPeptides().length;
 
@@ -64,6 +66,8 @@ export default function PeptideosPage() {
             ))}
           </div>
         </section>
+
+        <EbookOffer offer={toOffer(ebookForHub())} />
 
         <MedicalDisclaimer variant="prominent" />
       </div>

@@ -8,6 +8,8 @@ import { TITRATION_SCHEMES, durationLabel, stepPeriodLabel } from '@/lib/titrati
 import { EVENTS, track } from '@/lib/track';
 import { parseLocalDate, todayLocalISO } from '@/lib/dates';
 import { buildIcs, downloadIcs } from '@/lib/ics';
+import EbookOffer from '@/components/ebook/EbookOffer';
+import type { EbookOffer as Offer } from '@/lib/ebooks';
 
 const SCHEMES = TITRATION_SCHEMES;
 
@@ -15,7 +17,13 @@ const SCHEMES = TITRATION_SCHEMES;
 const DEFAULTS = { esquema: SCHEMES[1].id, inicio: '', etapa: 0 as number | '' };
 const CODECS = { esquema: oneOf(SCHEMES.map((s) => s.id)), inicio: isoDate, etapa: num };
 
-export default function TitrationCalculator({ embed = false }: { embed?: boolean }) {
+type Props = {
+  embed?: boolean;
+  /** Oferta de ebook por peptídeo do esquema escolhido (fora do embed). */
+  offers?: Record<string, Offer | null>;
+};
+
+export default function TitrationCalculator({ embed = false, offers }: Props) {
   const { state, set, patch, reset, shareUrl } = useUrlState(DEFAULTS, CODECS, embed ? {} : { storageKey: 'cp:titulacao' });
   const schemeId = state.esquema;
   const startDate = state.inicio || todayLocalISO();
@@ -209,6 +217,15 @@ export default function TitrationCalculator({ embed = false }: { embed?: boolean
               💡 Se aparecerem efeitos intensos (náusea, vômito), não avance para a próxima dose — repita a etapa atual por mais algumas semanas antes de subir.
             </p>
           </div>
+
+          {!embed && (
+            <EbookOffer
+              variant="result"
+              offer={offers?.[scheme.peptideSlug]}
+              lead={`Seu plano chega à manutenção em ${durationLabel(daysToMaintenance)}.`}
+              className="mt-5"
+            />
+          )}
         </div>
       </div>
     </div>

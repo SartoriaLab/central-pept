@@ -3,6 +3,8 @@ import { socialImage } from '@/lib/og';
 import { getArticles } from '@/lib/articles';
 import NewsletterSignup from '@/components/ui/NewsletterSignup';
 import ArticleCard from '@/components/blog/ArticleCard';
+import EbookOffer from '@/components/ebook/EbookOffer';
+import { ebookForHub, toOffer } from '@/lib/ebooks';
 
 export const metadata: Metadata = {
   title: 'Blog de Peptídeos: guias de dose, reconstituição e GLP-1',
@@ -45,6 +47,8 @@ export default function BlogPage() {
             ))}
           </div>
         )}
+
+        <EbookOffer offer={toOffer(ebookForHub())} className="max-w-4xl mx-auto" />
       </div>
     </>
   );

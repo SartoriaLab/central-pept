@@ -5,6 +5,8 @@ import Breadcrumb from '@/components/ui/Breadcrumb';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
 import { getBrands } from '@/lib/brands';
 import { SITE_URL } from '@/lib/site';
+import EbookOffer from '@/components/ebook/EbookOffer';
+import { ebookForHub, toOffer } from '@/lib/ebooks';
 
 const PATH = '/medicamentos';
 
@@ -110,6 +112,8 @@ export default function MedicamentosPage() {
           .
         </p>
       </section>
+
+      <EbookOffer offer={toOffer(ebookForHub())} />
 
       <MedicalDisclaimer variant="prominent" />
       </div>

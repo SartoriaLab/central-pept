@@ -13,6 +13,8 @@ import { getVialPages, isCanonicalVial, parseVialSlug, vialPath, vialSlug } from
 import { social } from '@/lib/og';
 import ShareButtons from '@/components/ui/ShareButtons';
 import { SITE_URL } from '@/lib/site';
+import EbookOffer from '@/components/ebook/EbookOffer';
+import { ebookForTool, toOffer } from '@/lib/ebooks';
 
 type Params = { peptideo: string; frasco: string };
 
@@ -323,6 +325,8 @@ export default async function VialPage({ params }: { params: Promise<Params> }) 
       <div className="mt-10 pt-6 border-t border-border no-print">
         <ShareButtons title={`${p.name} ${vialLabel}: quantas unidades puxar na seringa`} url={path} />
       </div>
+
+      <EbookOffer offer={toOffer(ebookForTool('reconstituicao'))} className="max-w-3xl" />
 
       <RelatedLinks links={related} title={`Mais sobre ${p.name}`} />
 

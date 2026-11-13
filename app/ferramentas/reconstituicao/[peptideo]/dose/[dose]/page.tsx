@@ -13,6 +13,8 @@ import { stepPeriodLabel } from '@/lib/titration';
 import { vialPath, isCanonicalVial } from '@/lib/vials';
 import { social } from '@/lib/og';
 import { SITE_URL } from '@/lib/site';
+import EbookOffer from '@/components/ebook/EbookOffer';
+import { ebookForTool, toOffer } from '@/lib/ebooks';
 
 type Params = { peptideo: string; dose: string };
 
@@ -246,6 +248,8 @@ export default async function DosePage({ params }: { params: Promise<Params> }) 
           ))}
         </div>
       </section>
+
+      <EbookOffer offer={toOffer(ebookForTool('reconstituicao'))} className="max-w-3xl" />
 
       <RelatedLinks links={related} title={`Mais sobre ${p.name}`} />
       <FAQ items={faq} title={`Perguntas frequentes: ${p.name} ${mg(dose)}`} />

@@ -14,6 +14,7 @@ import { SITE_URL as SITE } from '@/lib/site';
 import { TOOLS } from '@/lib/tools';
 import { SYRINGES } from '@/lib/syringes';
 import { dosePath, getDosePages } from '@/lib/dose-pages';
+import { getActiveEbooks } from '@/lib/ebooks';
 
 function url(path: string): string {
   return `${SITE}${path}`;
@@ -50,6 +51,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Arquivos de tag: só os que têm artigos suficientes (os demais são noindex)
   const tagGroups = getTagGroups().filter((g) => g.articles.length >= MIN_TAG_ARTICLES);
+
+  // Guias em PDF: só os com checkout configurado (os demais não têm página)
+  const ebooks = getActiveEbooks();
 
   return [
     ...staticPaths.map((p) => ({
@@ -123,6 +127,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: 'monthly' as const,
       priority: 0.75,
+    })),
+    ...(ebooks.length > 0 ? ['/ebooks', ...ebooks.map((e) => `/ebooks/${e.slug}`)] : []).map((path) => ({
+      url: url(path),
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
     })),
   ];
 }

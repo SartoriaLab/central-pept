@@ -17,6 +17,8 @@ import { COMPARISONS } from '@/lib/comparisons';
 import { getArticlesByPeptide, type Article } from '@/lib/articles';
 import { getBrandsByPeptide } from '@/lib/brands';
 import { SITE_URL } from '@/lib/site';
+import EbookOffer from '@/components/ebook/EbookOffer';
+import { ebookForCategory, toOffer } from '@/lib/ebooks';
 
 type Params = { categoria: string };
 
@@ -227,6 +229,8 @@ export default async function CategoryPage({ params }: { params: Promise<Params>
             </div>
           </section>
         )}
+
+        <EbookOffer offer={toOffer(ebookForCategory(c.slug))} />
 
         <FAQ items={c.faq} />
 

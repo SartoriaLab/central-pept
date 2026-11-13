@@ -8,6 +8,7 @@ import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
 import RelatedLinks, { type RelatedLink } from '@/components/ui/RelatedLinks';
 import ToolSchema from '@/components/ui/ToolSchema';
 import ReconstitutionCalculator from '@/components/calculator/ReconstitutionCalculator';
+import { ebookForTool, toOffer } from '@/lib/ebooks';
 import { calcByVolume, doseToMg, fmt, fmtConcentration } from '@/components/calculator/calc';
 import {
   getPeptideBySlug,
@@ -191,7 +192,11 @@ export default async function PeptideReconstitutionPage({ params }: { params: Pr
         )}
       </header>
 
-      <ReconstitutionCalculator peptides={peptides} initialPeptideSlug={p.slug} />
+      <ReconstitutionCalculator
+        peptides={peptides}
+        initialPeptideSlug={p.slug}
+        offer={toOffer(ebookForTool('reconstituicao'))}
+      />
 
       {rows.length > 0 && (
         <section className="mt-10" aria-labelledby="tabela-pronta">

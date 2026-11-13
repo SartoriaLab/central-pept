@@ -11,6 +11,8 @@ import { calcByVolume, fmt } from '@/components/calculator/calc';
 import { getPeptideBySlug } from '@/lib/peptides';
 import { TITRATION_SCHEMES, doseLabel, durationLabel, getTitrationDoses, stepPeriodLabel, type TitrationScheme } from '@/lib/titration';
 import { SITE_URL } from '@/lib/site';
+import EbookOffer from '@/components/ebook/EbookOffer';
+import { ebookForTool, toOffer } from '@/lib/ebooks';
 
 const PATH = '/ferramentas/tabela-doses-glp1';
 const WATER_VOLUMES = [1, 2];
@@ -235,6 +237,8 @@ export default function TabelaDosesGlp1Page() {
         </p>
       </section>
 
+
+      <EbookOffer offer={toOffer(ebookForTool('tabela-doses-glp1'))} className="max-w-3xl" />
 
       <RelatedLinks links={RELATED_LINKS} />
 

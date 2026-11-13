@@ -21,6 +21,8 @@ import RecentCalcs, {
   type HistoryEntry,
 } from './RecentCalcs';
 import { EVENTS, track, trackOnce } from '@/lib/track';
+import EbookOffer from '@/components/ebook/EbookOffer';
+import type { EbookOffer as Offer } from '@/lib/ebooks';
 
 type Mode = 'volume' | 'units';
 type SyringeSize = 30 | 50 | 100;
@@ -36,6 +38,8 @@ type Props = {
   peptides: Peptide[];
   /** Peptídeo pré-selecionado (páginas /ferramentas/reconstituicao/<slug>). `?peptide=` na URL tem precedência. */
   initialPeptideSlug?: string;
+  /** Oferta de ebook embaixo do resultado (não passe no embed). */
+  offer?: Offer | null;
 };
 
 const LS_STATE_KEY = 'peptidecalc:state:v1';
@@ -49,7 +53,7 @@ function syringe0(p: Peptide): SyringeSize {
   return p.commonAmounts[0] ? fittingSyringe(p, p.commonAmounts[0], 2, p.typicalDose) : 50;
 }
 
-export default function ReconstitutionCalculator({ peptides, initialPeptideSlug }: Props) {
+export default function ReconstitutionCalculator({ peptides, initialPeptideSlug, offer }: Props) {
   // Pré-seleção já no render do servidor: a página por peptídeo sai com a calculadora preenchida.
   const initialPeptide = initialPeptideSlug ? peptides.find((p) => p.slug === initialPeptideSlug) ?? null : null;
   const [peptide, setPeptide] = useState<Peptide | null>(initialPeptide);
@@ -961,6 +965,14 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug 
                   ))}
               </div>
             </div>
+          )}
+          {result && Number.isFinite(result.unitsPerDose) && result.unitsPerDose > 0 && (
+            <EbookOffer
+              variant="result"
+              offer={offer}
+              lead={`Você vai puxar ${fmt(result.unitsPerDose, 1)} unidades.`}
+              className="mt-4"
+            />
           )}
         </div>
       </div>

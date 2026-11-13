@@ -9,6 +9,8 @@ import { fmt } from '@/components/calculator/calc';
 import { getSyringe, SYRINGES, unitsToMl } from '@/lib/syringes';
 import { social } from '@/lib/og';
 import { SITE_URL } from '@/lib/site';
+import EbookOffer from '@/components/ebook/EbookOffer';
+import { ebookForSection, toOffer } from '@/lib/ebooks';
 
 type Params = { tamanho: string };
 
@@ -149,6 +151,8 @@ export default async function SyringeSizePage({ params }: { params: Promise<Para
             </Link>
           </div>
         </section>
+
+        <EbookOffer offer={toOffer(ebookForSection('seringas'))} />
 
         <FAQ items={faq} title={`Perguntas frequentes: seringa de ${s.units} unidades`} />
         <MedicalDisclaimer variant="prominent" />

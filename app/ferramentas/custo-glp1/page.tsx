@@ -3,6 +3,7 @@ import { social } from '@/lib/og';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import RelatedLinks, { type RelatedLink } from '@/components/ui/RelatedLinks';
 import GlpCostCalculator from '@/components/calculator/GlpCostCalculator';
+import { ebookForTool, toOffer } from '@/lib/ebooks';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
 import FAQ, { type FAQItem } from '@/components/ui/FAQ';
 import ToolSchema from '@/components/ui/ToolSchema';
@@ -80,7 +81,7 @@ export default function CustoGlp1Page() {
         </p>
       </div>
 
-      <GlpCostCalculator />
+      <GlpCostCalculator offer={toOffer(ebookForTool('custo-glp1'))} />
 
       <section className="mt-10 max-w-3xl" aria-labelledby="como-funciona">
         <h2 id="como-funciona" className="text-xl md:text-2xl font-bold mb-3">Como a conta é feita</h2>

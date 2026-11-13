@@ -21,6 +21,10 @@ export const EVENTS = {
   share: 'Compartilhar Calculo',
   embedCopy: 'Embed Copiado',
   newsletterSignup: 'Newsletter Inscricao',
+  // Funil dos ebooks: props { ebook: id do ebook, posicao: card | line | result | landing-* }
+  ebookView: 'Ebook Visto',
+  ebookClick: 'Ebook Clique',
+  ebookCheckout: 'Ebook Checkout',
 } as const;
 
 export function track(event: string, props?: EventProps): void {

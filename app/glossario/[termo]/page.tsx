@@ -8,6 +8,8 @@ import RelatedLinks from '@/components/ui/RelatedLinks';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
 import { getGlossary, getGlossarySlugs, getGlossaryTerm } from '@/lib/glossary';
 import { SITE_URL } from '@/lib/site';
+import EbookOffer from '@/components/ebook/EbookOffer';
+import { ebookForSection, toOffer } from '@/lib/ebooks';
 
 type Params = { termo: string };
 
@@ -107,6 +109,8 @@ export default async function GlossaryTermPage({ params }: { params: Promise<Par
             <Link href={`/glossario/${next.slug}`} className="font-semibold text-teal-700 hover:underline">{next.term} →</Link>
           ) : <span />}
         </nav>
+
+        <EbookOffer offer={toOffer(ebookForSection('glossario'))} />
 
         <MedicalDisclaimer variant="prominent" />
       </div>

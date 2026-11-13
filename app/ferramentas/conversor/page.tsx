@@ -4,6 +4,8 @@ import Breadcrumb from '@/components/ui/Breadcrumb';
 import RelatedLinks, { type RelatedLink } from '@/components/ui/RelatedLinks';
 import { SITE_URL } from '@/lib/site';
 import UnitConverter from '@/components/calculator/UnitConverter';
+import EbookOffer from '@/components/ebook/EbookOffer';
+import { ebookForTool, toOffer } from '@/lib/ebooks';
 import { getPeptides } from '@/lib/peptides';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
 import FAQ, { type FAQItem } from '@/components/ui/FAQ';
@@ -76,6 +78,8 @@ export default function ConversorPage() {
       </header>
 
       <UnitConverter peptides={peptides} />
+
+      <EbookOffer variant="result" offer={toOffer(ebookForTool('conversor'))} className="mt-6 max-w-3xl" />
 
       <EmbedSnippet
         tool="conversor"

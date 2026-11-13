@@ -7,6 +7,8 @@ import Syringe from '@/components/calculator/Syringe';
 import { SYRINGES } from '@/lib/syringes';
 import { social } from '@/lib/og';
 import { SITE_URL } from '@/lib/site';
+import EbookOffer from '@/components/ebook/EbookOffer';
+import { ebookForSection, toOffer } from '@/lib/ebooks';
 
 const title = 'Como ler seringa de insulina: unidades, ml e tamanhos';
 const description =
@@ -146,6 +148,8 @@ export default function SeringasPage() {
             <Link href="/blog/agua-bacteriostatica-guia">guia da água bacteriostática</Link>.
           </p>
         </section>
+
+        <EbookOffer offer={toOffer(ebookForSection('seringas'))} />
 
         <FAQ items={FAQ_ITEMS} />
         <MedicalDisclaimer variant="prominent" />

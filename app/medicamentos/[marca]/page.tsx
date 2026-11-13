@@ -20,6 +20,8 @@ import {
 import { getArticleBySlug } from '@/lib/articles';
 import { getComparisonsByPeptide } from '@/lib/comparisons';
 import { CONTENT_UPDATED_AT, SITE_URL } from '@/lib/site';
+import EbookOffer from '@/components/ebook/EbookOffer';
+import { ebookForPeptide, toOffer } from '@/lib/ebooks';
 
 type Params = { marca: string };
 
@@ -314,6 +316,7 @@ export default async function BrandPage({ params }: { params: Promise<Params> })
           </section>
         ) : null}
 
+        <EbookOffer offer={toOffer(ebookForPeptide(b.peptideSlug))} />
 
         <RelatedLinks links={tools} title={`Ferramentas para quem usa ${b.name}`} />
 

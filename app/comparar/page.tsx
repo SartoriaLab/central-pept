@@ -5,6 +5,8 @@ import Comparator from '@/components/peptide/Comparator';
 import { getPeptides } from '@/lib/peptides';
 import { COMPARISONS } from '@/lib/comparisons';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
+import EbookOffer from '@/components/ebook/EbookOffer';
+import { ebookForHub, toOffer } from '@/lib/ebooks';
 
 export const metadata: Metadata = {
   title: 'Comparador de Peptídeos: dose, meia-vida e efeitos lado a lado',
@@ -50,6 +52,8 @@ export default function CompararPage() {
         </div>
 
         <Comparator peptides={peptides} />
+
+        <EbookOffer offer={toOffer(ebookForHub())} />
 
         <MedicalDisclaimer variant="prominent" />
       </div>

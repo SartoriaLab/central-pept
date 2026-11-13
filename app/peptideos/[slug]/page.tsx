@@ -17,6 +17,8 @@ import { getBrandsByPeptide } from '@/lib/brands';
 import InfoCard from '@/components/ui/InfoCard';
 import GlossaryText from '@/components/ui/GlossaryText';
 import { vialPath } from '@/lib/vials';
+import EbookOffer from '@/components/ebook/EbookOffer';
+import { ebookForPeptide, toOffer } from '@/lib/ebooks';
 
 import { SITE_URL as SITE } from '@/lib/site';
 
@@ -260,6 +262,8 @@ export default async function PeptidePage({
             />
           )}
         </section>
+
+        <EbookOffer offer={toOffer(ebookForPeptide(p.slug))} className="!mt-0" />
 
         {p.longDescription && (
           <DetailSection

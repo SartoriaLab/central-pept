@@ -7,6 +7,8 @@ import { useUrlState } from './useUrlState';
 import ToolActions from './ToolActions';
 import { getTitrationDoses } from '@/lib/titration';
 import { EVENTS, trackOnce } from '@/lib/track';
+import EbookOffer from '@/components/ebook/EbookOffer';
+import type { EbookOffer as Offer } from '@/lib/ebooks';
 
 type Med = { id: string; label: string; peptideSlug: string | null; packages: number[] };
 
@@ -29,7 +31,7 @@ const num = (n: number, dec = 2) => n.toLocaleString('pt-BR', { maximumFractionD
 const DEFAULTS = { med: MEDS[0].id, preco: '' as number | '', total: 10 as number | '', dose: 2.5 as number | '', descarte: true };
 const CODECS = { med: oneOf(MEDS.map((m) => m.id)), preco: numCodec, total: numCodec, dose: numCodec, descarte: bool };
 
-export default function GlpCostCalculator() {
+export default function GlpCostCalculator({ offer }: { offer?: Offer | null }) {
   const { state, set, patch, reset, shareUrl } = useUrlState(DEFAULTS, CODECS, { storageKey: 'cp:custo' });
   const { med: medId, preco: price, total: totalMg, dose, descarte: discard } = state;
   const setPrice = (v: number | '') => set('preco', v);
@@ -176,6 +178,12 @@ export default function GlpCostCalculator() {
               Mês calculado como 52 ÷ 12 ≈ 4,33 semanas. Valores estimados a partir do preço informado;
               não incluem seringas, água bacteriostática, consulta ou frete.
             </p>
+            <EbookOffer
+              variant="result"
+              offer={offer}
+              lead={`Sua dose sai por ${brl(result.realPerDose)}.`}
+              className="mt-5"
+            />
           </>
         )}
       </section>

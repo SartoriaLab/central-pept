@@ -55,6 +55,18 @@ Feed, sitemap, busca, páginas de tag e imagem de compartilhamento saem sozinhos
 6. O service worker (`app/sw.js/route.ts`) pré-carrega toda ferramenta de `lib/tools.ts`
    para uso offline; só registra em produção.
 
+## Ebooks pagos
+
+1. Catálogo em `lib/ebooks.ts` (fonte única); estratégia, títulos e preços em `docs/ebooks-estrategia.md`.
+2. Cada página mostra no máximo uma oferta (`ebookFor*` + `toOffer`). Peptídeo, post, ferramenta,
+   categoria ou seção entra em `places` de um único ebook; comparativo e marca seguem o peptídeo.
+   Melanotan II não tem oferta (`NO_EBOOK_PEPTIDES`).
+3. Ebook só aparece (oferta, `/ebooks/<slug>`, sitemap, busca) com a URL https da Kiwify na variável
+   `checkoutEnv` (ex.: `KIWIFY_CHECKOUT_TIRZEPATIDA`). Sem ela fica oculto.
+4. Componente `<EbookOffer offer=... variant="card|line|result">`; calculadora recebe a oferta por
+   prop e não mostra nada no embed nem na impressão.
+5. `npm test` (`tests/ebooks.test.ts`) confere slugs, referências e uma oferta por página.
+
 ## Páginas geradas a partir dos dados
 
 - Frasco (`/ferramentas/reconstituicao/<peptideo>/<mg>`): um por `commonAmounts`. Peptídeo com

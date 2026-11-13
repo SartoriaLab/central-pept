@@ -4,6 +4,8 @@ import Breadcrumb from '@/components/ui/Breadcrumb';
 import RelatedLinks, { type RelatedLink } from '@/components/ui/RelatedLinks';
 import { SITE_URL } from '@/lib/site';
 import ScheduleCalculator from '@/components/calculator/ScheduleCalculator';
+import EbookOffer from '@/components/ebook/EbookOffer';
+import { ebookForTool, toOffer } from '@/lib/ebooks';
 import { getPeptides } from '@/lib/peptides';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
 import FAQ, { type FAQItem } from '@/components/ui/FAQ';
@@ -71,6 +73,8 @@ export default function CronogramaPage() {
       </header>
 
       <ScheduleCalculator peptides={peptides} />
+
+      <EbookOffer variant="result" offer={toOffer(ebookForTool('cronograma'))} className="mt-6 max-w-3xl" />
 
       <RelatedLinks links={RELATED_LINKS} />
 

@@ -8,6 +8,8 @@ import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
 import FAQ, { type FAQItem } from '@/components/ui/FAQ';
 import ToolSchema from '@/components/ui/ToolSchema';
 import EmbedSnippet from '@/components/ui/EmbedSnippet';
+import { TITRATION_SCHEMES } from '@/lib/titration';
+import { ebookForPeptide, toOffer } from '@/lib/ebooks';
 
 const FAQ_ITEMS: FAQItem[] = [
   {
@@ -56,6 +58,11 @@ export const metadata: Metadata = {
 };
 
 export default function TitulacaoPage() {
+  // Oferta muda com o esquema escolhido: semaglutida, tirzepatida, retatrutida ou liraglutida.
+  const offers = Object.fromEntries(
+    Array.from(new Set(TITRATION_SCHEMES.map((s) => s.peptideSlug))).map((slug) => [slug, toOffer(ebookForPeptide(slug))]),
+  );
+
   return (
     <div className="max-w-6xl mx-auto px-4 md:px-6 py-6 md:py-10">
       <ToolSchema
@@ -78,7 +85,7 @@ export default function TitulacaoPage() {
         </p>
       </header>
 
-      <TitrationCalculator />
+      <TitrationCalculator offers={offers} />
 
       <EmbedSnippet
         tool="titulacao"

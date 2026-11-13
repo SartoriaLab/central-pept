@@ -6,6 +6,7 @@ import { getBrands } from './brands';
 import { getCategoryPages } from './categories';
 import { TOOLS } from './tools';
 import { SYRINGES } from './syringes';
+import { getActiveEbooks } from './ebooks';
 
 import type { SearchResult } from './search';
 
@@ -115,6 +116,18 @@ export function buildSearchIndex(): SearchResult[] {
       type: 'page',
       url: `/glossario/${t.slug}`,
       keywords: [t.term, t.slug, 'glossário', 'o que é'].join(' ').toLowerCase(),
+    });
+  }
+
+  // Guias em PDF (só os com checkout configurado)
+  for (const e of getActiveEbooks()) {
+    items.push({
+      id: `e-${e.slug}`,
+      title: e.title,
+      subtitle: e.subtitle,
+      type: 'page',
+      url: `/ebooks/${e.slug}`,
+      keywords: [e.title, e.altTitle, 'guia', 'pdf', 'ebook', ...(e.places.peptides ?? [])].join(' ').toLowerCase(),
     });
   }
 

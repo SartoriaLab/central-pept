@@ -7,13 +7,15 @@ import NewsletterSignup from '@/components/ui/NewsletterSignup';
 import HeroCalc, { type HeroPeptide } from '@/components/home/HeroCalc';
 import ToolIcon, { toolColor } from '@/components/ui/ToolIcon';
 import { TOOLS } from '@/lib/tools';
+import EbookOffer from '@/components/ebook/EbookOffer';
+import { ebookForHub, toOffer } from '@/lib/ebooks';
 
 export const metadata: Metadata = {
   title: {
     absolute: 'Peptídeos: Calculadoras, Enciclopédia e Guias | Central Peptídeos',
   },
   description:
-    'Calculadoras de reconstituição, subida de dose e custo de GLP-1, comparativos e enciclopédia de peptídeos com doses e referências. Grátis, sem cadastro e sem propaganda.',
+    'Calculadoras de reconstituição, subida de dose e custo de GLP-1, comparativos e enciclopédia de peptídeos com doses e referências. Grátis, sem cadastro e sem anúncios.',
   alternates: { canonical: '/' },
   ...socialImage('pagina', 'home', '/'),
 };
@@ -42,6 +44,7 @@ export default function HomePage() {
   const fdaApproved = peptides.filter((p) => p.regulatoryStatus === 'fda-approved').length;
   const articles = getArticles();
   const recentPosts = articles.slice(0, 3);
+  const kitOffer = toOffer(ebookForHub());
   const heroPeptides: HeroPeptide[] = peptides
     .filter((p) => p.commonAmounts.length > 0)
     .map((p) => ({ slug: p.slug, name: p.name, typicalDose: p.typicalDose, doseUnit: p.doseUnit, vialMg: p.commonAmounts[0] }));
@@ -139,7 +142,7 @@ export default function HomePage() {
         <div className="text-center mb-10">
           <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight">Ferramentas</h2>
           <p className="text-ink-2 mt-2 max-w-xl mx-auto">
-            Cálculo preciso, resultado em tempo real. Sem login, sem propaganda.
+            Cálculo preciso, resultado em tempo real. Sem login, sem anúncios.
           </p>
         </div>
 
@@ -276,6 +279,13 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ═══ KIT DE EBOOKS (só com checkout configurado) ═══ */}
+      {kitOffer && (
+        <section className="max-w-4xl mx-auto px-4 md:px-6 pt-8 md:pt-12">
+          <EbookOffer offer={kitOffer} className="!my-0" />
+        </section>
+      )}
 
       {/* ═══ NEWSLETTER ═══ */}
       <section className="max-w-4xl mx-auto px-4 md:px-6 py-8 md:py-12">
