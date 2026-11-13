@@ -18,6 +18,14 @@ export function vialPath(p: Pick<Peptide, 'slug'>, mg: number): string {
   return `/ferramentas/reconstituicao/${p.slug}/${vialSlug(mg)}`;
 }
 
+/**
+ * Com um frasco só no catálogo, a página do frasco repete a calculadora do peptídeo:
+ * fica com canonical para a calculadora e fora do sitemap.
+ */
+export function isCanonicalVial(p: Pick<Peptide, 'commonAmounts'>): boolean {
+  return p.commonAmounts.length > 1;
+}
+
 /** Todas as combinações peptídeo × frasco cadastradas no catálogo. */
 export function getVialPages(): { peptide: Peptide; mg: number }[] {
   return getPeptides().flatMap((peptide) => peptide.commonAmounts.map((mg) => ({ peptide, mg })));

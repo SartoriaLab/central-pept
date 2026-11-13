@@ -121,6 +121,7 @@ export const PEPTIDES: Peptide[] = [
     commonAmounts: [5, 10],
     category: 'healing',
     doseRange: 'Protocolos informais: 2-5 mg/semana SC (sem respaldo clínico)',
+    halfLife: '~0,5-2 h (Tβ4 recombinante IV em humanos; o fragmento TB-500 não foi caracterizado)',
     longDescription:
       'TB-500 é um fragmento sintético da Timosina Beta-4 (Tβ4), proteína endógena de 43 aminoácidos com papel central em reparação tecidual, migração celular e angiogênese. Apesar do marketing online que o posiciona como agente de recuperação para lesões musculoesqueléticas, o TB-500 não possui aprovação regulatória em nenhuma jurisdição — a maior parte da evidência vem de modelos animais e estudos in vitro.\n\nEstá explicitamente proibido pela WADA (Seção S2 da Lista Proibida) dentro e fora de competição, além de incidir na cláusula S0 (substâncias não aprovadas). Produtos comercializados online frequentemente apresentam problemas de pureza e rotulagem imprecisa.',
     mechanism:
@@ -142,8 +143,9 @@ export const PEPTIDES: Peptide[] = [
       { title: 'Xing et al. Thymosin beta 4: a molecular mediator (PMC)', url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC8724243/' },
       { title: 'Goldstein et al. Thymosin β4 in tissue repair (PMC)', url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC4286745/' },
       { title: 'BSCG — TB-500 status, risks and bans', url: 'https://www.bscg.org/blogs/single/tb-500-status-risks-and-bans-in-sport-and-military' },
+      { title: 'Wang X, et al. A first-in-human, randomized, double-blind, single- and multiple-dose, phase I study of recombinant human thymosin β4 in healthy Chinese volunteers. J Cell Mol Med. 2021.', url: 'https://pubmed.ncbi.nlm.nih.gov/34346165/' },
     ],
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-11-13',
     regulatoryStatus: 'research-only',
     wadaProhibited: true,
   },
@@ -263,7 +265,7 @@ export const PEPTIDES: Peptide[] = [
     ],
     lastReviewed: '2026-04-16',
     regulatoryStatus: 'investigational',
-    wadaProhibited: false,
+    wadaProhibited: true,
   },
 
   {
@@ -280,7 +282,7 @@ export const PEPTIDES: Peptide[] = [
     longDescription:
       'CJC-1295 com DAC (Drug Affinity Complex) é um análogo sintético do GHRH modificado para ligar-se covalentemente à albumina sérica por maleimida, o que prolonga drasticamente sua meia-vida em comparação ao GHRH nativo e à versão sem DAC (Mod GRF 1-29). Desenvolvido pela ConjuChem e avaliado em fase I/II para deficiência de GH e lipodistrofia associada ao HIV.\n\nNão possui aprovação em qualquer agência regulatória. No Brasil e na maior parte do mundo é peptídeo de pesquisa, comercializado ilegalmente para fins estéticos. Proibido pela WADA (S2) como secretagogo de GH. Por sua meia-vida prolongada e efeito cumulativo sobre IGF-1, apresenta perfil de risco distinto das formulações de curta duração.',
     mechanism:
-      'Agonista do receptor de GHRH (GHRH-R) nos somatotrofos da hipófise anterior, estimulando síntese e liberação pulsátil de GH endógeno. A ligação covalente à albumina via DAC mantém concentrações plasmáticas ativas por vários dias, elevando níveis basais de GH e IGF-1 de forma sustentada — o que pode reduzir a pulsatilidade fisiológica observada com GHRH nativo ou análogos de curta duração.',
+      'Agonista do receptor de GHRH (GHRH-R) nos somatotrofos da hipófise anterior, estimulando síntese e liberação pulsátil de GH endógeno. A ligação covalente à albumina via DAC mantém concentrações plasmáticas ativas por vários dias, elevando níveis basais de GH e IGF-1 de forma sustentada. Em homens saudáveis, uma dose única elevou principalmente o GH entre os pulsos, sem mudar a frequência nem o tamanho dos pulsos (Ionescu e Frohman, 2006).',
     sideEffects: [
       'Reações no local da injeção (eritema, prurido, dor)',
       'Rubor facial (flushing) e sensação de calor',
@@ -297,7 +299,7 @@ export const PEPTIDES: Peptide[] = [
     ],
     references: [
       { title: 'Teichman et al. Prolonged stimulation of GH by CJC-1295 (JCEM, 2006)', url: 'https://pubmed.ncbi.nlm.nih.gov/16352683/' },
-      { title: 'Ionescu & Frohman. Pulsatile GH secretion (PubMed)', url: 'https://pubmed.ncbi.nlm.nih.gov/16822960/' },
+      { title: 'Ionescu M, Frohman LA. Pulsatile secretion of growth hormone (GH) persists during continuous stimulation by CJC-1295, a long-acting GH-releasing hormone analog. J Clin Endocrinol Metab. 2006.', url: 'https://pubmed.ncbi.nlm.nih.gov/17018654/' },
       { title: 'WADA Prohibited List', url: 'https://www.wada-ama.org/en/prohibited-list' },
     ],
     lastReviewed: '2026-04-16',
@@ -595,6 +597,7 @@ export const PEPTIDES: Peptide[] = [
     commonAmounts: [10],
     category: 'cosmetic',
     doseRange: 'Não há dose segura estabelecida — produto não aprovado para uso humano',
+    halfLife: 'Não caracterizada em humanos',
     longDescription:
       'Melanotan II (MT-II) é um análogo sintético do α-MSH desenvolvido na Universidade do Arizona nos anos 1980 como potencial agente fotoprotetor. O desenvolvimento clínico foi interrompido por questões de segurança e o composto nunca obteve aprovação regulatória em nenhuma jurisdição. Apesar disso, é comercializado ilegalmente pela internet como "agente de bronzeamento injetável" ou em sprays nasais, frequentemente sob a alcunha de "Barbie drug".\n\nMúltiplas agências reguladoras emitiram alertas públicos contra o uso: a MHRA (UK) classifica os produtos como medicamentos não licenciados e de comercialização ilegal; a TGA (Austrália) proibiu sua venda e alerta para riscos de disfunção renal, edema cerebral, alterações em nevos, priapismo, hipertensão e potencial risco de melanoma. Produtos do mercado ilegal apresentam contaminação microbiana, dosagem variável e ingredientes não declarados.',
     mechanism:
@@ -625,7 +628,7 @@ export const PEPTIDES: Peptide[] = [
     ],
     lastReviewed: '2026-04-16',
     regulatoryStatus: 'unapproved-warning',
-    wadaProhibited: false,
+    wadaProhibited: true,
   },
 
   {
@@ -698,7 +701,7 @@ export const PEPTIDES: Peptide[] = [
     ],
     lastReviewed: '2026-04-16',
     regulatoryStatus: 'research-only',
-    wadaProhibited: false,
+    wadaProhibited: true,
   },
 
   {
@@ -711,6 +714,7 @@ export const PEPTIDES: Peptide[] = [
     commonAmounts: [50, 100],
     category: 'cosmetic',
     doseRange: 'Tópico: 0,05-2% em cosméticos. Injetável: não estabelecido para uso humano',
+    halfLife: 'Não caracterizada em humanos (uso injetável)',
     longDescription:
       'GHK-Cu é o complexo de cobre do tripeptídeo glicil-L-histidil-L-lisina (GHK), isolado pela primeira vez do plasma humano em 1973 por Loren Pickart. Os níveis plasmáticos de GHK declinam com a idade (de ~200 ng/mL aos 20 anos para ~80 ng/mL aos 60), motivando pesquisa sobre ações regenerativas cutâneas, cicatrizantes e moduladoras da expressão gênica.\n\nImportante distinguir aplicações: o GHK-Cu é **ingrediente cosmético amplamente utilizado e permitido** em formulações tópicas (anti-envelhecimento, pós-procedimentos, cuidados capilares), com décadas de uso seguro documentado. Já a forma **injetável** (SC/IM), popular em biohacking, **não possui aprovação regulatória** para uso humano — permanece no domínio da pesquisa, e os produtos injetáveis comercializados são rotulados "apenas para pesquisa", frequentemente de fornecedores não farmacêuticos sem garantia de pureza ou esterilidade.',
     mechanism:
@@ -766,13 +770,13 @@ export const PEPTIDES: Peptide[] = [
       'Uso pediátrico não estudado',
     ],
     references: [
-      { title: 'Khavinson VK et al. Epithalon peptide induces telomerase activity (2003)', url: 'https://pubmed.ncbi.nlm.nih.gov/12937682/' },
-      { title: 'Overview of Epitalon (PMC)', url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC11943447/' },
-      { title: 'Epitalon — Wikipedia', url: 'https://en.wikipedia.org/wiki/Epitalon' },
+      { title: 'Khavinson VKh, et al. Epithalon peptide induces telomerase activity and telomere elongation in human somatic cells. Bull Exp Biol Med. 2003.', url: 'https://pubmed.ncbi.nlm.nih.gov/12937682/' },
+      { title: 'Anisimov VN, et al. Effect of Epitalon on biomarkers of aging, life span and spontaneous tumor incidence in female Swiss-derived SHR mice. Biogerontology. 2003.', url: 'https://pubmed.ncbi.nlm.nih.gov/14501183/' },
+      { title: 'Araj SK, et al. Overview of Epitalon — Highly Bioactive Pineal Tetrapeptide with Promising Properties. Int J Mol Sci. 2025.', url: 'https://pubmed.ncbi.nlm.nih.gov/40141333/' },
     ],
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-11-13',
     regulatoryStatus: 'research-only',
-    wadaProhibited: false,
+    wadaProhibited: true,
   },
 
   {
@@ -804,9 +808,9 @@ export const PEPTIDES: Peptide[] = [
     references: [
       { title: 'Volkova A et al. Selank — GABAergic neurotransmission (PMC)', url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC4757669/' },
       { title: 'Selank review (Frontiers in Pharmacology, 2017)', url: 'https://www.frontiersin.org/journals/pharmacology/articles/10.3389/fphar.2017.00089/full' },
-      { title: 'Selank — Wikipedia', url: 'https://en.wikipedia.org/wiki/Selank' },
+      { title: 'Zozulia AA, et al. Efficacy and possible mechanisms of action of a new peptide anxiolytic selank in the therapy of generalized anxiety disorders and neurasthenia. Zh Nevrol Psikhiatr Im S S Korsakova. 2008.', url: 'https://pubmed.ncbi.nlm.nih.gov/18454096/' },
     ],
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-11-13',
     regulatoryStatus: 'regional-approved',
     wadaProhibited: false,
   },
@@ -840,10 +844,10 @@ export const PEPTIDES: Peptide[] = [
     ],
     references: [
       { title: 'Dolotov OV et al. Semax regulates BDNF and TrkB (2006)', url: 'https://pubmed.ncbi.nlm.nih.gov/16996037/' },
-      { title: 'Semax — Wikipedia', url: 'https://en.wikipedia.org/wiki/Semax' },
+      { title: 'Gusev EI, et al. The efficacy of semax in the treatment of patients at different stages of ischemic stroke. Zh Nevrol Psikhiatr Im S S Korsakova. 2018.', url: 'https://pubmed.ncbi.nlm.nih.gov/29798983/' },
       { title: 'Alzheimer\'s Drug Discovery Foundation — Semax Report', url: 'https://www.alzdiscovery.org/uploads/cognitive_vitality_media/Semax-Cognitive-Vitality-For-Researchers.pdf' },
     ],
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-11-13',
     regulatoryStatus: 'regional-approved',
     wadaProhibited: false,
   },
@@ -875,15 +879,17 @@ export const PEPTIDES: Peptide[] = [
       'Gravidez (exceto em protocolos específicos de indução ovulatória supervisionada)',
       'Condições hormônio-dependentes não controladas',
       'Neoplasia hipofisária não caracterizada',
+      'Atletas do sexo masculino sujeitos ao código WADA (classe S2, proibida dentro e fora de competição)',
     ],
     references: [
-      { title: 'Gonadorelin — Wikipedia', url: 'https://en.wikipedia.org/wiki/Gonadorelin' },
       { title: 'Factrel (gonadorelin hydrochloride) — DailyMed', url: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1451663c-b85a-4b45-8b27-6d572d0032f9' },
+      { title: 'Handelsman DJ, et al. Pharmacokinetics of gonadotropin-releasing hormone: comparison of subcutaneous and intravenous routes. J Clin Endocrinol Metab. 1984.', url: 'https://pubmed.ncbi.nlm.nih.gov/6384253/' },
+      { title: 'Martin KA, et al. Comparison of exogenous gonadotropins and pulsatile gonadotropin-releasing hormone for induction of ovulation in hypogonadotropic amenorrhea. J Clin Endocrinol Metab. 1993.', url: 'https://pubmed.ncbi.nlm.nih.gov/8325934/' },
       { title: 'Gonadorelin — DrugBank', url: 'https://go.drugbank.com/drugs/DB00644' },
     ],
-    lastReviewed: '2026-04-16',
+    lastReviewed: '2026-11-13',
     regulatoryStatus: 'discontinued',
-    wadaProhibited: false,
+    wadaProhibited: true,
   },
 
   {
@@ -896,7 +902,7 @@ export const PEPTIDES: Peptide[] = [
     commonAmounts: [1.6, 5, 10],
     category: 'longevity',
     doseRange: '1,6 mg SC, 2x/semana (esquema da bula do Zadaxin em hepatite B)',
-    halfLife: '~2h',
+    halfLife: '< 3 h (SC; pico plasmático em 1-2 h)',
     longDescription:
       'A timosina alfa-1 (Tα1, timalfasina) é um peptídeo de 28 aminoácidos originalmente isolado do timo. A forma sintética é comercializada como Zadaxin em cerca de 35 países, principalmente na Ásia, como adjuvante em hepatite B e C crônicas e para reforçar a resposta imune a vacinas em idosos e imunodeprimidos.\n\nNão tem aprovação do FDA, da EMA nem da ANVISA. Circula também em protocolos informais de "longevidade" e recuperação de infecções, com evidência clínica limitada fora das indicações regionais.',
     mechanism:
@@ -912,7 +918,9 @@ export const PEPTIDES: Peptide[] = [
       'Gestantes e lactantes (sem dados suficientes)',
     ],
     references: [
-      { title: 'Thymalfasin — Wikipedia', url: 'https://en.wikipedia.org/wiki/Thymalfasin' },
+      { title: 'Chien RN, et al. Efficacy of thymosin alpha1 in patients with chronic hepatitis B: a randomized, controlled trial. Hepatology. 1998.', url: 'https://pubmed.ncbi.nlm.nih.gov/9581695/' },
+      { title: 'Rost KL, et al. Pharmacokinetics of thymosin alpha1 after subcutaneous injection of three different formulations in healthy volunteers. Int J Clin Pharmacol Ther. 1999.', url: 'https://pubmed.ncbi.nlm.nih.gov/10027483/' },
+      { title: 'Camerini R, et al. Historical review of thymosin α 1 in infectious diseases. Expert Opin Biol Ther. 2015.', url: 'https://pubmed.ncbi.nlm.nih.gov/26098768/' },
     ],
     lastReviewed: '2026-11-13',
     regulatoryStatus: 'regional-approved',
@@ -929,6 +937,7 @@ export const PEPTIDES: Peptide[] = [
     commonAmounts: [5, 10],
     category: 'healing',
     doseRange: 'Sem dose clínica estabelecida; protocolos informais de 200-1000 mcg/dia',
+    halfLife: 'Não caracterizada em humanos',
     longDescription:
       'KPV é o tripeptídeo C-terminal do hormônio α-MSH (Lys-Pro-Val). Preserva a ação anti-inflamatória do hormônio sem os efeitos de pigmentação, porque não ativa o receptor MC1R da mesma forma.\n\nA evidência vem de modelos animais (colite, dermatite) e estudos in vitro. Não há aprovação regulatória e não existem ensaios clínicos robustos em humanos.',
     mechanism:
@@ -943,11 +952,13 @@ export const PEPTIDES: Peptide[] = [
       'Uso como substituto de tratamento de doença inflamatória intestinal sem acompanhamento médico',
     ],
     references: [
-      { title: 'Melanocyte-stimulating hormone (α-MSH) — Wikipedia', url: 'https://en.wikipedia.org/wiki/Melanocyte-stimulating_hormone' },
+      { title: 'Dalmasso G, et al. PepT1-mediated tripeptide KPV uptake reduces intestinal inflammation. Gastroenterology. 2008.', url: 'https://pubmed.ncbi.nlm.nih.gov/18061177/' },
+      { title: 'Kannengiesser K, et al. Melanocortin-derived tripeptide KPV has anti-inflammatory potential in murine models of inflammatory bowel disease. Inflamm Bowel Dis. 2008.', url: 'https://pubmed.ncbi.nlm.nih.gov/18092346/' },
+      { title: 'Brzoska T, et al. Terminal signal: anti-inflammatory effects of α-melanocyte-stimulating hormone related peptides beyond the pharmacophore. Adv Exp Med Biol. 2010.', url: 'https://pubmed.ncbi.nlm.nih.gov/21222263/' },
     ],
     lastReviewed: '2026-11-13',
     regulatoryStatus: 'research-only',
-    wadaProhibited: false,
+    wadaProhibited: true,
   },
 
   {
@@ -960,7 +971,7 @@ export const PEPTIDES: Peptide[] = [
     commonAmounts: [5],
     category: 'cognitive',
     doseRange: 'Estudos antigos: 25-100 nmol/kg IV; uso informal: 100-300 mcg SC à noite',
-    halfLife: '~7-8 min (plasma)',
+    halfLife: '~2-4 min (IV, em animais; dados em humanos escassos)',
     longDescription:
       'DSIP (Trp-Ala-Gly-Gly-Asp-Ala-Ser-Gly-Glu) foi isolado do sangue de coelhos em 1977 após estimulação do sono de ondas lentas. Os estudos em humanos são pequenos, antigos e de resultados inconsistentes para insônia, abstinência de álcool e dor.\n\nNão há aprovação em nenhuma jurisdição, e o papel fisiológico do peptídeo no sono segue incerto.',
     mechanism:
@@ -976,11 +987,13 @@ export const PEPTIDES: Peptide[] = [
       'Direção de veículos após a aplicação',
     ],
     references: [
-      { title: 'Delta sleep-inducing peptide — Wikipedia', url: 'https://en.wikipedia.org/wiki/Delta_sleep-inducing_peptide' },
+      { title: 'Schoenenberger GA, Monnier M. Characterization of a delta-electroencephalogram (-sleep)-inducing peptide. Proc Natl Acad Sci U S A. 1977.', url: 'https://pubmed.ncbi.nlm.nih.gov/265572/' },
+      { title: 'Kato N, et al. Development of an enzyme immunoassay for delta sleep-inducing peptide (DSIP) and its use in the determination of the metabolic clearance rate of DSIP administered to dogs. Neuroendocrinology. 1984.', url: 'https://pubmed.ncbi.nlm.nih.gov/6379493/' },
+      { title: 'Kovalzon VM, Strekalova TV. Delta sleep-inducing peptide (DSIP): a still unresolved riddle. J Neurochem. 2006.', url: 'https://pubmed.ncbi.nlm.nih.gov/16539679/' },
     ],
     lastReviewed: '2026-11-13',
     regulatoryStatus: 'research-only',
-    wadaProhibited: false,
+    wadaProhibited: true,
   },
 
   {
@@ -992,8 +1005,8 @@ export const PEPTIDES: Peptide[] = [
     shortDescription: 'Análogo de amilina de ação prolongada, em fase 3, isolado ou combinado com semaglutida (CagriSema).',
     commonAmounts: [5, 10],
     category: 'weight-loss',
-    doseRange: 'Ensaios clínicos: 0,25 mg até 2,4 mg/semana SC, com titulação',
-    halfLife: '~7 dias',
+    doseRange: 'Ensaios clínicos: 0,16-4,5 mg/semana SC nas fases 1-2; 2,4 mg/semana na fase 3, com titulação',
+    halfLife: '~7 dias (159-195 h)',
     longDescription:
       'A cagrilintida é um análogo da amilina, hormônio co-secretado com a insulina pelas células beta do pâncreas, desenvolvido pela Novo Nordisk para administração semanal. É estudada em monoterapia e na combinação fixa com semaglutida (CagriSema) para obesidade e diabetes tipo 2.\n\nAinda não é aprovada como medicamento. Qualquer produto vendido fora de ensaios clínicos não passou por controle regulatório.',
     mechanism:
@@ -1010,11 +1023,13 @@ export const PEPTIDES: Peptide[] = [
       'Uso fora de ensaios clínicos ou prescrição médica',
     ],
     references: [
-      { title: 'Cagrilintide — Wikipedia', url: 'https://en.wikipedia.org/wiki/Cagrilintide' },
+      { title: 'Enebo LB, et al. Safety, tolerability, pharmacokinetics, and pharmacodynamics of concomitant administration of multiple doses of cagrilintide with semaglutide 2·4 mg for weight management: a randomised, controlled, phase 1b trial. Lancet. 2021.', url: 'https://pubmed.ncbi.nlm.nih.gov/33894838/' },
+      { title: 'Lau DCW, et al. Once-weekly cagrilintide for weight management in people with overweight and obesity: a dose-finding phase 2 trial. Lancet. 2021.', url: 'https://pubmed.ncbi.nlm.nih.gov/34798060/' },
+      { title: 'Garvey WT, et al. Coadministered Cagrilintide and Semaglutide in Adults with Overweight or Obesity (REDEFINE 1). N Engl J Med. 2025.', url: 'https://pubmed.ncbi.nlm.nih.gov/40544433/' },
     ],
     lastReviewed: '2026-11-13',
     regulatoryStatus: 'investigational',
-    wadaProhibited: false,
+    wadaProhibited: true,
   },
 
   {
@@ -1045,7 +1060,9 @@ export const PEPTIDES: Peptide[] = [
       'Hipersensibilidade à liraglutida',
     ],
     references: [
-      { title: 'Liraglutide — Wikipedia', url: 'https://en.wikipedia.org/wiki/Liraglutide' },
+      { title: 'Pi-Sunyer X, et al. A Randomized, Controlled Trial of 3.0 mg of Liraglutide in Weight Management. N Engl J Med. 2015.', url: 'https://pubmed.ncbi.nlm.nih.gov/26132939/' },
+      { title: 'Marso SP, et al. Liraglutide and Cardiovascular Outcomes in Type 2 Diabetes. N Engl J Med. 2016.', url: 'https://pubmed.ncbi.nlm.nih.gov/27295427/' },
+      { title: 'Saxenda (liraglutida) — EPAR, EMA', url: 'https://www.ema.europa.eu/en/medicines/human/EPAR/saxenda' },
       { title: 'Liraglutide — DrugBank', url: 'https://go.drugbank.com/drugs/DB06655' },
     ],
     lastReviewed: '2026-11-13',
@@ -1062,7 +1079,7 @@ export const PEPTIDES: Peptide[] = [
     shortDescription: 'Fragmento ativo da kisspeptina, regulador hipotalâmico do eixo reprodutivo. Usado em pesquisa de fertilidade.',
     commonAmounts: [5, 10],
     category: 'hormone',
-    doseRange: 'Estudos: 0,24-1 nmol/kg em bolus; infusões de 1-9 pmol/kg/min',
+    doseRange: 'Estudos em homens: bolus IV de 0,01-3 mcg/kg (resposta máxima com 1 mcg/kg); infusões IV de 1,5-4 mcg/kg/h',
     halfLife: '~4 min (IV)',
     longDescription:
       'A kisspeptina é o principal ativador dos neurônios de GnRH no hipotálamo, e a kisspeptina-10 é o menor fragmento com atividade plena sobre o receptor KISS1R. Estudos em humanos em centros acadêmicos (principalmente no Imperial College de Londres) avaliam seu uso diagnóstico e terapêutico em hipogonadismo hipotalâmico, ovulação e libido.\n\nNão há aprovação regulatória. O uso fora de protocolos de pesquisa não tem base clínica consolidada.',
@@ -1077,13 +1094,16 @@ export const PEPTIDES: Peptide[] = [
       'Gestantes (exceto em protocolos de pesquisa)',
       'Condições hormônio-dependentes (ex.: câncer de mama ou próstata)',
       'Uso sem avaliação endocrinológica',
+      'Atletas do sexo masculino sujeitos ao código WADA (classe S2, proibida dentro e fora de competição)',
     ],
     references: [
-      { title: 'Kisspeptin — Wikipedia', url: 'https://en.wikipedia.org/wiki/Kisspeptin' },
+      { title: 'George JT, et al. Kisspeptin-10 is a potent stimulator of LH and increases pulse frequency in men. J Clin Endocrinol Metab. 2011.', url: 'https://pubmed.ncbi.nlm.nih.gov/21632807/' },
+      { title: 'Jayasena CN, et al. Direct comparison of the effects of intravenous kisspeptin-10, kisspeptin-54 and GnRH on gonadotrophin secretion in healthy men. Hum Reprod. 2015.', url: 'https://pubmed.ncbi.nlm.nih.gov/26089302/' },
+      { title: 'Yeung AC, et al. Chronic subcutaneous kisspeptin-10 stimulates gonadotropin secretion for 12 days in healthy men. Eur J Endocrinol. 2026.', url: 'https://pubmed.ncbi.nlm.nih.gov/42549827/' },
     ],
     lastReviewed: '2026-11-13',
     regulatoryStatus: 'research-only',
-    wadaProhibited: false,
+    wadaProhibited: true,
   },
 
   {
@@ -1096,6 +1116,7 @@ export const PEPTIDES: Peptide[] = [
     commonAmounts: [5],
     category: 'healing',
     doseRange: 'Ensaio em úlcera venosa (tópico): 0,5-3,2 mg/mL; uso sistêmico sem dose estabelecida',
+    halfLife: 'Não caracterizada em humanos (uso sistêmico)',
     longDescription:
       'LL-37 é o fragmento C-terminal ativo da catelicidina humana (hCAP18), peptídeo de 37 aminoácidos que faz parte da imunidade inata na pele e nas mucosas. Tem ação antimicrobiana direta e modula a resposta inflamatória e a cicatrização.\n\nUm ensaio de fase 2 com aplicação tópica em úlceras venosas de perna mostrou benefício em doses intermediárias. Não há aprovação regulatória, e o uso injetável sistêmico não tem evidência clínica consistente.',
     mechanism:
@@ -1111,11 +1132,12 @@ export const PEPTIDES: Peptide[] = [
       'Gestantes e lactantes',
     ],
     references: [
-      { title: 'Cathelicidin — Wikipedia', url: 'https://en.wikipedia.org/wiki/Cathelicidin' },
+      { title: 'Dürr UH, et al. LL-37, the only human member of the cathelicidin family of antimicrobial peptides. Biochim Biophys Acta. 2006.', url: 'https://pubmed.ncbi.nlm.nih.gov/16716248/' },
+      { title: 'Grönberg A, et al. Treatment with LL-37 is safe and effective in enhancing healing of hard-to-heal venous leg ulcers: a randomized, placebo-controlled clinical trial. Wound Repair Regen. 2014.', url: 'https://pubmed.ncbi.nlm.nih.gov/25041740/' },
     ],
     lastReviewed: '2026-11-13',
     regulatoryStatus: 'research-only',
-    wadaProhibited: false,
+    wadaProhibited: true,
   },
 ];
 

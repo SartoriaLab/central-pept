@@ -9,7 +9,7 @@ import { calcByVolume, doseToMg, fmt, fmtConcentration } from '@/components/calc
 import { getPeptideBySlug, type Peptide } from '@/lib/peptides';
 import { getArticlesByPeptide } from '@/lib/articles';
 import { getTitrationDoses } from '@/lib/titration';
-import { getVialPages, parseVialSlug, vialPath, vialSlug } from '@/lib/vials';
+import { getVialPages, isCanonicalVial, parseVialSlug, vialPath, vialSlug } from '@/lib/vials';
 import { social } from '@/lib/og';
 import ShareButtons from '@/components/ui/ShareButtons';
 import { SITE_URL } from '@/lib/site';
@@ -18,6 +18,20 @@ type Params = { peptideo: string; frasco: string };
 
 // Volumes de água bacteriostática nas colunas da tabela (ml).
 const WATER_VOLUMES = [1, 2, 3];
+
+// Ritmos de aplicação da seção "quanto tempo dura o frasco" (aplicações por semana).
+const SCHEDULES = [
+  { label: '2× por dia', perWeek: 14 },
+  { label: '1× por dia', perWeek: 7 },
+  { label: '3× por semana', perWeek: 3 },
+  { label: '1× por semana', perWeek: 1 },
+];
+
+/** Prazo de uso do frasco reconstituído (dias), regra geral. */
+const SHELF_DAYS = 28;
+
+const daysText = (days: number) =>
+  days < 14 ? `${Math.floor(days)} dia${Math.floor(days) === 1 ? '' : 's'}` : `${fmt(days / 7, 1)} semanas`;
 
 export const dynamicParams = false;
 
@@ -68,7 +82,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   return {
     title,
     description,
-    alternates: { canonical: path },
+    alternates: { canonical: isCanonicalVial(p) ? path : `/ferramentas/reconstituicao/${p.slug}` },
     ...social({ kind: 'calculadora', slug: p.slug, path, title, description }),
   };
 }
@@ -214,6 +228,58 @@ export default async function VialPage({ params }: { params: Promise<Params> }) 
           Concentração do frasco de {vialLabel}:{' '}
           {WATER_VOLUMES.map((w) => `${fmtConcentration(vial / w)} mg/ml com ${fmt(w, 1)} ml`).join(' · ')}.
           Acima de 100 U a dose não cabe numa seringa de 1 ml: use menos água ou divida em duas aplicações.
+        </p>
+      </section>
+
+      <section className="mt-10" aria-labelledby="duracao">
+        <h2 id="duracao" className="text-xl md:text-2xl font-bold mb-2">
+          Quanto tempo dura o frasco de {vialLabel}
+        </h2>
+        <p className="text-sm text-ink-2 mb-4 max-w-3xl">
+          O rendimento depende só da dose e do ritmo de aplicação, não da água. Depois de reconstituído, o
+          frasco costuma valer {SHELF_DAYS} dias na geladeira: o que sobrar depois disso vai para o lixo.
+        </p>
+        <div className="card overflow-x-auto">
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="text-left text-xs uppercase tracking-wider text-ink-3 border-b border-border">
+                <th scope="col" className="p-3 font-bold">Dose</th>
+                {SCHEDULES.map((sc) => (
+                  <th key={sc.perWeek} scope="col" className="p-3 font-bold whitespace-nowrap">{sc.label}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {doses.map((d) => {
+                const whole = Math.floor(vial / doseToMg(d, p.doseUnit) + 1e-9);
+                return (
+                  <tr key={d} className="border-b border-border last:border-0">
+                    <th scope="row" className="p-3 font-semibold text-left tabular-nums whitespace-nowrap">{doseText(p, d)}</th>
+                    {SCHEDULES.map((sc) => {
+                      const days = (whole / sc.perWeek) * 7;
+                      const wasted = days > SHELF_DAYS;
+                      return (
+                        <td key={sc.perWeek} className="p-3 tabular-nums whitespace-nowrap">
+                          {days < 1 ? (
+                            '—'
+                          ) : (
+                            <>
+                              <span className={`font-semibold ${wasted ? 'text-amber-700' : 'text-ink'}`}>{daysText(days)}</span>
+                              {wasted && <span className="block text-xs text-ink-3">passa de {SHELF_DAYS} dias</span>}
+                            </>
+                          )}
+                        </td>
+                      );
+                    })}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+        <p className="mt-3 text-sm text-ink-2 max-w-3xl">
+          Conta: doses inteiras no frasco ÷ aplicações por semana. Frequência de referência para {p.name}: {p.frequency}.
+          Em amarelo, o frasco duraria mais de {SHELF_DAYS} dias e parte se perde: um frasco menor pode sair mais em conta.
         </p>
       </section>
 

@@ -6,8 +6,12 @@ import { getPeptides, type Peptide, type PeptideCategory } from './peptides';
 
 export type CategoryPage = {
   slug: string;
-  /** Categorias de lib/peptides.ts cobertas por esta página. */
-  categories: PeptideCategory[];
+  /** Categorias de lib/peptides.ts cobertas por esta página (páginas de objetivo). */
+  categories?: PeptideCategory[];
+  /** Listas transversais (WADA, aprovados...): critério no lugar de `categories`. */
+  match?: (p: Peptide) => boolean;
+  /** Ordem da lista (padrão: a do catálogo). */
+  sort?: (a: Peptide, b: Peptide) => number;
   /** Nome curto (chips, breadcrumb). */
   label: string;
   /** H1 e título da página. */
@@ -30,11 +34,11 @@ export const CATEGORY_PAGES: CategoryPage[] = [
     summary:
       'Semaglutida, tirzepatida, retatrutida e AOD-9604 lado a lado: dose, frequência, meia-vida, perda de peso nos estudos e situação regulatória de cada um.',
     intro: [
-      'Os peptídeos usados para perda de peso com evidência clínica sólida são os agonistas de incretinas: imitam hormônios intestinais (GLP-1, GIP) que aumentam a saciedade, retardam o esvaziamento do estômago e melhoram o controle da glicose. Semaglutida e tirzepatida são aprovadas para obesidade; a retatrutida ainda está em fase 3.',
+      'Os peptídeos usados para perda de peso com evidência clínica sólida são os agonistas de incretinas: imitam hormônios intestinais (GLP-1, GIP) que aumentam a saciedade, retardam o esvaziamento do estômago e melhoram o controle da glicose. Semaglutida e tirzepatida são aprovadas para obesidade, assim como a liraglutida (Saxenda), de uso diário e efeito menor; a retatrutida ainda está em fase 3.',
       'Fora desse grupo, o AOD-9604 — um fragmento do hormônio do crescimento — circula como "queimador de gordura", mas não mostrou eficácia nos ensaios clínicos e não tem aprovação como medicamento.',
     ],
     keyPoints: [
-      'Desta lista, só semaglutida (Wegovy) e tirzepatida (Zepbound; Mounjaro no Brasil) têm aprovação regulatória para controle de peso.',
+      'Desta lista, têm aprovação regulatória para controle de peso a semaglutida (Wegovy), a tirzepatida (Zepbound; Mounjaro no Brasil) e a liraglutida (Saxenda).',
       'A perda média nos estudos de registro foi de 14,9% com semaglutida 2,4 mg (STEP 1, 68 semanas) e de até 20,9% com tirzepatida 15 mg (SURMOUNT-1, 72 semanas).',
       'Todos exigem subida gradual de dose; os efeitos adversos mais comuns são gastrointestinais.',
       'O peso tende a voltar após a interrupção: obesidade é tratada como condição crônica.',
@@ -47,11 +51,11 @@ export const CATEGORY_PAGES: CategoryPage[] = [
       },
       {
         q: 'Peptídeos para emagrecer precisam de receita?',
-        a: 'Sim. Semaglutida e tirzepatida são medicamentos de prescrição, com contraindicações e necessidade de acompanhamento. Retatrutida não é aprovada em nenhum país; AOD-9604 não é aprovado como medicamento.',
+        a: 'Sim. Semaglutida, tirzepatida e liraglutida são medicamentos de prescrição, com contraindicações e necessidade de acompanhamento. Retatrutida não é aprovada em nenhum país; AOD-9604 não é aprovado como medicamento.',
       },
       {
         q: 'Qual a diferença entre Ozempic, Wegovy, Mounjaro e Zepbound?',
-        a: 'São quatro marcas para duas moléculas: Ozempic e Wegovy são semaglutida; Mounjaro e Zepbound são tirzepatida. Cada par se diferencia pela indicação em bula e pela dose máxima.',
+        a: 'Ozempic e Wegovy são semaglutida injetável (Rybelsus é a versão em comprimido); Mounjaro e Zepbound são tirzepatida; Victoza e Saxenda são liraglutida, de aplicação diária. Marcas do mesmo princípio ativo se diferenciam pela indicação em bula e pela dose máxima.',
         link: { label: 'Guia das marcas', href: '/medicamentos' },
       },
       {
@@ -300,19 +304,150 @@ export const CATEGORY_PAGES: CategoryPage[] = [
   },
 ];
 
+/**
+ * Meia-vida em horas a partir do texto livre da ficha ("~4h", "2-10 min", "~7 dias").
+ * Usa o primeiro número e a primeira unidade; sem número ("minutos"), usa 1 da unidade.
+ * Devolve null quando não dá para ler.
+ */
+export function halfLifeHours(text?: string): number | null {
+  if (!text) return null;
+  const t = text.toLowerCase();
+  const unit = /(min|h\b|hora|dia|semana)/.exec(t)?.[1];
+  if (!unit) return null;
+  const n = /(\d+(?:[.,]\d+)?)/.exec(t)?.[1];
+  const value = n ? Number(n.replace(',', '.')) : 1;
+  const factor = unit === 'min' ? 1 / 60 : unit === 'dia' ? 24 : unit === 'semana' ? 168 : 1;
+  return value * factor;
+}
+
+// Listas transversais: mesma página e tabela das categorias, mas filtradas por critério.
+export const LIST_PAGES: CategoryPage[] = [
+  {
+    slug: 'proibidos-no-esporte',
+    label: 'Proibidos no esporte',
+    match: (p) => p.wadaProhibited === true,
+    title: 'Peptídeos proibidos no esporte (Lista WADA)',
+    summary:
+      'Quais peptídeos do catálogo constam na Lista Proibida da Agência Mundial Antidopagem (WADA), em que seção e o que isso significa para atletas testados.',
+    intro: [
+      'A Lista Proibida da WADA é revista todo ano e vale para atletas sujeitos ao código antidopagem, dentro e fora de competição. Peptídeos aparecem sobretudo na seção S2 (hormônios peptídicos, fatores de crescimento, substâncias relacionadas e miméticos) e na seção S0, que proíbe qualquer substância sem aprovação para uso terapêutico humano.',
+      'Por causa da S0, um peptídeo vendido "para pesquisa" é proibido mesmo que não esteja citado pelo nome. A tabela abaixo marca os peptídeos que constam como proibidos nas fichas do site; confira sempre a versão vigente da lista no site da WADA.',
+    ],
+    keyPoints: [
+      'A proibição vale dentro e fora de competição para as seções S0 e S2.',
+      'Secretagogos de GH (GHRPs, ipamorelina, CJC-1295, sermorelina, tesamorelina) estão na S2.',
+      'Substâncias sem aprovação regulatória para uso humano caem na S0, mesmo sem citação nominal.',
+      'Atleta com indicação médica real precisa de Autorização de Uso Terapêutico (AUT/TUE) antes do uso.',
+    ],
+    faq: [
+      {
+        q: 'BPC-157 é doping?',
+        a: 'Sim. O BPC-157 é proibido pela WADA, dentro e fora de competição, por não ter aprovação para uso terapêutico em humanos (seção S0).',
+        link: { label: 'Ficha do BPC-157', href: '/peptideos/bpc-157' },
+      },
+      {
+        q: 'Semaglutida e tirzepatida são proibidas no esporte?',
+        a: 'Na lista vigente quando esta página foi revisada, os agonistas de GLP-1 não constavam como proibidos. A lista muda todo ano: confira a versão atual no site da WADA antes de qualquer uso.',
+      },
+      {
+        q: 'O que é a seção S0 da Lista Proibida?',
+        a: 'É a seção de substâncias não aprovadas: qualquer composto sem aprovação de autoridade sanitária para uso terapêutico humano é proibido o tempo todo, mesmo que não apareça pelo nome em outra seção.',
+      },
+      {
+        q: 'Existe exceção para uso médico?',
+        a: 'Sim, pela Autorização de Uso Terapêutico (AUT, ou TUE em inglês), pedida à organização antidopagem antes do uso e concedida só com indicação médica documentada e sem alternativa permitida.',
+      },
+    ],
+  },
+  {
+    slug: 'aprovados',
+    label: 'Aprovados',
+    match: (p) => p.regulatoryStatus === 'fda-approved' || p.regulatoryStatus === 'regional-approved',
+    title: 'Peptídeos aprovados como medicamento',
+    summary:
+      'Os peptídeos do catálogo com aprovação regulatória para uso humano — pela FDA ou em algum país — com dose de referência, meia-vida e o que a aprovação cobre.',
+    intro: [
+      'Aprovação regulatória significa que o fabricante apresentou estudos de eficácia, segurança e qualidade de fabricação para uma indicação específica, e a autoridade sanitária concordou. Ela vale para o produto registrado e para a indicação da bula, não para qualquer versão da molécula vendida por aí.',
+      'Esta lista junta os peptídeos com aprovação da FDA e os aprovados apenas em algum país. Os demais do catálogo estão em pesquisa ou sem aprovação para uso humano.',
+    ],
+    keyPoints: [
+      'A aprovação cobre o produto registrado (marca e fabricante), não manipulados ou versões "de pesquisa".',
+      'Uso fora da indicação de bula (off-label) depende de decisão médica e não é coberto pelos estudos de registro.',
+      'Aprovação regional (um só país) significa que FDA, EMA e ANVISA não avaliaram ou não aprovaram.',
+      'O status de cada peptídeo e as fontes estão na ficha.',
+    ],
+    faq: [
+      {
+        q: 'Qual a diferença entre aprovado pela FDA e aprovado pela ANVISA?',
+        a: 'São agências independentes: um medicamento pode estar aprovado nos Estados Unidos e ainda não ter registro no Brasil, ou ter indicações diferentes em cada país. A ficha de cada peptídeo indica a situação conhecida.',
+      },
+      {
+        q: 'Peptídeo manipulado é aprovado?',
+        a: 'Não no mesmo sentido. A aprovação vale para o produto do fabricante registrado. Versões manipuladas ou vendidas "para pesquisa" não passaram pelos mesmos testes de qualidade e pureza.',
+        link: { label: 'Tirzepatida manipulada: o que saber', href: '/blog/tirzepatida-manipulada-seguranca' },
+      },
+      {
+        q: 'O que significa "apenas pesquisa"?',
+        a: 'Que não há aprovação para uso humano em nenhuma agência relevante: os dados vêm de estudos em células, animais ou ensaios pequenos, e o produto vendido não tem garantia de pureza.',
+      },
+    ],
+  },
+  {
+    slug: 'meia-vida',
+    label: 'Meia-vida',
+    match: () => true,
+    sort: (a, b) => (halfLifeHours(a.halfLife) ?? Infinity) - (halfLifeHours(b.halfLife) ?? Infinity),
+    title: 'Meia-vida dos peptídeos',
+    summary:
+      'Todos os peptídeos do catálogo em ordem de meia-vida, de minutos a dias, com dose de referência, frequência de aplicação e status regulatório.',
+    intro: [
+      'Meia-vida é o tempo para a concentração no sangue cair pela metade. Ela explica boa parte da frequência de aplicação: peptídeos de minutos costumam ser aplicados uma ou mais vezes ao dia, enquanto os de vários dias, como semaglutida e tirzepatida, permitem uma dose por semana.',
+      'Os valores vêm das fichas de cada peptídeo e variam conforme a via, a formulação e o estudo. Para vários peptídeos de pesquisa, o número vem de modelos animais e serve só como ordem de grandeza.',
+    ],
+    keyPoints: [
+      'Cerca de cinco meias-vidas depois da última dose, praticamente todo o composto já saiu do sangue.',
+      'Meia-vida plasmática curta não significa efeito curto: alguns peptídeos disparam respostas que duram mais.',
+      'Modificações como a ligação à albumina (DAC, cadeias de ácido graxo) estendem a meia-vida de horas para dias.',
+      'Peptídeos de meia-vida longa levam algumas semanas para chegar ao estado de equilíbrio.',
+    ],
+    faq: [
+      {
+        q: 'Por que a semaglutida é aplicada só uma vez por semana?',
+        a: 'Porque tem meia-vida de cerca de uma semana: uma cadeia de ácido graxo faz a molécula se ligar à albumina, o que a protege da degradação e da eliminação pelos rins.',
+        link: { label: 'Ficha da semaglutida', href: '/peptideos/semaglutida' },
+      },
+      {
+        q: 'Qual a diferença entre CJC-1295 com e sem DAC?',
+        a: 'O DAC liga a molécula à albumina e estende a meia-vida de cerca de 30 minutos para vários dias, o que muda totalmente a frequência de aplicação e mantém o GH basal elevado por dias.',
+        link: { label: 'Ficha do CJC-1295', href: '/peptideos/cjc-1295' },
+      },
+      {
+        q: 'Meia-vida curta exige mais aplicações?',
+        a: 'Em geral, sim, quando se quer nível constante. Mas há casos em que o pulso curto é o objetivo, como a gonadorelina, que imita a liberação pulsátil do GnRH.',
+      },
+    ],
+  },
+];
+
+const ALL_PAGES = [...CATEGORY_PAGES, ...LIST_PAGES];
+
+/** Objetivos (categorias) e listas transversais. */
 export function getCategoryPages(): CategoryPage[] {
-  return CATEGORY_PAGES;
+  return ALL_PAGES;
 }
 export function getCategoryPage(slug: string): CategoryPage | undefined {
-  return CATEGORY_PAGES.find((c) => c.slug === slug);
+  return ALL_PAGES.find((c) => c.slug === slug);
 }
 export function getCategoryPageSlugs(): string[] {
-  return CATEGORY_PAGES.map((c) => c.slug);
+  return ALL_PAGES.map((c) => c.slug);
 }
 export function getCategoryPeptides(page: CategoryPage): Peptide[] {
-  return getPeptides().filter((p) => (page.categories as string[]).includes(p.category ?? ''));
+  const list = getPeptides().filter((p) =>
+    page.match ? page.match(p) : (page.categories as string[] | undefined)?.includes(p.category ?? ''),
+  );
+  return page.sort ? [...list].sort(page.sort) : list;
 }
 /** Página de categoria a que um peptídeo pertence. */
 export function getCategoryPageForPeptide(peptide: Peptide): CategoryPage | undefined {
-  return CATEGORY_PAGES.find((c) => (c.categories as string[]).includes(peptide.category ?? ''));
+  return CATEGORY_PAGES.find((c) => (c.categories as string[] | undefined)?.includes(peptide.category ?? ''));
 }

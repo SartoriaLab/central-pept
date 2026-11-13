@@ -9,7 +9,14 @@ import FAQ from '@/components/ui/FAQ';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
 import { getBrand, getBrandSlugs, getBrands } from '@/lib/brands';
 import { getPeptideBySlug } from '@/lib/peptides';
-import { TITRATION_SCHEMES } from '@/lib/titration';
+import {
+  administrationLabel,
+  doseLabel,
+  durationLabel,
+  frequencyShort,
+  getTitrationScheme,
+  stepPeriodLabel,
+} from '@/lib/titration';
 import { getArticleBySlug } from '@/lib/articles';
 import { getComparisonsByPeptide } from '@/lib/comparisons';
 import { CONTENT_UPDATED_AT, SITE_URL } from '@/lib/site';
@@ -44,7 +51,8 @@ export default async function BrandPage({ params }: { params: Promise<Params> })
   if (!b) notFound();
 
   const peptide = getPeptideBySlug(b.peptideSlug);
-  const scheme = TITRATION_SCHEMES.find((s) => s.id === b.titrationSchemeId);
+  const scheme = getTitrationScheme(b.titrationSchemeId);
+  const isOral = scheme?.route === 'oral';
   const sibling = getBrand(b.sibling.slug);
   const others = getBrands().filter((x) => x.slug !== b.slug);
   const articles = b.articles
@@ -54,10 +62,15 @@ export default async function BrandPage({ params }: { params: Promise<Params> })
   const ingredient = b.activeIngredient.toLowerCase();
 
   const tools: RelatedLink[] = [
-    { href: '/ferramentas/titulacao', label: 'Calendário de subida de dose', desc: `Datas de cada degrau do ${b.name}, semana a semana.` },
+    { href: '/ferramentas/titulacao', label: 'Calendário de subida de dose', desc: `Datas de cada degrau do ${b.name}.` },
     { href: '/ferramentas/tabela-doses-glp1', label: 'Tabela de doses para imprimir', desc: 'Escada de doses e registro de aplicações.' },
-    { href: '/ferramentas/custo-glp1', label: 'Custo por dose e por mês', desc: 'Quanto sai cada aplicação a partir do preço pago.' },
-    { href: `/ferramentas/reconstituicao/${b.peptideSlug}`, label: `Calculadora de ${ingredient} em frasco`, desc: 'Unidades na seringa — só para frasco liofilizado, não para caneta.' },
+    // A calculadora de custo e a de frasco são de injeção (a de custo, só semanal).
+    ...(scheme?.frequency === 'semanal'
+      ? [{ href: '/ferramentas/custo-glp1', label: 'Custo por dose e por mês', desc: 'Quanto sai cada aplicação a partir do preço pago.' }]
+      : []),
+    ...(!isOral
+      ? [{ href: `/ferramentas/reconstituicao/${b.peptideSlug}`, label: `Calculadora de ${ingredient} em frasco`, desc: 'Unidades na seringa — só para frasco liofilizado, não para caneta.' }]
+      : []),
   ];
 
   // Não usar '@type': 'Drug': no schema.org Drug também é Product, e o Google passa a
@@ -112,7 +125,7 @@ export default async function BrandPage({ params }: { params: Promise<Params> })
         <section aria-label="Dados rápidos" className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
           <InfoCard
             label="Aplicação"
-            value="1× por semana"
+            value={scheme ? `${frequencyShort(scheme.frequency)}${isOral ? ' (oral)' : ''}` : '—'}
             icon={<path d="M8 2v4M16 2v4M3 10h18M5 6h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z" />}
           />
           <InfoCard
@@ -144,7 +157,7 @@ export default async function BrandPage({ params }: { params: Promise<Params> })
                 ['Princípio ativo', b.activeIngredient],
                 ['Fabricante', b.manufacturer],
                 ['Classe', b.drugClass],
-                ['Aplicação', 'Subcutânea, uma vez por semana'],
+                ['Aplicação', scheme ? administrationLabel(scheme) : '—'],
                 ['Dose de manutenção', b.maintenance],
                 ['Apresentação', b.presentation],
                 ['Meia-vida', peptide?.halfLife ?? '—'],
@@ -182,27 +195,24 @@ export default async function BrandPage({ params }: { params: Promise<Params> })
             <h2 id="doses" className="text-xl md:text-2xl font-bold mb-2">Doses do {b.name}: a escada de titulação</h2>
             <p className="text-ink-2 mb-4">
               A dose sobe aos poucos para o corpo se adaptar e os efeitos gastrointestinais ficarem
-              menores. Cada degrau dura pelo menos 4 semanas; o médico pode manter uma dose por mais
-              tempo ou parar em um degrau intermediário.
+              menores. Cada degrau dura pelo menos {durationLabel(scheme.stepDays)}; o médico pode manter uma
+              dose por mais tempo ou parar em um degrau intermediário.
             </p>
             <div className="card overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
                   <tr className="text-left text-xs uppercase tracking-wider text-ink-3 border-b border-border">
-                    <th scope="col" className="p-3 font-bold">Semanas</th>
-                    <th scope="col" className="p-3 font-bold">Dose semanal</th>
+                    <th scope="col" className="p-3 font-bold">Período</th>
+                    <th scope="col" className="p-3 font-bold">{doseLabel(scheme.frequency)}</th>
                     <th scope="col" className="p-3 font-bold">Etapa</th>
                   </tr>
                 </thead>
                 <tbody>
                   {scheme.steps.map((step, i) => {
-                    const next = scheme.steps[i + 1];
                     const last = i === scheme.steps.length - 1;
                     return (
-                      <tr key={step.week} className="border-b border-border last:border-0">
-                        <td className="p-3 tabular-nums">
-                          {next ? `${step.week} a ${next.week - 1}` : `${step.week} em diante`}
-                        </td>
+                      <tr key={step.dose} className="border-b border-border last:border-0">
+                        <td className="p-3 tabular-nums">{stepPeriodLabel(i, scheme.stepDays, last)}</td>
                         <td className="p-3 font-semibold tabular-nums">
                           <div className="flex items-center gap-3">
                             <span className="w-16 shrink-0">{num(step.dose)} mg</span>

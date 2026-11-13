@@ -15,6 +15,7 @@ import FAQ, { type FAQItem } from '@/components/ui/FAQ';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
 import { SITE_URL } from '@/lib/site';
+import { social } from '@/lib/og';
 
 type Params = { slug: string };
 
@@ -34,12 +35,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
     title: `${c.title}: diferenças de dose, efeitos e status`,
     description,
     alternates: { canonical: `/comparar/${slug}` },
-    openGraph: {
-      title: `${c.title} — comparativo`,
-      description,
-      url: `/comparar/${slug}`,
-      images: [{ url: `/og/comparar/${slug}`, width: 1200, height: 630, alt: c.title }],
-    },
+    ...social({ kind: 'comparar', slug, path: `/comparar/${slug}`, title: `${c.title} — comparativo`, description }),
   };
 }
 

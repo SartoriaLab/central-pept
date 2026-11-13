@@ -22,12 +22,17 @@ export const COMPARISONS: Comparison[] = [
   { slug: 'tesamorelina-vs-tirzepatida', peptideSlugs: ['tesamorelina', 'tirzepatida'], title: 'Tesamorelina vs Tirzepatida', relatedPost: 'tesamorelina-gordura-visceral' },
   { slug: 'aod-9604-vs-retatrutida', peptideSlugs: ['aod-9604', 'retatrutida'], title: 'AOD-9604 vs Retatrutida', relatedPost: 'aod-9604-o-que-e' },
   { slug: 'mots-c-vs-semaglutida', peptideSlugs: ['mots-c', 'semaglutida'], title: 'MOTS-c vs Semaglutida', relatedPost: 'mots-c-o-que-e' },
+  { slug: 'liraglutida-vs-semaglutida', peptideSlugs: ['liraglutida', 'semaglutida'], title: 'Liraglutida vs Semaglutida', relatedPost: 'liraglutida-saxenda-victoza' },
+  { slug: 'liraglutida-vs-tirzepatida', peptideSlugs: ['liraglutida', 'tirzepatida'], title: 'Liraglutida vs Tirzepatida', relatedPost: 'liraglutida-saxenda-victoza' },
+  { slug: 'cagrilintida-vs-semaglutida', peptideSlugs: ['cagrilintida', 'semaglutida'], title: 'Cagrilintida vs Semaglutida', relatedPost: 'cagrilintida-o-que-e' },
 
   // ── Cicatrização / pele ──
   { slug: 'bpc-157-vs-tb-500-vs-ghk-cu', peptideSlugs: ['bpc-157', 'tb-500', 'ghk-cu'], title: 'BPC-157 vs TB-500 vs GHK-Cu', relatedPost: 'tb-500-para-que-serve' },
   { slug: 'bpc-157-vs-tb-500', peptideSlugs: ['bpc-157', 'tb-500'], title: 'BPC-157 vs TB-500', relatedPost: 'tb-500-para-que-serve' },
   { slug: 'bpc-157-vs-ghk-cu', peptideSlugs: ['bpc-157', 'ghk-cu'], title: 'BPC-157 vs GHK-Cu', relatedPost: 'ghk-cu-para-que-serve' },
   { slug: 'tb-500-vs-ghk-cu', peptideSlugs: ['tb-500', 'ghk-cu'], title: 'TB-500 vs GHK-Cu', relatedPost: 'ghk-cu-para-que-serve' },
+  { slug: 'kpv-vs-bpc-157', peptideSlugs: ['kpv', 'bpc-157'], title: 'KPV vs BPC-157', relatedPost: 'bpc-157-ciclo-duracao' },
+  { slug: 'timosina-alfa-1-vs-tb-500', peptideSlugs: ['timosina-alfa-1', 'tb-500'], title: 'Timosina Alfa-1 vs TB-500', relatedPost: 'tb-500-para-que-serve' },
 
   // ── Hormônio do crescimento ──
   { slug: 'cjc-1295-vs-ipamorelina', peptideSlugs: ['cjc-1295', 'ipamorelina'], title: 'CJC-1295 vs Ipamorelina', relatedPost: 'cjc-ipamorelina-como-combinar' },
@@ -52,6 +57,8 @@ export const COMPARISONS: Comparison[] = [
   { slug: 'mots-c-vs-epithalon', peptideSlugs: ['mots-c', 'epithalon'], title: 'MOTS-c vs Epithalon', relatedPost: 'mots-c-o-que-e' },
   { slug: 'ghk-cu-vs-epithalon', peptideSlugs: ['ghk-cu', 'epithalon'], title: 'GHK-Cu vs Epithalon', relatedPost: 'epithalon-telomerase' },
   { slug: 'pt-141-vs-melanotan-ii', peptideSlugs: ['pt-141', 'melanotan-ii'], title: 'PT-141 vs Melanotan II', relatedPost: 'pt-141-bremelanotida' },
+  { slug: 'kisspeptina-10-vs-gonadorelina', peptideSlugs: ['kisspeptina-10', 'gonadorelina'], title: 'Kisspeptina-10 vs Gonadorelina', relatedPost: 'gonadorelina-trt-fertilidade' },
+  { slug: 'dsip-vs-selank', peptideSlugs: ['dsip', 'selank'], title: 'DSIP vs Selank', relatedPost: 'selank-ansiedade' },
 ];
 
 export function getComparison(slug: string): Comparison | undefined {

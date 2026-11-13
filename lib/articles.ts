@@ -125,6 +125,37 @@ export function getArticleSlugs(): string[] {
   return allArticles().map((a) => a.slug);
 }
 
+// ─── Tags ────────────────────────────────────────────────────────────────────
+
+/** Slug da tag na URL: minúsculas, sem acento, espaços → hífen ("Saúde Óssea" → "saude-ossea"). */
+export function tagSlug(tag: string): string {
+  return tag.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').trim().replace(/\s+/g, '-');
+}
+
+/** Tag com menos artigos que isso não é indexada nem entra no sitemap (página rala). */
+export const MIN_TAG_ARTICLES = 2;
+
+export type TagGroup = { slug: string; label: string; articles: Article[] };
+
+/** Tags agrupadas pelo slug (grafias diferentes da mesma tag viram uma só), mais usadas primeiro. */
+export function getTagGroups(): TagGroup[] {
+  const groups = new Map<string, TagGroup>();
+  for (const a of getArticles()) {
+    if (a.draft) continue;
+    for (const t of new Set(a.tags.map(tagSlug))) {
+      const label = a.tags.find((x) => tagSlug(x) === t)!;
+      const g = groups.get(t) ?? { slug: t, label, articles: [] };
+      g.articles.push(a);
+      groups.set(t, g);
+    }
+  }
+  return Array.from(groups.values()).sort((x, y) => y.articles.length - x.articles.length || x.slug.localeCompare(y.slug));
+}
+
+export function getTagGroup(slug: string): TagGroup | undefined {
+  return getTagGroups().find((g) => g.slug === slug);
+}
+
 // Artigos que citam um peptídeo específico (para linkar ficha → guias)
 export function getArticlesByPeptide(peptideSlug: string): Article[] {
   return getArticles().filter(

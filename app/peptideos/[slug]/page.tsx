@@ -130,8 +130,19 @@ export default async function PeptidePage({
                 {CATEGORY_LABELS[p.category as keyof typeof CATEGORY_LABELS]}
               </Link>
             )}
-            {p.regulatoryStatus && <RegulatoryBadge status={p.regulatoryStatus} />}
-            {p.wadaProhibited && <WadaBadge />}
+            {p.regulatoryStatus &&
+              (p.regulatoryStatus === 'fda-approved' || p.regulatoryStatus === 'regional-approved' ? (
+                <Link href="/peptideos/categoria/aprovados" aria-label="Ver peptídeos aprovados" className="hover:opacity-80">
+                  <RegulatoryBadge status={p.regulatoryStatus} />
+                </Link>
+              ) : (
+                <RegulatoryBadge status={p.regulatoryStatus} />
+              ))}
+            {p.wadaProhibited && (
+              <Link href="/peptideos/categoria/proibidos-no-esporte" aria-label="Ver peptídeos proibidos no esporte" className="hover:opacity-80">
+                <WadaBadge />
+              </Link>
+            )}
           </div>
 
           <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-ink leading-[1.1]">

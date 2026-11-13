@@ -11,6 +11,9 @@ import { COMPARISONS } from '@/lib/comparisons';
 import { getBrands } from '@/lib/brands';
 import { TITRATION_SCHEMES } from '@/lib/titration';
 import { getCategoryPages } from '@/lib/categories';
+import { SYRINGES } from '@/lib/syringes';
+import { dosePath, getDosePages } from '@/lib/dose-pages';
+import { getVialPages, vialPath } from '@/lib/vials';
 import { getGlossary } from '@/lib/glossary';
 
 const peptideSlugs = new Set(getPeptides().map((p) => p.slug));
@@ -106,6 +109,9 @@ function knownPaths(): Set<string> {
   for (const b of getBrands()) paths.add(`/medicamentos/${b.slug}`);
   for (const g of getGlossary()) paths.add(`/glossario/${g.slug}`);
   for (const c of getCategoryPages()) paths.add(`/peptideos/categoria/${c.slug}`);
+  for (const s of SYRINGES) paths.add(`/seringas/${s.slug}`);
+  for (const { peptide, dose } of getDosePages()) paths.add(dosePath(peptide.slug, dose));
+  for (const { peptide, mg } of getVialPages()) paths.add(vialPath(peptide, mg));
   return paths;
 }
 

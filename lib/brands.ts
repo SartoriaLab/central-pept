@@ -49,6 +49,21 @@ const REF = {
   surmount5: { title: 'Aronne LJ, et al. Tirzepatide as Compared with Semaglutide for the Treatment of Obesity (SURMOUNT-5). N Engl J Med. 2025.', url: 'https://doi.org/10.1056/NEJMoa2416394' },
   mounjaroLabel: { title: 'Mounjaro (tirzepatide) — Prescribing Information. Eli Lilly.', url: 'https://pi.lilly.com/us/mounjaro-uspi.pdf' },
   zepboundLabel: { title: 'Zepbound (tirzepatide) — Prescribing Information. Eli Lilly.', url: 'https://pi.lilly.com/us/zepbound-uspi.pdf' },
+  // Liraglutida (Saxenda, Victoza)
+  saxendaLabel: { title: 'Saxenda (liraglutide) injection 3 mg — Prescribing Information. Novo Nordisk.', url: 'https://www.novo-pi.com/saxenda.pdf' },
+  victozaLabel: { title: 'Victoza (liraglutide) injection — Prescribing Information. Novo Nordisk.', url: 'https://www.novo-pi.com/victoza.pdf' },
+  scale: { title: 'Pi-Sunyer X, et al. A Randomized, Controlled Trial of 3.0 mg of Liraglutide in Weight Management (SCALE Obesity and Prediabetes). N Engl J Med. 2015.', url: 'https://doi.org/10.1056/NEJMoa1411892' },
+  scale3y: { title: 'le Roux CW, et al. 3 years of liraglutide versus placebo for type 2 diabetes risk reduction and weight management in individuals with prediabetes. Lancet. 2017.', url: 'https://doi.org/10.1016/S0140-6736(17)30069-7' },
+  scaleTeens: { title: 'Kelly AS, et al. A Randomized, Controlled Trial of Liraglutide for Adolescents with Obesity. N Engl J Med. 2020.', url: 'https://doi.org/10.1056/NEJMoa1916038' },
+  step8: { title: 'Rubino DM, et al. Effect of Weekly Subcutaneous Semaglutide vs Daily Liraglutide on Body Weight in Adults With Overweight or Obesity Without Diabetes (STEP 8). JAMA. 2022.', url: 'https://doi.org/10.1001/jama.2021.23619' },
+  leader: { title: 'Marso SP, et al. Liraglutide and Cardiovascular Outcomes in Type 2 Diabetes (LEADER). N Engl J Med. 2016.', url: 'https://doi.org/10.1056/NEJMoa1603827' },
+  lead3: { title: 'Garber A, et al. Liraglutide versus glimepiride monotherapy for type 2 diabetes (LEAD-3 Mono). Lancet. 2009.', url: 'https://doi.org/10.1016/S0140-6736(08)61246-5' },
+  ellipse: { title: 'Tamborlane WV, et al. Liraglutide in Children and Adolescents with Type 2 Diabetes (ELLIPSE). N Engl J Med. 2019.', url: 'https://doi.org/10.1056/NEJMoa1903822' },
+  // Semaglutida oral (Rybelsus)
+  rybelsusLabel: { title: 'Rybelsus e Ozempic (semaglutide) tablets — Prescribing Information. Novo Nordisk.', url: 'https://www.novo-pi.com/rybelsus.pdf' },
+  pioneer1: { title: 'Aroda VR, et al. PIONEER 1: Oral Semaglutide Monotherapy in Comparison With Placebo in Patients With Type 2 Diabetes. Diabetes Care. 2019.', url: 'https://doi.org/10.2337/dc19-0749' },
+  pioneer6: { title: 'Husain M, et al. Oral Semaglutide and Cardiovascular Outcomes in Patients with Type 2 Diabetes (PIONEER 6). N Engl J Med. 2019.', url: 'https://doi.org/10.1056/NEJMoa1901118' },
+  soul: { title: 'McGuire DK, et al. Oral Semaglutide and Cardiovascular Outcomes in High-Risk Type 2 Diabetes (SOUL). N Engl J Med. 2025.', url: 'https://doi.org/10.1056/NEJMoa2501006' },
 };
 
 export const BRANDS: Brand[] = [
@@ -353,6 +368,204 @@ export const BRANDS: Brand[] = [
         q: 'Wegovy precisa ser reconstituído?',
         a: 'Não. A caneta vem pronta para uso. Reconstituição só se aplica à semaglutida em frasco liofilizado.',
         link: { label: 'Calculadora de semaglutida em frasco', href: '/ferramentas/reconstituicao/semaglutida' },
+      },
+    ],
+  },
+  {
+    slug: 'rybelsus',
+    name: 'Rybelsus',
+    peptideSlug: 'semaglutida',
+    activeIngredient: 'Semaglutida',
+    manufacturer: NOVO,
+    drugClass: 'Agonista do receptor de GLP-1 (via oral)',
+    fdaApprovalYear: 2019,
+    indications: [
+      'Diabetes tipo 2 em adultos, junto com dieta e exercício',
+      'Redução do risco de eventos cardiovasculares maiores em adultos com diabetes tipo 2 e alto risco cardiovascular',
+    ],
+    titrationSchemeId: 'semaglutida-oral-t2d',
+    maintenance: '7 mg ou 14 mg uma vez por dia',
+    presentation: 'Comprimidos de 3, 7 e 14 mg, um por dia, em jejum, com até 120 ml de água e 30 minutos antes de comer',
+    summary:
+      'Rybelsus é a semaglutida da Novo Nordisk em comprimido diário, aprovada para diabetes tipo 2. É a mesma molécula do Ozempic, mas tomada por via oral, em doses de 3 a 14 mg.',
+    about: [
+      'Rybelsus foi o primeiro agonista de GLP-1 em comprimido. A semaglutida é um peptídeo e seria destruída no estômago; no comprimido ela vem com um absorvente (SNAC) que protege a molécula e permite que uma pequena fração seja absorvida pela parede do estômago. Por isso a dose oral, em miligramas, é muito maior que a injetável.',
+      'A FDA aprovou o Rybelsus em 2019 para diabetes tipo 2. Em 2025, com base no estudo SOUL, a bula passou a incluir a redução do risco de infarto, AVC e morte cardiovascular em adultos com diabetes tipo 2 e alto risco cardiovascular.',
+      'O modo de tomar faz diferença: o comprimido precisa ser engolido inteiro, em jejum, com no máximo 120 ml de água, e a pessoa deve esperar pelo menos 30 minutos antes de comer, beber ou tomar outros remédios. Comida e líquido em excesso derrubam a absorção.',
+      'Nos EUA a bula atual reúne o Rybelsus (3, 7 e 14 mg) e uma formulação nova da mesma molécula, vendida como Ozempic comprimido, em doses de 1,5, 4 e 9 mg. As duas não são intercambiáveis miligrama a miligrama: 7 mg de Rybelsus equivalem a 4 mg da nova formulação, e 14 mg a 9 mg.',
+    ],
+    brazil:
+      'No Brasil o Rybelsus é vendido em farmácia, em comprimidos de 3, 7 e 14 mg, com receita médica, e tem indicação em bula para diabetes tipo 2. Em 2026 a ANVISA aprovou também a indicação de redução do risco cardiovascular em adultos. O uso para emagrecer sem diabetes é off-label.',
+    sibling: {
+      slug: 'ozempic',
+      difference:
+        'Mesma molécula (semaglutida) e mesmo fabricante, ambos para diabetes tipo 2. Rybelsus é comprimido diário de 3 a 14 mg; Ozempic é injeção semanal de 0,25 a 2 mg. As doses não se comparam diretamente — pela bula, quem usa Ozempic 0,5 mg pode passar para Rybelsus 7 ou 14 mg.',
+    },
+    evidence: [
+      { trial: 'PIONEER 1 (diabetes tipo 2, 26 semanas)', result: 'Redução da HbA1c de 0,6, 0,9 e 1,1 ponto a mais que o placebo com 3, 7 e 14 mg; com 14 mg, perda de peso 2,3 kg maior que a do placebo.' },
+      { trial: 'PIONEER 6 (segurança cardiovascular, 3.183 pacientes, mediana de 15,9 meses)', result: 'Eventos cardiovasculares maiores com HR de 0,79 contra placebo: o comprimido não aumentou o risco cardiovascular (não inferioridade confirmada).' },
+      { trial: 'SOUL (alto risco cardiovascular, cerca de 4 anos)', result: 'Em 9.650 adultos com diabetes tipo 2 e doença cardiovascular ou renal, os eventos cardiovasculares maiores caíram 14% em relação ao placebo (12,0% contra 13,8%; HR 0,86).' },
+    ],
+    references: [REF.rybelsusLabel, REF.pioneer1, REF.pioneer6, REF.soul],
+    articles: [
+      'efeitos-colaterais-semaglutida',
+      'nausea-ozempic-como-lidar',
+      'efeito-rebote-apos-parar-semaglutida',
+      'semaglutida-vs-tirzepatida',
+    ],
+    faq: [
+      {
+        q: 'Rybelsus é o Ozempic em comprimido?',
+        a: 'É a mesma molécula, a semaglutida, do mesmo fabricante. Mas não é o mesmo produto: o Rybelsus é tomado todo dia, em doses de 3 a 14 mg, enquanto o Ozempic é uma injeção semanal de 0,25 a 2 mg. Nos EUA existe ainda uma formulação oral nova vendida com o nome Ozempic, em 1,5, 4 e 9 mg.',
+        link: { label: 'Página do Ozempic', href: '/medicamentos/ozempic' },
+      },
+      {
+        q: 'Como tomar o Rybelsus?',
+        a: 'Em jejum, ao acordar, com no máximo 120 ml de água. Engula o comprimido inteiro — sem partir, mastigar ou dissolver — e espere pelo menos 30 minutos antes de comer, beber outra coisa ou tomar outros remédios. Se esquecer uma dose, pule e tome a próxima no dia seguinte.',
+      },
+      {
+        q: 'Qual a dose inicial do Rybelsus?',
+        a: '3 mg por dia durante 30 dias. Essa dose serve só para adaptação e não controla a glicose. Depois sobe para 7 mg por dia; se após mais 30 dias for preciso mais controle, a dose vai para 14 mg.',
+        link: { label: 'Montar calendário de subida de dose', href: '/ferramentas/titulacao' },
+      },
+      {
+        q: 'Rybelsus emagrece?',
+        a: 'Pode reduzir o peso, mas a indicação em bula é diabetes tipo 2. No PIONEER 1, a dose de 14 mg levou a uma perda 2,3 kg maior que a do placebo em 26 semanas — bem menos que a semaglutida injetável na dose de obesidade (Wegovy).',
+        link: { label: 'Página do Wegovy', href: '/medicamentos/wegovy' },
+      },
+      {
+        q: 'Quais os efeitos colaterais mais comuns?',
+        a: 'Os gastrointestinais: náusea, dor abdominal, diarreia, perda de apetite, vômito e prisão de ventre, mais frequentes nas semanas de aumento de dose. Como as outras formas de semaglutida, é contraindicado para quem tem histórico pessoal ou familiar de carcinoma medular de tireoide ou NEM 2.',
+        link: { label: 'Efeitos colaterais da semaglutida', href: '/blog/efeitos-colaterais-semaglutida' },
+      },
+    ],
+  },
+  {
+    slug: 'saxenda',
+    name: 'Saxenda',
+    peptideSlug: 'liraglutida',
+    activeIngredient: 'Liraglutida',
+    manufacturer: NOVO,
+    drugClass: 'Agonista do receptor de GLP-1',
+    fdaApprovalYear: 2014,
+    indications: [
+      'Controle crônico de peso em adultos com obesidade (IMC ≥ 30) ou sobrepeso (IMC ≥ 27) com pelo menos uma comorbidade relacionada ao peso',
+      'Controle crônico de peso em adolescentes a partir de 12 anos com obesidade e peso acima de 60 kg',
+    ],
+    titrationSchemeId: 'liraglutida-obesity',
+    maintenance: '3 mg uma vez por dia (adolescentes que não toleram: 2,4 mg)',
+    presentation: 'Caneta pré-preenchida de 3 ml com 18 mg (6 mg/ml), que seleciona doses de 0,6, 1,2, 1,8, 2,4 ou 3 mg; aplicação subcutânea diária',
+    summary:
+      'Saxenda é a liraglutida 3 mg da Novo Nordisk, aprovada para obesidade e sobrepeso. É uma injeção diária, com a mesma molécula do Victoza em dose maior.',
+    about: [
+      'Saxenda é a marca da liraglutida para controle de peso. A liraglutida imita o GLP-1, hormônio intestinal que aumenta a saciedade, retarda o esvaziamento do estômago e ajuda a controlar a glicose. Diferente da semaglutida e da tirzepatida, ela dura pouco no corpo (meia-vida de cerca de 13 horas) e por isso é aplicada todos os dias.',
+      'A FDA aprovou o Saxenda em 2014, com base no programa SCALE, e em 2020 estendeu a indicação a adolescentes a partir de 12 anos. Foi, por vários anos, o principal medicamento injetável para obesidade, até a chegada do Wegovy e do Zepbound, que levam a perdas de peso maiores.',
+      'A dose começa em 0,6 mg por dia e sobe 0,6 mg a cada semana até 3 mg, a dose de manutenção — são cinco semanas de escalada. A caneta vem pronta: não é reconstituída.',
+    ],
+    brazil:
+      'No Brasil o Saxenda é vendido em farmácia, em caneta, com receita médica, para obesidade e sobrepeso com comorbidades. Desde agosto de 2025 a EMS vende liraglutida nacional para obesidade (Olire) e para diabetes (Lirux), e em 2026 a ANVISA aprovou versões genéricas — as primeiras concorrentes das marcas da Novo Nordisk.',
+    sibling: {
+      slug: 'victoza',
+      difference:
+        'Mesma molécula e mesmo fabricante, ambos de aplicação diária. Saxenda é registrado para obesidade e sobrepeso e chega a 3 mg por dia; Victoza é registrado para diabetes tipo 2 e vai até 1,8 mg por dia.',
+    },
+    evidence: [
+      { trial: 'SCALE Obesity and Prediabetes (56 semanas)', result: 'Perda média de 8,0% do peso (8,4 kg) com liraglutida 3 mg, contra 2,6% (2,8 kg) com placebo. Perderam 5% ou mais: 63% contra 27%; 10% ou mais: 33% contra 11%.' },
+      { trial: 'SCALE — extensão de 3 anos (pré-diabetes)', result: 'Diabetes tipo 2 foi diagnosticado em 2% dos participantes com liraglutida contra 6% com placebo; a perda de peso ao fim de 160 semanas foi de 6,1% contra 1,9%.' },
+      { trial: 'STEP 8 (comparação com semaglutida, 68 semanas)', result: 'Semaglutida 2,4 mg semanal levou a perda média de 15,8% do peso; liraglutida 3 mg diária, a 6,4%.' },
+    ],
+    references: [REF.saxendaLabel, REF.scale, REF.scale3y, REF.scaleTeens, REF.step8],
+    articles: ['liraglutida-saxenda-victoza'],
+    faq: [
+      {
+        q: 'Qual a diferença entre Saxenda e Victoza?',
+        a: 'Os dois são liraglutida, da Novo Nordisk, em caneta de aplicação diária. Saxenda é registrado para obesidade e sobrepeso, com manutenção de 3 mg por dia; Victoza é registrado para diabetes tipo 2, com dose de até 1,8 mg por dia.',
+        link: { label: 'Página do Victoza', href: '/medicamentos/victoza' },
+      },
+      {
+        q: 'Como é a subida de dose do Saxenda?',
+        a: 'Começa com 0,6 mg por dia e sobe 0,6 mg a cada semana: 1,2, 1,8, 2,4 e, na quinta semana, 3 mg — a dose de manutenção. Se um aumento não for tolerado, a bula permite adiar a subida por cerca de mais uma semana.',
+        link: { label: 'Montar calendário de subida de dose', href: '/ferramentas/titulacao' },
+      },
+      {
+        q: 'Quanto peso se perde com Saxenda?',
+        a: 'No estudo SCALE, a perda média foi de 8,0% do peso em 56 semanas, contra 2,6% com placebo, sempre com dieta e atividade física. A bula orienta reavaliar 16 semanas após o início e suspender se a perda não chegar a 4% do peso inicial.',
+      },
+      {
+        q: 'Saxenda ou Wegovy: qual emagrece mais?',
+        a: 'Na comparação direta do estudo STEP 8, a semaglutida 2,4 mg semanal (Wegovy) levou a uma perda média de 15,8% do peso em 68 semanas, contra 6,4% com liraglutida 3 mg diária (Saxenda). A semaglutida também é aplicada uma vez por semana, e não todo dia.',
+        link: { label: 'Liraglutida vs Semaglutida', href: '/comparar/liraglutida-vs-semaglutida' },
+      },
+      {
+        q: 'Saxenda pode ser usado por adolescentes?',
+        a: 'Sim, a partir de 12 anos, com obesidade e peso acima de 60 kg. No estudo SCALE Teens, 43% dos adolescentes tratados reduziram o IMC em pelo menos 5%, contra 19% com placebo. A subida de dose pode ser mais lenta, em até 8 semanas.',
+      },
+      {
+        q: 'Esqueci uma dose do Saxenda. O que fazer?',
+        a: 'Pule a dose esquecida e retome no horário habitual do dia seguinte, sem dobrar. Se passarem mais de 3 dias sem aplicar, a bula orienta recomeçar com 0,6 mg e refazer a subida de dose, para reduzir os efeitos gastrointestinais.',
+      },
+    ],
+  },
+  {
+    slug: 'victoza',
+    name: 'Victoza',
+    peptideSlug: 'liraglutida',
+    activeIngredient: 'Liraglutida',
+    manufacturer: NOVO,
+    drugClass: 'Agonista do receptor de GLP-1',
+    fdaApprovalYear: 2010,
+    indications: [
+      'Diabetes tipo 2 em adultos e crianças a partir de 10 anos, junto com dieta e exercício',
+      'Redução do risco de eventos cardiovasculares maiores em adultos com diabetes tipo 2 e doença cardiovascular estabelecida',
+    ],
+    titrationSchemeId: 'liraglutida-t2d',
+    maintenance: '1,2 mg ou 1,8 mg uma vez por dia',
+    presentation: 'Caneta pré-preenchida de 3 ml com 18 mg (6 mg/ml), que seleciona doses de 0,6, 1,2 ou 1,8 mg; aplicação subcutânea diária',
+    summary:
+      'Victoza é a liraglutida da Novo Nordisk para diabetes tipo 2: uma injeção diária de 1,2 a 1,8 mg, com proteção cardiovascular demonstrada no estudo LEADER.',
+    about: [
+      'Victoza é a marca da liraglutida para diabetes tipo 2. Aprovado pela FDA em 2010, foi um dos primeiros agonistas de GLP-1 a se popularizar e é aplicado uma vez por dia, a qualquer hora e independentemente das refeições.',
+      'Em 2017 a bula ganhou a indicação de redução de infarto, AVC e morte cardiovascular em adultos com diabetes tipo 2 e doença cardiovascular, com base no estudo LEADER. Em 2019 foi aprovado para crianças e adolescentes a partir de 10 anos.',
+      'A dose começa em 0,6 mg por dia por uma semana, só para adaptação, e passa a 1,2 mg. Se for preciso mais controle da glicose, sobe para 1,8 mg. A mesma molécula, em dose de até 3 mg, é vendida como Saxenda para obesidade.',
+    ],
+    brazil:
+      'No Brasil o Victoza é vendido em farmácia, em caneta, com receita médica, para diabetes tipo 2. Desde agosto de 2025 há liraglutida nacional da EMS para diabetes (Lirux), e em 2026 a ANVISA aprovou versões genéricas.',
+    sibling: {
+      slug: 'saxenda',
+      difference:
+        'Mesma molécula e mesmo fabricante, ambos de aplicação diária. Victoza é registrado para diabetes tipo 2 e vai até 1,8 mg por dia; Saxenda é registrado para obesidade e sobrepeso, com manutenção de 3 mg por dia.',
+    },
+    evidence: [
+      { trial: 'LEADER (diabetes tipo 2 com alto risco cardiovascular, mediana de 3,8 anos)', result: 'Eventos cardiovasculares maiores em 13,0% com liraglutida contra 14,9% com placebo — redução de 13% no risco (HR 0,87). A morte cardiovascular caiu 22%.' },
+      { trial: 'LEAD-3 (monoterapia, 52 semanas)', result: 'Redução da HbA1c de 0,84 ponto com 1,2 mg e de 1,14 ponto com 1,8 mg, contra 0,51 com glimepirida; o peso caiu com liraglutida (cerca de 2 kg) e subiu com glimepirida (cerca de 1 kg).' },
+      { trial: 'ELLIPSE (10 a 16 anos, 26 semanas)', result: 'HbA1c caiu 0,64 ponto com liraglutida e subiu 0,42 ponto com placebo.' },
+    ],
+    references: [REF.victozaLabel, REF.leader, REF.lead3, REF.ellipse],
+    articles: ['liraglutida-saxenda-victoza'],
+    faq: [
+      {
+        q: 'Victoza e liraglutida são a mesma coisa?',
+        a: 'Sim. Liraglutida é o princípio ativo; Victoza é a marca da Novo Nordisk para diabetes tipo 2. Saxenda é a mesma molécula em dose maior, para obesidade.',
+        link: { label: 'Ficha da liraglutida', href: '/peptideos/liraglutida' },
+      },
+      {
+        q: 'Qual a dose do Victoza?',
+        a: 'Começa com 0,6 mg uma vez por dia durante 1 semana, dose que serve só para adaptação. Depois passa a 1,2 mg por dia. Se for preciso mais controle da glicose, sobe para 1,8 mg por dia após pelo menos 1 semana em 1,2 mg.',
+        link: { label: 'Montar calendário de subida de dose', href: '/ferramentas/titulacao' },
+      },
+      {
+        q: 'Victoza serve para emagrecer?',
+        a: 'A indicação em bula é diabetes tipo 2, e o efeito no peso nessa dose é modesto. Para obesidade, a liraglutida aprovada é o Saxenda, que chega a 3 mg por dia. Usar Victoza para emagrecer é off-label.',
+        link: { label: 'Página do Saxenda', href: '/medicamentos/saxenda' },
+      },
+      {
+        q: 'Victoza ou Ozempic: qual a diferença?',
+        a: 'Os dois são agonistas de GLP-1 da Novo Nordisk para diabetes tipo 2 e reduziram eventos cardiovasculares em estudos de desfecho. A diferença prática é a frequência: Victoza (liraglutida) é aplicado todo dia; Ozempic (semaglutida), uma vez por semana, e reduz mais a glicemia e o peso.',
+        link: { label: 'Liraglutida vs Semaglutida', href: '/comparar/liraglutida-vs-semaglutida' },
+      },
+      {
+        q: 'Quais os efeitos colaterais mais comuns?',
+        a: 'Náusea, diarreia, vômito, perda de apetite, má digestão e prisão de ventre, mais comuns no início e nos aumentos de dose. A bula traz o alerta de tumores de células C da tireoide (visto em roedores) e contraindica o uso em quem tem histórico pessoal ou familiar de carcinoma medular de tireoide ou NEM 2.',
       },
     ],
   },

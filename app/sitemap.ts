@@ -1,17 +1,19 @@
 import type { MetadataRoute } from 'next';
 import { getPeptides } from '@/lib/peptides';
-import { getArticles } from '@/lib/articles';
+import { getArticles, getTagGroups, MIN_TAG_ARTICLES } from '@/lib/articles';
 import { getComparisonSlugs } from '@/lib/comparisons';
 import { getGlossarySlugs } from '@/lib/glossary';
 import { CONTENT_UPDATED_AT } from '@/lib/site';
 import { getBrandSlugs } from '@/lib/brands';
 import { getCategoryPageSlugs } from '@/lib/categories';
-import { getVialPages, vialPath } from '@/lib/vials';
+import { getVialPages, isCanonicalVial, vialPath } from '@/lib/vials';
 
 export const dynamic = 'force-static';
 
 import { SITE_URL as SITE } from '@/lib/site';
 import { TOOLS } from '@/lib/tools';
+import { SYRINGES } from '@/lib/syringes';
+import { dosePath, getDosePages } from '@/lib/dose-pages';
 
 function url(path: string): string {
   return `${SITE}${path}`;
@@ -34,6 +36,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/comparar',                    priority: 0.85, changeFrequency: 'weekly' },
     { path: '/blog',                        priority: 0.85, changeFrequency: 'weekly' },
     { path: '/glossario',                   priority: 0.7, changeFrequency: 'monthly' },
+    { path: '/seringas',                    priority: 0.75, changeFrequency: 'monthly' },
+    ...SYRINGES.map((s) => ({ path: `/seringas/${s.slug}`, priority: 0.65, changeFrequency: 'monthly' as const })),
     { path: '/metodologia',                 priority: 0.6, changeFrequency: 'monthly' },
     { path: '/sobre',                       priority: 0.5, changeFrequency: 'monthly' },
     { path: '/contato',                     priority: 0.4, changeFrequency: 'monthly' },
@@ -44,10 +48,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Só artigos publicados (exclui rascunhos), alinhado com o feed
   const publishedArticles = getArticles().filter((a) => !a.draft);
 
-  // Tag archives do blog
-  const allTags = Array.from(new Set(publishedArticles.flatMap((a) => a.tags)));
-  const slugify = (s: string) =>
-    s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, '-');
+  // Arquivos de tag: só os que têm artigos suficientes (os demais são noindex)
+  const tagGroups = getTagGroups().filter((g) => g.articles.length >= MIN_TAG_ARTICLES);
 
   return [
     ...staticPaths.map((p) => ({
@@ -70,8 +72,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     })),
     // Tabela por frasco (peptídeo × mg)
-    ...getVialPages().map(({ peptide, mg }) => ({
+    ...getVialPages().filter(({ peptide }) => isCanonicalVial(peptide)).map(({ peptide, mg }) => ({
       url: url(vialPath(peptide, mg)),
+      lastModified: latest(peptide.lastReviewed, CONTENT_UPDATED_AT),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    })),
+    // Doses da subida (peptídeo × dose)
+    ...getDosePages().map(({ peptide, dose }) => ({
+      url: url(dosePath(peptide.slug, dose)),
       lastModified: latest(peptide.lastReviewed, CONTENT_UPDATED_AT),
       changeFrequency: 'monthly' as const,
       priority: 0.7,
@@ -102,10 +111,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly' as const,
       priority: 0.7,
     })),
-    ...allTags.map((t) => ({
-      url: url(`/blog/tag/${slugify(t)}`),
+    ...tagGroups.map((g) => ({
+      url: url(`/blog/tag/${g.slug}`),
       // Arquivo de tag muda quando entra ou é atualizado um artigo com a tag
-      lastModified: latest(...publishedArticles.filter((a) => a.tags.includes(t)).map((a) => a.updatedAt ?? a.publishedAt)),
+      lastModified: latest(...g.articles.map((a) => a.updatedAt ?? a.publishedAt)),
       changeFrequency: 'weekly' as const,
       priority: 0.5,
     })),

@@ -14,7 +14,8 @@ export const OG_PAGES: Record<string, { title: string; eyebrow: string }> = {
   comparar: { title: 'Comparador de peptídeos lado a lado', eyebrow: 'Comparativo' },
   blog: { title: 'Guias de dose, reconstituição e GLP-1', eyebrow: 'Blog' },
   glossario: { title: 'Glossário de peptídeos: termos técnicos explicados', eyebrow: 'Glossário' },
-  medicamentos: { title: 'Mounjaro, Ozempic, Wegovy e Zepbound: diferenças e doses', eyebrow: 'Medicamentos' },
+  seringas: { title: 'Como ler a seringa de insulina: unidades, ml e mg', eyebrow: 'Guia' },
+  medicamentos: { title: 'Mounjaro, Ozempic, Wegovy, Saxenda e Rybelsus: diferenças e doses', eyebrow: 'Medicamentos' },
 };
 
 export function ogImageUrl(kind: OgKind, slug: string): string {

@@ -48,6 +48,19 @@ Feed, sitemap, busca, páginas de tag e imagem de compartilhamento saem sozinhos
 2. Página em `app/ferramentas/<slug>/page.tsx`; componente client em `components/calculator/`.
 3. Ícone e cor em `components/ui/ToolIcon.tsx`.
 
+## Páginas geradas a partir dos dados
+
+- Frasco (`/ferramentas/reconstituicao/<peptideo>/<mg>`): um por `commonAmounts`. Peptídeo com
+  um frasco só tem canonical para a calculadora e fica fora do sitemap (`isCanonicalVial`).
+- Dose (`.../<peptideo>/dose/<mg>`): doses dos esquemas injetáveis semanais de `lib/titration.ts`
+  (`lib/dose-pages.ts`).
+- Listas por objetivo e transversais (`/peptideos/categoria/<slug>`): `lib/categories.ts`.
+  Objetivo usa `categories`; lista (WADA, aprovados, meia-vida) usa `match`/`sort` e lê
+  `wadaProhibited`, `regulatoryStatus` e `halfLife` das fichas.
+- Meia-vida sem dado publicado: escreva "Não caracterizada…", nunca um número estimado.
+- Tags com menos de 2 artigos ficam `noindex` e fora do sitemap (`MIN_TAG_ARTICLES`).
+- Seringas (`/seringas/<tamanho>`): `lib/syringes.ts`.
+
 ## Fontes únicas (não duplique)
 
 - URL, nome, host e email do site: `lib/site.ts`.

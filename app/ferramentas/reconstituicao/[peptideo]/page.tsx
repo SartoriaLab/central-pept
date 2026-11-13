@@ -18,9 +18,10 @@ import {
 } from '@/lib/peptides';
 import { getArticlesByPeptide } from '@/lib/articles';
 import { COMPARISONS } from '@/lib/comparisons';
-import { getTitrationDoses } from '@/lib/titration';
+import { doseLabel as titrationDoseLabel, getTitrationDoses, getTitrationFrequency } from '@/lib/titration';
 import { SITE_URL } from '@/lib/site';
 import { vialPath } from '@/lib/vials';
+import { dosePath, getPageDoses } from '@/lib/dose-pages';
 
 type Params = { peptideo: string };
 
@@ -132,7 +133,10 @@ export default async function PeptideReconstitutionPage({ params }: { params: Pr
   const path = `/ferramentas/reconstituicao/${p.slug}`;
 
   // Doses da titulação (só GLP-1 com esquema cadastrado) × frascos comuns, com 2 ml de água.
+  // Só esquemas injetáveis (o Rybelsus, oral, não entra). Liraglutida é diária; as demais, semanais.
   const titrationDoses = getTitrationDoses(p.slug);
+  const pageDoses = getPageDoses(p.slug);
+  const titrationFrequency = getTitrationFrequency(p.slug);
   const TITRATION_WATER = 2;
 
   const guides = getArticlesByPeptide(p.slug).slice(0, 3);
@@ -253,7 +257,7 @@ export default async function PeptideReconstitutionPage({ params }: { params: Pr
             <table className="w-full text-sm">
               <thead>
                 <tr className="text-left text-xs uppercase tracking-wider text-ink-3 border-b border-border">
-                  <th scope="col" className="p-3 font-bold">Dose semanal</th>
+                  <th scope="col" className="p-3 font-bold">{titrationFrequency ? titrationDoseLabel(titrationFrequency) : 'Dose'}</th>
                   {p.commonAmounts.map((v) => (
                     <th key={v} scope="col" className="p-3 font-bold">
                       Frasco {fmt(v, 2)} mg
@@ -264,7 +268,13 @@ export default async function PeptideReconstitutionPage({ params }: { params: Pr
               <tbody>
                 {titrationDoses.map((d) => (
                   <tr key={d} className="border-b border-border last:border-0">
-                    <td className="p-3 font-semibold tabular-nums">{fmt(d, 2)} mg</td>
+                    <td className="p-3 font-semibold tabular-nums">
+                      {pageDoses.includes(d) ? (
+                        <Link href={dosePath(p.slug, d)} className="text-teal-700 hover:underline">{fmt(d, 2)} mg</Link>
+                      ) : (
+                        <>{fmt(d, 2)} mg</>
+                      )}
+                    </td>
                     {p.commonAmounts.map((v) => {
                       const r = calcByVolume(v, TITRATION_WATER, d);
                       if (!r) return <td key={v} className="p-3">—</td>;

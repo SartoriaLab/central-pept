@@ -45,6 +45,21 @@ export const GLOSSARY: GlossaryTerm[] = [
     ],
   },
   {
+    slug: 'amilina',
+    term: 'Amilina',
+    definition:
+      'Hormônio peptídico de 37 aminoácidos secretado junto com a insulina pelas células beta do pâncreas. Reduz o apetite, retarda o esvaziamento do estômago e freia o glucagon depois das refeições. A cagrilintida é um análogo de amilina de aplicação semanal.',
+    body: [
+      'A amilina age principalmente no tronco encefálico (área postrema) e no hipotálamo, por receptores formados pelo receptor de calcitonina associado a proteínas modificadoras (RAMPs). O efeito sobre a saciedade é complementar ao do GLP-1, que atua por outra via — é a lógica da combinação de cagrilintida com semaglutida (CagriSema).',
+      'A amilina humana se agrega com facilidade e não serve como medicamento. O primeiro análogo aprovado foi a pramlintida, de uso diário junto com a insulina no diabetes. Os análogos de ação prolongada, como a cagrilintida, ainda estão em estudo e não têm registro.',
+    ],
+    related: ['glp-1', 'glucagon', 'incretina', 'agonista'],
+    links: [
+      { href: '/peptideos/cagrilintida', label: 'Ficha da cagrilintida', desc: 'O análogo de amilina semanal em fase 3.' },
+      { href: '/peptideos/semaglutida', label: 'Ficha da semaglutida', desc: 'O GLP-1 da combinação CagriSema.' },
+    ],
+  },
+  {
     slug: 'ampk',
     term: 'AMPK',
     definition:
@@ -87,6 +102,18 @@ export const GLOSSARY: GlossaryTerm[] = [
       { href: '/ferramentas/titulacao', label: 'Subida de dose GLP-1', desc: 'Escada de bula com datas automáticas.' },
       { href: '/metodologia', label: 'Metodologia editorial', desc: 'Como as fontes são hierarquizadas.' },
     ],
+  },
+  {
+    slug: 'catelicidina',
+    term: 'Catelicidina',
+    definition:
+      'Família de peptídeos antimicrobianos da imunidade inata. Em humanos existe uma só catelicidina, a hCAP18, cuja forma ativa é o LL-37, produzido na pele, nas mucosas e pelos neutrófilos.',
+    body: [
+      'O LL-37 mata bactérias, fungos e alguns vírus ao romper a membrana desses microrganismos. Além disso, atrai células de defesa, neutraliza toxinas bacterianas e participa da cicatrização de feridas. A vitamina D estimula a produção do peptídeo.',
+      'Mais nem sempre é melhor: níveis elevados de catelicidina estão ligados à inflamação da rosácea e da psoríase. O uso terapêutico do LL-37 foi testado sobretudo em aplicação tópica em úlceras de perna; o uso injetável não tem evidência clínica.',
+    ],
+    related: ['timosina', 'vegf'],
+    links: [{ href: '/peptideos/ll-37', label: 'Ficha do LL-37', desc: 'O peptídeo antimicrobiano humano.' }],
   },
   {
     slug: 'coa',
@@ -260,6 +287,21 @@ export const GLOSSARY: GlossaryTerm[] = [
     ],
   },
   {
+    slug: 'gnrh',
+    term: 'GnRH',
+    definition:
+      'Gonadotropin-Releasing Hormone (hormônio liberador de gonadotrofinas). Decapeptídeo do hipotálamo que estimula a hipófise a liberar LH e FSH. A gonadorelina é a versão sintética idêntica ao hormônio natural.',
+    body: [
+      'O GnRH é liberado em pulsos, aproximadamente a cada 60 a 120 minutos, e esse ritmo é indispensável: pulsos estimulam a hipófise, enquanto exposição contínua dessensibiliza o receptor e acaba suprimindo LH, FSH e, por consequência, testosterona e estrogênio.',
+      'Os dois efeitos são usados na clínica. A gonadorelina em bomba pulsátil induz ovulação e puberdade; agonistas de ação longa, como leuprolida e triptorelina, provocam supressão do eixo no câncer de próstata e na endometriose. Acima do GnRH está a kisspeptina, que comanda os pulsos.',
+    ],
+    related: ['lh-e-fsh', 'kisspeptina', 'agonista', 'meia-vida'],
+    links: [
+      { href: '/peptideos/gonadorelina', label: 'Ficha da gonadorelina', desc: 'O GnRH sintético e seu histórico regulatório.' },
+      { href: '/peptideos/kisspeptina-10', label: 'Ficha da kisspeptina-10', desc: 'O sinal que dispara os pulsos de GnRH.' },
+    ],
+  },
+  {
     slug: 'hplc',
     term: 'HPLC',
     definition:
@@ -300,6 +342,30 @@ export const GLOSSARY: GlossaryTerm[] = [
     ],
   },
   {
+    slug: 'kisspeptina',
+    term: 'Kisspeptina',
+    definition:
+      'Família de peptídeos codificada pelo gene KISS1 que ativa os neurônios de GnRH no hipotálamo. É considerada o "interruptor" do eixo reprodutivo, essencial para a puberdade e a fertilidade.',
+    body: [
+      'A kisspeptina age pelo receptor KISS1R (antes chamado GPR54). Pessoas com mutações que inativam esse receptor não entram na puberdade, o que revelou o papel central do peptídeo. Ela circula em formas de tamanhos diferentes, como a kisspeptina-54 e a kisspeptina-10, o menor fragmento com atividade plena.',
+      'Como atua acima do GnRH, a kisspeptina estimula LH e FSH preservando o controle natural do eixo. É estudada como teste diagnóstico de hipogonadismo e como gatilho de ovulação em fertilização in vitro, mas não tem aprovação para uso clínico.',
+    ],
+    related: ['gnrh', 'lh-e-fsh'],
+    links: [{ href: '/peptideos/kisspeptina-10', label: 'Ficha da kisspeptina-10', desc: 'Doses de estudo e evidências.' }],
+  },
+  {
+    slug: 'lh-e-fsh',
+    term: 'LH e FSH (gonadotrofinas)',
+    definition:
+      'Hormônio luteinizante (LH) e hormônio folículo-estimulante (FSH), liberados pela hipófise em resposta ao GnRH. Comandam a produção de hormônios sexuais e a fertilidade em homens e mulheres.',
+    body: [
+      'No homem, o LH estimula as células de Leydig a produzir testosterona, e o FSH sustenta a produção de espermatozoides. Na mulher, o FSH faz os folículos crescerem e o pico de LH no meio do ciclo dispara a ovulação.',
+      'Testosterona aplicada de fora suprime LH e FSH por retroalimentação negativa, o que reduz a produção testicular e a fertilidade. É por isso que protocolos de reposição às vezes incluem hCG (que imita o LH) ou gonadorelina — este último um uso off-label.',
+    ],
+    related: ['gnrh', 'kisspeptina', 'off-label'],
+    links: [{ href: '/peptideos/gonadorelina', label: 'Ficha da gonadorelina', desc: 'Estímulo de LH e FSH via GnRH.' }],
+  },
+  {
     slug: 'liofilizado',
     term: 'Liofilizado',
     definition:
@@ -326,6 +392,22 @@ export const GLOSSARY: GlossaryTerm[] = [
     links: [
       { href: '/blog/quanto-tempo-ozempic-faz-efeito', label: 'Quanto tempo o Ozempic leva para fazer efeito', desc: 'A linha do tempo explicada pela meia-vida.' },
       { href: '/comparar', label: 'Comparador de peptídeos', desc: 'Meia-vida de cada composto lado a lado.' },
+    ],
+  },
+  {
+    slug: 'melanocortina',
+    term: 'Melanocortinas e receptor MC4R',
+    definition:
+      'Peptídeos derivados da POMC, como o α-MSH e o ACTH, que agem por cinco receptores (MC1R a MC5R). O MC1R controla a pigmentação da pele; o MC4R, no hipotálamo, regula apetite, gasto energético e função sexual.',
+    body: [
+      'Cada receptor tem um papel: MC1R nos melanócitos (bronzeamento), MC2R na adrenal (resposta ao ACTH), MC3R e MC4R no cérebro (energia e comportamento sexual). Mutações no MC4R são a causa genética isolada mais comum de obesidade grave.',
+      'Há medicamentos aprovados que miram esse sistema: a setmelanotida, agonista de MC4R para formas genéticas raras de obesidade, e a bremelanotida (PT-141), para baixo desejo sexual feminino. O Melanotan II ativa os receptores sem seletividade, o que explica efeitos que vão do escurecimento de pintas a náusea e priapismo.',
+    ],
+    related: ['agonista'],
+    links: [
+      { href: '/peptideos/pt-141', label: 'Ficha do PT-141', desc: 'Agonista de melanocortina aprovado pela FDA.' },
+      { href: '/peptideos/melanotan-ii', label: 'Ficha do Melanotan II', desc: 'Por que o uso é desaconselhado.' },
+      { href: '/peptideos/kpv', label: 'Ficha do KPV', desc: 'Fragmento anti-inflamatório do α-MSH.' },
     ],
   },
   {
@@ -410,6 +492,33 @@ export const GLOSSARY: GlossaryTerm[] = [
     ],
     related: ['seringa-de-insulina-u100', 'reconstituicao'],
     links: [{ href: '/peptideos', label: 'Enciclopédia de peptídeos', desc: 'Cada ficha traz o guia de locais de aplicação.' }],
+  },
+  {
+    slug: 'telomerase',
+    term: 'Telomerase',
+    definition:
+      'Enzima que alonga os telômeros, as pontas protetoras dos cromossomos que encurtam a cada divisão celular. É ativa em células-tronco, em células germinativas e na maioria dos cânceres. É o alvo proposto do Epithalon.',
+    body: [
+      'Na maior parte das células adultas a telomerase fica quase desligada, e o encurtamento dos telômeros leva a célula à senescência — uma das explicações biológicas do envelhecimento. Reativá-la é a ideia por trás de peptídeos "anti-envelhecimento" como o Epithalon.',
+      'A mesma enzima é reativada em cerca de 85% a 90% dos tumores, o que permite que as células cancerosas se dividam sem limite. Por isso, estimular a telomerase traz um risco teórico, e a evidência a favor do Epithalon vem quase toda de um único grupo de pesquisa.',
+    ],
+    related: ['igf-1', 'pubmed'],
+    links: [{ href: '/peptideos/epithalon', label: 'Ficha do Epithalon', desc: 'Evidências e limitações.' }],
+  },
+  {
+    slug: 'timosina',
+    term: 'Timosina',
+    definition:
+      'Nome dado a peptídeos isolados originalmente de extratos do timo. Os dois mais conhecidos, a timosina alfa-1 e a timosina beta-4, têm estrutura e função diferentes, apesar do nome em comum.',
+    body: [
+      'A timosina alfa-1 (28 aminoácidos) é imunomoduladora e está aprovada em vários países, como o Zadaxin, para hepatite B e C crônicas. A timosina beta-4 (43 aminoácidos) não é exclusiva do timo: está presente em quase todas as células, onde se liga à actina e participa de migração celular e cicatrização.',
+      'O TB-500 vendido online é apresentado como fragmento sintético da timosina beta-4 e não tem aprovação em nenhum país. Os dois compostos têm indicações, evidências e status regulatório distintos e não devem ser confundidos.',
+    ],
+    related: ['catelicidina', 'vegf', 'wada'],
+    links: [
+      { href: '/peptideos/timosina-alfa-1', label: 'Ficha da timosina alfa-1', desc: 'Imunomodulador aprovado fora do Brasil.' },
+      { href: '/peptideos/tb-500', label: 'Ficha do TB-500', desc: 'Fragmento da timosina beta-4.' },
+    ],
   },
   {
     slug: 'titulacao',

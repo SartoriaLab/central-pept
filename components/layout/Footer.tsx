@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { TOOLS } from '@/lib/tools';
 
 export default function Footer() {
   return (
@@ -25,13 +26,10 @@ export default function Footer() {
         <div>
           <div className="font-bold text-ink mb-1.5 uppercase text-xs tracking-wider">Ferramentas</div>
           <ul className="text-ink-2">
-            <li><Link href="/ferramentas/reconstituicao" className="inline-block py-1.5 hover:text-teal-700">Reconstituição</Link></li>
-            <li><Link href="/ferramentas/mistura" className="inline-block py-1.5 hover:text-teal-700">Mistura</Link></li>
-            <li><Link href="/ferramentas/conversor" className="inline-block py-1.5 hover:text-teal-700">Conversor</Link></li>
-            <li><Link href="/ferramentas/cronograma" className="inline-block py-1.5 hover:text-teal-700">Cronograma</Link></li>
-            <li><Link href="/ferramentas/titulacao" className="inline-block py-1.5 hover:text-teal-700">Subida de Dose GLP-1</Link></li>
-            <li><Link href="/ferramentas/custo-glp1" className="inline-block py-1.5 hover:text-teal-700">Custo por Dose GLP-1</Link></li>
-            <li><Link href="/ferramentas/tabela-doses-glp1" className="inline-block py-1.5 hover:text-teal-700">Tabela de Doses GLP-1</Link></li>
+            {TOOLS.map((t) => (
+              <li key={t.slug}><Link href={`/ferramentas/${t.slug}`} className="inline-block py-1.5 hover:text-teal-700">{t.shortTitle}</Link></li>
+            ))}
+            <li><Link href="/seringas" className="inline-block py-1.5 hover:text-teal-700">Como ler a seringa</Link></li>
           </ul>
         </div>
 
@@ -41,6 +39,8 @@ export default function Footer() {
             <li><Link href="/peptideos" className="inline-block py-1.5 hover:text-teal-700">Enciclopédia</Link></li>
             <li><Link href="/medicamentos" className="inline-block py-1.5 hover:text-teal-700">Mounjaro, Ozempic e Wegovy</Link></li>
             <li><Link href="/peptideos/categoria/emagrecimento" className="inline-block py-1.5 hover:text-teal-700">Peptídeos para emagrecer</Link></li>
+            <li><Link href="/peptideos/categoria/meia-vida" className="inline-block py-1.5 hover:text-teal-700">Meia-vida dos peptídeos</Link></li>
+            <li><Link href="/peptideos/categoria/proibidos-no-esporte" className="inline-block py-1.5 hover:text-teal-700">Proibidos no esporte</Link></li>
             <li><Link href="/comparar" className="inline-block py-1.5 hover:text-teal-700">Comparador</Link></li>
             <li><Link href="/blog" className="inline-block py-1.5 hover:text-teal-700">Blog</Link></li>
             <li><Link href="/glossario" className="inline-block py-1.5 hover:text-teal-700">Glossário</Link></li>

@@ -1,7 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import { TITRATION_SCHEMES } from '@/lib/titration';
+import { TITRATION_SCHEMES, durationLabel, stepPeriodLabel } from '@/lib/titration';
 import { EVENTS, track } from '@/lib/track';
 import { parseLocalDate, todayLocalISO } from '@/lib/dates';
 import { buildIcs, downloadIcs } from '@/lib/ics';
@@ -11,28 +11,33 @@ const SCHEMES = TITRATION_SCHEMES;
 export default function TitrationCalculator() {
   const [schemeId, setSchemeId] = useState<string>(SCHEMES[1].id);
   const [startDate, setStartDate] = useState(() => todayLocalISO());
-  const [weeksPerStep, setWeeksPerStep] = useState(4);
+  const [stepChoice, setStepChoice] = useState<number>(SCHEMES[1].stepDays);
 
   const scheme = useMemo(() => SCHEMES.find((s) => s.id === schemeId)!, [schemeId]);
+  // Duração de cada etapa em dias: semanais 28/42/56, liraglutida 7/14, Rybelsus 30/60.
+  const stepDays = scheme.stepOptionsDays.includes(stepChoice) ? stepChoice : scheme.stepDays;
 
-  const schedule = useMemo(() => {
-    // Ajusta os steps conforme weeksPerStep definido pelo usuário
-    return scheme.steps.map((step, i) => ({
-      ...step,
-      week: 1 + i * weeksPerStep,
-    }));
-  }, [scheme, weeksPerStep]);
+  const schedule = useMemo(
+    () => scheme.steps.map((step, i) => ({ ...step, dayOffset: i * stepDays })),
+    [scheme, stepDays],
+  );
 
-  const dateFor = (weekNumber: number): string => {
+  const dateFor = (dayOffset: number): string => {
     const start = parseLocalDate(startDate);
     if (Number.isNaN(start.getTime())) return '—';
     const d = new Date(start);
-    d.setDate(start.getDate() + (weekNumber - 1) * 7);
+    d.setDate(start.getDate() + dayOffset);
     return d.toLocaleDateString('pt-BR', { day: '2-digit', month: 'short', year: 'numeric' });
   };
 
-  const totalWeeks = schedule.length * weeksPerStep;
+  const daysToMaintenance = (schedule.length - 1) * stepDays;
   const maintenanceDose = schedule[schedule.length - 1]?.dose;
+
+  function selectScheme(id: string) {
+    setSchemeId(id);
+    const next = SCHEMES.find((s) => s.id === id);
+    if (next) setStepChoice(next.stepDays);
+  }
 
   function exportIcs() {
     // 9h no horário local (antes ficava fixo em 09:00 UTC = 6h em Brasília).
@@ -40,12 +45,12 @@ export default function TitrationCalculator() {
     const name = scheme.name.split(' — ')[0];
     const events = schedule.map((step) => {
       const d = new Date(start);
-      d.setDate(start.getDate() + (step.week - 1) * 7);
+      d.setDate(start.getDate() + step.dayOffset);
       return {
         start: d,
         minutes: 60,
         summary: `${name} — Subir para ${step.dose} ${scheme.unit}`,
-        description: `Início da etapa ${step.dose} ${scheme.unit}. Próxima etapa em ${weeksPerStep} semanas.`,
+        description: `Início da etapa ${step.dose} ${scheme.unit}. Próxima etapa em ${durationLabel(stepDays)}.`,
       };
     });
     downloadIcs(`titulacao-${scheme.id}.ics`, buildIcs(events, 'Titulação'));
@@ -76,7 +81,7 @@ export default function TitrationCalculator() {
                   name="scheme"
                   value={s.id}
                   checked={schemeId === s.id}
-                  onChange={() => setSchemeId(s.id)}
+                  onChange={() => selectScheme(s.id)}
                   className="sr-only"
                 />
                 <span className={`mt-0.5 w-4 h-4 rounded-full border-2 flex items-center justify-center flex-shrink-0 ${
@@ -100,7 +105,7 @@ export default function TitrationCalculator() {
           </h2>
           <div className="flex flex-col gap-3">
             <label className="flex flex-col gap-1.5">
-              <span className="text-xs font-semibold text-ink-2">Data da primeira aplicação</span>
+              <span className="text-xs font-semibold text-ink-2">Data da primeira dose</span>
               <input
                 type="date"
                 value={startDate}
@@ -109,26 +114,26 @@ export default function TitrationCalculator() {
               />
             </label>
             <div className="flex flex-col gap-1.5">
-              <span id="semanas-etapa" className="text-xs font-semibold text-ink-2">Semanas em cada etapa</span>
+              <span id="semanas-etapa" className="text-xs font-semibold text-ink-2">Duração de cada etapa</span>
               <div className="flex gap-2" role="group" aria-labelledby="semanas-etapa">
-                {[4, 6, 8].map((w) => (
+                {scheme.stepOptionsDays.map((d) => (
                   <button
-                    key={w}
+                    key={d}
                     type="button"
-                    onClick={() => setWeeksPerStep(w)}
-                    aria-pressed={weeksPerStep === w}
+                    onClick={() => setStepChoice(d)}
+                    aria-pressed={stepDays === d}
                     className={`flex-1 h-11 rounded border-[1.5px] font-bold text-sm tabular-nums transition-all ${
-                      weeksPerStep === w
+                      stepDays === d
                         ? 'border-teal bg-teal-50 text-teal-700'
                         : 'border-border-2 bg-surface text-ink-2 hover:border-teal'
                     }`}
                   >
-                    {w} sem
+                    {d % 7 === 0 ? `${d / 7} sem` : `${d} dias`}
                   </button>
                 ))}
               </div>
               <span className="text-xs text-ink-3">
-                Bula padrão: 4 semanas por etapa. Para minimizar náusea, considere 6-8.
+                Bula: {durationLabel(scheme.stepDays)} por etapa, no mínimo. Ficar mais tempo numa etapa ajuda a reduzir a náusea.
               </span>
             </div>
           </div>
@@ -142,7 +147,7 @@ export default function TitrationCalculator() {
             <div>
               <h3 className="font-bold text-ink">Seu plano de titulação</h3>
               <p className="text-xs text-ink-3 mt-0.5">
-                {schedule.length} etapas · {totalWeeks} semanas até dose de manutenção ({maintenanceDose} {scheme.unit})
+                {schedule.length} etapas · {durationLabel(daysToMaintenance)} até a dose final ({maintenanceDose} {scheme.unit})
               </p>
             </div>
             <button
@@ -176,10 +181,10 @@ export default function TitrationCalculator() {
                       <span className="font-bold text-ink tabular-nums">
                         {step.dose} <span className="text-ink-3 font-normal text-sm">{scheme.unit}</span>
                       </span>
-                      <span className="text-xs text-ink-3 tabular-nums whitespace-nowrap">{dateFor(step.week)}</span>
+                      <span className="text-xs text-ink-3 tabular-nums whitespace-nowrap">{dateFor(step.dayOffset)}</span>
                     </div>
                     <div className="text-xs text-ink-3 mt-0.5">
-                      Semana {step.week}{!isLast && ` → ${schedule[i + 1].week - 1}`} {isLast && '(manutenção)'}
+                      {stepPeriodLabel(i, stepDays, isLast)} {isLast && '(manutenção)'}
                     </div>
                   </div>
                 </li>

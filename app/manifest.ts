@@ -11,13 +11,13 @@ export default function manifest(): MetadataRoute.Manifest {
     display: 'standalone',
     orientation: 'portrait-primary',
     background_color: '#ffffff',
-    theme_color: '#0d9488',
+    theme_color: '#0f766e',
     lang: 'pt-BR',
     categories: ['health', 'medical', 'education', 'utilities'],
     icons: [
-      { src: '/fav.jpg', sizes: '192x192', type: 'image/jpeg', purpose: 'any' },
-      { src: '/fav.jpg', sizes: '512x512', type: 'image/jpeg', purpose: 'any' },
-      { src: '/fav.jpg', sizes: '512x512', type: 'image/jpeg', purpose: 'maskable' },
+      { src: '/icone/192', sizes: '192x192', type: 'image/png', purpose: 'any' },
+      { src: '/icone/512', sizes: '512x512', type: 'image/png', purpose: 'any' },
+      { src: '/icone/maskable', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
     ],
     shortcuts: [
       {

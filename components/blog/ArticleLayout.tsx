@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { articleOgImageUrl, getRelatedArticles, type Article } from '@/lib/articles';
+import { articleOgImageUrl, getRelatedArticles, tagSlug, type Article } from '@/lib/articles';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
 import ShareButtons from '@/components/ui/ShareButtons';
 import RelatedPosts from '@/components/blog/RelatedPosts';
@@ -102,7 +102,7 @@ export default function ArticleLayout({ article, children }: Props) {
 
           <div className="flex flex-wrap items-center gap-2 mb-4">
             {article.tags.slice(0, 3).map((tag) => {
-              const slug = tag.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, '-');
+              const slug = tagSlug(tag);
               return (
                 <Link
                   key={tag}

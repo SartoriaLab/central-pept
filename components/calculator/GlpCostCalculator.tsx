@@ -16,6 +16,8 @@ const MEDS: Med[] = [
 ];
 
 const WEEKS_PER_MONTH = 52 / 12;
+// A calculadora é de dose semanal: ignora esquemas diários (liraglutida, Rybelsus).
+const WEEKLY = { route: 'injetavel', frequency: 'semanal' } as const;
 const MAX_WEEKS_OPEN = 4; // frasco reconstituído: uso em até 28 dias
 
 const brl = (n: number) => n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
@@ -29,7 +31,7 @@ export default function GlpCostCalculator() {
   const [discard, setDiscard] = useState(true);
 
   const med = MEDS.find((m) => m.id === medId)!;
-  const doses = useMemo(() => (med.peptideSlug ? getTitrationDoses(med.peptideSlug) : []), [med]);
+  const doses = useMemo(() => (med.peptideSlug ? getTitrationDoses(med.peptideSlug, WEEKLY) : []), [med]);
 
   const result = useMemo(() => {
     if (!(typeof price === 'number' && price > 0)) return null;
@@ -63,7 +65,7 @@ export default function GlpCostCalculator() {
   function selectMed(id: string) {
     const m = MEDS.find((x) => x.id === id)!;
     setMedId(id);
-    const d = m.peptideSlug ? getTitrationDoses(m.peptideSlug) : [];
+    const d = m.peptideSlug ? getTitrationDoses(m.peptideSlug, WEEKLY) : [];
     if (d.length > 0) setDose(d[0]);
     setTotalMg(m.packages.includes(10) ? 10 : m.packages[0]);
   }

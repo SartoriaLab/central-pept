@@ -231,7 +231,7 @@ export default async function CategoryPage({ params }: { params: Promise<Params>
         <FAQ items={c.faq} />
 
         <section className="mt-10" aria-labelledby="outras-categorias">
-          <h2 id="outras-categorias" className="text-sm font-bold uppercase tracking-wider text-ink-3 mb-3">Outros objetivos</h2>
+          <h2 id="outras-categorias" className="text-sm font-bold uppercase tracking-wider text-ink-3 mb-3">Outros objetivos e listas</h2>
           <div className="flex flex-wrap gap-2">
             {others.map((o) => (
               <Link

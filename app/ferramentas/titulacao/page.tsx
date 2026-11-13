@@ -15,7 +15,7 @@ const FAQ_ITEMS: FAQItem[] = [
   },
   {
     q: 'Quanto tempo fico em cada dose antes de subir?',
-    a: 'O padrão de bula é 4 semanas por etapa. Semaglutida: 0,25 → 0,5 → 1,0 → 1,7 → 2,4 mg. Tirzepatida: 2,5 → 5 → 7,5 → 10 → 12,5 → 15 mg. Se os efeitos colaterais estiverem fortes, é seguro permanecer mais tempo numa etapa antes de avançar.',
+    a: 'Depende do medicamento. Semaglutida injetável e tirzepatida sobem a cada 4 semanas (semaglutida: 0,25 → 0,5 → 1,0 → 1,7 → 2,4 mg; tirzepatida: 2,5 → 5 → 7,5 → 10 → 12,5 → 15 mg). A liraglutida (Saxenda, Victoza) é diária e sobe a cada semana; a semaglutida oral (Rybelsus) sobe a cada 30 dias. Com efeitos colaterais fortes, pode-se ficar mais tempo numa etapa, com orientação médica.',
   },
   {
     q: 'Posso pular etapas para emagrecer mais rápido?',
@@ -27,11 +27,11 @@ const FAQ_ITEMS: FAQItem[] = [
   },
   {
     q: 'Qual a dose máxima de Ozempic/Wegovy e Mounjaro?',
-    a: 'Semaglutida: Ozempic vai até 2,0 mg/semana (diabetes) e Wegovy até 2,4 mg/semana (obesidade). Tirzepatida (Mounjaro/Zepbound) vai até 15 mg/semana. Nem todos precisam chegar à dose máxima — a ideal é a menor que mantém o resultado com efeitos toleráveis.',
+    a: 'Semaglutida: Ozempic vai até 2,0 mg/semana (diabetes) e Wegovy até 2,4 mg/semana (obesidade). Tirzepatida (Mounjaro/Zepbound) vai até 15 mg/semana. Liraglutida: Victoza até 1,8 mg/dia e Saxenda até 3,0 mg/dia. Nem todos precisam chegar à dose máxima — a ideal é a menor que mantém o resultado com efeitos toleráveis.',
   },
   {
     q: 'A ferramenta exporta o calendário de doses?',
-    a: 'Sim. Depois de montar o plano semana a semana, você exporta as datas para o Google Calendar, com um lembrete automático em cada aumento de dose.',
+    a: 'Sim. Depois de montar o plano, você exporta as datas para o Google Calendar, com um lembrete automático em cada aumento de dose.',
   },
 ];
 
@@ -45,7 +45,7 @@ const RELATED_LINKS: RelatedLink[] = [
 
 export const metadata: Metadata = {
   title: 'Plano de Subida de Dose — Ozempic, Wegovy e Mounjaro',
-  description: 'Calendário de subida de dose para semaglutida (Ozempic/Wegovy) e tirzepatida (Mounjaro/Zepbound). Semana a semana, com datas automáticas e export para o Google Calendar.',
+  description: 'Calendário de subida de dose de Ozempic, Wegovy, Mounjaro, Zepbound, Saxenda, Victoza e Rybelsus, com datas automáticas e export para o Google Calendar.',
   ...social({
     kind: 'pagina', slug: 'titulacao', path: '/ferramentas/titulacao',
     title: 'Plano de Subida de Dose GLP-1 — Ozempic e Mounjaro',
@@ -59,7 +59,7 @@ export default function TitulacaoPage() {
     <div className="max-w-6xl mx-auto px-4 md:px-6 py-6 md:py-10">
       <ToolSchema
         name="Plano de Subida de Dose GLP-1 (Ozempic, Wegovy, Mounjaro)"
-        description="Calendário de subida de dose para semaglutida e tirzepatida, semana a semana, com datas automáticas e export para o Google Calendar."
+        description="Calendário de subida de dose para semaglutida, tirzepatida e liraglutida, com datas automáticas e export para o Google Calendar."
         path="/ferramentas/titulacao"
       />
       <div className="mb-4">
@@ -71,9 +71,9 @@ export default function TitulacaoPage() {
           Subida de Dose — <span className="text-teal-700">Ozempic, Wegovy e Mounjaro</span>
         </h1>
         <p className="mt-2 text-ink-2 max-w-2xl text-base md:text-lg">
-          Monte o calendário completo de escalonamento semana a semana para semaglutida
-          (Ozempic/Wegovy) e tirzepatida (Mounjaro/Zepbound). Com datas automáticas e
-          export para o Google Calendar.
+          Monte o calendário completo de escalonamento para semaglutida (Ozempic, Wegovy,
+          Rybelsus), tirzepatida (Mounjaro, Zepbound) e liraglutida (Saxenda, Victoza). Com datas
+          automáticas e export para o Google Calendar.
         </p>
       </header>
 

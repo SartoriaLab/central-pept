@@ -9,12 +9,11 @@ import FAQ, { type FAQItem } from '@/components/ui/FAQ';
 import PrintButton from '@/components/ui/PrintButton';
 import { calcByVolume, fmt } from '@/components/calculator/calc';
 import { getPeptideBySlug } from '@/lib/peptides';
-import { TITRATION_SCHEMES, getTitrationDoses, type TitrationScheme } from '@/lib/titration';
+import { TITRATION_SCHEMES, doseLabel, durationLabel, getTitrationDoses, stepPeriodLabel, type TitrationScheme } from '@/lib/titration';
 import { SITE_URL } from '@/lib/site';
 
 const PATH = '/ferramentas/tabela-doses-glp1';
 const WATER_VOLUMES = [1, 2];
-const WEEKS_PER_STEP = 4;
 const LOG_ROWS = 12;
 
 // Esquemas com a mesma escada (Mounjaro e Zepbound) viram uma tabela só.
@@ -33,7 +32,8 @@ function uniqueSchemes(): { scheme: TitrationScheme; label: string }[] {
   return Array.from(seen.values());
 }
 
-const PEPTIDE_SLUGS = Array.from(new Set(TITRATION_SCHEMES.map((s) => s.peptideSlug)));
+// Unidades na seringa só para esquemas injetáveis (o Rybelsus é comprimido).
+const PEPTIDE_SLUGS = Array.from(new Set(TITRATION_SCHEMES.filter((s) => s.route === 'injetavel').map((s) => s.peptideSlug)));
 
 const FAQ_ITEMS: FAQItem[] = [
   {
@@ -45,8 +45,12 @@ const FAQ_ITEMS: FAQItem[] = [
     a: 'Ozempic: 0,25 mg por 4 semanas, depois 0,5 mg, podendo subir para 1 mg e 2 mg. Wegovy: 0,25 → 0,5 → 1,0 → 1,7 → 2,4 mg, com 4 semanas em cada etapa até a manutenção de 2,4 mg por semana.',
   },
   {
+    q: 'Qual a tabela de doses do Saxenda e do Victoza (liraglutida)?',
+    a: 'A liraglutida é aplicada todo dia e sobe uma vez por semana. Saxenda: 0,6 → 1,2 → 1,8 → 2,4 → 3,0 mg por dia, uma semana em cada etapa, até a manutenção de 3 mg. Victoza: 0,6 mg por dia na primeira semana, depois 1,2 mg; a bula permite subir para 1,8 mg se for preciso mais controle da glicose.',
+  },
+  {
     q: 'Posso ficar mais tempo em uma dose antes de subir?',
-    a: 'Sim. Quatro semanas é o mínimo de bula, não uma obrigação. Se os efeitos gastrointestinais estiverem fortes, permanecer mais tempo na etapa atual é a conduta usual — a decisão deve ser tomada com o médico.',
+    a: 'Sim. O tempo de cada etapa (4 semanas nos semanais) é o mínimo de bula, não uma obrigação. Se os efeitos gastrointestinais estiverem fortes, permanecer mais tempo na etapa atual é a conduta usual — a decisão deve ser tomada com o médico.',
     link: { label: 'Montar calendário com datas', href: '/ferramentas/titulacao' },
   },
   {
@@ -69,7 +73,7 @@ const RELATED_LINKS: RelatedLink[] = [
 export const metadata: Metadata = {
   title: 'Tabela de Doses de Mounjaro, Ozempic e Wegovy para imprimir',
   description:
-    'Tabela de doses de tirzepatida (Mounjaro), semaglutida (Ozempic/Wegovy) e retatrutida: escada de titulação semana a semana e unidades na seringa por frasco. Pronta para imprimir.',
+    'Tabela de doses de tirzepatida (Mounjaro), semaglutida (Ozempic/Wegovy/Rybelsus), liraglutida (Saxenda/Victoza) e retatrutida: escada de titulação semana a semana e unidades na seringa por frasco. Pronta para imprimir.',
   ...social({
     kind: 'pagina', slug: 'tabela-doses-glp1', path: PATH,
     title: 'Tabela de Doses GLP-1 para imprimir',
@@ -111,22 +115,24 @@ export default function TabelaDosesGlp1Page() {
           {schemes.map(({ scheme, label }) => (
             <div key={scheme.id} className="card overflow-hidden">
               <h3 className="px-3 pt-3 font-bold text-ink">{label}</h3>
+              <p className="px-3 text-xs text-ink-3">
+                {scheme.route === 'oral' ? 'Comprimido' : 'Injeção'} {scheme.frequency === 'diaria' ? 'diária' : 'semanal'} · mínimo de {durationLabel(scheme.stepDays)} por etapa
+              </p>
               <table className="w-full text-sm mt-1">
                 <thead>
                   <tr className="border-b border-border">
                     <th scope="col" className={th}>Etapa</th>
-                    <th scope="col" className={th}>Semanas</th>
-                    <th scope="col" className={th}>Dose semanal</th>
+                    <th scope="col" className={th}>Período</th>
+                    <th scope="col" className={th}>{doseLabel(scheme.frequency)}</th>
                   </tr>
                 </thead>
                 <tbody>
                   {scheme.steps.map((step, i) => {
-                    const start = 1 + i * WEEKS_PER_STEP;
                     const last = i === scheme.steps.length - 1;
                     return (
                       <tr key={step.dose} className="border-b border-border last:border-0">
                         <td className={td}>{i + 1}</td>
-                        <td className={td}>{last ? `${start} em diante` : `${start} a ${start + WEEKS_PER_STEP - 1}`}</td>
+                        <td className={td}>{stepPeriodLabel(i, scheme.stepDays, last)}</td>
                         <td className={`${td} font-bold text-teal-700`}>{fmt(step.dose, 2)} mg</td>
                       </tr>
                     );
@@ -137,9 +143,10 @@ export default function TabelaDosesGlp1Page() {
           ))}
         </div>
         <p className="mt-3 text-sm text-ink-2 max-w-3xl">
-          Quatro semanas por etapa é o mínimo de bula. Nem todos chegam à dose máxima: a dose de
-          manutenção é a menor que mantém o resultado com efeitos toleráveis. Retatrutida ainda é
-          experimental (fase 3), sem aprovação regulatória.
+          O tempo em cada etapa é o mínimo de bula: 4 semanas para semaglutida e tirzepatida semanais,
+          1 semana para liraglutida (aplicação diária) e 30 dias para o Rybelsus (comprimido diário).
+          Nem todos chegam à dose máxima: a dose de manutenção é a menor que mantém o resultado com
+          efeitos toleráveis. Retatrutida ainda é experimental (fase 3), sem aprovação regulatória.
         </p>
       </section>
 

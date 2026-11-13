@@ -41,9 +41,9 @@ export default function PeptideosPage() {
         <PeptideBrowser peptides={peptides} />
 
         <section className="mt-10" aria-labelledby="por-objetivo">
-          <h2 id="por-objetivo" className="text-xl md:text-2xl font-bold mb-2">Peptídeos por objetivo</h2>
+          <h2 id="por-objetivo" className="text-xl md:text-2xl font-bold mb-2">Peptídeos por objetivo e listas</h2>
           <p className="text-sm text-ink-2 mb-4 max-w-2xl">
-            Listas comparadas por finalidade, com dose, meia-vida e status regulatório lado a lado.
+            Listas comparadas por finalidade, status regulatório, doping e meia-vida, com dose e situação de cada peptídeo lado a lado.
           </p>
           <div className="flex flex-wrap gap-2">
             {getCategoryPages().map((c) => (

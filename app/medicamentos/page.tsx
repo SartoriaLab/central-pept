@@ -9,14 +9,14 @@ import { SITE_URL } from '@/lib/site';
 const PATH = '/medicamentos';
 
 export const metadata: Metadata = {
-  title: 'Mounjaro, Ozempic, Wegovy e Zepbound: diferenças, doses e princípio ativo',
+  title: 'Mounjaro, Ozempic, Wegovy, Saxenda e outras marcas: diferenças e doses',
   description:
-    'Qual o princípio ativo de cada marca, para que serve, as doses da bula e a diferença entre Mounjaro e Zepbound, Ozempic e Wegovy.',
+    'Princípio ativo, indicação e doses da bula de Mounjaro, Zepbound, Ozempic, Wegovy, Rybelsus, Saxenda e Victoza — e o que muda entre as marcas de cada molécula.',
   alternates: { canonical: PATH },
   ...social({
     kind: 'pagina', slug: 'medicamentos', path: PATH,
-    title: 'Mounjaro, Ozempic, Wegovy e Zepbound — guia das marcas',
-    description: 'Princípio ativo, indicação, doses e diferenças entre as quatro marcas.',
+    title: 'Mounjaro, Ozempic, Wegovy, Saxenda e mais — guia das marcas',
+    description: 'Princípio ativo, indicação, doses e diferenças entre as marcas de GLP-1.',
   }),
 };
 
@@ -44,12 +44,14 @@ export default function MedicamentosPage() {
         <Breadcrumb items={[{ label: 'Medicamentos' }]} siteUrl={SITE_URL} />
       </div>
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight">
-          Mounjaro, Ozempic, Wegovy e Zepbound: <span className="text-teal-700">o que muda entre as marcas</span>
+          Mounjaro, Ozempic, Wegovy, Saxenda e outras: <span className="text-teal-700">o que muda entre as marcas</span>
         </h1>
         <p className="mt-3 text-ink-2 max-w-3xl text-base md:text-lg leading-relaxed">
-          São quatro nomes comerciais para duas moléculas. Mounjaro e Zepbound são tirzepatida, da Eli
-          Lilly; Ozempic e Wegovy são semaglutida, da Novo Nordisk. O que separa cada par é a indicação
-          registrada em bula e a dose máxima.
+          São vários nomes comerciais para três moléculas. Mounjaro e Zepbound são tirzepatida, da Eli
+          Lilly, em injeção semanal. Ozempic e Wegovy são semaglutida injetável semanal, e Rybelsus é a
+          semaglutida em comprimido diário, todos da Novo Nordisk. Saxenda e Victoza são liraglutida, de
+          aplicação diária, também da Novo Nordisk. O que separa as marcas de uma mesma molécula é a
+          indicação registrada em bula, a via e a dose.
         </p>
         </div>
       </section>

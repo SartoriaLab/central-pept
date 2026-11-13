@@ -5,6 +5,7 @@ import { COMPARISONS } from './comparisons';
 import { getBrands } from './brands';
 import { getCategoryPages } from './categories';
 import { TOOLS } from './tools';
+import { SYRINGES } from './syringes';
 
 import type { SearchResult } from './search';
 
@@ -120,8 +121,10 @@ export function buildSearchIndex(): SearchResult[] {
   // Páginas
   const pages = [
     { url: '/comparar', title: 'Comparador de peptídeos', desc: 'Até 4 peptídeos lado a lado' },
-    { url: '/medicamentos', title: 'Mounjaro, Ozempic, Wegovy e Zepbound', desc: 'Diferenças entre as marcas' },
+    { url: '/medicamentos', title: 'Mounjaro, Ozempic, Wegovy, Saxenda e outras marcas', desc: 'Diferenças entre as marcas de GLP-1' },
     { url: '/glossario', title: 'Glossário', desc: 'Termos técnicos explicados' },
+    { url: '/seringas', title: 'Como ler a seringa de insulina', desc: 'Unidades, ml e mg; seringas de 30, 50 e 100 U' },
+    ...SYRINGES.map((s) => ({ url: `/seringas/${s.slug}`, title: `Seringa de insulina de ${s.label}`, desc: `Cada traço vale ${s.tick} U; tabela de mg por marca` })),
     { url: '/blog', title: 'Blog', desc: 'Artigos e guias' },
     { url: '/sobre', title: 'Sobre', desc: 'Metodologia editorial' },
     { url: '/contato', title: 'Contato', desc: 'Correções e sugestões' },
