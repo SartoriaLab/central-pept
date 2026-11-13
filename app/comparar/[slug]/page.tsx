@@ -18,6 +18,8 @@ import { SITE_URL } from '@/lib/site';
 
 type Params = { slug: string };
 
+export const dynamicParams = false;
+
 export function generateStaticParams(): Params[] {
   return getComparisonSlugs().map((slug) => ({ slug }));
 }

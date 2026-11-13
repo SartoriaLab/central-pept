@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { CONTACT_EMAIL } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Contato',
@@ -13,30 +14,9 @@ export default function ContatoPage() {
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight">Contato</h1>
         <p className="mt-3 text-lg text-ink-2 leading-relaxed">
           Encontrou um erro, referência quebrada, quer sugerir um peptídeo para
-          catalogar ou tem uma dúvida editorial? Use os canais abaixo.
+          catalogar ou tem uma dúvida editorial? Fale com a gente pelo email abaixo.
         </p>
       </header>
-
-      <section className="card p-6 mb-6">
-        <div className="flex items-start gap-4">
-          <div className="w-12 h-12 rounded-lg bg-teal-50 text-teal-700 flex items-center justify-center flex-shrink-0">
-            <svg viewBox="0 0 24 24" width={22} height={22} fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-              <path d="M12 3a9 9 0 1 0 9 9M21 3v6h-6M3 9v6M12 7v5l3 3" />
-            </svg>
-          </div>
-          <div>
-            <h2 className="font-bold text-lg text-ink">Correção de conteúdo</h2>
-            <p className="text-sm text-ink-2 mt-1 leading-relaxed">
-              Se alguma informação está incorreta ou desatualizada, o caminho mais
-              rápido é abrir uma <em>issue</em> no repositório do projeto. Descreva
-              o problema e, se possível, inclua a fonte que contradiz o conteúdo.
-            </p>
-            <p className="text-sm text-ink-3 mt-3">
-              <em>Link do GitHub a definir quando o projeto for publicado.</em>
-            </p>
-          </div>
-        </div>
-      </section>
 
       <section className="card p-6 mb-6">
         <div className="flex items-start gap-4">
@@ -46,14 +26,36 @@ export default function ContatoPage() {
               <path d="m22 7-10 7L2 7" />
             </svg>
           </div>
-          <div>
+          <div className="min-w-0">
             <h2 className="font-bold text-lg text-ink">Email editorial</h2>
             <p className="text-sm text-ink-2 mt-1 leading-relaxed">
-              Para sugestões de novos peptídeos, propostas de parceria ou revisão
-              médica, escreva para:
+              Correções de conteúdo, sugestões de novos peptídeos, propostas de
+              parceria ou revisão médica:
             </p>
-            <p className="text-sm text-teal-700 font-semibold mt-2">
-              contato@centralpeptideos.com.br <span className="text-ink-3 font-normal italic">(a configurar)</span>
+            <a
+              href={`mailto:${CONTACT_EMAIL}`}
+              className="inline-block text-base text-teal-700 font-semibold mt-2 break-all hover:underline"
+            >
+              {CONTACT_EMAIL}
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="card p-6 mb-6">
+        <div className="flex items-start gap-4">
+          <div className="w-12 h-12 rounded-lg bg-teal-50 text-teal-700 flex items-center justify-center flex-shrink-0">
+            <svg viewBox="0 0 24 24" width={22} height={22} fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+              <path d="M12 3a9 9 0 1 0 9 9M21 3v6h-6M3 9v6M12 7v5l3 3" />
+            </svg>
+          </div>
+          <div>
+            <h2 className="font-bold text-lg text-ink">Como pedir uma correção</h2>
+            <p className="text-sm text-ink-2 mt-1 leading-relaxed">
+              Diga qual página tem o problema (cole o link), o que está errado e,
+              se possível, a fonte que contradiz o conteúdo (bula, artigo no
+              PubMed, nota da ANVISA). Correções de dados incorretos são
+              prioridade.
             </p>
           </div>
         </div>
@@ -80,8 +82,8 @@ export default function ContatoPage() {
       </section>
 
       <p className="text-xs text-ink-3 mt-8 leading-relaxed">
-        Respondemos sugestões e correções dentro de alguns dias úteis. Por sermos um
-        projeto mantido por voluntários, não garantimos resposta em prazo definido.
+        Respondemos sugestões e correções dentro de alguns dias úteis, sem prazo
+        garantido.
       </p>
     </div>
   );

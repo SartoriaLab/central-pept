@@ -48,6 +48,11 @@ const TOOLS = [
     title: 'Custo de GLP-1',
     desc: 'Quanto sai por dose, por mês e por mg em cada apresentação.',
   },
+  {
+    slug: 'tabela-doses-glp1',
+    title: 'Tabela de Doses GLP-1',
+    desc: 'Tabela imprimível com escalas, unidades por frasco e diário de aplicação.',
+  },
 ];
 
 const STEPS = [
@@ -150,8 +155,8 @@ export default function HomePage() {
                 <rect x={3} y={5} width={18} height={14} rx={2} />
                 <path d="M3 10h18M8 15h2" />
               </>}
-              title="Sem rastreamento"
-              desc="Só analytics anônimo"
+              title="Sem cookies"
+              desc="Só métricas agregadas"
             />
             <TrustItem
               icon={<>
@@ -320,8 +325,8 @@ export default function HomePage() {
             Pronto pra começar?
           </h2>
           <p className="mt-3 text-white/90 text-lg max-w-xl mx-auto">
-            A calculadora está a um clique. Sem cadastro, sem upsell, sem script de
-            tracking — é só abrir e usar.
+            A calculadora está a um clique. Sem cadastro, sem upsell, sem cookies
+            de rastreamento — é só abrir e usar.
           </p>
           <Link
             href="/ferramentas/reconstituicao"

@@ -59,6 +59,16 @@ export const affiliateClicks = pgTable('affiliate_clicks', {
   clickedAt: timestamp('clicked_at').defaultNow().notNull(),
 });
 
+export const newsletterSubscribers = pgTable('newsletter_subscribers', {
+  id: serial('id').primaryKey(),
+  email: varchar('email', { length: 254 }).unique().notNull(), // sempre minúsculo
+  source: varchar('source', { length: 200 }), // página onde assinou
+  consentText: text('consent_text').notNull(), // texto exato aceito (prova do consentimento, LGPD)
+  consentAt: timestamp('consent_at').defaultNow().notNull(),
+  unsubscribeToken: varchar('unsubscribe_token', { length: 64 }).unique().notNull(),
+  createdAt: timestamp('created_at').defaultNow().notNull(),
+});
+
 export const conversions = pgTable('conversions', {
   id: serial('id').primaryKey(),
   utmSource: text('utm_source'),

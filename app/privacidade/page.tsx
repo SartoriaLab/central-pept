@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
+import { CONTACT_EMAIL } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Política de Privacidade',
-  description: 'Política de privacidade da Central Peptídeos.',
+  description: 'Quais dados a Central Peptídeos coleta, para quê e como exercer seus direitos pela LGPD.',
   alternates: { canonical: '/privacidade' },
 };
 
@@ -10,26 +12,26 @@ export default function PrivacidadePage() {
   return (
     <div className="max-w-3xl mx-auto px-4 md:px-6 py-12 prose-article">
       <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-2">Política de Privacidade</h1>
-      <p className="text-ink-3 text-sm mb-8">Última atualização: 16 de abril de 2026</p>
+      <p className="text-ink-3 text-sm mb-8">Última atualização: 13 de novembro de 2026</p>
 
       <p>
-        A Central Peptídeos leva privacidade a sério. Este documento explica, de forma
-        direta, quais dados coletamos, como são usados e quais são seus direitos.
+        Este documento explica, de forma direta, quais dados a Central Peptídeos
+        coleta, para que servem e quais são seus direitos pela Lei Geral de
+        Proteção de Dados (Lei 13.709/2018).
       </p>
 
-      <h2>Resumo em 30 segundos</h2>
+      <h2>Resumo</h2>
       <ul>
-        <li>Não pedimos cadastro nem login</li>
-        <li>Não coletamos seu nome, email, CPF, endereço ou qualquer dado pessoal identificável</li>
-        <li>Os cálculos e preferências ficam salvos no seu navegador (localStorage), não em servidores nossos</li>
-        <li>Usamos analytics opcional e respeitador de privacidade (sem cookies de rastreamento)</li>
+        <li>Não há cadastro nem login</li>
+        <li>Os cálculos ficam no seu navegador, não em servidores nossos</li>
+        <li>Medimos visitas de forma agregada, sem cookies de rastreamento</li>
+        <li>Só guardamos seu email se você assinar a newsletter, e você pode sair quando quiser</li>
       </ul>
 
       <h2>Dados que ficam no seu navegador</h2>
       <p>
-        Para melhorar sua experiência, salvamos alguns dados localmente no seu
-        navegador (localStorage). Eles <strong>não</strong> são enviados para nenhum
-        servidor:
+        Salvamos alguns dados localmente no seu navegador (localStorage). Eles{' '}
+        <strong>não</strong> são enviados para nenhum servidor:
       </p>
       <ul>
         <li>Último estado da calculadora (peptídeo selecionado, mg, água, unidades)</li>
@@ -37,54 +39,80 @@ export default function PrivacidadePage() {
         <li>Preferência de tema (claro/escuro)</li>
       </ul>
       <p>
-        Você pode limpar esses dados a qualquer momento nas configurações do seu
+        Você pode apagar esses dados a qualquer momento nas configurações do
         navegador (Limpar dados de navegação → Dados de sites).
       </p>
 
-      <h2>Analytics (uso agregado)</h2>
+      <h2>Métricas de uso</h2>
       <p>
-        Para entender quais peptídeos e ferramentas são mais usados, podemos usar
-        uma solução de analytics que respeita privacidade (como Plausible ou Umami).
-        Essas ferramentas:
+        Para saber quais páginas e ferramentas são mais usadas, usamos{' '}
+        <strong>Vercel Web Analytics</strong> e, quando ativado,{' '}
+        <strong>Plausible Analytics</strong>. As duas ferramentas:
       </p>
       <ul>
         <li>Não usam cookies</li>
-        <li>Não rastreiam indivíduos entre sessões</li>
-        <li>Agregam dados de forma anônima (país, tipo de dispositivo, página visitada)</li>
-        <li>Não compartilham dados com terceiros</li>
+        <li>Não identificam você nem seguem você entre sites</li>
+        <li>Registram dados agregados: página visitada, site de origem, país, tipo de dispositivo e navegador</li>
+      </ul>
+      <p>
+        Alguns cliques (por exemplo, “calcular”, “imprimir” ou “baixar .ics”)
+        são contados como eventos, apenas com o nome do peptídeo ou da
+        ferramenta — nunca com doses, valores digitados ou dados de saúde.
+      </p>
+
+      <h2>Newsletter</h2>
+      <p>
+        Se você assinar a newsletter, guardamos seu <strong>email</strong>, a
+        data e a página em que você assinou e o registro do seu consentimento.
+        Usamos esse email só para enviar novos artigos e atualizações do site.
+      </p>
+      <ul>
+        <li>Base legal: seu consentimento (art. 7º, I, da LGPD)</li>
+        <li>Cada email traz um link de descadastro; ao usá-lo, seu endereço é apagado</li>
+        <li>Não vendemos nem compartilhamos a lista com terceiros</li>
+        <li>Os dados ficam em um banco de dados hospedado em provedor de nuvem contratado pelo site</li>
       </ul>
 
       <h2>O que não fazemos</h2>
       <ul>
-        <li>Não vendemos dados — não temos dados a vender</li>
-        <li>Não instalamos pixels de rastreamento (Facebook, Google Ads)</li>
-        <li>Não compartilhamos informações com redes sociais</li>
-        <li>Não enviamos emails de marketing</li>
+        <li>Não vendemos dados</li>
+        <li>Não instalamos pixels de anúncio (Facebook, Google Ads, TikTok)</li>
+        <li>Não pedimos nome, CPF, endereço ou telefone</li>
       </ul>
+
+      <h2>Hospedagem</h2>
+      <p>
+        O site é hospedado na Vercel, que processa dados técnicos de cada acesso
+        (como endereço IP) para entregar as páginas e proteger contra abuso.
+      </p>
 
       <h2>Links externos</h2>
       <p>
-        O site contém links para fontes primárias (FDA, PubMed, WADA, fabricantes).
-        Não somos responsáveis pela política de privacidade desses sites — consulte
-        individualmente.
+        O site aponta para fontes primárias (FDA, PubMed, WADA, fabricantes).
+        Esses sites têm políticas de privacidade próprias.
       </p>
 
       <h2>Menores de idade</h2>
       <p>
-        O site não é direcionado a menores de 18 anos. Peptídeos são produtos para
-        uso adulto sob orientação profissional.
+        O site não é direcionado a menores de 18 anos.
+      </p>
+
+      <h2>Seus direitos</h2>
+      <p>
+        Você pode pedir confirmação, acesso, correção ou exclusão dos seus dados,
+        ou revogar o consentimento, escrevendo para{' '}
+        <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
       </p>
 
       <h2>Alterações nesta política</h2>
       <p>
-        Atualizações serão refletidas na data acima. Por ser site estático sem
-        conta de usuário, não temos como notificar mudanças — recomendamos revisar
-        esta página periodicamente se o tema interessa.
+        Mudanças são refletidas na data no topo desta página. Mudanças relevantes
+        também serão avisadas a quem assina a newsletter.
       </p>
 
-      <h2>Contato</h2>
       <p>
-        Dúvidas sobre privacidade? Veja a <a href="/contato">página de contato</a>.
+        Veja também os <Link href="/termos">termos de uso</Link> e a{' '}
+        <Link href="/contato">página de contato</Link>.
       </p>
     </div>
   );

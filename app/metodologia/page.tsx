@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { CONTACT_EMAIL } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Metodologia Editorial',
@@ -79,8 +80,9 @@ export default function MetodologiaPage() {
           atualizações ficará em um changelog público (em construção).
         </p>
         <p>
-          Encontrou um erro? Abra uma issue no{' '}
-          <Link href="/contato">canal de contato</Link>{' '} — correções de dados
+          Encontrou um erro? Escreva para{' '}
+          <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> ou use o{' '}
+          <Link href="/contato">canal de contato</Link> — correções de dados
           incorretos são prioridade zero.
         </p>
 
@@ -95,8 +97,8 @@ export default function MetodologiaPage() {
         <h2>Como você pode contribuir</h2>
         <p>
           Se é profissional de saúde (médico, farmacêutico, nutrólogo, biomédico)
-          e gostaria de revisar fichas ou contribuir com artigos, escreva para
-          contato@centralpeptideos.com.br — precisamos de revisores credenciados
+          e gostaria de revisar fichas ou contribuir com artigos, escreva para{' '}
+          <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> — precisamos de revisores credenciados
           para manter o padrão de qualidade.
         </p>
 

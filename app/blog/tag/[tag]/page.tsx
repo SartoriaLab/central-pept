@@ -9,6 +9,8 @@ const TIRZE_TAGS = new Set(['tirzepatida', 'mounjaro']);
 
 type Params = { tag: string };
 
+export const dynamicParams = false;
+
 function allTags(): string[] {
   const set = new Set<string>();
   for (const a of getArticles()) {

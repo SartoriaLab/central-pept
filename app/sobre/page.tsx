@@ -2,6 +2,7 @@ import { getPeptides } from '@/lib/peptides';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
+import { CONTACT_EMAIL } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Sobre',
@@ -78,20 +79,14 @@ export default function SobrePage() {
       </section>
 
       <section className="card p-6 mb-6">
-        <h2 className="text-sm font-bold uppercase tracking-wider text-ink-3 mb-3">Fases do projeto</h2>
-        <ol className="space-y-2 text-ink-2 list-decimal pl-5">
-          <li><strong>Fase 1 ✅</strong> — Calculadora de reconstituição, enciclopédia com {getPeptides().length} peptídeos, status regulatório</li>
-          <li><strong>Fase 2</strong> — Supabase + painel editorial para atualizar conteúdo sem redeploy</li>
-          <li><strong>Fase 3</strong> — Blog com artigos aprofundados e comparações</li>
-          <li><strong>Fase 4</strong> — Novas calculadoras: mistura em seringa única, conversor de unidades, cronograma</li>
-        </ol>
-      </section>
-
-      <section className="card p-6 mb-6">
         <h2 className="text-sm font-bold uppercase tracking-wider text-ink-3 mb-3">Correções e sugestões</h2>
         <p className="text-ink-2 leading-relaxed">
           Encontrou um dado incorreto, referência quebrada ou gostaria de sugerir um peptídeo
-          para catalogar? Abra uma issue no repositório do projeto no GitHub.
+          para catalogar? Escreva para{' '}
+          <a href={`mailto:${CONTACT_EMAIL}`} className="text-teal-700 font-semibold hover:underline">
+            {CONTACT_EMAIL}
+          </a>{' '}
+          ou veja a <Link href="/contato" className="text-teal-700 font-semibold hover:underline">página de contato</Link>.
         </p>
       </section>
 

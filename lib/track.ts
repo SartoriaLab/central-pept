@@ -20,6 +20,7 @@ export const EVENTS = {
   copyResult: 'Copiar Resultado',
   share: 'Compartilhar Calculo',
   embedCopy: 'Embed Copiado',
+  newsletterSignup: 'Newsletter Inscricao',
 } as const;
 
 export function track(event: string, props?: EventProps): void {

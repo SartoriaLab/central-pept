@@ -2,9 +2,19 @@ import { db } from '@/lib/db';
 import { questionsFeed, templates } from '@/drizzle/schema';
 import { fetchRedditQuestions } from '@/lib/promocao/reddit';
 import { eq } from 'drizzle-orm';
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
-export async function GET() {
+// Fora do Basic Auth (middleware.ts). A Vercel manda `Authorization: Bearer <CRON_SECRET>`
+// nas execuções agendadas quando a variável CRON_SECRET existe no projeto.
+export async function GET(req: NextRequest) {
+  const secret = process.env.CRON_SECRET;
+  if (!secret) {
+    return NextResponse.json({ error: 'Configure CRON_SECRET' }, { status: 503 });
+  }
+  if (req.headers.get('authorization') !== `Bearer ${secret}`) {
+    return NextResponse.json({ error: 'Não autorizado' }, { status: 401 });
+  }
+
   try {
     const posts = await fetchRedditQuestions();
     let inserted = 0;

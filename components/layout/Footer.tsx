@@ -18,7 +18,7 @@ export default function Footer() {
           />
           <p className="text-ink-2 leading-relaxed max-w-md">
             Central brasileira de informação sobre peptídeos. Calculadoras,
-            enciclopédia e guias — gratuito, sem cadastro, código aberto.
+            enciclopédia e guias — gratuito, sem cadastro, com fontes.
           </p>
         </div>
 

@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
 import { CATEGORY_LABELS, REGULATORY_LABELS, type Peptide, type RegulatoryStatus } from '@/lib/peptides';
 import { RegulatoryBadge, WadaBadge } from './StatusBadge';
@@ -26,6 +26,24 @@ export default function PeptideBrowser({ peptides }: Props) {
   const [query, setQuery] = useState('');
   const [cat, setCat] = useState<string>('all');
   const [status, setStatus] = useState<StatusFilter>('all');
+  const urlLoaded = useRef(false);
+
+  // ?q= vem da busca do Google (SearchAction em app/layout.tsx) e de links compartilhados.
+  // Lido no cliente para a página continuar estática.
+  useEffect(() => {
+    const q = new URLSearchParams(window.location.search).get('q');
+    if (q) setQuery(q);
+    urlLoaded.current = true;
+  }, []);
+
+  useEffect(() => {
+    if (!urlLoaded.current) return;
+    const url = new URL(window.location.href);
+    const q = query.trim();
+    if (q) url.searchParams.set('q', q);
+    else url.searchParams.delete('q');
+    window.history.replaceState(window.history.state, '', url);
+  }, [query]);
 
   // Categorias que realmente aparecem nos peptídeos (mantém ordem de CATEGORY_LABELS)
   const cats = useMemo(() => {

@@ -18,9 +18,13 @@ import InfoCard from '@/components/ui/InfoCard';
 import GlossaryText from '@/components/ui/GlossaryText';
 import { vialPath } from '@/lib/vials';
 
-const SITE = process.env.SITE_URL || 'https://centralpeptideos.com.br';
+import { SITE_URL as SITE } from '@/lib/site';
 
 type Params = { slug: string };
+
+// Slug fora da lista vira 404 direto, sem renderizar sob demanda (aliases antigos
+// são tratados por redirect em next.config.mjs).
+export const dynamicParams = false;
 
 export async function generateStaticParams(): Promise<Params[]> {
   return getPeptideSlugs().map((slug) => ({ slug }));
@@ -76,13 +80,11 @@ export default async function PeptidePage({
     // offers/review/aggregateRating (erro "Snippets do produto" no Search Console).
     '@type': 'MedicalSubstance',
     name: p.name,
-    alternateName: p.slug,
+    url: `${SITE}/peptideos/${p.slug}`,
     description: p.shortDescription,
     ...(p.longDescription && { disambiguatingDescription: p.longDescription.split('\n')[0] }),
     ...(p.mechanism && { mechanismOfAction: p.mechanism.split('\n')[0] }),
-    ...(p.doseRange && { dosageForm: p.doseRange }),
     ...(p.contraindications && p.contraindications.length > 0 && { contraindication: p.contraindications }),
-    ...(p.sideEffects && p.sideEffects.length > 0 && { seriousAdverseOutcome: p.sideEffects }),
     ...(p.references && p.references.length > 0 && {
       citation: p.references.map((r) => ({ '@type': 'CreativeWork', name: r.title, url: r.url })),
     }),
@@ -96,7 +98,7 @@ export default async function PeptidePage({
     '@type': 'MedicalWebPage',
     name: p.name,
     description: p.shortDescription,
-    url: `/peptideos/${p.slug}`,
+    url: `${SITE}/peptideos/${p.slug}`,
     inLanguage: 'pt-BR',
     mainContentOfPage: { '@type': 'WebPageElement', cssSelector: 'main' },
     about: { '@type': 'MedicalSubstance', name: p.name },

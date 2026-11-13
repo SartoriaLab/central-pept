@@ -1,24 +1,31 @@
 import { db } from '@/lib/db';
 import { conversions } from '@/drizzle/schema';
 import { NextRequest, NextResponse } from 'next/server';
-import { createHmac } from 'crypto';
+import { createHmac, timingSafeEqual } from 'crypto';
 
+// Fora do Basic Auth (middleware.ts): a Kiwify não manda credenciais, então a
+// assinatura HMAC é obrigatória. Sem segredo configurado, nada é gravado.
 export async function POST(req: NextRequest) {
   const secret = process.env.KIWIFY_WEBHOOK_SECRET;
-
-  // Valida assinatura se secret configurado
-  if (secret) {
-    const sig = req.headers.get('x-kiwify-signature') ?? '';
-    const body = await req.text();
-    const expected = createHmac('sha256', secret).update(body).digest('hex');
-    if (sig !== expected) {
-      return NextResponse.json({ error: 'Assinatura inválida' }, { status: 401 });
-    }
-    const payload = JSON.parse(body) as KiwifyPayload;
-    return handlePayload(payload);
+  if (!secret) {
+    return NextResponse.json({ error: 'Configure KIWIFY_WEBHOOK_SECRET' }, { status: 503 });
   }
 
-  const payload = (await req.json()) as KiwifyPayload;
+  const sig = req.headers.get('x-kiwify-signature') ?? '';
+  const body = await req.text();
+  const expected = createHmac('sha256', secret).update(body).digest('hex');
+  const a = Buffer.from(sig);
+  const b = Buffer.from(expected);
+  if (a.length !== b.length || !timingSafeEqual(a, b)) {
+    return NextResponse.json({ error: 'Assinatura inválida' }, { status: 401 });
+  }
+
+  let payload: KiwifyPayload;
+  try {
+    payload = JSON.parse(body) as KiwifyPayload;
+  } catch {
+    return NextResponse.json({ error: 'JSON inválido' }, { status: 400 });
+  }
   return handlePayload(payload);
 }
 

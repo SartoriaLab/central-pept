@@ -1,7 +1,10 @@
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 
-const PROTECTED = ['/admin/assistente', '/admin/afiliados', '/api/assistente'];
+const PROTECTED = ['/admin', '/api/assistente'];
+// Chamadas de máquina que não mandam Basic Auth: cada rota valida o próprio segredo
+// (cron: CRON_SECRET da Vercel; webhook: assinatura HMAC da Kiwify).
+const MACHINE_ROUTES = ['/api/assistente/cron/', '/api/assistente/webhook/'];
 // Bloqueio de crawlers fica no robots.ts (e, se preciso, no Firewall da Vercel):
 // rodar middleware em toda requisição só para devolver 403 consome CPU.
 
@@ -9,6 +12,7 @@ export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const isProtected = PROTECTED.some((prefix) => pathname.startsWith(prefix));
   if (!isProtected) return NextResponse.next();
+  if (MACHINE_ROUTES.some((prefix) => pathname.startsWith(prefix))) return NextResponse.next();
 
   const user = process.env.ASSISTENTE_USER;
   const pass = process.env.ASSISTENTE_PASS;
@@ -36,5 +40,5 @@ function unauthorized() {
 
 export const config = {
   // Só as rotas protegidas — páginas e assets estáticos não invocam o middleware.
-  matcher: ['/admin/assistente/:path*', '/admin/afiliados/:path*', '/api/assistente/:path*'],
+  matcher: ['/admin/:path*', '/api/assistente/:path*'],
 };
