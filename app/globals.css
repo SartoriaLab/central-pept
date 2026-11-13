@@ -166,7 +166,9 @@ html:not(.dark) .focus\:bg-teal:focus {
   .prose-article p {
     @apply mb-4;
   }
-  .prose-article a {
+  /* :where zera a especificidade do "a": classes utilitárias no link (botões, text-white)
+     vencem, e nada dentro de .not-prose recebe o estilo de link do texto. */
+  .prose-article :where(a):where(:not(.not-prose, .not-prose *)) {
     @apply text-teal-700 font-semibold underline underline-offset-2 hover:text-teal;
   }
   .prose-article strong {
