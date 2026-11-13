@@ -10,7 +10,8 @@ import { getVialPages, vialPath } from '@/lib/vials';
 
 export const dynamic = 'force-static';
 
-const SITE = process.env.SITE_URL || 'https://centralpeptideos.com.br';
+import { SITE_URL as SITE } from '@/lib/site';
+import { TOOLS } from '@/lib/tools';
 
 function url(path: string): string {
   return `${SITE}${path}`;
@@ -26,15 +27,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const staticPaths: Array<{ path: string; priority: number; changeFrequency: 'daily' | 'weekly' | 'monthly' }> = [
     { path: '/',                            priority: 1.0, changeFrequency: 'weekly' },
-    { path: '/ferramentas/reconstituicao',  priority: 0.95, changeFrequency: 'monthly' },
     { path: '/peptideos',                   priority: 0.9, changeFrequency: 'weekly' },
     { path: '/ferramentas',                 priority: 0.85, changeFrequency: 'monthly' },
-    { path: '/ferramentas/mistura',         priority: 0.8, changeFrequency: 'monthly' },
-    { path: '/ferramentas/conversor',       priority: 0.8, changeFrequency: 'monthly' },
-    { path: '/ferramentas/cronograma',      priority: 0.8, changeFrequency: 'monthly' },
-    { path: '/ferramentas/titulacao',       priority: 0.85, changeFrequency: 'monthly' },
-    { path: '/ferramentas/custo-glp1',      priority: 0.85, changeFrequency: 'monthly' },
-    { path: '/ferramentas/tabela-doses-glp1', priority: 0.85, changeFrequency: 'monthly' },
+    ...TOOLS.map((t) => ({ path: `/ferramentas/${t.slug}`, priority: t.priority, changeFrequency: 'monthly' as const })),
     { path: '/medicamentos',                priority: 0.85, changeFrequency: 'monthly' },
     { path: '/comparar',                    priority: 0.85, changeFrequency: 'weekly' },
     { path: '/blog',                        priority: 0.85, changeFrequency: 'weekly' },

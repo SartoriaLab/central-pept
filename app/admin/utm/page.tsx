@@ -1,29 +1,10 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import { BASE_URL as BASE, PATHS as BASE_PATHS, SOURCES } from '@/lib/promocao/utm';
 
-const PATHS = [
-  { label: 'Reconstituição', value: '/ferramentas/reconstituicao' },
-  { label: 'Titulação GLP-1', value: '/ferramentas/titulacao' },
-  { label: 'Comparar peptídeos', value: '/comparar' },
-  { label: 'Home', value: '/' },
-  { label: 'Blog — Armazenamento', value: '/blog/como-guardar-ozempic-wegovy' },
-  { label: 'Blog — Sema vs Tirze', value: '/blog/semaglutida-vs-tirzepatida' },
-  { label: 'Outro (digitar abaixo)', value: '__custom' },
-];
-
-const SOURCES = [
-  { value: 'whatsapp', medium: 'grupo' },
-  { value: 'reddit', medium: 'comentario' },
-  { value: 'telegram', medium: 'grupo' },
-  { value: 'telegram-pago', medium: 'parceria' },
-  { value: 'tiktok', medium: 'video' },
-  { value: 'instagram', medium: 'bio' },
-  { value: 'facebook', medium: 'grupo' },
-  { value: 'forum', medium: 'post' },
-];
-
-const BASE = 'https://centralpeptideos.com.br';
+// Destinos e origens compartilhados com lib/promocao/utm.ts; o admin acrescenta 'Outro'.
+const PATHS = [...BASE_PATHS, { label: 'Outro (digitar abaixo)', value: '__custom' }];
 
 export default function UtmGeneratorPage() {
   const [pathSel, setPathSel] = useState(PATHS[0].value);

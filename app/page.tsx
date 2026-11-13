@@ -6,6 +6,7 @@ import { getArticles } from '@/lib/articles';
 import NewsletterSignup from '@/components/ui/NewsletterSignup';
 import HeroCalc, { type HeroPeptide } from '@/components/home/HeroCalc';
 import ToolIcon, { toolColor } from '@/components/ui/ToolIcon';
+import { TOOLS } from '@/lib/tools';
 
 export const metadata: Metadata = {
   title: {
@@ -17,43 +18,6 @@ export const metadata: Metadata = {
   ...socialImage('pagina', 'home', '/'),
 };
 
-const TOOLS = [
-  {
-    slug: 'reconstituicao',
-    title: 'Reconstituição',
-    desc: 'Quantas unidades puxar na seringa, em tempo real.',
-  },
-  {
-    slug: 'mistura',
-    title: 'Mistura',
-    desc: 'Combine peptídeos num mesmo frasco e veja a dose de cada um.',
-  },
-  {
-    slug: 'conversor',
-    title: 'Conversor',
-    desc: 'mg ↔ mcg ↔ UI por peptídeo, com multiplicador de dose.',
-  },
-  {
-    slug: 'titulacao',
-    title: 'Subida de Dose GLP-1',
-    desc: 'Escalonamento semana a semana para Ozempic, Wegovy, Mounjaro e Zepbound.',
-  },
-  {
-    slug: 'cronograma',
-    title: 'Cronograma',
-    desc: 'Monte o calendário de doses e exporte .ics pro Google Calendar.',
-  },
-  {
-    slug: 'custo-glp1',
-    title: 'Custo de GLP-1',
-    desc: 'Quanto sai por dose, por mês e por mg em cada apresentação.',
-  },
-  {
-    slug: 'tabela-doses-glp1',
-    title: 'Tabela de Doses GLP-1',
-    desc: 'Tabela imprimível com escalas, unidades por frasco e diário de aplicação.',
-  },
-];
 
 const STEPS = [
   {
@@ -194,8 +158,8 @@ export default function HomePage() {
               />
               <div className="relative">
                 <ToolIcon slug={t.slug} className="mb-4" />
-                <h3 className="text-lg font-bold text-ink leading-tight">{t.title}</h3>
-                <p className="text-sm text-ink-2 mt-2 leading-relaxed">{t.desc}</p>
+                <h3 className="text-lg font-bold text-ink leading-tight">{t.shortTitle}</h3>
+                <p className="text-sm text-ink-2 mt-2 leading-relaxed">{t.shortDesc}</p>
                 <div className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-teal-700 group-hover:gap-2 transition-all">
                   Abrir
                   <svg viewBox="0 0 20 20" width={14} height={14} fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M5 10h10M10 5l5 5-5 5" /></svg>

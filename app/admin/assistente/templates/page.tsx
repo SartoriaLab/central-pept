@@ -1,6 +1,6 @@
 import { db } from '@/lib/db';
 import { templates, postsLog } from '@/drizzle/schema';
-import { eq, sql } from 'drizzle-orm';
+import { sql } from 'drizzle-orm';
 import TemplatesClient from './TemplatesClient';
 
 export const dynamic = 'force-dynamic';

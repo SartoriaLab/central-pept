@@ -5,6 +5,7 @@ import type { Peptide } from '@/lib/peptides';
 import DecimalInput from '@/components/ui/DecimalInput';
 import { EVENTS, track } from '@/lib/track';
 import { todayLocalISO } from '@/lib/dates';
+import { buildIcs, downloadIcs } from '@/lib/ics';
 
 type Props = { peptides: Peptide[] };
 
@@ -78,55 +79,18 @@ export default function ScheduleCalculator({ peptides }: Props) {
     return dates;
   }, [startDate, timeOfDay, durationWeeks, frequency, customDays]);
 
-  function downloadIcs() {
+  function exportIcs() {
     if (schedule.length === 0 || !peptide) return;
-
-    const pad = (n: number) => String(n).padStart(2, '0');
-    const toIcs = (d: Date) =>
-      `${d.getUTCFullYear()}${pad(d.getUTCMonth() + 1)}${pad(d.getUTCDate())}T${pad(d.getUTCHours())}${pad(d.getUTCMinutes())}00Z`;
-
-    const uid = () => `${Date.now()}-${Math.random().toString(36).slice(2, 8)}@centralpeptideos`;
-
-    const events = schedule.map((d) => {
-      const end = new Date(d);
-      end.setMinutes(end.getMinutes() + 15);
-      return [
-        'BEGIN:VEVENT',
-        `UID:${uid()}`,
-        `DTSTAMP:${toIcs(new Date())}`,
-        `DTSTART:${toIcs(d)}`,
-        `DTEND:${toIcs(end)}`,
-        `SUMMARY:${peptide.name} — ${doseAmount} ${peptide.doseUnit}`,
-        `DESCRIPTION:Aplicação programada via Central Peptídeos`,
-        'BEGIN:VALARM',
-        'TRIGGER:-PT15M',
-        'ACTION:DISPLAY',
-        `DESCRIPTION:Hora de aplicar ${peptide.name}`,
-        'END:VALARM',
-        'END:VEVENT',
-      ].join('\r\n');
-    });
-
-    const ics = [
-      'BEGIN:VCALENDAR',
-      'VERSION:2.0',
-      'PRODID:-//Central Peptídeos//Cronograma//PT-BR',
-      'CALSCALE:GREGORIAN',
-      'METHOD:PUBLISH',
-      ...events,
-      'END:VCALENDAR',
-    ].join('\r\n');
-
-    const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `cronograma-${peptide.slug}.ics`;
+    const events = schedule.map((d) => ({
+      start: d,
+      minutes: 15,
+      summary: `${peptide.name} — ${doseAmount} ${peptide.doseUnit}`,
+      description: 'Aplicação programada via Central Peptídeos',
+      alarmMinutes: 15,
+      alarmText: `Hora de aplicar ${peptide.name}`,
+    }));
+    downloadIcs(`cronograma-${peptide.slug}.ics`, buildIcs(events, 'Cronograma'));
     track(EVENTS.icsDownload, { ferramenta: 'cronograma', peptideo: peptide.slug });
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
   }
 
   const preview = schedule.slice(0, 6);
@@ -248,7 +212,7 @@ export default function ScheduleCalculator({ peptides }: Props) {
               </div>
               <button
                 type="button"
-                onClick={downloadIcs}
+                onClick={exportIcs}
                 className="btn-teal"
               >
                 Baixar .ics

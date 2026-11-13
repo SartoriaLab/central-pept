@@ -1,5 +1,6 @@
 'use client';
 
+import { SITE_HOST } from '@/lib/site';
 import { createContext, useContext, useId, useMemo, useState, useEffect, useRef } from 'react';
 import type { Peptide, DoseUnit } from '@/lib/peptides';
 import {
@@ -335,7 +336,7 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug 
       `Unidades/dose: ${fmt(result.unitsPerDose, 1)} U (seringa ${syringe} U)`,
       `Doses/frasco: ${fmt(result.dosesPerVial, 1)}`,
       '',
-      `Refazer a conta: centralpeptideos.com.br/ferramentas/reconstituicao${peptides.some((x) => x.slug === peptide.slug) ? `/${peptide.slug}` : ''}`,
+      `Refazer a conta: ${SITE_HOST}/ferramentas/reconstituicao${peptides.some((x) => x.slug === peptide.slug) ? `/${peptide.slug}` : ''}`,
     ].join('\n');
     track(EVENTS.copyResult);
     navigator.clipboard?.writeText(text)

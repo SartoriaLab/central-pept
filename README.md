@@ -1,96 +1,72 @@
 # Central Peptídeos
 
-Central de informação sobre peptídeos — calculadoras, enciclopédia e blog.
+Calculadoras, enciclopédia e guias sobre peptídeos e medicamentos GLP-1, em português.
+Produção: https://centralpeptideos.com.br (Vercel).
 
-**Stack**: Next.js 15 (App Router) · TypeScript · Tailwind CSS · static export para GitHub Pages.
-
-## Status atual (Fase 1)
-
-- ✅ Calculadora de Reconstituição funcional em `/ferramentas/reconstituicao`
-- ✅ Listagem de peptídeos em `/peptideos` (21 cadastrados, hard-coded)
-- ✅ Páginas individuais por peptídeo em `/peptideos/[slug]` (stub)
-- ✅ Home, blog, sobre (placeholders para Fase 3)
-- ✅ Sitemap, robots, SEO básico
-- ✅ GitHub Action de deploy
+**Stack**: Next.js 16 (App Router, páginas estáticas) · TypeScript · Tailwind CSS 3 ·
+MDX (`next-mdx-remote`) · Drizzle + Postgres (só newsletter e área admin) · Vitest.
 
 ## Rodar localmente
 
+Requer Node 20 (`.nvmrc`).
+
 ```bash
 npm install
-npm run dev      # http://localhost:3000
+npm run dev        # http://localhost:3000
 ```
 
-## Build estático (igual ao que sobe pro GH Pages)
+O build funciona sem banco: `DATABASE_URL` só é necessária para a newsletter e o `/admin`.
 
-```bash
-npm run build    # gera pasta out/
-npx serve out    # testar localmente
-```
+## Scripts
 
-## Deploy no GitHub Pages
+| Comando | O que faz |
+|---|---|
+| `npm run dev` | servidor de desenvolvimento |
+| `npm run build` / `npm start` | build de produção e servidor |
+| `npm test` | testes (fórmulas, integridade do conteúdo, links internos, .ics) |
+| `npm run lint` / `npm run typecheck` | ESLint e TypeScript |
+| `npm run check` | typecheck + lint + test (o CI roda isso e o build) |
+| `npm run db:push` | aplica `drizzle/schema.ts` no banco de `DATABASE_URL` |
 
-1. Faça push deste repositório para o GitHub.
-2. Vá em **Settings → Pages** e selecione **GitHub Actions** como source.
-3. A cada push na `main`, o workflow `.github/workflows/deploy.yml` builda e publica.
-4. Para rebuild manual (ex: atualizar conteúdo sem mudar código), vá em **Actions → Deploy to GitHub Pages → Run workflow**.
+## Variáveis de ambiente
 
-A URL será `https://<seu-user>.github.io/<nome-do-repo>/`.
-
-## Fases do projeto
-
-| Fase | Escopo | Status |
-|---|---|---|
-| 1 | Scaffold + calculadora de reconstituição | ✅ |
-| 2 | Supabase + páginas de peptídeos com conteúdo do DB | ⏳ |
-| 3 | Blog (artigos markdown via DB) | ⏳ |
-| 4 | Mais calculadoras (mistura, conversor, cronograma) | ⏳ |
-
-Ver planejamento completo em `C:\Users\julia\.claude\plans\glistening-petting-lovelace.md`.
+| Variável | Uso |
+|---|---|
+| `SITE_URL` | URL canônica (padrão: produção) |
+| `DATABASE_URL` | Postgres: newsletter e admin |
+| `ASSISTENTE_USER` / `ASSISTENTE_PASS` | Basic Auth de `/admin` e `/api/assistente` |
+| `CRON_SECRET` | autoriza o cron da Vercel (`/api/assistente/cron/*`) |
+| `KIWIFY_WEBHOOK_SECRET` | assinatura HMAC do webhook da Kiwify |
+| `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` | ativa o Plausible |
+| `NEXT_PUBLIC_GSC_VERIFICATION` | verificação do Google Search Console |
 
 ## Estrutura
 
 ```
-app/
-  layout.tsx                 # root layout + metadata
-  page.tsx                   # home
-  globals.css                # Tailwind + tema
-  sitemap.ts, robots.ts      # SEO
-  peptideos/
-    page.tsx                 # listagem
-    [slug]/page.tsx          # por peptídeo
-  ferramentas/
-    page.tsx                 # hub
-    reconstituicao/page.tsx  # calculadora
-  blog/, sobre/              # placeholders
-components/
-  layout/       Header, Footer
-  calculator/   ReconstitutionCalculator (client), Syringe, calc (puro)
-lib/
-  peptides.ts                # 21 peptídeos (→ Supabase na Fase 2)
-legacy/                      # versão anterior vanilla, preservada
+app/                    rotas (App Router)
+  blog/[slug]/          página única que renderiza content/blog/*.mdx
+  ferramentas/<slug>/   uma pasta por calculadora
+  peptideos/, comparar/, medicamentos/, glossario/ ...
+  busca.json/           índice da busca global (gerado no build)
+  api/newsletter/       inscrição e descadastro
+content/blog/           posts em MDX (frontmatter validado em lib/articles.ts)
+components/             UI; calculator/ tem as calculadoras (client)
+lib/                    dados e regras: peptides, brands, comparisons, titration,
+                        glossary, articles, tools, site, og, ics, category-style
+drizzle/schema.ts       tabelas do Postgres
+tests/                  Vitest
+proxy.ts                Basic Auth das rotas protegidas
 ```
 
-## Migração das Fases seguintes
+Como adicionar conteúdo (post, peptídeo, ferramenta): ver [CLAUDE.md](CLAUDE.md).
 
-**Fase 2 (Supabase)**: criar tabelas, script `scripts/seed-peptides.ts`, refatorar `lib/peptides.ts` para fetch em build (Server Component). Adicionar secrets `NEXT_PUBLIC_SUPABASE_URL` e `NEXT_PUBLIC_SUPABASE_ANON_KEY` no GitHub.
-
-**Fase 3 (Blog)**: tabela `articles`, MDX ou react-markdown, sitemap dinâmico.
-
-**Fase 4**: novas calculadoras — cada uma vira um `page.tsx` em `/ferramentas/*` reusando os components UI.
-
-## Cálculos (referência técnica)
-
-Fórmulas idênticas ao site original (`calculadoradepeptideos.com.br`):
+## Fórmulas (referência)
 
 ```
-# Modo "tenho a água":
 concentração = mg_frasco / água_ml
-unidades     = dose_mg × água_ml × 100 / mg_frasco
+unidades     = dose_mg × água_ml × 100 / mg_frasco      (seringa de insulina U-100)
 doses        = mg_frasco / dose_mg
-
-# Modo "tenho as unidades":
-água_ml      = unidades × mg_frasco / (dose_mg × 100)
-# (demais derivados acima)
+água_ml      = unidades × mg_frasco / (dose_mg × 100)    (modo "tenho as unidades")
 ```
 
-Base: seringa de insulina 100 U/ml.
+Implementação e testes: `components/calculator/calc.ts`, `tests/calc.test.ts`.

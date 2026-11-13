@@ -4,19 +4,8 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
 import { CATEGORY_LABELS, REGULATORY_LABELS, type Peptide, type RegulatoryStatus } from '@/lib/peptides';
 import { RegulatoryBadge, WadaBadge } from './StatusBadge';
+import { categoryAccent } from '@/lib/category-style';
 
-// Cor de acento por categoria (para barra lateral do card)
-const CATEGORY_ACCENT: Record<string, string> = {
-  'healing':     'bg-green-500',
-  'glp-1':       'bg-blue-500',
-  'gh':          'bg-violet-500',
-  'sexual':      'bg-pink-500',
-  'cosmetic':    'bg-amber-500',
-  'longevity':   'bg-teal-500',
-  'weight-loss': 'bg-orange-500',
-  'cognitive':   'bg-indigo-500',
-  'hormone':     'bg-rose-500',
-};
 
 type Props = { peptides: Peptide[] };
 
@@ -196,7 +185,7 @@ export default function PeptideBrowser({ peptides }: Props) {
       ) : (
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {filtered.map((p) => {
-            const accent = (p.category && CATEGORY_ACCENT[p.category]) || 'bg-teal';
+            const accent = categoryAccent(p.category);
             return (
               <Link
                 key={p.slug}

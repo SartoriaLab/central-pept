@@ -5,6 +5,9 @@ const config: Config = {
   content: [
     './app/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',
+    // Classes que vivem em dados (coverColor dos posts, cores de categoria)
+    './lib/**/*.ts',
+    './content/**/*.{md,mdx}',
   ],
   theme: {
     extend: {

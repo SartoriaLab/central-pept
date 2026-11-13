@@ -3,7 +3,19 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useRouter } from 'next/navigation';
-import { buildSearchIndex, searchIndex, type SearchResult } from '@/lib/search-index';
+import { searchIndex, type SearchResult } from '@/lib/search';
+
+// Baixado uma vez por visita, na primeira abertura (ou ao passar o mouse no botão).
+let indexPromise: Promise<SearchResult[]> | null = null;
+function loadIndex(): Promise<SearchResult[]> {
+  indexPromise ??= fetch('/busca.json')
+    .then((r) => (r.ok ? (r.json() as Promise<SearchResult[]>) : []))
+    .catch(() => {
+      indexPromise = null; // tenta de novo na próxima abertura
+      return [];
+    });
+  return indexPromise;
+}
 
 const TYPE_LABELS: Record<SearchResult['type'], string> = {
   peptide: 'Peptídeo',
@@ -31,8 +43,12 @@ export default function GlobalSearch() {
   const dialogRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
 
-  const index = useMemo(() => buildSearchIndex(), []);
-  const results = useMemo(() => searchIndex(index, query), [index, query]);
+  const [index, setIndex] = useState<SearchResult[] | null>(null);
+  const results = useMemo(() => (index ? searchIndex(index, query) : []), [index, query]);
+
+  useEffect(() => {
+    if (open && !index) loadIndex().then(setIndex);
+  }, [open, index]);
 
   // Atalho teclado: "/" ou Cmd/Ctrl+K abre
   useEffect(() => {
@@ -100,6 +116,8 @@ export default function GlobalSearch() {
         ref={triggerRef}
         type="button"
         onClick={() => setOpen(true)}
+        onPointerEnter={() => { loadIndex(); }}
+        onFocus={() => { loadIndex(); }}
         aria-label="Buscar"
         aria-haspopup="dialog"
         title="Buscar (tecle / ou Ctrl+K)"
@@ -164,7 +182,7 @@ export default function GlobalSearch() {
                 type="button"
                 onClick={() => close()}
                 aria-label="Fechar busca"
-                className="inline-flex items-center justify-center h-8 min-w-8 px-2 rounded border border-border text-xs font-mono text-ink-3 bg-bg hover:text-ink hover:border-border-2"
+                className="inline-flex items-center justify-center h-10 min-w-10 px-2 rounded border border-border text-xs font-mono text-ink-3 bg-bg hover:text-ink hover:border-border-2"
               >
                 <span className="hidden sm:inline">ESC</span>
                 <svg viewBox="0 0 20 20" width={14} height={14} fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" aria-hidden className="sm:hidden">
@@ -189,6 +207,8 @@ export default function GlobalSearch() {
                   ))}
                 </div>
               </div>
+            ) : !index ? (
+              <div className="p-8 text-center text-sm text-ink-3" role="status">Carregando…</div>
             ) : results.length === 0 ? (
               <div className="p-8 text-center text-sm text-ink-3" role="status">
                 Nenhum resultado para <strong className="text-ink">&quot;{query}&quot;</strong>.

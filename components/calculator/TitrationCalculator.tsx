@@ -4,6 +4,7 @@ import { useMemo, useState } from 'react';
 import { TITRATION_SCHEMES } from '@/lib/titration';
 import { EVENTS, track } from '@/lib/track';
 import { parseLocalDate, todayLocalISO } from '@/lib/dates';
+import { buildIcs, downloadIcs } from '@/lib/ics';
 
 const SCHEMES = TITRATION_SCHEMES;
 
@@ -33,50 +34,22 @@ export default function TitrationCalculator() {
   const totalWeeks = schedule.length * weeksPerStep;
   const maintenanceDose = schedule[schedule.length - 1]?.dose;
 
-  function downloadIcs() {
-    const pad = (n: number) => String(n).padStart(2, '0');
-    const toIcs = (d: Date) =>
-      `${d.getUTCFullYear()}${pad(d.getUTCMonth() + 1)}${pad(d.getUTCDate())}T090000Z`;
-    const uid = () => `${Date.now()}-${Math.random().toString(36).slice(2, 8)}@centralpeptideos`;
-
+  function exportIcs() {
+    // 9h no horário local (antes ficava fixo em 09:00 UTC = 6h em Brasília).
     const start = parseLocalDate(startDate, 9);
+    const name = scheme.name.split(' — ')[0];
     const events = schedule.map((step) => {
-      const startDt = new Date(start);
-      startDt.setDate(start.getDate() + (step.week - 1) * 7);
-      const endDt = new Date(startDt);
-      endDt.setHours(endDt.getHours() + 1);
-      return [
-        'BEGIN:VEVENT',
-        `UID:${uid()}`,
-        `DTSTAMP:${toIcs(new Date())}`,
-        `DTSTART:${toIcs(startDt)}`,
-        `DTEND:${toIcs(endDt)}`,
-        `SUMMARY:${scheme.name.split(' — ')[0]} — Subir para ${step.dose} ${scheme.unit}`,
-        `DESCRIPTION:Início da etapa ${step.dose} ${scheme.unit}. Próxima etapa em ${weeksPerStep} semanas.`,
-        'END:VEVENT',
-      ].join('\r\n');
+      const d = new Date(start);
+      d.setDate(start.getDate() + (step.week - 1) * 7);
+      return {
+        start: d,
+        minutes: 60,
+        summary: `${name} — Subir para ${step.dose} ${scheme.unit}`,
+        description: `Início da etapa ${step.dose} ${scheme.unit}. Próxima etapa em ${weeksPerStep} semanas.`,
+      };
     });
-
-    const ics = [
-      'BEGIN:VCALENDAR',
-      'VERSION:2.0',
-      'PRODID:-//Central Peptídeos//Titulação//PT-BR',
-      'CALSCALE:GREGORIAN',
-      'METHOD:PUBLISH',
-      ...events,
-      'END:VCALENDAR',
-    ].join('\r\n');
-
-    const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `titulacao-${scheme.id}.ics`;
+    downloadIcs(`titulacao-${scheme.id}.ics`, buildIcs(events, 'Titulação'));
     track(EVENTS.icsDownload, { ferramenta: 'titulacao', esquema: scheme.id });
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
   }
 
   return (
@@ -174,7 +147,7 @@ export default function TitrationCalculator() {
             </div>
             <button
               type="button"
-              onClick={downloadIcs}
+              onClick={exportIcs}
               className="btn-teal !h-9 !px-3 text-xs"
             >
               .ics

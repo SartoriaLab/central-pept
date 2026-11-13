@@ -1,4 +1,5 @@
-/* eslint-disable @next/next/no-img-element */
+import { SITE_HOST } from '@/lib/site';
+import { CATEGORY_HEX } from '@/lib/category-style';
 import { ImageResponse } from 'next/og';
 import { getPeptideBySlug, getPeptideSlugs, CATEGORY_LABELS, REGULATORY_LABELS } from '@/lib/peptides';
 
@@ -9,18 +10,7 @@ export async function generateStaticParams() {
   return getPeptideSlugs().map((slug) => ({ slug }));
 }
 
-// Cor de acento por categoria
-const CATEGORY_COLOR: Record<string, string> = {
-  'healing':     '#22c55e',
-  'glp-1':       '#3b82f6',
-  'gh':          '#8b5cf6',
-  'sexual':      '#ec4899',
-  'cosmetic':    '#f59e0b',
-  'longevity':   '#14b8a6',
-  'weight-loss': '#f97316',
-  'cognitive':   '#6366f1',
-  'hormone':     '#f43f5e',
-};
+const CATEGORY_COLOR = CATEGORY_HEX;
 
 // No Next 15+ `params` é uma Promise: sem o await o slug vinha indefinido e a
 // imagem saía sempre como "Peptídeo não encontrado".
@@ -68,7 +58,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
             </div>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
               <div style={{ fontSize: 24, fontWeight: 800, color: '#0f172a' }}>Central Peptídeos</div>
-              <div style={{ fontSize: 15, color: '#64748b' }}>centralpeptideos.com.br</div>
+              <div style={{ fontSize: 15, color: '#64748b' }}>{SITE_HOST}</div>
             </div>
           </div>
           {categoryLabel && (

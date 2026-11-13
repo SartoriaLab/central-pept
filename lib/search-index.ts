@@ -4,17 +4,14 @@ import { getGlossary } from './glossary';
 import { COMPARISONS } from './comparisons';
 import { getBrands } from './brands';
 import { getCategoryPages } from './categories';
+import { TOOLS } from './tools';
 
-export type SearchResult = {
-  id: string;
-  title: string;
-  subtitle?: string;
-  type: 'peptide' | 'article' | 'tool' | 'page';
-  url: string;
-  keywords: string;
-};
+import type { SearchResult } from './search';
 
-// Build search index (static - runs at build time via getSearchIndex)
+export type { SearchResult };
+
+// Índice da busca global. Só servidor: servido como JSON estático em /busca.json
+// (app/busca.json/route.ts) e baixado pelo GlobalSearch quando a busca abre.
 export function buildSearchIndex(): SearchResult[] {
   const items: SearchResult[] = [];
 
@@ -49,23 +46,14 @@ export function buildSearchIndex(): SearchResult[] {
   }
 
   // Ferramentas
-  const tools = [
-    { slug: 'reconstituicao', title: 'Calculadora de Reconstituição', desc: 'Cálculo de unidades na seringa' },
-    { slug: 'mistura', title: 'Calculadora de Mistura', desc: '2-4 peptídeos no mesmo frasco' },
-    { slug: 'conversor', title: 'Conversor mg ↔ mcg ↔ UI', desc: 'Conversão entre unidades' },
-    { slug: 'cronograma', title: 'Cronograma de Doses', desc: 'Agenda + export .ics' },
-    { slug: 'titulacao', title: 'Subida de Dose — Ozempic e Mounjaro', desc: 'Escada de doses semaglutida / tirzepatida, com datas' },
-    { slug: 'custo-glp1', title: 'Custo por Dose — Mounjaro, Ozempic e tirzepatida', desc: 'Custo por mg, por dose e por mês; preço' },
-    { slug: 'tabela-doses-glp1', title: 'Tabela de Doses GLP-1 para imprimir', desc: 'Escada de titulação e unidades na seringa' },
-  ];
-  for (const t of tools) {
+  for (const t of TOOLS) {
     items.push({
       id: `t-${t.slug}`,
       title: t.title,
-      subtitle: t.desc,
+      subtitle: t.shortDesc,
       type: 'tool',
       url: `/ferramentas/${t.slug}`,
-      keywords: [t.title, t.desc, t.slug].join(' ').toLowerCase(),
+      keywords: [t.title, t.shortTitle, t.shortDesc, t.slug].join(' ').toLowerCase(),
     });
   }
 
@@ -150,32 +138,4 @@ export function buildSearchIndex(): SearchResult[] {
   }
 
   return items;
-}
-
-// Simple fuzzy-ish search with score
-export function searchIndex(items: SearchResult[], query: string, limit = 8): SearchResult[] {
-  const q = query.trim().toLowerCase();
-  if (!q) return [];
-
-  const tokens = q.split(/\s+/).filter(Boolean);
-
-  const scored = items
-    .map((item) => {
-      let score = 0;
-      const title = item.title.toLowerCase();
-      for (const t of tokens) {
-        if (title.startsWith(t)) score += 50;
-        else if (title.includes(t)) score += 20;
-        if (item.keywords.includes(t)) score += 5;
-        // bonus por match exato
-        if (title === t) score += 100;
-      }
-      return { item, score };
-    })
-    .filter(({ score }) => score > 0)
-    .sort((a, b) => b.score - a.score)
-    .slice(0, limit)
-    .map(({ item }) => item);
-
-  return scored;
 }

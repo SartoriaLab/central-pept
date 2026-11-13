@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
+import { SITE_HOST } from '@/lib/site';
 import { ImageResponse } from 'next/og';
 import { getArticleBySlug, getArticleSlugs } from '@/lib/articles';
 import { getComparison, getComparisonSlugs } from '@/lib/comparisons';
@@ -97,7 +97,7 @@ export async function GET(_req: Request, { params }: { params: Promise<Params> }
             </div>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
               <div style={{ fontSize: 24, fontWeight: 800, color: '#0f172a' }}>Central Peptídeos</div>
-              <div style={{ fontSize: 15, color: '#64748b' }}>centralpeptideos.com.br</div>
+              <div style={{ fontSize: 15, color: '#64748b' }}>{SITE_HOST}</div>
             </div>
           </div>
           {eyebrow && (

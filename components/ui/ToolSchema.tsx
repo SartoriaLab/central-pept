@@ -1,4 +1,4 @@
-const SITE = process.env.SITE_URL || 'https://centralpeptideos.com.br';
+import { SITE_URL as SITE } from '@/lib/site';
 
 type Props = {
   name: string;

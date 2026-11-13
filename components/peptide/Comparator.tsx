@@ -1,25 +1,14 @@
 'use client';
 
+import { CATEGORY_ACCENT } from '@/lib/category-style';
 import { useMemo, useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import type { Peptide } from '@/lib/peptides';
 import { CATEGORY_LABELS } from '@/lib/peptides';
-import { RegulatoryBadge, WadaBadge } from './StatusBadge';
+import { RegulatoryBadge } from './StatusBadge';
 
 type Props = { peptides: Peptide[]; initialSlugs?: string[] };
 
-// Cor de acento por categoria (barra lateral)
-const CATEGORY_ACCENT: Record<string, string> = {
-  'healing':     'bg-green-500',
-  'glp-1':       'bg-blue-500',
-  'gh':          'bg-violet-500',
-  'sexual':      'bg-pink-500',
-  'cosmetic':    'bg-amber-500',
-  'longevity':   'bg-teal-500',
-  'weight-loss': 'bg-orange-500',
-  'cognitive':   'bg-indigo-500',
-  'hormone':     'bg-rose-500',
-};
 
 type Metric = {
   key: string;

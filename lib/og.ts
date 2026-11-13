@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { TOOLS } from './tools';
 
 // Imagens de compartilhamento geradas no build em /og/<kind>/<slug>
 // (ver app/og/[kind]/[slug]/route.tsx).
@@ -8,13 +9,7 @@ export type OgKind = 'blog' | 'comparar' | 'calculadora' | 'medicamentos' | 'cat
 export const OG_PAGES: Record<string, { title: string; eyebrow: string }> = {
   home: { title: 'Peptídeos, cálculo sem erro.', eyebrow: 'Gratuito · sem cadastro' },
   ferramentas: { title: 'Calculadoras de peptídeos: reconstituição, dose e custo', eyebrow: 'Ferramentas' },
-  reconstituicao: { title: 'Calculadora de reconstituição: quantas unidades puxar na seringa', eyebrow: 'Calculadora' },
-  mistura: { title: 'Calculadora de mistura de peptídeos na mesma seringa', eyebrow: 'Calculadora' },
-  conversor: { title: 'Conversor mg, mcg e UI para peptídeos', eyebrow: 'Calculadora' },
-  cronograma: { title: 'Cronograma de doses de peptídeos', eyebrow: 'Calculadora' },
-  titulacao: { title: 'Subida de dose: Ozempic, Wegovy e Mounjaro semana a semana', eyebrow: 'Calculadora' },
-  'custo-glp1': { title: 'Custo por dose e por mês: Mounjaro, Ozempic e tirzepatida', eyebrow: 'Calculadora' },
-  'tabela-doses-glp1': { title: 'Tabela de doses de Mounjaro, Ozempic e Wegovy para imprimir', eyebrow: 'Tabela' },
+  ...Object.fromEntries(TOOLS.map((t) => [t.slug, t.og])),
   peptideos: { title: 'Enciclopédia de peptídeos: dose, efeitos e status regulatório', eyebrow: 'Enciclopédia' },
   comparar: { title: 'Comparador de peptídeos lado a lado', eyebrow: 'Comparativo' },
   blog: { title: 'Guias de dose, reconstituição e GLP-1', eyebrow: 'Blog' },

@@ -1,11 +1,6 @@
 import { REGULATORY_LABELS, type RegulatoryStatus } from '@/lib/peptides';
+import { TONE_CLASS } from '@/lib/category-style';
 
-const TONE_CLASS = {
-  success: 'bg-green-50 border-green-200 text-green-800',
-  neutral: 'bg-bg border-border-2 text-ink-2',
-  warn:    'bg-amber-50 border-amber-200 text-amber-900',
-  danger:  'bg-red-50 border-red-200 text-red-800',
-} as const;
 
 type Size = 'sm' | 'md';
 

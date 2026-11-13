@@ -12,3 +12,6 @@ export const CONTACT_EMAIL = 'contato@centralpeptideos.com.br';
  * este valor em <lastmod>, e uma data que muda a cada build faz o Google ignorar o campo.
  */
 export const CONTENT_UPDATED_AT = '2026-11-12';
+
+// Domínio sem protocolo, para textos e imagens de compartilhamento ("centralpeptideos.com.br").
+export const SITE_HOST = SITE_URL.replace(/^https?:\/\//, '').replace(/\/$/, '');

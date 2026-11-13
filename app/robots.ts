@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next';
 
 export const dynamic = 'force-static';
 
-const SITE = process.env.SITE_URL || 'https://centralpeptideos.com.br';
+import { SITE_URL as SITE } from '@/lib/site';
 const BLOCKED_CRAWLERS = [
   'MJ12bot',
   'AhrefsBot',

@@ -9,7 +9,7 @@ import { getBrandsByPeptide } from '@/lib/brands';
 import { COMPARISONS } from '@/lib/comparisons';
 import RelatedLinks, { type RelatedLink } from '@/components/ui/RelatedLinks';
 
-const SITE = process.env.SITE_URL || 'https://centralpeptideos.com.br';
+import { SITE_URL as SITE } from '@/lib/site';
 
 type Props = {
   article: Article;

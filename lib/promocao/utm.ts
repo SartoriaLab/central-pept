@@ -1,4 +1,6 @@
-export const BASE_URL = 'https://centralpeptideos.com.br';
+import { SITE_URL } from '@/lib/site';
+
+export const BASE_URL = SITE_URL;
 
 export const PATHS = [
   { label: 'Reconstituição', value: '/ferramentas/reconstituicao' },

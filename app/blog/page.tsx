@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import { socialImage } from '@/lib/og';
-import Link from 'next/link';
 import { getArticles } from '@/lib/articles';
 import NewsletterSignup from '@/components/ui/NewsletterSignup';
 import ArticleCard from '@/components/blog/ArticleCard';
