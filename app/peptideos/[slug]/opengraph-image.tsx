@@ -22,8 +22,11 @@ const CATEGORY_COLOR: Record<string, string> = {
   'hormone':     '#f43f5e',
 };
 
-export default async function Image({ params }: { params: { slug: string } }) {
-  const p = getPeptideBySlug(params.slug);
+// No Next 15+ `params` é uma Promise: sem o await o slug vinha indefinido e a
+// imagem saía sempre como "Peptídeo não encontrado".
+export default async function Image({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const p = getPeptideBySlug(slug);
   if (!p) {
     return new ImageResponse(
       (
@@ -84,7 +87,7 @@ export default async function Image({ params }: { params: { slug: string } }) {
         {/* Main: nome + descrição */}
         <div style={{ display: 'flex', flexDirection: 'column', marginTop: 80, flex: 1, gap: 24 }}>
           <div style={{
-            fontSize: 100, fontWeight: 800, color: '#0f172a',
+            fontSize: p.name.length > 18 ? 68 : p.name.length > 12 ? 84 : 100, fontWeight: 800, color: '#0f172a',
             letterSpacing: -2, lineHeight: 1, display: 'flex',
           }}>
             {p.name}
@@ -102,8 +105,9 @@ export default async function Image({ params }: { params: { slug: string } }) {
           <div style={{ display: 'flex', gap: 32 }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
               <div style={{ fontSize: 14, fontWeight: 700, textTransform: 'uppercase', letterSpacing: 1.5, color: '#94a3b8' }}>Dose típica</div>
-              <div style={{ fontSize: 36, fontWeight: 800, color: '#0f172a' }}>
-                {p.typicalDose} <span style={{ color: '#64748b', fontWeight: 500, fontSize: 24 }}>{p.doseUnit}</span>
+              <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, fontSize: 36, fontWeight: 800, color: '#0f172a' }}>
+                <span>{String(p.typicalDose).replace('.', ',')}</span>
+                <span style={{ color: '#64748b', fontWeight: 500, fontSize: 24 }}>{p.doseUnit}</span>
               </div>
             </div>
             {p.halfLife && (
@@ -131,7 +135,7 @@ export default async function Image({ params }: { params: { slug: string } }) {
                 fontSize: 18, fontWeight: 700,
                 display: 'flex',
               }}>
-                ⚠ WADA
+                Proibido WADA
               </div>
             )}
           </div>
