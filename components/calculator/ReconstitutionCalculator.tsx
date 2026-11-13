@@ -12,6 +12,14 @@ import {
 } from './calc';
 import Syringe from './Syringe';
 import DecimalInput from '@/components/ui/DecimalInput';
+import RecentCalcs, {
+  FAVORITES_KEY,
+  HISTORY_KEY,
+  pushHistory,
+  readJson,
+  writeJson,
+  type HistoryEntry,
+} from './RecentCalcs';
 import { EVENTS, track, trackOnce } from '@/lib/track';
 
 type Mode = 'volume' | 'units';
@@ -36,6 +44,11 @@ const LS_CUSTOMS_KEY = 'peptidecalc:customs:v1';
 // Tamanhos de frasco padrão para sugerir (mg). Merged com commonAmounts do peptídeo.
 const STANDARD_VIAL_SIZES = [5, 10, 15, 20, 30];
 
+/** Seringa inicial da página do peptídeo (frasco mais comum + 2 ml + dose típica). */
+function syringe0(p: Peptide): SyringeSize {
+  return p.commonAmounts[0] ? fittingSyringe(p, p.commonAmounts[0], 2, p.typicalDose) : 50;
+}
+
 export default function ReconstitutionCalculator({ peptides, initialPeptideSlug }: Props) {
   // Pré-seleção já no render do servidor: a página por peptídeo sai com a calculadora preenchida.
   const initialPeptide = initialPeptideSlug ? peptides.find((p) => p.slug === initialPeptideSlug) ?? null : null;
@@ -55,13 +68,11 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug 
   const [units, setUnits] = useState<number | ''>('');
   const [dose, setDose] = useState<number | ''>(initialPeptide ? initialPeptide.typicalDose : '');
   const [mode, setMode] = useState<Mode>('volume');
-  const [syringe, setSyringe] = useState<SyringeSize>(
-    initialPeptide && initialPeptide.commonAmounts[0]
-      ? fittingSyringe(initialPeptide, initialPeptide.commonAmounts[0], 2, initialPeptide.typicalDose)
-      : 50,
-  );
+  const [syringe, setSyringe] = useState<SyringeSize>(initialPeptide ? syringe0(initialPeptide) : 50);
   const [toast, setToast] = useState<string | null>(null);
   const [hydrated, setHydrated] = useState(false);
+  const [history, setHistory] = useState<HistoryEntry[]>([]);
+  const [favSlugs, setFavSlugs] = useState<string[]>([]);
 
   const comboRef = useRef<HTMLDivElement>(null);
   const searchRef = useRef<HTMLInputElement>(null);
@@ -83,6 +94,8 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug 
       if (raw) customList = JSON.parse(raw);
       if (Array.isArray(customList)) setCustoms(customList);
     } catch { /* ignore */ }
+    setHistory(readJson<HistoryEntry[]>(HISTORY_KEY, []));
+    setFavSlugs(readJson<string[]>(FAVORITES_KEY, []));
 
     const params = new URLSearchParams(window.location.search);
     const urlSlug = params.get('peptide') ?? initialPeptideSlug ?? null;
@@ -156,6 +169,45 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug 
       );
     } catch { /* ignore */ }
   }, [hydrated, peptide, mg, waterMl, units, dose, mode, syringe]);
+
+  // Query string do estado atual. Na página do peptídeo, `peptide` fica de fora (já está no caminho).
+  function stateQuery(omitPagePeptide: boolean): string {
+    if (!peptide) return '';
+    const params = new URLSearchParams();
+    if (!(omitPagePeptide && peptide.slug === initialPeptideSlug)) params.set('peptide', peptide.slug);
+    if (mg !== '') params.set('mg', String(mg));
+    if (mode === 'volume' && waterMl !== '') params.set('water', String(waterMl));
+    if (mode === 'units' && units !== '') params.set('units', String(units));
+    if (dose !== '') params.set('dose', String(dose));
+    if (mode !== 'volume') params.set('mode', mode);
+    params.set('syringe', String(syringe));
+    return params.toString();
+  }
+
+  // Estado com que a página abre (sem nada na URL): não precisa de query.
+  const pageDefaultQuery = useMemo(() => {
+    if (!initialPeptide) return '';
+    const p = new URLSearchParams();
+    if (initialPeptide.commonAmounts[0]) p.set('mg', String(initialPeptide.commonAmounts[0]));
+    p.set('water', '2');
+    p.set('dose', String(initialPeptide.typicalDose));
+    p.set('syringe', String(syringe0(initialPeptide)));
+    return p.toString();
+  }, [initialPeptide]);
+
+  // Barra de endereço acompanha o cálculo (link sempre pronto para copiar).
+  const liveQuery = hydrated ? stateQuery(true) : '';
+  useEffect(() => {
+    if (!hydrated) return;
+    const t = window.setTimeout(() => {
+      const qs = liveQuery === pageDefaultQuery ? '' : liveQuery;
+      const url = `${window.location.pathname}${qs ? `?${qs}` : ''}${window.location.hash}`;
+      if (url !== `${window.location.pathname}${window.location.search}${window.location.hash}`) {
+        window.history.replaceState(window.history.state, '', url);
+      }
+    }, 300);
+    return () => window.clearTimeout(t);
+  }, [hydrated, liveQuery, pageDefaultQuery]);
 
   // Persistir customs em localStorage quando muda (após hidratação)
   useEffect(() => {
@@ -297,6 +349,57 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug 
     });
   }, [hydrated, peptide, result]);
 
+  // Histórico: guarda o cálculo depois de alguns segundos parado (não a cada tecla).
+  const resultUnits = result && Number.isFinite(result.unitsPerDose) && result.unitsPerDose > 0 ? result.unitsPerDose : null;
+  useEffect(() => {
+    // Página aberta sem mexer (estado padrão do peptídeo) não entra no histórico.
+    if (!hydrated || !peptide || resultUnits == null || (initialPeptide && liveQuery === pageDefaultQuery)) return;
+    const t = window.setTimeout(() => {
+      const entry: HistoryEntry = {
+        slug: peptide.slug, name: peptide.name, mg, water: waterMl, units, dose, mode, syringe,
+        u: resultUnits, unit: peptide.doseUnit, at: Date.now(),
+      };
+      setHistory((h) => {
+        const next = pushHistory(h, entry);
+        writeJson(HISTORY_KEY, next);
+        return next;
+      });
+    }, 2500);
+    return () => window.clearTimeout(t);
+  }, [hydrated, peptide, mg, waterMl, units, dose, mode, syringe, resultUnits, initialPeptide, liveQuery, pageDefaultQuery]);
+
+  function restoreHistory(e: HistoryEntry) {
+    const p = allPeptides.find((x) => x.slug === e.slug);
+    if (!p) { setToast('Peptídeo não está mais disponível.'); return; }
+    setPeptide(p);
+    setMg(e.mg);
+    setWaterMl(e.water);
+    setUnits(e.units);
+    setDose(e.dose);
+    setMode(e.mode);
+    setSyringe(e.syringe);
+    setToast('Cálculo restaurado.');
+  }
+
+  function clearHistory() {
+    setHistory([]);
+    writeJson(HISTORY_KEY, []);
+  }
+
+  const isFav = !!peptide && favSlugs.includes(peptide.slug);
+  function toggleFav() {
+    if (!peptide) return;
+    setFavSlugs((f) => {
+      const next = f.includes(peptide.slug) ? f.filter((s) => s !== peptide.slug) : [peptide.slug, ...f].slice(0, 8);
+      writeJson(FAVORITES_KEY, next);
+      return next;
+    });
+  }
+  const favorites = useMemo(
+    () => favSlugs.map((s) => allPeptides.find((p) => p.slug === s)).filter((p): p is Peptide => !!p),
+    [favSlugs, allPeptides],
+  );
+
   // Alertas
   const alerts = useMemo(() => {
     if (!result) return [];
@@ -347,15 +450,7 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug 
   // Compartilhar URL com estado atual
   function shareUrl() {
     if (!peptide || typeof window === 'undefined') return;
-    const params = new URLSearchParams();
-    params.set('peptide', peptide.slug);
-    if (mg !== '') params.set('mg', String(mg));
-    if (waterMl !== '') params.set('water', String(waterMl));
-    if (units !== '') params.set('units', String(units));
-    if (dose !== '') params.set('dose', String(dose));
-    params.set('mode', mode);
-    params.set('syringe', String(syringe));
-    const url = `${window.location.origin}${window.location.pathname}?${params.toString()}`;
+    const url = `${window.location.origin}${window.location.pathname}?${stateQuery(true)}`;
     track(EVENTS.share);
 
     // Usa Web Share API se disponível (mobile), senão copia para clipboard
@@ -520,6 +615,27 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug 
               </div>
             )}
           </div>
+
+          {peptide && hydrated && (
+            <button
+              type="button"
+              onClick={toggleFav}
+              aria-pressed={isFav}
+              className="mt-2 inline-flex items-center gap-1.5 min-h-10 text-sm font-semibold text-ink-2 hover:text-teal-700"
+            >
+              <span aria-hidden className={isFav ? 'text-amber-500' : 'text-ink-3'}>{isFav ? '★' : '☆'}</span>
+              {isFav ? 'Nos favoritos' : `Favoritar ${peptide.name}`}
+            </button>
+          )}
+
+          <RecentCalcs
+            favorites={favorites}
+            history={history}
+            currentSlug={peptide?.slug}
+            onPick={selectPeptide}
+            onRestore={restoreHistory}
+            onClearHistory={clearHistory}
+          />
 
           {/* Form de peptídeo custom */}
           {customFormOpen && (

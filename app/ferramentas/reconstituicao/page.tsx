@@ -109,6 +109,7 @@ export default function ReconstitucaoPage() {
         creditUrl={`${SITE_URL}/ferramentas/reconstituicao`}
         creditLabel="Calculadora de reconstituição de peptídeos"
         title="Calculadora de reconstituição de peptídeos"
+        hint={<>Para abrir já com um peptídeo, acrescente <code>?peptide=tirzepatida</code> ao endereço do iframe.</>}
       />
 
       <RelatedLinks links={RELATED_LINKS} />

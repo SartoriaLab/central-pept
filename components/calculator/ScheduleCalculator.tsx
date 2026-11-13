@@ -1,6 +1,9 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useMemo } from 'react';
+import { hhmm, isoDate, num, oneOf, str } from '@/lib/url-state';
+import { useUrlState } from './useUrlState';
+import ToolActions from './ToolActions';
 import type { Peptide } from '@/lib/peptides';
 import DecimalInput from '@/components/ui/DecimalInput';
 import { EVENTS, track } from '@/lib/track';
@@ -19,22 +22,43 @@ const FREQUENCY_LABELS: Record<Frequency, string> = {
   'custom': 'Personalizado',
 };
 
+// Data vazia = hoje (o padrão não pode ser fixado no build).
+const DEFAULTS = {
+  slug: '',
+  dose: '' as number | '',
+  freq: 'daily' as Frequency,
+  cada: 7 as number | '',
+  inicio: '',
+  semanas: 4 as number | '',
+  hora: '08:00',
+};
+const CODECS = {
+  slug: str,
+  dose: num,
+  freq: oneOf<Frequency>(['daily', '2x-day', '3x-week', 'weekly', 'custom']),
+  cada: num,
+  inicio: isoDate,
+  semanas: num,
+  hora: hhmm,
+};
+
 export default function ScheduleCalculator({ peptides }: Props) {
-  const [slug, setSlug] = useState('');
-  const [doseAmount, setDoseAmount] = useState<number | ''>('');
-  const [frequency, setFrequency] = useState<Frequency>('daily');
-  const [customDays, setCustomDays] = useState<number | ''>(7);
-  const [startDate, setStartDate] = useState(() => todayLocalISO());
-  const [durationWeeks, setDurationWeeks] = useState<number | ''>(4);
-  const [timeOfDay, setTimeOfDay] = useState('08:00');
+  const { state, set, patch, reset, shareUrl } = useUrlState(DEFAULTS, CODECS, { storageKey: 'cp:cronograma' });
+  const { slug, dose: doseAmount, freq: frequency, cada: customDays, semanas: durationWeeks, hora: timeOfDay } = state;
+  const startDate = state.inicio || todayLocalISO();
+  const setDoseAmount = (v: number | '') => set('dose', v);
+  const setFrequency = (v: Frequency) => set('freq', v);
+  const setCustomDays = (v: number | '') => set('cada', v);
+  const setStartDate = (v: string) => set('inicio', v);
+  const setDurationWeeks = (v: number | '') => set('semanas', v);
+  const setTimeOfDay = (v: string) => set('hora', v);
 
   const peptide = useMemo(() => peptides.find((p) => p.slug === slug), [peptides, slug]);
 
   // Pré-preencher dose quando peptídeo é selecionado
   function selectPeptide(newSlug: string) {
-    setSlug(newSlug);
     const p = peptides.find((x) => x.slug === newSlug);
-    if (p && doseAmount === '') setDoseAmount(p.typicalDose);
+    patch(p && doseAmount === '' ? { slug: newSlug, dose: p.typicalDose } : { slug: newSlug });
   }
 
   const schedule = useMemo(() => {
@@ -195,6 +219,8 @@ export default function ScheduleCalculator({ peptides }: Props) {
             </label>
           </div>
         </section>
+
+        <ToolActions tool="cronograma" title="Cronograma de aplicações" shareUrl={shareUrl} onReset={reset} />
       </div>
 
       {/* Resultado */}

@@ -1,10 +1,13 @@
 'use client';
 
 import DecimalInput from '@/components/ui/DecimalInput';
-import { useMemo, useState, useEffect } from 'react';
+import { useMemo } from 'react';
+import { num, oneOf, str } from '@/lib/url-state';
+import { useUrlState } from './useUrlState';
+import ToolActions from './ToolActions';
 import type { Peptide, DoseUnit } from '@/lib/peptides';
 
-type Props = { peptides: Peptide[] };
+type Props = { peptides: Peptide[]; embed?: boolean };
 
 // Conversões universais
 // 1 mg = 1000 mcg (sempre)
@@ -19,10 +22,20 @@ const UI_PER_MG: Record<string, { perMg: number; note: string }> = {
   // Somatropina (hGH) — 1 mg ≈ 3 UI. Não está no catálogo mas serve como referência.
 };
 
-export default function UnitConverter({ peptides }: Props) {
-  const [slug, setSlug] = useState<string>('');
-  const [qty, setQty] = useState<number | ''>('');
-  const [unit, setUnit] = useState<DoseUnit>('mg');
+const DEFAULTS = { slug: '', qty: '' as number | '', unit: 'mg' as DoseUnit };
+const CODECS = { slug: str, qty: num, unit: oneOf<DoseUnit>(['mg', 'mcg', 'UI']) };
+
+export default function UnitConverter({ peptides, embed = false }: Props) {
+  const { state, set, patch, reset, shareUrl } = useUrlState(DEFAULTS, CODECS, embed ? {} : { storageKey: 'cp:conversor' });
+  const { slug, qty, unit } = state;
+  const setQty = (v: number | '') => set('qty', v);
+  const setUnit = (u: DoseUnit) => set('unit', u);
+
+  // Ao escolher o peptídeo, pré-preenche com a dose típica.
+  function pickPeptide(next: string) {
+    const p = peptides.find((x) => x.slug === next);
+    patch(p ? { slug: next, qty: p.typicalDose, unit: p.doseUnit } : { slug: next, qty: '' });
+  }
 
   const peptide = useMemo(() => peptides.find((p) => p.slug === slug), [peptides, slug]);
   const uiFactor = peptide ? UI_PER_MG[peptide.slug] : undefined;
@@ -35,15 +48,6 @@ export default function UnitConverter({ peptides }: Props) {
     if (unit === 'UI' && uiFactor) return qty / uiFactor.perMg;
     return null;
   }, [qty, unit, uiFactor]);
-
-  // Pré-preencher com dose típica quando peptídeo é escolhido
-  useEffect(() => {
-    if (peptide && qty === '') {
-      setQty(peptide.typicalDose);
-      setUnit(peptide.doseUnit);
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [peptide]);
 
   const fmt = (n: number | null, dec = 3): string => {
     if (n == null) return '—';
@@ -75,7 +79,7 @@ export default function UnitConverter({ peptides }: Props) {
           <select
             aria-label="Peptídeo"
             value={slug}
-            onChange={(e) => { setSlug(e.target.value); setQty(''); }}
+            onChange={(e) => pickPeptide(e.target.value)}
             className="input w-full !h-[52px] !px-4"
           >
             <option value="">— Converter sem peptídeo específico —</option>
@@ -123,6 +127,8 @@ export default function UnitConverter({ peptides }: Props) {
             </div>
           </div>
         </section>
+
+        {!embed && <ToolActions tool="conversor" title="Conversor mg ↔ mcg" shareUrl={shareUrl} onReset={reset} />}
       </div>
 
       {/* Resultado */}

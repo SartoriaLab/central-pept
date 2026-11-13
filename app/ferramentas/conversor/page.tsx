@@ -8,6 +8,7 @@ import { getPeptides } from '@/lib/peptides';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
 import FAQ, { type FAQItem } from '@/components/ui/FAQ';
 import ToolSchema from '@/components/ui/ToolSchema';
+import EmbedSnippet from '@/components/ui/EmbedSnippet';
 
 const FAQ_ITEMS: FAQItem[] = [
   {
@@ -75,6 +76,15 @@ export default function ConversorPage() {
       </header>
 
       <UnitConverter peptides={peptides} />
+
+      <EmbedSnippet
+        tool="conversor"
+        embedUrl={SITE_URL + "/embed/conversor"}
+        creditUrl={SITE_URL + "/ferramentas/conversor"}
+        creditLabel="Conversor mg, mcg e UI para peptídeos"
+        title="Conversor mg, mcg e UI para peptídeos"
+        height={700}
+      />
 
       <RelatedLinks links={RELATED_LINKS} />
 

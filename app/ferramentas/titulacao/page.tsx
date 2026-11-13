@@ -7,6 +7,7 @@ import TitrationCalculator from '@/components/calculator/TitrationCalculator';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
 import FAQ, { type FAQItem } from '@/components/ui/FAQ';
 import ToolSchema from '@/components/ui/ToolSchema';
+import EmbedSnippet from '@/components/ui/EmbedSnippet';
 
 const FAQ_ITEMS: FAQItem[] = [
   {
@@ -78,6 +79,15 @@ export default function TitulacaoPage() {
       </header>
 
       <TitrationCalculator />
+
+      <EmbedSnippet
+        tool="titulacao"
+        embedUrl={SITE_URL + "/embed/titulacao"}
+        creditUrl={SITE_URL + "/ferramentas/titulacao"}
+        creditLabel="Calendário de subida de dose de GLP-1"
+        title="Calendário de subida de dose de GLP-1"
+        height={1100}
+      />
 
       <RelatedLinks links={RELATED_LINKS} />
 

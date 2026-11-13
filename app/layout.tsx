@@ -5,6 +5,7 @@ import { Analytics } from '@vercel/analytics/next';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import SiteChrome from '@/components/layout/SiteChrome';
+import ServiceWorker from '@/components/layout/ServiceWorker';
 import './globals.css';
 
 const inter = Inter({
@@ -152,6 +153,7 @@ export default function RootLayout({
         <main id="main" tabIndex={-1} className="flex-1 outline-none">{children}</main>
         <SiteChrome><Footer /></SiteChrome>
         <Analytics />
+        <ServiceWorker />
       </body>
     </html>
   );

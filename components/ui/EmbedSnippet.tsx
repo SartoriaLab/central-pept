@@ -13,11 +13,15 @@ type Props = {
   /** Atributo title do iframe (acessibilidade). */
   title: string;
   height?: number;
+  /** Slug da ferramenta (métricas). */
+  tool?: string;
+  /** Dica abaixo do botão (ex.: parâmetro para abrir já preenchido). */
+  hint?: React.ReactNode;
 };
 
 // Código para incorporar a ferramenta em outro site. O link de crédito fica fora do
 // iframe de propósito: é ele que conta como referência para a página original.
-export default function EmbedSnippet({ embedUrl, creditUrl, creditLabel, title, height = 900 }: Props) {
+export default function EmbedSnippet({ embedUrl, creditUrl, creditLabel, title, height = 900, tool = 'reconstituicao', hint }: Props) {
   const [copied, setCopied] = useState(false);
 
   const code = [
@@ -29,7 +33,7 @@ export default function EmbedSnippet({ embedUrl, creditUrl, creditLabel, title, 
     try {
       await navigator.clipboard.writeText(code);
       setCopied(true);
-      track(EVENTS.embedCopy, { ferramenta: 'reconstituicao' });
+      track(EVENTS.embedCopy, { ferramenta: tool });
       setTimeout(() => setCopied(false), 2500);
     } catch {
       setCopied(false);
@@ -40,14 +44,14 @@ export default function EmbedSnippet({ embedUrl, creditUrl, creditLabel, title, 
     <section className="mt-10 no-print max-w-3xl" aria-labelledby="incorporar">
       <h2 id="incorporar" className="text-xl md:text-2xl font-bold mb-2">Incorporar no seu site</h2>
       <p className="text-sm text-ink-2 mb-3 leading-relaxed">
-        Tem um blog, clínica ou farmácia? Cole o código abaixo na sua página para exibir a calculadora.
+        Tem um blog, clínica ou farmácia? Cole o código abaixo na sua página para exibir a ferramenta.
         É gratuito — pedimos apenas que o link de crédito seja mantido.
       </p>
       <textarea
         readOnly
         value={code}
         rows={5}
-        aria-label="Código para incorporar a calculadora"
+        aria-label={`Código para incorporar: ${title}`}
         onFocus={(e) => e.currentTarget.select()}
         className="w-full rounded border border-border-2 bg-surface p-3 font-mono text-xs text-ink-2 leading-relaxed"
       />
@@ -56,7 +60,7 @@ export default function EmbedSnippet({ embedUrl, creditUrl, creditLabel, title, 
           {copied ? 'Código copiado' : 'Copiar código'}
         </button>
         <span className="text-xs text-ink-3" aria-live="polite">
-          Para abrir já com um peptídeo, acrescente <code>?peptide=tirzepatida</code> ao endereço do iframe.
+          {hint}
         </span>
       </div>
     </section>

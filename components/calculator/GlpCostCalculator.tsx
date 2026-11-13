@@ -1,7 +1,10 @@
 'use client';
 
 import DecimalInput from '@/components/ui/DecimalInput';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo } from 'react';
+import { bool, num as numCodec, oneOf } from '@/lib/url-state';
+import { useUrlState } from './useUrlState';
+import ToolActions from './ToolActions';
 import { getTitrationDoses } from '@/lib/titration';
 import { EVENTS, trackOnce } from '@/lib/track';
 
@@ -23,12 +26,16 @@ const MAX_WEEKS_OPEN = 4; // frasco reconstituído: uso em até 28 dias
 const brl = (n: number) => n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 const num = (n: number, dec = 2) => n.toLocaleString('pt-BR', { maximumFractionDigits: dec });
 
+const DEFAULTS = { med: MEDS[0].id, preco: '' as number | '', total: 10 as number | '', dose: 2.5 as number | '', descarte: true };
+const CODECS = { med: oneOf(MEDS.map((m) => m.id)), preco: numCodec, total: numCodec, dose: numCodec, descarte: bool };
+
 export default function GlpCostCalculator() {
-  const [medId, setMedId] = useState(MEDS[0].id);
-  const [price, setPrice] = useState<number | ''>('');
-  const [totalMg, setTotalMg] = useState<number | ''>(10);
-  const [dose, setDose] = useState<number | ''>(2.5);
-  const [discard, setDiscard] = useState(true);
+  const { state, set, patch, reset, shareUrl } = useUrlState(DEFAULTS, CODECS, { storageKey: 'cp:custo' });
+  const { med: medId, preco: price, total: totalMg, dose, descarte: discard } = state;
+  const setPrice = (v: number | '') => set('preco', v);
+  const setTotalMg = (v: number | '') => set('total', v);
+  const setDose = (v: number | '') => set('dose', v);
+  const setDiscard = (v: boolean) => set('descarte', v);
 
   const med = MEDS.find((m) => m.id === medId)!;
   const doses = useMemo(() => (med.peptideSlug ? getTitrationDoses(med.peptideSlug, WEEKLY) : []), [med]);
@@ -64,10 +71,8 @@ export default function GlpCostCalculator() {
 
   function selectMed(id: string) {
     const m = MEDS.find((x) => x.id === id)!;
-    setMedId(id);
     const d = m.peptideSlug ? getTitrationDoses(m.peptideSlug, WEEKLY) : [];
-    if (d.length > 0) setDose(d[0]);
-    setTotalMg(m.packages.includes(10) ? 10 : m.packages[0]);
+    patch({ med: id, total: m.packages.includes(10) ? 10 : m.packages[0], ...(d.length > 0 ? { dose: d[0] } : {}) });
   }
 
   return (
@@ -137,6 +142,10 @@ export default function GlpCostCalculator() {
           Caneta com doses fixas: total em mg = número de doses × mg por dose
           (ex.: caneta com 4 doses de 5 mg = 20 mg).
         </p>
+
+        <div className="mt-5">
+          <ToolActions tool="custo" title="Custo do GLP-1" shareUrl={shareUrl} onReset={reset} />
+        </div>
       </section>
 
       <section className="card p-5 md:p-6" aria-label="Resultado" aria-live="polite">

@@ -1,6 +1,9 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useMemo } from 'react';
+import { isoDate, num, oneOf } from '@/lib/url-state';
+import { useUrlState } from './useUrlState';
+import ToolActions from './ToolActions';
 import { TITRATION_SCHEMES, durationLabel, stepPeriodLabel } from '@/lib/titration';
 import { EVENTS, track } from '@/lib/track';
 import { parseLocalDate, todayLocalISO } from '@/lib/dates';
@@ -8,10 +11,17 @@ import { buildIcs, downloadIcs } from '@/lib/ics';
 
 const SCHEMES = TITRATION_SCHEMES;
 
-export default function TitrationCalculator() {
-  const [schemeId, setSchemeId] = useState<string>(SCHEMES[1].id);
-  const [startDate, setStartDate] = useState(() => todayLocalISO());
-  const [stepChoice, setStepChoice] = useState<number>(SCHEMES[1].stepDays);
+// etapa 0 = ritmo da bula; data vazia = hoje.
+const DEFAULTS = { esquema: SCHEMES[1].id, inicio: '', etapa: 0 as number | '' };
+const CODECS = { esquema: oneOf(SCHEMES.map((s) => s.id)), inicio: isoDate, etapa: num };
+
+export default function TitrationCalculator({ embed = false }: { embed?: boolean }) {
+  const { state, set, patch, reset, shareUrl } = useUrlState(DEFAULTS, CODECS, embed ? {} : { storageKey: 'cp:titulacao' });
+  const schemeId = state.esquema;
+  const startDate = state.inicio || todayLocalISO();
+  const stepChoice = typeof state.etapa === 'number' ? state.etapa : 0;
+  const setStartDate = (v: string) => set('inicio', v);
+  const setStepChoice = (v: number) => set('etapa', v);
 
   const scheme = useMemo(() => SCHEMES.find((s) => s.id === schemeId)!, [schemeId]);
   // Duração de cada etapa em dias: semanais 28/42/56, liraglutida 7/14, Rybelsus 30/60.
@@ -34,9 +44,7 @@ export default function TitrationCalculator() {
   const maintenanceDose = schedule[schedule.length - 1]?.dose;
 
   function selectScheme(id: string) {
-    setSchemeId(id);
-    const next = SCHEMES.find((s) => s.id === id);
-    if (next) setStepChoice(next.stepDays);
+    patch({ esquema: id, etapa: 0 });
   }
 
   function exportIcs() {
@@ -138,6 +146,8 @@ export default function TitrationCalculator() {
             </div>
           </div>
         </section>
+
+        {!embed && <ToolActions tool="titulacao" title="Calculadora de titulação" shareUrl={shareUrl} onReset={reset} />}
       </div>
 
       {/* Resultado */}

@@ -1,11 +1,13 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useMemo } from 'react';
+import { list, num, oneOf, type Codec } from '@/lib/url-state';
+import { useUrlState } from './useUrlState';
+import ToolActions from './ToolActions';
 import type { Peptide } from '@/lib/peptides';
 import DecimalInput from '@/components/ui/DecimalInput';
 
 type Row = {
-  id: string;
   slug: string;      // vazio = peptídeo não selecionado ainda
   mg: number | '';   // quantidade no frasco
 };
@@ -14,27 +16,42 @@ type SyringeSize = 30 | 50 | 100;
 
 type Props = { peptides: Peptide[] };
 
-function rid(): string {
-  return Math.random().toString(36).slice(2, 9);
-}
+// Linha na URL: "slug:mg", linhas separadas por "~" (ex.: bpc-157:5~tb-500:5).
+const rowCodec: Codec<Row> = {
+  parse: (raw) => {
+    const [slug = '', mg = ''] = raw.split(':');
+    const n = num.parse(mg);
+    return /^[a-z0-9-]*$/.test(slug) && n !== undefined ? { slug, mg: n } : undefined;
+  },
+  format: (r) => r.slug + ':' + (num.format(r.mg) ?? ''),
+};
+const rowsCodec: Codec<Row[]> = {
+  parse: (raw) => {
+    const rs = list(rowCodec).parse(raw);
+    return rs && rs.length >= 2 && rs.length <= 4 ? rs : undefined;
+  },
+  format: list(rowCodec).format,
+};
+
+const EMPTY: Row = { slug: '', mg: '' };
+const DEFAULTS = { frascos: [EMPTY, EMPTY], agua: 2 as number | '', unidades: 20 as number | '', seringa: 50 as SyringeSize };
+const CODECS = { frascos: rowsCodec, agua: num, unidades: num, seringa: oneOf<SyringeSize>([30, 50, 100]) };
 
 export default function MixCalculator({ peptides }: Props) {
-  const [rows, setRows] = useState<Row[]>([
-    { id: rid(), slug: '', mg: '' },
-    { id: rid(), slug: '', mg: '' },
-  ]);
-  const [waterMl, setWaterMl] = useState<number | ''>(2);
-  const [units, setUnits] = useState<number | ''>(20);
-  const [syringe, setSyringe] = useState<SyringeSize>(50);
+  const { state, set, reset, shareUrl } = useUrlState(DEFAULTS, CODECS, { storageKey: 'cp:mistura' });
+  const { frascos: rows, agua: waterMl, unidades: units, seringa: syringe } = state;
+  const setWaterMl = (v: number | '') => set('agua', v);
+  const setUnits = (v: number | '') => set('unidades', v);
+  const setSyringe = (v: SyringeSize) => set('seringa', v);
 
-  function updateRow(id: string, patch: Partial<Row>) {
-    setRows((rs) => rs.map((r) => (r.id === id ? { ...r, ...patch } : r)));
+  function updateRow(idx: number, patch: Partial<Row>) {
+    set('frascos', (rs) => rs.map((r, i) => (i === idx ? { ...r, ...patch } : r)));
   }
   function addRow() {
-    setRows((rs) => (rs.length >= 4 ? rs : [...rs, { id: rid(), slug: '', mg: '' }]));
+    set('frascos', (rs) => (rs.length >= 4 ? rs : [...rs, EMPTY]));
   }
-  function removeRow(id: string) {
-    setRows((rs) => (rs.length <= 2 ? rs : rs.filter((r) => r.id !== id)));
+  function removeRow(idx: number) {
+    set('frascos', (rs) => (rs.length <= 2 ? rs : rs.filter((_, i) => i !== idx)));
   }
 
   // Linhas válidas: com peptídeo + mg > 0
@@ -100,13 +117,13 @@ export default function MixCalculator({ peptides }: Props) {
             {rows.map((r, i) => {
               const selected = peptides.find((p) => p.slug === r.slug);
               // Evita duplicar peptídeos já selecionados em outras linhas
-              const otherSlugs = rows.filter((x) => x.id !== r.id).map((x) => x.slug);
+              const otherSlugs = rows.filter((_, j) => j !== i).map((x) => x.slug);
               return (
-                <div key={r.id} className="flex gap-2 items-center">
+                <div key={i} className="flex gap-2 items-center">
                   <div className="flex-1 min-w-0 grid grid-cols-[minmax(0,1fr)_100px] sm:grid-cols-[minmax(0,1fr)_120px] gap-2">
                     <select
                       value={r.slug}
-                      onChange={(e) => updateRow(r.id, { slug: e.target.value })}
+                      onChange={(e) => updateRow(i, { slug: e.target.value })}
                       className="input min-w-0 w-full"
                       aria-label={`Peptídeo ${i + 1}`}
                     >
@@ -120,7 +137,7 @@ export default function MixCalculator({ peptides }: Props) {
                     <div className="flex items-center border-[1.5px] border-border-2 rounded bg-surface h-11 overflow-hidden focus-within:border-teal focus-within:ring-[3px] focus-within:ring-teal/25">
                       <DecimalInput
                         value={r.mg}
-                        onChange={(n) => updateRow(r.id, { mg: n })}
+                        onChange={(n) => updateRow(i, { mg: n })}
                         placeholder={selected?.commonAmounts[0]?.toString() ?? '5'}
                         className="flex-1 min-w-0 h-full border-none bg-transparent px-2.5 text-base font-bold text-ink outline-none tabular-nums"
                         aria-label={`Miligramas do peptídeo ${i + 1}`}
@@ -132,7 +149,7 @@ export default function MixCalculator({ peptides }: Props) {
                   </div>
                   <button
                     type="button"
-                    onClick={() => removeRow(r.id)}
+                    onClick={() => removeRow(i)}
                     disabled={rows.length <= 2}
                     aria-label={`Remover peptídeo ${i + 1}`}
                     className="w-10 h-10 flex items-center justify-center rounded-md text-ink-3 hover:bg-red-50 hover:text-red-600 disabled:opacity-30 disabled:cursor-not-allowed flex-shrink-0"
@@ -220,6 +237,8 @@ export default function MixCalculator({ peptides }: Props) {
             </div>
           </div>
         </section>
+
+        <ToolActions tool="mistura" title="Calculadora de mistura" shareUrl={shareUrl} onReset={reset} />
       </div>
 
       {/* Resultado */}

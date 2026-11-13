@@ -47,6 +47,13 @@ Feed, sitemap, busca, páginas de tag e imagem de compartilhamento saem sozinhos
    Home, `/ferramentas`, busca, sitemap e imagem OG leem daqui.
 2. Página em `app/ferramentas/<slug>/page.tsx`; componente client em `components/calculator/`.
 3. Ícone e cor em `components/ui/ToolIcon.tsx`.
+4. Estado na URL + último uso salvo: `useUrlState(padrões, codecs, { storageKey })`
+   (`components/calculator/useUrlState.ts`, codecs em `lib/url-state.ts`). Só o que difere
+   do padrão vai para a URL. Botões copiar/compartilhar/imprimir/limpar: `ToolActions`.
+5. Versão para iframe: `app/embed/<slug>/page.tsx` (noindex, canonical na ferramenta) com
+   prop `embed` no componente (sem localStorage nem botões) e `<EmbedSnippet tool=...>` na página.
+6. O service worker (`app/sw.js/route.ts`) pré-carrega toda ferramenta de `lib/tools.ts`
+   para uso offline; só registra em produção.
 
 ## Páginas geradas a partir dos dados
 
