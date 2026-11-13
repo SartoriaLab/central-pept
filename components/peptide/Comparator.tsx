@@ -391,7 +391,7 @@ function SelectedCard({
           onClick={() => setPicking(!picking)}
           aria-label={`Trocar ${peptide.name}`}
           title="Trocar peptídeo"
-          className="w-9 h-9 flex items-center justify-center rounded-md text-ink-3 hover:bg-teal-50 hover:text-teal-700"
+          className="w-11 h-11 flex items-center justify-center rounded-md text-ink-3 hover:bg-teal-50 hover:text-teal-700"
         >
           <svg viewBox="0 0 20 20" width={14} height={14} fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
             <path d="M4 7h11M13 5l2 2-2 2M16 13H5M7 11l-2 2 2 2" />
@@ -401,7 +401,7 @@ function SelectedCard({
           type="button"
           onClick={onRemove}
           aria-label={`Remover ${peptide.name}`}
-          className="w-9 h-9 flex items-center justify-center rounded-md text-ink-3 hover:bg-red-50 hover:text-red-600"
+          className="w-11 h-11 flex items-center justify-center rounded-md text-ink-3 hover:bg-red-50 hover:text-red-600"
         >
           <svg viewBox="0 0 20 20" width={14} height={14} fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" aria-hidden>
             <path d="M5 5l10 10M15 5L5 15" />

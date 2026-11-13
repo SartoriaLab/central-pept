@@ -14,17 +14,18 @@ const inter = Inter({
 });
 
 // Script roda antes do React hidratar para evitar flash de tema errado.
-// Padrão é claro — só aplica dark se o usuário escolheu explicitamente antes.
+// Escolha salva no ThemeToggle vence; sem escolha, segue o tema do sistema.
 const themeInitScript = `
 try {
-  if (localStorage.getItem('peptidecalc:theme') === 'dark') {
+  var t = localStorage.getItem('peptidecalc:theme');
+  if (t === 'dark' || (t !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
     document.documentElement.classList.add('dark');
   }
 } catch (e) {}
 `.trim();
 
 const PLAUSIBLE = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN;
-const SITE_URL = process.env.SITE_URL || 'https://centralpeptideos.com.br';
+import { CONTACT_EMAIL, SITE_URL } from '@/lib/site';
 
 // Schemas globais — aparecem em todas as páginas
 const websiteJsonLd = {
@@ -63,7 +64,7 @@ const organizationJsonLd = {
   contactPoint: {
     '@type': 'ContactPoint',
     contactType: 'customer support',
-    email: 'contato@centralpeptideos.com.br',
+    email: CONTACT_EMAIL,
     availableLanguage: ['pt-BR'],
   },
 };
@@ -101,7 +102,10 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: '#0d9488',
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#0d9488' },
+    { media: '(prefers-color-scheme: dark)', color: '#0b1220' },
+  ],
   width: 'device-width',
   initialScale: 1,
 };

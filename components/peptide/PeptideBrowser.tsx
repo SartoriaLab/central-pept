@@ -78,7 +78,7 @@ export default function PeptideBrowser({ peptides }: Props) {
   return (
     <>
       <div className="flex flex-col md:flex-row gap-3 mb-5">
-        <div className="md:flex-1 shrink-0 flex items-center gap-2 h-12 px-3.5 border-[1.5px] border-border-2 bg-surface rounded focus-within:border-teal focus-within:ring-[3px] focus-within:ring-teal-50 transition-all">
+        <div className="md:flex-1 shrink-0 flex items-center gap-2 h-12 px-3.5 border-[1.5px] border-border-2 bg-surface rounded focus-within:border-teal focus-within:ring-[3px] focus-within:ring-teal/25 transition-all">
           <svg viewBox="0 0 20 20" width={18} height={18} fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden className="text-ink-3">
             <circle cx={9} cy={9} r={6} /><path d="m16 16-3.5-3.5" />
           </svg>
@@ -95,7 +95,7 @@ export default function PeptideBrowser({ peptides }: Props) {
               type="button"
               onClick={() => setQuery('')}
               aria-label="Limpar busca"
-              className="w-8 h-8 -mr-1.5 flex items-center justify-center rounded-md text-xl leading-none text-ink-3 hover:text-ink"
+              className="w-10 h-10 -mr-2 flex items-center justify-center rounded-md text-xl leading-none text-ink-3 hover:text-ink"
             >
               ×
             </button>
@@ -110,7 +110,7 @@ export default function PeptideBrowser({ peptides }: Props) {
             type="button"
             onClick={() => setCat('all')}
             aria-pressed={cat === 'all'}
-            className={`shrink-0 whitespace-nowrap min-h-9 md:min-h-8 px-3.5 md:px-3 text-sm md:text-xs font-semibold rounded-full border transition-colors ${
+            className={`shrink-0 whitespace-nowrap min-h-10 px-3.5 md:px-3 text-sm md:text-xs font-semibold rounded-full border transition-colors ${
               cat === 'all'
                 ? 'bg-teal-50 border-teal text-teal-700'
                 : 'bg-surface border-border text-ink-2 hover:border-teal'
@@ -126,7 +126,7 @@ export default function PeptideBrowser({ peptides }: Props) {
                 type="button"
                 onClick={() => setCat(c)}
                 aria-pressed={cat === c}
-                className={`shrink-0 whitespace-nowrap min-h-9 md:min-h-8 px-3.5 md:px-3 text-sm md:text-xs font-semibold rounded-full border transition-colors ${
+                className={`shrink-0 whitespace-nowrap min-h-10 px-3.5 md:px-3 text-sm md:text-xs font-semibold rounded-full border transition-colors ${
                   cat === c
                     ? 'bg-teal-50 border-teal text-teal-700'
                     : 'bg-surface border-border text-ink-2 hover:border-teal'
@@ -146,7 +146,7 @@ export default function PeptideBrowser({ peptides }: Props) {
             type="button"
             onClick={() => setStatus('all')}
             aria-pressed={status === 'all'}
-            className={`shrink-0 whitespace-nowrap min-h-9 md:min-h-8 px-3.5 md:px-3 text-sm md:text-xs font-semibold rounded-full border transition-colors ${
+            className={`shrink-0 whitespace-nowrap min-h-10 px-3.5 md:px-3 text-sm md:text-xs font-semibold rounded-full border transition-colors ${
               status === 'all'
                 ? 'bg-teal-50 border-teal text-teal-700'
                 : 'bg-surface border-border text-ink-2 hover:border-teal'
@@ -162,7 +162,7 @@ export default function PeptideBrowser({ peptides }: Props) {
                 type="button"
                 onClick={() => setStatus(s)}
                 aria-pressed={status === s}
-                className={`shrink-0 whitespace-nowrap min-h-9 md:min-h-8 px-3.5 md:px-3 text-sm md:text-xs font-semibold rounded-full border transition-colors ${
+                className={`shrink-0 whitespace-nowrap min-h-10 px-3.5 md:px-3 text-sm md:text-xs font-semibold rounded-full border transition-colors ${
                   status === s
                     ? 'bg-teal-50 border-teal text-teal-700'
                     : 'bg-surface border-border text-ink-2 hover:border-teal'
@@ -177,7 +177,7 @@ export default function PeptideBrowser({ peptides }: Props) {
               type="button"
               onClick={() => setStatus('wada')}
               aria-pressed={status === 'wada'}
-              className={`shrink-0 whitespace-nowrap min-h-9 md:min-h-8 px-3.5 md:px-3 text-sm md:text-xs font-semibold rounded-full border transition-colors ${
+              className={`shrink-0 whitespace-nowrap min-h-10 px-3.5 md:px-3 text-sm md:text-xs font-semibold rounded-full border transition-colors ${
                 status === 'wada'
                   ? 'bg-red-50 border-red-400 text-red-800'
                   : 'bg-surface border-border text-ink-2 hover:border-red-300'

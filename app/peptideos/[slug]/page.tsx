@@ -466,7 +466,7 @@ function DetailSection({
         </span>
         <span className="text-xl font-bold text-ink">{title}</span>
       </h2>
-      <div className="pl-12">{children}</div>
+      <div className="sm:pl-12">{children}</div>
     </section>
   );
 }

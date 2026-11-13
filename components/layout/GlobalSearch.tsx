@@ -103,7 +103,7 @@ export default function GlobalSearch() {
         aria-label="Buscar"
         aria-haspopup="dialog"
         title="Buscar (tecle / ou Ctrl+K)"
-        className="inline-flex items-center justify-center gap-2 h-10 min-w-10 px-2.5 rounded-md text-ink-2 hover:bg-teal-50 hover:text-teal-700 transition-colors"
+        className="inline-flex items-center justify-center gap-2 h-11 min-w-11 px-2.5 rounded-md text-ink-2 hover:bg-teal-50 hover:text-teal-700 transition-colors"
       >
         <svg viewBox="0 0 20 20" width={18} height={18} fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
           <circle cx={9} cy={9} r={6} /><path d="m16 16-3.5-3.5" />

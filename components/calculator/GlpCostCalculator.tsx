@@ -170,7 +170,7 @@ export default function GlpCostCalculator() {
       </section>
 
       {result && !result.tooSmall && doses.length > 0 && (
-        <section className="card overflow-x-auto lg:col-span-2" aria-label="Custo em cada dose da titulação">
+        <section className="card overflow-x-auto md:col-span-2" aria-label="Custo em cada dose da titulação">
           <table className="w-full text-sm">
             <caption className="p-4 text-left text-sm text-ink-2">
               Custo em cada dose da subida, mantendo o mesmo preço por mg ({brl(result.perMg)}/mg).
@@ -215,7 +215,7 @@ function Field({
   return (
     <label className="flex flex-col">
       <span className="text-xs font-bold uppercase tracking-wider text-ink-3 mb-1">{label}</span>
-      <div className="flex items-center border-[1.5px] border-border-2 rounded bg-surface h-11 overflow-hidden focus-within:border-teal focus-within:ring-[3px] focus-within:ring-teal-50">
+      <div className="flex items-center border-[1.5px] border-border-2 rounded bg-surface h-11 overflow-hidden focus-within:border-teal focus-within:ring-[3px] focus-within:ring-teal/25">
         <DecimalInput
           value={value}
           placeholder={placeholder}
@@ -236,7 +236,7 @@ function Chip({ active, onClick, children }: { active: boolean; onClick: () => v
       type="button"
       onClick={onClick}
       aria-pressed={active}
-      className={`min-h-8 px-3 text-xs font-semibold rounded-full border tabular-nums transition-colors ${
+      className={`min-h-10 px-3 text-xs font-semibold rounded-full border tabular-nums transition-colors ${
         active
           ? 'border-teal bg-teal-50 text-teal-700'
           : 'border-border bg-surface text-ink-2 hover:border-teal hover:text-teal-700'

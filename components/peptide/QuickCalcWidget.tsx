@@ -92,13 +92,14 @@ function MiniInput({
   return (
     <label className="flex flex-col">
       <span className="text-xs font-bold uppercase tracking-wider text-ink-3 mb-1">{label}</span>
-      <div className="flex items-center border-[1.5px] border-border-2 rounded bg-surface h-11 overflow-hidden focus-within:border-teal focus-within:ring-[3px] focus-within:ring-teal-50">
+      <div className="flex items-center border-[1.5px] border-border-2 rounded bg-surface h-11 overflow-hidden focus-within:border-teal focus-within:ring-[3px] focus-within:ring-teal/25">
         <DecimalInput
           value={value}
           onChange={onChange}
-          className="flex-1 min-w-0 h-full bg-transparent px-2.5 text-base font-bold tabular-nums outline-none"
+          className="flex-1 min-w-0 h-full bg-transparent px-2 sm:px-2.5 text-base font-bold tabular-nums outline-none"
         />
-        <span className="px-2 text-xs font-bold text-ink-3 border-l border-border h-full flex items-center flex-shrink-0">
+        {/* Padding menor no celular: em 360 px três campos lado a lado cortavam "250" */}
+        <span className="px-1.5 sm:px-2 text-xs font-bold text-ink-3 sm:border-l border-border h-full flex items-center flex-shrink-0">
           {unit}
         </span>
       </div>

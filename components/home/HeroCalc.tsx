@@ -114,7 +114,7 @@ function Mini({
   return (
     <label className="flex flex-col min-w-0">
       <span className="text-xs font-semibold text-ink-2 mb-1">{label}</span>
-      <span className="flex items-center border-[1.5px] border-border-2 rounded bg-surface h-11 overflow-hidden focus-within:border-teal focus-within:ring-[3px] focus-within:ring-teal-50">
+      <span className="flex items-center border-[1.5px] border-border-2 rounded bg-surface h-11 overflow-hidden focus-within:border-teal focus-within:ring-[3px] focus-within:ring-teal/25">
         <DecimalInput
           value={value}
           onChange={onChange}

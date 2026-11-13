@@ -156,7 +156,7 @@ export default function ScheduleCalculator({ peptides }: Props) {
             </label>
             <label className="flex flex-col gap-1.5">
               <span className="text-xs font-semibold text-ink-2">Dose por aplicação</span>
-              <div className="flex items-center border-[1.5px] border-border-2 rounded bg-surface h-11 overflow-hidden focus-within:border-teal focus-within:ring-[3px] focus-within:ring-teal-50">
+              <div className="flex items-center border-[1.5px] border-border-2 rounded bg-surface h-11 overflow-hidden focus-within:border-teal focus-within:ring-[3px] focus-within:ring-teal/25">
                 <DecimalInput
                   value={doseAmount}
                   onChange={setDoseAmount}

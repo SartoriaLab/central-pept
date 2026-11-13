@@ -58,12 +58,12 @@ export default function GlossarioPage() {
 
       <div className="max-w-4xl mx-auto px-4 md:px-6 py-8 md:py-12">
         {/* Navegação por letra */}
-        <nav aria-label="Navegação do glossário" className="mb-8 flex flex-wrap gap-1.5 pb-4 border-b border-border sticky top-20 bg-bg/95 backdrop-blur z-20 -mx-4 px-4 py-3">
+        <nav aria-label="Navegação do glossário" className="mb-8 flex flex-wrap gap-1.5 pb-4 border-b border-border sticky top-16 md:top-20 bg-bg/95 backdrop-blur z-20 -mx-4 px-4 py-3">
           {letters.map((l) => (
             <a
               key={l}
               href={`#letra-${l}`}
-              className="w-8 h-8 flex items-center justify-center rounded-md border border-border bg-surface text-sm font-bold text-ink-2 hover:border-teal hover:text-teal-700 hover:bg-teal-50 transition-colors"
+              className="w-10 h-10 flex items-center justify-center rounded-md border border-border bg-surface text-sm font-bold text-ink-2 hover:border-teal hover:text-teal-700 hover:bg-teal-50 transition-colors"
             >
               {l}
             </a>

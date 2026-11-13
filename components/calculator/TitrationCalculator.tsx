@@ -185,8 +185,8 @@ export default function TitrationCalculator() {
           </div>
 
           {/* Timeline visual */}
-          <ol className="relative">
-            <div className="absolute left-4 top-2 bottom-2 w-0.5 bg-border" aria-hidden />
+          {/* Linha da timeline como pseudo-elemento: <ol> só pode ter <li> como filhos */}
+          <ol className="relative before:content-[''] before:absolute before:left-4 before:top-2 before:bottom-2 before:w-0.5 before:bg-border">
             {schedule.map((step, i) => {
               const isLast = i === schedule.length - 1;
               return (

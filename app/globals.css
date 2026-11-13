@@ -42,8 +42,21 @@ html.dark {
   --border-2-rgb: 45 59 82;     /* #2d3b52 */
   --text-rgb:     229 237 245;  /* #e5edf5 */
   --text-2-rgb:   170 184 204;  /* #aab8cc */
-  --text-3-rgb:   106 121 143;  /* #6a798f */
+  --text-3-rgb:   131 146 168;  /* #8392a8 — ≥4,5:1 sobre surface */
   color-scheme: dark;
+}
+
+/* Texto sobre fundo teal sólido (bg-teal / bg-teal-700). No escuro o teal vira menta
+   clara, então branco some (~1,4:1): troca para o fundo da página. */
+html.dark .bg-teal.text-white,
+html.dark .bg-teal-700.text-white,
+html.dark .focus\:bg-teal:focus.focus\:text-white {
+  color: var(--bg) !important;
+}
+/* No claro, branco sobre #0d9488 dá ~3,7:1; o teal-700 (#0f766e) passa de 5:1. */
+html:not(.dark) .bg-teal.text-white,
+html:not(.dark) .focus\:bg-teal:focus {
+  background-color: var(--teal-700) !important;
 }
 
 @layer base {
@@ -99,8 +112,9 @@ html.dark {
   .btn {
     @apply inline-flex items-center justify-center gap-2 px-5 h-11 rounded font-bold text-sm transition-all cursor-pointer whitespace-nowrap;
   }
+  /* text-bg: branco no claro, quase preto no escuro (teal-700 vira menta clara) */
   .btn-teal {
-    @apply btn bg-teal-700 text-white hover:bg-teal;
+    @apply btn bg-teal-700 text-white dark:text-bg hover:brightness-110;
     box-shadow: 0 4px 14px rgba(13,148,136,.3);
   }
   .btn-teal:hover {
@@ -111,7 +125,7 @@ html.dark {
     transform: translateY(0);
   }
   .btn-primary {
-    @apply btn bg-teal-700 text-white hover:bg-teal-600;
+    @apply btn bg-teal-700 text-white dark:text-bg hover:brightness-110;
   }
   .btn-ghost {
     @apply btn bg-transparent text-ink-2 hover:bg-bg hover:text-ink;
@@ -120,7 +134,7 @@ html.dark {
     @apply btn bg-surface border border-border text-ink-2 hover:border-teal hover:text-teal-700 hover:bg-teal-50;
   }
   .input {
-    @apply h-11 px-3 border-[1.5px] border-border-2 rounded bg-surface text-base text-ink outline-none transition-shadow placeholder:text-ink-3 focus:border-teal focus:ring-[3px] focus:ring-teal-50 disabled:opacity-50;
+    @apply h-11 px-3 border-[1.5px] border-border-2 rounded bg-surface text-base text-ink outline-none transition-shadow placeholder:text-ink-3 focus:border-teal focus:ring-[3px] focus:ring-teal/25 disabled:opacity-50;
   }
   .chip {
     @apply inline-flex items-center px-3 py-1 text-xs font-semibold rounded-full border border-border-2 bg-surface text-ink-2 hover:border-teal hover:text-teal-700 hover:bg-teal-50 cursor-pointer transition-colors;
@@ -300,8 +314,16 @@ html.dark .hover\:bg-yellow-50:hover { background-color: rgba(234,179,8,0.14) !i
     --text-3-rgb:   100 116 139;
     color-scheme: light;
   }
-  header, footer, nav, button, details { display: none !important; }
+  /* Só o cromo do site some: o <header> de artigos e páginas (título, data) fica. */
+  [role="banner"], [role="contentinfo"], [role="banner"] nav, button { display: none !important; }
   .no-print { display: none !important; }
+  /* FAQs: imprime todas abertas, sem o marcador de abrir/fechar */
+  details > :not(summary) { display: block !important; }
+  details > summary { list-style: none; }
+  details > summary::-webkit-details-marker { display: none; }
+  /* Chrome 131+: o conteúdo fechado fica num slot próprio (regra separada: seletor
+     desconhecido em navegador antigo invalidaria a lista inteira) */
+  details::details-content { content-visibility: visible; display: block; }
   main { padding: 0 !important; }
   .card {
     box-shadow: none !important;

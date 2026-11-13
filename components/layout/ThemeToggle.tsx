@@ -6,28 +6,48 @@ type Theme = 'light' | 'dark';
 const LS_KEY = 'peptidecalc:theme';
 
 function apply(theme: Theme) {
-  const root = document.documentElement;
-  if (theme === 'dark') root.classList.add('dark');
-  else root.classList.remove('dark');
+  document.documentElement.classList.toggle('dark', theme === 'dark');
+}
+
+function savedTheme(): Theme | null {
+  try {
+    const t = localStorage.getItem(LS_KEY);
+    return t === 'dark' || t === 'light' ? t : null;
+  } catch {
+    return null;
+  }
 }
 
 export default function ThemeToggle() {
   const [theme, setTheme] = useState<Theme | null>(null);
 
-  // Sincroniza com <html> após hidratação
+  // Sincroniza com <html> após hidratação (o script do layout já aplicou o tema).
+  // Sem escolha salva, acompanha a troca de tema do sistema em tempo real.
   useEffect(() => {
-    const current = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
-    setTheme(current);
+    setTheme(document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+    const mq = window.matchMedia('(prefers-color-scheme: dark)');
+    const onChange = (e: MediaQueryListEvent) => {
+      if (savedTheme()) return;
+      const next: Theme = e.matches ? 'dark' : 'light';
+      apply(next);
+      setTheme(next);
+    };
+    mq.addEventListener('change', onChange);
+    return () => mq.removeEventListener('change', onChange);
   }, []);
 
   function toggle() {
     const next: Theme = theme === 'dark' ? 'light' : 'dark';
     setTheme(next);
     apply(next);
-    try { localStorage.setItem(LS_KEY, next); } catch { /* ignore */ }
+    try {
+      // Voltar ao mesmo tema do sistema apaga a escolha: o site volta a seguir o sistema.
+      const system: Theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      if (next === system) localStorage.removeItem(LS_KEY);
+      else localStorage.setItem(LS_KEY, next);
+    } catch { /* ignore */ }
   }
 
-  // Enquanto não hidratou, render um botão neutro (evita flash)
   const isDark = theme === 'dark';
 
   return (
@@ -36,7 +56,7 @@ export default function ThemeToggle() {
       onClick={toggle}
       aria-label={isDark ? 'Alternar para modo claro' : 'Alternar para modo escuro'}
       title={isDark ? 'Modo claro' : 'Modo escuro'}
-      className="w-9 h-9 flex items-center justify-center rounded-md text-ink-2 hover:bg-teal-50 hover:text-teal-700 transition-colors"
+      className="w-11 h-11 flex items-center justify-center rounded-md text-ink-2 hover:bg-teal-50 hover:text-teal-700 transition-colors"
     >
       {isDark ? (
         <svg viewBox="0 0 20 20" width={18} height={18} fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden>

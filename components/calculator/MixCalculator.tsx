@@ -117,7 +117,7 @@ export default function MixCalculator({ peptides }: Props) {
                           <option key={p.slug} value={p.slug}>{p.name}</option>
                         ))}
                     </select>
-                    <div className="flex items-center border-[1.5px] border-border-2 rounded bg-surface h-11 overflow-hidden focus-within:border-teal focus-within:ring-[3px] focus-within:ring-teal-50">
+                    <div className="flex items-center border-[1.5px] border-border-2 rounded bg-surface h-11 overflow-hidden focus-within:border-teal focus-within:ring-[3px] focus-within:ring-teal/25">
                       <DecimalInput
                         value={r.mg}
                         onChange={(n) => updateRow(r.id, { mg: n })}
@@ -135,7 +135,7 @@ export default function MixCalculator({ peptides }: Props) {
                     onClick={() => removeRow(r.id)}
                     disabled={rows.length <= 2}
                     aria-label={`Remover peptídeo ${i + 1}`}
-                    className="w-8 h-8 flex items-center justify-center rounded-md text-ink-3 hover:bg-red-50 hover:text-red-600 disabled:opacity-30 disabled:cursor-not-allowed flex-shrink-0"
+                    className="w-10 h-10 flex items-center justify-center rounded-md text-ink-3 hover:bg-red-50 hover:text-red-600 disabled:opacity-30 disabled:cursor-not-allowed flex-shrink-0"
                   >
                     <svg viewBox="0 0 20 20" width={14} height={14} fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" aria-hidden>
                       <path d="M5 5l10 10M15 5L5 15" />
@@ -167,7 +167,7 @@ export default function MixCalculator({ peptides }: Props) {
           <div className="flex flex-col gap-4">
             <label className="flex flex-col gap-1.5">
               <span className="text-xs font-semibold text-ink-2">Água bacteriostática</span>
-              <div className="flex items-center border-[1.5px] border-border-2 rounded bg-surface h-[52px] overflow-hidden focus-within:border-teal focus-within:ring-[3px] focus-within:ring-teal-50">
+              <div className="flex items-center border-[1.5px] border-border-2 rounded bg-surface h-[52px] overflow-hidden focus-within:border-teal focus-within:ring-[3px] focus-within:ring-teal/25">
                 <DecimalInput
                   value={waterMl}
                   onChange={setWaterMl}
@@ -182,7 +182,7 @@ export default function MixCalculator({ peptides }: Props) {
 
             <label className="flex flex-col gap-1.5">
               <span className="text-xs font-semibold text-ink-2">Unidades a puxar na seringa</span>
-              <div className="flex items-center border-[1.5px] border-border-2 rounded bg-surface h-[52px] overflow-hidden focus-within:border-teal focus-within:ring-[3px] focus-within:ring-teal-50">
+              <div className="flex items-center border-[1.5px] border-border-2 rounded bg-surface h-[52px] overflow-hidden focus-within:border-teal focus-within:ring-[3px] focus-within:ring-teal/25">
                 <DecimalInput
                   integer
                   value={units}
@@ -248,7 +248,7 @@ export default function MixCalculator({ peptides }: Props) {
               <div className="px-5 pt-5 pb-4 border-b border-border">
                 <div className="text-xs font-bold uppercase tracking-wider text-ink-3">Ao puxar</div>
                 <div className="flex items-baseline gap-2 mt-0.5">
-                  <span className="text-[56px] font-extrabold text-teal leading-none tabular-nums">
+                  <span className="text-[48px] min-[380px]:text-[56px] font-extrabold text-teal leading-none tabular-nums">
                     {fmt(units as number, 0)}
                   </span>
                   <span className="text-xl font-semibold text-ink-3 pb-1.5">U</span>

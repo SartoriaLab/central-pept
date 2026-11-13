@@ -492,7 +492,7 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug 
                                 type="button"
                                 aria-label={`Remover ${p.name}`}
                                 onClick={(e) => { e.stopPropagation(); deleteCustom(p.slug); }}
-                                className="w-8 h-8 flex items-center justify-center rounded text-ink-3 hover:bg-red-50 hover:text-red-600"
+                                className="w-10 h-10 flex items-center justify-center rounded text-ink-3 hover:bg-red-50 hover:text-red-600"
                               >
                                 <CloseIcon />
                               </button>
@@ -578,7 +578,7 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug 
               <button
                 type="button"
                 onClick={clearPeptide}
-                className="w-9 h-9 flex items-center justify-center rounded-md bg-teal-700/10 text-teal-700 hover:bg-teal-700/20 flex-shrink-0"
+                className="w-11 h-11 flex items-center justify-center rounded-md bg-teal-700/10 text-teal-700 hover:bg-teal-700/20 flex-shrink-0"
                 aria-label="Remover peptídeo"
               >
                 <CloseIcon />
@@ -743,7 +743,7 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug 
                     onClick={shareUrl}
                     title="Compartilhar link do cálculo"
                     aria-label="Compartilhar link"
-                    className="w-9 h-9 rounded-md border border-border bg-surface text-ink-2 hover:border-teal hover:text-teal-700 hover:bg-teal-50 flex items-center justify-center"
+                    className="w-11 h-11 rounded-md border border-border bg-surface text-ink-2 hover:border-teal hover:text-teal-700 hover:bg-teal-50 flex items-center justify-center"
                   >
                     <ShareIcon />
                   </button>
@@ -755,7 +755,7 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug 
                     }}
                     title="Imprimir / Salvar como PDF"
                     aria-label="Imprimir resultado"
-                    className="w-9 h-9 rounded-md border border-border bg-surface text-ink-2 hover:border-teal hover:text-teal-700 hover:bg-teal-50 flex items-center justify-center"
+                    className="w-11 h-11 rounded-md border border-border bg-surface text-ink-2 hover:border-teal hover:text-teal-700 hover:bg-teal-50 flex items-center justify-center"
                   >
                     <PrintIcon />
                   </button>
@@ -764,7 +764,7 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug 
                     onClick={copyResult}
                     title="Copiar resultado"
                     aria-label="Copiar resultado"
-                    className="w-9 h-9 rounded-md border border-border bg-surface text-ink-2 hover:border-teal hover:text-teal-700 hover:bg-teal-50 flex items-center justify-center"
+                    className="w-11 h-11 rounded-md border border-border bg-surface text-ink-2 hover:border-teal hover:text-teal-700 hover:bg-teal-50 flex items-center justify-center"
                   >
                     <CopyIcon />
                   </button>
@@ -778,7 +778,7 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug 
               <div className="px-5 pt-5 text-center">
                 <div className="text-xs font-bold uppercase tracking-wider text-ink-3 mb-1.5">Puxe até</div>
                 <div className="flex items-baseline justify-center gap-2 flex-wrap">
-                  <span className="text-[56px] sm:text-[72px] font-extrabold tracking-tight text-teal leading-none tabular-nums">
+                  <span className="text-[48px] min-[380px]:text-[56px] sm:text-[72px] font-extrabold tracking-tight text-teal leading-none tabular-nums">
                     {fmt(result.unitsPerDose, 1)}
                   </span>
                   <span className="text-[18px] sm:text-[22px] font-semibold text-ink-3 pb-1.5">unidades</span>
@@ -825,8 +825,8 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug 
               )}
 
               {/* Alertas */}
-              {alerts.length > 0 && (
-                <div>
+              {/* Sempre montado: leitores de tela anunciam alertas novos sem interromper a digitação */}
+              <div aria-live="polite">
                   {alerts.map((a, i) => (
                     <div
                       key={i}
@@ -838,12 +838,11 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug 
                           : 'bg-green-50 border-green-200 text-green-800'
                       }`}
                     >
-                      <span>{a.kind === 'success' ? '✅' : '⚠️'}</span>
+                      <span aria-hidden>{a.kind === 'success' ? '✅' : '⚠️'}</span>
                       <span>{a.msg}</span>
                     </div>
                   ))}
-                </div>
-              )}
+              </div>
             </div>
           )}
         </div>
@@ -853,7 +852,10 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug 
       {result && resultBelow && !comboOpen && (
         <button
           type="button"
-          onClick={() => resultRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+          onClick={() => {
+            const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            resultRef.current?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+          }}
           className="md:hidden no-print fixed left-4 right-4 bottom-[max(1rem,env(safe-area-inset-bottom))] z-30 flex items-center justify-between gap-3 px-4 py-3 rounded-xl bg-ink text-bg shadow-xl animate-slide-up"
           aria-label="Ir para o resultado"
         >
@@ -874,7 +876,7 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug 
 
       {/* Toast */}
       {toast && (
-        <div role="status" className="fixed bottom-24 md:bottom-6 left-1/2 -translate-x-1/2 bg-ink text-bg px-4 py-2.5 rounded-md text-sm font-semibold shadow-lg z-[300] whitespace-nowrap">
+        <div role="status" className="fixed bottom-24 md:bottom-6 left-1/2 -translate-x-1/2 bg-ink text-bg px-4 py-2.5 rounded-md text-sm font-semibold shadow-lg z-[300] w-max max-w-[calc(100vw-2rem)] text-center">
           {toast}
         </div>
       )}
@@ -936,7 +938,7 @@ function HelpTip({ text }: { text: string }) {
         aria-label="Ajuda"
         aria-expanded={open}
         aria-describedby={id}
-        className="-m-[5px] w-7 h-7 flex items-center justify-center rounded-full text-ink-3 hover:text-teal-700"
+        className="-m-3 w-11 h-11 flex items-center justify-center rounded-full text-ink-3 hover:text-teal-700"
       >
         <span className="w-[18px] h-[18px] rounded-full border-[1.5px] border-current bg-surface text-xs font-bold flex items-center justify-center leading-none" aria-hidden>
           ?
@@ -968,7 +970,7 @@ function InputWithUnit({
 }) {
   const id = useContext(FieldIdContext);
   return (
-    <div className="flex items-center border-[1.5px] border-border-2 rounded bg-surface h-[52px] overflow-hidden focus-within:border-teal focus-within:ring-[3px] focus-within:ring-teal-50 transition-all">
+    <div className="flex items-center border-[1.5px] border-border-2 rounded bg-surface h-[52px] overflow-hidden focus-within:border-teal focus-within:ring-[3px] focus-within:ring-teal/25 transition-all">
       <DecimalInput
         id={id}
         integer={step === 1}
@@ -1000,8 +1002,8 @@ function Chips({
           onClick={() => onPick(opt.value)}
           className={
             opt.highlight
-              ? 'inline-flex items-center min-h-8 px-3 text-xs font-bold rounded-full border border-teal bg-teal-50 text-teal-700 hover:bg-teal-100 cursor-pointer transition-colors'
-              : 'chip min-h-8'
+              ? 'inline-flex items-center min-h-10 px-3 text-xs font-bold rounded-full border border-teal bg-teal-50 text-teal-700 hover:bg-teal-100 cursor-pointer transition-colors'
+              : 'chip min-h-10'
           }
           title={opt.highlight ? 'Tamanho comum para este peptídeo' : undefined}
         >
@@ -1022,13 +1024,23 @@ function ModeTabs({
   return (
     <div>
       <div className="text-xs font-semibold text-ink-2 mb-1.5">O que você já decidiu?</div>
-      <div role="tablist" aria-label="Modo de cálculo" className="grid grid-cols-2 gap-1 p-1 bg-bg border border-border rounded">
+      {/* radiogroup (não tablist): os botões trocam o modo do formulário, não mostram painéis */}
+      <div role="radiogroup" aria-label="Modo de cálculo" onKeyDown={(e) => {
+        if (['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(e.key)) {
+          e.preventDefault();
+          const next: Mode = mode === 'volume' ? 'units' : 'volume';
+          onChange(next);
+          (e.currentTarget.querySelector(`[data-mode="${next}"]`) as HTMLElement | null)?.focus();
+        }
+      }} className="grid grid-cols-2 gap-1 p-1 bg-bg border border-border rounded">
         <button
-          role="tab"
+          role="radio"
           type="button"
-          aria-selected={mode === 'volume'}
+          data-mode="volume"
+          aria-checked={mode === 'volume'}
+          tabIndex={mode === 'volume' ? 0 : -1}
           onClick={() => onChange('volume')}
-          className={`flex items-center justify-center gap-1.5 py-2 rounded-md font-sans text-[13px] font-semibold transition-all ${
+          className={`flex items-center justify-center gap-1.5 min-h-11 px-2 py-2 rounded-md font-sans text-[13px] leading-tight text-center font-semibold transition-all ${
             mode === 'volume'
               ? 'bg-surface text-teal-700 shadow'
               : 'bg-transparent text-ink-2 hover:bg-teal-50 hover:text-teal-700'
@@ -1039,11 +1051,13 @@ function ModeTabs({
           A quantidade de água
         </button>
         <button
-          role="tab"
+          role="radio"
           type="button"
-          aria-selected={mode === 'units'}
+          data-mode="units"
+          aria-checked={mode === 'units'}
+          tabIndex={mode === 'units' ? 0 : -1}
           onClick={() => onChange('units')}
-          className={`flex items-center justify-center gap-1.5 py-2 rounded-md font-sans text-[13px] font-semibold transition-all ${
+          className={`flex items-center justify-center gap-1.5 min-h-11 px-2 py-2 rounded-md font-sans text-[13px] leading-tight text-center font-semibold transition-all ${
             mode === 'units'
               ? 'bg-surface text-teal-700 shadow'
               : 'bg-transparent text-ink-2 hover:bg-teal-50 hover:text-teal-700'
@@ -1192,7 +1206,7 @@ function VialDuration({ dosesPerVial, peptideName, frequency }: { dosesPerVial: 
               type="button"
               onClick={() => setFreq(f.id as typeof freq)}
               aria-pressed={freq === f.id}
-              className={`min-h-8 px-2.5 text-xs font-bold rounded-md transition-colors ${
+              className={`min-h-10 px-3 text-xs font-bold rounded-md transition-colors ${
                 freq === f.id ? 'bg-teal-700 text-white dark:text-bg' : 'text-ink-2 hover:bg-teal-50'
               }`}
             >
@@ -1235,11 +1249,12 @@ function DoseSafetyScale({
   const typicalPos = (Math.log(typicalDose) - Math.log(minDose)) / logRange * 100;
 
   const ratio = currentDose / typicalDose;
-  let status: { label: string; color: string } = { label: 'Dentro da faixa típica', color: 'bg-green-500' };
-  if (ratio >= 3) status = { label: 'Acima da faixa usual', color: 'bg-red-500' };
-  else if (ratio <= 0.34) status = { label: 'Abaixo da faixa usual', color: 'bg-amber-500' };
-  else if (ratio >= 2) status = { label: 'Dose elevada', color: 'bg-amber-500' };
-  else if (ratio <= 0.5) status = { label: 'Dose baixa', color: 'bg-amber-500' };
+  // Tons 700: texto branco com contraste ≥ 4,5:1
+  let status: { label: string; color: string } = { label: 'Dentro da faixa típica', color: 'bg-green-700' };
+  if (ratio >= 3) status = { label: 'Acima da faixa usual', color: 'bg-red-700' };
+  else if (ratio <= 0.34) status = { label: 'Abaixo da faixa usual', color: 'bg-amber-700' };
+  else if (ratio >= 2) status = { label: 'Dose elevada', color: 'bg-amber-700' };
+  else if (ratio <= 0.5) status = { label: 'Dose baixa', color: 'bg-amber-700' };
 
   return (
     <div className="border-t border-border px-5 py-4">
@@ -1249,7 +1264,8 @@ function DoseSafetyScale({
           {status.label}
         </span>
       </div>
-      <div className="relative h-2 rounded-full bg-gradient-to-r from-amber-300 via-green-400 to-red-400 overflow-hidden">
+      {/* Sem overflow-hidden: o ponteiro (16 px) é mais alto que a trilha e seria cortado */}
+      <div className="relative h-2 mx-2 rounded-full bg-gradient-to-r from-amber-300 via-green-400 to-red-400">
         {/* Marcador de dose típica */}
         <div
           className="absolute top-1/2 -translate-y-1/2 w-0.5 h-4 bg-ink"

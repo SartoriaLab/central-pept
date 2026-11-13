@@ -96,7 +96,7 @@ export default function UnitConverter({ peptides }: Props) {
             <span className="inline-flex w-[22px] h-[22px] rounded-full bg-teal text-white text-xs font-bold items-center justify-center mr-2 align-middle">2</span>
             Quantidade e unidade
           </h2>
-          <div className="flex items-center border-[1.5px] border-border-2 rounded bg-surface h-[52px] overflow-hidden focus-within:border-teal focus-within:ring-[3px] focus-within:ring-teal-50 transition-all">
+          <div className="flex items-center border-[1.5px] border-border-2 rounded bg-surface h-[52px] overflow-hidden focus-within:border-teal focus-within:ring-[3px] focus-within:ring-teal/25 transition-all">
             <DecimalInput
               aria-label="Quantidade a converter"
               value={qty}
