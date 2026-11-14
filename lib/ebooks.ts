@@ -32,6 +32,14 @@ export type Ebook = {
   forWho: string[];
   /** "Não é para você se…" */
   notFor: string[];
+  /** "O que custa errar": erro concreto e a consequência (landing). */
+  pains?: { erro: string; custo: string }[];
+  /** "Você vai descobrir": frases específicas, cada uma com o capítulo que a responde. */
+  reveals?: string[];
+  /** Comparação de preço verdadeira (custo real do erro), nunca preço "de/por" inventado. */
+  anchor?: string;
+  /** Mês da última revisão do texto, ex.: "novembro de 2026". */
+  revised?: string;
   /** Sumário: capítulos na ordem do PDF. */
   toc: string[];
   bonuses: string[];
@@ -70,6 +78,7 @@ export type EbookOffer = {
   line: string;
   /** "R$ 29,90" */
   priceLabel: string;
+  pages: number;
   cover: string;
   bullets: string[];
 };
@@ -93,12 +102,20 @@ export const EBOOK_FAQ: { q: string; a: string }[] = [
     a: 'Não. É material educativo, escrito a partir de bulas, estudos publicados e documentos regulatórios. Decisões sobre dose, início ou interrupção de tratamento são do seu médico.',
   },
   {
-    q: 'Como recebo o PDF?',
-    a: 'A Kiwify envia o acesso para o seu email assim que o pagamento é confirmado. O PDF abre no celular, no tablet e no computador.',
+    q: 'Como recebo o guia?',
+    a: 'Na hora. Assim que o pagamento é confirmado (no Pix, em segundos), a Kiwify manda para o seu email o acesso à área de membros. Lá você lê pelo celular, tablet ou computador e baixa o PDF para guardar ou imprimir.',
+  },
+  {
+    q: 'Tem muita coisa de graça na internet. Por que pagar?',
+    a: 'Porque aqui está tudo num lugar só, na ordem em que você vai precisar, com a fonte de cada número (bula ou estudo) e as tabelas prontas para imprimir. Na internet, a informação vem solta, sem fonte e muitas vezes errada: um único erro de dose ou de compra custa mais que o guia.',
   },
   {
     q: 'E se eu não gostar?',
-    a: 'Você tem 7 dias para pedir o reembolso total, direto pela Kiwify, sem precisar explicar o motivo.',
+    a: 'Você tem 7 dias para pedir o reembolso total, direto pela Kiwify, sem precisar explicar o motivo. Pode ler o guia inteiro antes de decidir.',
+  },
+  {
+    q: 'O guia é atualizado?',
+    a: 'Sim. Quando uma bula ou um estudo muda, o texto é revisado e quem comprou recebe a versão nova na mesma área de membros, sem pagar de novo.',
   },
   {
     q: 'Quais as formas de pagamento?',
@@ -120,19 +137,34 @@ export const EBOOKS: Ebook[] = [
     altTitle: 'Antes da Sua Próxima Dose de Semaglutida',
     subtitle:
       'Semana a semana, de 0,25 mg até a manutenção: o que esperar em cada etapa, como atravessar a náusea e os 9 erros que fazem desistir no meio.',
-    hook: 'Da primeira dose de 0,25 mg até a manutenção: o que esperar em cada etapa e os 9 erros que fazem desistir no meio.',
-    line: 'Guia em PDF: a semaglutida semana a semana, do 0,25 mg à manutenção.',
+    hook:
+      'Quase ninguém larga a semaglutida por algo grave. Larga por erros pequenos: subir no automático, dobrar dose, julgar cedo. Os 9 e como evitar.',
+    line: 'Os 9 erros que fazem desistir da semaglutida no meio, e o que fazer no lugar. Guia em PDF.',
     price: 29.9,
-    pages: 40,
+    pages: 49,
     forWho: [
-      'Vai começar a semaglutida e quer saber o que esperar de cada etapa.',
-      'Está nas primeiras semanas e não sabe se o que sente é normal.',
-      'Já pensou em desistir por causa da náusea.',
+      'Começou em 0,25 mg, a balança quase não mexeu e quer saber se isso é esperado.',
+      'A data de subir chegou, mas a náusea da dose atual ainda aparece todo dia.',
+      'Esqueceu uma aplicação e não sabe se aplica agora, pula ou espera a próxima.',
     ],
     notFor: [
       'Procura uma prescrição ou uma dose para usar sem médico.',
       'Espera promessa de quilos perdidos.',
     ],
+    pains: [
+      { erro: 'Subir de degrau no automático, com a náusea ainda diária', custo: 'Enjoo novo somado ao antigo: em poucas semanas você mal come e conclui que o remédio não é para você.' },
+      { erro: 'Aplicar dose dobrada para compensar a que esqueceu', custo: 'Uma semana de náusea e vômito por um erro de calendário, sem acelerar nada no tratamento.' },
+      { erro: 'Julgar a semaglutida pela balança das primeiras semanas', custo: '0,25 mg nem é dose de tratamento: quem desiste ali larga antes de chegar às doses que foram estudadas.' },
+    ],
+    reveals: [
+      'Por que a concentração só estabiliza após 4 a 5 semanas na mesma dose e o que isso muda na subida (cap. 1)',
+      'Qual degrau só existe na escada até 2,4 mg e quando a bula deixa ficar nele como manutenção (cap. 2)',
+      'Os sinais que não esperam a consulta e a zona cinza que pede conversa com o médico, sem pânico (cap. 3)',
+      'A regra de dose esquecida de cada caneta: até 5 dias numa, 48 horas da próxima dose na outra (cap. 5)',
+      'Por que 7 mg de comprimido não é "mais forte" que 1 mg de injeção (cap. 6)',
+    ],
+    anchor: 'Uma única aplicação da caneta de 1 mg custa cerca de R$ 240. O guia inteiro custa R$ 29,90.',
+    revised: 'novembro de 2026',
     toc: [
       'Como a semaglutida age e por que a dose sobe devagar',
       'A escada de doses, etapa por etapa: 0,25 → 0,5 → 1,0 → 1,7 → 2,4 mg (e a variante até 2,0 mg)',
@@ -146,7 +178,8 @@ export const EBOOKS: Ebook[] = [
     bonuses: ['Escada de doses para imprimir', 'Diário de sintomas de 16 semanas'],
     sources: [
       'Bulas da FDA de Ozempic, Wegovy e Rybelsus',
-      'Estudos de registro STEP e SUSTAIN',
+      'Estudos de registro STEP, SUSTAIN e PIONEER',
+      'Estudos de desfecho cardiovascular SELECT e SOUL',
     ],
     bumps: ['T1', 'T3'],
     cover: 'from-teal-600 via-teal-700 to-sky-800',
@@ -163,19 +196,34 @@ export const EBOOKS: Ebook[] = [
     altTitle: 'Tirzepatida: O Manual Que Não Vem na Caixa',
     subtitle:
       'De 2,5 mg a 15 mg, semana a semana: quando subir, quando segurar e os 9 erros que custam frasco, dinheiro e semanas de enjoo.',
-    hook: 'As 6 etapas de 2,5 mg a 15 mg, quando faz sentido segurar a dose e os 9 erros que custam frasco e semanas de enjoo.',
-    line: 'Guia em PDF: a tirzepatida semana a semana, de 2,5 mg a 15 mg.',
+    hook:
+      '4 semanas por degrau é o mínimo, não o prazo. Quando segurar a dose e os 9 erros que custam frasco, dinheiro e semanas de enjoo.',
+    line: 'Antes de subir a tirzepatida: quando segurar e os 9 erros que custam frasco. Guia em PDF.',
     price: 29.9,
-    pages: 40,
+    pages: 51,
     forWho: [
-      'Vai começar em 2,5 mg e quer o mapa das próximas etapas.',
-      'Está na hora de subir a dose e não sabe se deve.',
-      'Quer aproveitar cada frasco sem perder dose pela validade.',
+      'Chegou a semana de subir, mas o enjoo da dose atual ainda não passou.',
+      'Usa frasco e não sabe qual tamanho rende a dose inteira dentro dos 28 dias.',
+      'Está em 5 ou 10 mg, a dose funciona, e ouviu que só 15 mg trata de verdade.',
     ],
     notFor: [
       'Procura uma prescrição ou uma dose para usar sem médico.',
       'Espera promessa de quilos perdidos.',
     ],
+    pains: [
+      { erro: 'Usar frasco de 15 mg na dose de 2,5 mg', custo: 'Só 4 doses cabem nos 28 dias: 5 mg, um terço do frasco, vencem lá dentro e vão para o lixo.' },
+      { erro: 'Manter as mesmas unidades ao trocar de frasco ou de volume de água', custo: '50 unidades podem ser 2,5, 5 ou 7,5 mg: dose maior sem perceber, ou uma subida desnecessária.' },
+      { erro: 'Subir de dose com o enjoo da dose atual ainda presente', custo: 'Semanas de enjoo empilhadas: o caminho mais curto para vomitar, desidratar e abandonar o tratamento.' },
+    ],
+    reveals: [
+      'Por que 7,5 e 12,5 mg são degraus de passagem e quais 3 doses a bula lista como manutenção (cap. 3)',
+      'No SURMOUNT-1, a perda média subiu 4,5 pontos de 5 para 10 mg e só 1,4 de 10 para 15 mg (cap. 3)',
+      'A janela da dose esquecida: até 96 horas para aplicar e no mínimo 72 horas entre duas doses (cap. 2)',
+      'Qual tamanho de frasco casa com cada degrau, de 2,5 a 15 mg, sem sobra vencendo na geladeira (cap. 6)',
+      'O cuidado com a pílula anticoncepcional que se repete a cada aumento de dose (cap. 5)',
+    ],
+    anchor: 'Os 5 mg que vencem num frasco de 15 mg usado em 2,5 mg valem cerca de R$ 315. O guia custa R$ 29,90.',
+    revised: 'novembro de 2026',
     toc: [
       'GIP + GLP-1: o que muda em relação à semaglutida',
       'A escada de 6 etapas, 2,5 mg a cada 4 semanas ou mais',
@@ -623,14 +671,15 @@ export const EBOOKS: Ebook[] = [
     title: '7 Erros Que Mudam Sua Dose Sem Você Perceber',
     altTitle: 'Reconstituição Sem Erro',
     subtitle: 'Reconstituição do frasco à seringa em 7 passos, com a tabela de unidades pronta para imprimir.',
-    hook: 'A conta está certa; o que muda a dose é a prática. Os 7 passos do frasco à seringa e os 7 erros que ninguém percebe.',
-    line: 'PDF: os 7 erros que mudam sua dose sem você perceber.',
+    hook:
+      'A conta está certa e a dose que entra é outra: bolha, vírgula, etiqueta que faltou. Os 7 passos do frasco à seringa e os 7 erros que ninguém percebe.',
+    line: 'Bolha, vírgula, etiqueta: os 7 erros que mudam sua dose sem você perceber. PDF.',
     price: 29.9,
-    pages: 35,
+    pages: 55,
     forWho: [
-      'Usa a calculadora, mas tem medo de errar na hora de aplicar.',
-      'Vai reconstituir um frasco pela primeira vez.',
-      'Quer uma tabela de unidades pronta para deixar perto do frasco.',
+      'Vai reconstituir o primeiro frasco e quer cada passo na ordem, com o material na frente.',
+      'Recebe a dose em mcg e o frasco em mg, e trava na hora de converter.',
+      'A dose subiu no meio do frasco e não sabe se precisa reconstituir de novo.',
     ],
     notFor: ['Procura uma dose para usar sem médico.', 'Usa só canetas prontas e não reconstitui nada.'],
     toc: [
@@ -643,8 +692,26 @@ export const EBOOKS: Ebook[] = [
       'Mistura no mesmo frasco',
       'Tabelas por tamanho de frasco',
     ],
+    pains: [
+      { erro: 'Escrever 2,5 mg onde a dose era 0,25 mg (250 mcg)', custo: 'Dá 100 unidades, dez vezes a dose, e cabe numa seringa de 100 U: ninguém estranha o número.' },
+      { erro: 'Não etiquetar o frasco e mudar a água no frasco seguinte', custo: 'As mesmas 10 unidades entregam o dobro da dose, ou 40% a menos, sem nada parecer diferente.' },
+      { erro: 'Deixar uma bolha de 2 unidades numa dose de 10', custo: '20% da dose não entra. E quanto menor a dose, maior o peso da mesma bolha.' },
+    ],
+    reveals: [
+      'Por que a "unidade" da seringa é volume, não massa, e não tem nada a ver com UI (cap. 1)',
+      'Quanta água colocar para a dose cair entre 10 e 50 unidades, e o que fazer quando cai entre traços (cap. 3)',
+      'Por que a mesma dose de 8 unidades é precisa numa seringa e erra mais de 10% em outra (cap. 4)',
+      'Os 7 erros em que a conta está certa e a dose que entra é outra, cada um com o tamanho do desvio (cap. 5)',
+      'Por que juntar um segundo peptídeo num frasco pronto reduz a dose do primeiro em cerca de um terço (cap. 7)',
+    ],
+    anchor: 'Um frasco de 10 mg que congela ou turva vai inteiro para o lixo: R$ 500 a R$ 900. O guia custa R$ 29,90.',
+    revised: 'novembro de 2026',
     bonuses: ['Tabela de unidades para imprimir', 'Checklist de bancada'],
-    sources: ['Bulas dos fabricantes sobre armazenamento e validade', 'Padrão de seringas de insulina U-100'],
+    sources: [
+      'Calculadoras e guias de reconstituição da Central Peptídeos',
+      'Prazos de armazenamento a partir das bulas de Ozempic, Wegovy e Mounjaro',
+      'Padrão de seringas de insulina U-100',
+    ],
     bumps: ['T2'],
     cover: 'from-teal-500 via-cyan-600 to-sky-800',
     checkoutEnv: 'KIWIFY_CHECKOUT_RECONSTITUICAO',
@@ -661,14 +728,15 @@ export const EBOOKS: Ebook[] = [
     title: 'Não Compre Antes de Checar Isto',
     altTitle: 'Original, Manipulado ou Falso?',
     subtitle: '12 checagens para não levar produto falso nem pagar mais caro por mg.',
-    hook: 'Antes de fechar, passe pelas 12 checagens: embalagem, lote, laudo, cadeia de frio e o custo real por mg.',
-    line: 'PDF: as 12 checagens antes de comprar.',
+    hook:
+      'Caneta solta, frasco de "Mounjaro", laudo sem lote, preço 40% abaixo da faixa. As 12 checagens e a conta do custo real por mg.',
+    line: 'As 12 checagens antes de comprar e o custo real por mg, por dose e por mês. PDF.',
     price: 29.9,
-    pages: 30,
+    pages: 36,
     forWho: [
-      'Está comparando preço e fornecedor.',
-      'Tem medo de levar caneta ou frasco falsificado.',
-      'Quer saber o custo real por mg, por dose e por mês.',
+      'Tem duas ofertas com tamanhos de frasco diferentes e não sabe qual sai mais barata.',
+      'Achou um preço bem abaixo das farmácias e quer saber se é oportunidade ou cilada.',
+      'Vai comprar e não sabe o que pedir ao vendedor antes de pagar.',
     ],
     notFor: ['Quer indicação de onde comprar: o site não indica fornecedores.', 'Procura um atalho para comprar sem receita.'],
     toc: [
@@ -679,6 +747,20 @@ export const EBOOKS: Ebook[] = [
       'Sinais de golpe',
       'O que perguntar ao vendedor',
     ],
+    pains: [
+      { erro: 'Escolher o frasco pelo menor preço por mg', custo: 'No exemplo do guia, o frasco que parecia 11% mais barato sai R$ 50 mais caro por dose: 1/3 vence.' },
+      { erro: 'Pagar sem pedir o laudo (COA) do mesmo lote do rótulo', custo: 'Laudo sem lote serve para qualquer frasco e não prova nada sobre o seu. Você só descobre depois.' },
+      { erro: 'Achar que preço dentro da faixa prova que o produto é original', custo: 'Falsificador também pesquisa preço. Se for falso, perde o valor pago, o frasco e semanas de tratamento.' },
+    ],
+    reveals: [
+      'Por que "Mounjaro em frasco" oferecido no Brasil não é o produto registrado (cap. 1)',
+      'As 5 checagens que dá para fazer antes de pagar e as 7 que só valem com o produto na mão (cap. 2)',
+      'Como o frasco com menor custo por mg pode sair mais caro por dose na sua dose (cap. 4)',
+      'O limite de preço abaixo do qual a oferta já é sinal de alerta, e a conta para achá-lo (cap. 5)',
+      'A mensagem pronta para mandar ao vendedor e como ler o conjunto das respostas (cap. 6)',
+    ],
+    anchor: 'Custa menos de 3% de uma caixa de 4 canetas (R$ 1.100 a R$ 1.400), o valor em jogo numa compra errada.',
+    revised: 'novembro de 2026',
     bonuses: ['Checklist de uma página', 'Planilha de custo por mg'],
     sources: ['Alertas da ANVISA sobre canetas falsificadas', 'Apresentações e validades publicadas pelos fabricantes'],
     bumps: ['T1'],
@@ -704,14 +786,15 @@ export const EBOOKS: Ebook[] = [
     altTitle: 'Depois da Caneta',
     subtitle:
       'O que os estudos mostram sobre o peso depois da semaglutida e da tirzepatida e o plano de 90 dias para reduzir o reganho.',
-    hook: 'Nos estudos, boa parte do peso voltou em um ano. O que dá para fazer antes e depois de parar.',
-    line: 'PDF: o plano de 90 dias para depois da semaglutida e da tirzepatida.',
+    hook:
+      'Nos estudos, quem parou recuperou boa parte do peso em um ano. O que levar ao médico antes de parar e o plano para os 90 dias depois.',
+    line: 'Vai parar ou já parou a caneta? O que dizem os estudos e o plano dos 90 dias. PDF.',
     price: 24.9,
-    pages: 30,
+    pages: 37,
     forWho: [
-      'Pensa em parar a semaglutida ou a tirzepatida.',
-      'Já parou e viu o peso começar a voltar.',
-      'Quer conversar com o médico sobre manter, reduzir ou espaçar.',
+      'O custo pesou e está pensando em parar, mas quer entender o risco antes.',
+      'Parou há algumas semanas e a fome voltou maior do que esperava.',
+      'Chegou na meta e quer saber se dá para reduzir ou espaçar com o médico.',
     ],
     notFor: ['Procura parar o tratamento sem falar com o médico.', 'Espera garantia de que o peso não volta.'],
     toc: [
@@ -722,8 +805,22 @@ export const EBOOKS: Ebook[] = [
       'Os primeiros 90 dias sem a medicação',
       'Quando voltar',
     ],
+    pains: [
+      { erro: 'Parar de uma vez, sem plano nem retorno marcado', custo: 'No SURMOUNT-4, quem passou para placebo recuperou 14% do peso em um ano, mesmo com dieta e exercício.' },
+      { erro: 'Voltar ao remédio direto na dose que usava antes de parar', custo: 'A tolerância se perde na pausa: náusea e vômito intensos, que a subida gradual teria evitado.' },
+      { erro: 'Espaçar as aplicações por conta própria para economizar', custo: 'Esquema sem validação em estudo grande: o nível cai entre doses e a fome pode voltar antes da próxima.' },
+    ],
+    reveals: [
+      'Quanto do peso voltou em um ano em quem parou, no SURMOUNT-4 e na extensão do STEP 1 (cap. 1)',
+      'Por que a fome não volta no dia seguinte e reaparece semanas depois da última dose (cap. 2)',
+      'O que existe de evidência para manter, reduzir ou espaçar, e o que ainda não foi testado (cap. 3)',
+      'Por que o treino de força deve começar antes da última dose, e não depois (cap. 4)',
+      'O gatilho a combinar com o médico antes de parar, para não esperar o peso voltar todo (cap. 6)',
+    ],
+    anchor: 'Custa cerca de 2% de um mês de caneta de tirzepatida (média de R$ 1.250), o custo que mais leva a parar.',
+    revised: 'novembro de 2026',
     bonuses: ['Plano de 90 dias para imprimir'],
-    sources: ['Extensão do estudo STEP 1', 'Estudo SURMOUNT-4'],
+    sources: ['Extensão do estudo STEP 1', 'Estudo STEP 4', 'Estudo SURMOUNT-4'],
     cover: 'from-orange-500 via-amber-600 to-teal-700',
     checkoutEnv: 'KIWIFY_CHECKOUT_PAREI',
     places: {
@@ -741,14 +838,15 @@ export const EBOOKS: Ebook[] = [
     altTitle: 'Os 4 Guias Para Começar Sem Erro',
     subtitle:
       'Os guias de semaglutida e tirzepatida, a reconstituição sem erro e as 12 checagens antes de comprar, num pacote só.',
-    hook: 'Semaglutida, tirzepatida, reconstituição e as 12 checagens antes de comprar: os 4 guias num pacote só.',
-    line: 'PDF: os 4 guias para começar com GLP-1 sem erro.',
+    hook:
+      'Os erros que custam dinheiro, dose e semanas de enjoo, da compra à aplicação: os 4 guias de semaglutida, tirzepatida, reconstituição e compra.',
+    line: 'Os 4 guias para começar com GLP-1 sem erro, da compra à aplicação. PDF.',
     price: 69.9,
-    pages: 145,
+    pages: 190,
     forWho: [
-      'Vai começar com GLP-1 e ainda não sabe qual.',
-      'Quer o caminho inteiro, da compra à aplicação.',
-      'Prefere ter tudo num lugar só.',
+      'Vai começar e ainda não sabe se será semaglutida ou tirzepatida.',
+      'Vai usar frasco: precisa comprar certo, reconstituir certo e subir a dose certo.',
+      'Quer num lugar só as escadas, tabelas, diários e checklists para imprimir.',
     ],
     notFor: ['Procura uma prescrição.', 'Espera promessa de quilos perdidos.'],
     toc: [
@@ -757,8 +855,26 @@ export const EBOOKS: Ebook[] = [
       '7 Erros Que Mudam Sua Dose Sem Você Perceber',
       'Não Compre Antes de Checar Isto',
     ],
+    pains: [
+      { erro: 'Comprar pelo preço, sem as checagens nem a conta do custo por mg', custo: 'Produto sem garantia, ou frasco que vence com sobra: dinheiro perdido antes da primeira dose.' },
+      { erro: 'Errar a conversão de mcg para mg ou a água na reconstituição', custo: 'Dez vezes a dose, ou metade dela, num número que cabe na seringa e parece normal.' },
+      { erro: 'Subir de dose no automático, com a náusea da etapa anterior', custo: 'Enjoo empilhado por semanas e a vontade de largar tudo antes de chegar à dose que funciona.' },
+    ],
+    reveals: [
+      'A escada de 0,25 a 2,4 mg e os 9 erros que fazem desistir no meio (Semaglutida: O Manual Que Não Vem na Caixa)',
+      'Quando segurar a dose e qual frasco casa com cada etapa (Tirzepatida: Não Suba a Dose Antes de Ler Isto)',
+      'Os 7 erros em que a conta está certa e a dose não (7 Erros Que Mudam Sua Dose Sem Você Perceber)',
+      'As 12 checagens e o custo real por mg, por dose e por mês (Não Compre Antes de Checar Isto)',
+      'Escadas, diários de 16 e 20 semanas, tabelas de unidades, checklists e planilha para imprimir (os 4 guias)',
+    ],
+    anchor: 'Os 4 guias avulsos somam R$ 119,60. No kit, saem por R$ 69,90: R$ 49,70 a menos.',
+    revised: 'novembro de 2026',
     bonuses: ['Todos os bônus dos 4 guias'],
-    sources: ['Bulas da FDA de Ozempic, Wegovy, Mounjaro e Zepbound', 'Estudos STEP, SURPASS e SURMOUNT'],
+    sources: [
+      'Bulas da FDA de Ozempic, Wegovy, Rybelsus, Mounjaro e Zepbound',
+      'Estudos STEP, SUSTAIN, PIONEER, SURPASS e SURMOUNT',
+      'Consultas e alertas da ANVISA sobre canetas falsificadas',
+    ],
     includes: ['I1', 'I2', 'T1', 'T2'],
     bumps: ['T3'],
     cover: 'from-teal-600 via-sky-700 to-indigo-800',
@@ -849,6 +965,11 @@ export function ebookForHub(): Ebook | undefined {
   return getEbookById(KIT_ID);
 }
 
+/** "… (cap. 3)" → "…": a referência ao capítulo só aparece na landing. */
+export function stripChapter(s: string): string {
+  return s.replace(/\s*\((?:cap\.|capítulo)[^)]*\)\s*$/i, '');
+}
+
 /** Oferta para a página, ou null se o ebook não existe ou não tem checkout. */
 export function toOffer(e: Ebook | undefined): EbookOffer | null {
   if (!e || !checkoutUrl(e)) return null;
@@ -860,7 +981,14 @@ export function toOffer(e: Ebook | undefined): EbookOffer | null {
     hook: e.hook,
     line: e.line,
     priceLabel: formatPrice(e.price),
+    pages: e.pages,
     cover: e.cover,
-    bullets: e.toc.slice(0, 3),
+    bullets: (e.reveals?.length ? e.reveals : e.toc).slice(0, 3).map(stripChapter),
   };
+}
+
+/** Kit ativo que inclui este ebook (para oferecer o pacote na landing do avulso). */
+export function kitFor(e: Ebook): Ebook | undefined {
+  if (e.kind === 'kit') return undefined;
+  return EBOOKS.find((k) => k.kind === 'kit' && k.includes?.includes(e.id) && checkoutUrl(k));
 }

@@ -80,7 +80,7 @@ export const BRANDS: Brand[] = [
       'Redução do risco de eventos cardiovasculares maiores em adultos com diabetes tipo 2 e alto risco cardiovascular',
     ],
     titrationSchemeId: 'tirzepatida-t2d',
-    maintenance: '5, 10 ou 15 mg uma vez por semana',
+    maintenance: 'Diabetes: sobe de 2,5 em 2,5 mg conforme a glicemia, até 15 mg por semana. Controle de peso: 5, 10 ou 15 mg por semana',
     presentation: 'Caneta de dose única ou KwikPen com 4 doses (nos EUA, também frasco); solução pronta, aplicação subcutânea semanal',
     summary:
       'Mounjaro é o nome comercial da tirzepatida, da Eli Lilly: uma injeção semanal que age nos receptores GIP e GLP-1, aprovada para diabetes tipo 2 e usada também no controle de peso.',

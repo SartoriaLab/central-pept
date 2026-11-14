@@ -15,6 +15,7 @@ import {
   getActiveEbooks,
   getEbookById,
   getEbookBySlug,
+  kitFor,
   kitFullPrice,
 } from '@/lib/ebooks';
 import { socialImage } from '@/lib/og';
@@ -53,6 +54,17 @@ export default async function EbookPage({ params }: { params: Promise<Params> })
   const included = (e.includes ?? []).map((id) => getEbookById(id)).filter((x): x is NonNullable<typeof x> => !!x);
   const bumps = (e.bumps ?? []).map((id) => getEbookById(id)).filter((x): x is NonNullable<typeof x> => !!x);
   const fullPrice = e.kind === 'kit' ? kitFullPrice(e) : 0;
+  const kit = kitFor(e);
+  const kitUrl = kit && checkoutUrl(kit);
+  const kitSum = kit ? kitFullPrice(kit) : 0;
+  const pains = e.pains ?? [];
+  const reveals = e.reveals ?? [];
+  const trust = [
+    `${e.pages} páginas em PDF`,
+    'Fonte em cada número',
+    e.revised ? `Revisado em ${e.revised}` : null,
+    '7 dias de garantia',
+  ].filter((x): x is string => !!x);
   const buy = (position: string, className?: string) => (
     <CheckoutButton
       ebookId={e.id}
@@ -109,19 +121,39 @@ export default async function EbookPage({ params }: { params: Promise<Params> })
                   </span>
                 )}
               </div>
+              {e.anchor && !(fullPrice > e.price) && <p className="mt-1 text-sm text-ink-2">{e.anchor}</p>}
               <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2">
                 {buy('hero')}
-                <span className="text-sm text-ink-3">{e.pages} páginas · PDF · Pix, cartão ou boleto</span>
+                <span className="text-sm text-ink-3">Acesso imediato no seu email · Pix, cartão ou boleto</span>
               </div>
-              <p className="mt-3 text-sm text-ink-2">
-                <strong>7 dias de garantia:</strong> não gostou, pede o reembolso total pela Kiwify.
-              </p>
+              <ul className="mt-5 flex flex-wrap gap-2" aria-label="Sobre o guia">
+                {trust.map((t) => (
+                  <li key={t} className="px-3 py-1 rounded-full border border-border bg-surface text-xs font-semibold text-ink-2">
+                    {t}
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
       </section>
 
       <div className="max-w-3xl mx-auto px-4 md:px-6 py-10 md:py-14 pb-28 md:pb-14">
+        {pains.length > 0 && (
+          <section className="mb-12" aria-labelledby="custo-do-erro">
+            <h2 id="custo-do-erro" className="text-xl md:text-2xl font-bold mb-2">O que custa errar</h2>
+            <p className="text-ink-2 mb-4">Nenhum destes erros aparece na hora. Todos aparecem depois: na conta, no corpo ou no calendário.</p>
+            <ul className="grid gap-3 md:grid-cols-3">
+              {pains.map((x) => (
+                <li key={x.erro} className="rounded-xl border border-red-200 bg-red-50 p-4">
+                  <p className="font-bold text-ink leading-snug">{x.erro}</p>
+                  <p className="mt-2 text-sm text-red-800 leading-relaxed">{x.custo}</p>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
         {/* Para quem */}
         <section aria-labelledby="para-quem">
           <h2 id="para-quem" className="text-xl md:text-2xl font-bold mb-4">Este {noun} é para você se…</h2>
@@ -134,6 +166,22 @@ export default async function EbookPage({ params }: { params: Promise<Params> })
             ))}
           </ul>
         </section>
+
+        {reveals.length > 0 && (
+          <section className="mt-12" aria-labelledby="descobrir">
+            <h2 id="descobrir" className="text-xl md:text-2xl font-bold mb-4">
+              {included.length > 0 ? 'O que cada guia resolve' : 'Você vai descobrir'}
+            </h2>
+            <ul className="space-y-3">
+              {reveals.map((x) => (
+                <li key={x} className="flex gap-3 text-ink-2 leading-relaxed">
+                  <span className="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-teal-50 text-teal-700 text-xs font-bold flex items-center justify-center" aria-hidden>→</span>
+                  <span>{x}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
 
         {/* Sumário ou guias do kit */}
         <section className="mt-12" aria-labelledby="sumario">
@@ -178,14 +226,62 @@ export default async function EbookPage({ params }: { params: Promise<Params> })
           </section>
         )}
 
-        {e.bonuses.length > 0 && (
-          <section className="mt-12" aria-labelledby="bonus">
-            <h2 id="bonus" className="text-xl md:text-2xl font-bold mb-4">Junto com o PDF</h2>
-            <ul className="grid gap-2 sm:grid-cols-2">
-              {e.bonuses.map((b) => (
-                <li key={b} className="card p-4 text-ink-2">{b}</li>
-              ))}
-            </ul>
+        <section className="mt-12 card p-6 md:p-8 border-2 border-teal" aria-labelledby="oferta">
+          <h2 id="oferta" className="text-xl md:text-2xl font-extrabold text-ink">O que você leva</h2>
+          <ul className="mt-4 space-y-2 text-ink-2">
+            <li className="flex gap-3">
+              <span className="text-teal-700 font-bold" aria-hidden>✓</span>
+              <span>{included.length > 0 ? `Os ${included.length} guias completos (${e.pages} páginas)` : `O guia completo em PDF (${e.pages} páginas)`}</span>
+            </li>
+            {e.bonuses.map((b) => (
+              <li key={b} className="flex gap-3">
+                <span className="text-teal-700 font-bold" aria-hidden>✓</span>
+                <span>{b}</span>
+              </li>
+            ))}
+            <li className="flex gap-3">
+              <span className="text-teal-700 font-bold" aria-hidden>✓</span>
+              <span>Leitura no celular pela área de membros e PDF para baixar e imprimir</span>
+            </li>
+          </ul>
+          <div className="mt-6 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+            <span className="text-3xl font-extrabold text-ink tabular-nums">{price}</span>
+            {fullPrice > e.price && (
+              <span className="text-sm text-ink-3">
+                avulsos: {formatPrice(fullPrice)} · você economiza {formatPrice(fullPrice - e.price)}
+              </span>
+            )}
+          </div>
+          {e.anchor && !(fullPrice > e.price) && <p className="mt-1 text-sm text-ink-2">{e.anchor}</p>}
+          <div className="mt-5">{buy('oferta')}</div>
+          <p className="mt-3 text-sm text-ink-3">Acesso imediato no seu email assim que o pagamento é confirmado.</p>
+        </section>
+
+        <section className="mt-8 flex gap-4 items-start rounded-xl border border-border bg-surface p-5" aria-labelledby="garantia">
+          <span className="flex-shrink-0 w-14 h-14 rounded-full border-2 border-teal text-teal-700 flex flex-col items-center justify-center leading-none" aria-hidden>
+            <span className="text-xl font-extrabold">7</span>
+            <span className="text-[10px] font-bold uppercase">dias</span>
+          </span>
+          <div>
+            <h2 id="garantia" className="font-bold text-ink">Garantia incondicional de 7 dias</h2>
+            <p className="mt-1 text-sm text-ink-2 leading-relaxed">
+              Compre, leia o {noun} inteiro e use os bônus. Se achar que não valeu, peça o reembolso total pela Kiwify em até 7 dias, sem precisar explicar. O risco fica com a gente.
+            </p>
+          </div>
+        </section>
+
+        {kit && kitUrl && kitSum > kit.price && (
+          <section className="mt-8 rounded-xl border border-teal-100 bg-teal-50 p-5" aria-labelledby="kit">
+            <p className="text-xs font-bold uppercase tracking-wider text-teal-700">Vai precisar de mais de um guia?</p>
+            <h2 id="kit" className="mt-1 font-bold text-ink">
+              {kit.title}: os {kit.includes?.length} guias por {formatPrice(kit.price)}
+            </h2>
+            <p className="mt-1 text-sm text-ink-2">
+              Este {noun} está incluído. Avulsos, os {kit.includes?.length} somam {formatPrice(kitSum)}: economia de {formatPrice(kitSum - kit.price)}.
+            </p>
+            <Link href={`/ebooks/${kit.slug}?origem=landing-kit&de=/ebooks/${e.slug}`} className="mt-3 inline-block text-sm font-semibold text-teal-700 hover:underline">
+              Ver o {kit.title} →
+            </Link>
           </section>
         )}
 
@@ -236,9 +332,10 @@ export default async function EbookPage({ params }: { params: Promise<Params> })
 
         <section className="mt-12 card p-6 md:p-8 text-center">
           <h2 className="text-xl md:text-2xl font-extrabold text-ink">{e.title}</h2>
-          <p className="mt-2 text-ink-2">{e.pages} páginas · PDF · entrega por email</p>
-          <div className="mt-5 flex justify-center">{buy('final')}</div>
-          <p className="mt-3 text-sm text-ink-3">7 dias de garantia pela Kiwify</p>
+          <p className="mt-2 text-ink-2">{e.subtitle}</p>
+          <p className="mt-4 text-2xl font-extrabold text-ink tabular-nums">{price}</p>
+          <div className="mt-4 flex justify-center">{buy('final')}</div>
+          <p className="mt-3 text-sm text-ink-3">Acesso imediato · 7 dias de garantia incondicional</p>
         </section>
 
         <MedicalDisclaimer variant="prominent" />
@@ -254,7 +351,7 @@ export default async function EbookPage({ params }: { params: Promise<Params> })
           ebookId={e.id}
           slug={e.slug}
           checkoutUrl={url}
-          label="Comprar"
+          label={`Quero o ${noun}`}
           position="barra"
           className="btn-teal"
         />

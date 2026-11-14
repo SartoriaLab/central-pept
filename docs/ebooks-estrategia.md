@@ -52,7 +52,7 @@ Regra de decisão (ponto de partida, ajustar com dados): oferta com 500 visualiz
 | Guia de categoria | R$ 29,90 | Mesmo preço: simplifica a comunicação |
 | "Parei. E Agora?" (T3) avulso | R$ 24,90 | R$ 14,90 como order bump de I1 e I2 |
 | Order bump universal | R$ 14,90 | "7 Erros Que Mudam Sua Dose" (T1) em todo checkout de injetável; em T1 o bump é T2 |
-| Kit Começo Seguro (I1 ou I2 + T1 + T2) | R$ 59,90 | Âncora real: soma R$ 89,70 |
+| Kit Começo Seguro (I1 + I2 + T1 + T2) | R$ 69,90 | Âncora real: soma R$ 119,60 |
 | Biblioteca completa | Definir depois da onda 2 | Só quando houver 8+ ebooks |
 
 - Âncora de preço só real (kit contra a soma). Nada de "de R$ 49,90" que nunca foi cobrado.

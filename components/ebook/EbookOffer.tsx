@@ -114,9 +114,9 @@ export default function EbookOffer({ offer, variant = 'card', lead, className = 
           </ul>
           <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2">
             <Link href={href} onClick={onClick} className="btn-teal">
-              Ver o guia · {price}
+              Quero ver o guia · {price}
             </Link>
-            <span className="text-xs text-ink-3">7 dias de garantia · Pix, cartão ou boleto</span>
+            <span className="text-xs text-ink-3">{offer.pages} páginas · acesso imediato · 7 dias de garantia</span>
           </div>
         </div>
       </div>

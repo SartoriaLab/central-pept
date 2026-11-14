@@ -146,3 +146,36 @@ describe('checkout', () => {
     expect(getActiveEbooks().map((e) => e.id)).toContain('I2');
   });
 });
+
+describe('copy de venda', () => {
+  afterEach(() => vi.unstubAllEnvs());
+  const withCopy = EBOOKS.filter((e) => e.pains || e.reveals || e.anchor);
+
+  it('os guias com manuscrito têm dores, revelações, âncora e revisão', () => {
+    for (const id of ['I1', 'I2', 'T1', 'T2', 'T3', 'KIT']) {
+      const e = getEbookById(id)!;
+      expect(e.pains, id).toHaveLength(3);
+      expect(e.reveals, id).toHaveLength(5);
+      expect(e.anchor, id).toBeTruthy();
+      expect(e.revised, id).toBeTruthy();
+    }
+  });
+
+  it('cada revelação diz onde está a resposta', () => {
+    for (const e of withCopy) for (const r of e.reveals ?? []) expect(r, e.id).toMatch(/\([^)]+\)$/);
+  });
+
+  it('sem urgência falsa nem preço "de/por" inventado', () => {
+    const banned = /\b(só hoje|últimas vagas|por tempo limitado|de R\$ ?[\d.,]+ por R\$)/i;
+    for (const e of withCopy) {
+      const text = [e.hook, e.line, e.anchor ?? '', ...(e.reveals ?? []), ...(e.pains ?? []).flatMap((p) => [p.erro, p.custo])].join(' ');
+      expect(text, e.id).not.toMatch(banned);
+    }
+  });
+
+  it('o card mostra a revelação sem a referência ao capítulo', () => {
+    vi.stubEnv('KIWIFY_CHECKOUT_TIRZEPATIDA', 'https://pay.kiwify.com.br/teste');
+    const offer = toOffer(getEbookById('I2'));
+    for (const b of offer?.bullets ?? []) expect(b).not.toMatch(/\(cap\./);
+  });
+});
