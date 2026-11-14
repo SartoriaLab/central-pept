@@ -14,6 +14,7 @@ import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from '
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import EbookCover from '@/components/ebook/EbookCover';
+import AnchorNote from './AnchorNote';
 import { offerHref } from '@/components/ebook/EbookOffer';
 import {
   getPageOffer,
@@ -22,7 +23,8 @@ import {
   offerClicked,
   subscribePageOffer,
 } from '@/components/ebook/offer-store';
-import { EXIT_OFFER_ENABLED } from '@/lib/ebooks';
+import { EXIT_COUPON, EXIT_OFFER_ENABLED, couponPrice, formatPrice } from '@/lib/ebooks';
+import { COUPON_KEY } from './CheckoutButton';
 import { EVENTS, track } from '@/lib/track';
 
 const LAST_SHOWN = 'cp:popup-saida';
@@ -176,16 +178,35 @@ export default function ExitOffer() {
             </li>
           ))}
         </ul>
+        <AnchorNote text={offer.anchor} className="mt-4" />
+        {EXIT_COUPON ? (
+          <div className="mt-4 rounded-xl border-2 border-dashed border-teal-500 bg-teal-50 px-4 py-3 text-center dark:bg-teal-400/10">
+            <p className="text-xs font-bold uppercase tracking-wider text-teal-700">
+              Cupom de {EXIT_COUPON.percent}% para você
+            </p>
+            <p className="mt-1 font-mono text-xl font-extrabold tracking-widest text-ink">{EXIT_COUPON.code}</p>
+            <p className="mt-1 text-sm text-ink-2">
+              <span className="line-through">{offer.priceLabel}</span>{' '}
+              <strong className="text-teal-700">{formatPrice(couponPrice(offer.price, EXIT_COUPON.percent))}</strong>
+              {' '}· já vai aplicado no checkout
+            </p>
+          </div>
+        ) : null}
         <Link
-          href={offerHref(offer, 'popup', pathname)}
+          href={offerHref(offer, 'popup', pathname) + (EXIT_COUPON ? `&cupom=${EXIT_COUPON.code}` : '')}
           onClick={() => {
+            if (EXIT_COUPON) {
+              try {
+                window.sessionStorage.setItem(COUPON_KEY, EXIT_COUPON.code);
+              } catch {}
+            }
             markOfferClicked();
             track(EVENTS.ebookPopupClick, { ebook: offer.id, pagina: pathname });
             setOpen(false);
           }}
           className="btn-teal w-full mt-5"
         >
-          Ver o guia · {offer.priceLabel}
+          {EXIT_COUPON ? 'Usar meu cupom' : `Ver o guia · ${offer.priceLabel}`}
         </Link>
         <p className="mt-2 text-center text-xs text-ink-3">
           {offer.pages} páginas · acesso imediato · 7 dias de garantia

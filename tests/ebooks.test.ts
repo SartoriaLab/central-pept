@@ -211,3 +211,12 @@ describe('copy de venda', () => {
     for (const b of offer?.bullets ?? []) expect(b).not.toMatch(/\(cap\./);
   });
 });
+
+describe('cupom do pop-up de saída', () => {
+  it('calcula o preço com desconto em centavos exatos', async () => {
+    const { couponPrice, EXIT_COUPON } = await import('@/lib/ebooks');
+    expect(couponPrice(29.9, 10)).toBe(26.91);
+    expect(couponPrice(69.9, 10)).toBe(62.91);
+    if (EXIT_COUPON) expect(EXIT_COUPON.code).toMatch(/^[A-Z0-9_-]{1,50}$/);
+  });
+});

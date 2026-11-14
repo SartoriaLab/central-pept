@@ -82,6 +82,7 @@ export type EbookOffer = {
   line: string;
   /** "R$ 29,90" */
   priceLabel: string;
+  price: number;
   pages: number;
   cover: string;
   bullets: string[];
@@ -93,6 +94,17 @@ export type EbookOffer = {
 
 /** Pop-up de saída (components/ebook/ExitOffer.tsx). Desligue aqui se ele não trouxer venda. */
 export const EXIT_OFFER_ENABLED = true;
+
+/**
+ * Cupom do pop-up de saída. Existe de verdade na Kiwify (oferta principal dos 8 produtos,
+ * checkout com cupom ligado). Mudou o código ou o percentual lá? Mude aqui. null desliga.
+ */
+export const EXIT_COUPON: { code: string; percent: number } | null = { code: 'SAIDA10', percent: 10 };
+
+/** Preço com o cupom de saída aplicado. */
+export function couponPrice(price: number, percent: number): number {
+  return Math.round(price * (100 - percent)) / 100;
+}
 
 /** Preço de um ebook quando entra como oferta extra (order bump) no checkout. */
 export const BUMP_PRICE = 14.9;
@@ -1226,6 +1238,7 @@ export function toOffer(e: Ebook | undefined): EbookOffer | null {
     hook: e.hook,
     line: e.line,
     priceLabel: formatPrice(e.price),
+    price: e.price,
     pages: e.pages,
     cover: e.cover,
     bullets: (e.reveals?.length ? e.reveals : e.toc).slice(0, 3).map(stripChapter),

@@ -16,6 +16,7 @@ import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import EbookCover from '@/components/ebook/EbookCover';
+import AnchorNote from './AnchorNote';
 import OfferBar from '@/components/ebook/OfferBar';
 import { clearPageOffer, markOfferClicked, setPageOffer } from '@/components/ebook/offer-store';
 import type { EbookOffer as Offer } from '@/lib/ebooks';
@@ -106,6 +107,7 @@ export default function EbookOffer({ offer, variant = 'card', lead, className = 
               </p>
             </div>
           </div>
+          <AnchorNote text={offer.anchor} className="mt-3" />
           <Link href={href} onClick={onClick} className="btn-teal w-full mt-3">
             Ver o guia · {price}
           </Link>
@@ -148,7 +150,7 @@ export default function EbookOffer({ offer, variant = 'card', lead, className = 
           />
         ) : null}
       </div>
-      {offer.anchor ? <p className="mt-3 text-xs text-ink-3 leading-relaxed">{offer.anchor}</p> : null}
+      <AnchorNote text={offer.anchor} className="mt-4" />
       <div className="mt-4 flex flex-col sm:flex-row sm:items-center gap-x-4 gap-y-2">
         <Link href={href} onClick={onClick} className="btn-teal w-full sm:w-auto">
           Quero ver o guia · {price}

@@ -984,13 +984,15 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug,
               </div>
             </div>
           )}
-          {result && Number.isFinite(result.unitsPerDose) && result.unitsPerDose > 0 && (
+          {result && Number.isFinite(result.unitsPerDose) && result.unitsPerDose > 0 ? (
             <EbookOffer
               variant="result"
               offer={offer}
               lead={`Você vai puxar ${fmt(result.unitsPerDose, 1)} unidades.`}
               className="mt-4"
             />
+          ) : (
+            <EbookOffer variant="line" offer={offer} className="mt-4" />
           )}
         </div>
       </div>
