@@ -273,13 +273,15 @@ export default function ScheduleCalculator({ peptides, offer, embed = false }: P
             </ul>
           </div>
         )}
-        {peptide && schedule.length > 0 && (
+        {peptide && schedule.length > 0 ? (
           <EbookOffer
             variant="result"
             offer={offer}
             lead={`São ${schedule.length} aplicações em ${durationWeeks} ${durationWeeks === 1 ? 'semana' : 'semanas'}.`}
             className="mt-5"
           />
+        ) : (
+          <EbookOffer variant="line" offer={offer} className="mt-5" />
         )}
       </div>
     </div>

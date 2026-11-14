@@ -198,7 +198,7 @@ export default function VialPlanner({ peptides, offer, embed = false }: { peptid
             </div>
           </div>
         )}
-        {plan && plan.dosesPerVial > 0 && (
+        {plan && plan.dosesPerVial > 0 ? (
           <EbookOffer
             variant="result"
             offer={offer}
@@ -209,6 +209,8 @@ export default function VialPlanner({ peptides, offer, embed = false }: { peptid
             }
             className="mt-5"
           />
+        ) : (
+          <EbookOffer variant="line" offer={offer} className="mt-5" />
         )}
       </div>
     </div>

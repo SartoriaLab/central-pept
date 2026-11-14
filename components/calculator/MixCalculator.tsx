@@ -351,7 +351,7 @@ export default function MixCalculator({ peptides, offer, embed = false }: Props)
               </div>
             </div>
           )}
-          {canCompute && results.length > 0 && (
+          {canCompute && results.length > 0 ? (
             <EbookOffer
               variant="result"
               offer={offer}
@@ -360,6 +360,8 @@ export default function MixCalculator({ peptides, offer, embed = false }: Props)
                 .join(' e ')}.`}
               className="mt-5"
             />
+          ) : (
+            <EbookOffer variant="line" offer={offer} className="mt-5" />
           )}
         </div>
       </div>

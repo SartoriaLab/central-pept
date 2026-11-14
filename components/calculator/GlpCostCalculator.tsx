@@ -152,7 +152,10 @@ export default function GlpCostCalculator({ offer, embed = false }: { offer?: Of
 
       <section className="card p-5 md:p-6" aria-label="Resultado" aria-live="polite">
         {!result ? (
-          <p className="text-ink-2">Informe o preço, o total em mg e a dose semanal para ver o custo.</p>
+          <>
+            <p className="text-ink-2">Informe o preço, o total em mg e a dose semanal para ver o custo.</p>
+            <EbookOffer variant="line" offer={offer} className="mt-5" />
+          </>
         ) : result.tooSmall ? (
           <p className="text-amber-700 font-semibold">
             A dose semanal é maior que o total da embalagem — uma embalagem não cobre nem uma aplicação.

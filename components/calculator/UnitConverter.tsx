@@ -174,7 +174,7 @@ export default function UnitConverter({ peptides, embed = false, offer }: Props)
               </div>
             </div>
           )}
-          {!embed && mg != null && (
+          {!embed && (mg != null ? (
             <EbookOffer
               variant="result"
               offer={offer}
@@ -185,7 +185,9 @@ export default function UnitConverter({ peptides, embed = false, offer }: Props)
               }
               className="mt-5"
             />
-          )}
+          ) : (
+            <EbookOffer variant="line" offer={offer} className="mt-5" />
+          ))}
         </div>
       </div>
     </div>
