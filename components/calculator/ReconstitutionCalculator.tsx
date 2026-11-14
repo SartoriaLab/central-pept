@@ -451,6 +451,15 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug,
       .catch(() => setToast('Não foi possível copiar.'));
   }
 
+  // WhatsApp: resultado em uma linha + link que reabre o cálculo
+  function sendWhatsApp() {
+    if (!peptide || !result || typeof window === 'undefined') return;
+    const url = `${window.location.origin}${window.location.pathname}?${stateQuery(true)}`;
+    const text = `Reconstituição de ${peptide.name}: ${fmt(result.unitsPerDose, 1)} U por dose na seringa de ${syringe} U (${fmt(result.waterMl, 2)} ml de água BAC). Conta completa: ${url}`;
+    window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
+    track(EVENTS.whatsapp, { ferramenta: 'reconstituicao' });
+  }
+
   // Compartilhar URL com estado atual
   function shareUrl() {
     if (!peptide || typeof window === 'undefined') return;
@@ -859,6 +868,15 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug,
               <div className="flex items-center justify-between gap-2.5 px-5 pt-5">
                 <div className="text-sm font-bold text-ink-2 truncate">{peptide?.name}</div>
                 <div className="flex items-center gap-1.5 flex-shrink-0 no-print">
+                  <button
+                    type="button"
+                    onClick={sendWhatsApp}
+                    title="Enviar o cálculo no WhatsApp"
+                    aria-label="Enviar no WhatsApp"
+                    className="w-11 h-11 rounded-md border border-border bg-surface text-ink-2 hover:border-teal hover:text-teal-700 hover:bg-teal-50 flex items-center justify-center"
+                  >
+                    <WhatsAppIcon />
+                  </button>
                   <button
                     type="button"
                     onClick={shareUrl}
@@ -1414,6 +1432,15 @@ function DoseSafetyScale({
         <span>{fmt(maxDose, 2)} {unit}</span>
       </div>
     </div>
+  );
+}
+
+function WhatsAppIcon() {
+  return (
+    <svg viewBox="0 0 20 20" width={16} height={16} fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <path d="M3.5 16.5l1-3.4A7 7 0 1 1 7 15.6z" />
+      <path d="M7.6 7.2c.2 1.9 1.6 3.9 3.9 4.9l.9-.9 1.3.6-.3 1.1c-2.8.2-6.4-2.6-6.6-5.6l1.1-.4.6 1.3z" />
+    </svg>
   );
 }
 

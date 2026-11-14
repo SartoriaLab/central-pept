@@ -83,14 +83,14 @@ export const TITRATION_SCHEMES: TitrationScheme[] = [
   {
     id: 'retatrutida',
     peptideSlug: 'retatrutida',
-    name: 'Retatrutida (tri-agonista — experimental, fase 3)',
+    name: 'Retatrutida (tri-agonista — experimental, sem aprovação)',
     unit: 'mg/semana',
     route: 'injetavel',
     frequency: 'semanal',
     stepDays: 28,
     stepOptionsDays: WEEKLY_STEP_OPTIONS,
-    steps: [{ dose: 2 }, { dose: 4 }, { dose: 6 }, { dose: 8 }, { dose: 10 }, { dose: 12 }],
-    notes: 'Retatrutida (LY3437943, tri-agonista GLP-1/GIP/glucagon). Ainda em fase 3 (TRIUMPH) — ainda sem aprovação FDA/ANVISA. Protocolo baseado nos trials: incrementos de 2 mg a cada 4 semanas até 12 mg/semana.',
+    steps: [{ dose: 2 }, { dose: 4 }, { dose: 6 }, { dose: 9 }, { dose: 12 }],
+    notes: 'Retatrutida (LY3437943, tri-agonista GLP-1/GIP/glucagon). Sem aprovação em nenhum país (FDA, EMA, ANVISA). Escada usada nos ensaios de fase 3 (TRIUMPH): início em 2 mg e subida a cada 4 semanas na sequência 2 → 4 → 6 → 9 → 12 mg, com doses-alvo de 4, 9 e 12 mg. Referência dos estudos, não orientação de uso.',
   },
   {
     id: 'liraglutida-t2d',

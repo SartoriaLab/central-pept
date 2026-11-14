@@ -1,5 +1,7 @@
 'use client';
 
+import EbookOffer from '@/components/ebook/EbookOffer';
+import type { EbookOffer as Offer } from '@/lib/ebooks';
 import { useEffect, useMemo, useState } from 'react';
 import type { Peptide } from '@/lib/peptides';
 import DecimalInput from '@/components/ui/DecimalInput';
@@ -32,7 +34,7 @@ const fmtWhen = (at: string) =>
 type Prefs = { slug: string; dose: number | ''; unit: string; freq: Freq; every: number | ''; sites: SiteId[] };
 const DEFAULT_PREFS: Prefs = { slug: '', dose: '', unit: 'mcg', freq: 'diaria', every: 3, sites: SITES.map((s) => s.id) };
 
-export default function InjectionDiary({ peptides }: { peptides: Peptide[] }) {
+export default function InjectionDiary({ peptides, offer }: { peptides: Peptide[]; offer?: Offer | null }) {
   const [entries, setEntries] = useState<LogEntry[]>([]);
   const [prefs, setPrefs] = useState<Prefs>(DEFAULT_PREFS);
   const [at, setAt] = useState('');
@@ -350,6 +352,17 @@ export default function InjectionDiary({ peptides }: { peptides: Peptide[] }) {
             </ul>
           )}
         </section>
+        {hydrated && (
+          <EbookOffer
+            variant="result"
+            offer={offer}
+            lead={
+              entries.length > 0
+                ? `Você já registrou ${entries.length} ${entries.length === 1 ? 'aplicação' : 'aplicações'}.`
+                : undefined
+            }
+          />
+        )}
       </div>
     </div>
   );

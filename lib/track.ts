@@ -1,7 +1,6 @@
-// Eventos personalizados do Plausible. Sem o script carregado (NEXT_PUBLIC_PLAUSIBLE_DOMAIN
-// ausente, bloqueador de anúncios) as chamadas não fazem nada.
-//
-// Cada evento precisa existir como "Goal" no painel do Plausible para aparecer nos relatórios.
+// Eventos de métrica. As ações de STORED_EVENTS (lib/site-events.ts) vão para o banco via
+// /api/evento (relatório em /admin/assistente/eventos). Se o Plausible estiver ligado
+// (NEXT_PUBLIC_PLAUSIBLE_DOMAIN), todos os eventos também vão para ele, como "Goal".
 // Nunca envie dado pessoal ou de saúde nas props: só o slug do peptídeo/ferramenta.
 
 type EventProps = Record<string, string | number | boolean>;
@@ -12,20 +11,8 @@ declare global {
   }
 }
 
-export const EVENTS = {
-  reconstitution: 'Calculo Reconstituicao',
-  cost: 'Calculo Custo GLP1',
-  icsDownload: 'Download ICS',
-  print: 'Imprimir',
-  copyResult: 'Copiar Resultado',
-  share: 'Compartilhar Calculo',
-  embedCopy: 'Embed Copiado',
-  newsletterSignup: 'Newsletter Inscricao',
-  // Funil dos ebooks: props { ebook: id do ebook, posicao: card | line | result | landing-* }
-  ebookView: 'Ebook Visto',
-  ebookClick: 'Ebook Clique',
-  ebookCheckout: 'Ebook Checkout',
-} as const;
+export { EVENTS } from './event-names';
+import { STORED_EVENTS } from './site-events';
 
 export function track(event: string, props?: EventProps): void {
   if (typeof window === 'undefined') return;
@@ -33,6 +20,15 @@ export function track(event: string, props?: EventProps): void {
     window.plausible?.(event, props ? { props } : undefined);
   } catch {
     // métrica nunca pode quebrar a página
+  }
+  if (!STORED_EVENTS.has(event)) return;
+  try {
+    const body = JSON.stringify({ e: event, p: props ?? {}, u: window.location.pathname });
+    if (!navigator.sendBeacon?.('/api/evento', body)) {
+      void fetch('/api/evento', { method: 'POST', body, keepalive: true }).catch(() => {});
+    }
+  } catch {
+    // idem
   }
 }
 

@@ -3,11 +3,12 @@ import { social } from '@/lib/og';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import RelatedLinks, { type RelatedLink } from '@/components/ui/RelatedLinks';
 import GlpCostCalculator from '@/components/calculator/GlpCostCalculator';
-import { ebookForTool, toOffer } from '@/lib/ebooks';
+import { ebookForTool, offerFor } from '@/lib/ebooks';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
 import FAQ, { type FAQItem } from '@/components/ui/FAQ';
 import ToolSchema from '@/components/ui/ToolSchema';
 import { SITE_URL } from '@/lib/site';
+import EmbedSnippet from '@/components/ui/EmbedSnippet';
 
 const PATH = '/ferramentas/custo-glp1';
 
@@ -81,7 +82,7 @@ export default function CustoGlp1Page() {
         </p>
       </div>
 
-      <GlpCostCalculator offer={toOffer(ebookForTool('custo-glp1'))} />
+      <GlpCostCalculator offer={offerFor(ebookForTool('custo-glp1'))} />
 
       <section className="mt-10 max-w-3xl" aria-labelledby="como-funciona">
         <h2 id="como-funciona" className="text-xl md:text-2xl font-bold mb-3">Como a conta é feita</h2>
@@ -96,6 +97,15 @@ export default function CustoGlp1Page() {
         </ol>
       </section>
 
+
+      <EmbedSnippet
+        embedUrl={`${SITE_URL}/embed/custo-glp1`}
+        creditUrl={`${SITE_URL}/ferramentas/custo-glp1`}
+        creditLabel="Custo por dose de GLP-1"
+        title="Custo por dose de Mounjaro, Ozempic e tirzepatida"
+        tool="custo-glp1"
+        height={900}
+      />
 
       <RelatedLinks links={RELATED_LINKS} />
 

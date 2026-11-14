@@ -4,17 +4,18 @@ import { notFound } from 'next/navigation';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import FAQ, { type FAQItem } from '@/components/ui/FAQ';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
+import ShareButtons from '@/components/ui/ShareButtons';
 import RelatedLinks, { type RelatedLink } from '@/components/ui/RelatedLinks';
 import { calcByVolume, fmt, fmtConcentration } from '@/components/calculator/calc';
 import { getPeptideBySlug, type Peptide } from '@/lib/peptides';
 import { getBrandsByPeptide } from '@/lib/brands';
-import { dosePath, doseSlug, getDosePages, getDoseSteps, getPageDoses, parseDoseSlug } from '@/lib/dose-pages';
+import { dosePath, doseSlug, getDoseInfo, getDosePages, getDoseSteps, getPageDoses, parseDoseSlug } from '@/lib/dose-pages';
 import { stepPeriodLabel } from '@/lib/titration';
 import { vialPath, isCanonicalVial } from '@/lib/vials';
 import { social } from '@/lib/og';
 import { SITE_URL } from '@/lib/site';
 import EbookOffer from '@/components/ebook/EbookOffer';
-import { ebookForTool, toOffer } from '@/lib/ebooks';
+import { ebookForTool, offerFor } from '@/lib/ebooks';
 
 type Params = { peptideo: string; dose: string };
 
@@ -36,6 +37,19 @@ function resolve(params: Params): { p: Peptide; dose: number } | null {
 }
 
 const mg = (n: number) => `${fmt(n, 2)} mg`;
+
+/** Quantas aplicações o frasco rende e, com frequência conhecida, em quantos dias. */
+function vialUse(vial: number, dose: number, perWeek: number | null) {
+  const n = Math.floor(vial / dose + 1e-9);
+  const days = perWeek ? Math.round((n / perWeek) * 7) : null;
+  return { n, days, wasted: days !== null && days > SHELF_DAYS };
+}
+
+function vialUseText(u: { n: number; days: number | null }, perWeek: number | null): string {
+  if (perWeek === 1) return `${u.n} ${u.n === 1 ? 'semana' : 'semanas'}`;
+  const apps = `${u.n} ${u.n === 1 ? 'aplicação' : 'aplicações'}`;
+  return u.days !== null ? `${apps} (cerca de ${u.days} dias)` : apps;
+}
 
 /** Frasco e água que deixam a dose mais perto de 10–50 U. */
 function bestCombo(vials: number[], dose: number) {
@@ -74,6 +88,7 @@ export default async function DosePage({ params }: { params: Promise<Params> }) 
   const brands = getBrandsByPeptide(p.slug);
   const path = dosePath(p.slug, dose);
   const isFirst = steps.some((s) => s.index === 0);
+  const { perWeek, source } = getDoseInfo(p.slug, dose);
 
   const faq: FAQItem[] = [];
   if (best) {
@@ -86,10 +101,7 @@ export default async function DosePage({ params }: { params: Promise<Params> }) 
     faq.push({
       q: `Quanto tempo dura um frasco na dose de ${mg(dose)}?`,
       a: `${vials
-        .map((v) => {
-          const n = Math.floor(v / dose + 1e-9);
-          return `Frasco de ${mg(v)}: ${n} ${n === 1 ? 'aplicação' : 'aplicações'} semanais`;
-        })
+        .map((v) => `Frasco de ${mg(v)}: ${vialUseText(vialUse(v, dose, perWeek), perWeek)}`)
         .join('; ')}. Depois de reconstituído, o frasco costuma valer ${SHELF_DAYS} dias na geladeira; o que passar disso é descartado.`,
     });
   }
@@ -99,7 +111,13 @@ export default async function DosePage({ params }: { params: Promise<Params> }) 
       a: `É a etapa ${s.index + 1} de ${s.total} do esquema ${s.scheme.name}: ${stepPeriodLabel(s.index, s.scheme.stepDays, s.index === s.total - 1).toLowerCase()} pelo calendário de bula.${s.prev !== undefined ? ` Vem depois de ${mg(s.prev)}.` : ' É a dose inicial.'}${s.next !== undefined ? ` A próxima é ${mg(s.next)}, se houver indicação e boa tolerância.` : ' É a dose máxima do esquema.'}`,
     });
   }
-  if (!isFirst) {
+  if (source) {
+    faq.push({
+      q: `De onde vem a dose de ${mg(dose)} de ${p.name}?`,
+      a: `É a ${source}. A página só converte essa dose em unidades na seringa; quem decide a dose é o médico.`,
+    });
+  }
+  if (steps.length > 0 && !isFirst) {
     faq.push({
       q: `Posso começar direto em ${mg(dose)}?`,
       a: `Não é o que as bulas indicam. A subida gradual, começando em ${mg(allDoses[0])}, existe para reduzir náusea, vômito e outros efeitos gastrointestinais. Qualquer mudança de dose deve ser decidida com o médico.`,
@@ -109,7 +127,7 @@ export default async function DosePage({ params }: { params: Promise<Params> }) 
 
   const related: RelatedLink[] = [
     { href: `/ferramentas/reconstituicao/${p.slug}`, label: `Calculadora de ${p.name}`, desc: 'Qualquer frasco, dose e volume de água.' },
-    { href: '/ferramentas/titulacao', label: 'Subida de dose', desc: 'Calendário com datas de cada etapa.' },
+    ...(steps.length > 0 ? [{ href: '/ferramentas/titulacao', label: 'Subida de dose', desc: 'Calendário com datas de cada etapa.' }] : []),
     { href: `/peptideos/${p.slug}`, label: `Ficha de ${p.name}`, desc: 'Mecanismo, efeitos e referências.' },
     ...brands.map((b) => ({ href: `/medicamentos/${b.slug}`, label: b.name, desc: b.summary })),
   ];
@@ -139,6 +157,7 @@ export default async function DosePage({ params }: { params: Promise<Params> }) 
             {fmt(best.r!.unitsPerDose / 100, 3)} ml). Outros frascos e volumes estão na tabela.
           </p>
         )}
+        {source && <p className="mt-3 text-sm text-ink-3">Dose de referência: {source}.</p>}
         {best && (
           <div className="mt-5 no-print">
             <Link
@@ -178,8 +197,7 @@ export default async function DosePage({ params }: { params: Promise<Params> }) 
                     </tr>
                   );
                 }
-                const n = Math.floor(v / dose + 1e-9);
-                const wasted = n * 7 > SHELF_DAYS;
+                const use = vialUse(v, dose, perWeek);
                 return (
                   <tr key={v} className="border-b border-border last:border-0">
                     <th scope="row" className="p-3 font-semibold text-left whitespace-nowrap">
@@ -201,8 +219,8 @@ export default async function DosePage({ params }: { params: Promise<Params> }) 
                       );
                     })}
                     <td className="p-3 tabular-nums whitespace-nowrap">
-                      {n} {n === 1 ? 'semana' : 'semanas'}
-                      {wasted && <span className="block text-xs text-amber-700">passa de {SHELF_DAYS} dias</span>}
+                      {vialUseText(use, perWeek)}
+                      {use.wasted &&<span className="block text-xs text-amber-700">passa de {SHELF_DAYS} dias</span>}
                     </td>
                   </tr>
                 );
@@ -211,8 +229,9 @@ export default async function DosePage({ params }: { params: Promise<Params> }) 
           </table>
         </div>
         <p className="mt-3 text-sm text-ink-2 max-w-3xl">
-          Conta: unidades = dose (mg) × água (ml) × 100 ÷ mg do frasco. Uma aplicação por semana; em amarelo, o frasco
-          duraria mais que os {SHELF_DAYS} dias de uso depois de reconstituído.
+          Conta: unidades = dose (mg) × água (ml) × 100 ÷ mg do frasco.
+          {perWeek === 1 ? ' Uma aplicação por semana.' : perWeek ? ` ${perWeek} aplicações por semana.` : ' Aplicação conforme necessário.'}
+          {perWeek ? ` Em amarelo, o frasco duraria mais que os ${SHELF_DAYS} dias de uso depois de reconstituído.` : ''}
         </p>
       </section>
 
@@ -240,6 +259,7 @@ export default async function DosePage({ params }: { params: Promise<Params> }) 
         </section>
       )}
 
+      {allDoses.length > 1 && (
       <section className="mt-10 no-print" aria-labelledby="outras-doses">
         <h2 id="outras-doses" className="text-sm font-bold uppercase tracking-wider text-ink-3 mb-3">Outras doses de {p.name}</h2>
         <div className="flex flex-wrap gap-2">
@@ -248,11 +268,15 @@ export default async function DosePage({ params }: { params: Promise<Params> }) 
           ))}
         </div>
       </section>
+      )}
 
-      <EbookOffer offer={toOffer(ebookForTool('reconstituicao'))} className="max-w-3xl" />
+      <EbookOffer offer={offerFor(ebookForTool('reconstituicao'))} className="max-w-3xl" />
 
       <RelatedLinks links={related} title={`Mais sobre ${p.name}`} />
       <FAQ items={faq} title={`Perguntas frequentes: ${p.name} ${mg(dose)}`} />
+      <div className="mt-8 no-print">
+        <ShareButtons title={`${p.name} ${mg(dose)}: quantas unidades puxar`} />
+      </div>
       <MedicalDisclaimer variant="prominent" />
     </div>
   );

@@ -3,12 +3,13 @@ import Link from 'next/link';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import FAQ, { type FAQItem } from '@/components/ui/FAQ';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
+import ShareButtons from '@/components/ui/ShareButtons';
 import Syringe from '@/components/calculator/Syringe';
 import { SYRINGES } from '@/lib/syringes';
 import { social } from '@/lib/og';
 import { SITE_URL } from '@/lib/site';
 import EbookOffer from '@/components/ebook/EbookOffer';
-import { ebookForSection, toOffer } from '@/lib/ebooks';
+import { ebookForSection, offerFor } from '@/lib/ebooks';
 
 const title = 'Como ler seringa de insulina: unidades, ml e tamanhos';
 const description =
@@ -105,6 +106,9 @@ export default function SeringasPage() {
           </div>
         </section>
 
+        {/* Oferta no meio da página (antes ficava no fim, depois de tudo). */}
+        <EbookOffer offer={offerFor(ebookForSection('seringas'))} className="!my-8" />
+
         <section className="mt-10 prose-article" aria-labelledby="converter">
           <h2 id="converter">Unidades, ml e mg</h2>
           <p>
@@ -149,9 +153,10 @@ export default function SeringasPage() {
           </p>
         </section>
 
-        <EbookOffer offer={toOffer(ebookForSection('seringas'))} />
-
         <FAQ items={FAQ_ITEMS} />
+        <div className="mt-8 no-print">
+          <ShareButtons title={'Como ler a seringa de insulina'} />
+        </div>
         <MedicalDisclaimer variant="prominent" />
       </div>
     </>

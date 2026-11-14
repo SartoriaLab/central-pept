@@ -14,6 +14,7 @@ import {
   getActiveEbooks,
   getEbookById,
   kitFullPrice,
+  offerFor,
   toOffer,
 } from '@/lib/ebooks';
 import { getPeptides } from '@/lib/peptides';
@@ -147,12 +148,43 @@ describe('checkout', () => {
   });
 });
 
+describe('reserva quando o guia não está à venda', () => {
+  const stub = (ids: string[]) => {
+    for (const e of EBOOKS) vi.stubEnv(e.checkoutEnv, ids.includes(e.id) ? 'https://pay.kiwify.com.br/teste' : '');
+  };
+
+  it('guia inativo cai para o de reconstituição', () => {
+    stub(['T1', 'KIT']);
+    expect(offerFor(ebookForPeptide('bpc-157'))?.id).toBe('T1');
+  });
+
+  it('página de caneta cai para o kit', () => {
+    stub(['T1', 'KIT']);
+    expect(offerFor(ebookForPeptide('liraglutida'), { pen: true })?.id).toBe('KIT');
+  });
+
+  it('guia ativo fica com a própria oferta', () => {
+    stub(['I2', 'T1', 'KIT']);
+    expect(offerFor(ebookForPeptide('tirzepatida'))?.id).toBe('I2');
+  });
+
+  it('peptídeo sem oferta continua sem oferta', () => {
+    stub(['T1', 'KIT']);
+    expect(offerFor(ebookForPeptide('melanotan-ii'))).toBeNull();
+  });
+
+  it('sem nenhum checkout, nada', () => {
+    stub([]);
+    expect(offerFor(ebookForPeptide('bpc-157'))).toBeNull();
+  });
+});
+
 describe('copy de venda', () => {
   afterEach(() => vi.unstubAllEnvs());
   const withCopy = EBOOKS.filter((e) => e.pains || e.reveals || e.anchor);
 
   it('os guias com manuscrito têm dores, revelações, âncora e revisão', () => {
-    for (const id of ['I1', 'I2', 'T1', 'T2', 'T3', 'KIT']) {
+    for (const id of ['I1', 'I2', 'I3', 'I5', 'T1', 'T2', 'T3', 'KIT']) {
       const e = getEbookById(id)!;
       expect(e.pains, id).toHaveLength(3);
       expect(e.reveals, id).toHaveLength(5);

@@ -31,8 +31,8 @@ const num = (n: number, dec = 2) => n.toLocaleString('pt-BR', { maximumFractionD
 const DEFAULTS = { med: MEDS[0].id, preco: '' as number | '', total: 10 as number | '', dose: 2.5 as number | '', descarte: true };
 const CODECS = { med: oneOf(MEDS.map((m) => m.id)), preco: numCodec, total: numCodec, dose: numCodec, descarte: bool };
 
-export default function GlpCostCalculator({ offer }: { offer?: Offer | null }) {
-  const { state, set, patch, reset, shareUrl } = useUrlState(DEFAULTS, CODECS, { storageKey: 'cp:custo' });
+export default function GlpCostCalculator({ offer, embed = false }: { offer?: Offer | null; embed?: boolean }) {
+  const { state, set, patch, reset, shareUrl } = useUrlState(DEFAULTS, CODECS, embed ? {} : { storageKey: 'cp:custo' });
   const { med: medId, preco: price, total: totalMg, dose, descarte: discard } = state;
   const setPrice = (v: number | '') => set('preco', v);
   const setTotalMg = (v: number | '') => set('total', v);
@@ -146,7 +146,7 @@ export default function GlpCostCalculator({ offer }: { offer?: Offer | null }) {
         </p>
 
         <div className="mt-5">
-          <ToolActions tool="custo" title="Custo do GLP-1" shareUrl={shareUrl} onReset={reset} />
+          {!embed && <ToolActions tool="custo" title="Custo do GLP-1" shareUrl={shareUrl} onReset={reset} />}
         </div>
       </section>
 

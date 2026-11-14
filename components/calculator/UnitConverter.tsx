@@ -7,7 +7,10 @@ import { useUrlState } from './useUrlState';
 import ToolActions from './ToolActions';
 import type { Peptide, DoseUnit } from '@/lib/peptides';
 
-type Props = { peptides: Peptide[]; embed?: boolean };
+import EbookOffer from '@/components/ebook/EbookOffer';
+import type { EbookOffer as Offer } from '@/lib/ebooks';
+
+type Props = { peptides: Peptide[]; embed?: boolean; offer?: Offer | null };
 
 // Conversões universais
 // 1 mg = 1000 mcg (sempre)
@@ -25,7 +28,7 @@ const UI_PER_MG: Record<string, { perMg: number; note: string }> = {
 const DEFAULTS = { slug: '', qty: '' as number | '', unit: 'mg' as DoseUnit };
 const CODECS = { slug: str, qty: num, unit: oneOf<DoseUnit>(['mg', 'mcg', 'UI']) };
 
-export default function UnitConverter({ peptides, embed = false }: Props) {
+export default function UnitConverter({ peptides, embed = false, offer }: Props) {
   const { state, set, patch, reset, shareUrl } = useUrlState(DEFAULTS, CODECS, embed ? {} : { storageKey: 'cp:conversor' });
   const { slug, qty, unit } = state;
   const setQty = (v: number | '') => set('qty', v);
@@ -170,6 +173,18 @@ export default function UnitConverter({ peptides, embed = false }: Props) {
                 {!uiFactor && ' A unidade UI (Unidade Internacional) é biológica, não de massa, e só existe para compostos com potência padronizada — por isso não aparece aqui.'}
               </div>
             </div>
+          )}
+          {!embed && mg != null && (
+            <EbookOffer
+              variant="result"
+              offer={offer}
+              lead={
+                unit === 'mcg'
+                  ? `${fmt(mg * 1000, 1)} mcg são ${fmt(mg, 4)} mg.`
+                  : `${fmt(mg, 4)} mg são ${fmt(mg * 1000, 1)} mcg.`
+              }
+              className="mt-5"
+            />
           )}
         </div>
       </div>

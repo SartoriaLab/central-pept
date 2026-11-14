@@ -6,10 +6,11 @@ import { notFound } from 'next/navigation';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import RelatedLinks from '@/components/ui/RelatedLinks';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
+import ShareButtons from '@/components/ui/ShareButtons';
 import { getGlossary, getGlossarySlugs, getGlossaryTerm } from '@/lib/glossary';
 import { SITE_URL } from '@/lib/site';
 import EbookOffer from '@/components/ebook/EbookOffer';
-import { ebookForSection, toOffer } from '@/lib/ebooks';
+import { ebookForSection, offerFor } from '@/lib/ebooks';
 
 type Params = { termo: string };
 
@@ -110,8 +111,11 @@ export default async function GlossaryTermPage({ params }: { params: Promise<Par
           ) : <span />}
         </nav>
 
-        <EbookOffer offer={toOffer(ebookForSection('glossario'))} />
+        <EbookOffer offer={offerFor(ebookForSection('glossario'))} />
 
+        <div className="mt-8 no-print">
+          <ShareButtons title={`${t.term}: o que é`} />
+        </div>
         <MedicalDisclaimer variant="prominent" />
       </div>
     </>

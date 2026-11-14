@@ -4,13 +4,14 @@ import { notFound } from 'next/navigation';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import FAQ, { type FAQItem } from '@/components/ui/FAQ';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
+import ShareButtons from '@/components/ui/ShareButtons';
 import Syringe from '@/components/calculator/Syringe';
 import { fmt } from '@/components/calculator/calc';
 import { getSyringe, SYRINGES, unitsToMl } from '@/lib/syringes';
 import { social } from '@/lib/og';
 import { SITE_URL } from '@/lib/site';
 import EbookOffer from '@/components/ebook/EbookOffer';
-import { ebookForSection, toOffer } from '@/lib/ebooks';
+import { ebookForSection, offerFor } from '@/lib/ebooks';
 
 type Params = { tamanho: string };
 
@@ -100,6 +101,9 @@ export default async function SyringeSizePage({ params }: { params: Promise<Para
           </div>
         </section>
 
+        {/* Oferta no meio da página (antes ficava no fim, depois de tudo). */}
+        <EbookOffer offer={offerFor(ebookForSection('seringas'))} className="!my-8" />
+
         <section className="mt-10" aria-labelledby="tabela">
           <h2 id="tabela" className="text-xl md:text-2xl font-bold mb-2">Quantos mg em cada marca</h2>
           <p className="text-sm text-ink-2 mb-4 max-w-3xl">
@@ -152,9 +156,10 @@ export default async function SyringeSizePage({ params }: { params: Promise<Para
           </div>
         </section>
 
-        <EbookOffer offer={toOffer(ebookForSection('seringas'))} />
-
         <FAQ items={faq} title={`Perguntas frequentes: seringa de ${s.units} unidades`} />
+        <div className="mt-8 no-print">
+          <ShareButtons title={`Seringa de ${s.units} unidades: como ler`} />
+        </div>
         <MedicalDisclaimer variant="prominent" />
       </div>
     </>

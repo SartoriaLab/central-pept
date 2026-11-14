@@ -25,6 +25,10 @@ export const COMPARISONS: Comparison[] = [
   { slug: 'liraglutida-vs-semaglutida', peptideSlugs: ['liraglutida', 'semaglutida'], title: 'Liraglutida vs Semaglutida', relatedPost: 'liraglutida-saxenda-victoza' },
   { slug: 'liraglutida-vs-tirzepatida', peptideSlugs: ['liraglutida', 'tirzepatida'], title: 'Liraglutida vs Tirzepatida', relatedPost: 'liraglutida-saxenda-victoza' },
   { slug: 'cagrilintida-vs-semaglutida', peptideSlugs: ['cagrilintida', 'semaglutida'], title: 'Cagrilintida vs Semaglutida', relatedPost: 'cagrilintida-o-que-e' },
+  { slug: 'liraglutida-vs-retatrutida', peptideSlugs: ['liraglutida', 'retatrutida'], title: 'Liraglutida vs Retatrutida', relatedPost: 'retatrutida-o-que-e' },
+  { slug: 'cagrilintida-vs-tirzepatida', peptideSlugs: ['cagrilintida', 'tirzepatida'], title: 'Cagrilintida vs Tirzepatida', relatedPost: 'cagrilintida-o-que-e' },
+  { slug: 'cagrilintida-vs-retatrutida', peptideSlugs: ['cagrilintida', 'retatrutida'], title: 'Cagrilintida vs Retatrutida', relatedPost: 'cagrilintida-o-que-e' },
+  { slug: 'cagrilintida-vs-liraglutida', peptideSlugs: ['cagrilintida', 'liraglutida'], title: 'Cagrilintida vs Liraglutida', relatedPost: 'liraglutida-saxenda-victoza' },
 
   // ── Cicatrização / pele ──
   { slug: 'bpc-157-vs-tb-500-vs-ghk-cu', peptideSlugs: ['bpc-157', 'tb-500', 'ghk-cu'], title: 'BPC-157 vs TB-500 vs GHK-Cu', relatedPost: 'tb-500-para-que-serve' },

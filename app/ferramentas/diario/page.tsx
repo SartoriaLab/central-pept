@@ -4,8 +4,7 @@ import Breadcrumb from '@/components/ui/Breadcrumb';
 import RelatedLinks, { type RelatedLink } from '@/components/ui/RelatedLinks';
 import { SITE_URL } from '@/lib/site';
 import InjectionDiary from '@/components/calculator/InjectionDiary';
-import EbookOffer from '@/components/ebook/EbookOffer';
-import { ebookForTool, toOffer } from '@/lib/ebooks';
+import { ebookForTool, offerFor } from '@/lib/ebooks';
 import InjectionSiteGuide from '@/components/peptide/InjectionSiteGuide';
 import { getPeptides } from '@/lib/peptides';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
@@ -71,9 +70,7 @@ export default function DiarioPage() {
         </p>
       </header>
 
-      <InjectionDiary peptides={getPeptides()} />
-
-      <EbookOffer variant="result" offer={toOffer(ebookForTool('diario'))} className="mt-6 max-w-3xl" />
+      <InjectionDiary peptides={getPeptides()} offer={offerFor(ebookForTool('diario'))} />
 
       <div className="mt-10">
         <InjectionSiteGuide />

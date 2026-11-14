@@ -4,9 +4,10 @@ import Link from 'next/link';
 import Comparator from '@/components/peptide/Comparator';
 import { getPeptides } from '@/lib/peptides';
 import { COMPARISONS } from '@/lib/comparisons';
+import { getBrandComparisons } from '@/lib/brand-comparisons';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
 import EbookOffer from '@/components/ebook/EbookOffer';
-import { ebookForHub, toOffer } from '@/lib/ebooks';
+import { ebookForHub, offerFor } from '@/lib/ebooks';
 
 export const metadata: Metadata = {
   title: 'Comparador de Peptídeos: dose, meia-vida e efeitos lado a lado',
@@ -34,6 +35,19 @@ export default function CompararPage() {
       </section>
 
       <div className="max-w-6xl mx-auto px-4 md:px-6 py-8 md:py-10">
+        <div className="mb-8">
+          <h2 className="text-sm font-bold uppercase tracking-wider text-ink-3 mb-3">
+            Marcas: Ozempic, Mounjaro, Wegovy e outras
+          </h2>
+          <div className="flex flex-wrap gap-2">
+            {getBrandComparisons().map((c) => (
+              <Link key={c.slug} href={`/comparar/${c.slug}`} className="chip-lg">
+                {c.title}
+              </Link>
+            ))}
+          </div>
+        </div>
+
         <div className="mb-10">
           <h2 className="text-sm font-bold uppercase tracking-wider text-ink-3 mb-3">
             Comparações populares
@@ -53,7 +67,7 @@ export default function CompararPage() {
 
         <Comparator peptides={peptides} />
 
-        <EbookOffer offer={toOffer(ebookForHub())} />
+        <EbookOffer offer={offerFor(ebookForHub())} />
 
         <MedicalDisclaimer variant="prominent" />
       </div>

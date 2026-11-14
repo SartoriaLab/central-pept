@@ -8,7 +8,7 @@ import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
 import RelatedLinks, { type RelatedLink } from '@/components/ui/RelatedLinks';
 import ToolSchema from '@/components/ui/ToolSchema';
 import ReconstitutionCalculator from '@/components/calculator/ReconstitutionCalculator';
-import { ebookForTool, toOffer } from '@/lib/ebooks';
+import { ebookForTool, offerFor } from '@/lib/ebooks';
 import { calcByVolume, doseToMg, fmt, fmtConcentration } from '@/components/calculator/calc';
 import {
   getPeptideBySlug,
@@ -195,7 +195,7 @@ export default async function PeptideReconstitutionPage({ params }: { params: Pr
       <ReconstitutionCalculator
         peptides={peptides}
         initialPeptideSlug={p.slug}
-        offer={toOffer(ebookForTool('reconstituicao'))}
+        offer={offerFor(ebookForTool('reconstituicao'))}
       />
 
       {rows.length > 0 && (
@@ -304,6 +304,20 @@ export default async function PeptideReconstitutionPage({ params }: { params: Pr
             {' '}e a versão para imprimir em{' '}
             <Link href="/ferramentas/tabela-doses-glp1" className="text-teal-700 font-semibold hover:underline">tabela de doses</Link>.
           </p>
+        </section>
+      )}
+
+      {/* Dose fixa de bula (sem escada de subida): link para a página da dose. */}
+      {titrationDoses.length === 0 && pageDoses.length > 0 && (
+        <section className="mt-10 no-print" aria-labelledby="dose-bula">
+          <h2 id="dose-bula" className="text-sm font-bold uppercase tracking-wider text-ink-3 mb-3">Dose da bula em unidades</h2>
+          <div className="flex flex-wrap gap-2">
+            {pageDoses.map((d) => (
+              <Link key={d} href={dosePath(p.slug, d)} className="chip-lg">
+                {p.name} {fmt(d, 2)} mg: quantas unidades
+              </Link>
+            ))}
+          </div>
         </section>
       )}
 

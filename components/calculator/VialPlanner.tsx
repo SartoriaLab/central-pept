@@ -8,6 +8,8 @@ import { num, oneOf, str } from '@/lib/url-state';
 import { FREQ_LABELS, planVials, type Freq } from '@/lib/vial-plan';
 import { useUrlState } from './useUrlState';
 import ToolActions from './ToolActions';
+import EbookOffer from '@/components/ebook/EbookOffer';
+import type { EbookOffer as Offer } from '@/lib/ebooks';
 
 type Unit = 'mg' | 'mcg';
 
@@ -38,8 +40,8 @@ const fmt = (n: number, dec = 1) => n.toLocaleString('pt-BR', { maximumFractionD
 const brl = (n: number) => n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 const pos = (v: number | '') => (typeof v === 'number' && v > 0 ? v : 0);
 
-export default function VialPlanner({ peptides }: { peptides: Peptide[] }) {
-  const { state, set, patch, reset, shareUrl } = useUrlState(DEFAULTS, CODECS, { storageKey: 'cp:frascos' });
+export default function VialPlanner({ peptides, offer, embed = false }: { peptides: Peptide[]; offer?: Offer | null; embed?: boolean }) {
+  const { state, set, patch, reset, shareUrl } = useUrlState(DEFAULTS, CODECS, embed ? {} : { storageKey: 'cp:frascos' });
   const peptide = useMemo(() => peptides.find((p) => p.slug === state.slug), [peptides, state.slug]);
   const vialSizes = peptide?.commonAmounts.length ? peptide.commonAmounts : [2, 5, 10, 15, 20];
 
@@ -139,7 +141,7 @@ export default function VialPlanner({ peptides }: { peptides: Peptide[] }) {
           </div>
         </section>
 
-        <ToolActions tool="duracao-frasco" title="Quantos frascos preciso" shareUrl={shareUrl} onReset={reset} />
+        {!embed && <ToolActions tool="duracao-frasco" title="Quantos frascos preciso" shareUrl={shareUrl} onReset={reset} />}
       </div>
 
       <div className="md:sticky md:top-24" aria-live="polite">
@@ -195,6 +197,18 @@ export default function VialPlanner({ peptides }: { peptides: Peptide[] }) {
               .
             </div>
           </div>
+        )}
+        {plan && plan.dosesPerVial > 0 && (
+          <EbookOffer
+            variant="result"
+            offer={offer}
+            lead={
+              plan.limitedByShelf
+                ? `Seu frasco vence antes de acabar: só ${plan.usablePerVial} das ${plan.dosesPerVial} doses são aplicadas.`
+                : `Um frasco rende ${plan.usablePerVial} aplicações e você precisa de ${plan.vialsNeeded} no ciclo.`
+            }
+            className="mt-5"
+          />
         )}
       </div>
     </div>

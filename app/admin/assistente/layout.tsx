@@ -6,6 +6,7 @@ const NAV = [
   { href: '/admin/assistente/templates', label: 'Templates' },
   { href: '/admin/assistente/duvidas', label: 'Dúvidas' },
   { href: '/admin/assistente/metricas', label: 'Métricas' },
+  { href: '/admin/assistente/eventos', label: 'Ações no site' },
   { href: '/admin/utm', label: 'UTM Builder' },
 ];
 

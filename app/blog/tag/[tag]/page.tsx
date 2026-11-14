@@ -4,6 +4,8 @@ import ArticleCard from '@/components/blog/ArticleCard';
 import { notFound } from 'next/navigation';
 import { getTagGroup, getTagGroups, MIN_TAG_ARTICLES } from '@/lib/articles';
 import { socialImage } from '@/lib/og';
+import EbookOffer from '@/components/ebook/EbookOffer';
+import { ebookForHub, ebookForPost, offerFor } from '@/lib/ebooks';
 
 // Tags de tirzepatida: usam meta description própria.
 const TIRZE_TAGS = new Set(['tirzepatida', 'mounjaro']);
@@ -41,6 +43,8 @@ export default async function TagPage({ params }: { params: Promise<Params> }) {
   const group = getTagGroup(slug);
   if (!group) notFound();
   const { label, articles } = group;
+  // Oferta: o guia do artigo mais recente da tag; sem guia próprio, o kit.
+  const offer = offerFor(ebookForPost(articles[0].slug, articles[0].relatedPeptides)) ?? offerFor(ebookForHub());
   const others = getTagGroups().filter((g) => g.slug !== slug && g.articles.length >= MIN_TAG_ARTICLES);
 
   return (
@@ -66,6 +70,8 @@ export default async function TagPage({ params }: { params: Promise<Params> }) {
             <ArticleCard key={a.slug} article={a} />
           ))}
         </div>
+
+        <EbookOffer offer={offer} className="max-w-4xl" />
 
         {others.length > 0 && (
           <div className="mt-12 pt-8 border-t border-border">

@@ -14,7 +14,7 @@ import { social } from '@/lib/og';
 import ShareButtons from '@/components/ui/ShareButtons';
 import { SITE_URL } from '@/lib/site';
 import EbookOffer from '@/components/ebook/EbookOffer';
-import { ebookForTool, toOffer } from '@/lib/ebooks';
+import { ebookForTool, offerFor } from '@/lib/ebooks';
 
 type Params = { peptideo: string; frasco: string };
 
@@ -326,7 +326,7 @@ export default async function VialPage({ params }: { params: Promise<Params> }) 
         <ShareButtons title={`${p.name} ${vialLabel}: quantas unidades puxar na seringa`} url={path} />
       </div>
 
-      <EbookOffer offer={toOffer(ebookForTool('reconstituicao'))} className="max-w-3xl" />
+      <EbookOffer offer={offerFor(ebookForTool('reconstituicao'))} className="max-w-3xl" />
 
       <RelatedLinks links={related} title={`Mais sobre ${p.name}`} />
 

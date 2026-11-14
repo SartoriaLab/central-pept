@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import EbookOffer from '@/components/ebook/EbookOffer';
+import { ebookForHub, offerFor } from '@/lib/ebooks';
 
 export const metadata: Metadata = {
   title: 'Página não encontrada',
@@ -43,6 +45,7 @@ export default function NotFound() {
             </Link>
           ))}
         </div>
+        <EbookOffer offer={offerFor(ebookForHub())} />
       </div>
     </>
   );

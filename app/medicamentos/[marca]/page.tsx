@@ -7,6 +7,7 @@ import InfoCard from '@/components/ui/InfoCard';
 import RelatedLinks, { type RelatedLink } from '@/components/ui/RelatedLinks';
 import FAQ from '@/components/ui/FAQ';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
+import ShareButtons from '@/components/ui/ShareButtons';
 import { getBrand, getBrandSlugs, getBrands } from '@/lib/brands';
 import { getPeptideBySlug } from '@/lib/peptides';
 import {
@@ -19,9 +20,10 @@ import {
 } from '@/lib/titration';
 import { getArticleBySlug } from '@/lib/articles';
 import { getComparisonsByPeptide } from '@/lib/comparisons';
+import { getBrandComparisonsFor } from '@/lib/brand-comparisons';
 import { CONTENT_UPDATED_AT, SITE_URL } from '@/lib/site';
 import EbookOffer from '@/components/ebook/EbookOffer';
-import { ebookForPeptide, toOffer } from '@/lib/ebooks';
+import { ebookForPeptide, offerFor } from '@/lib/ebooks';
 
 type Params = { marca: string };
 
@@ -60,7 +62,10 @@ export default async function BrandPage({ params }: { params: Promise<Params> })
   const articles = b.articles
     .map((slug) => getArticleBySlug(slug))
     .filter((a): a is NonNullable<typeof a> => !!a && !a.draft);
-  const comparisons = getComparisonsByPeptide(b.peptideSlug).slice(0, 4);
+  const comparisons = [
+    ...getBrandComparisonsFor(b.slug),
+    ...getComparisonsByPeptide(b.peptideSlug).slice(0, 4),
+  ];
   const ingredient = b.activeIngredient.toLowerCase();
 
   const tools: RelatedLink[] = [
@@ -280,6 +285,9 @@ export default async function BrandPage({ params }: { params: Promise<Params> })
           </section>
         )}
 
+        {/* Oferta no meio da página (antes ficava no fim, depois de tudo). */}
+        <EbookOffer offer={offerFor(ebookForPeptide(b.peptideSlug), { pen: true })} className="!my-8" />
+
         <section className="mt-10" aria-labelledby="estudos">
           <h2 id="estudos" className="text-xl md:text-2xl font-bold mb-4">O que os estudos mostram</h2>
           <div className="grid gap-3">
@@ -316,8 +324,6 @@ export default async function BrandPage({ params }: { params: Promise<Params> })
           </section>
         ) : null}
 
-        <EbookOffer offer={toOffer(ebookForPeptide(b.peptideSlug))} />
-
         <RelatedLinks links={tools} title={`Ferramentas para quem usa ${b.name}`} />
 
         {articles.length > 0 && (
@@ -337,7 +343,7 @@ export default async function BrandPage({ params }: { params: Promise<Params> })
         {comparisons.length > 0 && (
           <section className="mt-10" aria-labelledby="comparar">
             <h2 id="comparar" className="text-sm font-bold uppercase tracking-wider text-ink-3 mb-3">
-              Compare a {ingredient} com outros
+              Compare {b.name} e a {ingredient} com outros
             </h2>
             <div className="flex flex-wrap gap-2">
               {comparisons.map((c) => (
@@ -388,6 +394,9 @@ export default async function BrandPage({ params }: { params: Promise<Params> })
           </p>
         </section>
 
+        <div className="mt-8 no-print">
+          <ShareButtons title={`${b.name}: bula, doses e estudos`} />
+        </div>
         <MedicalDisclaimer variant="prominent" />
       </div>
     </>

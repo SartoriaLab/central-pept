@@ -9,19 +9,21 @@ import { getBrandsByPeptide } from '@/lib/brands';
 import { COMPARISONS } from '@/lib/comparisons';
 import RelatedLinks, { type RelatedLink } from '@/components/ui/RelatedLinks';
 import EbookOffer from '@/components/ebook/EbookOffer';
-import { ebookForPost, toOffer } from '@/lib/ebooks';
+import { ebookForPost, offerFor } from '@/lib/ebooks';
 
 import { SITE_URL as SITE } from '@/lib/site';
 
 type Props = {
   article: Article;
   children: React.ReactNode;
+  /** O post tem <Guia /> no meio do texto: não repete o card depois das referências. */
+  inlineOffer?: boolean;
 };
 
 const formatDate = (d: string) =>
   new Date(d.includes('T') ? d : `${d}T12:00:00-03:00`).toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' });
 
-export default function ArticleLayout({ article, children }: Props) {
+export default function ArticleLayout({ article, children, inlineOffer = false }: Props) {
   const citedPeptides = (article.relatedPeptides ?? [])
     .map((slug) => getPeptideBySlug(slug))
     .filter((p): p is NonNullable<typeof p> => !!p);
@@ -70,7 +72,7 @@ export default function ArticleLayout({ article, children }: Props) {
   };
 
   const related = getRelatedArticles(article);
-  const offer = toOffer(ebookForPost(article.slug, article.relatedPeptides));
+  const offer = offerFor(ebookForPost(article.slug, article.relatedPeptides));
 
   // Artigo → calculadora de cada peptídeo citado (até 2) + comparativos que o envolvem.
   const mainPeptides = citedPeptides.slice(0, 2);
@@ -207,7 +209,7 @@ export default function ArticleLayout({ article, children }: Props) {
           </section>
         )}
 
-        <EbookOffer offer={offer} />
+        {!inlineOffer && <EbookOffer offer={offer} />}
 
         {/* Transparência editorial */}
         <aside className="mt-10 not-prose card p-5" aria-label="Como este conteúdo é produzido">

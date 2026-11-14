@@ -1,4 +1,4 @@
-import { boolean, integer, jsonb, pgTable, serial, text, timestamp, varchar } from 'drizzle-orm/pg-core';
+import { boolean, index, integer, jsonb, pgTable, serial, text, timestamp, varchar } from 'drizzle-orm/pg-core';
 
 export const channels = pgTable('channels', {
   id: serial('id').primaryKey(),
@@ -80,3 +80,20 @@ export const conversions = pgTable('conversions', {
   amount: integer('amount'), // centavos
   occurredAt: timestamp('occurred_at').defaultNow().notNull(),
 });
+
+// Ações no site gravadas por /api/evento (lib/track.ts). Só ações (cliques, pop-up, WhatsApp...):
+// "oferta vista" e "cálculo feito" ficam fora para o banco não acordar a cada visita; as visitas
+// por página vêm da Vercel Analytics. Sem IP, cookie ou dado pessoal.
+export const siteEvents = pgTable(
+  'site_events',
+  {
+    id: serial('id').primaryKey(),
+    name: varchar('name', { length: 40 }).notNull(), // valor de EVENTS em lib/track.ts
+    page: varchar('page', { length: 200 }), // caminho onde aconteceu
+    ebook: varchar('ebook', { length: 20 }),
+    position: varchar('position', { length: 40 }), // card | line | result | barra | popup | landing-* ...
+    props: jsonb('props').$type<Record<string, string | number | boolean>>().default({}),
+    createdAt: timestamp('created_at').defaultNow().notNull(),
+  },
+  (t) => [index('site_events_created_at_idx').on(t.createdAt)],
+);

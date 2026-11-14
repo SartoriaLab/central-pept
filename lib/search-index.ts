@@ -2,6 +2,7 @@ import { getPeptides, CATEGORY_LABELS } from './peptides';
 import { getArticles } from './articles';
 import { getGlossary } from './glossary';
 import { COMPARISONS } from './comparisons';
+import { getBrandComparisons } from './brand-comparisons';
 import { getBrands } from './brands';
 import { getCategoryPages } from './categories';
 import { TOOLS } from './tools';
@@ -80,6 +81,17 @@ export function buildSearchIndex(): SearchResult[] {
       type: 'page',
       url: `/comparar/${c.slug}`,
       keywords: [c.title, c.slug, 'comparar', 'diferença', 'versus'].join(' ').toLowerCase(),
+    });
+  }
+
+  for (const c of getBrandComparisons()) {
+    items.push({
+      id: `c-${c.slug}`,
+      title: `${c.title}: qual a diferença`,
+      subtitle: 'Comparativo de marcas',
+      type: 'page',
+      url: `/comparar/${c.slug}`,
+      keywords: [c.title, c.slug, c.a.activeIngredient, c.b.activeIngredient, 'comparar', 'diferença', 'versus'].join(' ').toLowerCase(),
     });
   }
 

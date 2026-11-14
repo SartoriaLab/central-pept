@@ -3,6 +3,7 @@ import type { ComponentPropsWithoutRef, ReactNode } from 'react';
 
 // Componentes disponíveis dentro dos posts em content/blog/*.mdx.
 // O MDX roda com JavaScript bloqueado (next-mdx-remote): só props em texto, sem {expressões}.
+// <Guia /> (oferta do guia do próprio post) é ligado em app/blog/[slug]/page.tsx, que conhece o post.
 
 /** Links internos viram <Link> (navegação sem recarregar); externos abrem em nova aba. */
 function A({ href = '', children, ...rest }: ComponentPropsWithoutRef<'a'>) {

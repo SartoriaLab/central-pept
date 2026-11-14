@@ -42,6 +42,8 @@ export type Ebook = {
   revised?: string;
   /** Sumário: capítulos na ordem do PDF. */
   toc: string[];
+  /** Uma linha por capítulo de `toc` (mesma ordem): o que ele responde. Aparece na landing. */
+  tocNotes?: string[];
   bonuses: string[];
   /** Páginas de amostra (imagens em /public), mostradas na landing quando existirem. */
   sample?: string[];
@@ -83,7 +85,14 @@ export type EbookOffer = {
   pages: number;
   cover: string;
   bullets: string[];
+  /** Comparação de preço verdadeira (mesma da landing). */
+  anchor?: string;
+  /** Primeira página de amostra (imagem em /public). */
+  sample?: string;
 };
+
+/** Pop-up de saída (components/ebook/ExitOffer.tsx). Desligue aqui se ele não trouxer venda. */
+export const EXIT_OFFER_ENABLED = true;
 
 /** Preço de um ebook quando entra como oferta extra (order bump) no checkout. */
 export const BUMP_PRICE = 14.9;
@@ -177,6 +186,16 @@ export const EBOOKS: Ebook[] = [
       'Os 9 erros que fazem desistir no meio',
       'Perguntas para levar ao médico',
     ],
+    tocNotes: [
+      'Os quatro efeitos do GLP-1, a meia-vida de cerca de 7 dias e as diferenças entre Ozempic, Wegovy e Rybelsus',
+      'As duas escadas das bulas em tabela, semana a semana, e a lista do que é regra, do que é flexível e do que não é',
+      'O esperado em cada dose, as frequências da bula do Wegovy (náusea em 44%) e o aviso antes de anestesia',
+      '8 medidas para náusea, 5 para constipação e 6 para refluxo, e as três situações em que não faz sentido subir',
+      'Como trocar o dia da aplicação, o prazo da caneta após o primeiro uso (6 semanas no Brasil) e 8 cuidados de viagem',
+      'A escada de 3, 7 e 14 mg contada em dias e as 4 regras de tomada: jejum, até 120 ml de água, inteiro, 30 minutos',
+      'Cada erro em três partes: o que acontece, por que faz desistir e o que fazer no lugar',
+      '33 perguntas prontas em 6 momentos, de antes de começar ao longo prazo, com o motivo de cada uma',
+    ],
     bonuses: ['Escada de doses para imprimir', 'Diário de sintomas de 16 semanas'],
     sources: [
       'Bulas da FDA de Ozempic, Wegovy e Rybelsus',
@@ -184,6 +203,21 @@ export const EBOOKS: Ebook[] = [
       'Estudos de desfecho cardiovascular SELECT e SOUL',
     ],
     bumps: ['T1', 'T3'],
+    sample: ['/ebooks/semaglutida-manual/amostra-1.webp', '/ebooks/semaglutida-manual/amostra-2.webp'],
+    faq: [
+      {
+        q: 'Serve para Ozempic, Wegovy, comprimido ou frasco?',
+        a: 'O guia trata da molécula e mostra as duas escadas de caneta (até 2,0 mg e até 2,4 mg), com a regra de dose esquecida de cada uma; o capítulo 6 é só do comprimido diário. Para frasco há apenas uma orientação curta: as unidades na seringa dependem da concentração e a conta deve ser refeita a cada degrau.',
+      },
+      {
+        q: 'Já passei das primeiras semanas. Ainda vale?',
+        a: 'Os capítulos 1 e 2 são pensados para antes da primeira dose. O restante é de consulta ao longo do tratamento: o capítulo 3 a cada subida, náusea, dose esquecida, viagem e armazenamento quando precisar, e as perguntas ao médico vão até o longo prazo. Quem já está estável na manutenção aproveita menos a parte da escada.',
+      },
+      {
+        q: 'O guia diz qual dose usar ou quanto vou emagrecer?',
+        a: 'Não. Ele mostra as escadas das bulas como referência e avisa que a escada que vale é a que o médico prescreveu. O resultado do STEP 1 (perda média de 14,9% em 68 semanas com 2,4 mg) aparece como média de estudo, não como promessa.',
+      },
+    ],
     cover: 'from-teal-600 via-teal-700 to-sky-800',
     checkoutEnv: 'KIWIFY_CHECKOUT_SEMAGLUTIDA',
     kiwifyProductId: 'b5aa7fb0-dfc4-11f1-9b0e-1d63259b3d5d',
@@ -237,9 +271,34 @@ export const EBOOKS: Ebook[] = [
       'Os 9 erros que custam frasco, dinheiro e semanas de enjoo',
       'Perguntas para levar ao médico',
     ],
+    tocNotes: [
+      'Por que os mg não se comparam com os da semaglutida e o que SURPASS-2 e SURMOUNT-5 mediram frente a frente',
+      'O calendário com etapas de 4, 6 e 8 semanas (15 mg na semana 21, 31 ou 41) e 3 perguntas antes de cada degrau',
+      '5 situações em que segurar a dose entra na conversa e o que a bula do Zepbound prevê se uma dose não é tolerada',
+      'Tabela do SURMOUNT-1 com náusea, diarreia, constipação e vômito em 5, 10 e 15 mg, e 7 sinais para atendimento',
+      'O semáforo verde, amarelo e vermelho para decidir a subida, o que ajuda no prato e o que não deixar faltar',
+      'Tabela de unidades por frasco e volume de água, o limite de 4 doses por frasco e a conta da escada inteira',
+      'Cada erro com o que acontece, quanto custa e como evitar, do calendário à seringa e ao anticoncepcional',
+      '48 perguntas em 8 momentos, com um bloco para cada subida de dose e outro para quem usa frasco',
+    ],
     bonuses: ['Escada de doses para imprimir', 'Tabela de unidades por frasco', 'Diário de 20 semanas'],
     sources: ['Bulas da FDA de Mounjaro e Zepbound', 'Estudos de registro SURPASS e SURMOUNT'],
     bumps: ['T1', 'T3'],
+    sample: ['/ebooks/tirzepatida-antes-de-subir-a-dose/amostra-1.webp', '/ebooks/tirzepatida-antes-de-subir-a-dose/amostra-2.webp'],
+    faq: [
+      {
+        q: 'Uso caneta, não frasco. O guia serve?',
+        a: 'Sim, a maior parte vale para os dois: escada, dose intermediária, efeitos por etapa, náusea, dose esquecida e perguntas ao médico. O capítulo 6, a tabela de unidades e parte dos 9 erros (unidades, escolha e preparo do frasco) são específicos de quem usa frasco.',
+      },
+      {
+        q: 'Já estou em 10 mg. Ainda vale?',
+        a: 'O guia vai até 15 mg: traz os efeitos em 10, 12,5 e 15 mg, o que as bulas dizem sobre ficar em 10 mg ou voltar um degrau e os números do SURMOUNT-1 por dose, sem dizer qual é a sua dose. Os trechos sobre 2,5 e 5 mg terão menos uso, e quem já está estável em 15 mg aproveita menos, porque o foco é a subida.',
+      },
+      {
+        q: 'Vim da semaglutida. O guia diz em que dose de tirzepatida começar?',
+        a: 'Não. O capítulo 1 explica por que os miligramas das duas não se comparam e informa que as bulas não trazem tabela de conversão. A dose de partida na troca é decisão do médico.',
+      },
+    ],
     cover: 'from-sky-600 via-sky-700 to-indigo-800',
     checkoutEnv: 'KIWIFY_CHECKOUT_TIRZEPATIDA',
     kiwifyProductId: 'b8c16730-dfc5-11f1-992b-85e75ef0d685',
@@ -255,34 +314,79 @@ export const EBOOKS: Ebook[] = [
     kind: 'individual',
     title: 'Retatrutida: A Verdade Antes da Aprovação',
     altTitle: 'Retatrutida: O Que Não Te Contam nos Grupos',
-    subtitle: 'O que os estudos já provaram, o que ainda é aposta e o que estão te vendendo antes da hora.',
-    hook: 'Ainda sem aprovação em nenhum país. O que os estudos mostraram até agora, dose por dose, e o que ainda é aposta.',
-    line: 'Guia em PDF: o que os estudos da retatrutida mostraram até agora.',
+    subtitle: 'O que os estudos já mediram, o que ainda não tem resposta e o que estão te vendendo antes da hora.',
+    hook: 'Sem aprovação em nenhum país. O que os estudos mediram, por que o 28% vira 25% e o que ninguém confere no que está à venda.',
+    line: 'O que os estudos da retatrutida mostraram e o que ainda não tem resposta. Guia em PDF.',
     price: 29.9,
-    pages: 45,
+    pages: 58,
     forWho: [
-      'Acompanha a nova geração de remédios para obesidade e quer separar dado de boato.',
-      'Viu a retatrutida sendo vendida e quer saber o que existe de estudo.',
-      'Quer comparar com semaglutida e tirzepatida com números publicados.',
+      'Viu a retatrutida sendo vendida em grupo ou site e quer saber o que existe de estudo antes de decidir.',
+      'Usa ou vai começar semaglutida ou tirzepatida e ficou em dúvida se vale esperar a retatrutida.',
+      'Ouviu que ela "emagrece 30%" e quer saber de onde esse número saiu.',
     ],
     notFor: [
-      'Procura um protocolo de uso: a retatrutida não é aprovada em nenhum país.',
+      'Procura um protocolo de uso: a retatrutida não é aprovada em nenhum país e o guia não ensina a usar.',
       'Quer indicação de onde comprar.',
     ],
+    pains: [
+      { erro: 'Tomar o número do anúncio (28% ou 29%) como o resultado esperado', custo: 'No principal estudo publicado, contando todos os participantes, a média com 12 mg foi 25,0%, e na fase 3 de 7,7% a 18,2% pararam nessa dose por efeito adverso.' },
+      { erro: 'Seguir a escada "2, 4, 6, 8, 10, 12 mg" que circula como se fosse a dos estudos', custo: 'Nenhum ensaio usou essa sequência. Na fase 2, só mudar a dose inicial levou a náusea de 17% para 60% na mesma dose final.' },
+      { erro: 'Confiar no laudo do vendedor e no relato de quem "usou e deu certo"', custo: 'Identidade, pureza, esterilidade e dose seguem sem ninguém conferir, e a ANVISA mandou apreender esses produtos em outubro de 2026.' },
+    ],
+    reveals: [
+      'Por que a mesma dose aparece com 28,3% no comunicado da empresa e 25,0% na revista científica (cap. 2)',
+      'A sequência de doses que os ensaios de fase 3 usaram de fato, e por que a tabela que circula não bate com ela (cap. 3)',
+      'O efeito na pele que atingiu até 1 em cada 5 participantes na dose mais alta de um dos estudos (cap. 4)',
+      'O que existe, e o que ainda não existe, de comparação direta com tirzepatida e semaglutida (cap. 5)',
+      'O que a Lista da WADA diz: a retatrutida não é citada pelo nome e mesmo assim é proibida para atletas (cap. 6)',
+    ],
+    anchor: 'Uma reportagem de janeiro de 2026 encontrou canetas falsas de retatrutida vendidas por R$ 2,1 mil a R$ 3 mil. O guia custa R$ 29,90 e mostra o que esse dinheiro não compra.',
+    revised: 'novembro de 2026',
     toc: [
-      'Tri-agonista: GLP-1, GIP e glucagon',
+      'Tri-agonista: o que o glucagon acrescenta ao GLP-1 e ao GIP',
       'Resultados publicados, estudo por estudo',
-      'Doses dos ensaios: de 2 a 12 mg por semana, em incrementos de 4 semanas',
-      'Efeitos adversos relatados',
-      'Comparação com semaglutida e tirzepatida',
-      'Situação regulatória e Lista Proibida da WADA',
-      'Os riscos de produto sem registro',
+      'As doses dos ensaios e como a escada foi feita',
+      'Efeitos adversos relatados, incluindo o que se concentrou nas doses altas',
+      'Retatrutida, tirzepatida e semaglutida lado a lado',
+      'Onde está a aprovação: o que falta, WADA e ANVISA',
+      'O que está sendo vendido hoje: o que um frasco "de pesquisa" não garante',
+      'As 12 perguntas para fazer antes de qualquer decisão',
+    ],
+    tocNotes: [
+      'O que é um tri-agonista e o que o glucagon acrescenta: o que é dado e o que ainda é hipótese',
+      'Cada estudo, da fase 1 à fase 3: quem participou, quanto perdeu em média e se o resultado já saiu em revista',
+      'As doses que os pesquisadores usaram e como a subida mudou da fase 2 para a fase 3',
+      'As taxas de náusea, vômito, diarreia e alteração de sensibilidade na pele em cada estudo, e quantos pararam',
+      'As três moléculas com números publicados, e por que comparar estudos diferentes engana',
+      'Em que etapa está a aprovação, o que a ANVISA fez em 2026 e o que a Lista da WADA diz',
+      'O que um produto sem registro não garante: identidade, pureza, esterilidade, dose, conservação e responsável',
+      '7 perguntas para você responder e 5 para levar ao médico',
     ],
     bonuses: ['Linha do tempo dos estudos', 'Tabela comparativa das três moléculas'],
-    sources: ['Ensaios publicados de fase 2 e o programa de fase 3 TRIUMPH', 'Lista Proibida da WADA'],
-    bumps: ['T1'],
+    sources: [
+      'Artigos publicados: Lancet 2022 e 2023, NEJM 2023 e 2026, Nature Medicine 2024',
+      'Comunicados da Eli Lilly sobre o programa de fase 3 TRIUMPH, identificados como comunicado no texto',
+      'Registros dos ensaios no ClinicalTrials.gov',
+      'Nota e resolução da ANVISA de 2026 e a Lista Proibida da WADA de 2026',
+    ],
+    faq: [
+      {
+        q: 'O guia ensina a usar ou diz onde comprar retatrutida?',
+        a: 'Não. A retatrutida não é aprovada em nenhum país. O guia descreve as doses que os pesquisadores usaram nos ensaios, como fato, e não traz protocolo, preparo, aplicação nem indicação de fornecedor.',
+      },
+      {
+        q: 'De onde vêm os números?',
+        a: 'De artigos publicados (Lancet 2022 e 2023, NEJM 2023 e 2026, Nature Medicine 2024), de comunicados oficiais da Eli Lilly, do ClinicalTrials.gov, da ANVISA e da WADA. Cada número traz a origem, e o texto avisa quando o dado só existe em comunicado da empresa.',
+      },
+      {
+        q: 'O conteúdo não fica desatualizado quando a aprovação sair?',
+        a: 'A revisão é de novembro de 2026. Até essa data não havia pedido de registro enviado; a fabricante informou que planeja pedir à FDA no primeiro trimestre de 2027. O capítulo 6 mostra onde conferir a situação atual em fontes oficiais, e quem comprou recebe as revisões sem pagar de novo.',
+      },
+    ],
+    sample: ['/ebooks/retatrutida-verdade/amostra-1.webp', '/ebooks/retatrutida-verdade/amostra-2.webp'],
     cover: 'from-orange-500 via-rose-600 to-indigo-800',
     checkoutEnv: 'KIWIFY_CHECKOUT_RETATRUTIDA',
+    kiwifyProductId: '7cbc7730-e069-11f1-8857-8d1aae0a9d8c',
     places: { peptides: ['retatrutida'] },
   },
   {
@@ -326,33 +430,81 @@ export const EBOOKS: Ebook[] = [
     id: 'I5',
     slug: 'ghk-cu-rotina',
     kind: 'individual',
-    title: 'GHK-Cu: Você Pode Estar Anulando o Seu',
-    altTitle: 'GHK-Cu Sem Marketing',
+    title: 'GHK-Cu Sem Marketing',
+    altTitle: 'GHK-Cu: O Que o Rótulo Não Explica',
     subtitle:
-      'A ordem certa com vitamina C e retinol, o que tem estudo de verdade e o que é só marketing de cosmético.',
-    hook: 'Vitamina C junto pode desestabilizar o cobre. A ordem certa da rotina e o que o GHK-Cu tem de estudo de verdade.',
-    line: 'Guia em PDF: GHK-Cu na rotina, sem anular o cobre.',
+      'Como encaixar o peptídeo de cobre na rotina com vitamina C, ácidos e retinol: o que tem estudo de verdade, o que é só precaução e o que é marketing de cosmético.',
+    hook: 'Peptídeo de cobre com vitamina C, ácidos e retinol: o que foi medido, o que é só precaução e como montar a rotina.',
+    line: 'GHK-Cu na rotina: o que separar, o que pode ir junto e o que os estudos mediram. Guia em PDF.',
     price: 29.9,
-    pages: 40,
+    pages: 54,
     forWho: [
-      'Já usa ácidos e retinoides e quer o próximo passo com base.',
       'Comprou um sérum de GHK-Cu e não sabe com o que combinar.',
-      'Quer saber se a versão injetável tem estudo.',
+      'Usa vitamina C de manhã e retinol à noite e não sabe onde o peptídeo de cobre entra.',
+      'Está em dúvida entre um sérum "3%" e um "10%" e quer saber o que o número significa.',
     ],
-    notFor: ['Espera rejuvenescimento garantido.', 'Procura dose injetável: não existe dose estabelecida.'],
+    notFor: [
+      'Espera rejuvenescimento garantido ou um prazo para ver resultado.',
+      'Procura dose injetável: não existe dose estabelecida e o guia não traz nenhuma.',
+    ],
+    pains: [
+      { erro: 'Aplicar o sérum de GHK-Cu junto com a vitamina C ácida', custo: 'Em meio ácido o peptídeo segura pior o cobre, e cobre solto oxida a vitamina C: você pode estar reduzindo a ação dos dois. É dado de laboratório, ainda não testado na pele.' },
+      { erro: 'Escolher o sérum pelo percentual da embalagem', custo: 'O número pode ser de uma solução diluída ou de uma mistura de ativos, e nenhum estudo comparou concentrações: você paga por um número que não dá para comparar.' },
+      { erro: 'Comprar pela frase "70% mais colágeno que a vitamina C"', custo: 'São 7 pessoas de 10 contra 5 de 10, na coxa, por um mês: a expectativa fica maior do que o estudo permite.' },
+    ],
+    reveals: [
+      'O estudo dos "70% contra 50% da vitamina C" tinha 20 voluntários e foi feito na coxa (cap. 2)',
+      'Retinol e peptídeo de cobre "se anulam"? Procuramos a prova e não existe estudo (cap. 4)',
+      'O dado de laboratório que explica por que o pH do seu sérum de vitamina C importa para o cobre (cap. 4)',
+      'O relatório de segurança registrou uso típico abaixo de 0,001% neste grupo de ingredientes: o que isso diz sobre o "10%" do rótulo (cap. 3)',
+      'O gel de peptídeo de cobre que foi bem num estudo pequeno e não superou o placebo com 511 pacientes (cap. 2)',
+    ],
+    anchor: 'O guia custa R$ 29,90: menos da metade do sérum de peptídeo de cobre mais barato que encontramos em farmácia brasileira em novembro de 2026 (R$ 64,50 por 30 ml).',
+    revised: 'novembro de 2026',
     toc: [
-      'O tripeptídeo de cobre',
-      'Estudos com uso tópico: o que foi medido',
-      'Concentrações de 0,05% a 2% e como ler um rótulo',
-      'Rotina: horários, pH e combinações',
-      'Injetável: por que não há dose estabelecida',
-      'Armazenamento',
-      'Quando evitar',
+      'O tripeptídeo de cobre: o que é e o que cai com a idade',
+      'O que os estudos com uso tópico mediram, e em quem',
+      'Concentração e como ler um rótulo',
+      'Rotina: ordem, horário, pH e o que combinar ou separar',
+      'Cabelo: o que tem e o que não tem de evidência',
+      'Injetável: por que não existe dose estabelecida',
+      'Armazenamento, validade e sinais de produto degradado',
+      'Quando evitar e os 7 erros mais comuns',
+    ],
+    tocNotes: [
+      'O que é o GHK-Cu, de onde vem o número "cai com a idade" e o que são os "4.000 genes"',
+      'Quantas pessoas, por quanto tempo e o que cada estudo tópico mediu de fato',
+      'O que o percentual do rótulo significa e como achar o ativo na lista de ingredientes',
+      'Três esquemas de manhã e noite, com o nível de evidência de cada orientação sobre vitamina C, ácidos e retinol',
+      'O que existe de estudo para cabelo e por que GHK-Cu não é AHK-Cu',
+      'Por que o injetável não tem dose estabelecida e o que a ANVISA alertou em 2026',
+      'Como guardar o sérum e reconhecer um produto degradado',
+      'Quem deve evitar ou perguntar antes, e os 7 erros mais comuns',
     ],
     bonuses: ['Tabela de compatibilidade de ativos', 'Rotina de manhã e noite para imprimir'],
-    sources: ['Estudos clínicos de uso tópico', 'Literatura dermatológica sobre complexos de cobre'],
+    sources: [
+      'Estudos em pessoas com uso tópico (1998 a 2025), com o tamanho e o tipo de publicação de cada um',
+      'Estudos de laboratório sobre a ligação do cobre ao peptídeo e a estabilidade em cada pH',
+      'Relatório de segurança do painel CIR (2018) e alertas da ANVISA de 2026',
+    ],
+    faq: [
+      {
+        q: 'O guia diz qual sérum comprar?',
+        a: 'Não. Ele não indica marca. Ensina a ler o rótulo (nome do ativo, pH, cor, percentual) para você comparar os produtos por conta própria.',
+      },
+      {
+        q: 'Tem dose ou protocolo de GHK-Cu injetável?',
+        a: 'Não. Um capítulo explica por que não existe dose estabelecida e o que a ANVISA alertou em 2026. O guia não traz dose, diluição nem técnica de aplicação.',
+      },
+      {
+        q: 'Então posso ou não usar com vitamina C e retinol?',
+        a: 'O guia mostra o que foi medido e o que é precaução. Para vitamina C ácida e ácidos, a orientação é separar por horário, uma precaução baseada em química de laboratório. Para retinol não há prova de incompatibilidade; separar ajuda com a irritação. Há três esquemas prontos de manhã e noite.',
+      },
+    ],
+    sample: ['/ebooks/ghk-cu-rotina/amostra-1.webp', '/ebooks/ghk-cu-rotina/amostra-2.webp'],
     cover: 'from-rose-500 via-amber-500 to-teal-600',
     checkoutEnv: 'KIWIFY_CHECKOUT_GHKCU',
+    kiwifyProductId: '906a27a0-e069-11f1-8857-8d1aae0a9d8c',
     places: { peptides: ['ghk-cu'], categories: ['pele-e-estetica'] },
   },
   {
@@ -696,6 +848,16 @@ export const EBOOKS: Ebook[] = [
       'Mistura no mesmo frasco',
       'Tabelas por tamanho de frasco',
     ],
+    tocNotes: [
+      'As duas fórmulas da seringa, 3 exemplos resolvidos (dose em mg, em mcg e doses por frasco) e 3 perguntas antes da conta',
+      'Da bancada à leitura do êmbolo, com lista de material, modelo de etiqueta e exemplo completo com frasco de 10 mg',
+      'Por que só a bacteriostática serve para frasco multidose, o prazo da água aberta e o mesmo frasco com 1, 2 e 3 ml',
+      'Seringa U-100 e U-40, o menor traço de cada tamanho e o que fazer quando a dose passa de 100 unidades',
+      'Unidade lida como mg, vírgula, água esquecida, seringa, bolha, êmbolo e frasco degradado, e a conferência de 10 segundos',
+      'Geladeira de 2 a 8 °C, como calcular a data de descarte e 4 exemplos de sobra quando o frasco rende mais que o prazo',
+      'A fórmula por peptídeo, por que a razão entre as doses fica fixa e como ler a seringa ao puxar de dois frascos',
+      '9 tamanhos de frasco, de 1,6 a 100 mg, com unidades para 1 e 2 ml de água e doses por frasco em cada linha',
+    ],
     pains: [
       { erro: 'Escrever 2,5 mg onde a dose era 0,25 mg (250 mcg)', custo: 'Dá 100 unidades, dez vezes a dose, e cabe numa seringa de 100 U: ninguém estranha o número.' },
       { erro: 'Não etiquetar o frasco e mudar a água no frasco seguinte', custo: 'As mesmas 10 unidades entregam o dobro da dose, ou 40% a menos, sem nada parecer diferente.' },
@@ -717,6 +879,21 @@ export const EBOOKS: Ebook[] = [
       'Padrão de seringas de insulina U-100',
     ],
     bumps: ['T2'],
+    sample: ['/ebooks/reconstituicao-sem-erro/amostra-1.webp', '/ebooks/reconstituicao-sem-erro/amostra-2.webp'],
+    faq: [
+      {
+        q: 'Uso caneta pronta. Este guia serve para mim?',
+        a: 'Não. O próprio guia avisa que caneta já vem com a dose pronta, não é reconstituída, e que quase nada do conteúdo se aplica a ela. Ele é para quem usa frasco com pó liofilizado.',
+      },
+      {
+        q: 'As tabelas servem para o meu peptídeo e o meu frasco?',
+        a: 'As tabelas são por tamanho de frasco (9 tamanhos, de 1,6 a 100 mg), com 1 ml e 2 ml de água, porque as unidades dependem só dos mg do frasco, da água e da dose. Para outro volume ou dose fora da tabela, o guia manda usar a calculadora do site. Melanotan II fica fora.',
+      },
+      {
+        q: 'O guia diz qual dose eu devo aplicar?',
+        a: 'Não. Ele converte em unidades da seringa a dose que o médico definiu. As linhas das tabelas são doses de referência do site, não recomendação, e vários peptídeos listados não têm aprovação para uso humano.',
+      },
+    ],
     cover: 'from-teal-500 via-cyan-600 to-sky-800',
     checkoutEnv: 'KIWIFY_CHECKOUT_RECONSTITUICAO',
     kiwifyProductId: 'd3b93e00-dfc5-11f1-b2ef-e388708c1a73',
@@ -752,6 +929,14 @@ export const EBOOKS: Ebook[] = [
       'Sinais de golpe',
       'O que perguntar ao vendedor',
     ],
+    tocNotes: [
+      'Tabela dos três grupos lado a lado (registro, receita, quem responde) e 5 perguntas para situar a oferta',
+      'Cada checagem com o que passa e o que falha, e o que um laudo (COA) útil traz: lote, HPLC, identidade, endotoxinas',
+      'As 5 fórmulas, o motivo do fator 4,33 semanas por mês e exemplos de frasco e de caneta com preços hipotéticos',
+      'A conta corrigida: no máximo 4 doses semanais por frasco, custo real por dose e quantos frascos um ciclo pede',
+      'Sinais em 4 grupos (onde, como, o que e quanto) e o roteiro se desconfiar antes de pagar, ao receber ou após aplicar',
+      '17 perguntas em 5 blocos, de CNPJ a envio refrigerado, com o que passa, o que falha e o que não perguntar',
+    ],
     pains: [
       { erro: 'Escolher o frasco pelo menor preço por mg', custo: 'No exemplo do guia, o frasco que parecia 11% mais barato sai R$ 50 mais caro por dose: 1/3 vence.' },
       { erro: 'Pagar sem pedir o laudo (COA) do mesmo lote do rótulo', custo: 'Laudo sem lote serve para qualquer frasco e não prova nada sobre o seu. Você só descobre depois.' },
@@ -764,11 +949,26 @@ export const EBOOKS: Ebook[] = [
       'O limite de preço abaixo do qual a oferta já é sinal de alerta, e a conta para achá-lo (cap. 5)',
       'A mensagem pronta para mandar ao vendedor e como ler o conjunto das respostas (cap. 6)',
     ],
-    anchor: 'Custa menos de 3% de uma caixa de 4 canetas (R$ 1.100 a R$ 1.400), o valor em jogo numa compra errada.',
+    anchor: 'Custa menos de 2% de uma caixa de 4 canetas (a partir de cerca de R$ 1.720 na farmácia), o valor em jogo numa compra errada.',
     revised: 'novembro de 2026',
     bonuses: ['Checklist de uma página', 'Planilha de custo por mg'],
     sources: ['Alertas da ANVISA sobre canetas falsificadas', 'Apresentações e validades publicadas pelos fabricantes'],
     bumps: ['T1'],
+    sample: ['/ebooks/antes-de-comprar/amostra-1.webp', '/ebooks/antes-de-comprar/amostra-2.webp'],
+    faq: [
+      {
+        q: 'Vou comprar caneta em farmácia. Ainda serve?',
+        a: 'Em parte. As checagens de canal, receita, registro na ANVISA, embalagem, lacre, lote e alertas valem para caneta, e o capítulo 3 tem exemplo de custo de caneta. O laudo (COA) e a perda dos 28 dias são assuntos de frasco.',
+      },
+      {
+        q: 'O guia traz os preços atuais?',
+        a: 'Não. Todo valor em reais no guia é hipotético e serve só para mostrar a conta, porque o preço muda com frequência. Ele ensina a calcular custo por mg, por dose e por mês e a comparar com a faixa pesquisada na data da compra.',
+      },
+      {
+        q: 'Se a oferta passar nas 12 checagens, o produto é seguro?',
+        a: 'O guia não promete isso. As checagens ajudam a reconhecer produto irregular, mas não tornam um produto "de pesquisa" seguro nem legal para uso humano. O laudo atesta o lote analisado, não a esterilidade nem o que aconteceu no transporte.',
+      },
+    ],
     cover: 'from-slate-600 via-slate-700 to-teal-800',
     checkoutEnv: 'KIWIFY_CHECKOUT_COMPRA',
     kiwifyProductId: '31260550-dfc6-11f1-9205-439bc5ce1992',
@@ -791,7 +991,7 @@ export const EBOOKS: Ebook[] = [
     title: 'Parei. E Agora?',
     altTitle: 'Depois da Caneta',
     subtitle:
-      'O que os estudos mostram sobre o peso depois da semaglutida e da tirzepatida e o plano de 90 dias para reduzir o reganho.',
+      'O que os estudos mostram sobre o peso depois da semaglutida e da tirzepatida e um plano de 90 dias para atravessar o período e agir cedo se o peso voltar.',
     hook:
       'Nos estudos, quem parou recuperou boa parte do peso em um ano. O que levar ao médico antes de parar e o plano para os 90 dias depois.',
     line: 'Vai parar ou já parou a caneta? O que dizem os estudos e o plano dos 90 dias. PDF.',
@@ -811,6 +1011,14 @@ export const EBOOKS: Ebook[] = [
       'Os primeiros 90 dias sem a medicação',
       'Quando voltar',
     ],
+    tocNotes: [
+      'Três estudos em tabela, incluindo o STEP 4, o que volta além do peso e o que os números não dizem',
+      'Seis explicações, da adaptação metabólica ao ambiente, e em quanto tempo cada medicamento sai do organismo',
+      'Quatro caminhos (manter, reduzir, espaçar, parar com plano), os 5 itens de um plano de parada e 9 perguntas prontas',
+      'A referência da OMS de força em 2 ou mais dias por semana, como começar e por que o guia não dá gramas de proteína',
+      'Três fases (semanas 1 a 4, 5 a 8 e 9 a 13), 5 itens para anotar e os sinais para não esperar o retorno',
+      'Sinais para marcar consulta, por que não retomar na dose antiga e os esquemas de subida das bulas como referência',
+    ],
     pains: [
       { erro: 'Parar de uma vez, sem plano nem retorno marcado', custo: 'No SURMOUNT-4, quem passou para placebo recuperou 14% do peso em um ano, mesmo com dieta e exercício.' },
       { erro: 'Voltar ao remédio direto na dose que usava antes de parar', custo: 'A tolerância se perde na pausa: náusea e vômito intensos, que a subida gradual teria evitado.' },
@@ -823,10 +1031,25 @@ export const EBOOKS: Ebook[] = [
       'Por que o treino de força deve começar antes da última dose, e não depois (cap. 4)',
       'O gatilho a combinar com o médico antes de parar, para não esperar o peso voltar todo (cap. 6)',
     ],
-    anchor: 'Custa cerca de 2% de um mês de caneta de tirzepatida (média de R$ 1.250), o custo que mais leva a parar.',
+    anchor: 'Custa menos de 2% de um mês de caneta de tirzepatida (cerca de R$ 1.850 já na dose inicial), o custo que mais leva a parar.',
     revised: 'novembro de 2026',
     bonuses: ['Plano de 90 dias para imprimir'],
     sources: ['Extensão do estudo STEP 1', 'Estudo STEP 4', 'Estudo SURMOUNT-4'],
+    sample: ['/ebooks/parei-e-agora/amostra-1.webp', '/ebooks/parei-e-agora/amostra-2.webp'],
+    faq: [
+      {
+        q: 'Ainda não parei. Ou já parei há algumas semanas. Serve nos dois casos?',
+        a: 'Sim. Para quem ainda usa, os capítulos 1 a 3 preparam a conversa com o médico e há uma lista do que deixar pronto antes da última dose. Para quem já parou, o guia indica começar pelos capítulos 5 e 6 e imprimir o plano de 90 dias.',
+      },
+      {
+        q: 'Vale para semaglutida e para tirzepatida?',
+        a: 'Sim. Os estudos apresentados são o SURMOUNT-4 (tirzepatida) e a extensão do STEP 1 e o STEP 4 (semaglutida). O tempo de saída do organismo e os esquemas de retomada aparecem para as duas moléculas.',
+      },
+      {
+        q: 'O guia ensina a reduzir ou espaçar a dose para parar aos poucos?',
+        a: 'Não. Ele mostra o que existe de evidência para cada caminho e deixa claro que não há protocolo de retirada validado e que espaçar não é o esquema da bula. São temas para levar ao médico, e o guia não garante que o peso não volta.',
+      },
+    ],
     cover: 'from-orange-500 via-amber-600 to-teal-700',
     checkoutEnv: 'KIWIFY_CHECKOUT_PAREI',
     kiwifyProductId: '560542a0-dfc6-11f1-9b0e-1d63259b3d5d',
@@ -884,6 +1107,20 @@ export const EBOOKS: Ebook[] = [
     ],
     includes: ['I1', 'I2', 'T1', 'T2'],
     bumps: ['T3'],
+    faq: [
+      {
+        q: 'O kit cobre semaglutida e tirzepatida?',
+        a: 'Sim. Há um guia para cada molécula, com a escada de doses, os efeitos por etapa e a regra de dose esquecida de cada uma. Os guias de reconstituição e de compra valem para as duas.',
+      },
+      {
+        q: 'Os guias repetem conteúdo entre si?',
+        a: 'Há alguma sobreposição. A regra dos 28 dias do frasco reconstituído e a fórmula das unidades aparecem no guia de tirzepatida, no de reconstituição e no de compra, cada um com um foco: escolher o frasco de cada etapa, preparar e medir, e calcular o custo real. Os guias das duas moléculas têm estrutura parecida, mas doses, prazos e regras de bula diferentes.',
+      },
+      {
+        q: 'Por qual guia começar? E se eu uso só caneta?',
+        a: 'Cada guia cobre um momento: o de compra antes de pagar, o da sua molécula antes da primeira dose e a cada subida, e o de reconstituição com o material na frente, na hora de preparar o frasco. Quem usa só caneta pronta deve saber que o guia de reconstituição quase não se aplica e que a perda dos 28 dias, no guia de compra, é assunto de frasco.',
+      },
+    ],
     cover: 'from-teal-600 via-sky-700 to-indigo-800',
     checkoutEnv: 'KIWIFY_CHECKOUT_KIT',
     kiwifyProductId: '6fad40e0-dfc6-11f1-af23-a9366f1cb294',
@@ -992,7 +1229,28 @@ export function toOffer(e: Ebook | undefined): EbookOffer | null {
     pages: e.pages,
     cover: e.cover,
     bullets: (e.reveals?.length ? e.reveals : e.toc).slice(0, 3).map(stripChapter),
+    anchor: e.anchor,
+    sample: e.sample?.[0],
   };
+}
+
+const RECONSTITUTION_ID = 'T1';
+
+/**
+ * Oferta da página com reserva: se o guia escolhido ainda não está à venda, oferece o guia de
+ * reconstituição (todo peptídeo do site é vendido em frasco) ou, em página de caneta pronta
+ * (marca), o kit. Sem guia escolhido (peptídeo sem oferta, como Melanotan II), nada.
+ */
+export function offerFor(e: Ebook | undefined, opts: { pen?: boolean } = {}): EbookOffer | null {
+  if (!e) return null;
+  const own = toOffer(e);
+  if (own) return own;
+  const fallback = opts.pen ? [KIT_ID] : [RECONSTITUTION_ID, KIT_ID];
+  for (const id of fallback) {
+    const offer = id === e.id ? null : toOffer(getEbookById(id));
+    if (offer) return offer;
+  }
+  return null;
 }
 
 /** Kit ativo que inclui este ebook (para oferecer o pacote na landing do avulso). */

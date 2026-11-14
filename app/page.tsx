@@ -8,7 +8,7 @@ import HeroCalc, { type HeroPeptide } from '@/components/home/HeroCalc';
 import ToolIcon, { toolColor } from '@/components/ui/ToolIcon';
 import { TOOLS } from '@/lib/tools';
 import EbookOffer from '@/components/ebook/EbookOffer';
-import { ebookForHub, toOffer } from '@/lib/ebooks';
+import { ebookForHub, offerFor } from '@/lib/ebooks';
 
 export const metadata: Metadata = {
   title: {
@@ -44,7 +44,7 @@ export default function HomePage() {
   const fdaApproved = peptides.filter((p) => p.regulatoryStatus === 'fda-approved').length;
   const articles = getArticles();
   const recentPosts = articles.slice(0, 3);
-  const kitOffer = toOffer(ebookForHub());
+  const kitOffer = offerFor(ebookForHub());
   const heroPeptides: HeroPeptide[] = peptides
     .filter((p) => p.commonAmounts.length > 0)
     .map((p) => ({ slug: p.slug, name: p.name, typicalDose: p.typicalDose, doseUnit: p.doseUnit, vialMg: p.commonAmounts[0] }));
@@ -114,8 +114,8 @@ export default function HomePage() {
             />
             <TrustItem
               icon={<path d="M20 7 9 18l-5-5" />}
-              title="Sempre gratuito"
-              desc="Sem cadastro, sem pop-up"
+              title="Calculadoras gratuitas"
+              desc="Sem cadastro, sem anúncios"
             />
             <TrustItem
               icon={<>
@@ -171,6 +171,13 @@ export default function HomePage() {
             </Link>
           ))}
         </div>
+
+        {/* Kit de guias logo depois das ferramentas: quem chega pela home vê a oferta sem rolar até o fim. */}
+        {kitOffer && (
+          <div className="max-w-4xl mx-auto mt-10 md:mt-12">
+            <EbookOffer offer={kitOffer} className="!my-0" />
+          </div>
+        )}
       </section>
 
       {/* ═══ COMO FUNCIONA ═══ */}
@@ -280,13 +287,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ═══ KIT DE EBOOKS (só com checkout configurado) ═══ */}
-      {kitOffer && (
-        <section className="max-w-4xl mx-auto px-4 md:px-6 pt-8 md:pt-12">
-          <EbookOffer offer={kitOffer} className="!my-0" />
-        </section>
-      )}
-
       {/* ═══ NEWSLETTER ═══ */}
       <section className="max-w-4xl mx-auto px-4 md:px-6 py-8 md:py-12">
         <NewsletterSignup />
@@ -299,7 +299,7 @@ export default function HomePage() {
             Pronto pra começar?
           </h2>
           <p className="mt-3 text-white/90 text-lg max-w-xl mx-auto">
-            A calculadora está a um clique. Sem cadastro, sem upsell, sem cookies
+            A calculadora é gratuita e está a um clique. Sem cadastro, sem cookies
             de rastreamento — é só abrir e usar.
           </p>
           <Link

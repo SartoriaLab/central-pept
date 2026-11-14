@@ -6,6 +6,7 @@ import FAQ from '@/components/ui/FAQ';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
 import EbookCover from '@/components/ebook/EbookCover';
 import CheckoutButton from '@/components/ebook/CheckoutButton';
+import { KitLink, LandingView } from '@/components/ebook/LandingTrack';
 import {
   BUMP_PRICE,
   EBOOK_FAQ,
@@ -18,10 +19,16 @@ import {
   kitFor,
   kitFullPrice,
 } from '@/lib/ebooks';
-import { socialImage } from '@/lib/og';
+import { ogImageUrl, socialImage } from '@/lib/og';
 import { SITE_URL } from '@/lib/site';
 
 type Params = { slug: string };
+
+const FREE_ON_SITE = [
+  'Calculadoras de reconstituição, titulação e custo',
+  'Fichas dos peptídeos e dos medicamentos',
+  'Artigos do blog, uma dúvida por página',
+];
 
 // Só ebooks com checkout configurado viram página; o resto é 404.
 export const dynamicParams = false;
@@ -39,7 +46,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
     title: `${e.title} (guia em PDF)`,
     description,
     alternates: { canonical: `/ebooks/${e.slug}` },
-    ...socialImage('pagina', 'home', `/ebooks/${e.slug}`, e.title),
+    ...socialImage('ebook', e.slug, `/ebooks/${e.slug}`, e.title),
   };
 }
 
@@ -65,6 +72,14 @@ export default async function EbookPage({ params }: { params: Promise<Params> })
     e.revised ? `Revisado em ${e.revised}` : null,
     '7 dias de garantia',
   ].filter((x): x is string => !!x);
+  const onlyInGuide = [
+    included.length > 0
+      ? 'Os assuntos na ordem em que aparecem: comprar, preparar, aplicar e subir a dose'
+      : 'O assunto inteiro numa ordem só, do começo ao fim, sem pular de página em página',
+    'As dúvidas e os erros mais comuns, cada um com o que fazer no lugar',
+    `Para imprimir: ${e.bonuses.join(', ').toLowerCase()}`,
+    'A fonte de cada número ao lado do dado, em PDF que fica com você',
+  ];
   const buy = (position: string, className?: string) => (
     <CheckoutButton
       ebookId={e.id}
@@ -83,6 +98,7 @@ export default async function EbookPage({ params }: { params: Promise<Params> })
     description: e.subtitle,
     brand: { '@type': 'Brand', name: 'Central Peptídeos' },
     category: 'Ebook',
+    image: `${SITE_URL}${ogImageUrl('ebook', e.slug)}`,
     url: `${SITE_URL}/ebooks/${e.slug}`,
     offers: {
       '@type': 'Offer',
@@ -96,6 +112,7 @@ export default async function EbookPage({ params }: { params: Promise<Params> })
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <LandingView ebookId={e.id} />
 
       {/* Hero */}
       <section className="bg-gradient-mesh border-b border-border">
@@ -207,7 +224,10 @@ export default async function EbookPage({ params }: { params: Promise<Params> })
               {e.toc.map((x, i) => (
                 <li key={x} className="flex gap-4 p-4">
                   <span className="text-sm font-extrabold text-teal-700 tabular-nums w-6 flex-shrink-0">{i + 1}</span>
-                  <span className="text-ink-2 leading-relaxed">{x}</span>
+                  <span className="min-w-0">
+                    <span className="block font-semibold text-ink leading-snug">{x}</span>
+                    {e.tocNotes?.[i] && <span className="block mt-1 text-sm text-ink-2 leading-relaxed">{e.tocNotes[i]}</span>}
+                  </span>
                 </li>
               ))}
             </ol>
@@ -225,6 +245,35 @@ export default async function EbookPage({ params }: { params: Promise<Params> })
             </div>
           </section>
         )}
+
+        <section className="mt-12" aria-labelledby="site-ou-guia">
+          <h2 id="site-ou-guia" className="text-xl md:text-2xl font-bold mb-2">O que o site já dá de graça, e o que só está no {noun}</h2>
+          <p className="text-ink-2 mb-4">As calculadoras e as fichas continuam gratuitas. O {noun} é para quem quer o assunto inteiro resolvido de uma vez.</p>
+          <div className="grid gap-3 sm:grid-cols-2">
+            <div className="rounded-xl border border-border bg-surface p-4">
+              <h3 className="text-sm font-bold uppercase tracking-wider text-ink-3">No site, de graça</h3>
+              <ul className="mt-3 space-y-2 text-sm text-ink-2">
+                {FREE_ON_SITE.map((x) => (
+                  <li key={x} className="flex gap-2">
+                    <span aria-hidden>·</span>
+                    <span>{x}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="rounded-xl border border-teal-100 bg-teal-50 p-4">
+              <h3 className="text-sm font-bold uppercase tracking-wider text-teal-700">Só no {noun}</h3>
+              <ul className="mt-3 space-y-2 text-sm text-ink">
+                {onlyInGuide.map((x) => (
+                  <li key={x} className="flex gap-2">
+                    <span className="text-teal-700 font-bold" aria-hidden>✓</span>
+                    <span>{x}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
 
         <section className="mt-12 card p-6 md:p-8 border-2 border-teal" aria-labelledby="oferta">
           <h2 id="oferta" className="text-xl md:text-2xl font-extrabold text-ink">O que você leva</h2>
@@ -279,23 +328,53 @@ export default async function EbookPage({ params }: { params: Promise<Params> })
             <p className="mt-1 text-sm text-ink-2">
               Este {noun} está incluído. Avulsos, os {kit.includes?.length} somam {formatPrice(kitSum)}: economia de {formatPrice(kitSum - kit.price)}.
             </p>
-            <Link href={`/ebooks/${kit.slug}?origem=landing-kit&de=/ebooks/${e.slug}`} className="mt-3 inline-block text-sm font-semibold text-teal-700 hover:underline">
+            <KitLink
+              ebookId={e.id}
+              kitId={kit.id}
+              href={`/ebooks/${kit.slug}?origem=landing-kit&de=/ebooks/${e.slug}`}
+              className="mt-3 inline-block text-sm font-semibold text-teal-700 hover:underline"
+            >
               Ver o {kit.title} →
-            </Link>
+            </KitLink>
           </section>
         )}
 
         <section className="mt-12" aria-labelledby="fontes">
-          <h2 id="fontes" className="text-xl md:text-2xl font-bold mb-4">De onde vêm os dados</h2>
-          <ul className="space-y-1.5 list-disc pl-5 text-ink-2">
+          <h2 id="fontes" className="text-xl md:text-2xl font-bold mb-4">Como o {noun} é feito</h2>
+          <ol className="space-y-3 text-ink-2">
+            <li className="flex gap-3">
+              <span className="text-sm font-extrabold text-teal-700 tabular-nums w-5 flex-shrink-0">1</span>
+              <span>
+                <strong className="text-ink">Só fonte primária.</strong> Cada número sai de bula, estudo publicado ou documento
+                regulatório, e a fonte aparece ao lado do dado.
+              </span>
+            </li>
+            <li className="flex gap-3">
+              <span className="text-sm font-extrabold text-teal-700 tabular-nums w-5 flex-shrink-0">2</span>
+              <span>
+                <strong className="text-ink">Sem estimativa disfarçada.</strong> O que não tem estudo publicado aparece como
+                &quot;não caracterizado&quot;, nunca como número aproximado.
+              </span>
+            </li>
+            <li className="flex gap-3">
+              <span className="text-sm font-extrabold text-teal-700 tabular-nums w-5 flex-shrink-0">3</span>
+              <span>
+                <strong className="text-ink">Revisão com data.</strong>{' '}
+                {e.revised ? `Última revisão em ${e.revised}. ` : ''}Quando uma bula ou um estudo muda, o texto é revisado e
+                quem comprou recebe a versão nova sem pagar de novo.
+              </span>
+            </li>
+          </ol>
+          <h3 className="mt-6 text-sm font-bold uppercase tracking-wider text-ink-3">Fontes usadas</h3>
+          <ul className="mt-2 space-y-1.5 list-disc pl-5 text-ink-2">
             {e.sources.map((s) => (
               <li key={s}>{s}</li>
             ))}
           </ul>
           <p className="mt-3 text-sm text-ink-3 leading-relaxed">
-            Escrito com a mesma{' '}
+            É a mesma{' '}
             <Link href="/metodologia" className="text-teal-700 font-semibold hover:underline">metodologia editorial</Link>{' '}
-            do site: dado sem estudo publicado aparece como &quot;não caracterizado&quot;, nunca como estimativa.
+            das páginas gratuitas do site. O guia é material educativo e não tem autor médico: não substitui consulta.
           </p>
         </section>
 

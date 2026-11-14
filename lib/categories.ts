@@ -34,7 +34,7 @@ export const CATEGORY_PAGES: CategoryPage[] = [
     summary:
       'Semaglutida, tirzepatida, retatrutida e AOD-9604 lado a lado: dose, frequência, meia-vida, perda de peso nos estudos e situação regulatória de cada um.',
     intro: [
-      'Os peptídeos usados para perda de peso com evidência clínica sólida são os agonistas de incretinas: imitam hormônios intestinais (GLP-1, GIP) que aumentam a saciedade, retardam o esvaziamento do estômago e melhoram o controle da glicose. Semaglutida e tirzepatida são aprovadas para obesidade, assim como a liraglutida (Saxenda), de uso diário e efeito menor; a retatrutida ainda está em fase 3.',
+      'Os peptídeos usados para perda de peso com evidência clínica sólida são os agonistas de incretinas: imitam hormônios intestinais (GLP-1, GIP) que aumentam a saciedade, retardam o esvaziamento do estômago e melhoram o controle da glicose. Semaglutida e tirzepatida são aprovadas para obesidade, assim como a liraglutida (Saxenda), de uso diário e efeito menor; a retatrutida já tem resultados de fase 3, mas não foi aprovada em nenhum país.',
       'Fora desse grupo, o AOD-9604 — um fragmento do hormônio do crescimento — circula como "queimador de gordura", mas não mostrou eficácia nos ensaios clínicos e não tem aprovação como medicamento.',
     ],
     keyPoints: [
@@ -46,7 +46,7 @@ export const CATEGORY_PAGES: CategoryPage[] = [
     faq: [
       {
         q: 'Qual peptídeo emagrece mais?',
-        a: 'Entre os aprovados, a tirzepatida: na comparação direta do estudo SURMOUNT-5 a perda média foi de 20,2% do peso em 72 semanas, contra 13,7% com semaglutida (1,7 ou 2,4 mg). A retatrutida mostrou perdas maiores em fase 2, mas ainda não concluiu os estudos de fase 3 nem foi aprovada.',
+        a: 'Entre os aprovados, a tirzepatida: na comparação direta do estudo SURMOUNT-5 a perda média foi de 20,2% do peso em 72 semanas, contra 13,7% com semaglutida (1,7 ou 2,4 mg). A retatrutida mostrou perdas maiores nos ensaios (25,0% em 80 semanas com 12 mg no TRIUMPH-1, contando todos os participantes), mas não foi aprovada em nenhum país.',
         link: { label: 'Semaglutida vs Tirzepatida vs Retatrutida', href: '/comparar/semaglutida-vs-tirzepatida-vs-retatrutida' },
       },
       {

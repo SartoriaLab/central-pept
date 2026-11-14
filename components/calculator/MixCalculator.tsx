@@ -4,6 +4,8 @@ import { useMemo } from 'react';
 import { list, num, oneOf, type Codec } from '@/lib/url-state';
 import { useUrlState } from './useUrlState';
 import ToolActions from './ToolActions';
+import EbookOffer from '@/components/ebook/EbookOffer';
+import type { EbookOffer as Offer } from '@/lib/ebooks';
 import type { Peptide } from '@/lib/peptides';
 import DecimalInput from '@/components/ui/DecimalInput';
 
@@ -14,7 +16,7 @@ type Row = {
 
 type SyringeSize = 30 | 50 | 100;
 
-type Props = { peptides: Peptide[] };
+type Props = { peptides: Peptide[]; offer?: Offer | null; embed?: boolean };
 
 // Linha na URL: "slug:mg", linhas separadas por "~" (ex.: bpc-157:5~tb-500:5).
 const rowCodec: Codec<Row> = {
@@ -37,8 +39,8 @@ const EMPTY: Row = { slug: '', mg: '' };
 const DEFAULTS = { frascos: [EMPTY, EMPTY], agua: 2 as number | '', unidades: 20 as number | '', seringa: 50 as SyringeSize };
 const CODECS = { frascos: rowsCodec, agua: num, unidades: num, seringa: oneOf<SyringeSize>([30, 50, 100]) };
 
-export default function MixCalculator({ peptides }: Props) {
-  const { state, set, reset, shareUrl } = useUrlState(DEFAULTS, CODECS, { storageKey: 'cp:mistura' });
+export default function MixCalculator({ peptides, offer, embed = false }: Props) {
+  const { state, set, reset, shareUrl } = useUrlState(DEFAULTS, CODECS, embed ? {} : { storageKey: 'cp:mistura' });
   const { frascos: rows, agua: waterMl, unidades: units, seringa: syringe } = state;
   const setWaterMl = (v: number | '') => set('agua', v);
   const setUnits = (v: number | '') => set('unidades', v);
@@ -238,7 +240,7 @@ export default function MixCalculator({ peptides }: Props) {
           </div>
         </section>
 
-        <ToolActions tool="mistura" title="Calculadora de mistura" shareUrl={shareUrl} onReset={reset} />
+        {!embed && <ToolActions tool="mistura" title="Calculadora de mistura" shareUrl={shareUrl} onReset={reset} />}
       </div>
 
       {/* Resultado */}
@@ -348,6 +350,16 @@ export default function MixCalculator({ peptides }: Props) {
                 de mg, e as razões entre as doses ficam fixas.
               </div>
             </div>
+          )}
+          {canCompute && results.length > 0 && (
+            <EbookOffer
+              variant="result"
+              offer={offer}
+              lead={`Cada ${fmt(units as number, 0)} U levam ${results
+                .map((r) => `${fmt(r.doseNative, 2)} ${r.peptide.doseUnit} de ${r.peptide.name}`)
+                .join(' e ')}.`}
+              className="mt-5"
+            />
           )}
         </div>
       </div>

@@ -2,11 +2,13 @@ import { SITE_HOST } from '@/lib/site';
 import { ImageResponse } from 'next/og';
 import { getArticleBySlug, getArticleSlugs } from '@/lib/articles';
 import { getComparison, getComparisonSlugs } from '@/lib/comparisons';
+import { getBrandComparison, getBrandComparisonSlugs } from '@/lib/brand-comparisons';
 import { getPeptideBySlug, getPeptideSlugs } from '@/lib/peptides';
 import { getBrand, getBrandSlugs } from '@/lib/brands';
 import { getCategoryPage, getCategoryPageSlugs } from '@/lib/categories';
 import { getGlossarySlugs, getGlossaryTerm } from '@/lib/glossary';
 import { OG_PAGES } from '@/lib/og';
+import { KIND_LABELS, formatPrice, getEbookBySlug, getEbooks } from '@/lib/ebooks';
 
 // Imagens OG geradas no build (uma por artigo/comparativo). Nada é renderizado
 // em runtime: slug fora da lista → 404, sem invocar função.
@@ -20,12 +22,13 @@ type Params = { kind: string; slug: string };
 export function generateStaticParams(): Params[] {
   return [
     ...getArticleSlugs().map((slug) => ({ kind: 'blog', slug })),
-    ...getComparisonSlugs().map((slug) => ({ kind: 'comparar', slug })),
+    ...[...getComparisonSlugs(), ...getBrandComparisonSlugs()].map((slug) => ({ kind: 'comparar', slug })),
     ...getPeptideSlugs().map((slug) => ({ kind: 'calculadora', slug })),
     ...getBrandSlugs().map((slug) => ({ kind: 'medicamentos', slug })),
     ...getCategoryPageSlugs().map((slug) => ({ kind: 'categoria', slug })),
     ...getGlossarySlugs().map((slug) => ({ kind: 'glossario', slug })),
     ...Object.keys(OG_PAGES).map((slug) => ({ kind: 'pagina', slug })),
+    ...getEbooks().map((e) => ({ kind: 'ebook', slug: e.slug })),
   ];
 }
 
@@ -47,11 +50,17 @@ function resolve(kind: string, slug: string): { title: string; eyebrow: string }
     return t ? { title: `${t.term}: o que é e para que serve`, eyebrow: 'Glossário' } : null;
   }
   if (kind === 'pagina') return OG_PAGES[slug] ?? null;
+  if (kind === 'ebook') {
+    const e = getEbookBySlug(slug);
+    return e ? { title: e.title, eyebrow: `${KIND_LABELS[e.kind]} · ${formatPrice(e.price)}` } : null;
+  }
   if (kind === 'blog') {
     const a = getArticleBySlug(slug);
     return a ? { title: a.title, eyebrow: a.tags[0] ?? 'Blog' } : null;
   }
   if (kind === 'comparar') {
+    const bc = getBrandComparison(slug);
+    if (bc) return { title: `${bc.title}: qual a diferença`, eyebrow: 'Comparativo de marcas' };
     const c = getComparison(slug);
     return c ? { title: c.title, eyebrow: 'Comparativo' } : null;
   }

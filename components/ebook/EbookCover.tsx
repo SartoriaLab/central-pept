@@ -4,29 +4,35 @@
 type Props = {
   title: string;
   cover: string;
-  size?: 'sm' | 'lg';
+  size?: 'xs' | 'sm' | 'lg';
 };
 
+const BOX = {
+  xs: 'w-14 h-20 rounded-md p-1.5 shadow-md',
+  sm: 'w-20 h-28 sm:w-24 sm:h-32 rounded-lg p-2 shadow-md',
+  lg: 'w-32 h-44 sm:w-44 sm:h-60 md:w-52 md:h-72 rounded-xl p-4 sm:p-5 shadow-2xl',
+} as const;
+
 export default function EbookCover({ title, cover, size = 'sm' }: Props) {
-  const box =
-    size === 'lg'
-      ? 'w-44 h-60 md:w-52 md:h-72 rounded-xl p-5 shadow-2xl'
-      : 'w-20 h-28 rounded-lg p-2 shadow-md';
+  const lg = size === 'lg';
+  const xs = size === 'xs';
   return (
     <div
-      className={`relative flex-shrink-0 overflow-hidden bg-gradient-to-br ${cover} ${box} text-white flex flex-col justify-between`}
+      className={`relative flex-shrink-0 overflow-hidden bg-gradient-to-br ${cover} ${BOX[size]} text-white flex flex-col justify-between`}
       aria-hidden
     >
       <div className="absolute inset-0 bg-dots opacity-20" />
-      <span className={`relative font-bold uppercase tracking-widest opacity-80 ${size === 'lg' ? 'text-[11px]' : 'text-[7px]'}`}>
+      <span className={`relative font-bold uppercase tracking-widest opacity-80 ${lg ? 'text-[9px] sm:text-[11px]' : 'text-[6px]'}`}>
         Central Peptídeos
       </span>
       <span
-        className={`relative font-extrabold leading-tight ${size === 'lg' ? 'text-xl md:text-2xl' : 'text-[9px] line-clamp-5'}`}
+        className={`relative font-extrabold leading-tight ${
+          lg ? 'text-base sm:text-xl md:text-2xl' : xs ? 'text-[7px] line-clamp-4' : 'text-[9px] sm:text-[10px] line-clamp-5'
+        }`}
       >
         {title}
       </span>
-      <span className={`relative font-semibold opacity-80 ${size === 'lg' ? 'text-xs' : 'text-[7px]'}`}>Guia em PDF</span>
+      <span className={`relative font-semibold opacity-80 ${lg ? 'text-[10px] sm:text-xs' : 'text-[6px]'}`}>Guia em PDF</span>
     </div>
   );
 }

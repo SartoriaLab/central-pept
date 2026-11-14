@@ -15,7 +15,7 @@ type Props = {
 
 const ICON = { width: 16, height: 16, fill: 'none', stroke: 'currentColor', strokeWidth: 1.8, strokeLinecap: 'round', strokeLinejoin: 'round', 'aria-hidden': true } as const;
 
-/** Ações comuns das calculadoras: copiar link, compartilhar, imprimir e limpar. */
+/** Ações comuns das calculadoras: WhatsApp, copiar link, compartilhar, imprimir e limpar. */
 export default function ToolActions({ tool, shareUrl, title, onReset }: Props) {
   const [copied, setCopied] = useState(false);
 
@@ -46,11 +46,22 @@ export default function ToolActions({ tool, shareUrl, title, onReset }: Props) {
     }
   }
 
+  function whatsapp() {
+    const text = `${title}: ${shareUrl()}`;
+    window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
+    track(EVENTS.whatsapp, { ferramenta: tool });
+    track(EVENTS.share, { ferramenta: tool, via: 'whatsapp' });
+  }
+
   const btn =
     'inline-flex items-center gap-1.5 min-h-11 px-3 rounded-lg border border-border bg-surface text-sm font-semibold text-ink-2 hover:border-teal hover:text-teal-700 transition-colors';
 
   return (
     <div className="flex flex-wrap gap-2 no-print" role="group" aria-label="Ações do cálculo">
+      <button type="button" onClick={whatsapp} className={btn}>
+        <svg viewBox="0 0 20 20" {...ICON}><path d="M3.5 16.5l1-3.4A7 7 0 1 1 7 15.6z" /><path d="M7.6 7.2c.2 1.9 1.6 3.9 3.9 4.9l.9-.9 1.3.6-.3 1.1c-2.8.2-6.4-2.6-6.6-5.6l1.1-.4.6 1.3z" /></svg>
+        Enviar no WhatsApp
+      </button>
       <button type="button" onClick={copy} className={btn}>
         <svg viewBox="0 0 20 20" {...ICON}><path d="M8 12l4-4M7 9l-2 2a3 3 0 0 0 4 4l2-2M13 11l2-2a3 3 0 0 0-4-4L9 7" /></svg>
         <span aria-live="polite">{copied ? 'Link copiado' : 'Copiar link'}</span>

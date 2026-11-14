@@ -4,13 +4,15 @@ import { useMemo } from 'react';
 import { hhmm, isoDate, num, oneOf, str } from '@/lib/url-state';
 import { useUrlState } from './useUrlState';
 import ToolActions from './ToolActions';
+import EbookOffer from '@/components/ebook/EbookOffer';
+import type { EbookOffer as Offer } from '@/lib/ebooks';
 import type { Peptide } from '@/lib/peptides';
 import DecimalInput from '@/components/ui/DecimalInput';
 import { EVENTS, track } from '@/lib/track';
 import { todayLocalISO } from '@/lib/dates';
 import { buildIcs, downloadIcs } from '@/lib/ics';
 
-type Props = { peptides: Peptide[] };
+type Props = { peptides: Peptide[]; offer?: Offer | null; embed?: boolean };
 
 type Frequency = 'daily' | '2x-day' | '3x-week' | 'weekly' | 'custom';
 
@@ -42,8 +44,8 @@ const CODECS = {
   hora: hhmm,
 };
 
-export default function ScheduleCalculator({ peptides }: Props) {
-  const { state, set, patch, reset, shareUrl } = useUrlState(DEFAULTS, CODECS, { storageKey: 'cp:cronograma' });
+export default function ScheduleCalculator({ peptides, offer, embed = false }: Props) {
+  const { state, set, patch, reset, shareUrl } = useUrlState(DEFAULTS, CODECS, embed ? {} : { storageKey: 'cp:cronograma' });
   const { slug, dose: doseAmount, freq: frequency, cada: customDays, semanas: durationWeeks, hora: timeOfDay } = state;
   const startDate = state.inicio || todayLocalISO();
   const setDoseAmount = (v: number | '') => set('dose', v);
@@ -220,7 +222,7 @@ export default function ScheduleCalculator({ peptides }: Props) {
           </div>
         </section>
 
-        <ToolActions tool="cronograma" title="Cronograma de aplicações" shareUrl={shareUrl} onReset={reset} />
+        {!embed && <ToolActions tool="cronograma" title="Cronograma de aplicações" shareUrl={shareUrl} onReset={reset} />}
       </div>
 
       {/* Resultado */}
@@ -270,6 +272,14 @@ export default function ScheduleCalculator({ peptides }: Props) {
               )}
             </ul>
           </div>
+        )}
+        {peptide && schedule.length > 0 && (
+          <EbookOffer
+            variant="result"
+            offer={offer}
+            lead={`São ${schedule.length} aplicações em ${durationWeeks} ${durationWeeks === 1 ? 'semana' : 'semanas'}.`}
+            className="mt-5"
+          />
         )}
       </div>
     </div>

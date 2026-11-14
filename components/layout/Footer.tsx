@@ -1,8 +1,10 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { TOOLS } from '@/lib/tools';
+import { getActiveEbooks } from '@/lib/ebooks';
 
 export default function Footer() {
+  const hasGuides = getActiveEbooks().length > 0;
   return (
     <footer role="contentinfo" className="border-t border-border bg-surface mt-16 no-print">
       <div className="max-w-6xl mx-auto px-4 md:px-6 py-10 md:py-14 grid gap-10 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr_1fr] text-sm">
@@ -19,7 +21,7 @@ export default function Footer() {
           />
           <p className="text-ink-2 leading-relaxed max-w-md">
             Central brasileira de informação sobre peptídeos. Calculadoras,
-            enciclopédia e guias — gratuito, sem cadastro, com fontes.
+            enciclopédia e blog gratuitos, sem cadastro, com fontes.
           </p>
         </div>
 
@@ -44,6 +46,9 @@ export default function Footer() {
             <li><Link href="/comparar" className="inline-block py-1.5 hover:text-teal-700">Comparador</Link></li>
             <li><Link href="/blog" className="inline-block py-1.5 hover:text-teal-700">Blog</Link></li>
             <li><Link href="/glossario" className="inline-block py-1.5 hover:text-teal-700">Glossário</Link></li>
+            {hasGuides && (
+              <li><Link href="/ebooks" className="inline-block py-1.5 hover:text-teal-700">Guias em PDF</Link></li>
+            )}
           </ul>
         </div>
 

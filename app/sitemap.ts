@@ -2,6 +2,7 @@ import type { MetadataRoute } from 'next';
 import { getPeptides } from '@/lib/peptides';
 import { getArticles, getTagGroups, MIN_TAG_ARTICLES } from '@/lib/articles';
 import { getComparisonSlugs } from '@/lib/comparisons';
+import { getBrandComparisonSlugs } from '@/lib/brand-comparisons';
 import { getGlossarySlugs } from '@/lib/glossary';
 import { CONTENT_UPDATED_AT } from '@/lib/site';
 import { getBrandSlugs } from '@/lib/brands';
@@ -122,7 +123,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly' as const,
       priority: 0.5,
     })),
-    ...getComparisonSlugs().map((slug) => ({
+    ...[...getComparisonSlugs(), ...getBrandComparisonSlugs()].map((slug) => ({
       url: url(`/comparar/${slug}`),
       lastModified: now,
       changeFrequency: 'monthly' as const,

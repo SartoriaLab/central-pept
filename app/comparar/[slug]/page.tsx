@@ -14,21 +14,34 @@ import { getArticleBySlug } from '@/lib/articles';
 import FAQ, { type FAQItem } from '@/components/ui/FAQ';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
+import ShareButtons from '@/components/ui/ShareButtons';
 import { SITE_URL } from '@/lib/site';
 import { social } from '@/lib/og';
 import EbookOffer from '@/components/ebook/EbookOffer';
-import { ebookForComparison, toOffer } from '@/lib/ebooks';
+import { ebookForComparison, offerFor } from '@/lib/ebooks';
+import { getBrandComparison, getBrandComparisonSlugs } from '@/lib/brand-comparisons';
+import BrandComparisonView from '@/components/brand/BrandComparisonView';
 
 type Params = { slug: string };
 
 export const dynamicParams = false;
 
 export function generateStaticParams(): Params[] {
-  return getComparisonSlugs().map((slug) => ({ slug }));
+  return [...getComparisonSlugs(), ...getBrandComparisonSlugs()].map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
   const { slug } = await params;
+  const bc = getBrandComparison(slug);
+  if (bc) {
+    const description = `${bc.title}: princípio ativo, indicação, doses e estudos lado a lado. ${bc.differenceText}`.slice(0, 300);
+    return {
+      title: `${bc.title}: qual a diferença`,
+      description,
+      alternates: { canonical: `/comparar/${slug}` },
+      ...social({ kind: 'comparar', slug, path: `/comparar/${slug}`, title: `${bc.title}: qual a diferença`, description }),
+    };
+  }
   const c = getComparison(slug);
   if (!c) return { title: 'Comparação não encontrada', robots: { index: false, follow: true } };
   const names = c.peptideSlugs.map((s) => getPeptideBySlug(s)?.name ?? s).join(' e ');
@@ -80,6 +93,8 @@ function buildComparisonFaq(items: Peptide[]): FAQItem[] {
 
 export default async function ComparisonPage({ params }: { params: Promise<Params> }) {
   const { slug } = await params;
+  const bc = getBrandComparison(slug);
+  if (bc) return <BrandComparisonView c={bc} />;
   const c = getComparison(slug);
   if (!c) notFound();
 
@@ -131,6 +146,9 @@ export default async function ComparisonPage({ params }: { params: Promise<Param
       <div className="max-w-6xl mx-auto px-4 md:px-6 py-8 md:py-10">
         <Comparator peptides={peptides} initialSlugs={c.peptideSlugs} />
 
+        {/* Oferta no meio da página (antes ficava no fim, depois de tudo). */}
+        <EbookOffer offer={offerFor(ebookForComparison(c.peptideSlugs))} className="!my-8" />
+
         <section className="mt-10" aria-labelledby="resumo-comparativo">
           <h2 id="resumo-comparativo" className="text-xl md:text-2xl font-bold mb-4">Resumo de cada um</h2>
           <div className={`grid gap-4 ${items.length > 2 ? 'md:grid-cols-3' : 'md:grid-cols-2'}`}>
@@ -172,8 +190,6 @@ export default async function ComparisonPage({ params }: { params: Promise<Param
           </Link>
         )}
 
-        <EbookOffer offer={toOffer(ebookForComparison(c.peptideSlugs))} />
-
         <FAQ items={faq} title={`Perguntas frequentes: ${c.title}`} />
 
         <section className="mt-10">
@@ -191,6 +207,9 @@ export default async function ComparisonPage({ params }: { params: Promise<Param
           </div>
         </section>
 
+        <div className="mt-8 no-print">
+          <ShareButtons title={`${c.title}: comparativo`} />
+        </div>
         <MedicalDisclaimer variant="prominent" />
       </div>
     </>

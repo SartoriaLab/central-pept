@@ -9,30 +9,16 @@ import FAQ, { type FAQItem } from '@/components/ui/FAQ';
 import PrintButton from '@/components/ui/PrintButton';
 import { calcByVolume, fmt } from '@/components/calculator/calc';
 import { getPeptideBySlug } from '@/lib/peptides';
-import { TITRATION_SCHEMES, doseLabel, durationLabel, getTitrationDoses, stepPeriodLabel, type TitrationScheme } from '@/lib/titration';
+import { TITRATION_SCHEMES, getTitrationDoses } from '@/lib/titration';
 import { SITE_URL } from '@/lib/site';
+import DoseLadder from '@/components/calculator/DoseLadder';
+import EmbedSnippet from '@/components/ui/EmbedSnippet';
 import EbookOffer from '@/components/ebook/EbookOffer';
-import { ebookForTool, toOffer } from '@/lib/ebooks';
+import { ebookForTool, offerFor } from '@/lib/ebooks';
 
 const PATH = '/ferramentas/tabela-doses-glp1';
 const WATER_VOLUMES = [1, 2];
 const LOG_ROWS = 12;
-
-// Esquemas com a mesma escada (Mounjaro e Zepbound) viram uma tabela só.
-function uniqueSchemes(): { scheme: TitrationScheme; label: string }[] {
-  const seen = new Map<string, { scheme: TitrationScheme; label: string }>();
-  for (const s of TITRATION_SCHEMES) {
-    const key = `${s.peptideSlug}:${s.steps.map((x) => x.dose).join('/')}`;
-    const brand = s.name.split(' — ')[1]?.replace(/\s*\(.*\)$/, '');
-    const existing = seen.get(key);
-    if (existing) {
-      if (brand) existing.label += ` / ${brand}`;
-    } else {
-      seen.set(key, { scheme: s, label: s.name.replace(/\s*\(.*\)$/, '') });
-    }
-  }
-  return Array.from(seen.values());
-}
 
 // Unidades na seringa só para esquemas injetáveis (o Rybelsus é comprimido).
 const PEPTIDE_SLUGS = Array.from(new Set(TITRATION_SCHEMES.filter((s) => s.route === 'injetavel').map((s) => s.peptideSlug)));
@@ -88,8 +74,6 @@ const th = 'p-2.5 font-bold text-left text-xs uppercase tracking-wider text-ink-
 const td = 'p-2.5 tabular-nums whitespace-nowrap';
 
 export default function TabelaDosesGlp1Page() {
-  const schemes = uniqueSchemes();
-
   return (
     <div className="max-w-6xl mx-auto px-4 md:px-6 py-6 md:py-10">
       <div className="mb-4">
@@ -113,37 +97,7 @@ export default function TabelaDosesGlp1Page() {
 
       <section aria-labelledby="escada">
         <h2 id="escada" className="text-xl md:text-2xl font-bold mb-3">1. Escada de doses (titulação)</h2>
-        <div className="grid gap-4 md:grid-cols-2">
-          {schemes.map(({ scheme, label }) => (
-            <div key={scheme.id} className="card overflow-hidden">
-              <h3 className="px-3 pt-3 font-bold text-ink">{label}</h3>
-              <p className="px-3 text-xs text-ink-3">
-                {scheme.route === 'oral' ? 'Comprimido' : 'Injeção'} {scheme.frequency === 'diaria' ? 'diária' : 'semanal'} · mínimo de {durationLabel(scheme.stepDays)} por etapa
-              </p>
-              <table className="w-full text-sm mt-1">
-                <thead>
-                  <tr className="border-b border-border">
-                    <th scope="col" className={th}>Etapa</th>
-                    <th scope="col" className={th}>Período</th>
-                    <th scope="col" className={th}>{doseLabel(scheme.frequency)}</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {scheme.steps.map((step, i) => {
-                    const last = i === scheme.steps.length - 1;
-                    return (
-                      <tr key={step.dose} className="border-b border-border last:border-0">
-                        <td className={td}>{i + 1}</td>
-                        <td className={td}>{stepPeriodLabel(i, scheme.stepDays, last)}</td>
-                        <td className={`${td} font-bold text-teal-700`}>{fmt(step.dose, 2)} mg</td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
-            </div>
-          ))}
-        </div>
+        <DoseLadder />
         <p className="mt-3 text-sm text-ink-2 max-w-3xl">
           O tempo em cada etapa é o mínimo de bula: 4 semanas para semaglutida e tirzepatida semanais,
           1 semana para liraglutida (aplicação diária) e 30 dias para o Rybelsus (comprimido diário).
@@ -238,7 +192,16 @@ export default function TabelaDosesGlp1Page() {
       </section>
 
 
-      <EbookOffer offer={toOffer(ebookForTool('tabela-doses-glp1'))} className="max-w-3xl" />
+      <EbookOffer offer={offerFor(ebookForTool('tabela-doses-glp1'))} className="max-w-3xl" />
+
+      <EmbedSnippet
+        embedUrl={`${SITE_URL}/embed/tabela-doses-glp1`}
+        creditUrl={`${SITE_URL}${PATH}`}
+        creditLabel="Tabela de doses de Mounjaro, Ozempic e Wegovy"
+        title="Escada de doses de Mounjaro, Ozempic e Wegovy"
+        tool="tabela-doses-glp1"
+        height={1100}
+      />
 
       <RelatedLinks links={RELATED_LINKS} />
 

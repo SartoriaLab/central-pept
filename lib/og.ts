@@ -3,7 +3,7 @@ import { TOOLS } from './tools';
 
 // Imagens de compartilhamento geradas no build em /og/<kind>/<slug>
 // (ver app/og/[kind]/[slug]/route.tsx).
-export type OgKind = 'blog' | 'comparar' | 'calculadora' | 'medicamentos' | 'categoria' | 'glossario' | 'pagina';
+export type OgKind = 'blog' | 'comparar' | 'calculadora' | 'medicamentos' | 'categoria' | 'glossario' | 'pagina' | 'ebook';
 
 /** Páginas fixas com imagem própria: chave → título e rótulo exibidos no cartão. */
 export const OG_PAGES: Record<string, { title: string; eyebrow: string }> = {

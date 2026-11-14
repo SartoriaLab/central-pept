@@ -3,9 +3,9 @@ import { socialImage } from '@/lib/og';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import RelatedLinks, { type RelatedLink } from '@/components/ui/RelatedLinks';
 import { SITE_URL } from '@/lib/site';
+import EmbedSnippet from '@/components/ui/EmbedSnippet';
 import ScheduleCalculator from '@/components/calculator/ScheduleCalculator';
-import EbookOffer from '@/components/ebook/EbookOffer';
-import { ebookForTool, toOffer } from '@/lib/ebooks';
+import { ebookForTool, offerFor } from '@/lib/ebooks';
 import { getPeptides } from '@/lib/peptides';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
 import FAQ, { type FAQItem } from '@/components/ui/FAQ';
@@ -72,9 +72,16 @@ export default function CronogramaPage() {
         </p>
       </header>
 
-      <ScheduleCalculator peptides={peptides} />
+      <ScheduleCalculator peptides={peptides} offer={offerFor(ebookForTool('cronograma'))} />
 
-      <EbookOffer variant="result" offer={toOffer(ebookForTool('cronograma'))} className="mt-6 max-w-3xl" />
+      <EmbedSnippet
+        embedUrl={`${SITE_URL}/embed/cronograma`}
+        creditUrl={`${SITE_URL}/ferramentas/cronograma`}
+        creditLabel="Cronograma de doses de peptídeos"
+        title="Cronograma de doses de peptídeos"
+        tool="cronograma"
+        height={1000}
+      />
 
       <RelatedLinks links={RELATED_LINKS} />
 

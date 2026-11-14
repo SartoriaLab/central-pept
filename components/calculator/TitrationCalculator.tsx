@@ -222,7 +222,12 @@ export default function TitrationCalculator({ embed = false, offers }: Props) {
             <EbookOffer
               variant="result"
               offer={offers?.[scheme.peptideSlug]}
-              lead={`Seu plano chega à manutenção em ${durationLabel(daysToMaintenance)}.`}
+              lead={
+                // Sem aprovação em nenhum país: a escada é a dos ensaios, não um plano de uso.
+                scheme.peptideSlug === 'retatrutida'
+                  ? 'Esta é a escada usada nos estudos: a retatrutida ainda não foi aprovada em nenhum país.'
+                  : `Seu plano chega à manutenção em ${durationLabel(daysToMaintenance)}.`
+              }
               className="mt-5"
             />
           )}

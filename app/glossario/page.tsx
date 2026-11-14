@@ -3,6 +3,8 @@ import { socialImage } from '@/lib/og';
 import Link from 'next/link';
 import { getGlossary, type GlossaryTerm } from '@/lib/glossary';
 import { SITE_URL } from '@/lib/site';
+import EbookOffer from '@/components/ebook/EbookOffer';
+import { ebookForHub, ebookForSection, offerFor } from '@/lib/ebooks';
 
 export const metadata: Metadata = {
   title: 'Glossário de Peptídeos: termos técnicos explicados',
@@ -92,6 +94,7 @@ export default function GlossarioPage() {
             </dl>
           </section>
         ))}
+        <EbookOffer offer={offerFor(ebookForSection('glossario') ?? ebookForHub())} />
       </div>
     </>
   );

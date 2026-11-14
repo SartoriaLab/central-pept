@@ -5,7 +5,7 @@ import Breadcrumb from '@/components/ui/Breadcrumb';
 import RelatedLinks, { type RelatedLink } from '@/components/ui/RelatedLinks';
 import { SITE_URL } from '@/lib/site';
 import ReconstitutionCalculator from '@/components/calculator/ReconstitutionCalculator';
-import { ebookForTool, toOffer } from '@/lib/ebooks';
+import { ebookForTool, offerFor } from '@/lib/ebooks';
 import { getPeptides } from '@/lib/peptides';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
 import FAQ, { type FAQItem } from '@/components/ui/FAQ';
@@ -84,7 +84,7 @@ export default function ReconstitucaoPage() {
         </p>
       </header>
 
-      <ReconstitutionCalculator peptides={peptides} offer={toOffer(ebookForTool('reconstituicao'))} />
+      <ReconstitutionCalculator peptides={peptides} offer={offerFor(ebookForTool('reconstituicao'))} />
 
       <section className="mt-10 no-print" aria-labelledby="por-peptideo">
         <h2 id="por-peptideo" className="text-xl md:text-2xl font-bold mb-2">Calculadora por peptídeo</h2>

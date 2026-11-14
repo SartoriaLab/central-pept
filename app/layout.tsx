@@ -6,6 +6,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import SiteChrome from '@/components/layout/SiteChrome';
 import ServiceWorker from '@/components/layout/ServiceWorker';
+import ExitOffer from '@/components/ebook/ExitOffer';
 import './globals.css';
 
 const inter = Inter({
@@ -154,6 +155,7 @@ export default function RootLayout({
         <SiteChrome><Footer /></SiteChrome>
         <Analytics />
         <ServiceWorker />
+        <ExitOffer />
       </body>
     </html>
   );

@@ -6,6 +6,7 @@ import { notFound } from 'next/navigation';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import FAQ from '@/components/ui/FAQ';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
+import ShareButtons from '@/components/ui/ShareButtons';
 import {
   getCategoryPage,
   getCategoryPages,
@@ -18,7 +19,7 @@ import { getArticlesByPeptide, type Article } from '@/lib/articles';
 import { getBrandsByPeptide } from '@/lib/brands';
 import { SITE_URL } from '@/lib/site';
 import EbookOffer from '@/components/ebook/EbookOffer';
-import { ebookForCategory, toOffer } from '@/lib/ebooks';
+import { ebookForCategory, offerFor } from '@/lib/ebooks';
 
 type Params = { categoria: string };
 
@@ -160,6 +161,9 @@ export default async function CategoryPage({ params }: { params: Promise<Params>
           </p>
         </section>
 
+        {/* Oferta no meio da página (antes ficava no fim, depois de tudo). */}
+        <EbookOffer offer={offerFor(ebookForCategory(c.slug))} className="!my-8" />
+
         <section className="mt-10" aria-labelledby="resumo-peptideos">
           <h2 id="resumo-peptideos" className="text-xl md:text-2xl font-bold mb-4">Cada peptídeo em uma frase</h2>
           <div className="grid gap-3 sm:grid-cols-2">
@@ -230,8 +234,6 @@ export default async function CategoryPage({ params }: { params: Promise<Params>
           </section>
         )}
 
-        <EbookOffer offer={toOffer(ebookForCategory(c.slug))} />
-
         <FAQ items={c.faq} />
 
         <section className="mt-10" aria-labelledby="outras-categorias">
@@ -255,6 +257,9 @@ export default async function CategoryPage({ params }: { params: Promise<Params>
           </div>
         </section>
 
+        <div className="mt-8 no-print">
+          <ShareButtons title={c.title} />
+        </div>
         <MedicalDisclaimer variant="prominent" />
       </div>
     </>

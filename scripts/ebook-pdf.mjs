@@ -86,13 +86,48 @@ ${body}
 </body></html>`;
 }
 
-const [name, ...rest] = process.argv.slice(2);
+// Amostra para a landing: a primeira página do capítulo 1 e a do primeiro bônus, como imagem
+// em public/ebooks/<slug>/amostra-1.webp e amostra-2.webp (campo `sample` de lib/ebooks.ts).
+async function samples(book) {
+  const { default: sharp } = await import('sharp');
+  const picks = [book.parts[1], book.parts.find((p) => /^b[oô]nus/i.test(p.title))].filter(Boolean);
+  const dest = join(ROOT, 'public', 'ebooks', book.slug);
+  mkdirSync(dest, { recursive: true });
+  for (const [i, part] of picks.entries()) {
+    const html = join(OUT, `${book.slug}-amostra-${i + 1}.html`);
+    const png = join(OUT, `${book.slug}-amostra-${i + 1}.png`);
+    writeFileSync(
+      html,
+      `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><style>${CSS}
+html, body { margin: 0; background: #fff; }
+body { width: 794px; height: 1123px; overflow: hidden; padding: 83px 76px; }</style></head><body>${part.html}</body></html>`,
+    );
+    execFileSync(findChrome(), [
+      '--headless',
+      '--disable-gpu',
+      '--hide-scrollbars',
+      '--window-size=794,1123',
+      `--screenshot=${png}`,
+      `file:///${html.replace(/\\/g, '/')}`,
+    ]);
+    const out = join(dest, `amostra-${i + 1}.webp`);
+    await sharp(png).webp({ quality: 80 }).toFile(out);
+    console.log(out);
+  }
+}
+
+const args = process.argv.slice(2);
+const [name, ...rest] = args.filter((a) => !a.startsWith('--'));
 if (!name) {
-  console.error('uso: node scripts/ebook-pdf.mjs <slug> [<slug-parte>...]');
+  console.error('uso: node scripts/ebook-pdf.mjs <slug> [<slug-parte>...] [--amostra]');
   process.exit(1);
 }
 const books = (rest.length ? rest : [name]).map(loadBook);
 mkdirSync(OUT, { recursive: true });
+if (args.includes('--amostra')) {
+  await samples(books[0]);
+  process.exit(0);
+}
 const html = join(OUT, `${name}.html`);
 const pdf = join(OUT, `${name}.pdf`);
 writeFileSync(html, render(name, books));

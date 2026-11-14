@@ -5,6 +5,8 @@ import remarkGfm from 'remark-gfm';
 import ArticleLayout from '@/components/blog/ArticleLayout';
 import FAQ from '@/components/ui/FAQ';
 import { mdxComponents } from '@/components/blog/mdx-components';
+import EbookOffer from '@/components/ebook/EbookOffer';
+import { ebookForPost, offerFor } from '@/lib/ebooks';
 import { buildArticleMetadata, getArticleBody, getArticleBySlug, getMdxArticleSlugs } from '@/lib/articles';
 
 // Posts escritos em content/blog/<slug>.mdx. Para criar um post, basta o arquivo:
@@ -30,14 +32,17 @@ export default async function BlogPost({ params }: { params: Promise<Params> }) 
   const body = getArticleBody(slug);
   if (!article || body === undefined) notFound();
 
+  // <Guia /> no meio do texto: a oferta do próprio post, depois da seção que responde a pergunta.
+  const offer = offerFor(ebookForPost(article.slug, article.relatedPeptides));
+  const inlineOffer = body.includes('<Guia');
   const { content } = await compileMDX({
     source: body,
-    components: mdxComponents,
+    components: { ...mdxComponents, Guia: () => <EbookOffer offer={offer} /> },
     options: { mdxOptions: { remarkPlugins: [remarkGfm] } },
   });
 
   return (
-    <ArticleLayout article={article}>
+    <ArticleLayout article={article} inlineOffer={inlineOffer}>
       {content}
       {article.faq && article.faq.length > 0 && (
         <div className="not-prose">

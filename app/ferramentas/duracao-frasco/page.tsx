@@ -3,9 +3,9 @@ import { social } from '@/lib/og';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import RelatedLinks, { type RelatedLink } from '@/components/ui/RelatedLinks';
 import { SITE_URL } from '@/lib/site';
+import EmbedSnippet from '@/components/ui/EmbedSnippet';
 import VialPlanner from '@/components/calculator/VialPlanner';
-import EbookOffer from '@/components/ebook/EbookOffer';
-import { ebookForTool, toOffer } from '@/lib/ebooks';
+import { ebookForTool, offerFor } from '@/lib/ebooks';
 import { getPeptides } from '@/lib/peptides';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
 import FAQ, { type FAQItem } from '@/components/ui/FAQ';
@@ -73,9 +73,16 @@ export default function DuracaoFrascoPage() {
         </p>
       </header>
 
-      <VialPlanner peptides={getPeptides()} />
+      <VialPlanner peptides={getPeptides()} offer={offerFor(ebookForTool('duracao-frasco'))} />
 
-      <EbookOffer variant="result" offer={toOffer(ebookForTool('duracao-frasco'))} className="mt-6 max-w-3xl" />
+      <EmbedSnippet
+        embedUrl={`${SITE_URL}/embed/duracao-frasco`}
+        creditUrl={`${SITE_URL}/ferramentas/duracao-frasco`}
+        creditLabel="Quanto tempo dura o frasco de peptídeo"
+        title="Quanto tempo dura o frasco"
+        tool="duracao-frasco"
+        height={900}
+      />
 
       <RelatedLinks links={RELATED_LINKS} />
 

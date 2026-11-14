@@ -1,98 +1,118 @@
 'use client';
 
 // Oferta de ebook dentro das páginas. Recebe a oferta já resolvida no servidor
-// (lib/ebooks.ts → toOffer) e não renderiza nada quando ela é null.
+// (lib/ebooks.ts → offerFor/toOffer) e não renderiza nada quando ela é null.
 //
 // Variantes:
-//   card   — capa, 3 itens do sumário e preço (ficha, marca, fim de artigo, índices)
-//   line   — uma linha (logo depois do resumo do artigo)
-//   result — compacta, embaixo do resultado da calculadora; `lead` usa o dado calculado
+//   card   — capa, gancho, 3 itens, âncora de preço e botão (ficha, marca, fim de artigo, índices)
+//   line   — faixa curta com capa e botão (logo depois do resumo do artigo)
+//   result — embaixo do resultado da calculadora; `lead` usa o dado calculado. No celular, quando
+//            a pessoa rola para além do bloco, aparece uma barra fina no rodapé (OfferBar).
 //
+// Toda variante registra a oferta para o pop-up de saída (offer-store → ExitOffer).
 // Nunca aparece na impressão (no-print) nem nos embeds (a calculadora não recebe oferta).
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import EbookCover from '@/components/ebook/EbookCover';
+import OfferBar from '@/components/ebook/OfferBar';
+import { clearPageOffer, markOfferClicked, setPageOffer } from '@/components/ebook/offer-store';
 import type { EbookOffer as Offer } from '@/lib/ebooks';
 import { EVENTS, track, trackOnce } from '@/lib/track';
 
+type Variant = 'card' | 'line' | 'result';
+
 type Props = {
   offer: Offer | null | undefined;
-  variant?: 'card' | 'line' | 'result';
+  variant?: Variant;
   /** Frase com o dado da pessoa (variante result). */
   lead?: string;
   className?: string;
 };
 
+/** Link da landing com a origem (variante e página), lida pelo CheckoutButton para as UTMs. */
+export function offerHref(offer: Offer, origem: string, pathname: string | null): string {
+  return `/ebooks/${offer.slug}?origem=${origem}&de=${encodeURIComponent(pathname || '/')}`;
+}
+
 export default function EbookOffer({ offer, variant = 'card', lead, className = '' }: Props) {
   const ref = useRef<HTMLElement>(null);
-  const pathname = usePathname();
+  const pathname = usePathname() || '/';
+  // Para a barra do celular: o bloco já passou para cima da tela.
+  const [passed, setPassed] = useState(false);
+
+  useEffect(() => {
+    if (!offer) return;
+    setPageOffer(offer);
+    return () => clearPageOffer(offer);
+  }, [offer]);
 
   useEffect(() => {
     const el = ref.current;
     if (!el || !offer || typeof IntersectionObserver === 'undefined') return;
     const io = new IntersectionObserver(
-      (entries) => {
-        if (entries.some((e) => e.isIntersecting)) {
-          trackOnce(EVENTS.ebookView, { ebook: offer.id, posicao: variant });
-          io.disconnect();
-        }
+      ([entry]) => {
+        if (entry.isIntersecting) trackOnce(EVENTS.ebookView, { ebook: offer.id, posicao: variant, pagina: pathname });
+        setPassed(!entry.isIntersecting && entry.boundingClientRect.top < 0);
       },
       { threshold: 0.5 },
     );
     io.observe(el);
     return () => io.disconnect();
-  }, [offer, variant]);
+  }, [offer, variant, pathname]);
 
   if (!offer) return null;
 
-  const href = `/ebooks/${offer.slug}?origem=${variant}&de=${encodeURIComponent(pathname || '/')}`;
-  const onClick = () => track(EVENTS.ebookClick, { ebook: offer.id, posicao: variant });
+  const href = offerHref(offer, variant, pathname);
+  const onClick = () => {
+    markOfferClicked();
+    track(EVENTS.ebookClick, { ebook: offer.id, posicao: variant, pagina: pathname });
+  };
   const price = offer.priceLabel;
+  const proof = `${offer.pages} páginas · acesso imediato · 7 dias de garantia`;
 
   if (variant === 'line') {
     return (
       <aside ref={ref} className={`not-prose no-print my-6 ${className}`} aria-label="Guia em PDF">
-        <Link
-          href={href}
-          onClick={onClick}
-          className="group flex flex-wrap items-center gap-x-3 gap-y-1 px-4 py-3 rounded-xl border border-border bg-surface hover:border-teal transition-colors"
-        >
-          <span className="text-sm text-ink-2 leading-snug flex-1 min-w-[12rem]">{offer.line}</span>
-          <span className="text-sm font-semibold text-teal-700 whitespace-nowrap group-hover:underline">
-            Ver o guia · {price} →
-          </span>
-        </Link>
+        <div className="flex items-center gap-3 px-3 py-3 sm:px-4 rounded-xl border border-teal-100 bg-teal-50">
+          <EbookCover title={offer.title} cover={offer.cover} size="xs" />
+          <div className="min-w-0 flex-1">
+            <p className="text-sm text-ink leading-snug">{offer.line}</p>
+            <Link href={href} onClick={onClick} className="btn-teal !h-9 !px-3 mt-2 text-xs">
+              Ver o guia · {price}
+            </Link>
+          </div>
+        </div>
       </aside>
     );
   }
 
   if (variant === 'result') {
     return (
-      <aside
-        ref={ref}
-        className={`no-print rounded-xl border border-teal-100 bg-teal-50 p-4 ${className}`}
-        aria-label="Guia em PDF"
-      >
-        <div className="flex items-start gap-3">
-          <EbookCover title={offer.title} cover={offer.cover} />
-          <div className="min-w-0 flex-1">
-            <p className="text-xs font-bold uppercase tracking-wider text-teal-700">Próximo passo</p>
-            <p className="mt-1 text-sm text-ink leading-snug">
-              {lead ? <strong>{lead} </strong> : null}
-              {offer.hook}
-            </p>
-            <Link
-              href={href}
-              onClick={onClick}
-              className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-teal-700 hover:underline"
-            >
-              {offer.title} · {price} →
-            </Link>
+      <>
+        <aside
+          ref={ref}
+          className={`no-print rounded-xl border border-teal-100 bg-teal-50 p-4 ${className}`}
+          aria-label="Guia em PDF"
+        >
+          <div className="flex items-start gap-3">
+            <EbookCover title={offer.title} cover={offer.cover} />
+            <div className="min-w-0 flex-1">
+              <p className="text-xs font-bold uppercase tracking-wider text-teal-700">Próximo passo</p>
+              <p className="mt-1 text-sm text-ink leading-snug">
+                {lead ? <strong>{lead} </strong> : null}
+                {offer.hook}
+              </p>
+            </div>
           </div>
-        </div>
-      </aside>
+          <Link href={href} onClick={onClick} className="btn-teal w-full mt-3">
+            Ver o guia · {price}
+          </Link>
+          <p className="mt-2 text-center text-xs text-ink-3">{proof}</p>
+        </aside>
+        <OfferBar offer={offer} show={passed} href={offerHref(offer, 'barra', pathname)} />
+      </>
     );
   }
 
@@ -104,21 +124,36 @@ export default function EbookOffer({ offer, variant = 'card', lead, className = 
           <p className="text-xs font-bold uppercase tracking-wider text-teal-700">Guia em PDF</p>
           <h2 className="mt-1 text-lg md:text-xl font-extrabold text-ink leading-tight">{offer.title}</h2>
           <p className="mt-2 text-sm text-ink-2 leading-relaxed">{offer.hook}</p>
-          <ul className="mt-3 space-y-1 text-sm text-ink-2">
-            {offer.bullets.map((b) => (
-              <li key={b} className="flex gap-2">
-                <span className="text-teal-700" aria-hidden>✓</span>
-                <span>{b}</span>
-              </li>
-            ))}
-          </ul>
-          <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2">
-            <Link href={href} onClick={onClick} className="btn-teal">
-              Quero ver o guia · {price}
-            </Link>
-            <span className="text-xs text-ink-3">{offer.pages} páginas · acesso imediato · 7 dias de garantia</span>
-          </div>
         </div>
+      </div>
+      <div className="mt-4 grid gap-4 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-start">
+        <ul className="space-y-1.5 text-sm text-ink-2">
+          {offer.bullets.map((b) => (
+            <li key={b} className="flex gap-2">
+              <span className="text-teal-700" aria-hidden>✓</span>
+              <span>{b}</span>
+            </li>
+          ))}
+        </ul>
+        {offer.sample ? (
+          // Página real do PDF: mostra o produto antes do clique.
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={offer.sample}
+            alt={`Página de amostra do guia ${offer.title}`}
+            width={112}
+            height={158}
+            loading="lazy"
+            className="hidden sm:block w-28 h-auto rounded-md border border-border shadow-sm bg-white"
+          />
+        ) : null}
+      </div>
+      {offer.anchor ? <p className="mt-3 text-xs text-ink-3 leading-relaxed">{offer.anchor}</p> : null}
+      <div className="mt-4 flex flex-col sm:flex-row sm:items-center gap-x-4 gap-y-2">
+        <Link href={href} onClick={onClick} className="btn-teal w-full sm:w-auto">
+          Quero ver o guia · {price}
+        </Link>
+        <span className="text-xs text-ink-3 text-center sm:text-left">{proof}</span>
       </div>
     </aside>
   );

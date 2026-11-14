@@ -3,9 +3,9 @@ import { social } from '@/lib/og';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import RelatedLinks, { type RelatedLink } from '@/components/ui/RelatedLinks';
 import { SITE_URL } from '@/lib/site';
+import EmbedSnippet from '@/components/ui/EmbedSnippet';
 import MixCalculator from '@/components/calculator/MixCalculator';
-import EbookOffer from '@/components/ebook/EbookOffer';
-import { ebookForTool, toOffer } from '@/lib/ebooks';
+import { ebookForTool, offerFor } from '@/lib/ebooks';
 import { getPeptides } from '@/lib/peptides';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
 import FAQ, { type FAQItem } from '@/components/ui/FAQ';
@@ -77,9 +77,16 @@ export default function MisturaPage() {
         </p>
       </header>
 
-      <MixCalculator peptides={peptides} />
+      <MixCalculator peptides={peptides} offer={offerFor(ebookForTool('mistura'))} />
 
-      <EbookOffer variant="result" offer={toOffer(ebookForTool('mistura'))} className="mt-6 max-w-3xl" />
+      <EmbedSnippet
+        embedUrl={`${SITE_URL}/embed/mistura`}
+        creditUrl={`${SITE_URL}/ferramentas/mistura`}
+        creditLabel="Calculadora de mistura de peptídeos"
+        title="Calculadora de mistura de peptídeos"
+        tool="mistura"
+        height={1000}
+      />
 
       <RelatedLinks links={RELATED_LINKS} />
 

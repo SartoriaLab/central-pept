@@ -8,6 +8,7 @@ import remarkGfm from 'remark-gfm';
 import { getArticleBody, getArticles, getMdxArticleSlugs } from '@/lib/articles';
 import { getPeptides, CATEGORY_LABELS } from '@/lib/peptides';
 import { COMPARISONS } from '@/lib/comparisons';
+import { BRAND_COMPARISONS, getBrandComparisons } from '@/lib/brand-comparisons';
 import { getBrands } from '@/lib/brands';
 import { TITRATION_SCHEMES } from '@/lib/titration';
 import { getCategoryPages } from '@/lib/categories';
@@ -27,7 +28,7 @@ describe('slugs únicos', () => {
   it.each([
     ['peptídeos', getPeptides().map((p) => p.slug)],
     ['artigos', getArticles().map((a) => a.slug)],
-    ['comparativos', COMPARISONS.map((c) => c.slug)],
+    ['comparativos', [...COMPARISONS, ...BRAND_COMPARISONS].map((c) => c.slug)],
     ['marcas', getBrands().map((b) => b.slug)],
     ['glossário', getGlossary().map((g) => g.slug)],
     ['categorias', getCategoryPages().map((c) => c.slug)],
@@ -50,6 +51,15 @@ describe('referências entre arquivos de conteúdo', () => {
   it('artigos citam peptídeos que existem', () => {
     for (const a of getArticles()) {
       for (const s of a.relatedPeptides ?? []) expect(peptideSlugs.has(s), `${a.slug} → ${s}`).toBe(true);
+    }
+  });
+
+  it('comparativos de marca citam marcas e posts que existem e têm diferença', () => {
+    expect(getBrandComparisons().length).toBe(BRAND_COMPARISONS.length);
+    for (const c of getBrandComparisons()) {
+      expect(c.differenceText.length, c.slug).toBeGreaterThan(40);
+      if (c.headToHead) expect(c.headToHeadResult, `${c.slug} → ${c.headToHead.trial}`).toBeTruthy();
+      if (c.relatedPost) expect(articleSlugs.has(c.relatedPost), `${c.slug} → ${c.relatedPost}`).toBe(true);
     }
   });
 
@@ -105,7 +115,7 @@ function knownPaths(): Set<string> {
     paths.add(`/ferramentas/reconstituicao/${p.slug}`);
   }
   for (const a of getArticles()) paths.add(`/blog/${a.slug}`);
-  for (const c of COMPARISONS) paths.add(`/comparar/${c.slug}`);
+  for (const c of [...COMPARISONS, ...BRAND_COMPARISONS]) paths.add(`/comparar/${c.slug}`);
   for (const b of getBrands()) paths.add(`/medicamentos/${b.slug}`);
   for (const g of getGlossary()) paths.add(`/glossario/${g.slug}`);
   for (const c of getCategoryPages()) paths.add(`/peptideos/categoria/${c.slug}`);
@@ -125,7 +135,7 @@ describe('posts MDX', () => {
     await compile(body, { remarkPlugins: [remarkGfm] });
     expect(body, 'expressão JavaScript {…} não é permitida no MDX').not.toMatch(/\{[^}]*\}/);
     const tags = Array.from(body.matchAll(/<([A-Z][A-Za-z]*)/g), (m) => m[1]);
-    for (const t of tags) expect(['Callout', 'Link'], `<${t}> em ${slug}`).toContain(t);
+    for (const t of tags) expect(['Callout', 'Link', 'Guia'], `<${t}> em ${slug}`).toContain(t);
   });
 
   it.each(slugs)('%s: links internos existem', (slug) => {
