@@ -57,6 +57,8 @@ export type Ebook = {
   cover: string;
   /** Variável de ambiente com a URL do checkout da Kiwify. */
   checkoutEnv: string;
+  /** Id do produto na Kiwify: o webhook de vendas usa para saber qual guia foi vendido. */
+  kiwifyProductId?: string;
   /** Onde a oferta aparece (slugs de lib/peptides, posts, lib/tools, lib/categories). */
   places: {
     peptides?: string[];
@@ -184,6 +186,7 @@ export const EBOOKS: Ebook[] = [
     bumps: ['T1', 'T3'],
     cover: 'from-teal-600 via-teal-700 to-sky-800',
     checkoutEnv: 'KIWIFY_CHECKOUT_SEMAGLUTIDA',
+    kiwifyProductId: 'b5aa7fb0-dfc4-11f1-9b0e-1d63259b3d5d',
     places: {
       peptides: ['semaglutida'],
     },
@@ -239,6 +242,7 @@ export const EBOOKS: Ebook[] = [
     bumps: ['T1', 'T3'],
     cover: 'from-sky-600 via-sky-700 to-indigo-800',
     checkoutEnv: 'KIWIFY_CHECKOUT_TIRZEPATIDA',
+    kiwifyProductId: 'b8c16730-dfc5-11f1-992b-85e75ef0d685',
     places: {
       peptides: ['tirzepatida'],
       posts: ['semaglutida-vs-tirzepatida'],
@@ -715,6 +719,7 @@ export const EBOOKS: Ebook[] = [
     bumps: ['T2'],
     cover: 'from-teal-500 via-cyan-600 to-sky-800',
     checkoutEnv: 'KIWIFY_CHECKOUT_RECONSTITUICAO',
+    kiwifyProductId: 'd3b93e00-dfc5-11f1-b2ef-e388708c1a73',
     places: {
       posts: ['como-reconstituir-semaglutida', 'como-reconstituir-tirzepatida', 'agua-bacteriostatica-guia'],
       tools: ['reconstituicao', 'conversor', 'cronograma'],
@@ -766,6 +771,7 @@ export const EBOOKS: Ebook[] = [
     bumps: ['T1'],
     cover: 'from-slate-600 via-slate-700 to-teal-800',
     checkoutEnv: 'KIWIFY_CHECKOUT_COMPRA',
+    kiwifyProductId: '31260550-dfc6-11f1-9205-439bc5ce1992',
     places: {
       posts: [
         'ozempic-falso-como-identificar',
@@ -823,6 +829,7 @@ export const EBOOKS: Ebook[] = [
     sources: ['Extensão do estudo STEP 1', 'Estudo STEP 4', 'Estudo SURMOUNT-4'],
     cover: 'from-orange-500 via-amber-600 to-teal-700',
     checkoutEnv: 'KIWIFY_CHECKOUT_PAREI',
+    kiwifyProductId: '560542a0-dfc6-11f1-9b0e-1d63259b3d5d',
     places: {
       posts: ['efeito-rebote-apos-parar-semaglutida', 'efeito-rebote-apos-parar-tirzepatida'],
       tools: ['diario'],
@@ -879,6 +886,7 @@ export const EBOOKS: Ebook[] = [
     bumps: ['T3'],
     cover: 'from-teal-600 via-sky-700 to-indigo-800',
     checkoutEnv: 'KIWIFY_CHECKOUT_KIT',
+    kiwifyProductId: '6fad40e0-dfc6-11f1-af23-a9366f1cb294',
     places: { categories: ['emagrecimento', 'proibidos-no-esporte', 'meia-vida'] },
   },
 ];
