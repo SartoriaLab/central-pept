@@ -24,6 +24,7 @@ import { EVENTS, track, trackOnce } from '@/lib/track';
 import EbookOffer from '@/components/ebook/EbookOffer';
 import TabelaPreview from '@/components/tabela/TabelaPreview';
 import TabelaNudge from '@/components/tabela/TabelaNudge';
+import TabelaStrip from '@/components/tabela/TabelaStrip';
 import type { EbookOffer as Offer } from '@/lib/ebooks';
 
 type Mode = 'volume' | 'units';
@@ -939,6 +940,8 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug,
               <div className="px-4 pt-2 pb-4">
                 <Syringe units={result.unitsPerDose} maxUnits={syringe} />
               </div>
+
+              {offer?.id === 'TAB' ? <TabelaStrip offer={offer} /> : null}
 
               {/* Métricas */}
               <div className="grid grid-cols-2 border-t border-border">

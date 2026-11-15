@@ -28,24 +28,25 @@ export default function TabelaPreview({ vialMg, waterMl, doseMg, frequency }: Pr
   const more = t.calendar.length - 2;
 
   return (
-    <div className="mt-3 rounded-lg border border-teal-100 bg-surface p-3 text-sm" aria-label="Prévia da sua tabela">
-      <p className="text-xs font-bold uppercase tracking-wider text-ink-3">Prévia da sua tabela, se misturar hoje</p>
+    // Folha "impressa": branca e com tinta escura nos dois temas, como o PDF.
+    <div className="rounded-md bg-white p-3 text-sm text-slate-800 shadow-2xl ring-1 ring-black/5" aria-label="Prévia da sua tabela">
+      <p className="text-[11px] font-bold uppercase tracking-wider text-slate-500">Prévia da sua tabela, se misturar hoje</p>
       <table className="mt-1.5 w-full tabular-nums">
         <tbody>
           {rows.map((c, i) => (
             <tr
               key={c.n}
-              className={`border-b border-border last:border-0 ${i === 2 ? 'blur-[3px] select-none' : ''}`}
+              className={`border-b border-slate-200 last:border-0 ${i === 2 ? 'blur-[3px] select-none' : ''}`}
               aria-hidden={i === 2 || undefined}
             >
-              <td className="py-1 pr-2 text-ink-3">{c.n}</td>
+              <td className="py-1 pr-2 text-slate-400">{c.n}</td>
               <td className="py-1">{short(c.dateISO)}{c.period ? ` · ${c.period}` : ''}</td>
-              <td className="py-1 text-right font-bold text-teal-700">{fmt(t.unitsPerDose, 1)} U</td>
+              <td className="py-1 text-right font-bold text-[#0f766e]">{fmt(t.unitsPerDose, 1)} U</td>
             </tr>
           ))}
         </tbody>
       </table>
-      <p className="mt-1.5 text-xs text-ink-2">
+      <p className="mt-1.5 text-xs text-slate-600">
         {more > 0 ? `+ ${more} ${more === 1 ? 'aplicação' : 'aplicações'}, ` : 'No PDF: '}descarte em{' '}
         <strong>{short(t.discardISO)}</strong>, etiqueta do frasco e outras doses{more > 0 ? ' no PDF' : ''}.
       </p>

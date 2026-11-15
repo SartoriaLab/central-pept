@@ -94,6 +94,55 @@ export default function EbookOffer({ offer, variant = 'card', lead, className = 
     );
   }
 
+  if (variant === 'result' && offer.id === 'TAB') {
+    // Tabela personalizada: oferta principal da calculadora mais usada do site. Bloco escuro
+    // de alto contraste, a prévia como folha impressa e botão âmbar (fixo nos dois temas).
+    const items = offer.bullets.map((b) => b.replace(/\s*\([^)]*\)\s*$/, ''));
+    return (
+      <>
+        <aside
+          ref={ref}
+          className={`no-print overflow-hidden rounded-2xl bg-[linear-gradient(140deg,#115e59_0%,#134e4a_55%,#0b2f2c_100%)] p-5 text-white shadow-xl ring-1 ring-black/10 ${className}`}
+          aria-label="Tabela personalizada em PDF"
+        >
+          <p className="inline-flex items-center gap-1.5 rounded-full bg-amber-400 px-2.5 py-1 text-[11px] font-extrabold uppercase tracking-wider text-slate-900">
+            <span aria-hidden>🖨️</span> Leve esta conta impressa
+          </p>
+          <h2 className="mt-3 text-xl font-extrabold leading-tight sm:text-2xl">
+            {lead ? `${lead} ` : ''}Tenha isso numa folha na geladeira.
+          </h2>
+          <p className="mt-2 text-sm leading-relaxed text-white/80">{offer.hook}</p>
+          {children ? <div className="mx-auto mt-4 max-w-sm -rotate-1">{children}</div> : null}
+          <ul className="mt-4 space-y-1.5 text-sm">
+            {items.map((b) => (
+              <li key={b} className="flex gap-2">
+                <span className="font-bold text-amber-300" aria-hidden>✓</span>
+                <span className="text-white/90">{b}</span>
+              </li>
+            ))}
+          </ul>
+          {offer.anchor ? (
+            <p className="mt-4 rounded-lg border-l-4 border-amber-400 bg-white/10 px-3 py-2 text-sm font-semibold leading-snug text-amber-100">
+              {offer.anchor}
+            </p>
+          ) : null}
+          <Link
+            href={href}
+            onClick={onClick}
+            className="mt-4 flex h-14 w-full items-center justify-center gap-2 rounded-xl bg-amber-400 text-base font-extrabold text-slate-900 shadow-lg transition hover:-translate-y-0.5 hover:bg-amber-300"
+          >
+            Quero minha tabela · {price}
+            <span aria-hidden>→</span>
+          </Link>
+          <p className="mt-2 text-center text-xs text-white/70">
+            PDF com os seus números · acesso imediato · 7 dias de garantia
+          </p>
+        </aside>
+        <OfferBar offer={offer} show={passed} href={offerHref(offer, 'barra', pathname)} />
+      </>
+    );
+  }
+
   if (variant === 'result') {
     return (
       <>
