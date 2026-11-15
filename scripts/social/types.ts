@@ -37,6 +37,8 @@ export type Draft = {
   narration: string[];
   /** Corpo da legenda, sem CTA, aviso nem hashtags (montados por caption.ts). */
   caption: string;
+  /** Pergunta para os comentários sobre a experiência do leitor (caption.ts põe "💬" e o convite). */
+  question: string;
 };
 
 /** Guia do slide final. */

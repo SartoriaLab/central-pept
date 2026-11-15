@@ -49,6 +49,7 @@ export const LIMITS = {
   narration: [3, 6] as const,
   narrationLine: 200,
   caption: 1500,
+  question: 120,
 };
 
 /** Lista de problemas; vazia = pode publicar. */
@@ -60,6 +61,7 @@ export function validateDraft(draft: Draft, source: string): string[] {
     ...draft.slides.flatMap((s) => [s.title, s.body]),
     ...draft.narration,
     draft.caption,
+    draft.question,
   ];
 
   for (const t of texts) {
@@ -84,6 +86,8 @@ export function validateDraft(draft: Draft, source: string): string[] {
     if (n.length > LIMITS.narrationLine) problems.push(`fala ${i + 1} longa (${n.length})`);
   });
   if (draft.caption.length > LIMITS.caption) problems.push(`legenda com ${draft.caption.length} caracteres (máx. ${LIMITS.caption})`);
+  if (!draft.question.trim().endsWith('?')) problems.push('pergunta dos comentários precisa terminar com "?"');
+  if (draft.question.length > LIMITS.question) problems.push(`pergunta com ${draft.question.length} caracteres (máx. ${LIMITS.question})`);
 
   return [...new Set(problems)];
 }

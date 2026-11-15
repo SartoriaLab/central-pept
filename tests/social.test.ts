@@ -10,6 +10,7 @@ import { MAX_CAPTION, MAX_HASHTAGS, buildCaption } from '@/scripts/social/captio
 import { ctaFor } from '@/scripts/social/ebook-cta';
 import { InstagramClient } from '@/scripts/social/instagram';
 import { toSpeech } from '@/scripts/social/render';
+import { nobreak } from '@/scripts/social/slides';
 import type { Draft, HistoryEntry, Topic } from '@/scripts/social/types';
 
 const DAY = 86_400_000;
@@ -27,6 +28,7 @@ const draft = (over: Partial<Draft> = {}): Draft => ({
   ],
   narration: ['Primeira fala.', 'Segunda fala.', 'Terceira fala.'],
   caption: 'Texto da legenda.',
+  question: 'Qual frasco você usa?',
   ...over,
 });
 
@@ -123,6 +125,11 @@ describe('validateDraft', () => {
     expect(validateDraft(draft({ caption: 'Resultado garantido' }), source).length).toBeGreaterThan(0);
   });
 
+  it('exige pergunta curta terminando em "?"', () => {
+    expect(validateDraft(draft({ question: 'Conta pra gente' }), source).join()).toContain('?');
+    expect(validateDraft(draft({ question: `${'x'.repeat(130)}?` }), source).length).toBeGreaterThan(0);
+  });
+
   it('barra quantidade de slides e falas fora do limite', () => {
     expect(validateDraft(draft({ slides: [{ title: 'a', body: 'b' }] }), source).length).toBeGreaterThan(0);
     expect(validateDraft(draft({ narration: ['só uma'] }), source).length).toBeGreaterThan(0);
@@ -133,13 +140,20 @@ describe('legenda', () => {
   const t: Topic = { ...topic('tirzepatida'), peptides: ['tirzepatida'] };
   const cta = { id: 'KIT', slug: 'kit', title: 'Kit Começo Seguro', priceLabel: 'R$ 69,90', cover: '', others: 4 };
 
-  it('tem chamada da bio, aviso e até 5 hashtags', () => {
+  it('ordem: gancho e salvar, corpo, pergunta, seguir, guia, aviso, hashtags', () => {
     const c = buildCaption(draft(), t, cta);
-    expect(c).toContain('Link na bio');
-    expect(c).toContain('Kit Começo Seguro');
-    expect(c).toContain('Não substitui orientação médica');
+    const order = ['Você está diluindo errado? 📌 Salve', 'Texto da legenda.', '💬 Qual frasco você usa?', 'Siga @dosecerta_br', 'Kit Começo Seguro', 'Não substitui orientação médica', '#tirzepatida'];
+    const at = order.map((s) => c.indexOf(s));
+    expect(at.every((i) => i >= 0)).toBe(true);
+    expect([...at].sort((a, b) => a - b)).toEqual(at);
+    expect(c).toContain('link da bio');
+    expect(c.split('\n')[0]).toContain('Salve');
+  });
+
+  it('até 5 hashtags, com o nome comercial', () => {
+    const c = buildCaption(draft(), t, cta);
     expect((c.match(/#\w+/g) ?? []).length).toBeLessThanOrEqual(MAX_HASHTAGS);
-    expect(c).toContain('#tirzepatida');
+    expect(c).toContain('#mounjaro');
   });
 
   it('corta o corpo para caber no limite do Instagram', () => {
@@ -235,6 +249,14 @@ describe('InstagramClient', () => {
     const r = await new InstagramClient({ ...opts, fetchFn: fn }).refreshToken();
     expect(r.token).toBe('novo');
     expect(calls[0].url).toContain('/refresh_access_token?grant_type=ig_refresh_token');
+  });
+});
+
+describe('slides', () => {
+  it('não quebra linha entre número e unidade nem em mg/ml', () => {
+    expect(nobreak('2,5 mg e 50 unidades, 5 mg/ml, 4 semanas, 2 mgx')).toBe(
+      '2,5 mg e 50 unidades, 5 mg/⁠ml, 4 semanas, 2 mgx',
+    );
   });
 });
 

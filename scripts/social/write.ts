@@ -21,7 +21,12 @@ const DraftSchema = z.object({
   narration: z
     .array(z.string())
     .describe(`${LIMITS.narration[0]} a ${LIMITS.narration[1]} falas do Reels, até ${LIMITS.narrationLine} caracteres cada; a primeira é o gancho. Sem a chamada final.`),
-  caption: z.string().describe(`Corpo da legenda, até ${LIMITS.caption} caracteres, sem hashtags e sem chamada para a bio.`),
+  caption: z
+    .string()
+    .describe(`Corpo da legenda, até ${LIMITS.caption} caracteres: o resumo prático do conteúdo. Sem pergunta final, sem convite para seguir ou salvar, sem hashtags e sem bio.`),
+  question: z
+    .string()
+    .describe(`Pergunta para os comentários, até ${LIMITS.question} caracteres, terminando em "?": sobre a experiência ou a situação do leitor com o tema.`),
 });
 
 const SYSTEM = `Você escreve o conteúdo diário do Instagram @dosecerta_br ("Dose Certa | Peptídeos sem achismo"), um perfil educativo do site Central Peptídeos. Público: adultos brasileiros de 30 a 55 anos que usam ou pensam em usar tirzepatida, semaglutida e outros peptídeos e querem fazer certo.
@@ -33,14 +38,15 @@ Regras de conteúdo (um robô confere antes de publicar e descarta o rascunho qu
 - Se a FONTE diz que algo não foi caracterizado ou não tem estudo, diga isso; nunca estime.
 - Ao falar de dose, deixe claro que é a dose de bula ou de estudo e que ajuste é com o médico.
 - Proibido: falar em comprar, vender, preço de peptídeo, frete, Pix, WhatsApp, onde conseguir; prometer resultado ("perca X kg", "garantido", "cura", "sem efeito colateral"); descrever a aplicação na pele.
-- Não mencione o guia, a bio, links nem hashtags: o código acrescenta a chamada final.
+- Não mencione o guia, a bio, links, hashtags, "siga" nem "salve": o código acrescenta essas chamadas.
 
 Estilo:
 - Gancho forte e concreto: um erro comum, uma dúvida real, um número da fonte.
 - Frases curtas, voz ativa, segunda pessoa ("você"). Nada de jargão sem explicar.
 - Slides: título curto + uma ideia por slide; o último slide de conteúdo resume o que fazer.
 - Falas do Reels: tom de conversa, cada fala com 1 ou 2 frases (cerca de 8 a 12 segundos lida em voz alta).
-- Legenda: 3 a 5 parágrafos curtos, pode usar 1 ou 2 emojis, termina convidando a salvar ou comentar.`;
+- Legenda: quem não arrasta os slides precisa sair com o conteúdo. 2 a 4 blocos curtos; se houver passos, numere com 1️⃣ 2️⃣ 3️⃣; se houver um erro comum ou risco, um bloco começando com ⚠️. Use as palavras que a pessoa digitaria na busca (nome do peptídeo, "dose", "unidades", "seringa", "efeito colateral").
+- Pergunta dos comentários: concreta e fácil de responder em poucas palavras (ex.: "Qual frasco e quanta água você usa?", "Em qual semana o enjoo apareceu para você?"). Nunca peça que a pessoa conte a dose para receber uma indicação.`;
 
 export async function writeDraft(topic: Topic, previousProblems: string[] = [], client = new Anthropic()): Promise<Draft> {
   const retry = previousProblems.length

@@ -22,7 +22,11 @@ const SAMPLE: Draft = {
     'Depois, cada degrau dura pelo menos quatro semanas. Pular etapa aumenta náusea e vômito.',
     'Se o enjoo não passou, segure a dose. O ajuste é sempre com o seu médico.',
   ],
-  caption: 'Subir rápido não acelera o resultado: só aumenta o enjoo. 🤢\n\nA escada da bula existe para o seu estômago acompanhar.\n\nSalve para consultar na próxima aplicação.',
+  caption:
+    'Subir rápido não acelera o resultado: só aumenta o enjoo.\n\n' +
+    '1️⃣ Comece em 2,5 mg por 4 semanas\n2️⃣ Suba de 2,5 mg em 2,5 mg\n3️⃣ Fique pelo menos 4 semanas em cada degrau\n\n' +
+    '⚠️ Náusea que não passa é sinal para segurar a dose e falar com o médico.',
+  question: 'Em qual dose o enjoo apareceu para você?',
 };
 
 async function main() {
