@@ -97,3 +97,28 @@ export const siteEvents = pgTable(
   },
   (t) => [index('site_events_created_at_idx').on(t.createdAt)],
 );
+
+// Automação do Instagram @dosecerta_br (scripts/social): uma linha por tentativa de publicação.
+// O histórico de "publicado" evita repetir tema (pick.ts); "erro" e "invalido" ficam para análise.
+export const socialPosts = pgTable(
+  'social_posts',
+  {
+    id: serial('id').primaryKey(),
+    format: varchar('format', { length: 12 }).notNull(), // carrossel | reels
+    topicId: varchar('topic_id', { length: 120 }).notNull(), // post:<slug> | peptide:<slug> | comparison:<slug>
+    category: varchar('category', { length: 30 }).notNull(),
+    status: varchar('status', { length: 12 }).notNull(), // publicado | erro | invalido
+    igMediaId: varchar('ig_media_id', { length: 40 }),
+    caption: text('caption'),
+    error: text('error'),
+    createdAt: timestamp('created_at').defaultNow().notNull(),
+  },
+  (t) => [index('social_posts_created_at_idx').on(t.createdAt)],
+);
+
+// Chave-valor da automação: o token do Instagram renovado (60 dias) e a validade dele.
+export const socialState = pgTable('social_state', {
+  key: varchar('key', { length: 40 }).primaryKey(),
+  value: text('value').notNull(),
+  updatedAt: timestamp('updated_at').defaultNow().notNull(),
+});

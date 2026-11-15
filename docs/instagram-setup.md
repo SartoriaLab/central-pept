@@ -1,0 +1,112 @@
+# Instagram @dosecerta_br — criar a conta e ligar a automação
+
+Três partes: criar a conta (celular, 10 min), deixar ela "aquecer" por uns dias e gerar o
+token para o robô (computador, 15 min). Ao fim, me passe só o que está em **Me mande**.
+
+---
+
+## Parte 1 — Criar a conta (no celular)
+
+1. Instale o Instagram, abra e toque em **Criar nova conta**.
+   - Se você já tem outra conta logada: Perfil → toque no seu @ no topo → **Adicionar conta do
+     Instagram** → **Criar nova conta**.
+2. Use um **email dedicado** (ex.: `contato@centralpeptideos.com.br`), não o seu pessoal.
+3. Nome de usuário: `dosecerta_br`.
+4. Senha forte, guardada no gerenciador de senhas.
+5. Pule "encontrar amigos" e "sincronizar contatos" (não misture com seus contatos pessoais).
+
+### Deixar o perfil completo
+
+Perfil → **Editar perfil**:
+
+| Campo | Valor |
+|---|---|
+| Foto | logo Dose Certa (eu gero se quiser) |
+| Nome | `Dose Certa \| Peptídeos sem achismo` |
+| Nome de usuário | `dosecerta_br` |
+| Bio | `Conteúdo educativo sobre peptídeos` ⏎ `Calculadoras grátis` ⏎ `Não vendemos peptídeos` |
+| Links | `https://centralpeptideos.com.br/links` (a página entra no ar com a automação; até lá use `https://centralpeptideos.com.br/ebooks`) |
+
+### Mudar para conta profissional
+
+1. Perfil → **☰** (canto superior direito) → **Configurações e atividade**.
+2. Role até **Para profissionais** → **Tipo de conta e ferramentas** → **Mudar para conta profissional**.
+   - Em algumas versões o caminho é **Editar perfil → Mudar para conta profissional**.
+3. Categoria: procure **Site educacional** (alternativas: *Educação*, *Saúde/beleza*). Marque
+   **Exibir no perfil**: desligado ou ligado, tanto faz.
+4. Tipo: **Criador de conteúdo**.
+   - Empresa também funciona com a API. Criador tem a biblioteca de músicas completa, útil se
+     um dia você postar Reels à mão.
+5. Quando perguntar sobre **conectar Página do Facebook**: **Pular**. Não precisa.
+6. Ative a **verificação em duas etapas**: Central de contas → Senha e segurança →
+   Autenticação de dois fatores.
+
+### Conta pública
+
+Configurações → **Privacidade da conta** → **Conta privada** desligada. (Conta profissional
+já é pública; só confira. A API exige conta pública.)
+
+---
+
+## Parte 2 — Aquecer a conta (5 a 7 dias)
+
+Conta nova que já começa postando por API todo dia costuma ser travada pela Meta. Antes de
+ligar o robô:
+
+- Entre no app 1 ou 2 vezes por dia, siga 10 a 20 perfis do nicho (saúde, nutrição, GLP-1),
+  curta e comente algo de verdade.
+- Poste **3 conteúdos à mão** nesses dias. Eu gero os arquivos com a automação em modo teste
+  (`--dry`) e você só sobe pelo app. Isso também serve de revisão do visual.
+- Não use link encurtador, não siga em massa, não compre seguidor.
+
+---
+
+## Parte 3 — App da Meta e token (no computador)
+
+1. Acesse **https://developers.facebook.com/apps** e entre com seu Facebook pessoal.
+   (A conta de desenvolvedor é sua; o Instagram não precisa estar ligado a ela.)
+   Na primeira vez ele pede para **registrar como desenvolvedor**: aceite e confirme o telefone.
+2. **Criar app**.
+   - Caso de uso: **Outro** → Avançar.
+   - Tipo: **Empresa** → Avançar.
+   - Nome: `Dose Certa Publicador`; email de contato: o mesmo da conta. Portfólio empresarial:
+     pode deixar sem. → **Criar app**.
+3. No painel do app, no produto **Instagram**, clique **Configurar**.
+   Abre **Configuração da API com login do Instagram**.
+4. Em **Gerar tokens de acesso**, clique **Adicionar conta** e entre com **@dosecerta_br**.
+   - Se aparecer que é preciso aceitar convite: no app do Instagram, Configurações →
+     **Apps e sites** → **Convites de testador** → Aceitar. Depois volte e clique de novo.
+5. Ao lado da conta aparece o **ID** (número) e o botão **Gerar token**. Clique, autorize, e
+   **copie o token** (começa com `IG...`, é bem longo). Ele só aparece uma vez; se perder,
+   gere de novo.
+6. O app pode ficar em **modo de desenvolvimento**: publicar na sua própria conta, adicionada
+   ali, não precisa de Revisão do app nem verificação de empresa.
+
+O token vale 60 dias. O robô renova sozinho antes de vencer; você não precisa voltar aqui
+enquanto ele rodar ao menos uma vez a cada 60 dias.
+
+---
+
+## Parte 4 — Chave da Anthropic (texto dos posts)
+
+1. Acesse **https://console.anthropic.com** → crie a conta → **Billing**: adicione cartão e
+   US$ 5 de crédito, o mínimo (dá para meses; cada dia custa centavos).
+2. **API Keys** → **Create Key** → nome `dosecerta` → copie (começa com `sk-ant-`).
+
+---
+
+## Me mande
+
+Não cole os valores aqui no chat. Coloque direto nos segredos do GitHub, que eu já uso no
+workflow:
+
+1. Acesse https://github.com/JulianoAnselmo/central-pept/settings/secrets/actions
+2. **New repository secret** para cada um:
+
+| Nome | Valor |
+|---|---|
+| `IG_USER_ID` | o ID numérico da Parte 3, passo 5 |
+| `IG_ACCESS_TOKEN` | o token `IG...` |
+| `ANTHROPIC_API_KEY` | a chave `sk-ant-...` |
+
+Depois me avise "segredos salvos". O `BLOB_READ_WRITE_TOKEN` e o `DATABASE_URL` eu configuro.

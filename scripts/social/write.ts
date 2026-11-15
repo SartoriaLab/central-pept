@@ -1,0 +1,72 @@
+// Roteiro do dia pelo Claude: um rascunho serve para carrossel e Reels (slides, falas e
+// legenda). A fonte vai na mensagem do usuário; o sistema é fixo (cacheável).
+import Anthropic from '@anthropic-ai/sdk';
+import { betaZodOutputFormat } from '@anthropic-ai/sdk/helpers/beta/zod';
+import { z } from 'zod/v4';
+import { LIMITS } from './validate';
+import type { Draft, Topic } from './types';
+
+export const MODEL = 'claude-opus-5-5';
+
+const DraftSchema = z.object({
+  hook: z.string().describe(`Frase da capa, até ${LIMITS.hook} caracteres: pergunta ou erro comum que prende a atenção.`),
+  slides: z
+    .array(
+      z.object({
+        title: z.string().describe(`Até ${LIMITS.slideTitle} caracteres.`),
+        body: z.string().describe(`Até ${LIMITS.slideBody} caracteres. Uma ideia só.`),
+      }),
+    )
+    .describe(`${LIMITS.slides[0]} a ${LIMITS.slides[1]} slides de conteúdo, sem capa e sem chamada final.`),
+  narration: z
+    .array(z.string())
+    .describe(`${LIMITS.narration[0]} a ${LIMITS.narration[1]} falas do Reels, até ${LIMITS.narrationLine} caracteres cada; a primeira é o gancho. Sem a chamada final.`),
+  caption: z.string().describe(`Corpo da legenda, até ${LIMITS.caption} caracteres, sem hashtags e sem chamada para a bio.`),
+});
+
+const SYSTEM = `Você escreve o conteúdo diário do Instagram @dosecerta_br ("Dose Certa | Peptídeos sem achismo"), um perfil educativo do site Central Peptídeos. Público: adultos brasileiros de 30 a 55 anos que usam ou pensam em usar tirzepatida, semaglutida e outros peptídeos e querem fazer certo.
+
+Cada pedido traz um TEMA e uma FONTE (texto do próprio site). Escreva, em português do Brasil com acentuação correta, um rascunho que serve para um carrossel e para um Reels.
+
+Regras de conteúdo (um robô confere antes de publicar e descarta o rascunho que falhar):
+- Use só fatos da FONTE. Todo número com unidade (mg, mcg, mL, UI, unidades, %, semanas, dias, horas, kg) precisa aparecer na FONTE exatamente com esse valor. Sem dado na fonte, não cite número.
+- Se a FONTE diz que algo não foi caracterizado ou não tem estudo, diga isso; nunca estime.
+- Ao falar de dose, deixe claro que é a dose de bula ou de estudo e que ajuste é com o médico.
+- Proibido: falar em comprar, vender, preço de peptídeo, frete, Pix, WhatsApp, onde conseguir; prometer resultado ("perca X kg", "garantido", "cura", "sem efeito colateral"); descrever a aplicação na pele.
+- Não mencione o guia, a bio, links nem hashtags: o código acrescenta a chamada final.
+
+Estilo:
+- Gancho forte e concreto: um erro comum, uma dúvida real, um número da fonte.
+- Frases curtas, voz ativa, segunda pessoa ("você"). Nada de jargão sem explicar.
+- Slides: título curto + uma ideia por slide; o último slide de conteúdo resume o que fazer.
+- Falas do Reels: tom de conversa, cada fala com 1 ou 2 frases (cerca de 8 a 12 segundos lida em voz alta).
+- Legenda: 3 a 5 parágrafos curtos, pode usar 1 ou 2 emojis, termina convidando a salvar ou comentar.`;
+
+export async function writeDraft(topic: Topic, previousProblems: string[] = [], client = new Anthropic()): Promise<Draft> {
+  const retry = previousProblems.length
+    ? `\n\nA tentativa anterior foi descartada por estes problemas; corrija todos:\n- ${previousProblems.join('\n- ')}`
+    : '';
+
+  const response = await client.beta.messages.parse({
+    model: MODEL,
+    max_tokens: 16000,
+    betas: ['server-side-fallback-2026-07-01'],
+    fallbacks: 'default',
+    output_config: { effort: 'medium', format: betaZodOutputFormat(DraftSchema) },
+    system: [{ type: 'text', text: SYSTEM, cache_control: { type: 'ephemeral' } }],
+    messages: [
+      {
+        role: 'user',
+        content: `TEMA: ${topic.title}\n\nFONTE:\n${topic.source}${retry}`,
+      },
+    ],
+  });
+
+  if (response.stop_reason === 'refusal') {
+    throw new Error(`Claude recusou o tema ${topic.id}: ${response.stop_details?.explanation ?? 'sem explicação'}`);
+  }
+  if (response.stop_reason === 'max_tokens') throw new Error(`Resposta cortada (max_tokens) no tema ${topic.id}`);
+  const draft = response.parsed_output;
+  if (!draft) throw new Error(`Resposta sem JSON válido no tema ${topic.id}`);
+  return draft;
+}

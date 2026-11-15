@@ -19,15 +19,15 @@ export function LandingView({ ebookId }: { ebookId: string }) {
   return null;
 }
 
-/** Link de um card do índice /ebooks: registra o clique com a posição "indice". */
+/** Link de um card de lista de guias (/ebooks, /links): registra o clique com a posição. */
 export function IndexLink({
-  ebookId, href, className, children,
-}: { ebookId: string; href: string; className?: string; children: React.ReactNode }) {
+  ebookId, href, className, children, posicao = 'indice', pagina = '/ebooks',
+}: { ebookId: string; href: string; className?: string; children: React.ReactNode; posicao?: string; pagina?: string }) {
   return (
     <Link
       href={href}
       className={className}
-      onClick={() => track(EVENTS.ebookClick, { ebook: ebookId, posicao: 'indice', pagina: '/ebooks' })}
+      onClick={() => track(EVENTS.ebookClick, { ebook: ebookId, posicao, pagina })}
     >
       {children}
     </Link>

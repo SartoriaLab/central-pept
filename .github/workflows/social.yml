@@ -1,0 +1,73 @@
+name: Instagram diário
+
+# Carrossel às 12h e Reels às 19h30 (Brasília, UTC-3). O GitHub pode atrasar o cron alguns minutos.
+# Pausar: variável do repositório SOCIAL_PAUSED = 1 (Settings → Secrets and variables → Variables).
+# Spec: docs/superpowers/specs/2026-11-15-instagram-dosecerta-design.md
+
+on:
+  schedule:
+    - cron: '0 15 * * *'   # carrossel
+    - cron: '30 22 * * *'  # reels
+  workflow_dispatch:
+    inputs:
+      format:
+        description: Formato
+        type: choice
+        options: [carrossel, reels]
+        default: carrossel
+      dry:
+        description: Só gerar os arquivos (não publica)
+        type: boolean
+        default: true
+
+concurrency:
+  group: social
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    if: vars.SOCIAL_PAUSED != '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - run: pip install edge-tts
+      - run: npm ci
+
+      - name: Formato
+        id: fmt
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "format=${{ inputs.format }}" >> "$GITHUB_OUTPUT"
+            echo "dry=${{ inputs.dry && '--dry' || '' }}" >> "$GITHUB_OUTPUT"
+          elif [ "${{ github.event.schedule }}" = "0 15 * * *" ]; then
+            echo "format=carrossel" >> "$GITHUB_OUTPUT"
+          else
+            echo "format=reels" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Gerar e publicar
+        run: npx tsx scripts/social/run.ts ${{ steps.fmt.outputs.format }} ${{ steps.fmt.outputs.dry }}
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          BLOB_READ_WRITE_TOKEN: ${{ secrets.BLOB_READ_WRITE_TOKEN }}
+
+      - name: Guardar arquivos gerados
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: social-${{ steps.fmt.outputs.format }}-${{ github.run_id }}
+          path: social/out/
+          retention-days: 14
+          if-no-files-found: ignore

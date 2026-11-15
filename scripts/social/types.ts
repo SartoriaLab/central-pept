@@ -1,0 +1,51 @@
+// Tipos da automação do Instagram (@dosecerta_br). Spec:
+// docs/superpowers/specs/2026-11-15-instagram-dosecerta-design.md
+
+export type Format = 'carrossel' | 'reels';
+
+/** Um assunto publicável, com o texto do site que a IA pode usar (e nada além dele). */
+export type Topic = {
+  /** "post:<slug>", "peptide:<slug>" ou "comparison:<slug>". */
+  id: string;
+  kind: 'post' | 'peptide' | 'comparison';
+  slug: string;
+  title: string;
+  /** Categoria do peptídeo principal (CATEGORY_HEX) ou "geral". */
+  category: string;
+  peptides: string[];
+  /** Caminho no site, ex.: "/blog/semaglutida-vs-tirzepatida". */
+  url: string;
+  /** Fatos permitidos: o validador exige que todo número com unidade do texto gerado esteja aqui. */
+  source: string;
+};
+
+/** Publicação anterior, para não repetir tema nem categoria. */
+export type HistoryEntry = {
+  topicId: string;
+  format: Format;
+  category: string;
+  at: Date;
+};
+
+/** O que o Claude devolve (schema em write.ts). */
+export type Draft = {
+  /** Frase da capa: pergunta ou erro comum. */
+  hook: string;
+  /** Slides de conteúdo (sem capa nem CTA), 2 a 6. */
+  slides: { title: string; body: string }[];
+  /** Falas do Reels, uma por cena (3 a 6), sem a chamada final (montada pelo código). */
+  narration: string[];
+  /** Corpo da legenda, sem CTA, aviso nem hashtags (montados por caption.ts). */
+  caption: string;
+};
+
+/** Guia do slide final. */
+export type Cta = {
+  id: string;
+  slug: string;
+  title: string;
+  priceLabel: string;
+  cover: string;
+  /** Quantos outros guias ativos existem além deste. */
+  others: number;
+};

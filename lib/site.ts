@@ -13,5 +13,10 @@ export const CONTACT_EMAIL = 'contato@centralpeptideos.com.br';
  */
 export const CONTENT_UPDATED_AT = '2026-11-12';
 
+// Perfil do Instagram (marca própria, "um projeto Central Peptídeos"). Bio aponta para /links.
+export const INSTAGRAM_HANDLE = 'dosecerta_br';
+export const INSTAGRAM_NAME = 'Dose Certa';
+export const INSTAGRAM_URL = `https://www.instagram.com/${INSTAGRAM_HANDLE}/`;
+
 // Domínio sem protocolo, para textos e imagens de compartilhamento ("centralpeptideos.com.br").
 export const SITE_HOST = SITE_URL.replace(/^https?:\/\//, '').replace(/\/$/, '');

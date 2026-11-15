@@ -79,6 +79,19 @@ Feed, sitemap, busca, páginas de tag e imagem de compartilhamento saem sozinhos
 7. Depois da compra de um guia, a Kiwify manda para `/ebooks/obrigado?guia=<slug>`: acesso + upsell do kit
    (`KIT_UPSELL`, oferta própria do kit). Cupom do pop-up de saída: `EXIT_COUPON` (precisa existir na Kiwify).
 
+## Instagram @dosecerta_br (automático)
+
+1. GitHub Actions (`.github/workflows/social.yml`) publica carrossel às 12h e Reels às 19h30 (Brasília).
+   Pausa: variável do repo `SOCIAL_PAUSED=1`. Setup da conta e segredos: `docs/instagram-setup.md`.
+2. Código em `scripts/social/` (rodado com `tsx`): temas saem de posts, fichas e comparativos
+   (`topics.ts`; posts de compra/preço e Melanotan II ficam fora), o Claude escreve (`write.ts`) e
+   `validate.ts` barra número que não está na fonte e linguagem de venda. Slide e fala final do guia
+   seguem `ebookFor*` (`ebook-cta.ts`).
+3. `npm run social:preview` renderiza um exemplo sem API; `npm run social:carrossel -- --dry` gera de
+   verdade em `social/out/` sem publicar. Precisa de ffmpeg e `pip install edge-tts`.
+4. Histórico e token renovado ficam em `social_posts`/`social_state` (mudou o schema → `npm run db:push`).
+5. Bio do perfil aponta para `/links` (noindex), com UTM `instagram/bio` (`bioUrl`).
+
 ## Páginas geradas a partir dos dados
 
 - Frasco (`/ferramentas/reconstituicao/<peptideo>/<mg>`): um por `commonAmounts`. Peptídeo com

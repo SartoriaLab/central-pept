@@ -42,6 +42,20 @@ export function buildUtmUrl(params: UtmParams): string {
   return `${BASE_URL}${cleanPath}${queryString ? `?${queryString}` : ''}`;
 }
 
+/**
+ * Link relativo saindo da página da bio do Instagram (/links). `origem=bio` é lido pela
+ * landing do guia (LandingView); as UTMs separam o tráfego no Vercel Analytics.
+ */
+export function bioUrl(path: string): string {
+  const [base, query] = path.split('?');
+  const qs = new URLSearchParams(query);
+  if (base.startsWith('/ebooks/')) qs.set('origem', 'bio');
+  qs.set('utm_source', 'instagram');
+  qs.set('utm_medium', 'bio');
+  qs.set('utm_campaign', 'bio');
+  return `${base}?${qs.toString()}`;
+}
+
 export function defaultMediumForSource(source: string): string {
   return SOURCES.find((s) => s.value === source)?.medium ?? 'link';
 }
