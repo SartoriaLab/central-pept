@@ -67,7 +67,9 @@ export async function renderCarousel(draft: Draft, topic: Topic, cta: Cta | null
     const png = path.join(outDir, `slide-${i + 1}.png`);
     const jpg = path.join(outDir, `slide-${i + 1}.jpg`);
     await fs.writeFile(png, await renderPng(el, CAROUSEL));
+    // O satori/resvg só gera PNG e a API do Instagram só aceita JPEG: o PNG é intermediário.
     await ffmpeg(['-i', png, '-q:v', '2', jpg]);
+    await fs.rm(png);
     files.push(jpg);
   }
   return files;

@@ -64,6 +64,16 @@ function Frame({ size, accent, page, children }: { size: Size; accent: string; p
   );
 }
 
+/**
+ * Impede quebra de linha entre número e unidade ("2,5 | mg") e dentro de "mg/ml": espaço vira
+ * espaço inseparável e a barra ganha um word joiner (U+2060), que o satori não usa para quebrar.
+ */
+export function nobreak(text: string): string {
+  return text
+    .replace(/(\d)\s+(?=(?:mg|mcg|ml|ui|u|unidades?|semanas?|dias?|horas?|kg|%)(?![\p{L}\d]))/giu, '$1 ')
+    .replace(/([\p{L}\d])\/(?=[\p{L}\d])/gu, '$1/⁠');
+}
+
 function fit(text: string, big: number, small: number, limit: number): number {
   return text.length > limit ? small : big;
 }
@@ -73,7 +83,7 @@ export function CoverSlide({ size, accent, hook, label, swipe }: { size: Size; a
     <Frame size={size} accent={accent}>
       <div style={{ display: 'flex', fontSize: 30, fontWeight: 800, color: accent, textTransform: 'uppercase', letterSpacing: 3 }}>{label}</div>
       <div style={{ display: 'flex', marginTop: 28, fontSize: fit(hook, 92, 76, 55), fontWeight: 800, lineHeight: 1.08, letterSpacing: -2 }}>
-        {hook}
+        {nobreak(hook)}
       </div>
       {swipe && (
         <div style={{ display: 'flex', marginTop: 56, fontSize: 32, fontWeight: 600, color: INK_2 }}>Arraste para o lado »</div>
@@ -87,9 +97,9 @@ export function ContentSlide({ size, accent, title, body, page }: { size: Size; 
     <Frame size={size} accent={accent} page={page}>
       <div style={{ display: 'flex', width: 96, height: 10, borderRadius: 5, background: accent }} />
       <div style={{ display: 'flex', marginTop: 36, fontSize: fit(title, 68, 58, 40), fontWeight: 800, lineHeight: 1.12, letterSpacing: -1 }}>
-        {title}
+        {nobreak(title)}
       </div>
-      <div style={{ display: 'flex', marginTop: 32, fontSize: fit(body, 46, 40, 160), lineHeight: 1.38, color: INK_2 }}>{body}</div>
+      <div style={{ display: 'flex', marginTop: 32, fontSize: fit(body, 46, 40, 160), lineHeight: 1.38, color: INK_2 }}>{nobreak(body)}</div>
     </Frame>
   );
 }
