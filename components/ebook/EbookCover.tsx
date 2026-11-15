@@ -5,6 +5,7 @@ type Props = {
   title: string;
   cover: string;
   size?: 'xs' | 'sm' | 'lg';
+  label?: string;
 };
 
 const BOX = {
@@ -13,7 +14,7 @@ const BOX = {
   lg: 'w-32 h-44 sm:w-44 sm:h-60 md:w-52 md:h-72 rounded-xl p-4 sm:p-5 shadow-2xl',
 } as const;
 
-export default function EbookCover({ title, cover, size = 'sm' }: Props) {
+export default function EbookCover({ title, cover, size = 'sm', label = 'Guia em PDF' }: Props) {
   const lg = size === 'lg';
   const xs = size === 'xs';
   return (
@@ -32,7 +33,7 @@ export default function EbookCover({ title, cover, size = 'sm' }: Props) {
       >
         {title}
       </span>
-      <span className={`relative font-semibold opacity-80 ${lg ? 'text-[10px] sm:text-xs' : 'text-[6px]'}`}>Guia em PDF</span>
+      <span className={`relative font-semibold opacity-80 ${lg ? 'text-[10px] sm:text-xs' : 'text-[6px]'}`}>{label}</span>
     </div>
   );
 }

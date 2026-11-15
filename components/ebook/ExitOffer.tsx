@@ -30,7 +30,7 @@ import { EVENTS, track } from '@/lib/track';
 const LAST_SHOWN = 'cp:popup-saida';
 const WEEK = 7 * 24 * 60 * 60 * 1000;
 const MIN_TIME = 12_000;
-const BLOCKED = /^\/(ebooks|embed|admin|termos|privacidade|contato|newsletter)(\/|$)/;
+const BLOCKED = /^\/(ebooks|embed|admin|termos|privacidade|contato|newsletter|tabela-personalizada)(\/|$)/;
 
 function shownRecently(): boolean {
   try {
@@ -161,7 +161,7 @@ export default function ExitOffer() {
           </svg>
         </button>
         <div className="flex items-start gap-4 pr-8">
-          <EbookCover title={offer.title} cover={offer.cover} />
+          <EbookCover title={offer.title} cover={offer.cover} label={offer.coverLabel} />
           <div className="min-w-0">
             <p className="text-xs font-bold uppercase tracking-wider text-teal-700">Antes de sair</p>
             <h2 id="popup-saida-titulo" className="mt-1 text-lg font-extrabold text-ink leading-tight">
@@ -206,7 +206,7 @@ export default function ExitOffer() {
           }}
           className="btn-teal w-full mt-5"
         >
-          {EXIT_COUPON ? 'Usar meu cupom' : `Ver o guia · ${offer.priceLabel}`}
+          {EXIT_COUPON ? 'Usar meu cupom' : `${offer.cta} · ${offer.priceLabel}`}
         </Link>
         <p className="mt-2 text-center text-xs text-ink-3">
           {offer.pages} páginas · acesso imediato · 7 dias de garantia

@@ -77,11 +77,11 @@ export default function EbookOffer({ offer, variant = 'card', lead, className = 
     return (
       <aside ref={ref} className={`not-prose no-print my-6 ${className}`} aria-label="Guia em PDF">
         <div className="flex items-center gap-3 px-3 py-3 sm:px-4 rounded-xl border border-teal-100 bg-teal-50">
-          <EbookCover title={offer.title} cover={offer.cover} size="xs" />
+          <EbookCover title={offer.title} cover={offer.cover} label={offer.coverLabel} size="xs" />
           <div className="min-w-0 flex-1">
             <p className="text-sm text-ink leading-snug">{offer.line}</p>
             <Link href={href} onClick={onClick} className="btn-teal !h-9 !px-3 mt-2 text-xs">
-              Ver o guia · {price}
+              {offer.cta} · {price}
             </Link>
           </div>
         </div>
@@ -98,7 +98,7 @@ export default function EbookOffer({ offer, variant = 'card', lead, className = 
           aria-label="Guia em PDF"
         >
           <div className="flex items-start gap-3">
-            <EbookCover title={offer.title} cover={offer.cover} />
+            <EbookCover title={offer.title} cover={offer.cover} label={offer.coverLabel} />
             <div className="min-w-0 flex-1">
               <p className="text-xs font-bold uppercase tracking-wider text-teal-700">Próximo passo</p>
               <p className="mt-1 text-sm text-ink leading-snug">
@@ -109,7 +109,7 @@ export default function EbookOffer({ offer, variant = 'card', lead, className = 
           </div>
           <AnchorNote text={offer.anchor} className="mt-3" />
           <Link href={href} onClick={onClick} className="btn-teal w-full mt-3">
-            Ver o guia · {price}
+            {offer.cta} · {price}
           </Link>
           <p className="mt-2 text-center text-xs text-ink-3">{proof}</p>
         </aside>
@@ -121,9 +121,9 @@ export default function EbookOffer({ offer, variant = 'card', lead, className = 
   return (
     <aside ref={ref} className={`not-prose no-print my-10 card p-5 md:p-6 ${className}`} aria-label="Guia em PDF">
       <div className="flex items-start gap-4 md:gap-5">
-        <EbookCover title={offer.title} cover={offer.cover} />
+        <EbookCover title={offer.title} cover={offer.cover} label={offer.coverLabel} />
         <div className="min-w-0 flex-1">
-          <p className="text-xs font-bold uppercase tracking-wider text-teal-700">Guia em PDF</p>
+          <p className="text-xs font-bold uppercase tracking-wider text-teal-700">{offer.coverLabel}</p>
           <h2 className="mt-1 text-lg md:text-xl font-extrabold text-ink leading-tight">{offer.title}</h2>
           <p className="mt-2 text-sm text-ink-2 leading-relaxed">{offer.hook}</p>
         </div>
@@ -153,7 +153,7 @@ export default function EbookOffer({ offer, variant = 'card', lead, className = 
       <AnchorNote text={offer.anchor} className="mt-4" />
       <div className="mt-4 flex flex-col sm:flex-row sm:items-center gap-x-4 gap-y-2">
         <Link href={href} onClick={onClick} className="btn-teal w-full sm:w-auto">
-          Quero ver o guia · {price}
+          {offer.cta === 'Ver a tabela' ? 'Quero a minha tabela' : 'Quero ver o guia'} · {price}
         </Link>
         <span className="text-xs text-ink-3 text-center sm:text-left">{proof}</span>
       </div>

@@ -12,6 +12,7 @@ import {
   EBOOK_FAQ,
   KIND_LABELS,
   checkoutUrl,
+  coverLabel,
   formatPrice,
   getActiveEbooks,
   getEbookById,
@@ -57,7 +58,7 @@ export default async function EbookPage({ params }: { params: Promise<Params> })
   if (!e || !url) notFound();
 
   const price = formatPrice(e.price);
-  const noun = e.kind === 'kit' ? 'pacote' : 'guia';
+  const noun = e.kind === 'kit' ? 'pacote' : e.kind === 'tabela' ? 'PDF personalizado' : 'guia';
   const included = (e.includes ?? []).map((id) => getEbookById(id)).filter((x): x is NonNullable<typeof x> => !!x);
   const bumps = (e.bumps ?? []).map((id) => getEbookById(id)).filter((x): x is NonNullable<typeof x> => !!x);
   const fullPrice = e.kind === 'kit' ? kitFullPrice(e) : 0;
@@ -122,7 +123,7 @@ export default async function EbookPage({ params }: { params: Promise<Params> })
           </div>
           <div className="grid gap-8 md:grid-cols-[auto_1fr] items-center">
             <div className="flex justify-center">
-              <EbookCover title={e.title} cover={e.cover} size="lg" />
+              <EbookCover title={e.title} cover={e.cover} size="lg" label={coverLabel(e)} />
             </div>
             <div>
               <p className="text-xs font-bold uppercase tracking-widest text-teal-700">{KIND_LABELS[e.kind]}</p>
@@ -141,7 +142,7 @@ export default async function EbookPage({ params }: { params: Promise<Params> })
               {e.anchor && !(fullPrice > e.price) && <p className="mt-1 text-sm text-ink-2">{e.anchor}</p>}
               <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2">
                 {buy('hero')}
-                <span className="text-sm text-ink-3">Acesso imediato no seu email · Pix, cartão ou boleto</span>
+                <span className="text-sm text-ink-3">{e.kind === 'tabela' ? 'Gerada logo depois do pagamento · Pix ou cartão' : 'Acesso imediato no seu email · Pix, cartão ou boleto'}</span>
               </div>
               <ul className="mt-5 flex flex-wrap gap-2" aria-label="Sobre o guia">
                 {trust.map((t) => (
@@ -280,7 +281,7 @@ export default async function EbookPage({ params }: { params: Promise<Params> })
           <ul className="mt-4 space-y-2 text-ink-2">
             <li className="flex gap-3">
               <span className="text-teal-700 font-bold" aria-hidden>✓</span>
-              <span>{included.length > 0 ? `Os ${included.length} guias completos (${e.pages} páginas)` : `O guia completo em PDF (${e.pages} páginas)`}</span>
+              <span>{included.length > 0 ? `Os ${included.length} guias completos (${e.pages} páginas)` : e.kind === 'tabela' ? 'Sua tabela em PDF, gerada com os seus números (pode gerar de novo a cada frasco)' : `O guia completo em PDF (${e.pages} páginas)`}</span>
             </li>
             {e.bonuses.map((b) => (
               <li key={b} className="flex gap-3">
@@ -303,7 +304,7 @@ export default async function EbookPage({ params }: { params: Promise<Params> })
           </div>
           {e.anchor && !(fullPrice > e.price) && <p className="mt-1 text-sm text-ink-2">{e.anchor}</p>}
           <div className="mt-5">{buy('oferta')}</div>
-          <p className="mt-3 text-sm text-ink-3">Acesso imediato no seu email assim que o pagamento é confirmado.</p>
+          <p className="mt-3 text-sm text-ink-3">{e.kind === 'tabela' ? 'Depois do pagamento você vai direto para a página que gera a tabela.' : 'Acesso imediato no seu email assim que o pagamento é confirmado.'}</p>
         </section>
 
         <section className="mt-8 flex gap-4 items-start rounded-xl border border-border bg-surface p-5" aria-labelledby="garantia">
@@ -407,7 +408,7 @@ export default async function EbookPage({ params }: { params: Promise<Params> })
           </p>
         )}
 
-        <FAQ items={[...(e.faq ?? []), ...EBOOK_FAQ]} title={`Perguntas sobre o ${noun}`} />
+        <FAQ items={[...(e.faq ?? []), ...(e.kind === 'tabela' ? EBOOK_FAQ.filter((f) => f.q.startsWith('O site vende')) : EBOOK_FAQ)]} title={`Perguntas sobre o ${noun}`} />
 
         <section className="mt-12 card p-6 md:p-8 text-center">
           <h2 className="text-xl md:text-2xl font-extrabold text-ink">{e.title}</h2>

@@ -9,7 +9,7 @@
 // Ebook novo: entrada em EBOOKS, variável de checkout na Vercel e `npm test`
 // (tests/ebooks.test.ts confere slugs e referências).
 
-export type EbookKind = 'individual' | 'categoria' | 'transversal' | 'kit';
+export type EbookKind = 'individual' | 'categoria' | 'transversal' | 'kit' | 'tabela';
 
 export type Ebook = {
   /** Código interno do plano (I1, C3, T2, KIT). */
@@ -57,6 +57,8 @@ export type Ebook = {
   includes?: string[];
   /** Capa gerada em CSS (classes Tailwind por extenso). */
   cover: string;
+  /** URL do checkout usada quando a variável de ambiente não existe. */
+  checkoutDefault?: string;
   /** Variável de ambiente com a URL do checkout da Kiwify. */
   checkoutEnv: string;
   /** Id do produto na Kiwify: o webhook de vendas usa para saber qual guia foi vendido. */
@@ -83,6 +85,10 @@ export type EbookOffer = {
   /** "R$ 29,90" */
   priceLabel: string;
   price: number;
+  /** Texto do botão ("Ver o guia", "Ver a tabela"). */
+  cta: string;
+  /** Rótulo da capa ("Guia em PDF"). */
+  coverLabel: string;
   pages: number;
   cover: string;
   bullets: string[];
@@ -106,6 +112,12 @@ export function couponPrice(price: number, percent: number): number {
   return Math.round(price * (100 - percent)) / 100;
 }
 
+/**
+ * Upsell da página de obrigado (/ebooks/obrigado): o kit por um preço só para quem acabou de
+ * comprar um guia. Oferta própria do produto do kit na Kiwify, sem cupom.
+ */
+export const KIT_UPSELL = { price: 39.9, checkoutUrl: 'https://pay.kiwify.com.br/ijyQkSI' };
+
 /** Preço de um ebook quando entra como oferta extra (order bump) no checkout. */
 export const BUMP_PRICE = 14.9;
 
@@ -114,6 +126,7 @@ export const KIND_LABELS: Record<EbookKind, string> = {
   categoria: 'Guia comparativo em PDF',
   transversal: 'Guia prático em PDF',
   kit: 'Pacote de guias em PDF',
+  tabela: 'Tabela personalizada em PDF',
 };
 
 /** Peptídeos sem oferta nenhuma (alerta regulatório). */
@@ -911,7 +924,7 @@ export const EBOOKS: Ebook[] = [
     kiwifyProductId: 'd3b93e00-dfc5-11f1-b2ef-e388708c1a73',
     places: {
       posts: ['como-reconstituir-semaglutida', 'como-reconstituir-tirzepatida', 'agua-bacteriostatica-guia'],
-      tools: ['reconstituicao', 'conversor', 'cronograma'],
+      tools: ['conversor', 'cronograma'],
       sections: ['seringas', 'glossario'],
     },
   },
@@ -1073,6 +1086,82 @@ export const EBOOKS: Ebook[] = [
 
   // ─── Kit (páginas genéricas) ──────────────────────────────────────────────
   {
+    id: 'TAB',
+    slug: 'tabela-personalizada',
+    kind: 'tabela',
+    title: 'Tabela Personalizada do Seu Frasco',
+    altTitle: 'A Tabela do Seu Frasco em PDF',
+    subtitle:
+      'Os números do seu frasco num PDF para colar na geladeira: unidades de cada dose, calendário com a data de descarte e etiqueta do frasco.',
+    hook:
+      'A conta que você acabou de fazer, pronta para imprimir: unidades de cada dose, as datas de cada aplicação até o descarte e a etiqueta do frasco.',
+    line: 'Seus números num PDF para a geladeira: doses, calendário do frasco e etiqueta.',
+    price: 9.9,
+    pages: 2,
+    forWho: [
+      'Reconstitui frasco e quer os números à mão na hora de aplicar, sem abrir o site.',
+      'Já errou ou teve medo de errar a data de descarte ou a unidade da seringa.',
+      'Divide a aplicação com alguém da casa e precisa de uma folha clara para conferir.',
+    ],
+    notFor: ['Usa caneta pronta: ela já vem com a dose marcada.', 'Procura quem diga qual dose usar: a tabela usa a dose que o médico definiu.'],
+    toc: [
+      'Sua dose em unidades e em ml',
+      'Outras doses com o mesmo frasco',
+      'Calendário do frasco até o descarte',
+      'Etiqueta do frasco para recortar',
+      'Checklist de bancada',
+    ],
+    tocNotes: [
+      'Unidades na seringa de 30, 50 ou 100 U, o volume em ml e quantas doses inteiras o frasco tem',
+      'Meia dose, 1,5× e 2× e a escada de titulação quando existe, com aviso quando a dose não cabe na seringa',
+      'Cada aplicação com data, quanto puxar, quanto sobra no frasco e uma caixa para marcar, até a data de descarte',
+      'Peptídeo, concentração, unidades da sua dose, data da mistura e data de descarte',
+      'Os 7 cuidados da mistura à geladeira, para conferir antes de cada aplicação',
+    ],
+    pains: [
+      { erro: 'Esquecer em que dia o frasco foi misturado', custo: 'Ou você joga fora antes da hora, ou aplica de um frasco vencido sem saber.' },
+      { erro: 'Refazer a conta de cabeça na hora de aplicar', custo: 'Uma vírgula fora do lugar dá dez vezes a dose, num número que cabe na seringa.' },
+      { erro: 'Trocar o volume de água no frasco seguinte e manter as unidades', custo: 'As mesmas unidades passam a entregar outra dose, sem nada parecer diferente.' },
+    ],
+    reveals: [
+      'Quantas unidades puxar na sua dose e nas doses vizinhas, numa folha só (tabela de doses)',
+      'A data de cada aplicação e o dia exato de jogar o frasco fora (calendário)',
+      'Quanto sobra no frasco a cada aplicação, para saber quando comprar o próximo (calendário)',
+    ],
+    anchor: 'Um frasco de 10 mg aplicado depois de vencer, ou jogado fora antes da hora, custa R$ 500 a R$ 900. A tabela custa R$ 9,90.',
+    revised: 'novembro de 2026',
+    bonuses: ['Etiqueta do frasco', 'Checklist de bancada'],
+    sources: [
+      'Fórmulas da calculadora de reconstituição da Central Peptídeos (seringa U-100)',
+      'Escadas de titulação das bulas de semaglutida e tirzepatida',
+      'Prazo de 28 dias para frasco multidose com água bacteriostática',
+    ],
+    bumps: ['T1'],
+    faq: [
+      {
+        q: 'Como recebo a tabela?',
+        a: 'Depois do pagamento, a Kiwify leva você à página que gera a tabela. Você confere os números, baixa em PDF ou imprime. O acesso fica salvo no aparelho: salve o endereço nos favoritos para gerar de novo quando trocar de frasco.',
+      },
+      {
+        q: 'A calculadora do site não faz a mesma conta?',
+        a: 'Faz, e continua grátis. A tabela organiza a conta numa folha para imprimir, com o calendário até o descarte, a etiqueta do frasco e as doses vizinhas. É para quem quer os números na geladeira, não na tela.',
+      },
+      {
+        q: 'Serve para qualquer peptídeo?',
+        a: 'Serve para qualquer frasco com pó para reconstituir: você informa os mg do frasco, a água, a dose e a frequência. Melanotan II fica de fora. A tabela não diz qual dose usar.',
+      },
+      {
+        q: 'Quais as formas de pagamento? E se eu não gostar?',
+        a: 'Pix ou cartão, pelo checkout da Kiwify. Se não valer, peça o reembolso total pela Kiwify em até 7 dias, sem precisar explicar.',
+      },
+    ],
+    cover: 'from-emerald-500 via-teal-600 to-cyan-800',
+    checkoutEnv: 'KIWIFY_CHECKOUT_TABELA',
+    checkoutDefault: 'https://pay.kiwify.com.br/0cZRVbJ',
+    kiwifyProductId: 'df1675f0-e115-11f1-9ed5-1d1ad40effc1',
+    places: { tools: ['reconstituicao'] },
+  },
+  {
     id: 'KIT',
     slug: 'kit-comeco-seguro',
     kind: 'kit',
@@ -1156,7 +1245,7 @@ export function getEbookBySlug(slug: string): Ebook | undefined {
 
 /** URL do checkout (só https), ou undefined se a variável não estiver definida. */
 export function checkoutUrl(e: Ebook): string | undefined {
-  const url = process.env[e.checkoutEnv]?.trim();
+  const url = process.env[e.checkoutEnv]?.trim() || e.checkoutDefault;
   return url && url.startsWith('https://') ? url : undefined;
 }
 
@@ -1168,6 +1257,11 @@ export function getActiveEbooks(): Ebook[] {
 /** Soma dos preços avulsos dos ebooks de um kit (âncora real). */
 export function kitFullPrice(kit: Ebook): number {
   return (kit.includes ?? []).reduce((sum, id) => sum + (getEbookById(id)?.price ?? 0), 0);
+}
+
+/** Rótulo da capa: a tabela não é guia. */
+export function coverLabel(e: Pick<Ebook, 'kind'>): string {
+  return e.kind === 'tabela' ? 'PDF personalizado' : 'Guia em PDF';
 }
 
 export function formatPrice(value: number): string {
@@ -1239,6 +1333,8 @@ export function toOffer(e: Ebook | undefined): EbookOffer | null {
     line: e.line,
     priceLabel: formatPrice(e.price),
     price: e.price,
+    cta: e.kind === 'tabela' ? 'Ver a tabela' : 'Ver o guia',
+    coverLabel: coverLabel(e),
     pages: e.pages,
     cover: e.cover,
     bullets: (e.reveals?.length ? e.reveals : e.toc).slice(0, 3).map(stripChapter),

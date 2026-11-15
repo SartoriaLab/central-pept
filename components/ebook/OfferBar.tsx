@@ -50,7 +50,7 @@ export default function OfferBar({ offer, show, href }: Props) {
         }}
         className="btn-teal !h-9 !px-3 text-xs whitespace-nowrap"
       >
-        Ver o guia
+        {offer.cta}
       </Link>
       <button
         type="button"

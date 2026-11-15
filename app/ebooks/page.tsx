@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   ...socialImage('pagina', 'home', '/ebooks'),
 };
 
-const ORDER: EbookKind[] = ['individual', 'transversal', 'categoria'];
+const ORDER: EbookKind[] = ['individual', 'transversal', 'categoria', 'tabela'];
 
 /** Dois itens do que o guia responde, sem a referência ao capítulo. */
 const bullets = (e: Ebook) => (e.reveals?.length ? e.reveals : e.toc).slice(0, 2).map(stripChapter);

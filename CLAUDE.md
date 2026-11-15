@@ -72,6 +72,12 @@ Feed, sitemap, busca, páginas de tag e imagem de compartilhamento saem sozinhos
    (`ExitOffer`, no layout) usa a oferta da página, 1 vez a cada 7 dias, e desliga em
    `EXIT_OFFER_ENABLED`. Eventos levam `pagina` (`lib/track.ts`).
 5. `npm test` (`tests/ebooks.test.ts`) confere slugs, referências e uma oferta por página.
+6. Tabela personalizada (`TAB`, R$ 9,90): oferta da calculadora de reconstituição, com o guia T1 como bump.
+   Produto "digital" na Kiwify que redireciona para `/tabela-personalizada?k=<chave>` (só o hash da chave fica
+   em `components/tabela/TabelaGenerator.tsx`; trocou a chave na Kiwify → troque o hash). Cálculo em `lib/tabela.ts`.
+   `checkoutDefault` serve de checkout quando a variável de ambiente não existe.
+7. Depois da compra de um guia, a Kiwify manda para `/ebooks/obrigado?guia=<slug>`: acesso + upsell do kit
+   (`KIT_UPSELL`, oferta própria do kit). Cupom do pop-up de saída: `EXIT_COUPON` (precisa existir na Kiwify).
 
 ## Páginas geradas a partir dos dados
 
