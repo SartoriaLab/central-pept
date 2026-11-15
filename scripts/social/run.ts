@@ -43,6 +43,7 @@ async function main() {
 
   const useDb = !dry || !!process.env.DATABASE_URL;
   const state = useDb ? await import('./state') : null;
+  if (state) await state.ensureTables();
   const history: HistoryEntry[] = state ? await state.getHistory() : [];
   const topics = buildTopics();
   const active = await fetchActiveEbookSlugs();

@@ -89,7 +89,8 @@ Feed, sitemap, busca, páginas de tag e imagem de compartilhamento saem sozinhos
    seguem `ebookFor*` (`ebook-cta.ts`).
 3. `npm run social:preview` renderiza um exemplo sem API; `npm run social:carrossel -- --dry` gera de
    verdade em `social/out/` sem publicar. Precisa de ffmpeg e `pip install edge-tts`.
-4. Histórico e token renovado ficam em `social_posts`/`social_state` (mudou o schema → `npm run db:push`).
+4. Histórico e token renovado ficam em `social_posts`/`social_state`, criadas pelo próprio robô
+   (`ensureTables` em `state.ts`, espelho de `drizzle/schema.ts`: mudou um, mude o outro).
 5. Bio do perfil aponta para `/links` (noindex), com UTM `instagram/bio` (`bioUrl`).
 
 ## Páginas geradas a partir dos dados

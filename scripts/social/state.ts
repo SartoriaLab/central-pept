@@ -1,11 +1,38 @@
 // Histórico de publicações e token do Instagram no Postgres (tabelas social_posts e
 // social_state, drizzle/schema.ts). Precisa de DATABASE_URL.
-import { desc, gte, inArray, and } from 'drizzle-orm';
+import { desc, gte, inArray, and, sql } from 'drizzle-orm';
 import { db } from '@/lib/db';
 import { socialPosts, socialState } from '@/drizzle/schema';
 import type { Format, HistoryEntry } from './types';
 
 const TOKEN_KEY = 'ig_token';
+
+/**
+ * Cria as duas tabelas se ainda não existem (espelho de drizzle/schema.ts). Assim a primeira
+ * execução no GitHub Actions prepara o banco sem `db:push`, que compara o schema inteiro e
+ * poderia propor mudanças em outras tabelas. Mudou a tabela lá → mude aqui também.
+ */
+export async function ensureTables(): Promise<void> {
+  await db.execute(sql`
+    CREATE TABLE IF NOT EXISTS social_posts (
+      id serial PRIMARY KEY,
+      format varchar(12) NOT NULL,
+      topic_id varchar(120) NOT NULL,
+      category varchar(30) NOT NULL,
+      status varchar(12) NOT NULL,
+      ig_media_id varchar(40),
+      caption text,
+      error text,
+      created_at timestamp DEFAULT now() NOT NULL
+    )`);
+  await db.execute(sql`CREATE INDEX IF NOT EXISTS social_posts_created_at_idx ON social_posts (created_at)`);
+  await db.execute(sql`
+    CREATE TABLE IF NOT EXISTS social_state (
+      key varchar(40) PRIMARY KEY,
+      value text NOT NULL,
+      updated_at timestamp DEFAULT now() NOT NULL
+    )`);
+}
 
 /** Publicados e reprovados dos últimos `days` dias (ambos contam na quarentena do tema). */
 export async function getHistory(days = 120): Promise<HistoryEntry[]> {
