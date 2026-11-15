@@ -24,8 +24,18 @@ Perfil → **Editar perfil**:
 | Foto | logo Dose Certa (eu gero se quiser) |
 | Nome | `Dose Certa \| Peptídeos sem achismo` |
 | Nome de usuário | `dosecerta_br` |
-| Bio | `Conteúdo educativo sobre peptídeos` ⏎ `Calculadoras grátis` ⏎ `Não vendemos peptídeos` |
-| Links | `https://centralpeptideos.com.br/links` (a página entra no ar com a automação; até lá use `https://centralpeptideos.com.br/ebooks`) |
+| Bio | texto abaixo (copie só o que está dentro do bloco) |
+| Links | `https://centralpeptideos.com.br/links` |
+
+Bio (cerca de 110 caracteres, limite de 150). A última linha aponta para o link, que o
+Instagram mostra logo abaixo da bio:
+
+```
+Peptídeos e GLP-1 sem achismo
+🧮 Calculadoras de dose grátis
+🚫 Não vendemos peptídeos
+👇 Guias e calculadoras
+```
 
 ### Mudar para conta profissional
 
