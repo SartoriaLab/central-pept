@@ -112,3 +112,14 @@ export function buildTabela(i: TabelaInput): Tabela | null {
     wastedMg: Math.max(0, round(i.vialMg - used * i.doseMg, 4)),
   };
 }
+
+/** Frequência a partir do texto da ficha ("1x por semana", "2-3x por dia"…); null se não der para saber. */
+export function guessFreq(text: string | undefined): Freq | null {
+  const t = (text ?? '').toLowerCase().trim();
+  if (/^(2-3x|2x|3x) por dia/.test(t)) return '2x-dia';
+  if (/^(1-2x|1x) por dia/.test(t)) return 'diaria';
+  if (/^(2-3x|3x) por semana/.test(t)) return '3x-semana';
+  if (/^2x por semana/.test(t)) return '2x-semana';
+  if (/^1x por semana/.test(t)) return 'semanal';
+  return null;
+}

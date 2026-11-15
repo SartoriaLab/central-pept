@@ -12,7 +12,7 @@
 // Toda variante registra a oferta para o pop-up de saída (offer-store → ExitOffer).
 // Nunca aparece na impressão (no-print) nem nos embeds (a calculadora não recebe oferta).
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, type ReactNode } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import EbookCover from '@/components/ebook/EbookCover';
@@ -27,9 +27,11 @@ type Variant = 'card' | 'line' | 'result';
 type Props = {
   offer: Offer | null | undefined;
   variant?: Variant;
-  /** Frase com o dado da pessoa (variante result). */
+  /** Frase com o dado da pessoa (variantes result e line). */
   lead?: string;
   className?: string;
+  /** Conteúdo extra no bloco do resultado (ex.: prévia da tabela). */
+  children?: ReactNode;
 };
 
 /** Link da landing com a origem (variante e página), lida pelo CheckoutButton para as UTMs. */
@@ -37,7 +39,7 @@ export function offerHref(offer: Offer, origem: string, pathname: string | null)
   return `/ebooks/${offer.slug}?origem=${origem}&de=${encodeURIComponent(pathname || '/')}`;
 }
 
-export default function EbookOffer({ offer, variant = 'card', lead, className = '' }: Props) {
+export default function EbookOffer({ offer, variant = 'card', lead, className = '', children }: Props) {
   const ref = useRef<HTMLElement>(null);
   const pathname = usePathname() || '/';
   // Para a barra do celular: o bloco já passou para cima da tela.
@@ -79,7 +81,10 @@ export default function EbookOffer({ offer, variant = 'card', lead, className = 
         <div className="flex items-center gap-3 px-3 py-3 sm:px-4 rounded-xl border border-teal-100 bg-teal-50">
           <EbookCover title={offer.title} cover={offer.cover} label={offer.coverLabel} size="xs" />
           <div className="min-w-0 flex-1">
-            <p className="text-sm text-ink leading-snug">{offer.line}</p>
+            <p className="text-sm text-ink leading-snug">
+              {lead ? <strong>{lead} </strong> : null}
+              {offer.line}
+            </p>
             <Link href={href} onClick={onClick} className="btn-teal !h-9 !px-3 mt-2 text-xs">
               {offer.cta} · {price}
             </Link>
@@ -107,6 +112,7 @@ export default function EbookOffer({ offer, variant = 'card', lead, className = 
               </p>
             </div>
           </div>
+          {children}
           <AnchorNote text={offer.anchor} className="mt-3" />
           <Link href={href} onClick={onClick} className="btn-teal w-full mt-3">
             {offer.cta} · {price}

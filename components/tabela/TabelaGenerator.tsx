@@ -10,7 +10,7 @@ import type { Peptide } from '@/lib/peptides';
 import { doseToMg, fmt, fmtConcentration } from '@/components/calculator/calc';
 import { FREQ_LABELS, type Freq } from '@/lib/vial-plan';
 import { getTitrationDoses } from '@/lib/titration';
-import { buildTabela, type Syringe } from '@/lib/tabela';
+import { buildTabela, guessFreq, type Syringe } from '@/lib/tabela';
 import { todayLocalISO } from '@/lib/dates';
 import DecimalInput from '@/components/ui/DecimalInput';
 
@@ -79,8 +79,8 @@ export default function TabelaGenerator({ peptides }: { peptides: Peptide[] }) {
       const p = peptides.find((x) => x.slug === s.peptideSlug);
       if (p) {
         setSlug(p.slug);
-        if (p.frequency.toLowerCase().includes('semana')) setFreq('semanal');
-        else if (p.frequency.toLowerCase().includes('dia')) setFreq('diaria');
+        const f = guessFreq(p.frequency);
+        if (f) setFreq(f);
       }
       if (typeof s.mg === 'number') setVialMg(s.mg);
       if (typeof s.dose === 'number') setDose(s.dose);

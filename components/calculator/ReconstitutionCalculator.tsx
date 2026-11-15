@@ -22,6 +22,8 @@ import RecentCalcs, {
 } from './RecentCalcs';
 import { EVENTS, track, trackOnce } from '@/lib/track';
 import EbookOffer from '@/components/ebook/EbookOffer';
+import TabelaPreview from '@/components/tabela/TabelaPreview';
+import TabelaNudge from '@/components/tabela/TabelaNudge';
 import type { EbookOffer as Offer } from '@/lib/ebooks';
 
 type Mode = 'volume' | 'units';
@@ -85,6 +87,8 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug,
   const resultRef = useRef<HTMLDivElement>(null);
   // Barra fixa do celular: só enquanto o resultado está abaixo da tela.
   const [resultBelow, setResultBelow] = useState(false);
+  // Depois de imprimir, copiar ou compartilhar: mostra o aviso da Tabela personalizada.
+  const [nudge, setNudge] = useState(false);
 
   // Lista unificada: peptídeos da lib + personalizados salvos
   const allPeptides = useMemo(() => [...customs, ...peptides], [customs, peptides]);
@@ -446,6 +450,7 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug,
       `Refazer a conta: ${SITE_HOST}/ferramentas/reconstituicao${peptides.some((x) => x.slug === peptide.slug) ? `/${peptide.slug}` : ''}`,
     ].join('\n');
     track(EVENTS.copyResult);
+    setNudge(true);
     navigator.clipboard?.writeText(text)
       .then(() => setToast('Copiado!'))
       .catch(() => setToast('Não foi possível copiar.'));
@@ -458,6 +463,7 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug,
     const text = `Reconstituição de ${peptide.name}: ${fmt(result.unitsPerDose, 1)} U por dose na seringa de ${syringe} U (${fmt(result.waterMl, 2)} ml de água BAC). Conta completa: ${url}`;
     window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
     track(EVENTS.whatsapp, { ferramenta: 'reconstituicao' });
+    setNudge(true);
   }
 
   // Compartilhar URL com estado atual
@@ -465,6 +471,7 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug,
     if (!peptide || typeof window === 'undefined') return;
     const url = `${window.location.origin}${window.location.pathname}?${stateQuery(true)}`;
     track(EVENTS.share);
+    setNudge(true);
 
     // Usa Web Share API se disponível (mobile), senão copia para clipboard
     const nav = window.navigator as Navigator & { share?: (data: ShareData) => Promise<void> };
@@ -890,6 +897,7 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug,
                     type="button"
                     onClick={() => {
                       track(EVENTS.print, { pagina: window.location.pathname });
+                      setNudge(true);
                       window.print();
                     }}
                     title="Imprimir / Salvar como PDF"
@@ -984,13 +992,23 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug,
               </div>
             </div>
           )}
+          {nudge && offer?.id === 'TAB' && result ? <TabelaNudge offer={offer} className="mt-4" /> : null}
           {result && Number.isFinite(result.unitsPerDose) && result.unitsPerDose > 0 ? (
             <EbookOffer
               variant="result"
               offer={offer}
               lead={`Você vai puxar ${fmt(result.unitsPerDose, 1)} unidades.`}
               className="mt-4"
-            />
+            >
+              {offer?.id === 'TAB' && peptide && mg !== '' && dose !== '' ? (
+                <TabelaPreview
+                  vialMg={Number(mg)}
+                  waterMl={result.waterMl}
+                  doseMg={doseToMg(Number(dose), peptide.doseUnit)}
+                  frequency={peptide.frequency}
+                />
+              ) : null}
+            </EbookOffer>
           ) : (
             <EbookOffer variant="line" offer={offer} className="mt-4" />
           )}

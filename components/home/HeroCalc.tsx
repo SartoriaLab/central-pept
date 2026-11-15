@@ -6,6 +6,8 @@ import type { DoseUnit } from '@/lib/peptides';
 import { calcByVolume, doseToMg, fmt, fmtConcentration } from '@/components/calculator/calc';
 import Syringe from '@/components/calculator/Syringe';
 import DecimalInput from '@/components/ui/DecimalInput';
+import EbookOffer from '@/components/ebook/EbookOffer';
+import type { EbookOffer as Offer } from '@/lib/ebooks';
 
 export type HeroPeptide = {
   slug: string;
@@ -16,7 +18,16 @@ export type HeroPeptide = {
 };
 
 /** Calculadora de verdade no topo da home: escolhe o peptídeo e já vê as unidades. */
-export default function HeroCalc({ peptides, initialSlug }: { peptides: HeroPeptide[]; initialSlug: string }) {
+export default function HeroCalc({
+  peptides,
+  initialSlug,
+  offer,
+}: {
+  peptides: HeroPeptide[];
+  initialSlug: string;
+  /** Oferta da calculadora de reconstituição (a mesma da ferramenta). */
+  offer?: Offer | null;
+}) {
   const first = peptides.find((p) => p.slug === initialSlug) ?? peptides[0];
   const [slug, setSlug] = useState(first.slug);
   const [mg, setMg] = useState<number | ''>(first.vialMg);
@@ -99,6 +110,10 @@ export default function HeroCalc({ peptides, initialSlug }: { peptides: HeroPept
           <p className="text-sm text-ink-3 py-6 text-center">Preencha frasco, água e dose para ver o resultado.</p>
         )}
       </div>
+
+      {result && !tooBig ? (
+        <EbookOffer variant="line" offer={offer} lead={`Você vai puxar ${fmt(units, 1)} U.`} className="!my-0 mt-4" />
+      ) : null}
 
       <Link href={href} className="mt-4 btn-outline w-full">
         Abrir calculadora completa

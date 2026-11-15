@@ -8,14 +8,14 @@ import HeroCalc, { type HeroPeptide } from '@/components/home/HeroCalc';
 import ToolIcon, { toolColor } from '@/components/ui/ToolIcon';
 import { TOOLS } from '@/lib/tools';
 import EbookOffer from '@/components/ebook/EbookOffer';
-import { ebookForHub, offerFor } from '@/lib/ebooks';
+import { ebookForHub, ebookForTool, offerFor } from '@/lib/ebooks';
 
 export const metadata: Metadata = {
   title: {
     absolute: 'Peptídeos: Calculadoras, Enciclopédia e Guias | Central Peptídeos',
   },
   description:
-    'Calculadoras de reconstituição, subida de dose e custo de GLP-1, comparativos e enciclopédia de peptídeos com doses e referências. Grátis, sem cadastro e sem anúncios.',
+    'Calculadoras de reconstituição, subida de dose e custo de GLP-1, comparativos e enciclopédia de peptídeos com doses e referências. Grátis e sem cadastro.',
   alternates: { canonical: '/' },
   ...socialImage('pagina', 'home', '/'),
 };
@@ -45,6 +45,7 @@ export default function HomePage() {
   const articles = getArticles();
   const recentPosts = articles.slice(0, 3);
   const kitOffer = offerFor(ebookForHub());
+  const calcOffer = offerFor(ebookForTool('reconstituicao'));
   const heroPeptides: HeroPeptide[] = peptides
     .filter((p) => p.commonAmounts.length > 0)
     .map((p) => ({ slug: p.slug, name: p.name, typicalDose: p.typicalDose, doseUnit: p.doseUnit, vialMg: p.commonAmounts[0] }));
@@ -89,7 +90,7 @@ export default function HomePage() {
             {/* Calculadora de verdade */}
             <div className="relative">
               <div className="absolute -inset-6 bg-gradient-teal opacity-10 blur-3xl rounded-full" aria-hidden />
-              <HeroCalc peptides={heroPeptides} initialSlug="tirzepatida" />
+              <HeroCalc peptides={heroPeptides} initialSlug="tirzepatida" offer={calcOffer} />
             </div>
           </div>
 
@@ -115,7 +116,7 @@ export default function HomePage() {
             <TrustItem
               icon={<path d="M20 7 9 18l-5-5" />}
               title="Calculadoras gratuitas"
-              desc="Sem cadastro, sem anúncios"
+              desc="Grátis e sem cadastro"
             />
             <TrustItem
               icon={<>
@@ -142,7 +143,7 @@ export default function HomePage() {
         <div className="text-center mb-10">
           <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight">Ferramentas</h2>
           <p className="text-ink-2 mt-2 max-w-xl mx-auto">
-            Cálculo preciso, resultado em tempo real. Sem login, sem anúncios.
+            Cálculo preciso, resultado em tempo real. Grátis, sem login.
           </p>
         </div>
 

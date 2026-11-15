@@ -52,3 +52,15 @@ describe('tabela personalizada', () => {
     expect(buildTabela({ vialMg: 5, waterMl: 2, doseMg: 1, syringe: 100, freq: 'semanal', startISO: 'ontem', shelfDays: 28 })).toBeNull();
   });
 });
+
+describe('frequência pela ficha', () => {
+  it('lê o começo do texto da ficha', async () => {
+    const { guessFreq } = await import('@/lib/tabela');
+    expect(guessFreq('1x por semana (dose inicial, aumentar gradualmente)')).toBe('semanal');
+    expect(guessFreq('2x por semana (carga), 1x por semana (manutenção)')).toBe('2x-semana');
+    expect(guessFreq('2-3x por semana')).toBe('3x-semana');
+    expect(guessFreq('1-2x por dia')).toBe('diaria');
+    expect(guessFreq('2-3x por dia')).toBe('2x-dia');
+    expect(guessFreq('Conforme necessário (máx 1x a cada 24h)')).toBeNull();
+  });
+});
