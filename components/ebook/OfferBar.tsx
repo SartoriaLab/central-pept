@@ -34,6 +34,7 @@ export default function OfferBar({ offer, show, href }: Props) {
 
   return (
     <div
+      data-bottom-bar
       className="md:hidden no-print fixed left-3 right-3 bottom-[max(0.75rem,env(safe-area-inset-bottom))] z-30 flex items-center gap-2 pl-4 pr-2 py-2 rounded-xl bg-ink text-bg shadow-xl animate-slide-up"
       role="complementary"
       aria-label="Guia em PDF"

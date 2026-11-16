@@ -1026,6 +1026,7 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug,
       {result && resultBelow && !comboOpen && (
         <button
           type="button"
+          data-bottom-bar
           onClick={() => {
             const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
             resultRef.current?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });

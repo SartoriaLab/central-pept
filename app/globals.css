@@ -304,6 +304,22 @@ html.dark .text-pink-800 { color: #f9a8d4 !important; }
 html.dark .bg-white:not(.keep-white) { background-color: var(--surface) !important; }
 html.dark .hover\:bg-yellow-50:hover { background-color: rgba(234,179,8,0.14) !important; }
 
+/* Banner flutuante do app (components/pwa/InstallFloat.tsx): fica no rodapé da tela e sobe
+   quando a página mostra outra barra fixa embaixo (elementos com data-bottom-bar, só no celular). */
+.install-float {
+  bottom: max(0.75rem, env(safe-area-inset-bottom));
+}
+@media (max-width: 767px) {
+  body:has([data-bottom-bar]) .install-float {
+    bottom: calc(max(1rem, env(safe-area-inset-bottom)) + 4.25rem);
+  }
+}
+@media (min-width: 768px) {
+  .install-float {
+    bottom: 1.5rem;
+  }
+}
+
 /* Print: esconder cromo, manter só o resultado legível */
 @media print {
   html.dark {

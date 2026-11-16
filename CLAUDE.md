@@ -56,8 +56,10 @@ Feed, sitemap, busca, páginas de tag e imagem de compartilhamento saem sozinhos
    O diário não tem embed (depende de localStorage).
 6. O service worker (`app/sw.js/route.ts`) pré-carrega toda ferramenta de `lib/tools.ts`
    para uso offline; só registra em produção.
-7. App (PWA): botão "Instalar" fixo no cabeçalho (`InstallButton`), faixa na home (`InstallBanner`), cartão
-   embaixo do resultado da reconstituição (`InstallPrompt`) e página `/app` (links no menu, rodapé e `/links`).
+7. App (PWA): botão "Instalar" fixo no cabeçalho (`InstallButton`), banner flutuante em todas as páginas
+   (`InstallFloat`, no layout; fecha no X por `FLOAT_SNOOZE_DAYS`; fora de `/ebooks`, admin e embed; sobe
+   quando há outra barra fixa marcada com `data-bottom-bar`), cartão embaixo do resultado da
+   reconstituição (`InstallPrompt`) e página `/app` (links no menu, rodapé e `/links`).
    Todo botão usa `start()` do hook `useInstall`: instala em um toque quando o navegador oferece; senão abre
    a janela `InstallGuide` (layout) com os passos do aparelho. Os passos ficam só em
    `components/pwa/InstallSteps.tsx`, escolhidos por `guideKind` (`lib/install.ts`): Safari do iOS 26 (menu

@@ -131,6 +131,28 @@ export function dismissInstall(now = Date.now()): void {
   }
 }
 
+// Banner flutuante (todas as páginas): fechado no X, volta depois de FLOAT_SNOOZE_DAYS.
+// Chave própria: fechar o banner não esconde o cartão da calculadora, e vice-versa.
+export const FLOAT_SNOOZE_DAYS = 7;
+const FLOAT_KEY = 'cp:banner-app-fechado';
+
+export function floatDismissed(now = Date.now()): boolean {
+  try {
+    const at = Number(window.localStorage.getItem(FLOAT_KEY));
+    return Number.isFinite(at) && at > 0 && now - at < FLOAT_SNOOZE_DAYS * DAY_MS;
+  } catch {
+    return false;
+  }
+}
+
+export function dismissFloat(now = Date.now()): void {
+  try {
+    window.localStorage.setItem(FLOAT_KEY, String(now));
+  } catch {
+    // modo privado: volta na próxima página
+  }
+}
+
 export type InstallState = {
   platform: InstallPlatform;
   standalone: boolean;

@@ -9,6 +9,7 @@ import ServiceWorker from '@/components/layout/ServiceWorker';
 import ExitOffer from '@/components/ebook/ExitOffer';
 import { installCaptureScript } from '@/lib/install';
 import InstallGuide from '@/components/pwa/InstallGuide';
+import InstallFloat from '@/components/pwa/InstallFloat';
 import './globals.css';
 
 const inter = Inter({
@@ -171,6 +172,7 @@ export default function RootLayout({
         <Analytics />
         <ServiceWorker />
         <ExitOffer />
+        <InstallFloat />
         <InstallGuide />
       </body>
     </html>

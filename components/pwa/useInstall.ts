@@ -20,7 +20,7 @@ import {
 } from '@/lib/install';
 import { EVENTS, track } from '@/lib/track';
 
-export type InstallPosition = 'cabecalho' | 'calculadora' | 'home' | 'pagina' | 'guia';
+export type InstallPosition = 'cabecalho' | 'flutuante' | 'calculadora' | 'pagina';
 
 type Extra = Record<string, string | boolean>;
 
