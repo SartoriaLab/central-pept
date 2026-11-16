@@ -196,7 +196,8 @@ export const PEPTIDES: Peptide[] = [
     doseUnit: 'mg',
     frequency: '1x por semana',
     shortDescription: 'Agonista duplo GIP/GLP-1 (Mounjaro, Zepbound). Usado para controle glicêmico e perda de peso.',
-    commonAmounts: [5, 10, 15],
+    // 20 e 60 mg: frascos manipulados muito buscados ("como diluir tirzepatida 20mg/60mg").
+    commonAmounts: [5, 10, 15, 20, 60],
     category: 'glp-1',
     doseRange: '2,5-15 mg/semana (subcutâneo, titulação a cada ≥4 semanas)',
     halfLife: '~5 dias',
@@ -234,7 +235,7 @@ export const PEPTIDES: Peptide[] = [
     doseUnit: 'mg',
     frequency: '1x por semana',
     shortDescription: 'Agonista triplo GLP-1/GIP/glucagon em desenvolvimento para obesidade e diabetes tipo 2.',
-    commonAmounts: [5, 10],
+    commonAmounts: [5, 10, 60],
     category: 'glp-1',
     doseRange: 'Ensaios: 1, 4, 8 e 12 mg/semana (fase 2); 4, 9 e 12 mg/semana com início em 2 mg (fase 3)',
     halfLife: '~6 dias',

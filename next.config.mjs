@@ -19,6 +19,9 @@ const nextConfig = {
       { source: '/comparar/tirzepatida-vs-retatrutide', destination: '/comparar/tirzepatida-vs-retatrutida', permanent: true },
       { source: '/comparar/semaglutida-vs-retatrutide', destination: '/comparar/semaglutida-vs-retatrutida', permanent: true },
       { source: '/comparar/semaglutida-vs-tirzepatida-vs-retatrutide', destination: '/comparar/semaglutida-vs-tirzepatida-vs-retatrutida', permanent: true },
+      // URLs que davam 404 e ainda aparecem no Search Console.
+      { source: '/tirzepatida-preco-quanto-custa', destination: '/blog/tirzepatida-preco-quanto-custa', permanent: true },
+      { source: '/blog/retatrutida', destination: '/blog/retatrutida-o-que-e', permanent: true },
     ];
   },
 };
