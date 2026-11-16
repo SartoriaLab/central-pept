@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import DropCheck from '@/components/brand/DropCheck';
 import EbookCover from '@/components/ebook/EbookCover';
 import { IndexLink } from '@/components/ebook/LandingTrack';
 import { coverLabel, formatPrice, getActiveEbooks, getEbookById, kitFullPrice, type Ebook } from '@/lib/ebooks';
@@ -37,8 +38,9 @@ export default function LinksPage() {
   return (
     <div className="max-w-md mx-auto px-4 py-8">
       <header className="text-center">
-        <div className="mx-auto w-16 h-16 rounded-2xl bg-gradient-to-br from-teal-500 to-teal-700 text-white flex items-center justify-center text-2xl font-extrabold">
-          DC
+        {/* Mesma marca da foto de perfil: gota com check sobre azul-marinho (cor fixa nos dois temas). */}
+        <div className="mx-auto w-20 h-20 rounded-full bg-[#0b1220] flex items-center justify-center">
+          <DropCheck size={38} id="links-drop" />
         </div>
         <h1 className="mt-3 text-2xl font-extrabold text-ink">{INSTAGRAM_NAME}</h1>
         <p className="text-sm text-ink-2">

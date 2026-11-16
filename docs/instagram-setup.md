@@ -103,6 +103,18 @@ enquanto ele rodar ao menos uma vez a cada 60 dias.
    US$ 5 de crédito, o mínimo (dá para meses; cada dia custa centavos).
 2. **API Keys** → **Create Key** → nome `dosecerta` → copie (começa com `sk-ant-`).
 
+## Parte 5 — Voz do Reels (ElevenLabs) e música
+
+Sem esta parte o Reels sai com a voz grátis da Microsoft (Thalita), mais robótica.
+
+1. Acesse **https://elevenlabs.io** → crie a conta → assine o plano **Starter** (cerca de
+   US$ 5/mês; dá para um Reels por dia).
+2. **Voices** → **Voice Library** → filtre **Portuguese** e sotaque **Brazilian** → ouça e
+   escolha uma voz → **Add to my voices**. Em **My Voices**, abra a voz e copie o **Voice ID**.
+3. Perfil (canto inferior esquerdo) → **API Keys** → **Create API Key** → copie a chave.
+4. Música: baixe 2 a 5 trilhas instrumentais calmas da [Pixabay Music](https://pixabay.com/music/)
+   e me mande os arquivos (ou coloque em `scripts/social/music/`). Sem trilha, o Reels sai sem música.
+
 ---
 
 ## Me mande
@@ -118,5 +130,9 @@ workflow:
 | `IG_USER_ID` | o ID numérico da Parte 3, passo 5 |
 | `IG_ACCESS_TOKEN` | o token `IG...` |
 | `ANTHROPIC_API_KEY` | a chave `sk-ant-...` |
+| `ELEVENLABS_API_KEY` | a chave da ElevenLabs (Parte 5) |
+
+3. Na aba **Variables** do mesmo lugar, **New repository variable**: `ELEVENLABS_VOICE_ID` com o
+   Voice ID da Parte 5 (não é segredo).
 
 Depois me avise "segredos salvos". O `BLOB_READ_WRITE_TOKEN` e o `DATABASE_URL` eu configuro.

@@ -100,6 +100,9 @@ Feed, sitemap, busca, páginas de tag e imagem de compartilhamento saem sozinhos
    seguem `ebookFor*` (`ebook-cta.ts`).
 3. `npm run social:preview` renderiza um exemplo sem API; `npm run social:carrossel -- --dry` gera de
    verdade em `social/out/` sem publicar. Precisa de ffmpeg e `pip install edge-tts`.
+   Reels: voz com tempo por palavra em `voice.ts` (ElevenLabs com `ELEVENLABS_API_KEY` e a variável
+   `ELEVENLABS_VOICE_ID`; sem chave, edge-tts via `tts_words.py`), legenda palavra a palavra em
+   `captions.ts`, transições e música de `scripts/social/music/` (uma trilha por dia) em `render.ts`.
 4. Histórico e token renovado ficam em `social_posts`/`social_state`, criadas pelo próprio robô
    (`ensureTables` em `state.ts`, espelho de `drizzle/schema.ts`: mudou um, mude o outro).
 5. Bio do perfil aponta para `/links` (noindex), com UTM `instagram/bio` (`bioUrl`).

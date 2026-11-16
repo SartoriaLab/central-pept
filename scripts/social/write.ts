@@ -4,17 +4,22 @@ import Anthropic from '@anthropic-ai/sdk';
 import { betaZodOutputFormat } from '@anthropic-ai/sdk/helpers/beta/zod';
 import { z } from 'zod/v4';
 import { LIMITS } from './validate';
+import { ILLUSTRATIONS, ILLUSTRATION_KEYS } from './illustrations';
 import type { Draft, Topic } from './types';
 
 export const MODEL = 'claude-opus-5-5';
 
 const DraftSchema = z.object({
   hook: z.string().describe(`Frase da capa, até ${LIMITS.hook} caracteres: pergunta ou erro comum que prende a atenção.`),
+  hookIcon: z.enum(ILLUSTRATION_KEYS).describe('Ilustração da capa, diferente das dos slides (mesma lista do campo icon dos slides).'),
   slides: z
     .array(
       z.object({
         title: z.string().describe(`Até ${LIMITS.slideTitle} caracteres.`),
         body: z.string().describe(`Até ${LIMITS.slideBody} caracteres. Uma ideia só.`),
+        icon: z
+          .enum(ILLUSTRATION_KEYS)
+          .describe(`Ilustração do slide: ${Object.entries(ILLUSTRATIONS).map(([k, d]) => `${k} (${d})`).join('; ')}. Evite repetir no mesmo post.`),
       }),
     )
     .describe(`${LIMITS.slides[0]} a ${LIMITS.slides[1]} slides de conteúdo, sem capa e sem chamada final.`),
@@ -44,7 +49,7 @@ Estilo:
 - Gancho forte e concreto: um erro comum, uma dúvida real, um número da fonte.
 - Frases curtas, voz ativa, segunda pessoa ("você"). Nada de jargão sem explicar.
 - Slides: título curto + uma ideia por slide; o último slide de conteúdo resume o que fazer.
-- Falas do Reels: tom de conversa, cada fala com 1 ou 2 frases (cerca de 8 a 12 segundos lida em voz alta).
+- Falas do Reels: tom de conversa, cada fala com 1 ou 2 frases (cerca de 8 a 12 segundos lida em voz alta). Toda frase precisa soar inequivocamente portuguesa, com palavras como "você", "seu", "está", "não", "é" ou acentos: a voz adivinha o idioma por frase e lê em espanhol uma frase curta como "Mounjaro dando enjoo?" (escreva "Seu Mounjaro está dando enjoo?").
 - Legenda: quem não arrasta os slides precisa sair com o conteúdo. 2 a 4 blocos curtos; se houver passos, numere com 1️⃣ 2️⃣ 3️⃣; se houver um erro comum ou risco, um bloco começando com ⚠️. Use as palavras que a pessoa digitaria na busca (nome do peptídeo, "dose", "unidades", "seringa", "efeito colateral").
 - Pergunta dos comentários: concreta e fácil de responder em poucas palavras (ex.: "Qual frasco e quanta água você usa?", "Em qual semana o enjoo apareceu para você?"). Nunca peça que a pessoa conte a dose para receber uma indicação.`;
 

@@ -1,5 +1,6 @@
 // Tipos da automação do Instagram (@dosecerta_br). Spec:
 // docs/superpowers/specs/2026-11-15-instagram-dosecerta-design.md
+import type { Illustration } from './illustrations';
 
 export type Format = 'carrossel' | 'reels';
 
@@ -31,8 +32,10 @@ export type HistoryEntry = {
 export type Draft = {
   /** Frase da capa: pergunta ou erro comum. */
   hook: string;
-  /** Slides de conteúdo (sem capa nem CTA), 2 a 6. */
-  slides: { title: string; body: string }[];
+  /** Ilustração da capa (diferente da do 1º slide); sem ela, usa a do 1º slide. */
+  hookIcon?: Illustration;
+  /** Slides de conteúdo (sem capa nem CTA), 2 a 6; `icon` = chave de illustrations.ts. */
+  slides: { title: string; body: string; icon?: Illustration }[];
   /** Falas do Reels, uma por cena (3 a 6), sem a chamada final (montada pelo código). */
   narration: string[];
   /** Corpo da legenda, sem CTA, aviso nem hashtags (montados por caption.ts). */

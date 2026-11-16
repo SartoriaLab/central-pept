@@ -3,6 +3,8 @@
 import { CATEGORY_HEX } from '@/lib/category-style';
 import { INSTAGRAM_HANDLE, INSTAGRAM_NAME, SITE_HOST } from '@/lib/site';
 import type { Cta } from './types';
+import { illustrationSrc, type Illustration } from './illustrations';
+import DropCheck from '@/components/brand/DropCheck';
 
 export type Size = { width: number; height: number };
 export const CAROUSEL: Size = { width: 1080, height: 1350 };
@@ -42,13 +44,8 @@ function Frame({ size, accent, page, children }: { size: Size; accent: string; p
       >
       <div style={{ display: 'flex', flexShrink: 0, width: inner, alignItems: 'center', justifyContent: 'space-between' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-          <div
-            style={{
-              width: 56, height: 56, borderRadius: 14, background: accent, display: 'flex',
-              alignItems: 'center', justifyContent: 'center', fontSize: 24, fontWeight: 800, color: BG,
-            }}
-          >
-            DC
+          <div style={{ display: 'flex', width: 48, height: 62, alignItems: 'center', justifyContent: 'center' }}>
+            <DropCheck size={48} />
           </div>
           <div style={{ fontSize: 28, fontWeight: 800, letterSpacing: 1 }}>{INSTAGRAM_NAME.toUpperCase()}</div>
         </div>
@@ -78,10 +75,29 @@ function fit(text: string, big: number, small: number, limit: number): number {
   return text.length > limit ? small : big;
 }
 
-export function CoverSlide({ size, accent, hook, label, swipe }: { size: Size; accent: string; hook: string; label: string; swipe: boolean }) {
+/** Ilustração 3D com um halo da cor da categoria atrás. */
+function Art({ icon, size, accent }: { icon: Illustration; size: number; accent: string }) {
+  return (
+    <div style={{ display: 'flex', width: size, height: size, alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
+      <div
+        style={{
+          position: 'absolute', left: 0, top: 0, width: size, height: size, borderRadius: size,
+          background: `radial-gradient(circle, ${accent}55 0%, ${accent}00 68%)`, display: 'flex',
+        }}
+      />
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={illustrationSrc(icon)} width={Math.round(size * 0.78)} height={Math.round(size * 0.78)} alt="" />
+    </div>
+  );
+}
+
+export function CoverSlide({
+  size, accent, hook, label, swipe, icon,
+}: { size: Size; accent: string; hook: string; label: string; swipe: boolean; icon?: Illustration }) {
   return (
     <Frame size={size} accent={accent}>
-      <div style={{ display: 'flex', fontSize: 30, fontWeight: 800, color: accent, textTransform: 'uppercase', letterSpacing: 3 }}>{label}</div>
+      {icon && <Art icon={icon} size={size.height > 1500 ? 380 : 300} accent={accent} />}
+      <div style={{ display: 'flex', marginTop: icon ? 24 : 0, fontSize: 30, fontWeight: 800, color: accent, textTransform: 'uppercase', letterSpacing: 3 }}>{label}</div>
       <div style={{ display: 'flex', marginTop: 28, fontSize: fit(hook, 92, 76, 55), fontWeight: 800, lineHeight: 1.08, letterSpacing: -2 }}>
         {nobreak(hook)}
       </div>
@@ -92,10 +108,13 @@ export function CoverSlide({ size, accent, hook, label, swipe }: { size: Size; a
   );
 }
 
-export function ContentSlide({ size, accent, title, body, page }: { size: Size; accent: string; title: string; body: string; page?: string }) {
+export function ContentSlide({
+  size, accent, title, body, page, icon,
+}: { size: Size; accent: string; title: string; body: string; page?: string; icon?: Illustration }) {
   return (
     <Frame size={size} accent={accent} page={page}>
-      <div style={{ display: 'flex', width: 96, height: 10, borderRadius: 5, background: accent }} />
+      {icon && <Art icon={icon} size={260} accent={accent} />}
+      <div style={{ display: 'flex', marginTop: icon ? 20 : 0, width: 96, height: 10, borderRadius: 5, background: accent }} />
       <div style={{ display: 'flex', marginTop: 36, fontSize: fit(title, 68, 58, 40), fontWeight: 800, lineHeight: 1.12, letterSpacing: -1 }}>
         {nobreak(title)}
       </div>
@@ -104,7 +123,59 @@ export function ContentSlide({ size, accent, title, body, page }: { size: Size; 
   );
 }
 
-export function CtaSlide({ size, accent, cta, page }: { size: Size; accent: string; cta: Cta | null; page?: string }) {
+const HIGHLIGHT = '#facc15';
+
+/** Legenda do Reels: bloco curto em caixa alta, palavra falada em destaque; `pop` = entrada maior. */
+export function Caption({ words, active, pop, big = false }: { words: string[]; active: number; pop: boolean; big?: boolean }) {
+  const base = big ? 96 : 80;
+  return (
+    <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', gap: '8px 18px', width: '100%' }}>
+      {words.map((w, i) => (
+        <div
+          key={i}
+          style={{
+            display: 'flex', padding: '2px 16px', borderRadius: 16, lineHeight: 1.15,
+            fontSize: pop ? Math.round(base * 1.08) : base, fontWeight: 800, textTransform: 'uppercase', letterSpacing: -1,
+            background: i === active ? HIGHLIGHT : 'transparent', color: i === active ? BG : INK,
+          }}
+        >
+          {w}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+/** Cena do Reels: título do slide no alto (ou o selo, na abertura) e a legenda falada no centro. */
+export function ReelScene({
+  size, accent, label, title, caption, icon,
+}: { size: Size; accent: string; label?: string; title?: string; caption: React.ReactNode; icon?: Illustration }) {
+  return (
+    <Frame size={size} accent={accent}>
+      <div style={{ display: 'flex', flexDirection: 'column', height: icon ? 220 : 300, justifyContent: 'flex-end' }}>
+        {label && (
+          <div style={{ display: 'flex', fontSize: 34, fontWeight: 800, color: accent, textTransform: 'uppercase', letterSpacing: 3 }}>{label}</div>
+        )}
+        {title && (
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <div style={{ display: 'flex', width: 96, height: 10, borderRadius: 5, background: accent }} />
+            <div style={{ display: 'flex', marginTop: 28, fontSize: fit(title, 64, 54, 30), fontWeight: 800, lineHeight: 1.12, letterSpacing: -1, color: INK_2 }}>
+              {nobreak(title)}
+            </div>
+          </div>
+        )}
+      </div>
+      {icon && (
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: 40 }}>
+          <Art icon={icon} size={420} accent={accent} />
+        </div>
+      )}
+      <div style={{ display: 'flex', flexGrow: 1, alignItems: 'center', justifyContent: 'center' }}>{caption}</div>
+    </Frame>
+  );
+}
+
+export function CtaSlide({ size, accent, cta, page, caption }: { size: Size; accent: string; cta: Cta | null; page?: string; caption?: React.ReactNode }) {
   return (
     <Frame size={size} accent={accent} page={page}>
       <div style={{ display: 'flex', fontSize: 64, fontWeight: 800, lineHeight: 1.1, letterSpacing: -1 }}>
@@ -146,6 +217,7 @@ export function CtaSlide({ size, accent, cta, page }: { size: Size; accent: stri
       >
         {`Link na bio · @${INSTAGRAM_HANDLE}`}
       </div>
+      {caption && <div style={{ display: 'flex', marginTop: 64, minHeight: 240, alignItems: 'center' }}>{caption}</div>}
     </Frame>
   );
 }

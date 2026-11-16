@@ -1,6 +1,7 @@
 // Barreira antes de publicar sem revisão: todo número com unidade do texto gerado precisa
 // existir na fonte, e nada de linguagem de venda ou promessa de resultado. Puro.
 import type { Draft } from './types';
+import { isIllustration } from './illustrations';
 
 const UNIT: Record<string, string> = {
   mg: 'mg', mcg: 'mcg', 'µg': 'mcg', 'μg': 'mcg', ml: 'ml', ui: 'ui', u: 'u', unidade: 'u', unidades: 'u',
@@ -73,12 +74,14 @@ export function validateDraft(draft: Draft, source: string): string[] {
     }
   }
 
+  if (draft.hookIcon !== undefined && !isIllustration(draft.hookIcon)) problems.push(`ilustração da capa desconhecida "${draft.hookIcon}"`);
   if (draft.hook.length > LIMITS.hook) problems.push(`gancho com ${draft.hook.length} caracteres (máx. ${LIMITS.hook})`);
   const [minS, maxS] = LIMITS.slides;
   if (draft.slides.length < minS || draft.slides.length > maxS) problems.push(`${draft.slides.length} slides (use ${minS} a ${maxS})`);
   draft.slides.forEach((s, i) => {
     if (s.title.length > LIMITS.slideTitle) problems.push(`slide ${i + 1}: título longo (${s.title.length})`);
     if (s.body.length > LIMITS.slideBody) problems.push(`slide ${i + 1}: texto longo (${s.body.length}, máx. ${LIMITS.slideBody})`);
+    if (s.icon !== undefined && !isIllustration(s.icon)) problems.push(`slide ${i + 1}: ilustração desconhecida "${s.icon}"`);
   });
   const [minN, maxN] = LIMITS.narration;
   if (draft.narration.length < minN || draft.narration.length > maxN) problems.push(`${draft.narration.length} falas (use ${minN} a ${maxN})`);

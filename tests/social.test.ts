@@ -11,6 +11,11 @@ import { ctaFor } from '@/scripts/social/ebook-cta';
 import { InstagramClient } from '@/scripts/social/instagram';
 import { toSpeech } from '@/scripts/social/render';
 import { nobreak } from '@/scripts/social/slides';
+import { beatsFor, chunkWords } from '@/scripts/social/captions';
+import { wordsFromChars } from '@/scripts/social/voice';
+import { ILLUSTRATION_KEYS } from '@/scripts/social/illustrations';
+import { existsSync } from 'node:fs';
+import path from 'node:path';
 import type { Draft, HistoryEntry, Topic } from '@/scripts/social/types';
 
 const DAY = 86_400_000;
@@ -125,6 +130,11 @@ describe('validateDraft', () => {
     expect(validateDraft(draft({ caption: 'Resultado garantido' }), source).length).toBeGreaterThan(0);
   });
 
+  it('barra ilustração fora da lista', () => {
+    const d = draft({ slides: [{ title: 'a', body: 'b', icon: 'unicornio' as never }, { title: 'c', body: 'd', icon: 'seringa' }] });
+    expect(validateDraft(d, source).join()).toContain('unicornio');
+  });
+
   it('exige pergunta curta terminando em "?"', () => {
     expect(validateDraft(draft({ question: 'Conta pra gente' }), source).join()).toContain('?');
     expect(validateDraft(draft({ question: `${'x'.repeat(130)}?` }), source).length).toBeGreaterThan(0);
@@ -148,6 +158,10 @@ describe('legenda', () => {
     expect([...at].sort((a, b) => a - b)).toEqual(at);
     expect(c).toContain('link da bio');
     expect(c.split('\n')[0]).toContain('Salve');
+  });
+
+  it('gancho sem pontuação ganha ponto antes do pedido para salvar', () => {
+    expect(buildCaption(draft({ hook: 'Isso ajuda de verdade' }), t, cta).split('\n')[0]).toBe('Isso ajuda de verdade. 📌 Salve para consultar depois.');
   });
 
   it('até 5 hashtags, com o nome comercial', () => {
@@ -257,6 +271,41 @@ describe('slides', () => {
     expect(nobreak('2,5 mg e 50 unidades, 5 mg/ml, 4 semanas, 2 mgx')).toBe(
       '2,5 mg e 50 unidades, 5 mg/⁠ml, 4 semanas, 2 mgx',
     );
+  });
+});
+
+describe('ilustrações', () => {
+  it('toda chave tem o PNG na pasta', () => {
+    for (const k of ILLUSTRATION_KEYS) {
+      expect(existsSync(path.join(process.cwd(), 'scripts', 'social', 'illustrations', `${k}.png`)), k).toBe(true);
+    }
+  });
+});
+
+describe('legenda do Reels', () => {
+  const w = (text: string, start: number, end = start + 0.2) => ({ text, start, end });
+
+  it('junta caracteres da ElevenLabs em palavras', () => {
+    const chars = [...'Oi, você?'];
+    const t = chars.map((_, i) => i * 0.1);
+    expect(wordsFromChars(chars, t, t.map((x) => x + 0.1))).toEqual([
+      { text: 'Oi,', start: 0, end: expect.closeTo(0.3) },
+      { text: 'você?', start: expect.closeTo(0.4), end: expect.closeTo(0.9) },
+    ]);
+  });
+
+  it('blocos de até 3 palavras, quebrando na pontuação e na pausa', () => {
+    const words = [w('Mounjaro', 0), w('dando', 0.3), w('enjoo?', 0.6), w('Isso', 1.2), w('aqui', 1.4), w('ajuda', 1.6), w('de', 1.8), w('verdade.', 2)];
+    expect(chunkWords(words).map((c) => c.words.join(' '))).toEqual(['Mounjaro dando', 'enjoo?', 'Isso aqui ajuda', 'de verdade']);
+  });
+
+  it('quadros cobrem a cena inteira, sem buraco, com salto na entrada de cada bloco', () => {
+    const chunks = chunkWords([w('um', 0.2), w('dois', 0.5), w('três.', 0.8), w('quatro', 1.4)]);
+    const beats = beatsFor(chunks, 2);
+    expect(beats[0].start).toBe(0);
+    expect(beats.at(-1)?.end).toBe(2);
+    beats.slice(1).forEach((b, i) => expect(b.start).toBeCloseTo(beats[i].end));
+    expect(beats.filter((b) => b.pop)).toHaveLength(2);
   });
 });
 

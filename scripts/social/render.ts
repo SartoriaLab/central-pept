@@ -1,6 +1,6 @@
 // Render: JSX → PNG (satori + resvg) → JPEG (ffmpeg; a API só aceita JPEG) e Reels
-// (voz neural pelo edge-tts + ffmpeg). Precisa de ffmpeg/ffprobe no PATH e do pacote
-// Python edge-tts (`pip install edge-tts`).
+// (voz em voice.ts + legenda palavra a palavra + ffmpeg). Precisa de ffmpeg/ffprobe no PATH e,
+// sem ELEVENLABS_API_KEY, do pacote Python edge-tts (`pip install edge-tts`).
 import { execFile } from 'node:child_process';
 import fs from 'node:fs/promises';
 import path from 'node:path';
@@ -8,14 +8,13 @@ import { promisify } from 'node:util';
 import { createElement } from 'react';
 import satori from 'satori';
 import { Resvg } from '@resvg/resvg-js';
-import { CAROUSEL, CoverSlide, ContentSlide, CtaSlide, REEL, accentFor, type Size } from './slides';
+import { CAROUSEL, Caption, CoverSlide, ContentSlide, CtaSlide, REEL, ReelScene, accentFor, type Size } from './slides';
 import { ctaSpeech } from './caption';
+import { beatsFor, chunkWords } from './captions';
+import { speak, voiceLabel } from './voice';
 import type { Cta, Draft, Topic } from './types';
 
 const run = promisify(execFile);
-
-export const VOICE = process.env.SOCIAL_VOICE || 'pt-BR-FranciscaNeural';
-const PYTHON = process.env.PYTHON || (process.platform === 'win32' ? 'python' : 'python3');
 
 const FONT_DIR = path.join(process.cwd(), 'node_modules', '@fontsource', 'inter', 'files');
 let fonts: Parameters<typeof satori>[1]['fonts'] | null = null;
@@ -56,9 +55,9 @@ export async function renderCarousel(draft: Draft, topic: Topic, cta: Cta | null
   const accent = accentFor(topic.category);
   const total = draft.slides.length + 2;
   const els = [
-    createElement(CoverSlide, { size: CAROUSEL, accent, hook: draft.hook, label: LABEL[topic.kind], swipe: true }),
+    createElement(CoverSlide, { size: CAROUSEL, accent, hook: draft.hook, label: LABEL[topic.kind], swipe: true, icon: draft.hookIcon ?? draft.slides[0]?.icon }),
     ...draft.slides.map((s, i) =>
-      createElement(ContentSlide, { size: CAROUSEL, accent, title: s.title, body: s.body, page: `${i + 2}/${total}` }),
+      createElement(ContentSlide, { size: CAROUSEL, accent, title: s.title, body: s.body, page: `${i + 2}/${total}`, icon: s.icon }),
     ),
     createElement(CtaSlide, { size: CAROUSEL, accent, cta, page: `${total}/${total}` }),
   ];
@@ -91,58 +90,134 @@ export function toSpeech(text: string): string {
   return units.reduce((t, [re, to]) => t.replace(re, to), text);
 }
 
-export async function tts(text: string, out: string): Promise<void> {
-  await run(PYTHON, ['-m', 'edge_tts', '--voice', VOICE, '--rate', '+8%', '--text', toSpeech(text), '--write-media', out], {
-    maxBuffer: 1 << 24,
-  });
+const FPS = 30;
+const SCENE_PAD = 0.4; // respiro depois da última palavra da cena
+const XFADE = 0.3; // transição entre cenas
+const MUSIC_DIR = path.join(process.cwd(), 'scripts', 'social', 'music');
+const MUSIC_VOLUME = 0.12;
+
+/** Uma trilha de scripts/social/music (muda por dia); nenhuma = sem música. */
+async function pickMusic(): Promise<string | null> {
+  const files = (await fs.readdir(MUSIC_DIR).catch(() => [] as string[])).filter((f) => /\.(mp3|m4a|wav)$/i.test(f)).sort();
+  if (files.length === 0) return null;
+  const day = Math.floor(Date.now() / 86_400_000);
+  return path.join(MUSIC_DIR, files[day % files.length]);
+}
+
+type Scene = { speech: string; frame: (caption: React.ReactNode) => React.ReactElement; big?: boolean };
+
+/** Vídeo de uma cena: quadros da legenda no tempo da fala + zoom lento (entrando ou saindo). */
+async function renderScene(scene: Scene, i: number, outDir: string): Promise<{ video: string; audio: string; dur: number }> {
+  const base = path.join(outDir, `cena-${i + 1}`);
+  const audio = `${base}.mp3`;
+  const words = await speak(toSpeech(scene.speech), audio);
+  const dur = (await duration(audio)) + SCENE_PAD;
+  const chunks = chunkWords(words);
+  const beats = beatsFor(chunks, dur);
+
+  const cache = new Map<string, string>();
+  const list: string[] = [];
+  const frame = async (key: string, caption: React.ReactNode) => {
+    let file = cache.get(key);
+    if (!file) {
+      file = `${base}-${cache.size + 1}.png`;
+      await fs.writeFile(file, await renderPng(scene.frame(caption), REEL));
+      cache.set(key, file);
+    }
+    return file;
+  };
+  if (beats.length === 0) {
+    list.push(`file '${path.basename(await frame('vazio', null))}'`, `duration ${dur.toFixed(3)}`);
+  }
+  for (const b of beats) {
+    const c = chunks[b.chunk];
+    const file = await frame(`${b.chunk}-${b.active}-${b.pop}`, createElement(Caption, { words: c.words, active: b.active, pop: b.pop, big: scene.big }));
+    list.push(`file '${path.basename(file)}'`, `duration ${(b.end - b.start).toFixed(3)}`);
+  }
+  list.push(list[list.length - 2]); // o concat ignora a duração do último arquivo sem repeti-lo
+  const listFile = `${base}.txt`;
+  await fs.writeFile(listFile, list.join('\n'));
+
+  const z = i % 2 === 0 ? `1+0.06*on/${Math.ceil(dur * FPS)}` : `1.06-0.06*on/${Math.ceil(dur * FPS)}`;
+  const video = `${base}.mp4`;
+  await ffmpeg([
+    '-f', 'concat', '-safe', '0', '-i', listFile,
+    '-vf', `fps=${FPS},scale=1242:2208,zoompan=z='${z}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=1:s=1080x1920:fps=${FPS},format=yuv420p`,
+    '-t', dur.toFixed(3), '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '20', video,
+  ]);
+  for (const f of cache.values()) await fs.rm(f);
+  await fs.rm(listFile);
+  return { video, audio, dur };
 }
 
 /**
- * Reels: cena 1 = capa com a primeira fala; cenas seguintes = slides com as demais falas
- * (fala sem slide correspondente vira o próprio texto na tela); última = CTA falada.
- * Cada cena dura o áudio + 0,5 s, com zoom lento. MP4 H.264/AAC 1080×1920 30 fps.
+ * Reels: abertura (gancho), uma cena por fala com o título do slide, e a chamada final. Cada
+ * cena tem legenda palavra a palavra no ritmo da voz (voice.ts), zoom lento alternado e
+ * transição deslizando para a próxima; música de fundo baixa se houver trilha em
+ * scripts/social/music. Capa do Reels em capa.png. MP4 H.264/AAC 1080×1920 30 fps.
  */
 export async function renderReel(draft: Draft, topic: Topic, cta: Cta | null, outDir: string): Promise<string> {
   await fs.mkdir(outDir, { recursive: true });
   const accent = accentFor(topic.category);
-  const scenes: { el: React.ReactElement; speech: string }[] = [
-    {
-      el: createElement(CoverSlide, { size: REEL, accent, hook: draft.hook, label: LABEL[topic.kind], swipe: false }),
-      speech: draft.narration[0],
-    },
-    ...draft.narration.slice(1).map((speech, i) => {
-      const s = draft.slides[i];
-      return {
-        el: createElement(ContentSlide, { size: REEL, accent, title: s?.title ?? topic.title, body: s?.body ?? speech }),
-        speech,
-      };
-    }),
-    { el: createElement(CtaSlide, { size: REEL, accent, cta }), speech: ctaSpeech(cta) },
-  ];
+  await fs.writeFile(
+    path.join(outDir, 'capa.png'),
+    await renderPng(createElement(CoverSlide, { size: REEL, accent, hook: draft.hook, label: LABEL[topic.kind], swipe: false, icon: draft.hookIcon ?? draft.slides[0]?.icon }), REEL),
+  );
 
-  const list: string[] = [];
-  for (const [i, scene] of scenes.entries()) {
-    const png = path.join(outDir, `cena-${i + 1}.png`);
-    const mp3 = path.join(outDir, `cena-${i + 1}.mp3`);
-    const mp4 = path.join(outDir, `cena-${i + 1}.mp4`);
-    await fs.writeFile(png, await renderPng(scene.el, REEL));
-    await tts(scene.speech, mp3);
-    const d = (await duration(mp3)) + 0.5;
-    const frames = Math.ceil(d * 30);
-    await ffmpeg([
-      '-i', png, '-i', mp3,
-      '-filter_complex',
-      `[0:v]scale=2160:3840,zoompan=z='min(zoom+0.0004,1.06)':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=${frames}:s=1080x1920:fps=30,format=yuv420p[v];[1:a]aresample=48000,apad[a]`,
-      '-map', '[v]', '-map', '[a]', '-t', d.toFixed(2),
-      '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '20', '-c:a', 'aac', '-b:a', '128k', '-ac', '2',
-      mp4,
-    ]);
-    list.push(`file '${path.basename(mp4)}'`);
+  const scenes: Scene[] = [
+    {
+      speech: draft.narration[0], big: true,
+      frame: (caption) => createElement(ReelScene, { size: REEL, accent, label: LABEL[topic.kind], caption, icon: draft.hookIcon ?? draft.slides[0]?.icon }),
+    },
+    ...draft.narration.slice(1).map(
+      (speech, i): Scene => ({
+        speech,
+        frame: (caption) => createElement(ReelScene, { size: REEL, accent, title: draft.slides[i]?.title ?? topic.title, caption, icon: draft.slides[i]?.icon }),
+      }),
+    ),
+    { speech: ctaSpeech(cta), frame: (caption) => createElement(CtaSlide, { size: REEL, accent, cta, caption }) },
+  ];
+  console.log(`Voz: ${voiceLabel()}`);
+  const parts: Awaited<ReturnType<typeof renderScene>>[] = [];
+  for (const [i, s] of scenes.entries()) parts.push(await renderScene(s, i, outDir));
+
+  // Início de cada cena na linha do tempo final (as transições sobrepõem XFADE segundos).
+  const starts: number[] = [];
+  parts.forEach((p, i) => starts.push(i === 0 ? 0 : starts[i - 1] + parts[i - 1].dur - XFADE));
+  const total = starts[parts.length - 1] + parts[parts.length - 1].dur;
+
+  const inputs = parts.flatMap((p) => ['-i', p.video]);
+  parts.forEach((p) => inputs.push('-i', p.audio));
+  const music = await pickMusic();
+  if (music) inputs.push('-stream_loop', '-1', '-i', music);
+
+  const n = parts.length;
+  const f: string[] = [];
+  let last = '[0:v]';
+  for (let i = 1; i < n; i++) {
+    const out = i === n - 1 ? '[v]' : `[x${i}]`;
+    const t = ['slideleft', 'slideup', 'smoothleft'][i % 3];
+    f.push(`${last}[${i}:v]xfade=transition=${t}:duration=${XFADE}:offset=${starts[i].toFixed(3)}${out}`);
+    last = out;
+  }
+  if (n === 1) f.push('[0:v]null[v]');
+  parts.forEach((_, i) => f.push(`[${n + i}:a]aresample=48000,adelay=${Math.round(starts[i] * 1000)}:all=1[a${i}]`));
+  f.push(`${parts.map((_, i) => `[a${i}]`).join('')}amix=inputs=${n}:normalize=0[voz]`);
+  if (music) {
+    f.push(`[${2 * n}:a]aresample=48000,volume=${MUSIC_VOLUME},afade=t=in:d=0.6,afade=t=out:st=${(total - 1.5).toFixed(2)}:d=1.5[bgm]`);
+    f.push('[voz][bgm]amix=inputs=2:normalize=0:duration=first[a]');
+  } else {
+    f.push('[voz]anull[a]');
   }
 
-  const listFile = path.join(outDir, 'cenas.txt');
-  await fs.writeFile(listFile, list.join('\n'));
   const out = path.join(outDir, 'reel.mp4');
-  await ffmpeg(['-f', 'concat', '-safe', '0', '-i', listFile, '-c', 'copy', '-movflags', '+faststart', out]);
+  await ffmpeg([
+    ...inputs,
+    '-filter_complex', f.join(';'),
+    '-map', '[v]', '-map', '[a]', '-t', total.toFixed(3),
+    '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '20', '-r', String(FPS), '-pix_fmt', 'yuv420p',
+    '-c:a', 'aac', '-b:a', '160k', '-ac', '2', '-movflags', '+faststart', out,
+  ]);
+  for (const p of parts) await Promise.all([fs.rm(p.video), fs.rm(p.audio)]);
   return out;
 }

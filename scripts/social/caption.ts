@@ -48,7 +48,8 @@ export function ctaLine(cta: Cta | null): string {
 /** Gancho e salvar → corpo (IA) → pergunta → seguir → guia → aviso → hashtags. */
 export function buildCaption(draft: Draft, topic: Topic, cta: Cta | null): string {
   const tail = ['', questionLine(draft.question), '', FOLLOW_LINE, '', ctaLine(cta), '', DISCLAIMER, '', hashtagsFor(topic).join(' ')].join('\n');
-  const head = `${draft.hook} ${SAVE_ASK}\n\n`;
+  const hook = draft.hook.trim();
+  const head = `${/[.!?…]$/.test(hook) ? hook : `${hook}.`} ${SAVE_ASK}\n\n`;
   const room = MAX_CAPTION - head.length - tail.length - 1; // 1 = "\n" entre corpo e cauda
   let body = draft.caption.trim();
   if (body.length > room) body = `${body.slice(0, Math.max(0, room - 1)).trimEnd()}…`;

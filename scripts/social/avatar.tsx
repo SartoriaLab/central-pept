@@ -1,74 +1,108 @@
 // Foto de perfil do @dosecerta_br. Uso: npx tsx scripts/social/avatar.tsx
-// Gera social/out/perfil.png (1080×1080, o que o Instagram pede) e uma prévia recortada
-// em círculo e pequena (como aparece no feed) para conferir a leitura.
+// Gera em social/out/perfil/ as opções em 1080×1080 (o que o Instagram pede) e uma folha
+// com todas recortadas em círculo e pequenas (como aparecem no feed), para comparar.
+// Escolhida em 2026-11-16: "1-gota" (gota amarela com check sobre azul-marinho).
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { renderPng } from './render';
+import { illustrationSrc } from './illustrations';
+import DropCheck from '@/components/brand/DropCheck';
 
 const SIZE = 1080;
-const TICKS = 11;
+const NAVY = '#0b1220';
+const TEAL = '#14b8a6';
+const YELLOW = '#facc15';
 
-function Avatar({ size, round = false }: { size: number; round?: boolean }) {
-  const k = size / SIZE;
-  return (
-    <div
-      style={{
-        width: size,
-        height: size,
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundImage: 'linear-gradient(135deg, #14b8a6 0%, #0f766e 100%)',
-        borderRadius: round ? size / 2 : 0,
-        overflow: 'hidden',
-      }}
-    >
+type Option = { id: string; name: string; el: (s: number) => React.ReactElement };
+
+const OPTIONS: Option[] = [
+  {
+    id: '1-gota',
+    name: 'Gota com check (azul-marinho)',
+    el: (s) => (
       <div
         style={{
-          display: 'flex',
-          fontFamily: 'Inter',
-          fontWeight: 800,
-          fontSize: 430 * k,
-          letterSpacing: -24 * k,
-          lineHeight: 1,
-          color: '#ffffff',
-          marginTop: 40 * k,
+          width: s, height: s, display: 'flex', alignItems: 'center', justifyContent: 'center',
+          backgroundImage: `radial-gradient(circle at 50% 45%, #1e3a5f 0%, ${NAVY} 70%)`,
         }}
       >
-        DC
+        <div style={{ display: 'flex', marginTop: -0.04 * s }}>
+          <DropCheck size={0.46 * s} />
+        </div>
       </div>
-      {/* Escala de seringa: marcas finas e uma marca da dose em destaque. */}
-      <div style={{ display: 'flex', alignItems: 'flex-end', width: 460 * k, height: 70 * k, marginTop: 36 * k, position: 'relative' }}>
-        <div style={{ position: 'absolute', left: 0, bottom: 0, width: 460 * k, height: 10 * k, borderRadius: 5 * k, backgroundColor: '#ffffff' }} />
-        {Array.from({ length: TICKS }, (_, i) => {
-          const dose = i === 7;
-          const tall = i % 5 === 0;
-          return (
-            <div
-              key={i}
-              style={{
-                position: 'absolute',
-                left: (i * (460 - 10)) / (TICKS - 1) * k,
-                bottom: 0,
-                width: (dose ? 14 : 10) * k,
-                height: (dose ? 70 : tall ? 46 : 30) * k,
-                borderRadius: 5 * k,
-                backgroundColor: dose ? '#fde68a' : '#ffffff',
-              }}
-            />
-          );
-        })}
+    ),
+  },
+  {
+    id: '2-gota-verde',
+    name: 'Gota com check (verde-azulado)',
+    el: (s) => (
+      <div
+        style={{
+          width: s, height: s, display: 'flex', alignItems: 'center', justifyContent: 'center',
+          backgroundImage: `linear-gradient(135deg, #2dd4bf 0%, ${TEAL} 45%, #0f766e 100%)`,
+        }}
+      >
+        <div style={{ display: 'flex', marginTop: -0.04 * s }}>
+          <DropCheck size={0.46 * s} />
+        </div>
       </div>
+    ),
+  },
+  {
+    id: '3-seringa',
+    name: 'Seringa 3D',
+    el: (s) => (
+      <div
+        style={{
+          width: s, height: s, display: 'flex', alignItems: 'center', justifyContent: 'center',
+          backgroundImage: `radial-gradient(circle at 50% 50%, ${TEAL}66 0%, ${NAVY} 62%)`,
+        }}
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={illustrationSrc('seringa')} width={0.62 * s} height={0.62 * s} alt="" />
+      </div>
+    ),
+  },
+  {
+    id: '4-dc',
+    name: 'DC no estilo da legenda',
+    el: (s) => (
+      <div style={{ width: s, height: s, display: 'flex', alignItems: 'center', justifyContent: 'center', background: NAVY }}>
+        <div
+          style={{
+            display: 'flex', padding: `${0.02 * s}px ${0.07 * s}px`, borderRadius: 0.07 * s, background: YELLOW, color: NAVY,
+            fontFamily: 'Inter', fontWeight: 800, fontSize: 0.36 * s, letterSpacing: -0.015 * s, lineHeight: 1.1,
+          }}
+        >
+          DC
+        </div>
+      </div>
+    ),
+  },
+];
+
+const THUMB = 180;
+
+function Sheet() {
+  return (
+    <div style={{ width: 1000, height: 330, display: 'flex', background: '#ffffff', justifyContent: 'space-around', alignItems: 'center', fontFamily: 'Inter' }}>
+      {OPTIONS.map((o) => (
+        <div key={o.id} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: 220 }}>
+          <div style={{ display: 'flex', width: THUMB, height: THUMB, borderRadius: THUMB, overflow: 'hidden' }}>{o.el(THUMB)}</div>
+          <div style={{ display: 'flex', marginTop: 16, fontSize: 18, fontWeight: 600, color: '#0f172a', textAlign: 'center' }}>{o.name}</div>
+        </div>
+      ))}
     </div>
   );
 }
 
 async function main() {
-  const out = path.join(process.cwd(), 'social', 'out');
+  const out = path.join(process.cwd(), 'social', 'out', 'perfil');
   await fs.mkdir(out, { recursive: true });
-  await fs.writeFile(path.join(out, 'perfil.png'), await renderPng(<Avatar size={SIZE} />, { width: SIZE, height: SIZE }));
-  await fs.writeFile(path.join(out, 'perfil-previa.png'), await renderPng(<Avatar size={160} round />, { width: 160, height: 160 }));
+  for (const o of OPTIONS) {
+    await fs.writeFile(path.join(out, `perfil-${o.id}.png`), await renderPng(o.el(SIZE), { width: SIZE, height: SIZE }));
+  }
+  await fs.writeFile(path.join(out, 'comparar.png'), await renderPng(<Sheet />, { width: 1000, height: 330 }));
   console.log(`Gerado em ${out}`);
 }
 
