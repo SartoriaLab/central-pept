@@ -72,7 +72,8 @@ export default function HomePage() {
                 </span>
               </h1>
               <p className="mt-5 text-lg md:text-xl text-ink-2 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                Calculadora de reconstituição em tempo real, enciclopédia com
+                A <strong className="text-ink">Central Peptídeos</strong> reúne calculadora de
+                reconstituição em tempo real, enciclopédia com
                 {' '}<strong className="text-ink">{peptides.length} peptídeos</strong>{' '}
                 catalogados e status regulatório claro. Tudo aberto, em português.
               </p>

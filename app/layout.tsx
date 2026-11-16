@@ -27,14 +27,25 @@ try {
 `.trim();
 
 const PLAUSIBLE = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN;
-import { CONTACT_EMAIL, SITE_URL } from '@/lib/site';
+import { CONTACT_EMAIL, INSTAGRAM_URL, SITE_HOST, SITE_URL } from '@/lib/site';
+
+// Variações do nome que as pessoas digitam (sem acento, singular, junto, domínio):
+// o Google usa alternateName para ligar essas buscas à marca.
+const BRAND_ALTERNATE_NAMES = [
+  'Central Peptideos',
+  'Central Peptídeo',
+  'Central Peptideo',
+  'CentralPeptideos',
+  'Central Peptídeos Brasil',
+  SITE_HOST,
+];
 
 // Schemas globais — aparecem em todas as páginas
 const websiteJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: 'Central Peptídeos',
-  alternateName: 'Central Peptídeos Brasil',
+  alternateName: BRAND_ALTERNATE_NAMES,
   url: SITE_URL,
   inLanguage: 'pt-BR',
   description: 'Central brasileira de informação sobre peptídeos: calculadoras, enciclopédia e guias.',
@@ -53,6 +64,7 @@ const organizationJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'Central Peptídeos',
+  alternateName: BRAND_ALTERNATE_NAMES,
   url: SITE_URL,
   logo: {
     '@type': 'ImageObject',
@@ -60,9 +72,8 @@ const organizationJsonLd = {
     width: 794,
     height: 255,
   },
-  sameAs: [
-    // adicionar perfis em redes sociais quando houver
-  ],
+  // Perfis oficiais da marca (adicione novos aqui).
+  sameAs: [INSTAGRAM_URL],
   contactPoint: {
     '@type': 'ContactPoint',
     contactType: 'customer support',
