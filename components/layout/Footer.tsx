@@ -32,6 +32,7 @@ export default function Footer() {
               <li key={t.slug}><Link href={`/ferramentas/${t.slug}`} className="inline-block py-1.5 hover:text-teal-700">{t.shortTitle}</Link></li>
             ))}
             <li><Link href="/seringas" className="inline-block py-1.5 hover:text-teal-700">Como ler a seringa</Link></li>
+            <li><Link href="/app" className="inline-block py-1.5 font-semibold text-teal-700 hover:underline">Instalar o app</Link></li>
           </ul>
         </div>
 

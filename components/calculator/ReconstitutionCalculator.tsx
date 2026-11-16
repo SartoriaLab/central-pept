@@ -25,6 +25,7 @@ import EbookOffer from '@/components/ebook/EbookOffer';
 import TabelaPreview from '@/components/tabela/TabelaPreview';
 import TabelaNudge from '@/components/tabela/TabelaNudge';
 import TabelaStrip from '@/components/tabela/TabelaStrip';
+import InstallPrompt from '@/components/pwa/InstallPrompt';
 import type { EbookOffer as Offer } from '@/lib/ebooks';
 
 type Mode = 'volume' | 'units';
@@ -1015,6 +1016,9 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug,
           ) : (
             <EbookOffer variant="line" offer={offer} className="mt-4" />
           )}
+          {result && Number.isFinite(result.unitsPerDose) && result.unitsPerDose > 0 ? (
+            <InstallPrompt className="mt-4" />
+          ) : null}
         </div>
       </div>
 

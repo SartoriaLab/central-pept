@@ -7,7 +7,10 @@ export default function manifest(): MetadataRoute.Manifest {
     name: 'Central Peptídeos',
     short_name: 'Central Peptídeos',
     description: 'Calculadoras e enciclopédia de peptídeos — reconstituição, mistura, conversão, etiqueta, comparador.',
-    start_url: '/',
+    // O convite de instalação fica na calculadora de reconstituição (79% das visitas):
+    // o ícone abre direto nela, com o último cálculo salvo.
+    id: '/',
+    start_url: '/ferramentas/reconstituicao',
     display: 'standalone',
     orientation: 'portrait-primary',
     background_color: '#ffffff',

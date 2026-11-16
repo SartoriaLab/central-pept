@@ -23,4 +23,10 @@ export const EVENTS = {
   ebookPopupClick: 'Ebook Popup Clique',
   // Resultado enviado pelo WhatsApp a partir de uma calculadora (props { ferramenta }).
   whatsapp: 'Enviar WhatsApp',
+  // Convite de instalação da PWA (props { so: ios | android | desktop }; no clique, { resultado }).
+  installView: 'Instalar Visto',
+  installClick: 'Instalar Clique',
+  installed: 'App Instalado',
+  // Site aberto pelo ícone da tela inicial (uma vez por sessão): mede quem volta pelo app.
+  pwaOpen: 'PWA Aberta',
 } as const;

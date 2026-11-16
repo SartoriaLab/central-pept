@@ -18,6 +18,9 @@ export const STORED_EVENTS: ReadonlySet<string> = new Set([
   EVENTS.print,
   EVENTS.icsDownload,
   EVENTS.copyResult,
+  EVENTS.installClick,
+  EVENTS.installed,
+  EVENTS.pwaOpen,
 ]);
 
 export type SiteEventRow = {

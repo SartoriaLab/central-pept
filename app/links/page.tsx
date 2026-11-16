@@ -21,6 +21,7 @@ const PAGINA = '/links';
 
 const FREE = [
   { href: '/ferramentas/reconstituicao', title: 'Calculadora de reconstituição', desc: 'Quantas unidades puxar na seringa' },
+  { href: '/app', title: 'Instalar o app', desc: 'Calculadora na tela inicial, sem loja e sem internet' },
   { href: '/ferramentas/titulacao', title: 'Titulação de GLP-1', desc: 'Semana a semana da tirzepatida e da semaglutida' },
   { href: '/ferramentas', title: 'Todas as calculadoras', desc: 'Custo, frascos, diário de aplicações e mais' },
   { href: '/blog', title: 'Artigos', desc: 'Dose, efeitos, armazenamento e comparativos' },

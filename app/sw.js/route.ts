@@ -8,7 +8,7 @@ export const dynamic = 'force-static';
 
 const VERSION = (process.env.VERCEL_GIT_COMMIT_SHA ?? String(Date.now())).slice(0, 12);
 
-const PRECACHE = ['/', '/ferramentas', ...TOOLS.map((t) => `/ferramentas/${t.slug}`), '/manifest.webmanifest'];
+const PRECACHE = ['/', '/ferramentas', ...TOOLS.map((t) => `/ferramentas/${t.slug}`), '/app', '/manifest.webmanifest'];
 
 const SCRIPT = `
 const VERSION = ${JSON.stringify(VERSION)};

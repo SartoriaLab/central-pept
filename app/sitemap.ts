@@ -40,6 +40,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/glossario',                   priority: 0.7, changeFrequency: 'monthly' },
     { path: '/seringas',                    priority: 0.75, changeFrequency: 'monthly' },
     ...SYRINGES.map((s) => ({ path: `/seringas/${s.slug}`, priority: 0.65, changeFrequency: 'monthly' as const })),
+    { path: '/app',                         priority: 0.5, changeFrequency: 'monthly' },
     { path: '/metodologia',                 priority: 0.6, changeFrequency: 'monthly' },
     { path: '/sobre',                       priority: 0.5, changeFrequency: 'monthly' },
     { path: '/contato',                     priority: 0.4, changeFrequency: 'monthly' },

@@ -8,6 +8,7 @@ import HeroCalc, { type HeroPeptide } from '@/components/home/HeroCalc';
 import ToolIcon, { toolColor } from '@/components/ui/ToolIcon';
 import { TOOLS } from '@/lib/tools';
 import EbookOffer from '@/components/ebook/EbookOffer';
+import InstallBanner from '@/components/pwa/InstallBanner';
 import { ebookForHub, ebookForTool, offerFor } from '@/lib/ebooks';
 
 export const metadata: Metadata = {
@@ -51,6 +52,9 @@ export default function HomePage() {
     .map((p) => ({ slug: p.slug, name: p.name, typicalDose: p.typicalDose, doseUnit: p.doseUnit, vialMg: p.commonAmounts[0] }));
   return (
     <div>
+      {/* ═══ APP (PWA): faixa fina no topo, visível sem rolar no celular ═══ */}
+      <InstallBanner />
+
       {/* ═══ HERO ═══ */}
       <section className="relative overflow-hidden bg-gradient-mesh">
         <div className="absolute inset-0 bg-gradient-hero pointer-events-none" />

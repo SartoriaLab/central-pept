@@ -56,6 +56,12 @@ Feed, sitemap, busca, páginas de tag e imagem de compartilhamento saem sozinhos
    O diário não tem embed (depende de localStorage).
 6. O service worker (`app/sw.js/route.ts`) pré-carrega toda ferramenta de `lib/tools.ts`
    para uso offline; só registra em produção.
+7. App (PWA): página `/app` (passo a passo por aparelho, destino de todo link "Instalar o app": menu do
+   celular, rodapé, `/links`), faixa na home (`InstallBanner`) e cartão embaixo do resultado da
+   reconstituição (`InstallPrompt`, com título próprio para quem volta em outro dia). Componentes em
+   `components/pwa/` sobre o hook `useInstall`; regras em `lib/install.ts` (sem convite no embed nem no
+   navegador do Instagram/Facebook/TikTok). O ícone abre na reconstituição (`start_url` em
+   `app/manifest.ts`). Eventos: `Instalar Clique` (prop `posicao`), `App Instalado` e `PWA Aberta`.
 
 ## Ebooks pagos
 

@@ -151,6 +151,7 @@ export function buildSearchIndex(): SearchResult[] {
     { url: '/seringas', title: 'Como ler a seringa de insulina', desc: 'Unidades, ml e mg; seringas de 30, 50 e 100 U' },
     ...SYRINGES.map((s) => ({ url: `/seringas/${s.slug}`, title: `Seringa de insulina de ${s.label}`, desc: `Cada traço vale ${s.tick} U; tabela de mg por marca` })),
     { url: '/blog', title: 'Blog', desc: 'Artigos e guias' },
+    { url: '/app', title: 'Instalar o app', desc: 'Calculadora na tela inicial, sem loja e sem internet' },
     { url: '/sobre', title: 'Sobre', desc: 'Metodologia editorial' },
     { url: '/contato', title: 'Contato', desc: 'Correções e sugestões' },
   ];

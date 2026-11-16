@@ -3,6 +3,8 @@
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { isStandalone } from '@/lib/install';
+import { PhoneIcon } from '@/components/pwa/icons';
 
 type Item = { href: string; label: string };
 
@@ -13,6 +15,10 @@ export default function MobileMenu({ items }: { items: Item[] }) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const navRef = useRef<HTMLElement>(null);
+
+  // Aberto pelo ícone instalado: o link "Instalar o app" não faz sentido.
+  const [standalone, setStandalone] = useState(false);
+  useEffect(() => { setStandalone(isStandalone()); }, []);
 
   useEffect(() => { setOpen(false); }, [pathname]);
 
@@ -76,6 +82,17 @@ export default function MobileMenu({ items }: { items: Item[] }) {
             );
           })}
           <div className="my-1 border-t border-border" />
+          {!standalone && (
+            <Link
+              href="/app"
+              aria-current={pathname === '/app' ? 'page' : undefined}
+              onClick={() => setOpen(false)}
+              className="flex items-center gap-2 min-h-11 px-3 mb-1 text-base font-medium rounded-lg text-teal-700 hover:bg-teal-50"
+            >
+              <PhoneIcon />
+              Instalar o app
+            </Link>
+          )}
           <Link
             href="/ferramentas/reconstituicao"
             onClick={() => setOpen(false)}

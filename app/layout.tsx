@@ -7,6 +7,7 @@ import Footer from '@/components/layout/Footer';
 import SiteChrome from '@/components/layout/SiteChrome';
 import ServiceWorker from '@/components/layout/ServiceWorker';
 import ExitOffer from '@/components/ebook/ExitOffer';
+import { installCaptureScript } from '@/lib/install';
 import './globals.css';
 
 const inter = Inter({
@@ -133,6 +134,8 @@ export default function RootLayout({
     <html lang="pt-BR" className={inter.variable}>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        {/* Guarda o convite de instalação do Chrome antes da hidratação (lib/install.ts) */}
+        <script dangerouslySetInnerHTML={{ __html: installCaptureScript }} />
         {/* RSS/Atom discovery */}
         <link rel="alternate" type="application/rss+xml" title="Central Peptídeos — Blog" href="/feed.xml" />
         {/* Preload logo pra melhorar LCP */}
