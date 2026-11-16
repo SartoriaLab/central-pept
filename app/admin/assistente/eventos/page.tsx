@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { and, desc, eq, gte, sql } from 'drizzle-orm';
+import { and, desc, eq, gte, inArray, sql } from 'drizzle-orm';
 import { db } from '@/lib/db';
 import { siteEvents } from '@/drizzle/schema';
 import { EVENTS } from '@/lib/event-names';
@@ -17,7 +17,7 @@ async function getReport(days: number) {
   const inPeriod = gte(siteEvents.createdAt, since);
   const count = sql<number>`count(*)::int`;
 
-  const [byName, offerByPage, offerByPosition, byEbook, popup, recent] = await Promise.all([
+  const [byName, offerByPage, offerByPosition, byEbook, popup, recent, app, appTotal, appClicksByPosition] = await Promise.all([
     db.select({ name: siteEvents.name, n: count }).from(siteEvents).where(inPeriod).groupBy(siteEvents.name).orderBy(desc(count)),
     db
       .select({ page: siteEvents.page, n: count })
@@ -51,9 +51,38 @@ async function getReport(days: number) {
       .from(siteEvents)
       .where(inPeriod),
     db.select().from(siteEvents).orderBy(desc(siteEvents.createdAt)).limit(30),
+    // App (PWA) por sistema: `so` vai nas props (ios | android | desktop).
+    db
+      .select({
+        so: sql<string>`coalesce(${siteEvents.props}->>'so', '—')`,
+        installs: sql<number>`count(*) filter (where ${siteEvents.name} = ${EVENTS.installed})::int`,
+        clicks: sql<number>`count(*) filter (where ${siteEvents.name} = ${EVENTS.installClick})::int`,
+        opens: sql<number>`count(*) filter (where ${siteEvents.name} = ${EVENTS.pwaOpen})::int`,
+      })
+      .from(siteEvents)
+      .where(and(inPeriod, inArray(siteEvents.name, [EVENTS.installed, EVENTS.installClick, EVENTS.pwaOpen])))
+      .groupBy(sql`1`)
+      .orderBy(desc(sql`2`)),
+    db.select({ n: count }).from(siteEvents).where(eq(siteEvents.name, EVENTS.installed)),
+    db
+      .select({ position: siteEvents.position, n: count })
+      .from(siteEvents)
+      .where(and(inPeriod, eq(siteEvents.name, EVENTS.installClick)))
+      .groupBy(siteEvents.position)
+      .orderBy(desc(count)),
   ]);
 
-  return { byName, offerByPage, offerByPosition, byEbook, popup: popup[0] ?? { views: 0, clicks: 0 }, recent };
+  return {
+    byName,
+    offerByPage,
+    offerByPosition,
+    byEbook,
+    popup: popup[0] ?? { views: 0, clicks: 0 },
+    recent,
+    app,
+    appTotal: appTotal[0]?.n ?? 0,
+    appClicksByPosition,
+  };
 }
 
 const pct = (a: number, b: number) => (b > 0 ? `${((a / b) * 100).toFixed(1).replace('.', ',')}%` : '—');
@@ -88,6 +117,34 @@ export default async function EventosPage({ searchParams }: { searchParams: Prom
         {r.byName.map((x) => (
           <tr key={x.name} className="border-t border-gray-100">
             <td className="p-2">{x.name}</td>
+            <td className="p-2 text-right">{x.n}</td>
+          </tr>
+        ))}
+      </Table>
+
+      <Table
+        title={`App instalado (PWA) — ${r.appTotal} instalações desde o início`}
+        head={['Sistema', 'Instalações no período', 'Cliques em instalar', 'Aberturas pelo ícone']}
+        empty="Nenhuma instalação no período."
+      >
+        {r.app.map((x) => (
+          <tr key={x.so} className="border-t border-gray-100">
+            <td className="p-2">{x.so}</td>
+            <td className="p-2 text-right font-semibold">{x.installs}</td>
+            <td className="p-2 text-right">{x.clicks}</td>
+            <td className="p-2 text-right">{x.opens}</td>
+          </tr>
+        ))}
+      </Table>
+      <p className="-mt-6 mb-8 text-xs text-gray-500">
+        Instalação conta uma vez por aparelho: no Android quando o Chrome confirma; no iPhone na primeira vez que o
+        site abre pelo ícone. Abertura conta uma vez por sessão.
+      </p>
+
+      <Table title="Cliques em instalar por lugar" head={['Lugar', 'Cliques']} empty="Sem cliques ainda.">
+        {r.appClicksByPosition.map((x) => (
+          <tr key={x.position ?? '-'} className="border-t border-gray-100">
+            <td className="p-2 font-mono text-xs">{x.position ?? '—'}</td>
             <td className="p-2 text-right">{x.n}</td>
           </tr>
         ))}

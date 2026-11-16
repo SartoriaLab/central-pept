@@ -49,26 +49,15 @@ export default function InstallPrompt({ className = '' }: { className?: string }
         <span className="block font-semibold">
           {returning ? 'De volta por aqui? Deixe a calculadora na tela inicial' : 'Tenha a calculadora na tela inicial'}
         </span>
-        <span className="block text-xs text-ink-2">
-          {ios ? (
-            <>
-              Toque em <strong>Compartilhar</strong> e depois em <strong>Adicionar à Tela de Início</strong>. Abre
-              mesmo sem internet.
-            </>
-          ) : (
-            'Abre com um toque, mesmo sem internet.'
-          )}
-        </span>
+        <span className="block text-xs text-ink-2">Abre com um toque, mesmo sem internet.</span>
       </span>
-      {!ios ? (
-        <button
-          type="button"
-          onClick={() => void info.install('calculadora', { retorno: returning })}
-          className="btn-teal !h-9 !px-3 text-xs whitespace-nowrap"
-        >
-          Instalar
-        </button>
-      ) : null}
+      <button
+        type="button"
+        onClick={() => info.start('calculadora', { retorno: returning })}
+        className="btn-teal !h-9 !px-3 text-xs whitespace-nowrap"
+      >
+        {ios ? 'Ver como' : 'Instalar'}
+      </button>
       <button
         type="button"
         onClick={info.dismiss}

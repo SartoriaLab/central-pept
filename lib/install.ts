@@ -51,6 +51,53 @@ export function isInAppBrowser(ua: string): boolean {
   return /Instagram|FBAN|FBAV|FB_IAB|musical_ly|BytedanceWebview|TikTok|\bLine\//i.test(ua);
 }
 
+/**
+ * Qual passo a passo mostrar. No iPhone muda com o navegador e a versão: a partir do
+ * Safari 26 (iOS 26) o Compartilhar fica dentro do menu "•••" ao lado do endereço; até o
+ * iOS 18 é o botão do meio da barra de baixo; no Chrome fica no topo, ao lado do endereço.
+ * A versão do iOS no UA está congelada em 18_x: o que vale é o `Version/` do Safari.
+ */
+export type InstallGuideKind =
+  | 'ios-safari26'
+  | 'ios-safari'
+  | 'ios-chrome'
+  | 'ios-outro'
+  | 'android'
+  | 'in-app'
+  | 'desktop';
+
+export function guideKind(ua: string, maxTouchPoints = 0): InstallGuideKind {
+  if (isInAppBrowser(ua)) return 'in-app';
+  const platform = detectPlatform(ua, maxTouchPoints);
+  if (platform === 'android') return 'android';
+  if (platform === 'desktop') return 'desktop';
+  if (/CriOS/i.test(ua)) return 'ios-chrome';
+  if (/FxiOS|EdgiOS|OPiOS|DuckDuckGo/i.test(ua)) return 'ios-outro';
+  const version = Number(/Version\/(\d+)/.exec(ua)?.[1]);
+  return version >= 26 ? 'ios-safari26' : 'ios-safari';
+}
+
+/** Abre a janela com o passo a passo (components/pwa/InstallGuide.tsx, montada no layout). */
+export const INSTALL_GUIDE_EVENT = 'cp:install-guide';
+export function openInstallGuide(): void {
+  window.dispatchEvent(new Event(INSTALL_GUIDE_EVENT));
+}
+
+// Instalação contada uma vez por aparelho. No Android o Chrome avisa (`appinstalled`); no
+// iPhone não existe aviso, então conta na primeira vez que o site abre pelo ícone.
+const INSTALLED_KEY = 'cp:app-instalado';
+
+/** Marca a instalação como contada. Devolve false se já tinha sido contada neste aparelho. */
+export function markInstalledOnce(): boolean {
+  try {
+    if (window.localStorage.getItem(INSTALLED_KEY)) return false;
+    window.localStorage.setItem(INSTALLED_KEY, String(Date.now()));
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 /** Aberto pelo ícone da tela inicial (já instalado). */
 export function isStandalone(): boolean {
   if (typeof window === 'undefined') return false;

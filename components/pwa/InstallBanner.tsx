@@ -1,10 +1,9 @@
 'use client';
 
 // Faixa fina da home anunciando o app. Com instalação disponível (Android/Chrome), o botão
-// instala direto; nos demais casos leva a /app, que explica o passo a passo do aparelho.
+// instala direto; nos demais casos abre a janela com o passo a passo do aparelho.
 // Some para quem já instalou, para quem fechou (30 dias) e dentro de iframe.
 
-import Link from 'next/link';
 import { useEffect } from 'react';
 import { EVENTS, trackOnce } from '@/lib/track';
 import { useInstall } from './useInstall';
@@ -30,19 +29,13 @@ export default function InstallBanner() {
           <strong className="font-semibold">Novo: a calculadora vira app no seu celular.</strong>{' '}
           <span className="text-ink-2">Sem loja, funciona sem internet.</span>
         </p>
-        {info.canPrompt ? (
-          <button
-            type="button"
-            onClick={() => void info.install('home')}
-            className="btn-teal !h-9 !px-3 text-xs whitespace-nowrap"
-          >
-            Instalar
-          </button>
-        ) : (
-          <Link href="/app" className="btn-teal !h-9 !px-3 text-xs whitespace-nowrap">
-            Ver como
-          </Link>
-        )}
+        <button
+          type="button"
+          onClick={() => info.start('home')}
+          className="btn-teal !h-9 !px-3 text-xs whitespace-nowrap"
+        >
+          {info.canPrompt ? 'Instalar' : 'Ver como'}
+        </button>
         <button
           type="button"
           onClick={info.dismiss}

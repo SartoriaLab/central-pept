@@ -4,6 +4,7 @@ import {
   addVisitDay,
   detectPlatform,
   dismissedRecently,
+  guideKind,
   isInAppBrowser,
   shouldOfferInstall,
   type InstallState,
@@ -24,6 +25,18 @@ describe('plataforma do convite de instalação', () => {
 
   it('iPad que se apresenta como Mac é iOS', () => {
     expect(detectPlatform(MAC, 5)).toBe('ios');
+  });
+
+  it('escolhe o passo a passo certo para cada navegador', () => {
+    const IOS26 = IPHONE.replace('Version/18.1', 'Version/26.1').replace('OS 18_1', 'OS 18_6');
+    const CHROME_IOS = IPHONE.replace('Version/18.1', 'CriOS/130.0.0.0');
+    expect(guideKind(IPHONE)).toBe('ios-safari');
+    expect(guideKind(IOS26)).toBe('ios-safari26'); // iOS congelado em 18_x no UA: vale o Version/
+    expect(guideKind(CHROME_IOS)).toBe('ios-chrome');
+    expect(guideKind(IPHONE.replace('Version/18.1', 'FxiOS/130.0'))).toBe('ios-outro');
+    expect(guideKind(ANDROID)).toBe('android');
+    expect(guideKind(WINDOWS)).toBe('desktop');
+    expect(guideKind(`${IOS26} Instagram 300.0.0.0`)).toBe('in-app');
   });
 
   it('reconhece o navegador interno do Instagram e do Facebook', () => {

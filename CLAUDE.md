@@ -56,12 +56,15 @@ Feed, sitemap, busca, páginas de tag e imagem de compartilhamento saem sozinhos
    O diário não tem embed (depende de localStorage).
 6. O service worker (`app/sw.js/route.ts`) pré-carrega toda ferramenta de `lib/tools.ts`
    para uso offline; só registra em produção.
-7. App (PWA): página `/app` (passo a passo por aparelho, destino de todo link "Instalar o app": menu do
-   celular, rodapé, `/links`), faixa na home (`InstallBanner`) e cartão embaixo do resultado da
-   reconstituição (`InstallPrompt`, com título próprio para quem volta em outro dia). Componentes em
-   `components/pwa/` sobre o hook `useInstall`; regras em `lib/install.ts` (sem convite no embed nem no
-   navegador do Instagram/Facebook/TikTok). O ícone abre na reconstituição (`start_url` em
-   `app/manifest.ts`). Eventos: `Instalar Clique` (prop `posicao`), `App Instalado` e `PWA Aberta`.
+7. App (PWA): botão "Instalar" fixo no cabeçalho (`InstallButton`), faixa na home (`InstallBanner`), cartão
+   embaixo do resultado da reconstituição (`InstallPrompt`) e página `/app` (links no menu, rodapé e `/links`).
+   Todo botão usa `start()` do hook `useInstall`: instala em um toque quando o navegador oferece; senão abre
+   a janela `InstallGuide` (layout) com os passos do aparelho. Os passos ficam só em
+   `components/pwa/InstallSteps.tsx`, escolhidos por `guideKind` (`lib/install.ts`): Safari do iOS 26 (menu
+   "•••"), Safari antigo, Chrome do iPhone, Android, navegador do Instagram. Mudou o Safari → mude lá.
+   `app/manifest.ts` precisa de `scope: '/'` (sem ele o app instalado mostra a barra de endereço fora de
+   `/ferramentas`). Instalações: `App Instalado`, uma vez por aparelho, contado só em
+   `components/layout/ServiceWorker.tsx`; relatório em `/admin/assistente/eventos` ("App instalado").
 
 ## Ebooks pagos
 

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import InstallPanel from '@/components/pwa/InstallPanel';
+import InstallSteps from '@/components/pwa/InstallSteps';
 import FAQ from '@/components/ui/FAQ';
 
 // Página de instalação da PWA ("app"). Todo link "Instalar o app" do site aponta para cá.
@@ -68,28 +69,26 @@ export default function AppPage() {
         <h2 className="mt-12 text-2xl font-extrabold tracking-tight">Passo a passo</h2>
         <div className="mt-4 grid gap-4 md:grid-cols-2">
           <div className="card p-5">
-            <h3 className="font-bold text-ink">iPhone e iPad (Safari)</h3>
-            <ol className="mt-2 text-sm text-ink-2 list-decimal pl-5 space-y-1.5 leading-relaxed">
-              <li>Abra este site no <strong className="text-ink">Safari</strong>.</li>
-              <li>Toque em <strong className="text-ink">Compartilhar</strong> (quadrado com seta para cima).</li>
-              <li>Role e toque em <strong className="text-ink">Adicionar à Tela de Início</strong>.</li>
-              <li>Confirme em <strong className="text-ink">Adicionar</strong>.</li>
-            </ol>
+            <h3 className="font-bold text-ink">iPhone atualizado (iOS 26 ou mais novo)</h3>
+            <p className="mt-1 mb-4 text-xs text-ink-3">No Safari, com a barra de endereço embaixo.</p>
+            <InstallSteps kind="ios-safari26" />
           </div>
           <div className="card p-5">
-            <h3 className="font-bold text-ink">Android (Chrome)</h3>
-            <ol className="mt-2 text-sm text-ink-2 list-decimal pl-5 space-y-1.5 leading-relaxed">
-              <li>Abra este site no <strong className="text-ink">Chrome</strong>.</li>
-              <li>Toque no botão <strong className="text-ink">Instalar</strong> acima ou nos três pontos do canto.</li>
-              <li>Escolha <strong className="text-ink">Instalar app</strong> ou <strong className="text-ink">Adicionar à tela inicial</strong>.</li>
-              <li>Confirme em <strong className="text-ink">Instalar</strong>.</li>
-            </ol>
+            <h3 className="font-bold text-ink">iPhone mais antigo (até o iOS 18)</h3>
+            <p className="mt-1 mb-4 text-xs text-ink-3">No Safari, com o botão de compartilhar na barra de baixo.</p>
+            <InstallSteps kind="ios-safari" />
+          </div>
+          <div className="card p-5">
+            <h3 className="font-bold text-ink">Android</h3>
+            <p className="mt-1 mb-4 text-xs text-ink-3">No Chrome. O botão Instalar do topo do site faz isso em um toque.</p>
+            <InstallSteps kind="android" />
+          </div>
+          <div className="card p-5">
+            <h3 className="font-bold text-ink">Veio pelo Instagram, Facebook ou TikTok?</h3>
+            <p className="mt-1 mb-4 text-xs text-ink-3">O navegador dessas redes não instala apps.</p>
+            <InstallSteps kind="in-app" />
           </div>
         </div>
-        <p className="mt-4 text-sm text-ink-3">
-          Veio pelo Instagram, Facebook ou TikTok? Abra o link no navegador (menu de três pontos → Abrir no
-          navegador) antes de instalar.
-        </p>
 
         <FAQ items={FAQ_ITEMS} />
 

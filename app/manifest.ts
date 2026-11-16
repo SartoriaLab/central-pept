@@ -9,8 +9,11 @@ export default function manifest(): MetadataRoute.Manifest {
     description: 'Calculadoras e enciclopédia de peptídeos — reconstituição, mistura, conversão, etiqueta, comparador.',
     // O convite de instalação fica na calculadora de reconstituição (79% das visitas):
     // o ícone abre direto nela, com o último cálculo salvo.
+    // `scope: '/'` é obrigatório: sem ele o escopo vira a pasta do start_url (/ferramentas/) e o
+    // app instalado mostra a barra de endereço ao ir para a home ou qualquer outra seção.
     id: '/',
     start_url: '/ferramentas/reconstituicao',
+    scope: '/',
     display: 'standalone',
     orientation: 'portrait-primary',
     background_color: '#ffffff',

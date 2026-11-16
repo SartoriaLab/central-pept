@@ -60,8 +60,13 @@ html:not(.dark) .focus\:bg-teal:focus {
 }
 
 @layer base {
-  html, body {
+  html {
     height: 100%;
+  }
+  /* min-height, não height: com altura fixa o body termina no fim da primeira tela e o
+     cabeçalho sticky (que só acompanha até o fim do pai) some ao rolar. */
+  body {
+    min-height: 100%;
   }
   html {
     /* Evita scroll horizontal acidental no mobile (blobs decorativos,

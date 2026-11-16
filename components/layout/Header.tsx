@@ -4,6 +4,7 @@ import ThemeToggle from './ThemeToggle';
 import GlobalSearch from './GlobalSearch';
 import MobileMenu from './MobileMenu';
 import NavLinks from './NavLinks';
+import InstallButton from '@/components/pwa/InstallButton';
 import { getActiveEbooks } from '@/lib/ebooks';
 
 const NAV = [
@@ -57,6 +58,7 @@ export default function Header() {
 
         {/* Busca, tema, CTA e menu: uma instância só de cada */}
         <div className="flex items-center gap-1">
+          <InstallButton />
           <GlobalSearch />
           <ThemeToggle />
           {/* Entre md e lg não há barra de links: os guias ganham um link próprio ao lado do CTA. */}
