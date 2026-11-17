@@ -5,6 +5,7 @@ import {
   detectPlatform,
   dismissedRecently,
   guideKind,
+  hintSpot,
   isInAppBrowser,
   shouldOfferInstall,
   type InstallState,
@@ -37,6 +38,16 @@ describe('plataforma do convite de instalação', () => {
     expect(guideKind(ANDROID)).toBe('android');
     expect(guideKind(WINDOWS)).toBe('desktop');
     expect(guideKind(`${IOS26} Instagram 300.0.0.0`)).toBe('in-app');
+  });
+
+  it('aponta o lembrete para o botão certo do navegador do iPhone', () => {
+    expect(hintSpot('ios-safari26', IPHONE)).toBe('bottom-right');
+    expect(hintSpot('ios-safari', IPHONE)).toBe('bottom-center');
+    expect(hintSpot('ios-chrome', IPHONE)).toBe('top-right');
+    expect(hintSpot('ios-safari', MAC)).toBe('top-right'); // iPad: barra em cima
+    expect(hintSpot('ios-outro', IPHONE)).toBe('none');
+    expect(hintSpot('android', ANDROID)).toBeNull();
+    expect(hintSpot('in-app', IPHONE)).toBeNull();
   });
 
   it('reconhece o navegador interno do Instagram e do Facebook', () => {

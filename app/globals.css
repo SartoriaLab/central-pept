@@ -319,6 +319,16 @@ html.dark .hover\:bg-yellow-50:hover { background-color: rgba(234,179,8,0.14) !i
     bottom: 1.5rem;
   }
 }
+/* Lembrete do passo a passo (InstallGuide) aberto: o banner sai para não disputar o rodapé. */
+body:has([data-install-hint]) .install-float {
+  display: none;
+}
+.install-hint-bottom {
+  bottom: calc(env(safe-area-inset-bottom) + 2.25rem);
+}
+.install-hint-top {
+  top: calc(env(safe-area-inset-top) + 2.25rem);
+}
 
 /* Print: esconder cromo, manter só o resultado legível */
 @media print {

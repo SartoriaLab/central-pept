@@ -20,6 +20,7 @@ export const STORED_EVENTS: ReadonlySet<string> = new Set([
   EVENTS.copyResult,
   EVENTS.installClick,
   EVENTS.installed,
+  EVENTS.installGuide,
   EVENTS.pwaOpen,
 ]);
 

@@ -17,7 +17,7 @@ async function getReport(days: number) {
   const inPeriod = gte(siteEvents.createdAt, since);
   const count = sql<number>`count(*)::int`;
 
-  const [byName, offerByPage, offerByPosition, byEbook, popup, recent, app, appTotal, appClicksByPosition] = await Promise.all([
+  const [byName, offerByPage, offerByPosition, byEbook, popup, recent, app, appTotal, appClicksByPosition, appGuides] = await Promise.all([
     db.select({ name: siteEvents.name, n: count }).from(siteEvents).where(inPeriod).groupBy(siteEvents.name).orderBy(desc(count)),
     db
       .select({ page: siteEvents.page, n: count })
@@ -70,6 +70,22 @@ async function getReport(days: number) {
       .where(and(inPeriod, eq(siteEvents.name, EVENTS.installClick)))
       .groupBy(siteEvents.position)
       .orderBy(desc(count)),
+    // Passo a passo (quem não instala em um toque): qual guia abriu e quantos seguiram.
+    db
+      .select({
+        guide: sql<string>`coalesce(${siteEvents.props}->>'guia', '—')`,
+        opened: sql<number>`count(*) filter (where ${siteEvents.name} = ${EVENTS.installClick})::int`,
+        followed: sql<number>`count(*) filter (where ${siteEvents.name} = ${EVENTS.installGuide})::int`,
+      })
+      .from(siteEvents)
+      .where(
+        and(
+          inPeriod,
+          sql`(${siteEvents.name} = ${EVENTS.installGuide} or (${siteEvents.name} = ${EVENTS.installClick} and ${siteEvents.props}->>'resultado' = 'guia'))`,
+        ),
+      )
+      .groupBy(sql`1`)
+      .orderBy(desc(sql`2`)),
   ]);
 
   return {
@@ -82,6 +98,7 @@ async function getReport(days: number) {
     app,
     appTotal: appTotal[0]?.n ?? 0,
     appClicksByPosition,
+    appGuides,
   };
 }
 
@@ -149,6 +166,24 @@ export default async function EventosPage({ searchParams }: { searchParams: Prom
           </tr>
         ))}
       </Table>
+
+      <Table
+        title="Passo a passo de instalação por navegador"
+        head={['Guia', 'Abriu a janela', 'Tocou em "Mostrar onde tocar"', 'Taxa']}
+        empty="Ninguém abriu o passo a passo no período."
+      >
+        {r.appGuides.map((x) => (
+          <tr key={x.guide} className="border-t border-gray-100">
+            <td className="p-2 font-mono text-xs">{x.guide}</td>
+            <td className="p-2 text-right">{x.opened}</td>
+            <td className="p-2 text-right">{x.followed}</td>
+            <td className="p-2 text-right">{pct(x.followed, x.opened)}</td>
+          </tr>
+        ))}
+      </Table>
+      <p className="-mt-6 mb-8 text-xs text-gray-500">
+        &quot;—&quot; são aberturas de antes de o tipo de guia ser gravado. O botão só existe nos guias do iPhone (ios-*).
+      </p>
 
       <Table title="Pop-up de saída" head={['Visto', 'Clicado', 'Taxa']} empty="">
         <tr className="border-t border-gray-100">

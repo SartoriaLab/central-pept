@@ -27,6 +27,8 @@ export const EVENTS = {
   installView: 'Instalar Visto',
   installClick: 'Instalar Clique',
   installed: 'App Instalado',
+  // iPhone: tocou em "Mostrar onde tocar" na janela do passo a passo (props { so, guia }).
+  installGuide: 'Instalar Guia',
   // Site aberto pelo ícone da tela inicial (uma vez por sessão): mede quem volta pelo app.
   pwaOpen: 'PWA Aberta',
 } as const;

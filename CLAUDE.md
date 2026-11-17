@@ -64,6 +64,9 @@ Feed, sitemap, busca, páginas de tag e imagem de compartilhamento saem sozinhos
    a janela `InstallGuide` (layout) com os passos do aparelho. Os passos ficam só em
    `components/pwa/InstallSteps.tsx`, escolhidos por `guideKind` (`lib/install.ts`): Safari do iOS 26 (menu
    "•••"), Safari antigo, Chrome do iPhone, Android, navegador do Instagram. Mudou o Safari → mude lá.
+   No iPhone a janela mostra o desenho da barra do navegador e o botão "Mostrar onde tocar", que troca a
+   janela por um lembrete pequeno com seta apontando para o botão (`hintSpot` em `lib/install.ts`); o clique
+   grava `Instalar Guia` e o tipo de guia vai em `guia` (relatório "Passo a passo de instalação por navegador").
    `app/manifest.ts` precisa de `scope: '/'` (sem ele o app instalado mostra a barra de endereço fora de
    `/ferramentas`). Instalações: `App Instalado`, uma vez por aparelho, contado só em
    `components/layout/ServiceWorker.tsx`; relatório em `/admin/assistente/eventos` ("App instalado").

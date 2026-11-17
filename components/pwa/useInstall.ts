@@ -12,6 +12,7 @@ import {
   detectPlatform,
   dismissInstall,
   dismissedRecently,
+  guideKind,
   isInAppBrowser,
   isStandalone,
   openInstallGuide,
@@ -101,7 +102,8 @@ export function useInstall(): InstallInfo {
         void install(posicao, extra);
         return;
       }
-      track(EVENTS.installClick, { so: state.platform, resultado: 'guia', posicao, ...extra });
+      const guia = guideKind(navigator.userAgent, navigator.maxTouchPoints ?? 0);
+      track(EVENTS.installClick, { so: state.platform, resultado: 'guia', guia, posicao, ...extra });
       openInstallGuide();
     },
     [install, state.platform],

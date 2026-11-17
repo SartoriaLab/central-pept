@@ -6,15 +6,19 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
-import { INSTALL_GUIDE_EVENT, guideKind, type InstallGuideKind } from '@/lib/install';
+import { INSTALL_GUIDE_EVENT, guideKind, hintSpot, type HintSpot, type InstallGuideKind } from '@/lib/install';
 import { SITE_URL } from '@/lib/site';
-import InstallSteps, { GUIDE_TITLES } from './InstallSteps';
-import { CloseIcon } from './icons';
+import { EVENTS, track } from '@/lib/track';
+import InstallSteps, { GUIDE_TITLES, HINT_STEPS } from './InstallSteps';
+import { ArrowDownIcon, CloseIcon } from './icons';
 
 export default function InstallGuide() {
   const pathname = usePathname();
   const [kind, setKind] = useState<InstallGuideKind | null>(null);
   const [copied, setCopied] = useState(false);
+  // Depois de "Mostrar onde tocar": a janela vira um lembrete pequeno, que não cobre a página
+  // e aponta para o botão do navegador enquanto a pessoa faz os passos.
+  const [hint, setHint] = useState<HintSpot | null>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
   const lastFocus = useRef<HTMLElement | null>(null);
 
@@ -22,6 +26,7 @@ export default function InstallGuide() {
     const open = () => {
       lastFocus.current = document.activeElement as HTMLElement | null;
       setCopied(false);
+      setHint(null);
       setKind(guideKind(navigator.userAgent, navigator.maxTouchPoints ?? 0));
     };
     window.addEventListener(INSTALL_GUIDE_EVENT, open);
@@ -30,11 +35,15 @@ export default function InstallGuide() {
 
   const close = useCallback(() => {
     setKind(null);
+    setHint(null);
     lastFocus.current?.focus?.();
   }, []);
 
   // Fecha ao trocar de página.
-  useEffect(() => setKind(null), [pathname]);
+  useEffect(() => {
+    setKind(null);
+    setHint(null);
+  }, [pathname]);
 
   // Esc fecha; Tab fica dentro da janela.
   useEffect(() => {
@@ -60,6 +69,58 @@ export default function InstallGuide() {
   }, [kind, close]);
 
   if (!kind) return null;
+
+  if (hint) {
+    const top = hint === 'top-right';
+    const steps = HINT_STEPS[kind] ?? [];
+    return (
+      <div
+        data-install-hint
+        role="status"
+        className={`no-print fixed z-[150] left-3 right-3 sm:left-auto sm:w-96 rounded-2xl bg-teal-700 text-white dark:text-bg shadow-2xl pl-4 pr-11 py-3 animate-fade-in ${top ? 'install-hint-top' : 'install-hint-bottom'}`}
+      >
+        <p className="text-sm font-bold leading-snug">
+          {hint === 'none' ? 'No menu do navegador:' : top ? 'Toque no botão aqui em cima:' : 'Toque no botão aqui embaixo:'}
+        </p>
+        <ol className="mt-1.5 flex flex-wrap items-center gap-x-1.5 gap-y-1 text-xs font-semibold">
+          {steps.map((s, i) => (
+            <li key={s.label} className="flex items-center gap-1.5">
+              {i > 0 && <span aria-hidden>→</span>}
+              <span className="inline-flex items-center gap-1 rounded-full bg-white/15 px-2 py-1">
+                {s.icon}
+                {s.label}
+              </span>
+            </li>
+          ))}
+        </ol>
+        <button
+          type="button"
+          onClick={close}
+          className="absolute top-1 right-1 w-10 h-10 rounded-lg flex items-center justify-center opacity-80 hover:opacity-100"
+          aria-label="Fechar"
+        >
+          <CloseIcon size={18} />
+        </button>
+        {hint !== 'none' && (
+          <span
+            aria-hidden
+            className={`absolute w-8 h-8 rounded-full bg-teal-700 text-white dark:text-bg border-2 border-surface shadow-lg flex items-center justify-center animate-bounce ${top ? 'bottom-full mb-1' : 'top-full mt-1'} ${hint === 'bottom-center' ? 'left-1/2 -ml-4' : 'right-3'}`}
+          >
+            {/* a rotação fica num elemento de dentro: o animate-bounce usa o transform do de fora */}
+            <span className={`block ${top ? 'rotate-180' : ''}`}>
+              <ArrowDownIcon size={18} />
+            </span>
+          </span>
+        )}
+      </div>
+    );
+  }
+
+  function showHint() {
+    if (!kind) return;
+    track(EVENTS.installGuide, { so: 'ios', guia: kind });
+    setHint(hintSpot(kind, navigator.userAgent));
+  }
 
   function copyLink() {
     navigator.clipboard
@@ -103,9 +164,15 @@ export default function InstallGuide() {
         <p className="mt-4 text-xs text-ink-3 leading-relaxed">
           Grátis e sem loja. O app abre direto na calculadora, mesmo sem internet.
         </p>
-        <button type="button" onClick={close} className="btn-teal w-full mt-4">
-          Entendi
-        </button>
+        {hintSpot(kind) ? (
+          <button type="button" onClick={showHint} className="btn-teal w-full mt-4">
+            Mostrar onde tocar
+          </button>
+        ) : (
+          <button type="button" onClick={close} className="btn-teal w-full mt-4">
+            Entendi
+          </button>
+        )}
       </div>
     </div>
   );

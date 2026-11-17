@@ -71,6 +71,15 @@ export function CheckIcon({ size = 20 }: P) {
   );
 }
 
+/** Seta do lembrete "toque aqui" (para baixo; gire com rotate-180 para apontar para cima). */
+export function ArrowDownIcon({ size = 28 }: P) {
+  return (
+    <svg viewBox="0 0 20 20" width={size} height={size} strokeWidth={2.6} {...base}>
+      <path d="M10 3v13M4.5 10.5 10 16l5.5-5.5" />
+    </svg>
+  );
+}
+
 /** Abrir no navegador (bússola do Safari). */
 export function CompassIcon({ size = 20 }: P) {
   return (
