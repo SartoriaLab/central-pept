@@ -41,7 +41,7 @@ describe('plataforma do convite de instalação', () => {
   });
 
   it('aponta o lembrete para o botão certo do navegador do iPhone', () => {
-    expect(hintSpot('ios-safari26', IPHONE)).toBe('bottom-right');
+    expect(hintSpot('ios-safari26', IPHONE)).toBe('bottom-left');
     expect(hintSpot('ios-safari', IPHONE)).toBe('bottom-center');
     expect(hintSpot('ios-chrome', IPHONE)).toBe('top-right');
     expect(hintSpot('ios-safari', MAC)).toBe('top-right'); // iPad: barra em cima

@@ -83,13 +83,14 @@ export function guideKind(ua: string, maxTouchPoints = 0): InstallGuideKind {
  * um toque; no navegador de rede social o primeiro passo é sair dele). No iPad a barra do
  * Safari fica em cima.
  */
-export type HintSpot = 'bottom-right' | 'bottom-center' | 'top-right' | 'none';
+export type HintSpot = 'bottom-left' | 'bottom-center' | 'top-right' | 'none';
 
 export function hintSpot(kind: InstallGuideKind, ua = ''): HintSpot | null {
   if (!kind.startsWith('ios-')) return null;
   if (kind === 'ios-outro') return 'none';
   if (/iPad|Macintosh/i.test(ua) || kind === 'ios-chrome') return 'top-right';
-  return kind === 'ios-safari26' ? 'bottom-right' : 'bottom-center';
+  // Safari 26: o menu da página (com o Compartilhar) é o ícone à esquerda do endereço.
+  return kind === 'ios-safari26' ? 'bottom-left' : 'bottom-center';
 }
 
 /** Abre a janela com o passo a passo (components/pwa/InstallGuide.tsx, montada no layout). */

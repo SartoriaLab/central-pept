@@ -6,7 +6,17 @@
 import type { ReactNode } from 'react';
 import type { InstallGuideKind } from '@/lib/install';
 import { SITE_HOST } from '@/lib/site';
-import { AddSquareIcon, CheckIcon, CompassIcon, DotsIcon, DotsVerticalIcon, PhoneIcon, ShareIcon } from './icons';
+import {
+  AddSquareIcon,
+  CheckIcon,
+  CompassIcon,
+  DotsIcon,
+  DotsVerticalIcon,
+  PageMenuIcon,
+  PhoneIcon,
+  ShareIcon,
+  TabsIcon,
+} from './icons';
 
 type Step = { icon: ReactNode; text: ReactNode };
 
@@ -24,11 +34,11 @@ const CONFIRM: Step = {
 const STEPS: Record<InstallGuideKind, Step[]> = {
   'ios-safari26': [
     {
-      icon: <DotsIcon />,
+      icon: <PageMenuIcon />,
       text: (
         <>
-          Toque nos <B>três pontinhos</B>, no canto de baixo, à direita do endereço. Depois toque em{' '}
-          <B>Compartilhar</B>.
+          Toque no <B>ícone das linhas</B>, à esquerda do endereço, na barra de baixo (em alguns iPhones são{' '}
+          <B>três pontinhos</B> à direita). Depois toque em <B>Compartilhar</B>.
         </>
       ),
     },
@@ -94,7 +104,7 @@ export const GUIDE_TITLES: Record<InstallGuideKind, string> = {
 /** Resumo de uma linha para o lembrete que fica na tela depois da janela (InstallGuide). */
 export const HINT_STEPS: Partial<Record<InstallGuideKind, { icon: ReactNode; label: string }[]>> = {
   'ios-safari26': [
-    { icon: <DotsIcon size={16} />, label: 'Três pontinhos' },
+    { icon: <PageMenuIcon size={16} />, label: 'Ícone das linhas' },
     { icon: <ShareIcon size={16} />, label: 'Compartilhar' },
     { icon: <AddSquareIcon size={16} />, label: 'Adicionar à Tela de Início' },
   ],
@@ -121,14 +131,16 @@ function BarHint({ kind }: { kind: InstallGuideKind }) {
   let caption: string;
   let bar: ReactNode;
   if (kind === 'ios-safari26') {
-    caption = 'Procure este botão na barra do Safari, embaixo da tela:';
+    caption = 'Procure este ícone na barra do Safari, embaixo da tela, à esquerda do endereço:';
     bar = (
       <>
         <span className={`${SLOT} w-9 flex-shrink-0 text-lg leading-none`}>‹</span>
-        <span className={`${SLOT} min-w-0 flex-1 px-3 text-xs`}>
-          <span className="truncate">{SITE_HOST}</span>
+        <span className={`${SLOT} min-w-0 flex-1 gap-2 pl-1 pr-3 text-xs`}>
+          <span className={`${TARGET} !w-7 !h-7`}><PageMenuIcon size={15} /></span>
+          <span className="min-w-0 flex-1 truncate">{SITE_HOST}</span>
+          <span className="text-sm leading-none">↻</span>
         </span>
-        <span className={TARGET}><DotsIcon size={18} /></span>
+        <span className={`${SLOT} w-9 flex-shrink-0`}><TabsIcon size={16} /></span>
       </>
     );
   } else if (kind === 'ios-safari') {

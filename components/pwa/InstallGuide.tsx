@@ -104,7 +104,7 @@ export default function InstallGuide() {
         {hint !== 'none' && (
           <span
             aria-hidden
-            className={`absolute w-8 h-8 rounded-full bg-teal-700 text-white dark:text-bg border-2 border-surface shadow-lg flex items-center justify-center animate-bounce ${top ? 'bottom-full mb-1' : 'top-full mt-1'} ${hint === 'bottom-center' ? 'left-1/2 -ml-4' : 'right-3'}`}
+            className={`absolute w-8 h-8 rounded-full bg-teal-700 text-white dark:text-bg border-2 border-surface shadow-lg flex items-center justify-center animate-bounce ${top ? 'bottom-full mb-1' : 'top-full mt-1'} ${hint === 'bottom-center' ? 'left-1/2 -ml-4' : hint === 'bottom-left' ? 'left-[23%]' : 'right-3'}`}
           >
             {/* a rotação fica num elemento de dentro: o animate-bounce usa o transform do de fora */}
             <span className={`block ${top ? 'rotate-180' : ''}`}>

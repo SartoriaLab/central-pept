@@ -62,8 +62,8 @@ Feed, sitemap, busca, páginas de tag e imagem de compartilhamento saem sozinhos
    reconstituição (`InstallPrompt`) e página `/app` (links no menu, rodapé e `/links`).
    Todo botão usa `start()` do hook `useInstall`: instala em um toque quando o navegador oferece; senão abre
    a janela `InstallGuide` (layout) com os passos do aparelho. Os passos ficam só em
-   `components/pwa/InstallSteps.tsx`, escolhidos por `guideKind` (`lib/install.ts`): Safari do iOS 26 (menu
-   "•••"), Safari antigo, Chrome do iPhone, Android, navegador do Instagram. Mudou o Safari → mude lá.
+   `components/pwa/InstallSteps.tsx`, escolhidos por `guideKind` (`lib/install.ts`): Safari do iOS 26 (ícone
+   das linhas à esquerda do endereço; em algumas versões, "•••" à direita), Safari antigo, Chrome do iPhone, Android, navegador do Instagram. Mudou o Safari → mude lá.
    No iPhone a janela mostra o desenho da barra do navegador e o botão "Mostrar onde tocar", que troca a
    janela por um lembrete pequeno com seta apontando para o botão (`hintSpot` em `lib/install.ts`); o clique
    grava `Instalar Guia` e o tipo de guia vai em `guia` (relatório "Passo a passo de instalação por navegador").

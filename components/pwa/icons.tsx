@@ -52,6 +52,25 @@ export function DotsIcon({ size = 20 }: P) {
   );
 }
 
+/** Menu da página do Safari (iOS 26): as linhas à esquerda do endereço. */
+export function PageMenuIcon({ size = 20 }: P) {
+  return (
+    <svg viewBox="0 0 20 20" width={size} height={size} strokeWidth={1.9} {...base}>
+      <path d="M3.5 5.5h13M3.5 10h13M3.5 14.5h8" />
+    </svg>
+  );
+}
+
+/** Botão de abas do Safari: dois quadrados sobrepostos. */
+export function TabsIcon({ size = 18 }: P) {
+  return (
+    <svg viewBox="0 0 20 20" width={size} height={size} strokeWidth={1.7} {...base}>
+      <rect x="6.5" y="6.5" width="10.5" height="10.5" rx="2.5" />
+      <path d="M13.5 6.5v-1A2.5 2.5 0 0 0 11 3H5.5A2.5 2.5 0 0 0 3 5.500V11a2.5 2.5 0 0 0 2.500 2.500h1" />
+    </svg>
+  );
+}
+
 /** Menu "⋮" do Chrome no Android (vertical). */
 export function DotsVerticalIcon({ size = 20 }: P) {
   return (
