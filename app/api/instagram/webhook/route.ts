@@ -45,10 +45,10 @@ async function handle(r: GuideRequest): Promise<void> {
   const state = await import('@/scripts/social/state');
   const { InstagramClient } = await import('@/scripts/social/instagram');
   try {
-    await state.ensureDmTable();
+    await state.ensureWebhookTables();
     if (!(await state.claimDm(r))) return;
   } catch (e) {
-    console.error(`[instagram-dm] banco: ${(e as Error).message}`);
+    console.error(`[instagram-dm] banco: ${errorText(e)}`);
     return;
   }
   try {
@@ -58,11 +58,19 @@ async function handle(r: GuideRequest): Promise<void> {
     const ebook = ebookFromCaption(caption) ?? fallbackEbook();
     await ig.privateReply(r.commentId, dmText(ebook));
     await ig.replyComment(r.commentId, publicReply(r.commentId)).catch((e) => {
-      console.warn(`[instagram-dm] resposta pública ${r.commentId}: ${(e as Error).message}`);
+      console.warn(`[instagram-dm] resposta pública ${r.commentId}: ${errorText(e)}`);
     });
     await state.finishDm(r.commentId, ebook?.id ?? null);
+    console.info(`[instagram-dm] direct enviado ${r.commentId} (post ${r.mediaId}, guia ${ebook?.id ?? 'nenhum'})`);
   } catch (e) {
-    console.error(`[instagram-dm] direct ${r.commentId} (post ${r.mediaId}): ${(e as Error).message}`);
+    console.error(`[instagram-dm] direct ${r.commentId} (post ${r.mediaId}): ${errorText(e)}`);
     await state.releaseDm(r.commentId).catch(() => {});
   }
+}
+
+/** Mensagem com a causa: o erro do drizzle ("Failed query...") esconde o do Postgres em `cause`. */
+function errorText(e: unknown): string {
+  const err = e as Error & { cause?: unknown };
+  const cause = err.cause instanceof Error ? ` | causa: ${err.cause.message}` : '';
+  return `${err.message}${cause}`;
 }

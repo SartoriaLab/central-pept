@@ -26,20 +26,23 @@ export async function ensureTables(): Promise<void> {
       created_at timestamp DEFAULT now() NOT NULL
     )`);
   await db.execute(sql`CREATE INDEX IF NOT EXISTS social_posts_created_at_idx ON social_posts (created_at)`);
+  await ensureWebhookTables();
+}
+
+let webhookTablesReady = false;
+
+/**
+ * Tabelas que o webhook do "comenta GUIA" usa: social_state (token) e social_dms (espelho de
+ * drizzle/schema.ts). O webhook pode rodar antes da primeira execução do robô. Uma vez por processo.
+ */
+export async function ensureWebhookTables(): Promise<void> {
+  if (webhookTablesReady) return;
   await db.execute(sql`
     CREATE TABLE IF NOT EXISTS social_state (
       key varchar(40) PRIMARY KEY,
       value text NOT NULL,
       updated_at timestamp DEFAULT now() NOT NULL
     )`);
-  await ensureDmTable();
-}
-
-let dmTableReady = false;
-
-/** Tabela do "comenta GUIA" (espelho de socialDms em drizzle/schema.ts). Uma vez por processo. */
-export async function ensureDmTable(): Promise<void> {
-  if (dmTableReady) return;
   await db.execute(sql`
     CREATE TABLE IF NOT EXISTS social_dms (
       comment_id varchar(40) PRIMARY KEY,
@@ -50,7 +53,7 @@ export async function ensureDmTable(): Promise<void> {
       created_at timestamp DEFAULT now() NOT NULL
     )`);
   await db.execute(sql`CREATE UNIQUE INDEX IF NOT EXISTS social_dms_media_user_idx ON social_dms (media_id, user_id)`);
-  dmTableReady = true;
+  webhookTablesReady = true;
 }
 
 /**

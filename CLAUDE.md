@@ -124,7 +124,8 @@ Feed, sitemap, busca, páginas de tag e imagem de compartilhamento saem sozinhos
    entre aspas da linha 📘 da legenda (`ctaLine`; mudou o formato dela → mude `ebookFromCaption`). Um
    direct por pessoa por post (`social_dms`). Setup na Meta: `docs/instagram-setup.md`, Parte 6.
 4. Histórico e token renovado ficam em `social_posts`/`social_state`, criadas pelo próprio robô
-   (`ensureTables` em `state.ts`, espelho de `drizzle/schema.ts`: mudou um, mude o outro).
+   (`ensureTables` em `state.ts`, espelho de `drizzle/schema.ts`: mudou um, mude o outro). O webhook
+   cria só `social_state` e `social_dms` (`ensureWebhookTables`), pois pode rodar antes do robô.
 5. Bio do perfil aponta para `/links` (noindex), com UTM `instagram/bio` (`bioUrl`).
 
 ## Páginas geradas a partir dos dados
