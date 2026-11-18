@@ -13,7 +13,7 @@ import {
 import { EXIT_COUPON } from '@/lib/ebooks';
 import crypto from 'node:crypto';
 import { ctaFor } from '@/scripts/social/ebook-cta';
-import { InstagramClient } from '@/scripts/social/instagram';
+import { FB_BASE, IG_BASE, InstagramClient, tokenShape } from '@/scripts/social/instagram';
 import { toSpeech } from '@/scripts/social/render';
 import { nobreak } from '@/scripts/social/slides';
 import { beatsFor, chunkWords } from '@/scripts/social/captions';
@@ -312,6 +312,23 @@ describe('InstagramClient', () => {
     expect(JSON.parse(body.get('message')!)).toEqual({ text: 'Oi! Aqui é a Gotinha' });
     expect(calls[1].url).toContain('/c99/replies');
     expect(new URLSearchParams(calls[1].body).get('message')).toBe('Te mandei no direct!');
+  });
+
+  it('token do Facebook (EAA) vai a graph.facebook.com; o do Instagram fica em graph.instagram.com', async () => {
+    const { fn, calls } = fakeFetch([{ caption: 'a' }, { caption: 'b' }]);
+    await new InstagramClient({ ...opts, token: 'EAAxyz', fetchFn: fn }).mediaCaption('m1');
+    await new InstagramClient({ ...opts, fetchFn: fn }).mediaCaption('m1');
+    expect(calls[0].url.startsWith(`${FB_BASE}/m1?`)).toBe(true);
+    expect(calls[1].url.startsWith(`${IG_BASE}/m1?`)).toBe(true);
+  });
+
+  it('token inválido (190) mostra o formato do token, nunca o valor', async () => {
+    const { fn } = fakeFetch([{ error: { message: 'Cannot parse access token', code: 190 } }]);
+    const ig = new InstagramClient({ ...opts, token: 'segredo com espaço', fetchFn: fn });
+    const err = await ig.privateReply('c1', 'oi').catch((e: Error) => e.message);
+    expect(err).toContain('token desconhecido, 18 chars, com caracteres fora do padrão');
+    expect(err).not.toContain('segredo');
+    expect(tokenShape('IGAAabc')).toBe('token IG, 7 chars');
   });
 });
 
