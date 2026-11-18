@@ -124,26 +124,41 @@ Kit. Código: `app/api/instagram/webhook/route.ts` e `lib/instagram-dm.ts`.
 
 1. **No Instagram (celular):** Configurações → **Mensagens e respostas a stories** →
    **Ferramentas conectadas** → ative **Permitir acesso às mensagens**.
-2. **Permissões no app da Meta** (Parte 3): no produto Instagram, em **Configuração da API com
-   login do Instagram**, confira que o app pede `instagram_business_basic`,
-   `instagram_business_content_publish`, `instagram_business_manage_comments` e
-   `instagram_business_manage_messages`. **Gere o token (Parte 3, passo 5) depois disso**: token
-   antigo não tem permissão de mensagem. Se o robô já tiver rodado com o token antigo, me avise
-   para eu apagar o token salvo no banco.
+2. **Permissões e token no app da Meta.** App novo não tem mais a "Configuração da API com login
+   do Instagram": o caminho é **Casos de uso → API do Instagram → API setup with Unified login**.
+   - O app precisa de um **portfólio empresarial**, e a conta @dosecerta_br precisa estar nele
+     (Business Suite → Configurações → Contas do Instagram → Adicionar).
+   - Em **Permissões e recursos**, confira `instagram_business_basic`,
+     `instagram_business_content_publish`, `instagram_business_manage_comments` e
+     `instagram_business_manage_messages`.
+   - **1. Configure seu app:** crie a configuração do Login do Facebook para Empresas ("Criar do
+     modelo", compatível com o Login do Instagram). Sem ela, gerar token dá "Selecione uma
+     configuração na Etapa 1".
+   - **2. Gerar tokens de acesso:** adicione @dosecerta_br e gere o token. A Meta pode obrigar a
+     criar uma conta de anúncios no caminho; não tem custo. **Gere o token depois de conferir as
+     permissões**: token antigo não tem permissão de mensagem. Se o robô já tiver rodado com o
+     token antigo, me avise para eu apagar o token salvo no banco.
 3. **Vercel** → projeto → Settings → Environment Variables (Production), três variáveis:
-   - `IG_APP_SECRET`: a **Chave secreta do app do Instagram**, na mesma tela da Configuração
-     da API com login do Instagram (botão Mostrar);
+   - `IG_APP_SECRET`: em **Configurações do app → Básico → Chave Secreta do Aplicativo**. Ao
+     clicar em **Mostrar**, a Meta pede a **sua senha do Facebook** só para confirmar; a chave é
+     o que aparece no campo depois: 32 caracteres de 0-9 e a-f. Cole só o valor, sem o nome;
    - `IG_WEBHOOK_VERIFY_TOKEN`: uma senha que você inventa (ex.: 20 letras e números);
    - `IG_ACCESS_TOKEN`: o mesmo token dos segredos do GitHub (o site usa enquanto o robô não
      renova e guarda o dele no banco).
-   Depois, **Redeploy** para valer.
-4. **Webhook:** na Configuração da API com login do Instagram → **Configurar webhooks**:
+   Salve e **depois** faça o **Redeploy** (Deployments → ⋯ → Redeploy). Chave errada aparece no
+   log da Vercel como `[instagram-dm] assinatura recusada ... chave=N chars`, com 403.
+4. **Webhook:** na mesma tela do login unificado, **3. Configurar webhooks → Ver mais**:
    - URL de retorno: `https://centralpeptideos.com.br/api/instagram/webhook`
    - Verificar token: a senha do `IG_WEBHOOK_VERIFY_TOKEN`
-   - **Verificar e salvar**; depois, na lista de campos, **Assinar** `comments`.
+   - **Verificar e salvar**; depois, na lista de campos, **Assinar** `comments`, e ative a
+     assinatura de webhook da conta @dosecerta_br.
+   - O link **Teste** na linha `comments` → **Enviar para servidor** manda um exemplo: o site
+     deve responder 200 (Vercel → Observability).
 5. **Teste:** com o app em modo de desenvolvimento, só funciona para quem tem função no app.
-   Comente GUIA em um post usando uma conta adicionada como testadora (Funções do app →
-   Testadores do Instagram) e veja o direct chegar.
+   Adicione a conta em **Funções do app → Funções → Testadores do Instagram**. O convite não
+   aparece no app do celular: aceite no navegador, logado nessa conta, em
+   `https://www.instagram.com/accounts/manage_access/` → **Convites de testador**. Depois
+   comente GUIA em um post do @dosecerta_br com essa conta e veja o direct chegar.
 6. **Para valer para todo mundo:** a Meta exige **Revisão do app** com acesso avançado a
    `instagram_business_manage_comments` e `instagram_business_manage_messages`, e o app em
    modo **Ao vivo**. Ela pede: URL da política de privacidade
