@@ -102,6 +102,10 @@ export type EbookOffer = {
   anchor?: string;
   /** "Lançamento: R$ 39,90 nas 10 primeiras unidades. Depois, R$ 69,90." */
   launchNote?: string;
+  /** Preço de lançamento em partes, para a etiqueta (LaunchPrice). */
+  launch?: { units: number; afterLabel: string };
+  /** Checkout da Kiwify (botão de compra direta). */
+  checkoutUrl: string;
   /** Primeira página de amostra (imagem em /public). */
   sample?: string;
 };
@@ -1340,7 +1344,8 @@ export function stripChapter(s: string): string {
 
 /** Oferta para a página, ou null se o ebook não existe ou não tem checkout. */
 export function toOffer(e: Ebook | undefined): EbookOffer | null {
-  if (!e || !checkoutUrl(e)) return null;
+  const checkout = e ? checkoutUrl(e) : undefined;
+  if (!e || !checkout) return null;
   return {
     id: e.id,
     slug: e.slug,
@@ -1357,6 +1362,8 @@ export function toOffer(e: Ebook | undefined): EbookOffer | null {
     bullets: (e.reveals?.length ? e.reveals : e.toc).slice(0, 3).map(stripChapter),
     anchor: e.anchor,
     launchNote: launchNote(e),
+    launch: e.launch ? { units: e.launch.units, afterLabel: formatPrice(e.launch.after) } : undefined,
+    checkoutUrl: checkout,
     sample: e.sample?.[0],
   };
 }

@@ -31,7 +31,7 @@ type Props = {
   className?: string;
 };
 
-function withUtm(base: string, slug: string, origem: string, de: string, coupon: string | null = null): string {
+export function withUtm(base: string, slug: string, origem: string, de: string, coupon: string | null = null): string {
   try {
     const url = new URL(base);
     if (coupon) url.searchParams.set('coupon', coupon);

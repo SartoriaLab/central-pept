@@ -21,14 +21,14 @@ export default function OfferStrip({ offer, title, sub }: Props) {
         markOfferClicked();
         track(EVENTS.ebookClick, { ebook: offer.id, posicao: 'faixa', pagina: pathname });
       }}
-      className="no-print group flex items-center gap-3 bg-[#134e4a] px-4 py-3 text-white transition hover:bg-[#115e59]"
+      className="no-print group flex items-center gap-3 bg-[#0b1220] px-4 py-3 text-white transition hover:bg-[#1e293b]"
     >
       <span className="text-xl" aria-hidden>⚠️</span>
       <span className="min-w-0 flex-1 text-sm leading-snug">
         <strong className="block font-extrabold">{title}</strong>
         <span className="text-white/75">{sub}</span>
       </span>
-      <span className="whitespace-nowrap rounded-lg bg-amber-400 px-3 py-2 text-sm font-extrabold text-slate-900 group-hover:bg-amber-300">
+      <span className="whitespace-nowrap rounded-lg bg-[#facc15] px-3 py-2 text-sm font-black text-[#0b1220] group-hover:bg-[#fde047]">
         {offer.priceLabel} →
       </span>
     </Link>

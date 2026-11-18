@@ -17,6 +17,8 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import EbookCover from '@/components/ebook/EbookCover';
 import AnchorNote from './AnchorNote';
+import { withUtm } from '@/components/ebook/CheckoutButton';
+import LaunchPrice from '@/components/ebook/LaunchPrice';
 import OfferBar from '@/components/ebook/OfferBar';
 import { clearPageOffer, markOfferClicked, setPageOffer } from '@/components/ebook/offer-store';
 import type { EbookOffer as Offer } from '@/lib/ebooks';
@@ -97,82 +99,109 @@ export default function EbookOffer({ offer, variant = 'card', lead, className = 
   if (variant === 'result' && offer.id === 'T1') {
     // Guia de reconstituição: oferta principal da calculadora mais usada do site, logo depois da
     // pergunta do frasco (o feedback dela chega como children). Cores fixas nos dois temas.
-    const items = offer.bullets;
+    // Dois botões: compra direta (checkout da Kiwify, em destaque) e a página do guia.
+    const buyHref = withUtm(offer.checkoutUrl, offer.slug, 'result-direto', pathname);
+    const onBuy = () => {
+      markOfferClicked();
+      track(EVENTS.ebookCheckout, { ebook: offer.id, posicao: 'result', origem: 'direto', pagina: pathname });
+    };
     return (
       <>
         <aside
           ref={ref}
-          className={`no-print overflow-hidden rounded-2xl bg-[linear-gradient(150deg,#0f2f2d_0%,#134e4a_55%,#115e59_100%)] p-5 text-white shadow-xl ring-1 ring-black/10 sm:p-6 ${className}`}
+          className={`no-print overflow-hidden rounded-2xl bg-[#0b1220] text-white shadow-2xl ring-1 ring-black/20 ${className}`}
           aria-label="Guia em PDF"
         >
-          {children}
-          <p className="inline-flex items-center gap-1.5 rounded-full bg-amber-400 px-2.5 py-1 text-[11px] font-extrabold uppercase tracking-wider text-slate-900">
-            <span aria-hidden>⚠️</span> Antes de aplicar
-          </p>
-          <h2 className="mt-3 text-[22px] font-extrabold uppercase leading-tight tracking-tight sm:text-2xl">
-            Um erro de interpretação pode custar caro.
-          </h2>
-          <p className="mt-3 text-[15px] leading-relaxed text-white/85">
-            Quantidade do frasco, concentração e volume parecem a mesma coisa.{' '}
-            <strong className="text-white">Não são.</strong> Confundir esses números é o erro mais comum: dose errada,
-            frasco desperdiçado e resultado que não vem.
+          <p className="flex items-center justify-center gap-2 bg-[#dc2626] px-4 py-2 text-center text-xs font-black uppercase tracking-[0.14em] text-white">
+            <span aria-hidden>⚠️</span> Leia antes de aplicar
           </p>
 
-          <div className="mt-5 flex items-start gap-4">
-            <div className="min-w-0 flex-1">
-              <p className="text-xs font-bold uppercase tracking-wider text-amber-300">O guia em PDF</p>
-              <p className="mt-1 text-lg font-extrabold leading-snug">{offer.title}</p>
-              <ul className="mt-3 space-y-2 text-sm">
-                {items.map((b) => (
+          <div className="bg-[radial-gradient(120%_70%_at_50%_0%,#1e293b_0%,#0b1220_70%)] p-5 sm:p-6">
+            {children}
+            <h2 className="text-[26px] font-black uppercase leading-[1.05] tracking-tight sm:text-3xl">
+              Um erro de interpretação pode <span className="text-[#facc15]">custar caro.</span>
+            </h2>
+            <p className="mt-3 text-[15px] leading-relaxed text-slate-300">
+              Quantidade do frasco, concentração e volume parecem a mesma coisa.{' '}
+              <strong className="text-white">Não são.</strong> Confundir esses números é o erro mais comum:
+            </p>
+            <ul className="mt-3 grid gap-1.5 text-sm font-bold sm:grid-cols-3">
+              {['Dose errada', 'Frasco desperdiçado', 'Resultado que não vem'].map((t) => (
+                <li
+                  key={t}
+                  className="flex items-center gap-2 rounded-lg bg-[#dc2626]/15 px-3 py-2 text-[#fecaca] ring-1 ring-[#dc2626]/40"
+                >
+                  <span className="text-[#f87171]" aria-hidden>✕</span>
+                  {t}
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-5 rounded-xl bg-white p-4 text-slate-900 shadow-lg">
+              <div className="flex items-start gap-4">
+                <div className="min-w-0 flex-1">
+                  <p className="text-[11px] font-black uppercase tracking-wider text-[#dc2626]">
+                    O guia em PDF · {offer.pages} páginas
+                  </p>
+                  <p className="mt-1 text-lg font-black leading-snug">{offer.title}</p>
+                </div>
+                {offer.sample ? (
+                  // Página real do PDF: o produto antes do clique.
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={offer.sample}
+                    alt={`Página de amostra do guia ${offer.title}`}
+                    width={80}
+                    height={113}
+                    loading="lazy"
+                    className="w-20 shrink-0 rotate-3 rounded-md bg-white shadow-xl ring-1 ring-black/15"
+                  />
+                ) : null}
+              </div>
+              <ul className="mt-3 space-y-2 text-sm font-semibold">
+                {[...offer.bullets, 'O que confirmar com um profissional antes de aplicar'].map((b) => (
                   <li key={b} className="flex gap-2">
-                    <span className="font-bold text-amber-300" aria-hidden>✓</span>
-                    <span className="text-white/90">{b}</span>
+                    <span
+                      className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#16a34a] text-xs font-black text-white"
+                      aria-hidden
+                    >
+                      ✓
+                    </span>
+                    <span>{b}</span>
                   </li>
                 ))}
-                <li className="flex gap-2">
-                  <span className="font-bold text-amber-300" aria-hidden>✓</span>
-                  <span className="text-white/90">O que confirmar com um profissional antes de aplicar</span>
-                </li>
               </ul>
             </div>
-            {offer.sample ? (
-              // Página real do PDF: o produto antes do clique.
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                src={offer.sample}
-                alt={`Página de amostra do guia ${offer.title}`}
-                width={112}
-                height={158}
-                loading="lazy"
-                className="hidden w-28 shrink-0 rotate-2 rounded-md bg-white shadow-2xl ring-1 ring-black/10 min-[400px]:block"
-              />
-            ) : null}
-          </div>
 
-          {offer.launchNote ? (
-            <p className="mt-5 rounded-lg bg-amber-400 px-3 py-2.5 text-center text-sm font-extrabold leading-snug text-slate-900">
-              {offer.launchNote}
+            {offer.launch ? (
+              <LaunchPrice priceLabel={price} afterLabel={offer.launch.afterLabel} units={offer.launch.units} className="mt-5" />
+            ) : null}
+
+            <a
+              href={buyHref}
+              rel="noopener"
+              onClick={onBuy}
+              className="mt-4 flex w-full flex-col items-center justify-center rounded-xl bg-[#16a34a] px-4 py-4 text-center text-white shadow-[0_6px_0_#14532d,0_14px_28px_rgba(22,163,74,0.45)] transition hover:-translate-y-0.5 hover:bg-[#22c55e] active:translate-y-1 active:shadow-[0_2px_0_#14532d]"
+            >
+              <span className="text-xl font-black uppercase leading-tight tracking-tight">Quero o guia agora →</span>
+              <span className="mt-1 text-sm font-bold text-white/90">{price} · Pix ou cartão · acesso na hora</span>
+            </a>
+            <p className="mt-4 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-center text-xs font-semibold text-slate-300">
+              <span>🔒 Compra segura pela Kiwify</span>
+              <span>🛡️ 7 dias de garantia</span>
             </p>
-          ) : null}
-          {offer.anchor ? (
-            <p className="mt-3 rounded-lg border-l-4 border-amber-400 bg-white/10 px-3 py-2 text-sm font-semibold leading-snug text-amber-100">
-              {offer.anchor}
+            <Link
+              href={href}
+              onClick={onClick}
+              className="mt-3 flex h-12 w-full items-center justify-center rounded-xl border-2 border-white/25 text-sm font-extrabold text-white transition hover:border-white/60 hover:bg-white/10"
+            >
+              Entender melhor o guia
+            </Link>
+            {offer.anchor ? <p className="mt-4 text-center text-xs leading-relaxed text-slate-400">{offer.anchor}</p> : null}
+            <p className="mt-4 border-t border-white/15 pt-4 text-center text-base font-black uppercase tracking-tight text-[#facc15]">
+              Sua saúde não é lugar para achismo.
             </p>
-          ) : null}
-          <Link
-            href={href}
-            onClick={onClick}
-            className="mt-4 flex w-full flex-col items-center justify-center rounded-xl bg-amber-400 px-4 py-3 text-center text-slate-900 shadow-lg transition hover:-translate-y-0.5 hover:bg-amber-300"
-          >
-            <span className="text-lg font-extrabold leading-tight">Quero entender meu frasco →</span>
-            <span className="mt-0.5 text-sm font-bold text-slate-800">{price} · Pix ou cartão</span>
-          </Link>
-          <p className="mt-2 text-center text-xs text-white/70">
-            PDF de {offer.pages} páginas · acesso na hora · 7 dias de garantia
-          </p>
-          <p className="mt-4 border-t border-white/15 pt-4 text-center text-base font-extrabold">
-            Sua saúde não é lugar para achismo.
-          </p>
+          </div>
         </aside>
         <OfferBar offer={offer} show={passed} href={offerHref(offer, 'barra', pathname)} />
       </>

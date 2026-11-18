@@ -20,11 +20,11 @@ function fmtMl(n: number): string {
 export default function FrascoQuiz({ quiz, peptideName, onAnswer }: Props) {
   return (
     <section
-      className="no-print overflow-hidden rounded-2xl bg-[linear-gradient(140deg,#0f2f2d_0%,#134e4a_60%,#115e59_100%)] p-5 text-white shadow-xl ring-1 ring-black/10 animate-slide-up"
+      className="no-print overflow-hidden rounded-2xl bg-[radial-gradient(120%_70%_at_50%_0%,#1e293b_0%,#0b1220_70%)] p-5 text-white shadow-2xl ring-1 ring-black/20 animate-slide-up"
       aria-labelledby="quiz-frasco-titulo"
     >
       <div className="flex items-center justify-between gap-3">
-        <p className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider text-teal-100">
+        <p className="inline-flex items-center gap-1.5 rounded-full bg-[#16a34a] px-2.5 py-1 text-[11px] font-black uppercase tracking-wider text-white">
           <svg viewBox="0 0 20 20" width={12} height={12} fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" aria-hidden>
             <rect x="4" y="9" width="12" height="8" rx="1.5" />
             <path d="M7 9V6a3 3 0 0 1 6 0v3" />
@@ -37,7 +37,7 @@ export default function FrascoQuiz({ quiz, peptideName, onAnswer }: Props) {
       </div>
 
       <h2 id="quiz-frasco-titulo" className="mt-4 text-xl font-extrabold leading-tight sm:text-2xl">
-        Antes de ver: você entende o <span className="text-amber-300">seu</span> frasco?
+        Antes de ver: você entende o <span className="text-[#facc15]">seu</span> frasco?
       </h2>
       <p className="mt-2 text-[15px] leading-relaxed text-white/85">
         Você colocou <strong className="text-white">{fmtMg(quiz.vialMg)}</strong> de {peptideName ?? 'peptídeo'} em{' '}
@@ -51,7 +51,7 @@ export default function FrascoQuiz({ quiz, peptideName, onAnswer }: Props) {
             key={o.label}
             type="button"
             onClick={() => onAnswer(o.correct ? 'certa' : 'errada')}
-            className="flex h-14 w-full items-center justify-between rounded-xl bg-white px-4 text-left text-lg font-extrabold text-slate-900 shadow-md transition hover:-translate-y-0.5 hover:bg-amber-50 active:translate-y-0"
+            className="flex h-14 w-full items-center justify-between rounded-xl bg-white px-4 text-left text-lg font-extrabold text-slate-900 shadow-md transition hover:-translate-y-0.5 hover:bg-[#fef9c3] active:translate-y-0"
           >
             {o.label}
             <span className="text-sm font-bold text-slate-400" aria-hidden>→</span>

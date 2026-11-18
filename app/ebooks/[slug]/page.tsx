@@ -7,6 +7,7 @@ import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
 import EbookCover from '@/components/ebook/EbookCover';
 import CheckoutButton from '@/components/ebook/CheckoutButton';
 import { KitLink, LandingView } from '@/components/ebook/LandingTrack';
+import LaunchPrice from '@/components/ebook/LaunchPrice';
 import {
   BUMP_PRICE,
   EBOOK_FAQ,
@@ -133,7 +134,7 @@ export default async function EbookPage({ params }: { params: Promise<Params> })
                 {e.title}
               </h1>
               <p className="mt-4 text-lg text-ink-2 leading-relaxed">{e.subtitle}</p>
-              <div className="mt-6 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+              <div className={`mt-6 flex flex-wrap items-baseline gap-x-3 gap-y-1 ${e.launch ? 'hidden' : ''}`}>
                 <span className="text-3xl font-extrabold text-ink tabular-nums">{price}</span>
                 {fullPrice > e.price && (
                   <span className="text-sm text-ink-3">
@@ -142,7 +143,7 @@ export default async function EbookPage({ params }: { params: Promise<Params> })
                 )}
               </div>
               {launch && (
-                <p className="mt-2 inline-block rounded-lg bg-amber-400 px-3 py-1.5 text-sm font-extrabold text-slate-900">{launch}</p>
+                <LaunchPrice priceLabel={price} afterLabel={formatPrice(e.launch!.after)} units={e.launch!.units} className="mt-6 max-w-sm" />
               )}
               {e.anchor && !(fullPrice > e.price) && <p className="mt-1 text-sm text-ink-2">{e.anchor}</p>}
               <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2">
@@ -299,7 +300,7 @@ export default async function EbookPage({ params }: { params: Promise<Params> })
               <span>Leitura no celular pela área de membros e PDF para baixar e imprimir</span>
             </li>
           </ul>
-          <div className="mt-6 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+          <div className={`mt-6 flex flex-wrap items-baseline gap-x-3 gap-y-1 ${e.launch ? 'hidden' : ''}`}>
             <span className="text-3xl font-extrabold text-ink tabular-nums">{price}</span>
             {fullPrice > e.price && (
               <span className="text-sm text-ink-3">
@@ -308,7 +309,7 @@ export default async function EbookPage({ params }: { params: Promise<Params> })
             )}
           </div>
           {launch && (
-            <p className="mt-2 inline-block rounded-lg bg-amber-400 px-3 py-1.5 text-sm font-extrabold text-slate-900">{launch}</p>
+            <LaunchPrice priceLabel={price} afterLabel={formatPrice(e.launch!.after)} units={e.launch!.units} className="mt-6 max-w-sm" />
           )}
           {e.anchor && !(fullPrice > e.price) && <p className="mt-1 text-sm text-ink-2">{e.anchor}</p>}
           <div className="mt-5">{buy('oferta')}</div>
