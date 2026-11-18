@@ -115,6 +115,42 @@ Sem esta parte o Reels sai com a voz grátis da Microsoft (Thalita), mais robót
 4. Música: baixe 2 a 5 trilhas instrumentais calmas da [Pixabay Music](https://pixabay.com/music/)
    e me mande os arquivos (ou coloque em `scripts/social/music/`). Sem trilha, o Reels sai sem música.
 
+## Parte 6 — "Comenta GUIA" → direct automático
+
+Quem comenta **GUIA** em qualquer post recebe no direct o guia do post, com o cupom `SAIDA10`
+já aplicado no link, e uma resposta pública no comentário ("Te mandei no direct! 💧"). Uma vez
+por pessoa por post. O guia sai do título entre aspas da linha 📘 da legenda; sem ela, vai o
+Kit. Código: `app/api/instagram/webhook/route.ts` e `lib/instagram-dm.ts`.
+
+1. **No Instagram (celular):** Configurações → **Mensagens e respostas a stories** →
+   **Ferramentas conectadas** → ative **Permitir acesso às mensagens**.
+2. **Permissões no app da Meta** (Parte 3): no produto Instagram, em **Configuração da API com
+   login do Instagram**, confira que o app pede `instagram_business_basic`,
+   `instagram_business_content_publish`, `instagram_business_manage_comments` e
+   `instagram_business_manage_messages`. **Gere o token (Parte 3, passo 5) depois disso**: token
+   antigo não tem permissão de mensagem. Se o robô já tiver rodado com o token antigo, me avise
+   para eu apagar o token salvo no banco.
+3. **Vercel** → projeto → Settings → Environment Variables (Production), três variáveis:
+   - `IG_APP_SECRET`: a **Chave secreta do app do Instagram**, na mesma tela da Configuração
+     da API com login do Instagram (botão Mostrar);
+   - `IG_WEBHOOK_VERIFY_TOKEN`: uma senha que você inventa (ex.: 20 letras e números);
+   - `IG_ACCESS_TOKEN`: o mesmo token dos segredos do GitHub (o site usa enquanto o robô não
+     renova e guarda o dele no banco).
+   Depois, **Redeploy** para valer.
+4. **Webhook:** na Configuração da API com login do Instagram → **Configurar webhooks**:
+   - URL de retorno: `https://centralpeptideos.com.br/api/instagram/webhook`
+   - Verificar token: a senha do `IG_WEBHOOK_VERIFY_TOKEN`
+   - **Verificar e salvar**; depois, na lista de campos, **Assinar** `comments`.
+5. **Teste:** com o app em modo de desenvolvimento, só funciona para quem tem função no app.
+   Comente GUIA em um post usando uma conta adicionada como testadora (Funções do app →
+   Testadores do Instagram) e veja o direct chegar.
+6. **Para valer para todo mundo:** a Meta exige **Revisão do app** com acesso avançado a
+   `instagram_business_manage_comments` e `instagram_business_manage_messages`, e o app em
+   modo **Ao vivo**. Ela pede: URL da política de privacidade
+   (`https://centralpeptideos.com.br/privacidade`), um vídeo de tela mostrando o comentário e o
+   direct chegando (o teste do passo 5 serve) e um texto curto do uso ("respondemos com um link
+   de material educativo quem comenta pedindo"). A análise costuma levar alguns dias.
+
 ---
 
 ## Me mande

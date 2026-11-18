@@ -8,6 +8,7 @@ import DropCheck from '@/components/brand/DropCheck';
 import Gotinha, { GOTINHA_RATIO } from './mascot';
 import type { Pose } from './poses';
 import { BORDAO_FECHAMENTO } from './caption';
+import { DM_KEYWORD } from '@/lib/instagram-dm';
 
 export type Size = { width: number; height: number };
 export const CAROUSEL: Size = { width: 1080, height: 1350 };
@@ -200,15 +201,25 @@ export const REEL_MASCOT: { scene: MascotBox; cta: MascotBox } = {
  * (com a ilustração do tema ao lado, como objeto de cena) e a legenda falada embaixo.
  */
 export function ReelScene({
-  size, accent, label, title, caption, icon,
-}: { size: Size; accent: string; label?: string; title?: string; caption: React.ReactNode; icon?: Illustration }) {
+  size, accent, label, title, headline, caption, icon,
+}: {
+  size: Size; accent: string; label?: string; title?: string;
+  /** Gancho escrito inteiro, em destaque (abertura): no lugar do selo e do título. */
+  headline?: string;
+  caption: React.ReactNode; icon?: Illustration;
+}) {
   return (
     <Frame size={size} accent={accent} align="start">
       <div style={{ display: 'flex', flexDirection: 'column', flexShrink: 0, height: SCENE_TITLE_H, justifyContent: 'flex-end' }}>
-        {label && (
+        {headline && (
+          <div style={{ display: 'flex', fontSize: fit(headline, 64, 52, 40), fontWeight: 800, lineHeight: 1.08, letterSpacing: -1.5, color: INK }}>
+            {nobreak(headline)}
+          </div>
+        )}
+        {!headline && label && (
           <div style={{ display: 'flex', fontSize: 34, fontWeight: 800, color: accent, textTransform: 'uppercase', letterSpacing: 3 }}>{label}</div>
         )}
-        {title && (
+        {!headline && title && (
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <div style={{ display: 'flex', width: 96, height: 10, borderRadius: 5, background: accent }} />
             <div style={{ display: 'flex', marginTop: 28, fontSize: fit(title, 60, 48, 30), fontWeight: 800, lineHeight: 1.12, letterSpacing: -1, color: INK_2 }}>
@@ -222,6 +233,21 @@ export function ReelScene({
       </div>
       <div style={{ display: 'flex', flexGrow: 1, alignItems: 'center', justifyContent: 'center' }}>{caption}</div>
     </Frame>
+  );
+}
+
+/** "Comenta GUIA": o comentário vira direct com o guia (app/api/instagram/webhook). */
+function CommentAsk({ accent, cta, marginTop }: { accent: string; cta: Cta | null; marginTop: number }) {
+  return (
+    <div style={{ display: 'flex', flexShrink: 0, marginTop, alignItems: 'center' }}>
+      <div style={{ display: 'flex', padding: '22px 40px', borderRadius: 999, background: accent, color: BG, fontSize: 40, fontWeight: 800 }}>
+        {`Comenta ${DM_KEYWORD}`}
+      </div>
+      <div style={{ display: 'flex', flexDirection: 'column', marginLeft: 24, fontSize: 28, fontWeight: 600, lineHeight: 1.25, color: INK_2 }}>
+        <span>{cta ? 'que eu te mando o guia' : 'que eu te mando as'}</span>
+        <span>{cta ? 'no direct, com desconto' : 'calculadoras no direct'}</span>
+      </div>
+    </div>
   );
 }
 
@@ -251,14 +277,7 @@ export function ReelCta({ size, accent, cta, caption }: { size: Size; accent: st
           )}
         </div>
       </div>
-      <div
-        style={{
-          display: 'flex', flexShrink: 0, marginTop: 30, alignSelf: 'flex-start', padding: '22px 40px', borderRadius: 999,
-          background: accent, color: BG, fontSize: 38, fontWeight: 800,
-        }}
-      >
-        {`Link na bio · @${INSTAGRAM_HANDLE}`}
-      </div>
+      <CommentAsk accent={accent} cta={cta} marginTop={30} />
       <div style={{ display: 'flex', flexGrow: 1, alignItems: 'center', justifyContent: 'center' }}>{caption}</div>
     </Frame>
   );
@@ -299,14 +318,7 @@ export function CtaSlide({ size, accent, cta, page }: { size: Size; accent: stri
           Calculadoras grátis de reconstituição, dose e custo.
         </div>
       )}
-      <div
-        style={{
-          display: 'flex', marginTop: 56, alignSelf: 'flex-start', padding: '22px 40px', borderRadius: 999,
-          background: accent, color: BG, fontSize: 38, fontWeight: 800,
-        }}
-      >
-        {`Link na bio · @${INSTAGRAM_HANDLE}`}
-      </div>
+      <CommentAsk accent={accent} cta={cta} marginTop={48} />
       <div style={{ display: 'flex', marginTop: 36, alignItems: 'center' }}>
         <Gotinha pose="comemorando" size={210} />
         <div style={{ display: 'flex', marginLeft: 28, fontSize: 44, fontWeight: 800, lineHeight: 1.15 }}>{BORDAO_FECHAMENTO}</div>

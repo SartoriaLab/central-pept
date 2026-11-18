@@ -1,4 +1,4 @@
-import { boolean, index, integer, jsonb, pgTable, serial, text, timestamp, varchar } from 'drizzle-orm/pg-core';
+import { boolean, index, integer, jsonb, pgTable, serial, text, timestamp, uniqueIndex, varchar } from 'drizzle-orm/pg-core';
 
 export const channels = pgTable('channels', {
   id: serial('id').primaryKey(),
@@ -114,6 +114,21 @@ export const socialPosts = pgTable(
     createdAt: timestamp('created_at').defaultNow().notNull(),
   },
   (t) => [index('social_posts_created_at_idx').on(t.createdAt)],
+);
+
+// "Comenta GUIA" (app/api/instagram/webhook): um direct por pessoa por post. A chave única
+// (media_id, user_id) barra o segundo envio, e o comment_id barra a mesma notificação repetida.
+export const socialDms = pgTable(
+  'social_dms',
+  {
+    commentId: varchar('comment_id', { length: 40 }).primaryKey(),
+    mediaId: varchar('media_id', { length: 40 }).notNull(),
+    userId: varchar('user_id', { length: 40 }).notNull(),
+    ebookId: varchar('ebook_id', { length: 12 }),
+    status: varchar('status', { length: 12 }).notNull(), // pendente | enviado (falha apaga a linha)
+    createdAt: timestamp('created_at').defaultNow().notNull(),
+  },
+  (t) => [uniqueIndex('social_dms_media_user_idx').on(t.mediaId, t.userId)],
 );
 
 // Chave-valor da automação: o token do Instagram renovado (60 dias) e a validade dele.

@@ -117,6 +117,12 @@ Feed, sitemap, busca, páginas de tag e imagem de compartilhamento saem sozinhos
    Ordem fixa do Reels: gancho (mania ou erro do dia a dia, nunca cumprimento) → bordão de abertura → falas →
    chamada do guia → bordão de fechamento. Bordões em `caption.ts` (`BORDAO_*`), nunca no texto do Claude;
    mudou um bordão → confira se a voz gratuita não lê em espanhol. Folha de poses: `npm run social:gotinha`.
+   Reels de até ~35 s (3 a 4 falas), gancho escrito na tela no primeiro quadro, bordões na cena do gancho
+   e na da chamada final, que pede "comenta GUIA" e o envio do vídeo (`ctaSpeech`).
+   "Comenta GUIA" → direct: webhook `app/api/instagram/webhook` (regras em `lib/instagram-dm.ts`) manda a
+   página do guia do post com o cupom `EXIT_COUPON` e responde o comentário em público; o guia vem do título
+   entre aspas da linha 📘 da legenda (`ctaLine`; mudou o formato dela → mude `ebookFromCaption`). Um
+   direct por pessoa por post (`social_dms`). Setup na Meta: `docs/instagram-setup.md`, Parte 6.
 4. Histórico e token renovado ficam em `social_posts`/`social_state`, criadas pelo próprio robô
    (`ensureTables` em `state.ts`, espelho de `drizzle/schema.ts`: mudou um, mude o outro).
 5. Bio do perfil aponta para `/links` (noindex), com UTM `instagram/bio` (`bioUrl`).
@@ -152,4 +158,4 @@ Feed, sitemap, busca, páginas de tag e imagem de compartilhamento saem sozinhos
   a cores fixas.
 - `lib/articles.ts` lê arquivos (`fs`): não importe em componentes client.
   A busca global carrega `/busca.json`.
-- Banco só em newsletter e `/admin`. Mudou `drizzle/schema.ts` → `npm run db:push`.
+- Banco só em newsletter, `/admin` e o webhook do Instagram. Mudou `drizzle/schema.ts` → `npm run db:push`.

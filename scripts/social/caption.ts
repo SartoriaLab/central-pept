@@ -1,5 +1,7 @@
 // Legenda final: gancho + corpo (IA) + chamada da bio + aviso + hashtags (código). Puro.
 import { INSTAGRAM_HANDLE } from '@/lib/site';
+import { EXIT_COUPON } from '@/lib/ebooks';
+import { DM_KEYWORD } from '@/lib/instagram-dm';
 import type { Cta, Draft, Topic } from './types';
 
 export const MAX_CAPTION = 2200;
@@ -8,8 +10,9 @@ export const MAX_HASHTAGS = 5;
 export const DISCLAIMER = 'Conteúdo educativo. Não substitui orientação médica.';
 
 const CATEGORY_TAGS: Record<string, string[]> = {
-  'glp-1': ['glp1', 'emagrecimento', 'saudemetabolica', 'peptideos'],
-  'weight-loss': ['emagrecimento', 'saudemetabolica', 'peptideos', 'metabolismo'],
+  // Sem #emagrecimento: o Instagram deixa de recomendar conteúdo que promove produto para emagrecer.
+  'glp-1': ['glp1', 'efeitocolateral', 'peptideos', 'metabolismo'],
+  'weight-loss': ['glp1', 'efeitocolateral', 'peptideos', 'metabolismo'],
   healing: ['peptideos', 'recuperacao', 'lesao', 'saude'],
   gh: ['peptideos', 'hormonio', 'composicaocorporal', 'saude'],
   cosmetic: ['peptideos', 'pele', 'skincare', 'antienvelhecimento'],
@@ -49,15 +52,24 @@ export function questionLine(question: string): string {
  * Compartilhar é o que mais leva o post para quem ainda não segue: o convite aponta uma pessoa
  * concreta ("aquela amiga que também come correndo"), não "alguém".
  */
-export function shareLine(share?: string): string {
+function shareTarget(share?: string): string {
   const who = (share ?? '').trim().replace(/^(manda|mande|envia|envie)\s+(isso\s+)?(pra|para)\s+/i, '').replace(/[.!]+$/, '');
-  return `👯‍♀️ Manda pra ${who || SHARE_FALLBACK}.`;
+  return who || SHARE_FALLBACK;
 }
 
+export function shareLine(share?: string): string {
+  return `👯‍♀️ Manda pra ${shareTarget(share)}.`;
+}
+
+/**
+ * Palavra que a pessoa comenta para receber o guia no direct (app/api/instagram/webhook, regras
+ * em lib/instagram-dm.ts). O webhook acha o guia pelo título entre aspas desta linha da legenda.
+ */
 export function ctaLine(cta: Cta | null): string {
-  if (!cta) return '🧮 Calculadoras grátis no link da bio.';
-  const more = cta.others > 0 ? `, mais ${cta.others} ${cta.others === 1 ? 'guia' : 'guias'}` : '';
-  return `📘 Guia "${cta.title}" (${cta.priceLabel})${more} e calculadoras grátis no link da bio.`;
+  if (!cta) return `🧮 Comenta ${DM_KEYWORD} que eu te mando as calculadoras grátis no direct.`;
+  const off = EXIT_COUPON ? ` com ${EXIT_COUPON.percent}% de desconto` : '';
+  const more = cta.others > 0 ? ` Mais ${cta.others} ${cta.others === 1 ? 'guia' : 'guias'} e calculadoras grátis no link da bio.` : ' Calculadoras grátis no link da bio.';
+  return `📘 Comenta ${DM_KEYWORD} que eu te mando no direct o guia "${cta.title}" (${cta.priceLabel})${off}.${more}`;
 }
 
 /** Gancho e salvar → corpo (IA) → pergunta → compartilhar → seguir → guia → aviso → hashtags. */
@@ -80,9 +92,12 @@ export function buildCaption(draft: Draft, topic: Topic, cta: Cta | null): strin
 export const BORDAO_ABERTURA = 'Senta aí, que a Gotinha te explica.';
 export const BORDAO_FECHAMENTO = 'Gotinha falou, tá falado!';
 
-/** Chamada do guia no Reels (lida pela voz), antes do bordão de fechamento. */
-export function ctaSpeech(cta: Cta | null): string {
-  const follow = 'Me segue aqui para não perder a próxima.';
-  if (!cta) return `A calculadora grátis está no link da bio. ${follow}`;
-  return `O passo a passo completo está no guia ${cta.title}, no link da bio. ${follow}`;
+/**
+ * Última fala do Reels: pedir o comentário (vira direct com o guia), pedir o envio do vídeo (o
+ * sinal que mais leva a quem não segue) e o bordão de fechamento. A palavra vai em minúscula
+ * porque em maiúscula a voz soletra.
+ */
+export function ctaSpeech(cta: Cta | null, share?: string): string {
+  const what = cta ? 'o guia completo no direct, com desconto' : 'as calculadoras grátis no direct';
+  return `Comenta ${DM_KEYWORD.toLowerCase()} aqui embaixo que eu te mando ${what}. E manda esse vídeo pra ${shareTarget(share)}. ${BORDAO_FECHAMENTO}`;
 }

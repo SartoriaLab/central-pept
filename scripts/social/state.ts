@@ -1,8 +1,8 @@
-// Histórico de publicações e token do Instagram no Postgres (tabelas social_posts e
-// social_state, drizzle/schema.ts). Precisa de DATABASE_URL.
-import { desc, gte, inArray, and, sql } from 'drizzle-orm';
+// Histórico de publicações, token do Instagram e diretos do "comenta GUIA" no Postgres (tabelas
+// social_posts, social_state e social_dms, drizzle/schema.ts). Precisa de DATABASE_URL.
+import { desc, eq, gte, inArray, and, sql } from 'drizzle-orm';
 import { db } from '@/lib/db';
-import { socialPosts, socialState } from '@/drizzle/schema';
+import { socialDms, socialPosts, socialState } from '@/drizzle/schema';
 import type { Format, HistoryEntry } from './types';
 
 const TOKEN_KEY = 'ig_token';
@@ -32,6 +32,47 @@ export async function ensureTables(): Promise<void> {
       value text NOT NULL,
       updated_at timestamp DEFAULT now() NOT NULL
     )`);
+  await ensureDmTable();
+}
+
+let dmTableReady = false;
+
+/** Tabela do "comenta GUIA" (espelho de socialDms em drizzle/schema.ts). Uma vez por processo. */
+export async function ensureDmTable(): Promise<void> {
+  if (dmTableReady) return;
+  await db.execute(sql`
+    CREATE TABLE IF NOT EXISTS social_dms (
+      comment_id varchar(40) PRIMARY KEY,
+      media_id varchar(40) NOT NULL,
+      user_id varchar(40) NOT NULL,
+      ebook_id varchar(12),
+      status varchar(12) NOT NULL,
+      created_at timestamp DEFAULT now() NOT NULL
+    )`);
+  await db.execute(sql`CREATE UNIQUE INDEX IF NOT EXISTS social_dms_media_user_idx ON social_dms (media_id, user_id)`);
+  dmTableReady = true;
+}
+
+/**
+ * Reserva o envio do direct. false = já houve um para esta pessoa neste post, ou é a mesma
+ * notificação repetida pela Meta: não envia de novo.
+ */
+export async function claimDm(r: { commentId: string; mediaId: string; userId: string }): Promise<boolean> {
+  const rows = await db
+    .insert(socialDms)
+    .values({ ...r, status: 'pendente' })
+    .onConflictDoNothing()
+    .returning({ id: socialDms.commentId });
+  return rows.length > 0;
+}
+
+export async function finishDm(commentId: string, ebookId: string | null): Promise<void> {
+  await db.update(socialDms).set({ status: 'enviado', ebookId }).where(eq(socialDms.commentId, commentId));
+}
+
+/** Envio falhou: libera a reserva para a pessoa conseguir de novo comentando outra vez. */
+export async function releaseDm(commentId: string): Promise<void> {
+  await db.delete(socialDms).where(eq(socialDms.commentId, commentId));
 }
 
 /** Publicados e reprovados dos últimos `days` dias (ambos contam na quarentena do tema). */

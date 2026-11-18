@@ -93,6 +93,28 @@ export class InstagramClient {
     return this.publish(id);
   }
 
+  /** Legenda de um post (o webhook do direct acha o guia por ela). */
+  async mediaCaption(mediaId: string): Promise<string> {
+    const { caption } = await this.call<{ caption?: string }>('GET', `/${mediaId}`, { fields: 'caption' });
+    return caption ?? '';
+  }
+
+  /**
+   * Resposta privada (direct) a um comentário: uma mensagem por comentário, até 7 dias depois
+   * dele. Precisa da permissão instagram_business_manage_messages. `userId` = conta que envia.
+   */
+  async privateReply(commentId: string, text: string): Promise<void> {
+    await this.call('POST', `/${this.opts.userId}/messages`, {
+      recipient: JSON.stringify({ comment_id: commentId }),
+      message: JSON.stringify({ text }),
+    });
+  }
+
+  /** Resposta pública no comentário (permissão instagram_business_manage_comments). */
+  async replyComment(commentId: string, text: string): Promise<void> {
+    await this.call('POST', `/${commentId}/replies`, { message: text });
+  }
+
   /** Renova o token de longa duração (precisa ter mais de 24 h). */
   async refreshToken(): Promise<{ token: string; expiresAt: Date }> {
     const json = await this.call<{ access_token: string; expires_in: number }>('GET', '/refresh_access_token', {

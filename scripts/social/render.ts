@@ -9,7 +9,7 @@ import { createElement } from 'react';
 import satori from 'satori';
 import { Resvg } from '@resvg/resvg-js';
 import { CAROUSEL, Caption, CoverSlide, ContentSlide, CtaSlide, REEL, REEL_MASCOT, ReelCta, ReelScene, accentFor, type MascotBox, type Size } from './slides';
-import { BORDAO_ABERTURA, BORDAO_FECHAMENTO, ctaSpeech } from './caption';
+import { BORDAO_ABERTURA, ctaSpeech } from './caption';
 import { beatsFor, chunkWords } from './captions';
 import { mascotTimeline } from './lipsync';
 import Gotinha, { GOTINHA_RATIO } from './mascot';
@@ -197,8 +197,9 @@ async function renderScene(scene: Scene, i: number, outDir: string, mascots: Mas
 }
 
 /**
- * Reels com a Gotinha de protagonista, sempre nesta ordem: gancho, bordão de abertura, uma cena
- * por fala com o título do slide, chamada do guia e bordão de fechamento. Cada cena tem a
+ * Reels com a Gotinha de protagonista, sempre nesta ordem: gancho (escrito na tela) e bordão de
+ * abertura, uma cena por fala com o título do slide, e "comenta GUIA" + pedido de envio + bordão
+ * de fechamento. Cada cena tem a
  * Gotinha falando (lipsync.ts), legenda palavra a palavra no ritmo da voz (voice.ts), zoom lento
  * alternado no fundo e transição deslizando para a próxima; música de fundo baixa se houver
  * trilha em scripts/social/music. Capa do Reels em capa.png. MP4 H.264/AAC 1080×1920 30 fps.
@@ -212,15 +213,13 @@ export async function renderReel(draft: Draft, topic: Topic, cta: Cta | null, ou
   );
 
   const hookIcon = draft.hookIcon ?? draft.slides[0]?.icon;
-  const label = LABEL[topic.kind];
+  // Bordões na mesma cena do gancho e da chamada final: cena a mais é segundo a mais, e o
+  // começo do vídeo é onde mais gente desiste.
   const scenes: Scene[] = [
     {
-      speech: draft.narration[0].text, big: true, pose: draft.narration[0].pose ?? draft.hookPose ?? 'ih', mascot: REEL_MASCOT.scene,
-      frame: (caption) => createElement(ReelScene, { size: REEL, accent, label, caption, icon: hookIcon }),
-    },
-    {
-      speech: BORDAO_ABERTURA, big: true, pose: 'piscadinha', mascot: REEL_MASCOT.scene,
-      frame: (caption) => createElement(ReelScene, { size: REEL, accent, label, caption }),
+      speech: `${draft.narration[0].text} ${BORDAO_ABERTURA}`, big: true, pose: draft.narration[0].pose ?? draft.hookPose ?? 'ih', mascot: REEL_MASCOT.scene,
+      // O gancho escrito inteiro já no primeiro quadro: quem rola sem som decide por ele.
+      frame: (caption) => createElement(ReelScene, { size: REEL, accent, headline: draft.hook, caption, icon: hookIcon }),
     },
     ...draft.narration.slice(1).map(
       (line, i): Scene => ({
@@ -229,12 +228,8 @@ export async function renderReel(draft: Draft, topic: Topic, cta: Cta | null, ou
       }),
     ),
     {
-      speech: ctaSpeech(cta), pose: 'apontando', mascot: REEL_MASCOT.cta,
+      speech: ctaSpeech(cta, draft.share), pose: 'apontando', mascot: REEL_MASCOT.cta,
       frame: (caption) => createElement(ReelCta, { size: REEL, accent, cta, caption }),
-    },
-    {
-      speech: BORDAO_FECHAMENTO, big: true, pose: 'comemorando', mascot: REEL_MASCOT.scene,
-      frame: (caption) => createElement(ReelScene, { size: REEL, accent, label: cta ? 'Guia no link da bio' : 'Calculadoras no link da bio', caption }),
     },
   ];
   console.log(`Voz: ${voiceLabel()}`);

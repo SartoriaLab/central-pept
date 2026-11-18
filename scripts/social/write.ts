@@ -59,6 +59,9 @@ Como todo roteiro é montado:
 - Gancho (campo hook e primeira fala): nomeia a mania ou a dor nos primeiros dois segundos. Formas que funcionam: pergunta de dor ("Seu Mounjaro está te dando enjoo?"), flagra da mania ("Você guarda a caneta na porta da geladeira?"), mito derrubado ("Dobrar a dose não acelera nada"), número curioso da FONTE. Nunca comece com cumprimento ("oi", "olá") nem com apresentação.
 - Logo depois do gancho o código põe o bordão "${BORDAO_ABERTURA}" e, no fim, "${BORDAO_FECHAMENTO}". Não escreva esses bordões nem variações deles: comece a segunda fala já explicando.
 - Depois: por que a mania atrapalha, o que fazer no lugar, e quando é caso de falar com o médico.
+- O Reels inteiro tem até 35 segundos: cada palavra precisa merecer o lugar. Corte introdução, repetição e "então, é isso".
+- A última fala fecha o assunto voltando ao gancho (ex.: o gancho pergunta "Você guarda a caneta na porta?" e a última fala termina com "então, porta da geladeira nunca mais"), para o vídeo emendar no começo quando recomeçar.
+- No fim o código põe a chamada "comenta GUIA que eu te mando no direct" e o convite para mandar o vídeo (campo share): não escreva nada disso.
 - Tom de quem também já fez isso ("eu sei, todo mundo faz"), nunca de bronca nem de professora.
 
 Regras de conteúdo (um robô confere antes de publicar e descarta o rascunho que falhar):

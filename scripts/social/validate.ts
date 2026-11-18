@@ -53,8 +53,9 @@ export const LIMITS = {
   slideTitle: 70,
   slideBody: 220,
   slides: [2, 6] as const,
-  narration: [3, 6] as const,
-  narrationLine: 200,
+  // Reels de até ~35 s: vídeo curto é mais visto até o fim, o sinal que mais pesa no alcance.
+  narration: [3, 4] as const,
+  narrationLine: 160,
   caption: 1500,
   question: 120,
   share: 80,

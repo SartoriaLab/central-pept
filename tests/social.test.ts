@@ -6,7 +6,12 @@ import { getEbooks } from '@/lib/ebooks';
 import { buildTopics } from '@/scripts/social/topics';
 import { COOLDOWN_DAYS, pickTopic } from '@/scripts/social/pick';
 import { extractQuantities, validateDraft } from '@/scripts/social/validate';
-import { MAX_CAPTION, MAX_HASHTAGS, SHARE_FALLBACK, buildCaption, shareLine } from '@/scripts/social/caption';
+import { BORDAO_FECHAMENTO, MAX_CAPTION, MAX_HASHTAGS, SHARE_FALLBACK, buildCaption, ctaLine, ctaSpeech, shareLine } from '@/scripts/social/caption';
+import {
+  DM_KEYWORD, PUBLIC_REPLIES, dmText, ebookFromCaption, fallbackEbook, guideRequests, guideUrl, publicReply, validSignature, wantsGuide,
+} from '@/lib/instagram-dm';
+import { EXIT_COUPON } from '@/lib/ebooks';
+import crypto from 'node:crypto';
 import { ctaFor } from '@/scripts/social/ebook-cta';
 import { InstagramClient } from '@/scripts/social/instagram';
 import { toSpeech } from '@/scripts/social/render';
@@ -294,6 +299,90 @@ describe('InstagramClient', () => {
     const r = await new InstagramClient({ ...opts, fetchFn: fn }).refreshToken();
     expect(r.token).toBe('novo');
     expect(calls[0].url).toContain('/refresh_access_token?grant_type=ig_refresh_token');
+  });
+
+  it('direct de resposta ao comentário e resposta pública', async () => {
+    const { fn, calls } = fakeFetch([{ recipient_id: 'u1', message_id: 'm1' }, { id: 'rep1' }]);
+    const ig = new InstagramClient({ ...opts, fetchFn: fn });
+    await ig.privateReply('c99', 'Oi! Aqui é a Gotinha');
+    await ig.replyComment('c99', 'Te mandei no direct!');
+    expect(calls[0].url).toContain('/17841/messages');
+    const body = new URLSearchParams(calls[0].body);
+    expect(JSON.parse(body.get('recipient')!)).toEqual({ comment_id: 'c99' });
+    expect(JSON.parse(body.get('message')!)).toEqual({ text: 'Oi! Aqui é a Gotinha' });
+    expect(calls[1].url).toContain('/c99/replies');
+    expect(new URLSearchParams(calls[1].body).get('message')).toBe('Te mandei no direct!');
+  });
+});
+
+describe('comenta GUIA (direct)', () => {
+  const all = getEbooks();
+  const tirze = all.find((e) => e.id === 'I2')!;
+  const payload = (text: string, from = 'u1', account = 'acc') => ({
+    object: 'instagram',
+    entry: [{ id: account, changes: [{ field: 'comments', value: { id: 'c1', text, from: { id: from, username: 'ana' }, media: { id: 'm1' } } }] }],
+  });
+
+  it('reconhece a palavra, sem acento nem caixa, só como palavra inteira', () => {
+    for (const t of ['GUIA', 'guia', 'Quero o guia 🙏', 'Guía!!', 'manda o GUIA pra mim']) expect(wantsGuide(t), t).toBe(true);
+    for (const t of ['guias', 'guiar', 'aguia', 'amei o vídeo', '']) expect(wantsGuide(t), t).toBe(false);
+  });
+
+  it('assinatura da Meta: aceita a certa e recusa a errada ou ausente', () => {
+    const body = JSON.stringify(payload('guia'));
+    const sig = `sha256=${crypto.createHmac('sha256', 'segredo').update(body).digest('hex')}`;
+    expect(validSignature(body, sig, 'segredo')).toBe(true);
+    expect(validSignature(body, sig, 'outro')).toBe(false);
+    expect(validSignature(`${body} `, sig, 'segredo')).toBe(false);
+    expect(validSignature(body, null, 'segredo')).toBe(false);
+  });
+
+  it('só pega comentário com a palavra e ignora os da própria conta', () => {
+    expect(guideRequests(payload('GUIA'))).toEqual([{ accountId: 'acc', commentId: 'c1', mediaId: 'm1', userId: 'u1', username: 'ana' }]);
+    expect(guideRequests(payload('lindo vídeo'))).toEqual([]);
+    expect(guideRequests(payload('Te mandei o guia no direct', 'acc', 'acc'))).toEqual([]);
+    expect(guideRequests({ object: 'page', entry: [] })).toEqual([]);
+    expect(guideRequests(null)).toEqual([]);
+  });
+
+  it('acha o guia pelo título da linha 📘 da legenda (robô e legenda à mão)', () => {
+    const t: Topic = { ...topic('tirzepatida'), peptides: ['tirzepatida'] };
+    const robot = buildCaption(draft(), t, { id: 'I2', slug: tirze.slug, title: tirze.title, priceLabel: 'R$ 29,90', cover: '', others: 6 });
+    expect(ebookFromCaption(robot, all)?.id).toBe('I2');
+    expect(ebookFromCaption(`📘 Guia "${tirze.title}" (R$ 29,90) e calculadoras grátis no link da bio.`, all)?.id).toBe('I2');
+    expect(ebookFromCaption('sem guia aqui', all)).toBeNull();
+    expect(ebookFromCaption(`📘 Guia "${tirze.title}"`, [])).toBeNull(); // guia sem checkout ativo
+    expect(fallbackEbook(all)?.id).toBe('KIT');
+    expect(fallbackEbook([])).toBeNull();
+  });
+
+  it('direct leva a página do guia com o cupom e a origem; sem guia, as calculadoras', () => {
+    const url = new URL(guideUrl(tirze));
+    expect(url.pathname).toBe(`/ebooks/${tirze.slug}`);
+    expect(url.searchParams.get('cupom')).toBe(EXIT_COUPON?.code ?? null);
+    expect(url.searchParams.get('utm_medium')).toBe('direct');
+    const text = dmText(tirze);
+    expect(text).toContain(tirze.title);
+    expect(text).toContain(guideUrl(tirze));
+    expect(text).toContain('Gotinha');
+    expect(dmText(null)).toContain('/ferramentas');
+  });
+
+  it('resposta pública varia e é estável por comentário', () => {
+    const replies = new Set(['c1', 'c2', 'c3', 'c4', 'c5', 'c6', 'c7', 'c8'].map(publicReply));
+    expect(replies.size).toBeGreaterThan(1);
+    expect(publicReply('c1')).toBe(publicReply('c1'));
+    for (const r of replies) expect(PUBLIC_REPLIES).toContain(r);
+  });
+
+  it('vídeo e legenda pedem o comentário e o envio', () => {
+    const cta = { id: 'I2', slug: tirze.slug, title: tirze.title, priceLabel: 'R$ 29,90', cover: '', others: 6 };
+    const speech = ctaSpeech(cta, 'aquela amiga que come correndo');
+    expect(speech).toContain('Comenta guia');
+    expect(speech).toContain('manda esse vídeo pra aquela amiga que come correndo');
+    expect(speech.endsWith(BORDAO_FECHAMENTO)).toBe(true);
+    expect(ctaLine(cta)).toContain(`Comenta ${DM_KEYWORD}`);
+    expect(ctaLine(null)).toContain('calculadoras');
   });
 });
 
