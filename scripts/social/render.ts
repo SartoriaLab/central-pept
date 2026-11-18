@@ -8,9 +8,12 @@ import { promisify } from 'node:util';
 import { createElement } from 'react';
 import satori from 'satori';
 import { Resvg } from '@resvg/resvg-js';
-import { CAROUSEL, Caption, CoverSlide, ContentSlide, CtaSlide, REEL, ReelScene, accentFor, type Size } from './slides';
-import { ctaSpeech } from './caption';
+import { CAROUSEL, Caption, CoverSlide, ContentSlide, CtaSlide, REEL, REEL_MASCOT, ReelCta, ReelScene, accentFor, type MascotBox, type Size } from './slides';
+import { BORDAO_ABERTURA, BORDAO_FECHAMENTO, ctaSpeech } from './caption';
 import { beatsFor, chunkWords } from './captions';
+import { mascotTimeline } from './lipsync';
+import Gotinha, { GOTINHA_RATIO } from './mascot';
+import type { Mouth, Pose } from './poses';
 import { speak, voiceLabel } from './voice';
 import type { Cta, Draft, Topic } from './types';
 
@@ -55,9 +58,9 @@ export async function renderCarousel(draft: Draft, topic: Topic, cta: Cta | null
   const accent = accentFor(topic.category);
   const total = draft.slides.length + 2;
   const els = [
-    createElement(CoverSlide, { size: CAROUSEL, accent, hook: draft.hook, label: LABEL[topic.kind], swipe: true, icon: draft.hookIcon ?? draft.slides[0]?.icon }),
+    createElement(CoverSlide, { size: CAROUSEL, accent, hook: draft.hook, label: LABEL[topic.kind], swipe: true, icon: draft.hookIcon ?? draft.slides[0]?.icon, pose: draft.hookPose }),
     ...draft.slides.map((s, i) =>
-      createElement(ContentSlide, { size: CAROUSEL, accent, title: s.title, body: s.body, page: `${i + 2}/${total}`, icon: s.icon }),
+      createElement(ContentSlide, { size: CAROUSEL, accent, title: s.title, body: s.body, page: `${i + 2}/${total}`, icon: s.icon, pose: s.pose }),
     ),
     createElement(CtaSlide, { size: CAROUSEL, accent, cta, page: `${total}/${total}` }),
   ];
@@ -104,16 +107,54 @@ async function pickMusic(): Promise<string | null> {
   return path.join(MUSIC_DIR, files[day % files.length]);
 }
 
-type Scene = { speech: string; frame: (caption: React.ReactNode) => React.ReactElement; big?: boolean };
+const BOUNCE_PX = 9; // quique da Gotinha (amplitude) e quantas vezes por segundo
+const BOUNCE_HZ = 1.5;
 
-/** Vídeo de uma cena: quadros da legenda no tempo da fala + zoom lento (entrando ou saindo). */
-async function renderScene(scene: Scene, i: number, outDir: string): Promise<{ video: string; audio: string; dur: number }> {
+type Scene = {
+  speech: string;
+  frame: (caption: React.ReactNode) => React.ReactElement;
+  big?: boolean;
+  /** Pose da Gotinha na cena e onde ela entra no quadro (REEL_MASCOT). */
+  pose: Pose;
+  mascot: MascotBox;
+};
+
+/** Desenhos da Gotinha já feitos neste Reels (pose + boca + olhos + tamanho → PNG transparente). */
+type MascotCache = Map<string, string>;
+
+async function mascotPng(cache: MascotCache, outDir: string, pose: Pose, mouth: Mouth, blink: boolean, w: number): Promise<string> {
+  const key = `${pose}-${mouth}-${blink ? 'p' : 'a'}-${w}`;
+  let file = cache.get(key);
+  if (!file) {
+    file = path.join(outDir, `gotinha-${key}.png`);
+    const size = { width: w, height: Math.round(w * GOTINHA_RATIO) };
+    const el = createElement('div', { style: { display: 'flex', ...size } }, createElement(Gotinha, { pose, mouth, blink, size: w }));
+    await fs.writeFile(file, await renderPng(el, size));
+    cache.set(key, file);
+  }
+  return file;
+}
+
+/**
+ * Vídeo de uma cena: quadros da legenda no tempo da fala + zoom lento (entrando ou saindo) e,
+ * por cima, a Gotinha falando (boca no ritmo das palavras, piscadas e quique).
+ */
+async function renderScene(scene: Scene, i: number, outDir: string, mascots: MascotCache): Promise<{ video: string; audio: string; dur: number }> {
   const base = path.join(outDir, `cena-${i + 1}`);
   const audio = `${base}.mp3`;
   const words = await speak(toSpeech(scene.speech), audio);
   const dur = (await duration(audio)) + SCENE_PAD;
   const chunks = chunkWords(words);
   const beats = beatsFor(chunks, dur);
+
+  const mlist: string[] = [];
+  for (const s of mascotTimeline(words, dur, i)) {
+    const file = await mascotPng(mascots, outDir, scene.pose, s.mouth, s.blink, scene.mascot.w);
+    mlist.push(`file '${path.basename(file)}'`, `duration ${(s.end - s.start).toFixed(3)}`);
+  }
+  mlist.push(mlist[mlist.length - 2]);
+  const mlistFile = `${base}-gotinha.txt`;
+  await fs.writeFile(mlistFile, mlist.join('\n'));
 
   const cache = new Map<string, string>();
   const list: string[] = [];
@@ -140,46 +181,67 @@ async function renderScene(scene: Scene, i: number, outDir: string): Promise<{ v
 
   const z = i % 2 === 0 ? `1+0.06*on/${Math.ceil(dur * FPS)}` : `1.06-0.06*on/${Math.ceil(dur * FPS)}`;
   const video = `${base}.mp4`;
+  const { x, y } = scene.mascot;
   await ffmpeg([
     '-f', 'concat', '-safe', '0', '-i', listFile,
-    '-vf', `fps=${FPS},scale=1242:2208,zoompan=z='${z}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=1:s=1080x1920:fps=${FPS},format=yuv420p`,
-    '-t', dur.toFixed(3), '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '20', video,
+    '-f', 'concat', '-safe', '0', '-i', mlistFile,
+    '-filter_complex',
+    `[0:v]fps=${FPS},scale=1242:2208,zoompan=z='${z}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=1:s=1080x1920:fps=${FPS}[bg];` +
+      `[1:v]fps=${FPS},format=rgba[g];` +
+      `[bg][g]overlay=x=${Math.round(x)}:y='${Math.round(y)}+${BOUNCE_PX}*sin(2*PI*${BOUNCE_HZ}*t)':eval=frame,format=yuv420p[v]`,
+    '-map', '[v]', '-t', dur.toFixed(3), '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '20', video,
   ]);
   for (const f of cache.values()) await fs.rm(f);
-  await fs.rm(listFile);
+  await Promise.all([fs.rm(listFile), fs.rm(mlistFile)]);
   return { video, audio, dur };
 }
 
 /**
- * Reels: abertura (gancho), uma cena por fala com o título do slide, e a chamada final. Cada
- * cena tem legenda palavra a palavra no ritmo da voz (voice.ts), zoom lento alternado e
- * transição deslizando para a próxima; música de fundo baixa se houver trilha em
- * scripts/social/music. Capa do Reels em capa.png. MP4 H.264/AAC 1080×1920 30 fps.
+ * Reels com a Gotinha de protagonista, sempre nesta ordem: gancho, bordão de abertura, uma cena
+ * por fala com o título do slide, chamada do guia e bordão de fechamento. Cada cena tem a
+ * Gotinha falando (lipsync.ts), legenda palavra a palavra no ritmo da voz (voice.ts), zoom lento
+ * alternado no fundo e transição deslizando para a próxima; música de fundo baixa se houver
+ * trilha em scripts/social/music. Capa do Reels em capa.png. MP4 H.264/AAC 1080×1920 30 fps.
  */
 export async function renderReel(draft: Draft, topic: Topic, cta: Cta | null, outDir: string): Promise<string> {
   await fs.mkdir(outDir, { recursive: true });
   const accent = accentFor(topic.category);
   await fs.writeFile(
     path.join(outDir, 'capa.png'),
-    await renderPng(createElement(CoverSlide, { size: REEL, accent, hook: draft.hook, label: LABEL[topic.kind], swipe: false, icon: draft.hookIcon ?? draft.slides[0]?.icon }), REEL),
+    await renderPng(createElement(CoverSlide, { size: REEL, accent, hook: draft.hook, label: LABEL[topic.kind], swipe: false, icon: draft.hookIcon ?? draft.slides[0]?.icon, pose: draft.hookPose }), REEL),
   );
 
+  const hookIcon = draft.hookIcon ?? draft.slides[0]?.icon;
+  const label = LABEL[topic.kind];
   const scenes: Scene[] = [
     {
-      speech: draft.narration[0], big: true,
-      frame: (caption) => createElement(ReelScene, { size: REEL, accent, label: LABEL[topic.kind], caption, icon: draft.hookIcon ?? draft.slides[0]?.icon }),
+      speech: draft.narration[0].text, big: true, pose: draft.narration[0].pose ?? draft.hookPose ?? 'ih', mascot: REEL_MASCOT.scene,
+      frame: (caption) => createElement(ReelScene, { size: REEL, accent, label, caption, icon: hookIcon }),
+    },
+    {
+      speech: BORDAO_ABERTURA, big: true, pose: 'piscadinha', mascot: REEL_MASCOT.scene,
+      frame: (caption) => createElement(ReelScene, { size: REEL, accent, label, caption }),
     },
     ...draft.narration.slice(1).map(
-      (speech, i): Scene => ({
-        speech,
+      (line, i): Scene => ({
+        speech: line.text, pose: line.pose ?? draft.slides[i]?.pose ?? 'explicando', mascot: REEL_MASCOT.scene,
         frame: (caption) => createElement(ReelScene, { size: REEL, accent, title: draft.slides[i]?.title ?? topic.title, caption, icon: draft.slides[i]?.icon }),
       }),
     ),
-    { speech: ctaSpeech(cta), frame: (caption) => createElement(CtaSlide, { size: REEL, accent, cta, caption }) },
+    {
+      speech: ctaSpeech(cta), pose: 'apontando', mascot: REEL_MASCOT.cta,
+      frame: (caption) => createElement(ReelCta, { size: REEL, accent, cta, caption }),
+    },
+    {
+      speech: BORDAO_FECHAMENTO, big: true, pose: 'comemorando', mascot: REEL_MASCOT.scene,
+      frame: (caption) => createElement(ReelScene, { size: REEL, accent, label: cta ? 'Guia no link da bio' : 'Calculadoras no link da bio', caption }),
+    },
   ];
   console.log(`Voz: ${voiceLabel()}`);
+  const mascots: MascotCache = new Map();
   const parts: Awaited<ReturnType<typeof renderScene>>[] = [];
-  for (const [i, s] of scenes.entries()) parts.push(await renderScene(s, i, outDir));
+  for (const [i, s] of scenes.entries()) parts.push(await renderScene(s, i, outDir, mascots));
+  for (const f of mascots.values()) await fs.rm(f);
 
   // Início de cada cena na linha do tempo final (as transições sobrepõem XFADE segundos).
   const starts: number[] = [];

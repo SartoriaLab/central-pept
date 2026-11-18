@@ -5,6 +5,9 @@ import { INSTAGRAM_HANDLE, INSTAGRAM_NAME, SITE_HOST } from '@/lib/site';
 import type { Cta } from './types';
 import { illustrationSrc, type Illustration } from './illustrations';
 import DropCheck from '@/components/brand/DropCheck';
+import Gotinha, { GOTINHA_RATIO } from './mascot';
+import type { Pose } from './poses';
+import { BORDAO_FECHAMENTO } from './caption';
 
 export type Size = { width: number; height: number };
 export const CAROUSEL: Size = { width: 1080, height: 1350 };
@@ -24,7 +27,12 @@ function pad(size: Size) {
   return size.height > 1500 ? { top: 260, bottom: 420, side: 80 } : { top: 72, bottom: 72, side: 80 };
 }
 
-function Frame({ size, accent, page, children }: { size: Size; accent: string; page?: string; children: React.ReactNode }) {
+const HEADER_H = 62;
+
+/** `align="start"`: conteúdo a partir do topo (cenas do Reels, onde a Gotinha entra por cima em posição fixa). */
+function Frame({
+  size, accent, page, align = 'center', children,
+}: { size: Size; accent: string; page?: string; align?: 'center' | 'start'; children: React.ReactNode }) {
   const p = pad(size);
   const inner = size.width - 2 * p.side;
   return (
@@ -44,14 +52,14 @@ function Frame({ size, accent, page, children }: { size: Size; accent: string; p
       >
       <div style={{ display: 'flex', flexShrink: 0, width: inner, alignItems: 'center', justifyContent: 'space-between' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-          <div style={{ display: 'flex', width: 48, height: 62, alignItems: 'center', justifyContent: 'center' }}>
+          <div style={{ display: 'flex', width: 48, height: HEADER_H, alignItems: 'center', justifyContent: 'center' }}>
             <DropCheck size={48} />
           </div>
           <div style={{ fontSize: 28, fontWeight: 800, letterSpacing: 1 }}>{INSTAGRAM_NAME.toUpperCase()}</div>
         </div>
         {page && <div style={{ fontSize: 26, fontWeight: 600, color: INK_3 }}>{page}</div>}
       </div>
-      <div style={{ display: 'flex', flexDirection: 'column', flexGrow: 1, flexShrink: 1, width: inner, justifyContent: 'center' }}>{children}</div>
+      <div style={{ display: 'flex', flexDirection: 'column', flexGrow: 1, flexShrink: 1, width: inner, justifyContent: align === 'start' ? 'flex-start' : 'center' }}>{children}</div>
       <div style={{ display: 'flex', flexShrink: 0, height: 40, alignItems: 'flex-end', width: inner, justifyContent: 'space-between', fontSize: 24, color: INK_3, fontWeight: 600 }}>
         <span>{`@${INSTAGRAM_HANDLE}`}</span>
         <span>{SITE_HOST}</span>
@@ -91,30 +99,45 @@ function Art({ icon, size, accent }: { icon: Illustration; size: number; accent:
   );
 }
 
+/** Capa: a Gotinha fala o gancho num balão. Serve ao carrossel e à capa do Reels. */
 export function CoverSlide({
-  size, accent, hook, label, swipe, icon,
-}: { size: Size; accent: string; hook: string; label: string; swipe: boolean; icon?: Illustration }) {
+  size, accent, hook, label, swipe, icon, pose = 'ih',
+}: { size: Size; accent: string; hook: string; label: string; swipe: boolean; icon?: Illustration; pose?: Pose }) {
+  const reel = size.height > 1500;
   return (
     <Frame size={size} accent={accent}>
-      {icon && <Art icon={icon} size={size.height > 1500 ? 380 : 300} accent={accent} />}
-      <div style={{ display: 'flex', marginTop: icon ? 24 : 0, fontSize: 30, fontWeight: 800, color: accent, textTransform: 'uppercase', letterSpacing: 3 }}>{label}</div>
-      <div style={{ display: 'flex', marginTop: 28, fontSize: fit(hook, 92, 76, 55), fontWeight: 800, lineHeight: 1.08, letterSpacing: -2 }}>
+      <div style={{ display: 'flex', fontSize: 30, fontWeight: 800, color: accent, textTransform: 'uppercase', letterSpacing: 3 }}>{label}</div>
+      <div
+        style={{
+          display: 'flex', marginTop: 28, padding: '40px 48px', borderRadius: 44, background: INK, color: BG,
+          fontSize: fit(hook, 84, 70, 45), fontWeight: 800, lineHeight: 1.1, letterSpacing: -2,
+        }}
+      >
         {nobreak(hook)}
       </div>
-      {swipe && (
-        <div style={{ display: 'flex', marginTop: 56, fontSize: 32, fontWeight: 600, color: INK_2 }}>Arraste para o lado »</div>
-      )}
+      {/* Rabicho do balão, apontando para a Gotinha. */}
+      <div style={{ display: 'flex', width: 56, height: 56, marginTop: -30, marginLeft: 150, background: INK, transform: 'rotate(45deg)' }} />
+      <div style={{ display: 'flex', marginTop: 12, alignItems: 'flex-end', justifyContent: 'space-between' }}>
+        <Gotinha pose={pose} mouth="aberta" size={reel ? 480 : 380} />
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
+          {icon && <Art icon={icon} size={reel ? 280 : 230} accent={accent} />}
+          {swipe && <div style={{ display: 'flex', marginTop: 20, fontSize: 32, fontWeight: 600, color: INK_2 }}>Arraste para o lado »</div>}
+        </div>
+      </div>
     </Frame>
   );
 }
 
 export function ContentSlide({
-  size, accent, title, body, page, icon,
-}: { size: Size; accent: string; title: string; body: string; page?: string; icon?: Illustration }) {
+  size, accent, title, body, page, icon, pose = 'explicando',
+}: { size: Size; accent: string; title: string; body: string; page?: string; icon?: Illustration; pose?: Pose }) {
   return (
     <Frame size={size} accent={accent} page={page}>
-      {icon && <Art icon={icon} size={260} accent={accent} />}
-      <div style={{ display: 'flex', marginTop: icon ? 20 : 0, width: 96, height: 10, borderRadius: 5, background: accent }} />
+      <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between' }}>
+        <Gotinha pose={pose} size={300} />
+        {icon && <Art icon={icon} size={220} accent={accent} />}
+      </div>
+      <div style={{ display: 'flex', marginTop: 20, width: 96, height: 10, borderRadius: 5, background: accent }} />
       <div style={{ display: 'flex', marginTop: 36, fontSize: fit(title, 68, 58, 40), fontWeight: 800, lineHeight: 1.12, letterSpacing: -1 }}>
         {nobreak(title)}
       </div>
@@ -146,36 +169,103 @@ export function Caption({ words, active, pop, big = false }: { words: string[]; 
   );
 }
 
-/** Cena do Reels: título do slide no alto (ou o selo, na abertura) e a legenda falada no centro. */
+// Reels: a Gotinha não é desenhada nos quadros. O render (render.ts) a sobrepõe animada, numa
+// camada própria, no espaço que estas cenas deixam vazio. As medidas abaixo dizem onde.
+const SCENE_TITLE_H = 210;
+const SCENE_SLOT_H = 580;
+const SCENE_MASCOT_W = 540;
+const CTA_TITLE_H = 190;
+const CTA_ROW_GAP = 30;
+const CTA_ROW_H = 440;
+const CTA_MASCOT_W = 400;
+
+export type MascotBox = { x: number; y: number; w: number };
+
+/** Posição da Gotinha (canto superior esquerdo e largura, em px do vídeo) em cada tipo de cena. */
+export const REEL_MASCOT: { scene: MascotBox; cta: MascotBox } = {
+  scene: {
+    w: SCENE_MASCOT_W,
+    x: (REEL.width - SCENE_MASCOT_W) / 2,
+    y: pad(REEL).top + HEADER_H + SCENE_TITLE_H + Math.round((SCENE_SLOT_H - SCENE_MASCOT_W * GOTINHA_RATIO) / 2),
+  },
+  cta: {
+    w: CTA_MASCOT_W,
+    x: pad(REEL).side,
+    y: pad(REEL).top + HEADER_H + CTA_TITLE_H + CTA_ROW_GAP + Math.round((CTA_ROW_H - CTA_MASCOT_W * GOTINHA_RATIO) / 2),
+  },
+};
+
+/**
+ * Cena do Reels: título do slide no alto (ou o selo, na abertura), o espaço da Gotinha no meio
+ * (com a ilustração do tema ao lado, como objeto de cena) e a legenda falada embaixo.
+ */
 export function ReelScene({
   size, accent, label, title, caption, icon,
 }: { size: Size; accent: string; label?: string; title?: string; caption: React.ReactNode; icon?: Illustration }) {
   return (
-    <Frame size={size} accent={accent}>
-      <div style={{ display: 'flex', flexDirection: 'column', height: icon ? 220 : 300, justifyContent: 'flex-end' }}>
+    <Frame size={size} accent={accent} align="start">
+      <div style={{ display: 'flex', flexDirection: 'column', flexShrink: 0, height: SCENE_TITLE_H, justifyContent: 'flex-end' }}>
         {label && (
           <div style={{ display: 'flex', fontSize: 34, fontWeight: 800, color: accent, textTransform: 'uppercase', letterSpacing: 3 }}>{label}</div>
         )}
         {title && (
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <div style={{ display: 'flex', width: 96, height: 10, borderRadius: 5, background: accent }} />
-            <div style={{ display: 'flex', marginTop: 28, fontSize: fit(title, 64, 54, 30), fontWeight: 800, lineHeight: 1.12, letterSpacing: -1, color: INK_2 }}>
+            <div style={{ display: 'flex', marginTop: 28, fontSize: fit(title, 60, 48, 30), fontWeight: 800, lineHeight: 1.12, letterSpacing: -1, color: INK_2 }}>
               {nobreak(title)}
             </div>
           </div>
         )}
       </div>
-      {icon && (
-        <div style={{ display: 'flex', justifyContent: 'center', marginTop: 40 }}>
-          <Art icon={icon} size={420} accent={accent} />
-        </div>
-      )}
+      <div style={{ display: 'flex', flexShrink: 0, height: SCENE_SLOT_H, justifyContent: 'flex-end', alignItems: 'flex-start' }}>
+        {icon && <Art icon={icon} size={210} accent={accent} />}
+      </div>
       <div style={{ display: 'flex', flexGrow: 1, alignItems: 'center', justifyContent: 'center' }}>{caption}</div>
     </Frame>
   );
 }
 
-export function CtaSlide({ size, accent, cta, page, caption }: { size: Size; accent: string; cta: Cta | null; page?: string; caption?: React.ReactNode }) {
+/** Chamada do guia no Reels: a Gotinha (camada do render) à esquerda, apontando para o guia. */
+export function ReelCta({ size, accent, cta, caption }: { size: Size; accent: string; cta: Cta | null; caption: React.ReactNode }) {
+  return (
+    <Frame size={size} accent={accent} align="start">
+      <div style={{ display: 'flex', flexShrink: 0, height: CTA_TITLE_H, alignItems: 'flex-end', fontSize: 64, fontWeight: 800, lineHeight: 1.1, letterSpacing: -1 }}>
+        {cta ? 'Quer o passo a passo completo?' : 'Faça a conta sem erro'}
+      </div>
+      <div style={{ display: 'flex', flexShrink: 0, height: CTA_ROW_H, marginTop: CTA_ROW_GAP, alignItems: 'center' }}>
+        <div style={{ display: 'flex', flexShrink: 0, width: CTA_MASCOT_W }} />
+        <div style={{ display: 'flex', flexDirection: 'column', flex: 1, marginLeft: 36 }}>
+          {cta ? (
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+              <div style={{ display: 'flex', fontSize: 28, fontWeight: 800, color: accent, textTransform: 'uppercase', letterSpacing: 2 }}>Guia em PDF</div>
+              <div style={{ display: 'flex', marginTop: 12, fontSize: cta.title.length > 40 ? 38 : 44, fontWeight: 800, lineHeight: 1.15 }}>{cta.title}</div>
+              <div style={{ display: 'flex', marginTop: 16, fontSize: 64, fontWeight: 800, color: accent }}>{cta.priceLabel}</div>
+              {cta.others > 0 && (
+                <div style={{ display: 'flex', marginTop: 8, fontSize: 28, color: INK_2 }}>
+                  {`e mais ${cta.others} ${cta.others === 1 ? 'guia' : 'guias'} no site`}
+                </div>
+              )}
+            </div>
+          ) : (
+            <div style={{ display: 'flex', fontSize: 44, lineHeight: 1.3, color: INK_2 }}>Calculadoras grátis de reconstituição, dose e custo.</div>
+          )}
+        </div>
+      </div>
+      <div
+        style={{
+          display: 'flex', flexShrink: 0, marginTop: 30, alignSelf: 'flex-start', padding: '22px 40px', borderRadius: 999,
+          background: accent, color: BG, fontSize: 38, fontWeight: 800,
+        }}
+      >
+        {`Link na bio · @${INSTAGRAM_HANDLE}`}
+      </div>
+      <div style={{ display: 'flex', flexGrow: 1, alignItems: 'center', justifyContent: 'center' }}>{caption}</div>
+    </Frame>
+  );
+}
+
+/** Último slide do carrossel: o guia, o link e a Gotinha fechando com o bordão. */
+export function CtaSlide({ size, accent, cta, page }: { size: Size; accent: string; cta: Cta | null; page?: string }) {
   return (
     <Frame size={size} accent={accent} page={page}>
       <div style={{ display: 'flex', fontSize: 64, fontWeight: 800, lineHeight: 1.1, letterSpacing: -1 }}>
@@ -217,7 +307,10 @@ export function CtaSlide({ size, accent, cta, page, caption }: { size: Size; acc
       >
         {`Link na bio · @${INSTAGRAM_HANDLE}`}
       </div>
-      {caption && <div style={{ display: 'flex', marginTop: 64, minHeight: 240, alignItems: 'center' }}>{caption}</div>}
+      <div style={{ display: 'flex', marginTop: 36, alignItems: 'center' }}>
+        <Gotinha pose="comemorando" size={210} />
+        <div style={{ display: 'flex', marginLeft: 28, fontSize: 44, fontWeight: 800, lineHeight: 1.15 }}>{BORDAO_FECHAMENTO}</div>
+      </div>
     </Frame>
   );
 }

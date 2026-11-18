@@ -56,8 +56,16 @@ export function buildCaption(draft: Draft, topic: Topic, cta: Cta | null): strin
   return `${head}${body}\n${tail}`;
 }
 
-/** Última fala do Reels (lida pela voz). */
+// Bordões da Gotinha: ficam no código para saírem sempre iguais (o validador barra o Claude
+// se ele os escrever). Abertura logo depois do gancho; fechamento é a última fala do Reels.
+// O "aí" não é enfeite: sem ele a voz gratuita (edge-tts multilíngue) lê a frase em espanhol.
+// Mudou um bordão → confira o idioma do áudio antes de publicar.
+export const BORDAO_ABERTURA = 'Senta aí, que a Gotinha te explica.';
+export const BORDAO_FECHAMENTO = 'Gotinha falou, tá falado!';
+
+/** Chamada do guia no Reels (lida pela voz), antes do bordão de fechamento. */
 export function ctaSpeech(cta: Cta | null): string {
-  if (!cta) return 'A calculadora grátis está no link da bio. Siga o Dose Certa para ver a próxima dúvida.';
-  return `O passo a passo completo está no guia ${cta.title}, no link da bio. Siga o Dose Certa para ver a próxima dúvida.`;
+  const follow = 'Me segue aqui para não perder a próxima.';
+  if (!cta) return `A calculadora grátis está no link da bio. ${follow}`;
+  return `O passo a passo completo está no guia ${cta.title}, no link da bio. ${follow}`;
 }

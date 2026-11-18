@@ -14,6 +14,8 @@ import { nobreak } from '@/scripts/social/slides';
 import { beatsFor, chunkWords } from '@/scripts/social/captions';
 import { wordsFromChars } from '@/scripts/social/voice';
 import { ILLUSTRATION_KEYS } from '@/scripts/social/illustrations';
+import { MOUTHS, POSES, POSE_HINTS } from '@/scripts/social/poses';
+import { BLINK, BLINK_GAP, blinkTrack, mascotTimeline, mouthTrack } from '@/scripts/social/lipsync';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
 import type { Draft, HistoryEntry, Topic } from '@/scripts/social/types';
@@ -31,7 +33,7 @@ const draft = (over: Partial<Draft> = {}): Draft => ({
     { title: 'Dose', body: 'A dose típica é 2,5 mg por semana.' },
     { title: 'Frasco', body: 'Frascos de 5 mg e 10 mg são os mais comuns.' },
   ],
-  narration: ['Primeira fala.', 'Segunda fala.', 'Terceira fala.'],
+  narration: [{ text: 'Primeira fala.' }, { text: 'Segunda fala.', pose: 'explicando' }, { text: 'Terceira fala.' }],
   caption: 'Texto da legenda.',
   question: 'Qual frasco você usa?',
   ...over,
@@ -142,7 +144,27 @@ describe('validateDraft', () => {
 
   it('barra quantidade de slides e falas fora do limite', () => {
     expect(validateDraft(draft({ slides: [{ title: 'a', body: 'b' }] }), source).length).toBeGreaterThan(0);
-    expect(validateDraft(draft({ narration: ['só uma'] }), source).length).toBeGreaterThan(0);
+    expect(validateDraft(draft({ narration: [{ text: 'só uma' }] }), source).length).toBeGreaterThan(0);
+  });
+
+  it('barra pose fora da lista', () => {
+    expect(validateDraft(draft({ hookPose: 'voando' as never }), source).join()).toContain('voando');
+    const d = draft({ narration: [{ text: 'Um.' }, { text: 'Dois.', pose: 'dançando' as never }, { text: 'Três.' }] });
+    expect(validateDraft(d, source).join()).toContain('dançando');
+  });
+
+  it('gancho curto e sem cumprimento', () => {
+    expect(validateDraft(draft({ hook: 'Oi, amiga! Você dilui errado?' }), source).join()).toContain('cumprimento');
+    const d = draft({ narration: [{ text: 'Olá, tudo bem com você?' }, { text: 'Dois.' }, { text: 'Três.' }] });
+    expect(validateDraft(d, source).join()).toContain('cumprimento');
+    expect(validateDraft(draft({ hook: `Você ${'faz isso '.repeat(9)}?` }), source).join()).toContain('gancho com');
+    expect(validateDraft(draft({ hook: 'Oito em cada dez erram a diluição' }), source)).toEqual([]);
+  });
+
+  it('barra bordão escrito pelo Claude (o código já acrescenta)', () => {
+    const d = draft({ narration: [{ text: 'Um.' }, { text: 'Senta que a Gotinha te explica tudo.' }, { text: 'Três.' }] });
+    expect(validateDraft(d, source).join()).toContain('bordão');
+    expect(validateDraft(draft({ caption: 'Gotinha falou, tá falado!' }), source).join()).toContain('bordão');
   });
 });
 
@@ -315,4 +337,65 @@ describe('voz', () => {
       'Comece com 2,5 miligramas e 250 microgramas, 10 unidades, 5 por cento',
     );
   });
+});
+
+describe('Gotinha', () => {
+  const w = (text: string, start: number, end: number) => ({ text, start, end });
+  const words = [w('Você', 0.3, 0.6), w('guarda', 0.62, 1.0), w('errado?', 1.4, 1.9)];
+
+  it('toda pose tem dica para o Claude', () => {
+    expect(POSES.length).toBe(8);
+    for (const p of POSES) expect(POSE_HINTS[p].length, p).toBeGreaterThan(10);
+  });
+
+  it('boca cobre a cena sem buraco, fechada nas pausas e mexendo nas palavras', () => {
+    const segs = mouthTrack(words, 2.4);
+    expect(segs[0].start).toBe(0);
+    expect(segs.at(-1)?.end).toBe(2.4);
+    segs.slice(1).forEach((s, i) => expect(s.start).toBeCloseTo(segs[i].end));
+    const at = (t: number) => segs.find((s) => t >= s.start && t < s.end)?.mouth;
+    expect(at(0.1)).toBe('fechada'); // antes da fala
+    expect(at(1.2)).toBe('fechada'); // pausa entre "guarda" e "errado?"
+    expect(at(2.2)).toBe('fechada'); // depois da fala
+    expect(at(0.31)).toBe('aberta');
+    expect(at(0.61)).not.toBe('fechada'); // 0,02 s entre palavras não fecha a boca
+    expect(new Set(segs.filter((s) => s.start >= 1.4 && s.end <= 1.9).map((s) => s.mouth)).size).toBeGreaterThan(1);
+    expect(at(1.89)).toBe('o'); // "errado?" termina em o
+  });
+
+  it('piscadas determinísticas, curtas e espaçadas', () => {
+    const a = blinkTrack(20, 3);
+    expect(a).toEqual(blinkTrack(20, 3));
+    expect(a).not.toEqual(blinkTrack(20, 4));
+    expect(a.length).toBeGreaterThanOrEqual(4);
+    a.forEach((b) => expect(b.end - b.start).toBeCloseTo(BLINK));
+    a.slice(1).forEach((b, i) => {
+      const gap = b.start - a[i].end;
+      expect(gap).toBeGreaterThanOrEqual(BLINK_GAP[0]);
+      expect(gap).toBeLessThanOrEqual(BLINK_GAP[1]);
+    });
+    expect(a.at(-1)!.end).toBeLessThan(20);
+  });
+
+  it('linha do tempo junta boca e piscada, contígua de 0 ao fim', () => {
+    const tl = mascotTimeline(words, 6, 1);
+    expect(tl[0].start).toBe(0);
+    expect(tl.at(-1)?.end).toBe(6);
+    tl.slice(1).forEach((s, i) => expect(s.start).toBeCloseTo(tl[i].end));
+    expect(tl.some((s) => s.blink)).toBe(true);
+    expect(tl.some((s) => s.mouth === 'aberta')).toBe(true);
+  });
+
+  it('toda pose e toda boca desenham sem erro', async () => {
+    const { renderPng } = await import('@/scripts/social/render');
+    const { default: Gotinha } = await import('@/scripts/social/mascot');
+    const { createElement } = await import('react');
+    const size = { width: 120, height: 125 };
+    for (const pose of POSES) {
+      for (const mouth of MOUTHS) {
+        const el = createElement('div', { style: { display: 'flex', ...size } }, createElement(Gotinha, { pose, mouth, blink: mouth === 'meia', size: 120 }));
+        expect((await renderPng(el, size)).length, `${pose}/${mouth}`).toBeGreaterThan(500);
+      }
+    }
+  }, 60_000);
 });

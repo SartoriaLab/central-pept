@@ -17,14 +17,19 @@ informativo, falando com o público feminino, com gancho forte e bordões fixos.
 | Condução | Ela narra em primeira pessoa, olhando para a câmera |
 | Alcance | Reels (animada) e carrossel (parada, uma pose por slide). Site fica para depois |
 | Público | Feminino: "amiga", "você", gírias leves |
-| Bordão de abertura | "Senta que a Gotinha te explica." |
+| Bordão de abertura | "Senta aí, que a Gotinha te explica." (o "aí" evita que a voz gratuita leia em espanhol) |
 | Bordão de fechamento | "Gotinha falou, tá falado!" |
 
 ## 1. Personagem (`scripts/social/mascot.tsx`)
 
-- Corpo: o mesmo path da gota do logo, gradiente amarelo, contorno marrom-escuro fino.
-- Rosto: olhos grandes (branco + pupila), sobrancelhas, bochechas rosadas, boca.
-- Bracinhos em traço arredondado; sem pernas (a gota "quica").
+- Corpo: gota amarela mais gordinha que a do logo, com a ponta levemente inclinada, gradiente
+  radial e brilho; sem contorno. Sombra no chão.
+- Rosto: olhos grandes com cílios (branco, íris azul-marinho, dois brilhos), sobrancelhas,
+  bochechas rosadas, boca com língua e dentes quando aberta.
+- Selo da marca na testa: círculo azul-marinho com o check amarelo do logo.
+- Bracinhos com mãozinha redonda e contorno mais escuro (para aparecer na frente do corpo) e
+  dois pezinhos.
+- Folha de poses para conferir o desenho: `social/out/mascote/folha.tsx` (fora do git).
 - Componente `Gotinha({ pose, mouth, blink, size })`, SVG puro (satori e resvg).
 - `Pose` (8): `feliz`, `explicando` (braço erguido, dedo para cima), `pensando` (mão no queixo,
   olhos para cima), `alerta` (olhos arregalados, sobrancelhas altas), `piscadinha`, `comemorando`
@@ -85,6 +90,13 @@ Claude se ele os escrever por conta própria.
     GLP-1 e peptídeos, como uma amiga que entende do assunto."
   - 2ª pessoa, "amiga" no máximo uma vez por vídeo, gírias leves ("tá", "pra", "olha só"),
     uma tirada leve por vídeo.
+  - **Erros e manias do cotidiano**: todo roteiro parte de uma cena que a pessoa reconhece da
+    própria rotina (deixar a caneta na porta da geladeira, aplicar sempre no mesmo lugar, pular o
+    café e culpar o remédio pelo enjoo, anotar a dose "de cabeça", guardar o frasco na bolsa).
+    O gancho nomeia a mania; o vídeo explica por que ela atrapalha e o que fazer no lugar, só com
+    fatos da fonte. A mania é o ponto de partida, nunca um fato novo: se a fonte não sustenta a
+    correção, o Claude escolhe outra mania.
+  - Tom de quem também já fez isso ("eu sei, todo mundo faz"), nunca de bronca.
   - Proibido: piada com corpo, peso ou aparência; promessa de resultado; diminutivo infantil em
     excesso; termos de venda (regra atual).
   - Gancho: até 70 caracteres, em uma das formas: pergunta de dor ("Seu Mounjaro tá dando

@@ -42,7 +42,7 @@ async function eleven(text: string, out: string, key: string): Promise<Word[]> {
       text,
       model_id: process.env.ELEVENLABS_MODEL || 'eleven_multilingual_v2',
       language_code: 'pt',
-      voice_settings: { stability: 0.45, similarity_boost: 0.8, style: 0.3, use_speaker_boost: true },
+      voice_settings: { stability: 0.35, similarity_boost: 0.8, style: 0.45, use_speaker_boost: true },
     }),
   });
   if (!res.ok) throw new Error(`ElevenLabs ${res.status}: ${(await res.text()).slice(0, 300)}`);
@@ -59,7 +59,7 @@ async function eleven(text: string, out: string, key: string): Promise<Word[]> {
 function edge(text: string, out: string): Promise<Word[]> {
   const script = path.join(process.cwd(), 'scripts', 'social', 'tts_words.py');
   return new Promise((resolve, reject) => {
-    const p = spawn(PYTHON, [script, FREE_VOICE, '+10%', out], { env: { ...process.env, PYTHONIOENCODING: 'utf-8' } });
+    const p = spawn(PYTHON, [script, FREE_VOICE, '+12%', out], { env: { ...process.env, PYTHONIOENCODING: 'utf-8' } });
     let stdout = '';
     let stderr = '';
     p.stdout.on('data', (d) => (stdout += d));

@@ -111,6 +111,12 @@ Feed, sitemap, busca, páginas de tag e imagem de compartilhamento saem sozinhos
    Reels: voz com tempo por palavra em `voice.ts` (ElevenLabs com `ELEVENLABS_API_KEY` e a variável
    `ELEVENLABS_VOICE_ID`; sem chave, edge-tts via `tts_words.py`), legenda palavra a palavra em
    `captions.ts`, transições e música de `scripts/social/music/` (uma trilha por dia) em `render.ts`.
+   Gotinha (mascote, gota amarela do logo) é a protagonista: desenho em `mascot.tsx`, poses em `poses.ts`
+   (o Claude escolhe uma por fala e por slide), boca e piscadas em `lipsync.ts`. No Reels ela é uma camada
+   à parte, sobreposta pelo ffmpeg na posição `REEL_MASCOT` (`slides.tsx`); no carrossel é desenhada no slide.
+   Ordem fixa do Reels: gancho (mania ou erro do dia a dia, nunca cumprimento) → bordão de abertura → falas →
+   chamada do guia → bordão de fechamento. Bordões em `caption.ts` (`BORDAO_*`), nunca no texto do Claude;
+   mudou um bordão → confira se a voz gratuita não lê em espanhol. Folha de poses: `npm run social:gotinha`.
 4. Histórico e token renovado ficam em `social_posts`/`social_state`, criadas pelo próprio robô
    (`ensureTables` em `state.ts`, espelho de `drizzle/schema.ts`: mudou um, mude o outro).
 5. Bio do perfil aponta para `/links` (noindex), com UTM `instagram/bio` (`bioUrl`).
