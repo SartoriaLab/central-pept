@@ -31,6 +31,8 @@ type Props = {
   variant?: Variant;
   /** Frase com o dado da pessoa (variantes result e line). */
   lead?: string;
+  /** Nome do peptídeo que a pessoa está calculando: entra na copy da oferta. */
+  subject?: string;
   className?: string;
   /** Conteúdo extra no bloco do resultado (ex.: prévia da tabela). */
   children?: ReactNode;
@@ -41,7 +43,7 @@ export function offerHref(offer: Offer, origem: string, pathname: string | null)
   return `/ebooks/${offer.slug}?origem=${origem}&de=${encodeURIComponent(pathname || '/')}`;
 }
 
-export default function EbookOffer({ offer, variant = 'card', lead, className = '', children }: Props) {
+export default function EbookOffer({ offer, variant = 'card', lead, subject, className = '', children }: Props) {
   const ref = useRef<HTMLElement>(null);
   const pathname = usePathname() || '/';
   // Para a barra do celular: o bloco já passou para cima da tela.
@@ -119,11 +121,14 @@ export default function EbookOffer({ offer, variant = 'card', lead, className = 
           <div className="bg-[radial-gradient(120%_70%_at_50%_0%,#1e293b_0%,#0b1220_70%)] p-5 sm:p-6">
             {children}
             <h2 className="text-[26px] font-black uppercase leading-[1.05] tracking-tight sm:text-3xl">
-              Um erro de interpretação pode <span className="text-[#facc15]">custar caro.</span>
+              {subject ? `Com ${subject}, um` : 'Um'} erro de interpretação pode{' '}
+              <span className="text-[#facc15]">custar caro.</span>
             </h2>
             <p className="mt-3 text-[15px] leading-relaxed text-slate-300">
-              Quantidade do frasco, concentração e volume parecem a mesma coisa.{' '}
-              <strong className="text-white">Não são.</strong> Confundir esses números é o erro mais comum:
+              {lead ? <strong className="text-white">{lead} </strong> : null}
+              {lead ? 'A conta está certa. Mas quantidade' : 'Quantidade'} do frasco, concentração e volume parecem a mesma
+              coisa. <strong className="text-white">Não são.</strong> Confundir esses números{subject ? ` no frasco de ${subject}` : ''} é
+              o erro mais comum:
             </p>
             <ul className="mt-3 grid gap-1.5 text-sm font-bold sm:grid-cols-3">
               {['Dose errada', 'Frasco desperdiçado', 'Resultado que não vem'].map((t) => (
@@ -184,6 +189,7 @@ export default function EbookOffer({ offer, variant = 'card', lead, className = 
               className="mt-4 flex w-full flex-col items-center justify-center rounded-xl bg-[#16a34a] px-4 py-4 text-center text-white shadow-[0_6px_0_#14532d,0_14px_28px_rgba(22,163,74,0.45)] transition hover:-translate-y-0.5 hover:bg-[#22c55e] active:translate-y-1 active:shadow-[0_2px_0_#14532d]"
             >
               <span className="text-xl font-black uppercase leading-tight tracking-tight">Quero o guia agora →</span>
+              {subject ? <span className="mt-0.5 text-xs font-bold text-white/85">antes de aplicar {subject}</span> : null}
               <span className="mt-1 text-sm font-bold text-white/90">{price} · Pix ou cartão · acesso na hora</span>
             </a>
             <p className="mt-4 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-center text-xs font-semibold text-slate-300">
@@ -203,7 +209,7 @@ export default function EbookOffer({ offer, variant = 'card', lead, className = 
             </p>
           </div>
         </aside>
-        <OfferBar offer={offer} show={passed} href={offerHref(offer, 'barra', pathname)} />
+        <OfferBar offer={offer} show={passed} href={withUtm(offer.checkoutUrl, offer.slug, 'barra-direto', pathname)} direct />
       </>
     );
   }

@@ -964,45 +964,6 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug,
                 <Syringe units={result.unitsPerDose} maxUnits={syringe} />
               </div>
 
-              {offer?.id === 'T1' ? (
-                <OfferStrip
-                  offer={offer}
-                  title="Você entende cada número deste frasco?"
-                  sub="Os 7 erros de interpretação que mudam sua dose"
-                />
-              ) : null}
-
-              {/* Métricas */}
-              <div className="grid grid-cols-2 border-t border-border">
-                <Metric label="Concentração" value={fmtConcentration(result.concentration)} unit="mg/ml" />
-                <Metric label="Doses por frasco" value={fmt(result.dosesPerVial, 1)} className="border-l border-border" />
-                {mode === 'units' && (
-                  <Metric
-                    label="Água a adicionar"
-                    value={fmt(result.waterMl, 2)}
-                    unit="ml"
-                    className="col-span-2 bg-bg border-t border-border"
-                  />
-                )}
-              </div>
-
-              {/* Duração do frasco */}
-              <VialDuration
-                key={peptide?.slug}
-                dosesPerVial={result.dosesPerVial}
-                peptideName={peptide?.name}
-                frequency={peptide?.frequency}
-              />
-
-              {/* Safety scale visual */}
-              {peptide && typeof dose === 'number' && dose > 0 && peptide.category !== 'custom' && (
-                <DoseSafetyScale
-                  currentDose={dose}
-                  typicalDose={peptide.typicalDose}
-                  unit={peptide.doseUnit}
-                />
-              )}
-
               {/* Alertas */}
               {/* Sempre montado: leitores de tela anunciam alertas novos sem interromper a digitação */}
               <div aria-live="polite">
@@ -1022,6 +983,20 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug,
                     </div>
                   ))}
               </div>
+
+              {/* Métricas */}
+              <div className="grid grid-cols-2 border-t border-border">
+                <Metric label="Concentração" value={fmtConcentration(result.concentration)} unit="mg/ml" />
+                <Metric label="Doses por frasco" value={fmt(result.dosesPerVial, 1)} className="border-l border-border" />
+                {mode === 'units' && (
+                  <Metric
+                    label="Água a adicionar"
+                    value={fmt(result.waterMl, 2)}
+                    unit="ml"
+                    className="col-span-2 bg-bg border-t border-border"
+                  />
+                )}
+              </div>
             </div>
           )}
           {locked ? null : result && Number.isFinite(result.unitsPerDose) && result.unitsPerDose > 0 ? (
@@ -1029,6 +1004,7 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug,
               variant="result"
               offer={offer}
               lead={`Você vai puxar ${fmt(result.unitsPerDose, 1)} unidades.`}
+              subject={peptide?.name}
               className="mt-4"
             >
               {answered && offer?.id === 'T1' ? <FrascoFeedback quiz={answered.quiz} answer={answered.answer} /> : null}
@@ -1036,6 +1012,35 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug,
           ) : (
             <EbookOffer variant="line" offer={offer} className="mt-4" />
           )}
+          {!locked && result && Number.isFinite(result.unitsPerDose) && result.unitsPerDose > 0 ? (
+            // Detalhes do frasco: depois da oferta, para ela ficar colada no número.
+            <div className="mt-4 bg-surface border border-border rounded-xl shadow-sm overflow-hidden [&>*:first-child]:border-t-0">
+              {/* Duração do frasco */}
+              <VialDuration
+                key={peptide?.slug}
+                dosesPerVial={result.dosesPerVial}
+                peptideName={peptide?.name}
+                frequency={peptide?.frequency}
+              />
+
+              {/* Safety scale visual */}
+              {peptide && typeof dose === 'number' && dose > 0 && peptide.category !== 'custom' && (
+                <DoseSafetyScale
+                  currentDose={dose}
+                  typicalDose={peptide.typicalDose}
+                  unit={peptide.doseUnit}
+                />
+              )}
+
+              {offer?.id === 'T1' ? (
+                <OfferStrip
+                  offer={offer}
+                  title={peptide?.name ? `Vai aplicar ${peptide.name}? Confira antes.` : 'Vai aplicar? Confira antes.'}
+                  sub="Os 7 erros de interpretação que mudam sua dose"
+                />
+              ) : null}
+            </div>
+          ) : null}
           {!locked && result && Number.isFinite(result.unitsPerDose) && result.unitsPerDose > 0 ? (
             <InstallPrompt className="mt-4" />
           ) : null}
@@ -1065,7 +1070,7 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug,
             </div>
           )}
           <div className="flex items-center gap-1.5 text-xs font-semibold">
-            {locked ? 'Ver resultado' : 'Ver detalhes'}
+            {locked ? 'Responder e ver' : 'Ver detalhes'}
             <svg viewBox="0 0 20 20" width={14} height={14} fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
               <path d="M5 8l5 5 5-5" />
             </svg>

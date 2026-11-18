@@ -88,7 +88,7 @@ Feed, sitemap, busca, páginas de tag e imagem de compartilhamento saem sozinhos
 5. `npm test` (`tests/ebooks.test.ts`) confere slugs, referências e uma oferta por página.
 6. Calculadora de reconstituição: oferta do guia T1 ("Você Tem Certeza de Que Entende Seu Frasco?"). No primeiro
    cálculo da visita o resultado fica travado por uma pergunta com os números da pessoa (`lib/quiz-frasco.ts`,
-   `FrascoQuiz`; desliga em `QUIZ_GATE_ENABLED`); a resposta abre a oferta. Evento `Quiz Frasco`.
+   `FrascoQuiz`; desliga em `QUIZ_GATE_ENABLED`); a resposta abre a oferta. Evento `Quiz Frasco`. Ordem da tela: número e seringa → oferta (copy com o nome do peptídeo, prop `subject`; botão verde direto no checkout, botão para a página) → detalhes do frasco.
    Preço de lançamento: `launch` no ebook gera a frase "R$ X nas N primeiras unidades. Depois, R$ Y". Só vale
    enquanto o aumento vai acontecer: ao subir o preço na Kiwify, apague `launch` e ponha `price: after` no mesmo dia.
    Tabela personalizada (`TAB`, R$ 9,90): oferta extra no checkout do T1.

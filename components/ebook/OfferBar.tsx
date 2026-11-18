@@ -15,9 +15,11 @@ type Props = {
   offer: EbookOffer;
   show: boolean;
   href: string;
+  /** href é o checkout da Kiwify (compra direta), não a página do guia. */
+  direct?: boolean;
 };
 
-export default function OfferBar({ offer, show, href }: Props) {
+export default function OfferBar({ offer, show, href, direct = false }: Props) {
   const [closed, setClosed] = useState(true);
 
   useEffect(() => {
@@ -41,18 +43,34 @@ export default function OfferBar({ offer, show, href }: Props) {
     >
       <p className="min-w-0 flex-1 text-xs leading-snug">
         <span className="block font-bold truncate">{offer.title}</span>
-        <span className="text-bg/75">{offer.priceLabel} · 7 dias de garantia</span>
+        <span className="text-bg/75">
+          {offer.launch ? `Lançamento: ${offer.priceLabel} · depois ${offer.launch.afterLabel}` : `${offer.priceLabel} · 7 dias de garantia`}
+        </span>
       </p>
-      <Link
-        href={href}
-        onClick={() => {
-          markOfferClicked();
-          track(EVENTS.ebookClick, { ebook: offer.id, posicao: 'barra', pagina: window.location.pathname });
-        }}
-        className="btn-teal !h-9 !px-3 text-xs whitespace-nowrap"
-      >
-        {offer.cta}
-      </Link>
+      {direct ? (
+        <a
+          href={href}
+          rel="noopener"
+          onClick={() => {
+            markOfferClicked();
+            track(EVENTS.ebookCheckout, { ebook: offer.id, posicao: 'barra', origem: 'direto', pagina: window.location.pathname });
+          }}
+          className="flex h-9 items-center whitespace-nowrap rounded-lg bg-[#16a34a] px-3 text-xs font-black uppercase text-white"
+        >
+          Quero o guia
+        </a>
+      ) : (
+        <Link
+          href={href}
+          onClick={() => {
+            markOfferClicked();
+            track(EVENTS.ebookClick, { ebook: offer.id, posicao: 'barra', pagina: window.location.pathname });
+          }}
+          className="btn-teal !h-9 !px-3 text-xs whitespace-nowrap"
+        >
+          {offer.cta}
+        </Link>
+      )}
       <button
         type="button"
         onClick={() => {
