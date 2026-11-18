@@ -43,6 +43,9 @@ const DraftSchema = z.object({
   question: z
     .string()
     .describe(`Pergunta para os comentários, até ${LIMITS.question} caracteres, terminando em "?": sobre a experiência ou a situação do leitor com o tema.`),
+  share: z
+    .string()
+    .describe(`Para quem a pessoa mandaria este post, até ${LIMITS.share} caracteres, completando "Manda pra ...": uma pessoa concreta ligada à mania do dia (ex.: "aquela amiga que também come correndo", "quem guarda a caneta na porta da geladeira"). Sem o "Manda pra".`),
 });
 
 const SYSTEM = `Você escreve o conteúdo diário do Instagram @dosecerta_br ("Dose Certa | Peptídeos sem achismo"), um perfil educativo do site Central Peptídeos. Público: principalmente mulheres brasileiras de 30 a 55 anos que usam ou pensam em usar tirzepatida, semaglutida e outros peptídeos e querem fazer certo.
@@ -71,7 +74,7 @@ Estilo:
 - Slides: título curto + uma ideia por slide, na voz da Gotinha; o último slide de conteúdo resume o que fazer.
 - Poses: escolha para o gancho, para cada slide e para cada fala a pose que combina com o que a Gotinha está dizendo, variando ao longo do roteiro ("ih" para a mania, "explicando" para o passo a passo, "alerta" para risco, e assim por diante).
 - Falas do Reels: tom de conversa, cada fala com 1 ou 2 frases (cerca de 8 a 12 segundos lida em voz alta). Toda frase precisa soar inequivocamente portuguesa, com palavras como "você", "seu", "está", "não", "é" ou acentos: a voz adivinha o idioma por frase e lê em espanhol uma frase curta como "Mounjaro dando enjoo?" (escreva "Seu Mounjaro está dando enjoo?").
-- Legenda: na voz da Gotinha também; quem não arrasta os slides precisa sair com o conteúdo. 2 a 4 blocos curtos; se houver passos, numere com 1️⃣ 2️⃣ 3️⃣; se houver um erro comum ou risco, um bloco começando com ⚠️. Use as palavras que a pessoa digitaria na busca (nome do peptídeo, "dose", "unidades", "seringa", "efeito colateral").
+- Legenda: na voz da Gotinha também; o primeiro bloco acolhe quem tem a mania ("Eu sei, todo mundo faz") e explica o porquê; quem não arrasta os slides precisa sair com o conteúdo. 2 a 4 blocos curtos; se houver passos, numere com 1️⃣ 2️⃣ 3️⃣; se houver um erro comum ou risco, um bloco começando com ⚠️. Use as palavras que a pessoa digitaria na busca (nome do peptídeo, "dose", "unidades", "seringa", "efeito colateral").
 - Pergunta dos comentários: concreta e fácil de responder em poucas palavras (ex.: "Qual frasco e quanta água você usa?", "Em qual semana o enjoo apareceu para você?"). Nunca peça que a pessoa conte a dose para receber uma indicação.`;
 
 export async function writeDraft(topic: Topic, previousProblems: string[] = [], client = new Anthropic()): Promise<Draft> {

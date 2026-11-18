@@ -30,13 +30,28 @@ export function hashtagsFor(topic: Topic): string[] {
   return [...new Set([...own, ...brands, ...base])].slice(0, MAX_HASHTAGS).map((t) => `#${t}`);
 }
 
-/** Primeira linha (a única antes do "mais"): gancho + pedido para salvar, o sinal que mais pesa. */
-export const SAVE_ASK = '📌 Salve para consultar depois.';
+// Tudo na voz da Gotinha, em primeira pessoa, como no vídeo.
 
-export const FOLLOW_LINE = `👉 Siga @${INSTAGRAM_HANDLE}: todo dia uma dúvida de peptídeos e GLP-1 explicada sem achismo.`;
+/** Primeira linha (a única antes do "mais"): gancho + pedido para salvar, o sinal que mais pesa. */
+export const SAVE_ASK = '📌 Salva pra não esquecer.';
+
+/** Seguir como promessa de algo diário (motivo para voltar), não só como pedido. */
+export const FOLLOW_LINE = `💧 Me segue (@${INSTAGRAM_HANDLE}): todo dia eu, a Gotinha, explico uma dúvida de Mounjaro, Ozempic e peptídeos sem achismo.`;
+
+/** Sem o complemento do Claude, convite genérico para mandar o post. */
+export const SHARE_FALLBACK = 'aquela amiga que também está nessa';
 
 export function questionLine(question: string): string {
-  return `💬 ${question.trim()} Conta aqui nos comentários.`;
+  return `💬 ${question.trim()} Me conta aqui embaixo 👇`;
+}
+
+/**
+ * Compartilhar é o que mais leva o post para quem ainda não segue: o convite aponta uma pessoa
+ * concreta ("aquela amiga que também come correndo"), não "alguém".
+ */
+export function shareLine(share?: string): string {
+  const who = (share ?? '').trim().replace(/^(manda|mande|envia|envie)\s+(isso\s+)?(pra|para)\s+/i, '').replace(/[.!]+$/, '');
+  return `👯‍♀️ Manda pra ${who || SHARE_FALLBACK}.`;
 }
 
 export function ctaLine(cta: Cta | null): string {
@@ -45,9 +60,11 @@ export function ctaLine(cta: Cta | null): string {
   return `📘 Guia "${cta.title}" (${cta.priceLabel})${more} e calculadoras grátis no link da bio.`;
 }
 
-/** Gancho e salvar → corpo (IA) → pergunta → seguir → guia → aviso → hashtags. */
+/** Gancho e salvar → corpo (IA) → pergunta → compartilhar → seguir → guia → aviso → hashtags. */
 export function buildCaption(draft: Draft, topic: Topic, cta: Cta | null): string {
-  const tail = ['', questionLine(draft.question), '', FOLLOW_LINE, '', ctaLine(cta), '', DISCLAIMER, '', hashtagsFor(topic).join(' ')].join('\n');
+  const tail = [
+    '', questionLine(draft.question), '', shareLine(draft.share), '', FOLLOW_LINE, '', ctaLine(cta), '', DISCLAIMER, '', hashtagsFor(topic).join(' '),
+  ].join('\n');
   const hook = draft.hook.trim();
   const head = `${/[.!?…]$/.test(hook) ? hook : `${hook}.`} ${SAVE_ASK}\n\n`;
   const room = MAX_CAPTION - head.length - tail.length - 1; // 1 = "\n" entre corpo e cauda

@@ -30,8 +30,9 @@ function pad(size: Size) {
 const HEADER_H = 62;
 
 /** `align="start"`: conteúdo a partir do topo (cenas do Reels, onde a Gotinha entra por cima em posição fixa). */
+// Sem faixa colorida na lateral: no Reels ela aparecia como uma linha azul nas transições.
 function Frame({
-  size, accent, page, align = 'center', children,
+  size, page, align = 'center', children,
 }: { size: Size; accent: string; page?: string; align?: 'center' | 'start'; children: React.ReactNode }) {
   const p = pad(size);
   const inner = size.width - 2 * p.side;
@@ -42,7 +43,6 @@ function Frame({
         background: BG, color: INK, fontFamily: 'Inter', position: 'relative',
       }}
     >
-      <div style={{ position: 'absolute', left: 0, top: 0, width: 16, height: size.height, background: accent, display: 'flex' }} />
       {/* Área útil com posição e tamanho fixos: com padding no pai o satori estoura a altura. */}
       <div
         style={{

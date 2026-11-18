@@ -6,7 +6,7 @@ import { getEbooks } from '@/lib/ebooks';
 import { buildTopics } from '@/scripts/social/topics';
 import { COOLDOWN_DAYS, pickTopic } from '@/scripts/social/pick';
 import { extractQuantities, validateDraft } from '@/scripts/social/validate';
-import { MAX_CAPTION, MAX_HASHTAGS, buildCaption } from '@/scripts/social/caption';
+import { MAX_CAPTION, MAX_HASHTAGS, SHARE_FALLBACK, buildCaption, shareLine } from '@/scripts/social/caption';
 import { ctaFor } from '@/scripts/social/ebook-cta';
 import { InstagramClient } from '@/scripts/social/instagram';
 import { toSpeech } from '@/scripts/social/render';
@@ -172,18 +172,27 @@ describe('legenda', () => {
   const t: Topic = { ...topic('tirzepatida'), peptides: ['tirzepatida'] };
   const cta = { id: 'KIT', slug: 'kit', title: 'Kit Começo Seguro', priceLabel: 'R$ 69,90', cover: '', others: 4 };
 
-  it('ordem: gancho e salvar, corpo, pergunta, seguir, guia, aviso, hashtags', () => {
-    const c = buildCaption(draft(), t, cta);
-    const order = ['Você está diluindo errado? 📌 Salve', 'Texto da legenda.', '💬 Qual frasco você usa?', 'Siga @dosecerta_br', 'Kit Começo Seguro', 'Não substitui orientação médica', '#tirzepatida'];
+  it('ordem: gancho e salvar, corpo, pergunta, compartilhar, seguir, guia, aviso, hashtags', () => {
+    const c = buildCaption(draft({ share: 'aquela amiga que também dilui no olho' }), t, cta);
+    const order = [
+      'Você está diluindo errado? 📌 Salva', 'Texto da legenda.', '💬 Qual frasco você usa?', '👯‍♀️ Manda pra aquela amiga que também dilui no olho.',
+      'Me segue (@dosecerta_br)', 'Kit Começo Seguro', 'Não substitui orientação médica', '#tirzepatida',
+    ];
     const at = order.map((s) => c.indexOf(s));
     expect(at.every((i) => i >= 0)).toBe(true);
     expect([...at].sort((a, b) => a - b)).toEqual(at);
     expect(c).toContain('link da bio');
-    expect(c.split('\n')[0]).toContain('Salve');
+    expect(c.split('\n')[0]).toContain('Salva');
   });
 
   it('gancho sem pontuação ganha ponto antes do pedido para salvar', () => {
-    expect(buildCaption(draft({ hook: 'Isso ajuda de verdade' }), t, cta).split('\n')[0]).toBe('Isso ajuda de verdade. 📌 Salve para consultar depois.');
+    expect(buildCaption(draft({ hook: 'Isso ajuda de verdade' }), t, cta).split('\n')[0]).toBe('Isso ajuda de verdade. 📌 Salva pra não esquecer.');
+  });
+
+  it('convite para compartilhar: tira o "Manda pra" repetido e tem um padrão', () => {
+    expect(shareLine('Manda pra quem guarda a caneta na porta.')).toBe('👯‍♀️ Manda pra quem guarda a caneta na porta.');
+    expect(shareLine()).toBe(`👯‍♀️ Manda pra ${SHARE_FALLBACK}.`);
+    expect(shareLine('  ')).toBe(`👯‍♀️ Manda pra ${SHARE_FALLBACK}.`);
   });
 
   it('até 5 hashtags, com o nome comercial', () => {

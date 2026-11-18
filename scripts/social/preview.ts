@@ -29,6 +29,7 @@ const SAMPLE: Draft = {
     '1️⃣ Comece em 2,5 mg por 4 semanas\n2️⃣ Suba de 2,5 mg em 2,5 mg\n3️⃣ Fique pelo menos 4 semanas em cada degrau\n\n' +
     '⚠️ Náusea que não passa é sinal para segurar a dose e falar com o médico.',
   question: 'Em qual dose o enjoo apareceu para você?',
+  share: 'aquela amiga que sobe a dose junto com você',
 };
 
 async function main() {

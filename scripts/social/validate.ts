@@ -57,6 +57,7 @@ export const LIMITS = {
   narrationLine: 200,
   caption: 1500,
   question: 120,
+  share: 80,
 };
 
 /** Lista de problemas; vazia = pode publicar. */
@@ -69,6 +70,7 @@ export function validateDraft(draft: Draft, source: string): string[] {
     ...draft.narration.map((n) => n.text),
     draft.caption,
     draft.question,
+    draft.share ?? '',
   ];
 
   for (const t of texts) {
@@ -104,6 +106,7 @@ export function validateDraft(draft: Draft, source: string): string[] {
   if (draft.caption.length > LIMITS.caption) problems.push(`legenda com ${draft.caption.length} caracteres (máx. ${LIMITS.caption})`);
   if (!draft.question.trim().endsWith('?')) problems.push('pergunta dos comentários precisa terminar com "?"');
   if (draft.question.length > LIMITS.question) problems.push(`pergunta com ${draft.question.length} caracteres (máx. ${LIMITS.question})`);
+  if (draft.share !== undefined && draft.share.length > LIMITS.share) problems.push(`convite para compartilhar com ${draft.share.length} caracteres (máx. ${LIMITS.share})`);
 
   return [...new Set(problems)];
 }

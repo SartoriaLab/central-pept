@@ -48,6 +48,8 @@ export type Draft = {
   caption: string;
   /** Pergunta para os comentários sobre a experiência do leitor (caption.ts põe "💬" e o convite). */
   question: string;
+  /** Para quem mandar o post, ex.: "aquela amiga que também come correndo" (caption.ts monta a frase). */
+  share?: string;
 };
 
 /** Guia do slide final. */
