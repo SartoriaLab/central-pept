@@ -73,6 +73,8 @@ export default function ArticleLayout({ article, children, inlineOffer = false }
 
   const related = getRelatedArticles(article);
   const offer = offerFor(ebookForPost(article.slug, article.relatedPeptides));
+  // Post sobre um peptídeo só: o nome dele entra na copy da oferta.
+  const offerSubject = citedPeptides.length === 1 ? citedPeptides[0].name : undefined;
 
   // Artigo → calculadora de cada peptídeo citado (até 2) + comparativos que o envolvem.
   const mainPeptides = citedPeptides.slice(0, 2);
@@ -191,7 +193,7 @@ export default function ArticleLayout({ article, children, inlineOffer = false }
             <p className="text-sm text-ink-2 leading-relaxed">{article.tldr}</p>
           </aside>
         )}
-        <EbookOffer offer={offer} variant="line" className="-mt-2" />
+        <EbookOffer offer={offer} subject={offerSubject} variant="line" className="-mt-2" />
         {children}
 
         {references.length > 0 && (
@@ -209,7 +211,7 @@ export default function ArticleLayout({ article, children, inlineOffer = false }
           </section>
         )}
 
-        {!inlineOffer && <EbookOffer offer={offer} />}
+        {!inlineOffer && <EbookOffer offer={offer} subject={offerSubject} />}
 
         {/* Transparência editorial */}
         <aside className="mt-10 not-prose card p-5" aria-label="Como este conteúdo é produzido">

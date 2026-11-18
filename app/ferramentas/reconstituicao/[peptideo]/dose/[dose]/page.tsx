@@ -270,7 +270,7 @@ export default async function DosePage({ params }: { params: Promise<Params> }) 
       </section>
       )}
 
-      <EbookOffer offer={offerFor(ebookForTool('reconstituicao'))} className="max-w-3xl" />
+      <EbookOffer offer={offerFor(ebookForTool('reconstituicao'))} subject={p.name} className="max-w-3xl" />
 
       <RelatedLinks links={related} title={`Mais sobre ${p.name}`} />
       <FAQ items={faq} title={`Perguntas frequentes: ${p.name} ${mg(dose)}`} />

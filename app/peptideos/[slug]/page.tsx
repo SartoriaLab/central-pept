@@ -263,7 +263,7 @@ export default async function PeptidePage({
           )}
         </section>
 
-        <EbookOffer offer={offerFor(ebookForPeptide(p.slug))} className="!mt-0" />
+        <EbookOffer offer={offerFor(ebookForPeptide(p.slug))} subject={p.name} className="!mt-0" />
 
         {p.longDescription && (
           <DetailSection

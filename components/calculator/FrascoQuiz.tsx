@@ -36,7 +36,7 @@ export default function FrascoQuiz({ quiz, peptideName, onAnswer }: Props) {
     >
       {/* 1. O resultado já existe */}
       <div className="flex items-center gap-2.5 bg-[#16a34a] px-4 py-3" role="status">
-        <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white text-base font-black text-[#16a34a]" aria-hidden>
+        <span className="flex h-7 w-7 shrink-0 items-center justify-center keep-white rounded-full bg-white text-base font-black text-[#16a34a]" aria-hidden>
           ✓
         </span>
         <p className="text-base font-black leading-tight sm:text-lg">Seu resultado{of} está pronto</p>
@@ -44,7 +44,7 @@ export default function FrascoQuiz({ quiz, peptideName, onAnswer }: Props) {
 
       <div className="bg-[radial-gradient(120%_70%_at_50%_0%,#1e293b_0%,#0b1220_70%)] p-5">
         {/* Prévia borrada do cartão de resultado (número de enfeite, não é o da pessoa) */}
-        <div className="relative overflow-hidden rounded-xl bg-white px-4 py-4 text-center" aria-hidden>
+        <div className="keep-white relative overflow-hidden rounded-xl bg-white px-4 py-4 text-center" aria-hidden>
           <div className="select-none blur-[7px]">
             <div className="text-[10px] font-bold uppercase tracking-wider text-slate-500">Puxe até</div>
             <div className="mt-1 text-5xl font-extrabold leading-none tracking-tight text-[#0f766e]">
@@ -85,7 +85,7 @@ export default function FrascoQuiz({ quiz, peptideName, onAnswer }: Props) {
               key={o.label}
               type="button"
               onClick={() => onAnswer(o.correct ? 'certa' : 'errada')}
-              className="flex h-14 w-full items-center justify-between rounded-xl bg-white px-4 text-left text-lg font-extrabold text-slate-900 shadow-md transition hover:-translate-y-0.5 hover:bg-[#fef9c3] active:translate-y-0"
+              className="keep-white flex h-14 w-full items-center justify-between rounded-xl bg-white px-4 text-left text-lg font-extrabold text-slate-900 shadow-md transition hover:-translate-y-0.5 hover:bg-[#fef9c3] active:translate-y-0"
             >
               {o.label}
               <span className="text-xs font-bold text-slate-500" aria-hidden>ver resultado →</span>

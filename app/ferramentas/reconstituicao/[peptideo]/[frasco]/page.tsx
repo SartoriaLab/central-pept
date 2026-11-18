@@ -326,7 +326,7 @@ export default async function VialPage({ params }: { params: Promise<Params> }) 
         <ShareButtons title={`${p.name} ${vialLabel}: quantas unidades puxar na seringa`} url={path} />
       </div>
 
-      <EbookOffer offer={offerFor(ebookForTool('reconstituicao'))} className="max-w-3xl" />
+      <EbookOffer offer={offerFor(ebookForTool('reconstituicao'))} subject={p.name} className="max-w-3xl" />
 
       <RelatedLinks links={related} title={`Mais sobre ${p.name}`} />
 

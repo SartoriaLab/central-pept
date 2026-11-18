@@ -286,7 +286,7 @@ export default async function BrandPage({ params }: { params: Promise<Params> })
         )}
 
         {/* Oferta no meio da página (antes ficava no fim, depois de tudo). */}
-        <EbookOffer offer={offerFor(ebookForPeptide(b.peptideSlug), { pen: true })} className="!my-8" />
+        <EbookOffer offer={offerFor(ebookForPeptide(b.peptideSlug), { pen: true })} subject={b.name} className="!my-8" />
 
         <section className="mt-10" aria-labelledby="estudos">
           <h2 id="estudos" className="text-xl md:text-2xl font-bold mb-4">O que os estudos mostram</h2>
