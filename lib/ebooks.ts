@@ -38,6 +38,12 @@ export type Ebook = {
   reveals?: string[];
   /** Comparação de preço verdadeira (custo real do erro), nunca preço "de/por" inventado. */
   anchor?: string;
+  /**
+   * Preço de lançamento: `price` vale para as primeiras `units` vendas e depois o preço sobe para
+   * `after` (na Kiwify e aqui, no mesmo dia). Só use se o aumento vai mesmo acontecer; ao subir,
+   * apague `launch` e ponha `price: after`.
+   */
+  launch?: { units: number; after: number };
   /** Mês da última revisão do texto, ex.: "novembro de 2026". */
   revised?: string;
   /** Sumário: capítulos na ordem do PDF. */
@@ -94,6 +100,8 @@ export type EbookOffer = {
   bullets: string[];
   /** Comparação de preço verdadeira (mesma da landing). */
   anchor?: string;
+  /** "Lançamento: R$ 39,90 nas 10 primeiras unidades. Depois, R$ 69,90." */
+  launchNote?: string;
   /** Primeira página de amostra (imagem em /public). */
   sample?: string;
 };
@@ -849,13 +857,15 @@ export const EBOOKS: Ebook[] = [
     id: 'T1',
     slug: 'reconstituicao-sem-erro',
     kind: 'transversal',
-    title: '7 Erros Que Mudam Sua Dose Sem Você Perceber',
-    altTitle: 'Reconstituição Sem Erro',
-    subtitle: 'Reconstituição do frasco à seringa em 7 passos, com a tabela de unidades pronta para imprimir.',
+    title: 'Você Tem Certeza de Que Entende Seu Frasco?',
+    altTitle: '7 Erros Que Mudam Sua Dose Sem Você Perceber',
+    subtitle:
+      'Quantidade do frasco, concentração e volume sem confusão: o que cada número significa, os 7 erros de interpretação que mudam sua dose e o que confirmar com um profissional.',
     hook:
-      'A conta está certa e a dose que entra é outra: bolha, vírgula, etiqueta que faltou. Os 7 passos do frasco à seringa e os 7 erros que ninguém percebe.',
-    line: 'Bolha, vírgula, etiqueta: os 7 erros que mudam sua dose sem você perceber. PDF.',
-    price: 29.9,
+      'Quantidade do frasco, concentração e volume parecem a mesma coisa. Não são. O guia mostra o que cada número significa, os 7 erros de interpretação que mudam sua dose sem você perceber e o que confirmar com um profissional antes de aplicar.',
+    line: 'mg do frasco, mg/ml e ml não são a mesma coisa: os 7 erros de interpretação que mudam sua dose. PDF.',
+    price: 39.9,
+    launch: { units: 10, after: 69.9 },
     pages: 55,
     forWho: [
       'Vai reconstituir o primeiro frasco e quer cada passo na ordem, com o material na frente.',
@@ -889,13 +899,13 @@ export const EBOOKS: Ebook[] = [
       { erro: 'Deixar uma bolha de 2 unidades numa dose de 10', custo: '20% da dose não entra. E quanto menor a dose, maior o peso da mesma bolha.' },
     ],
     reveals: [
+      'O que quantidade do frasco, concentração e volume significam, e as duas fórmulas que ligam um ao outro (cap. 1)',
+      'Os 7 erros de interpretação em que a conta está certa e a dose que entra é outra, cada um com o tamanho do desvio (cap. 5)',
       'Por que a "unidade" da seringa é volume, não massa, e não tem nada a ver com UI (cap. 1)',
       'Quanta água colocar para a dose cair entre 10 e 50 unidades, e o que fazer quando cai entre traços (cap. 3)',
-      'Por que a mesma dose de 8 unidades é precisa numa seringa e erra mais de 10% em outra (cap. 4)',
-      'Os 7 erros em que a conta está certa e a dose que entra é outra, cada um com o tamanho do desvio (cap. 5)',
       'Por que juntar um segundo peptídeo num frasco pronto reduz a dose do primeiro em cerca de um terço (cap. 7)',
     ],
-    anchor: 'Um frasco de 10 mg que congela ou turva vai inteiro para o lixo: R$ 500 a R$ 900. O guia custa R$ 29,90.',
+    anchor: 'Um frasco de 10 mg aplicado com a dose errada, ou que congela e vai para o lixo, custa R$ 500 a R$ 900. O guia custa R$ 39,90.',
     revised: 'novembro de 2026',
     bonuses: ['Tabela de unidades para imprimir', 'Checklist de bancada'],
     sources: [
@@ -903,7 +913,7 @@ export const EBOOKS: Ebook[] = [
       'Prazos de armazenamento a partir das bulas de Ozempic, Wegovy e Mounjaro',
       'Padrão de seringas de insulina U-100',
     ],
-    bumps: ['T2'],
+    bumps: ['TAB', 'T2'],
     sample: ['/ebooks/reconstituicao-sem-erro/amostra-1.webp', '/ebooks/reconstituicao-sem-erro/amostra-2.webp'],
     faq: [
       {
@@ -924,7 +934,7 @@ export const EBOOKS: Ebook[] = [
     kiwifyProductId: 'd3b93e00-dfc5-11f1-b2ef-e388708c1a73',
     places: {
       posts: ['como-reconstituir-semaglutida', 'como-reconstituir-tirzepatida', 'agua-bacteriostatica-guia'],
-      tools: ['conversor', 'cronograma'],
+      tools: ['reconstituicao', 'conversor', 'cronograma'],
       sections: ['seringas', 'glossario'],
     },
   },
@@ -1159,7 +1169,8 @@ export const EBOOKS: Ebook[] = [
     checkoutEnv: 'KIWIFY_CHECKOUT_TABELA',
     checkoutDefault: 'https://pay.kiwify.com.br/0cZRVbJ',
     kiwifyProductId: 'df1675f0-e115-11f1-9ed5-1d1ad40effc1',
-    places: { tools: ['reconstituicao'] },
+    // Vendida como oferta extra no checkout do guia de reconstituição (T1) e na própria landing.
+    places: {},
   },
   {
     id: 'KIT',
@@ -1183,7 +1194,7 @@ export const EBOOKS: Ebook[] = [
     toc: [
       'Semaglutida: O Manual Que Não Vem na Caixa',
       'Tirzepatida: Não Suba a Dose Antes de Ler Isto',
-      '7 Erros Que Mudam Sua Dose Sem Você Perceber',
+      'Você Tem Certeza de Que Entende Seu Frasco?',
       'Não Compre Antes de Checar Isto',
     ],
     pains: [
@@ -1194,11 +1205,11 @@ export const EBOOKS: Ebook[] = [
     reveals: [
       'A escada de 0,25 a 2,4 mg e os 9 erros que fazem desistir no meio (Semaglutida: O Manual Que Não Vem na Caixa)',
       'Quando segurar a dose e qual frasco casa com cada etapa (Tirzepatida: Não Suba a Dose Antes de Ler Isto)',
-      'Os 7 erros em que a conta está certa e a dose não (7 Erros Que Mudam Sua Dose Sem Você Perceber)',
+      'Os 7 erros em que a conta está certa e a dose não (Você Tem Certeza de Que Entende Seu Frasco?)',
       'As 12 checagens e o custo real por mg, por dose e por mês (Não Compre Antes de Checar Isto)',
       'Escadas, diários de 16 e 20 semanas, tabelas de unidades, checklists e planilha para imprimir (os 4 guias)',
     ],
-    anchor: 'Os 4 guias avulsos somam R$ 119,60. No kit, saem por R$ 69,90: R$ 49,70 a menos.',
+    anchor: 'Os 4 guias avulsos somam R$ 129,60. No kit, saem por R$ 69,90: R$ 59,70 a menos.',
     revised: 'novembro de 2026',
     bonuses: ['Todos os bônus dos 4 guias'],
     sources: [
@@ -1262,6 +1273,12 @@ export function kitFullPrice(kit: Ebook): number {
 /** Rótulo da capa: a tabela não é guia. */
 export function coverLabel(e: Pick<Ebook, 'kind'>): string {
   return e.kind === 'tabela' ? 'PDF personalizado' : 'Guia em PDF';
+}
+
+/** Frase do preço de lançamento, ou undefined sem lançamento. */
+export function launchNote(e: Pick<Ebook, 'price' | 'launch'>): string | undefined {
+  if (!e.launch) return undefined;
+  return `Lançamento: ${formatPrice(e.price)} nas ${e.launch.units} primeiras unidades. Depois, ${formatPrice(e.launch.after)}.`;
 }
 
 export function formatPrice(value: number): string {
@@ -1339,6 +1356,7 @@ export function toOffer(e: Ebook | undefined): EbookOffer | null {
     cover: e.cover,
     bullets: (e.reveals?.length ? e.reveals : e.toc).slice(0, 3).map(stripChapter),
     anchor: e.anchor,
+    launchNote: launchNote(e),
     sample: e.sample?.[0],
   };
 }

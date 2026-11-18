@@ -88,7 +88,19 @@ async function getReport(days: number) {
       .orderBy(desc(sql`2`)),
   ]);
 
+  // Pergunta do frasco na calculadora de reconstituição e cliques no guia que vêm depois dela.
+  const [quiz] = await db
+    .select({
+      certa: sql<number>`count(*) filter (where ${siteEvents.name} = ${EVENTS.quizFrasco} and ${siteEvents.props}->>'resposta' = 'certa')::int`,
+      errada: sql<number>`count(*) filter (where ${siteEvents.name} = ${EVENTS.quizFrasco} and ${siteEvents.props}->>'resposta' = 'errada')::int`,
+      naoSei: sql<number>`count(*) filter (where ${siteEvents.name} = ${EVENTS.quizFrasco} and ${siteEvents.props}->>'resposta' = 'nao-sei')::int`,
+      cliques: sql<number>`count(*) filter (where ${siteEvents.name} = ${EVENTS.ebookClick} and ${siteEvents.ebook} = 'T1' and ${siteEvents.page} like '/ferramentas/reconstituicao%')::int`,
+    })
+    .from(siteEvents)
+    .where(inPeriod);
+
   return {
+    quiz: quiz ?? { certa: 0, errada: 0, naoSei: 0, cliques: 0 },
     byName,
     offerByPage,
     offerByPosition,
@@ -184,6 +196,16 @@ export default async function EventosPage({ searchParams }: { searchParams: Prom
       <p className="-mt-6 mb-8 text-xs text-gray-500">
         &quot;—&quot; são aberturas de antes de o tipo de guia ser gravado. O botão só existe nos guias do iPhone (ios-*).
       </p>
+
+      <Table title="Pergunta do frasco (calculadora de reconstituição)" head={['Acertou', 'Errou', 'Não sei', 'Cliques no guia depois', 'Taxa']} empty="">
+        <tr className="border-t border-gray-100">
+          <td className="p-2">{r.quiz.certa}</td>
+          <td className="p-2">{r.quiz.errada}</td>
+          <td className="p-2">{r.quiz.naoSei}</td>
+          <td className="p-2">{r.quiz.cliques}</td>
+          <td className="p-2">{pct(r.quiz.cliques, r.quiz.certa + r.quiz.errada + r.quiz.naoSei)}</td>
+        </tr>
+      </Table>
 
       <Table title="Pop-up de saída" head={['Visto', 'Clicado', 'Taxa']} empty="">
         <tr className="border-t border-gray-100">

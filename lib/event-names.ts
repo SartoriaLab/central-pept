@@ -21,6 +21,8 @@ export const EVENTS = {
   // Pop-up de saída (props { ebook, pagina }).
   ebookPopupView: 'Ebook Popup Visto',
   ebookPopupClick: 'Ebook Popup Clique',
+  // Pergunta do frasco antes do resultado da reconstituição (props { resposta: certa | errada | nao-sei, pagina }).
+  quizFrasco: 'Quiz Frasco',
   // Resultado enviado pelo WhatsApp a partir de uma calculadora (props { ferramenta }).
   whatsapp: 'Enviar WhatsApp',
   // Convite de instalação da PWA (props { so: ios | android | desktop }; no clique, { resultado }).

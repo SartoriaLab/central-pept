@@ -19,6 +19,7 @@ import {
   getEbookBySlug,
   kitFor,
   kitFullPrice,
+  launchNote,
 } from '@/lib/ebooks';
 import { ogImageUrl, socialImage } from '@/lib/og';
 import { SITE_URL } from '@/lib/site';
@@ -58,6 +59,7 @@ export default async function EbookPage({ params }: { params: Promise<Params> })
   if (!e || !url) notFound();
 
   const price = formatPrice(e.price);
+  const launch = launchNote(e);
   const noun = e.kind === 'kit' ? 'pacote' : e.kind === 'tabela' ? 'PDF personalizado' : 'guia';
   const included = (e.includes ?? []).map((id) => getEbookById(id)).filter((x): x is NonNullable<typeof x> => !!x);
   const bumps = (e.bumps ?? []).map((id) => getEbookById(id)).filter((x): x is NonNullable<typeof x> => !!x);
@@ -139,6 +141,9 @@ export default async function EbookPage({ params }: { params: Promise<Params> })
                   </span>
                 )}
               </div>
+              {launch && (
+                <p className="mt-2 inline-block rounded-lg bg-amber-400 px-3 py-1.5 text-sm font-extrabold text-slate-900">{launch}</p>
+              )}
               {e.anchor && !(fullPrice > e.price) && <p className="mt-1 text-sm text-ink-2">{e.anchor}</p>}
               <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2">
                 {buy('hero')}
@@ -302,6 +307,9 @@ export default async function EbookPage({ params }: { params: Promise<Params> })
               </span>
             )}
           </div>
+          {launch && (
+            <p className="mt-2 inline-block rounded-lg bg-amber-400 px-3 py-1.5 text-sm font-extrabold text-slate-900">{launch}</p>
+          )}
           {e.anchor && !(fullPrice > e.price) && <p className="mt-1 text-sm text-ink-2">{e.anchor}</p>}
           <div className="mt-5">{buy('oferta')}</div>
           <p className="mt-3 text-sm text-ink-3">{e.kind === 'tabela' ? 'Depois do pagamento você vai direto para a página que gera a tabela.' : 'Acesso imediato no seu email assim que o pagamento é confirmado.'}</p>
@@ -401,10 +409,11 @@ export default async function EbookPage({ params }: { params: Promise<Params> })
                   <Link href={`/ebooks/${b.slug}`} className="font-semibold text-teal-700 hover:underline">{b.title}</Link>
                 ) : (
                   <strong className="text-ink">{b.title}</strong>
-                )}
+                )}{' '}
+                por {formatPrice(b.kind === 'tabela' ? b.price : BUMP_PRICE)}
               </span>
-            ))}{' '}
-            por {formatPrice(BUMP_PRICE)}.
+            ))}
+            .
           </p>
         )}
 
@@ -414,6 +423,7 @@ export default async function EbookPage({ params }: { params: Promise<Params> })
           <h2 className="text-xl md:text-2xl font-extrabold text-ink">{e.title}</h2>
           <p className="mt-2 text-ink-2">{e.subtitle}</p>
           <p className="mt-4 text-2xl font-extrabold text-ink tabular-nums">{price}</p>
+          {launch && <p className="mt-1 text-sm font-bold text-amber-700 dark:text-amber-300">{launch}</p>}
           <div className="mt-4 flex justify-center">{buy('final')}</div>
           <p className="mt-3 text-sm text-ink-3">Acesso imediato · 7 dias de garantia incondicional</p>
         </section>

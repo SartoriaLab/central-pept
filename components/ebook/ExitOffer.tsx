@@ -179,6 +179,7 @@ export default function ExitOffer() {
           ))}
         </ul>
         <AnchorNote text={offer.anchor} className="mt-4" />
+        {offer.launchNote ? <p className="mt-2 text-center text-xs font-bold text-amber-700 dark:text-amber-300">{offer.launchNote}</p> : null}
         {EXIT_COUPON ? (
           <div className="mt-4 rounded-xl border-2 border-dashed border-teal-500 bg-teal-50 px-4 py-3 text-center dark:bg-teal-400/10">
             <p className="text-xs font-bold uppercase tracking-wider text-teal-700">

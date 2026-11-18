@@ -94,48 +94,84 @@ export default function EbookOffer({ offer, variant = 'card', lead, className = 
     );
   }
 
-  if (variant === 'result' && offer.id === 'TAB') {
-    // Tabela personalizada: oferta principal da calculadora mais usada do site. Bloco escuro
-    // de alto contraste, a prévia como folha impressa e botão âmbar (fixo nos dois temas).
-    const items = offer.bullets.map((b) => b.replace(/\s*\([^)]*\)\s*$/, ''));
+  if (variant === 'result' && offer.id === 'T1') {
+    // Guia de reconstituição: oferta principal da calculadora mais usada do site, logo depois da
+    // pergunta do frasco (o feedback dela chega como children). Cores fixas nos dois temas.
+    const items = offer.bullets;
     return (
       <>
         <aside
           ref={ref}
-          className={`no-print overflow-hidden rounded-2xl bg-[linear-gradient(140deg,#115e59_0%,#134e4a_55%,#0b2f2c_100%)] p-5 text-white shadow-xl ring-1 ring-black/10 ${className}`}
-          aria-label="Tabela personalizada em PDF"
+          className={`no-print overflow-hidden rounded-2xl bg-[linear-gradient(150deg,#0f2f2d_0%,#134e4a_55%,#115e59_100%)] p-5 text-white shadow-xl ring-1 ring-black/10 sm:p-6 ${className}`}
+          aria-label="Guia em PDF"
         >
+          {children}
           <p className="inline-flex items-center gap-1.5 rounded-full bg-amber-400 px-2.5 py-1 text-[11px] font-extrabold uppercase tracking-wider text-slate-900">
-            <span aria-hidden>🖨️</span> Leve esta conta impressa
+            <span aria-hidden>⚠️</span> Antes de aplicar
           </p>
-          <h2 className="mt-3 text-xl font-extrabold leading-tight sm:text-2xl">
-            {lead ? `${lead} ` : ''}Tenha isso numa folha na geladeira.
+          <h2 className="mt-3 text-[22px] font-extrabold uppercase leading-tight tracking-tight sm:text-2xl">
+            Um erro de interpretação pode custar caro.
           </h2>
-          <p className="mt-2 text-sm leading-relaxed text-white/80">{offer.hook}</p>
-          {children ? <div className="mx-auto mt-4 max-w-sm -rotate-1">{children}</div> : null}
-          <ul className="mt-4 space-y-1.5 text-sm">
-            {items.map((b) => (
-              <li key={b} className="flex gap-2">
-                <span className="font-bold text-amber-300" aria-hidden>✓</span>
-                <span className="text-white/90">{b}</span>
-              </li>
-            ))}
-          </ul>
+          <p className="mt-3 text-[15px] leading-relaxed text-white/85">
+            Quantidade do frasco, concentração e volume parecem a mesma coisa.{' '}
+            <strong className="text-white">Não são.</strong> Confundir esses números é o erro mais comum: dose errada,
+            frasco desperdiçado e resultado que não vem.
+          </p>
+
+          <div className="mt-5 flex items-start gap-4">
+            <div className="min-w-0 flex-1">
+              <p className="text-xs font-bold uppercase tracking-wider text-amber-300">O guia em PDF</p>
+              <p className="mt-1 text-lg font-extrabold leading-snug">{offer.title}</p>
+              <ul className="mt-3 space-y-2 text-sm">
+                {items.map((b) => (
+                  <li key={b} className="flex gap-2">
+                    <span className="font-bold text-amber-300" aria-hidden>✓</span>
+                    <span className="text-white/90">{b}</span>
+                  </li>
+                ))}
+                <li className="flex gap-2">
+                  <span className="font-bold text-amber-300" aria-hidden>✓</span>
+                  <span className="text-white/90">O que confirmar com um profissional antes de aplicar</span>
+                </li>
+              </ul>
+            </div>
+            {offer.sample ? (
+              // Página real do PDF: o produto antes do clique.
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={offer.sample}
+                alt={`Página de amostra do guia ${offer.title}`}
+                width={112}
+                height={158}
+                loading="lazy"
+                className="hidden w-28 shrink-0 rotate-2 rounded-md bg-white shadow-2xl ring-1 ring-black/10 min-[400px]:block"
+              />
+            ) : null}
+          </div>
+
+          {offer.launchNote ? (
+            <p className="mt-5 rounded-lg bg-amber-400 px-3 py-2.5 text-center text-sm font-extrabold leading-snug text-slate-900">
+              {offer.launchNote}
+            </p>
+          ) : null}
           {offer.anchor ? (
-            <p className="mt-4 rounded-lg border-l-4 border-amber-400 bg-white/10 px-3 py-2 text-sm font-semibold leading-snug text-amber-100">
+            <p className="mt-3 rounded-lg border-l-4 border-amber-400 bg-white/10 px-3 py-2 text-sm font-semibold leading-snug text-amber-100">
               {offer.anchor}
             </p>
           ) : null}
           <Link
             href={href}
             onClick={onClick}
-            className="mt-4 flex h-14 w-full items-center justify-center gap-2 rounded-xl bg-amber-400 text-base font-extrabold text-slate-900 shadow-lg transition hover:-translate-y-0.5 hover:bg-amber-300"
+            className="mt-4 flex w-full flex-col items-center justify-center rounded-xl bg-amber-400 px-4 py-3 text-center text-slate-900 shadow-lg transition hover:-translate-y-0.5 hover:bg-amber-300"
           >
-            Quero minha tabela · {price}
-            <span aria-hidden>→</span>
+            <span className="text-lg font-extrabold leading-tight">Quero entender meu frasco →</span>
+            <span className="mt-0.5 text-sm font-bold text-slate-800">{price} · Pix ou cartão</span>
           </Link>
           <p className="mt-2 text-center text-xs text-white/70">
-            PDF com os seus números · acesso imediato · 7 dias de garantia
+            PDF de {offer.pages} páginas · acesso na hora · 7 dias de garantia
+          </p>
+          <p className="mt-4 border-t border-white/15 pt-4 text-center text-base font-extrabold">
+            Sua saúde não é lugar para achismo.
           </p>
         </aside>
         <OfferBar offer={offer} show={passed} href={offerHref(offer, 'barra', pathname)} />
@@ -205,6 +241,9 @@ export default function EbookOffer({ offer, variant = 'card', lead, className = 
           />
         ) : null}
       </div>
+      {offer.launchNote ? (
+        <p className="mt-4 rounded-lg bg-amber-400 px-3 py-2 text-sm font-extrabold leading-snug text-slate-900">{offer.launchNote}</p>
+      ) : null}
       <AnchorNote text={offer.anchor} className="mt-4" />
       <div className="mt-4 flex flex-col sm:flex-row sm:items-center gap-x-4 gap-y-2">
         <Link href={href} onClick={onClick} className="btn-teal w-full sm:w-auto">

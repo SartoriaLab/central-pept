@@ -11,6 +11,7 @@ export const STORED_EVENTS: ReadonlySet<string> = new Set([
   EVENTS.ebookKitClick,
   EVENTS.ebookPopupView,
   EVENTS.ebookPopupClick,
+  EVENTS.quizFrasco,
   EVENTS.whatsapp,
   EVENTS.share,
   EVENTS.embedCopy,

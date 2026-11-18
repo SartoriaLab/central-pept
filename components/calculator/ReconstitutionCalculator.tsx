@@ -22,9 +22,9 @@ import RecentCalcs, {
 } from './RecentCalcs';
 import { EVENTS, track, trackOnce } from '@/lib/track';
 import EbookOffer from '@/components/ebook/EbookOffer';
-import TabelaPreview from '@/components/tabela/TabelaPreview';
-import TabelaNudge from '@/components/tabela/TabelaNudge';
-import TabelaStrip from '@/components/tabela/TabelaStrip';
+import FrascoQuiz, { FrascoFeedback } from './FrascoQuiz';
+import OfferStrip from '@/components/ebook/OfferStrip';
+import { buildFrascoQuiz, QUIZ_GATE_ENABLED, QUIZ_KEY, type FrascoQuiz as Quiz, type QuizAnswer } from '@/lib/quiz-frasco';
 import InstallPrompt from '@/components/pwa/InstallPrompt';
 import type { EbookOffer as Offer } from '@/lib/ebooks';
 
@@ -89,8 +89,16 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug,
   const resultRef = useRef<HTMLDivElement>(null);
   // Barra fixa do celular: só enquanto o resultado está abaixo da tela.
   const [resultBelow, setResultBelow] = useState(false);
-  // Depois de imprimir, copiar ou compartilhar: mostra o aviso da Tabela personalizada.
-  const [nudge, setNudge] = useState(false);
+  // Pergunta do frasco antes do resultado (uma vez por visita, só com a oferta do guia T1).
+  const [quizGate, setQuizGate] = useState(false);
+  const [answered, setAnswered] = useState<{ quiz: Quiz; answer: QuizAnswer } | null>(null);
+  useEffect(() => {
+    if (!QUIZ_GATE_ENABLED || offer?.id !== 'T1') return;
+    try {
+      if (sessionStorage.getItem(QUIZ_KEY)) return;
+    } catch { /* sem sessionStorage: pergunta mesmo assim */ }
+    setQuizGate(true);
+  }, [offer?.id]);
 
   // Lista unificada: peptídeos da lib + personalizados salvos
   const allPeptides = useMemo(() => [...customs, ...peptides], [customs, peptides]);
@@ -337,6 +345,19 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug,
     return calcByVolume(Number(mg), Number(waterMl), doseMg);
   }, [peptide, mg, waterMl, units, dose, mode]);
 
+  const quiz = useMemo(
+    () => (result && mg !== '' ? buildFrascoQuiz(Number(mg), result.waterMl) : null),
+    [result, mg],
+  );
+  const locked = quizGate && !answered && quiz !== null;
+
+  function answerQuiz(answer: QuizAnswer) {
+    if (!quiz) return;
+    setAnswered({ quiz, answer });
+    try { sessionStorage.setItem(QUIZ_KEY, '1'); } catch { /* ignore */ }
+    track(EVENTS.quizFrasco, { resposta: answer, pagina: window.location.pathname });
+  }
+
   // Resultado fora da tela (abaixo)? Então a barra fixa aparece.
   const hasResult = Boolean(result);
   useEffect(() => {
@@ -347,7 +368,7 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug,
     }, { threshold: 0.15 });
     io.observe(el);
     return () => io.disconnect();
-  }, [hasResult]);
+  }, [hasResult, locked]);
 
   // Métrica de uso: um evento por peptídeo quando o cálculo fica válido.
   // Peptídeo personalizado vai sem nome — o que o usuário digita não sai do navegador.
@@ -452,7 +473,6 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug,
       `Refazer a conta: ${SITE_HOST}/ferramentas/reconstituicao${peptides.some((x) => x.slug === peptide.slug) ? `/${peptide.slug}` : ''}`,
     ].join('\n');
     track(EVENTS.copyResult);
-    setNudge(true);
     navigator.clipboard?.writeText(text)
       .then(() => setToast('Copiado!'))
       .catch(() => setToast('Não foi possível copiar.'));
@@ -465,7 +485,6 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug,
     const text = `Reconstituição de ${peptide.name}: ${fmt(result.unitsPerDose, 1)} U por dose na seringa de ${syringe} U (${fmt(result.waterMl, 2)} ml de água BAC). Conta completa: ${url}`;
     window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
     track(EVENTS.whatsapp, { ferramenta: 'reconstituicao' });
-    setNudge(true);
   }
 
   // Compartilhar URL com estado atual
@@ -473,7 +492,6 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug,
     if (!peptide || typeof window === 'undefined') return;
     const url = `${window.location.origin}${window.location.pathname}?${stateQuery(true)}`;
     track(EVENTS.share);
-    setNudge(true);
 
     // Usa Web Share API se disponível (mobile), senão copia para clipboard
     const nav = window.navigator as Navigator & { share?: (data: ShareData) => Promise<void> };
@@ -872,6 +890,11 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug,
                 Preenche {peptide ? peptide.name : 'BPC-157'} {peptide?.commonAmounts[0] ?? 5} mg em 2 ml de água para você ver funcionando.
               </p>
             </div>
+          ) : locked && quiz ? (
+            // Resultado travado até responder a pergunta do frasco (1 toque, certo ou errado).
+            <div id="calc-result" ref={resultRef}>
+              <FrascoQuiz quiz={quiz} peptideName={peptide?.name} onAnswer={answerQuiz} />
+            </div>
           ) : (
             <div id="calc-result" ref={resultRef} className="bg-surface border border-border rounded-xl shadow-lg overflow-hidden animate-slide-up">
               <div className="flex items-center justify-between gap-2.5 px-5 pt-5">
@@ -899,8 +922,7 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug,
                     type="button"
                     onClick={() => {
                       track(EVENTS.print, { pagina: window.location.pathname });
-                      setNudge(true);
-                      window.print();
+                                        window.print();
                     }}
                     title="Imprimir / Salvar como PDF"
                     aria-label="Imprimir resultado"
@@ -942,7 +964,13 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug,
                 <Syringe units={result.unitsPerDose} maxUnits={syringe} />
               </div>
 
-              {offer?.id === 'TAB' ? <TabelaStrip offer={offer} /> : null}
+              {offer?.id === 'T1' ? (
+                <OfferStrip
+                  offer={offer}
+                  title="Você entende cada número deste frasco?"
+                  sub="Os 7 erros de interpretação que mudam sua dose"
+                />
+              ) : null}
 
               {/* Métricas */}
               <div className="grid grid-cols-2 border-t border-border">
@@ -996,27 +1024,19 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug,
               </div>
             </div>
           )}
-          {nudge && offer?.id === 'TAB' && result ? <TabelaNudge offer={offer} className="mt-4" /> : null}
-          {result && Number.isFinite(result.unitsPerDose) && result.unitsPerDose > 0 ? (
+          {locked ? null : result && Number.isFinite(result.unitsPerDose) && result.unitsPerDose > 0 ? (
             <EbookOffer
               variant="result"
               offer={offer}
               lead={`Você vai puxar ${fmt(result.unitsPerDose, 1)} unidades.`}
               className="mt-4"
             >
-              {offer?.id === 'TAB' && peptide && mg !== '' && dose !== '' ? (
-                <TabelaPreview
-                  vialMg={Number(mg)}
-                  waterMl={result.waterMl}
-                  doseMg={doseToMg(Number(dose), peptide.doseUnit)}
-                  frequency={peptide.frequency}
-                />
-              ) : null}
+              {answered && offer?.id === 'T1' ? <FrascoFeedback quiz={answered.quiz} answer={answered.answer} /> : null}
             </EbookOffer>
           ) : (
             <EbookOffer variant="line" offer={offer} className="mt-4" />
           )}
-          {result && Number.isFinite(result.unitsPerDose) && result.unitsPerDose > 0 ? (
+          {!locked && result && Number.isFinite(result.unitsPerDose) && result.unitsPerDose > 0 ? (
             <InstallPrompt className="mt-4" />
           ) : null}
         </div>
@@ -1034,14 +1054,18 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug,
           className="md:hidden no-print fixed left-4 right-4 bottom-[max(1rem,env(safe-area-inset-bottom))] z-30 flex items-center justify-between gap-3 px-4 py-3 rounded-xl bg-ink text-bg shadow-xl animate-slide-up"
           aria-label="Ir para o resultado"
         >
-          <div className="flex items-baseline gap-1.5">
-            <span className="text-2xl font-extrabold text-teal-100 tabular-nums leading-none">
-              {fmt(result.unitsPerDose, 1)}
-            </span>
-            <span className="text-xs font-semibold text-bg/80">U na seringa</span>
-          </div>
+          {locked ? (
+            <span className="text-sm font-bold">Seu resultado está pronto</span>
+          ) : (
+            <div className="flex items-baseline gap-1.5">
+              <span className="text-2xl font-extrabold text-teal-100 tabular-nums leading-none">
+                {fmt(result.unitsPerDose, 1)}
+              </span>
+              <span className="text-xs font-semibold text-bg/80">U na seringa</span>
+            </div>
+          )}
           <div className="flex items-center gap-1.5 text-xs font-semibold">
-            Ver detalhes
+            {locked ? 'Ver resultado' : 'Ver detalhes'}
             <svg viewBox="0 0 20 20" width={14} height={14} fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
               <path d="M5 8l5 5 5-5" />
             </svg>
