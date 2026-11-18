@@ -21,7 +21,13 @@ export function GET(req: NextRequest) {
 export async function POST(req: NextRequest) {
   const secret = process.env.IG_APP_SECRET?.trim();
   const raw = await req.text();
-  if (!secret || !validSignature(raw, req.headers.get('x-hub-signature-256'), secret)) {
+  const signature = req.headers.get('x-hub-signature-256');
+  if (!secret || !validSignature(raw, signature, secret)) {
+    // Diagnóstico sem expor segredo: chave errada costuma ter tamanho/formato diferente de 32 hex.
+    console.warn(
+      `[instagram-dm] assinatura recusada: header=${signature ? signature.slice(0, 7) : 'ausente'} ` +
+        `corpo=${raw.length}b chave=${secret ? `${secret.length} chars${/^[0-9a-f]+$/i.test(secret) ? ' hex' : ' não-hex'}` : 'ausente'}`,
+    );
     return new Response('forbidden', { status: 403 });
   }
   let payload: unknown;

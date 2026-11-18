@@ -158,7 +158,7 @@ Kit. Código: `app/api/instagram/webhook/route.ts` e `lib/instagram-dm.ts`.
 Não cole os valores aqui no chat. Coloque direto nos segredos do GitHub, que eu já uso no
 workflow:
 
-1. Acesse https://github.com/JulianoAnselmo/central-pept/settings/secrets/actions
+1. Acesse https://github.com/SartoriaLab/central-pept/settings/secrets/actions
 2. **New repository secret** para cada um:
 
 | Nome | Valor |
