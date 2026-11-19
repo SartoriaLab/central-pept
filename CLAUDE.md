@@ -111,6 +111,10 @@ Feed, sitemap, busca, páginas de tag e imagem de compartilhamento saem sozinhos
    `ANTHROPIC_API_KEY`): não volte o `schedule` lá, seriam dois robôs. Alternativa sem o app:
    Agendador do Windows (`npm run social:agendar`, `agendado.ps1`) com `claude -p`.
    Pausa: desative as tarefas no app ou `SOCIAL_PAUSED=1`. Setup: `docs/instagram-setup.md` (Parte 7).
+   Fila (Parte 8): as tarefas tentam antes `run.ts <formato> --fila`, que publica o `texto.json` de
+   `social/fila/<data>-<formato>/` (código 3 = sem texto válido → `--brief`). `run.ts plano --dias 30`
+   monta a fila (`queue.ts`, mesma escolha de tema do robô) e `--check <pasta>` só valida.
+   `topicPriority` (`pick.ts`) põe primeiro as dúvidas práticas de GLP-1.
 2. Código em `scripts/social/` (rodado com `tsx`): temas saem de posts, fichas e comparativos
    (`topics.ts`; posts de compra/preço e Melanotan II ficam fora), o Claude escreve (`write.ts`: API
    com `ANTHROPIC_API_KEY`; sem ela, `claude -p` da assinatura, com `CLAUDE_CODE_OAUTH_TOKEN` do

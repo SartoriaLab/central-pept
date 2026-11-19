@@ -1,0 +1,64 @@
+{
+  "hook": "Mito: dá pra parar o Mounjaro e voltar depois na mesma dose.",
+  "hookIcon": "errado",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "O que o estudo mediu",
+      "body": "No SURMOUNT-4, todos usaram tirzepatida por 36 semanas. Depois, metade seguiu com o remédio e metade passou para placebo, sem saber.",
+      "icon": "microscopio",
+      "pose": "explicando"
+    },
+    {
+      "title": "Quem parou, recuperou",
+      "body": "Em um ano, quem passou para placebo recuperou em média 14% do peso. Quem continuou com a tirzepatida perdeu mais 5,5%.",
+      "icon": "grafico-sobe",
+      "pose": "pensando"
+    },
+    {
+      "title": "Mas não voltou ao zero",
+      "body": "Quem parou ainda terminou 9,9% abaixo do peso inicial. E não é falha de quem usa: é o esperado quando se interrompe o tratamento de uma condição crônica.",
+      "icon": "balanca",
+      "pose": "feliz"
+    },
+    {
+      "title": "Por que a fome volta",
+      "body": "Com meia-vida de cerca de 5 dias, a tirzepatida sai do corpo em mais ou menos um mês. Sem ela, o apetite volta ao padrão de antes.",
+      "icon": "ampulheta",
+      "pose": "explicando"
+    },
+    {
+      "title": "Voltar na dose antiga? Não.",
+      "body": "Depois de várias semanas sem aplicar, a tolerância se perde. Recomeçar direto na dose alta aumenta muito o risco de náusea e vômito intensos.",
+      "icon": "alerta",
+      "pose": "alerta"
+    },
+    {
+      "title": "Cola da saída planejada",
+      "body": "1️⃣ Converse com o médico antes de parar. 2️⃣ Pergunte sobre dose de manutenção ou redução aos poucos. 3️⃣ Mantenha treino de força e proteína. 4️⃣ Pausou? O recomeço é com o médico.",
+      "icon": "estetoscopio",
+      "pose": "apontando"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Mito: dá pra parar o Mounjaro de uma vez e depois voltar na mesma dose.",
+      "pose": "ih"
+    },
+    {
+      "text": "No estudo SURMOUNT-4, quem parou recuperou em média 14% do peso em um ano. O efeito no apetite só existe enquanto o remédio está no corpo.",
+      "pose": "explicando"
+    },
+    {
+      "text": "E voltar direto na dose antiga, depois de semanas sem aplicar, aumenta muito o risco de náusea e vômito fortes. O médico costuma recomeçar mais baixo.",
+      "pose": "alerta"
+    },
+    {
+      "text": "A saída se planeja com o médico, com dose de manutenção ou redução aos poucos. Então, parar de uma vez e voltar na mesma dose, nunca mais.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, a caneta acaba, a rotina aperta e a gente pensa em parar o Mounjaro e retomar depois. Mas o efeito da tirzepatida sobre o apetite depende do remédio no corpo: ele sai em cerca de um mês e a fome volta ao padrão de antes.\n\nNo estudo SURMOUNT-4, quem passou para placebo depois de 36 semanas recuperou em média 14% do peso em um ano, mas ainda terminou 9,9% abaixo do peso inicial.\n\n⚠️ Depois de semanas sem aplicar, voltar direto na dose alta aumenta muito o risco de náusea e vômito intensos. O médico normalmente reinicia por uma dose mais baixa e refaz a subida.\n\n1️⃣ Planeje a saída com o médico: dose de manutenção ou redução aos poucos\n2️⃣ Treino de força e proteína suficiente\n3️⃣ Com diabetes tipo 2, nunca interrompa sem orientação médica",
+  "question": "Você já pensou em dar uma pausa no Mounjaro?",
+  "share": "aquela amiga que quer parar o Mounjaro de uma vez e voltar depois"
+}

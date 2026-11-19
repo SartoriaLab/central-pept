@@ -1,0 +1,70 @@
+{
+  "hook": "Seu Mounjaro está dando enjoo e você já pensa na cagrilintida?",
+  "hookIcon": "enjoo",
+  "hookPose": "pensando",
+  "slides": [
+    {
+      "title": "Eu sei, dá vontade de trocar",
+      "body": "Enjoo cansa, e a molécula nova do feed parece a saída. Só que a cagrilintida também tem enjoo na ficha.",
+      "icon": "duvida",
+      "pose": "ih"
+    },
+    {
+      "title": "Enjoo está nas duas fichas",
+      "body": "Tirzepatida: náusea, diarreia, vômito e constipação. Cagrilintida: náusea, vômito e constipação, mais frequentes na fase de aumento de dose.",
+      "icon": "prancheta",
+      "pose": "explicando"
+    },
+    {
+      "title": "Mecanismos diferentes",
+      "body": "O Mounjaro, a tirzepatida, ativa os receptores de GIP e GLP-1. A cagrilintida imita a amilina, outro hormônio da saciedade.",
+      "icon": "cerebro",
+      "pose": "pensando"
+    },
+    {
+      "title": "Aprovada x experimental",
+      "body": "A tirzepatida é aprovada pela FDA, com bula. A cagrilintida está em desenvolvimento, sem aprovação como medicamento.",
+      "icon": "balanca",
+      "pose": "alerta"
+    },
+    {
+      "title": "Frasco de pesquisa não é atalho",
+      "body": "Qualquer cagrilintida fora de ensaio clínico não passou por controle regulatório. Não é um caminho para fugir do enjoo.",
+      "icon": "proibido",
+      "pose": "ih"
+    },
+    {
+      "title": "Enjoo é assunto de consulta",
+      "body": "Enjoo forte, vômito que não passa ou dor na barriga? Fale com o médico. É ele quem avalia a dose, o ritmo de aumento e as alternativas.",
+      "icon": "estetoscopio",
+      "pose": "explicando"
+    },
+    {
+      "title": "Cola pra guardar",
+      "body": "Enjoo aparece nas duas fichas. Só a tirzepatida tem aprovação. Molécula nova não é atalho: leve o enjoo ao médico antes de qualquer troca.",
+      "icon": "certo",
+      "pose": "apontando"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Seu Mounjaro está dando enjoo e você já está de olho na cagrilintida?",
+      "pose": "pensando"
+    },
+    {
+      "text": "Olha só: a cagrilintida também tem náusea, vômito e constipação na ficha, principalmente quando a dose está subindo.",
+      "pose": "explicando"
+    },
+    {
+      "text": "E tem mais: a tirzepatida é aprovada, com bula. A cagrilintida ainda é experimental, sem aprovação como medicamento.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Enjoo que incomoda é assunto para o seu médico, que avalia a dose. Trocar de caneta por causa do feed, nunca mais.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, enjoo cansa, e quando aparece uma molécula nova no feed dá vontade de trocar. Só que a cagrilintida também tem náusea, vômito e constipação na ficha, mais frequentes na fase de aumento de dose.\n\nO Mounjaro, a tirzepatida, ativa os receptores de GIP e GLP-1 e é aprovado pela FDA, com bula. A cagrilintida imita a amilina, outro hormônio da saciedade, e ainda está em desenvolvimento, sem aprovação como medicamento. Qualquer produto vendido como cagrilintida fora de ensaio clínico não passou por controle regulatório.\n\n1️⃣ Efeito colateral gastrointestinal aparece nas duas fichas\n2️⃣ Mecanismos diferentes: GIP e GLP-1 de um lado, amilina do outro\n3️⃣ Status diferente: aprovada contra experimental\n\n⚠️ Enjoo forte, vômito que não passa ou dor na barriga são motivo para falar com o médico. É ele quem avalia a dose, o ritmo de aumento e as alternativas.",
+  "question": "Em qual semana o enjoo apareceu para você?",
+  "share": "a amiga que quer trocar de caneta toda vez que enjoa"
+}

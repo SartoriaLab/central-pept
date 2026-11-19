@@ -1,0 +1,70 @@
+{
+  "hook": "Está no Ozempic e largou o treino de força?",
+  "hookIcon": "musculo",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "O remédio faz tudo sozinho?",
+      "body": "Essa é a mania: começar a semaglutida e deixar o exercício para depois. Eu entendo, todo mundo pensa isso. Mas os estudos contam outra história.",
+      "icon": "duvida",
+      "pose": "ih"
+    },
+    {
+      "title": "Até 40% pode ser massa magra",
+      "body": "Sem treino resistido, cerca de 40% da perda total pode vir de massa magra, ou seja, de músculo. E músculo faz falta no dia a dia.",
+      "icon": "alerta",
+      "pose": "alerta"
+    },
+    {
+      "title": "Os estudos não testaram só o remédio",
+      "body": "No STEP-1, a semaglutida 2,4 mg por semana veio junto com aconselhamento de estilo de vida. No STEP-3, com terapia intensiva de estilo de vida.",
+      "icon": "microscopio",
+      "pose": "explicando"
+    },
+    {
+      "title": "Ozempic e Wegovy: mesma molécula",
+      "body": "Os dois são semaglutida. O Ozempic é aprovado para diabetes tipo 2, com dose máxima de 2 mg por semana. O Wegovy, para obesidade, vai até 2,4 mg por semana.",
+      "icon": "prancheta",
+      "pose": "pensando"
+    },
+    {
+      "title": "O estômago também sente",
+      "body": "No STEP-1, 74% dos participantes relataram náusea, diarreia ou vômito em algum momento. Mais um motivo para usar com acompanhamento.",
+      "icon": "enjoo",
+      "pose": "explicando"
+    },
+    {
+      "title": "Quando o médico precisa saber antes",
+      "body": "Histórico pessoal ou familiar de câncer medular de tireoide, NEM 2 ou pancreatite prévia: a semaglutida não é para você. Conte isso ao endocrinologista.",
+      "icon": "estetoscopio",
+      "pose": "alerta"
+    },
+    {
+      "title": "A cola pra guardar",
+      "body": "Semaglutida é parte do tratamento, não ele inteiro. Treino de força entra na rotina. Alimentação junto. Dose e subida de dose com o endocrinologista.",
+      "icon": "certo",
+      "pose": "apontando"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Você está no Ozempic e largou o treino de força porque o remédio faz tudo? Eu sei, todo mundo pensa isso.",
+      "pose": "ih"
+    },
+    {
+      "text": "Olha só: sem treino resistido, cerca de 40% do que se perde pode ser massa magra. É músculo indo embora junto.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Nos estudos, a semaglutida veio junto com mudança de estilo de vida. Ela é parte do tratamento, não o tratamento inteiro.",
+      "pose": "explicando"
+    },
+    {
+      "text": "Combina com o seu endocrinologista a alimentação e o exercício. O remédio não treina por você: o treino de força volta pra rotina.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, todo mundo começa a semaglutida achando que o remédio resolve tudo e deixa o treino para depois. Só que, sem treino resistido, cerca de 40% da perda total pode ser massa magra, ou seja, músculo.\n\nUsar Ozempic sem diabetes é comum, mas os estudos STEP testaram a semaglutida 2,4 mg por semana junto com aconselhamento e mudança de estilo de vida. O Ozempic é aprovado para diabetes tipo 2; para obesidade, a versão aprovada é o Wegovy, com outra dose máxima.\n\n1️⃣ Treino de força faz parte do tratamento\n2️⃣ Alimentação e acompanhamento andam junto\n3️⃣ Dose e titulação são com o endocrinologista\n\n⚠️ Efeito colateral gastrointestinal é comum: 74% dos participantes do STEP-1 relataram náusea, diarreia ou vômito em algum momento. Quem tem histórico pessoal ou familiar de câncer medular de tireoide, NEM 2 ou pancreatite prévia não deve usar.",
+  "question": "Você faz treino de força junto com a semaglutida?",
+  "share": "aquela amiga que começou o Ozempic e largou a academia"
+}

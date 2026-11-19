@@ -1,0 +1,70 @@
+{
+  "hook": "3 erros que eu vejo com efeito colateral do Ozempic",
+  "hookIcon": "prancheta",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "Primeiro, o que é esperado",
+      "body": "Os efeitos mais comuns da semaglutida são no estômago: náusea, diarreia, vômito e constipação. A náusea chega a 44% na dose de 2,4 mg do Wegovy e costuma ser passageira.",
+      "icon": "enjoo",
+      "pose": "explicando"
+    },
+    {
+      "title": "Erro 1: aguentar dor forte calada",
+      "body": "Dor abdominal forte e persistente não é enjoo comum. É o sinal de alerta de pancreatite, que é rara: cerca de 0,3%, contra 0,2% no placebo. Procure o médico.",
+      "icon": "hospital",
+      "pose": "alerta"
+    },
+    {
+      "title": "Erro 2: remédio de enjoo por conta",
+      "body": "Gengibre e medicação para o sintoma, como o dimenidrinato, entram conforme orientação médica. Não é para resolver sozinha.",
+      "icon": "proibido",
+      "pose": "ih"
+    },
+    {
+      "title": "Erro 3: apressar a subida",
+      "body": "A titulação pede 4 semanas ou mais em cada etapa. Respeitar esse tempo é uma das formas de diminuir os efeitos no estômago.",
+      "icon": "calendario",
+      "pose": "pensando"
+    },
+    {
+      "title": "O que ajuda no dia a dia",
+      "body": "Refeições menores e mais frequentes, menos gordura e fritura quando a náusea aparece e hidratação reforçada.",
+      "icon": "salada",
+      "pose": "feliz"
+    },
+    {
+      "title": "Quem não pode usar",
+      "body": "Histórico pessoal ou familiar de carcinoma medular de tireoide, NEM 2, alergia grave à semaglutida ou aos excipientes, e gravidez.",
+      "icon": "escudo",
+      "pose": "explicando"
+    },
+    {
+      "title": "Cola para guardar",
+      "body": "1️⃣ Dor forte e persistente: médico. 2️⃣ Remédio para enjoo só com orientação. 3️⃣ 4 semanas ou mais por etapa. 4️⃣ Prato menor, menos gordura, mais água.",
+      "icon": "certo",
+      "pose": "apontando"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Três erros que eu vejo com efeito colateral do Ozempic. E o primeiro é o mais sério.",
+      "pose": "ih"
+    },
+    {
+      "text": "Erro um: aguentar calada uma dor abdominal forte e persistente. Ela é o sinal de alerta de pancreatite, que é rara, e pede médico.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Erro dois: tomar remédio para enjoo por conta própria. Erro três: apressar a subida, que pede 4 semanas ou mais por etapa.",
+      "pose": "explicando"
+    },
+    {
+      "text": "Enjoo leve costuma passar; dor forte, não. Então, esses três erros com o Ozempic, nunca mais.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, a gente ouve tanto que é normal enjoar que acaba achando tudo normal. A maior parte dos efeitos colaterais da semaglutida é gastrointestinal e costuma ser passageira: náusea (até 44% na dose de 2,4 mg do Wegovy), diarreia, vômito e constipação.\n\n1️⃣ Dor abdominal forte e persistente é sinal de alerta de pancreatite, rara (cerca de 0,3%, contra 0,2% no placebo): procure o médico\n2️⃣ Gengibre ou remédio para enjoo, como o dimenidrinato, só conforme orientação médica\n3️⃣ Respeite a titulação do Ozempic: 4 semanas ou mais por etapa\n\n⚠️ Não devem usar semaglutida: quem tem histórico pessoal ou familiar de carcinoma medular de tireoide ou NEM 2, alergia grave à semaglutida ou aos excipientes, e gestantes.",
+  "question": "Qual efeito colateral mais te pegou de surpresa?",
+  "share": "aquela amiga que acha que toda dor de barriga é normal do Ozempic"
+}

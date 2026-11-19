@@ -1,0 +1,70 @@
+{
+  "hook": "70%. Guarda esse número antes de parar o Ozempic.",
+  "hookIcon": "lupa",
+  "hookPose": "explicando",
+  "slides": [
+    {
+      "title": "De onde vem esse número",
+      "body": "No estudo STEP-4, todos usaram semaglutida 2,4 mg por 20 semanas. Depois, uma parte seguiu com o remédio e outra trocou por placebo.",
+      "icon": "microscopio",
+      "pose": "explicando"
+    },
+    {
+      "title": "Quem trocou por placebo",
+      "body": "Recuperou cerca de 70% do que tinha perdido em 48 semanas. Quem continuou com a semaglutida manteve a perda.",
+      "icon": "grafico-sobe",
+      "pose": "pensando"
+    },
+    {
+      "title": "Ela age enquanto está ativa",
+      "body": "A semaglutida trata a obesidade enquanto está no corpo, como o remédio de pressão trata a hipertensão. Parou, o efeito vai embora.",
+      "icon": "escudo",
+      "pose": "explicando"
+    },
+    {
+      "title": "Por que o apetite volta",
+      "body": "Apetite e saciedade voltam ao estado de antes em cerca de 4 semanas após parar. E a adaptação do metabolismo continua.",
+      "icon": "cerebro",
+      "pose": "pensando"
+    },
+    {
+      "title": "O remédio não faz tudo sozinho",
+      "body": "Eu sei, dá vontade de largar o treino de força quando o remédio está ajudando. Mas é ele que preserva a massa muscular, durante e depois.",
+      "icon": "musculo",
+      "pose": "ih"
+    },
+    {
+      "title": "Parar? Só com plano",
+      "body": "Reduzir a dose aos poucos, com orientação médica, em vez de parar de uma vez. Continuar por longo prazo também é uma opção clínica válida.",
+      "icon": "estetoscopio",
+      "pose": "explicando"
+    },
+    {
+      "title": "Cola anti-rebote",
+      "body": "1️⃣ Treino resistido sempre. 2️⃣ Proteína em dia. 3️⃣ Acompanhe o peso toda semana. 4️⃣ Nada de parar de uma vez: a saída se decide com o médico.",
+      "icon": "certo",
+      "pose": "apontando"
+    }
+  ],
+  "narration": [
+    {
+      "text": "É 70%: guarda esse número antes de parar o Ozempic.",
+      "pose": "explicando"
+    },
+    {
+      "text": "No estudo STEP-4, quem trocou a semaglutida por placebo recuperou cerca de 70% do que tinha perdido em 48 semanas.",
+      "pose": "pensando"
+    },
+    {
+      "text": "Por isso, não largue o treino de força nem a proteína: eles preservam a massa muscular, durante e depois.",
+      "pose": "ih"
+    },
+    {
+      "text": "Parar é decisão com o médico, reduzindo aos poucos. Então, lembra dos 70% antes de largar tudo de uma vez.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, quando o Ozempic está ajudando dá vontade de largar o treino e parar de uma vez quando a meta chega. Mas a semaglutida trata enquanto está ativa: no estudo STEP-4, quem trocou por placebo recuperou cerca de 70% do peso perdido em 48 semanas, enquanto quem continuou manteve a perda.\n\n1️⃣ Reduzir a dose aos poucos, com orientação médica, em vez de parar de uma vez\n2️⃣ Treino resistido consistente, durante e depois, para preservar massa muscular\n3️⃣ Proteína suficiente para saciedade e manutenção muscular\n4️⃣ Acompanhar o peso toda semana para agir cedo\n\n⚠️ O apetite volta ao estado de antes em cerca de 4 semanas após parar a semaglutida. Continuar o tratamento por longo prazo também é uma opção válida: a decisão é sua com o médico.",
+  "question": "Você mantém algum treino de força junto com o tratamento?",
+  "share": "aquela amiga que largou a academia porque o Ozempic está ajudando"
+}

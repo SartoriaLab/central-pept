@@ -1,0 +1,76 @@
+{
+  "hook": "Acha que a 0,25 mg da semaglutida não faz nada?",
+  "hookIcon": "duvida",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "A mania de adiantar a subida",
+      "body": "Achar que a primeira dose 'não faz nada' e querer pular logo para a próxima. Eu sei, a ansiedade bate em todo mundo. Mas olha o que a bula diz.",
+      "icon": "alerta",
+      "pose": "ih"
+    },
+    {
+      "title": "Dose de começo não é dose final",
+      "body": "Na bula, 0,25 mg por semana é a dose inicial. O próprio esquema prevê aumentar aos poucos, até no máximo 2,4 mg por semana. Isso se chama titulação.",
+      "icon": "alvo",
+      "pose": "explicando"
+    },
+    {
+      "title": "O que ela faz no corpo",
+      "body": "A semaglutida aumenta a insulina quando a glicose sobe, reduz o glucagon, retarda o esvaziamento do estômago e age nos centros de saciedade.",
+      "icon": "cerebro",
+      "pose": "pensando"
+    },
+    {
+      "title": "O estômago sente",
+      "body": "Mais de 20% relatam náusea com o Ozempic, e até 44% com o Wegovy. Vômito, diarreia e constipação também estão na lista. O ritmo da subida é conversa com o médico.",
+      "icon": "enjoo",
+      "pose": "alerta"
+    },
+    {
+      "title": "Uma vez por semana, por quê?",
+      "body": "A molécula tem um ácido graxo que se liga à albumina do sangue. Isso dá meia-vida de cerca de 7 dias, e por isso a aplicação é semanal.",
+      "icon": "ampulheta",
+      "pose": "explicando"
+    },
+    {
+      "title": "Ozempic, Wegovy e Rybelsus",
+      "body": "Todos são semaglutida. Ozempic é para diabetes tipo 2, Wegovy para obesidade e Rybelsus é a versão oral. Cada um tem a sua bula.",
+      "icon": "comprimido",
+      "pose": "piscadinha"
+    },
+    {
+      "title": "Conte antes de começar",
+      "body": "Histórico pessoal ou familiar de carcinoma medular de tireoide, NEM 2, alergia grave à semaglutida ou gestação: o médico precisa saber antes.",
+      "icon": "estetoscopio",
+      "pose": "alerta"
+    },
+    {
+      "title": "A cola pra guardar",
+      "body": "0,25 mg é o começo, não a meta. A subida segue a titulação. Náusea é efeito comum. Uma aplicação por semana. Ritmo e ajuste: sempre com o médico.",
+      "icon": "certo",
+      "pose": "apontando"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Você acha que a 0,25 mg da semaglutida não faz nada e quer adiantar a subida? Eu sei, todo mundo pensa isso.",
+      "pose": "ih"
+    },
+    {
+      "text": "Na bula, essa é a dose inicial. O esquema prevê aumentar aos poucos, com titulação, e quem define o ritmo é o seu médico.",
+      "pose": "explicando"
+    },
+    {
+      "text": "A náusea é um efeito comum: mais de 20% relatam com o Ozempic. Correr na subida não está no esquema da bula.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Então, a primeira dose não é inútil: ela é o começo do caminho. A 0,25 mg está fazendo exatamente o papel dela.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, todo mundo começa a semaglutida e acha que a primeira dose \"não faz nada\". Só que, na bula, 0,25 mg por semana é a dose inicial: o próprio esquema prevê aumentar aos poucos, até no máximo 2,4 mg por semana. É a titulação.\n\n1️⃣ A dose inicial é o começo do esquema, não a meta\n2️⃣ A subida segue a titulação que o médico conduz\n3️⃣ Aplicação uma vez por semana: a meia-vida é de cerca de 7 dias\n\n⚠️ Efeito colateral gastrointestinal é comum: mais de 20% relatam náusea com o Ozempic e até 44% com o Wegovy. Quem tem histórico pessoal ou familiar de carcinoma medular de tireoide ou NEM 2, alergia grave à semaglutida ou está gestante precisa conversar com o médico antes.",
+  "question": "A primeira dose te deu vontade de adiantar a subida?",
+  "share": "aquela amiga que acha que a primeira dose do Ozempic não faz nada"
+}

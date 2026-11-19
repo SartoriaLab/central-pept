@@ -1,0 +1,50 @@
+# reels de 2026-12-14
+
+Regras e schema: `social/fila/REGRAS.md`. Sai como Reels: capriche no gancho falado e nas falas (narration).
+Salve o texto em `social/fila/2026-12-14-reels/texto.json` e confira com:
+
+    "C:/Users/julia/AppData/Roaming/nvm/v20.14.0/node.exe" node_modules/tsx/dist/cli.mjs scripts/social/run.ts --check social/fila/2026-12-14-reels
+
+Se sair "REPROVADO", corrija só o que a lista aponta e rode de novo.
+
+## PEDIDO
+
+TEMA: Semaglutida vs Retatrutida
+
+FONTE:
+Comparação: Semaglutida vs Retatrutida
+
+Peptídeo: Semaglutida
+Categoria: GLP-1 / Emagrecimento
+Resumo: Agonista do receptor GLP-1. Usado para controle glicêmico e perda de peso.
+Dose típica: 0.25 mg, 1x por semana (dose inicial, aumentar gradualmente)
+Faixa de dose: 0,25-2,4 mg/semana (subcutâneo, com titulação)
+Meia-vida: ~7 dias
+Frascos comuns: 3 mg, 5 mg
+Status regulatório: Aprovado FDA
+Descrição: A semaglutida é um análogo do peptídeo semelhante ao glucagon tipo 1 (GLP-1), aprovada pela FDA e comercializada como Ozempic (2017, diabetes tipo 2), Rybelsus (oral, 2019) e Wegovy (2021, obesidade). Molécula modificada do GLP-1 humano com substituições de aminoácidos e conjugação a ácido graxo C18, o que permite ligação à albumina e administração semanal.
+
+Indicada para diabetes tipo 2 em adultos e manejo crônico de peso em obesidade (IMC ≥ 30) ou sobrepeso (IMC ≥ 27) com comorbidade. Ensaios de fase 3 (SUSTAIN e STEP) demonstraram perda ponderal média de 10-15% com 2,4 mg/semana. Em 2024 a FDA também aprovou para redução de risco cardiovascular em adultos com DCV estabelecida e obesidade/sobrepeso.
+Mecanismo: Agonista seletivo do receptor GLP-1, amplamente expresso em células beta pancreáticas, neurônios do SNC (hipotálamo, tronco cerebral), TGI e miocárdio. A ativação aumenta secreção de insulina glicose-dependente, suprime glucagon, retarda esvaziamento gástrico e atua em centros de saciedade, reduzindo ingestão calórica.
+
+A modificação estrutural (ácido graxo C18 ligado ao Lys26) confere alta afinidade pela albumina sérica, reduzindo depuração renal e degradação por DPP-4 — resultando em meia-vida plasmática de ~1 semana.
+Efeitos colaterais: Náusea (>20% em Ozempic; até 44% em Wegovy); Vômito; Diarreia; Constipação; Dor abdominal; Reações no local da injeção
+Contraindicações: História pessoal ou familiar de carcinoma medular de tireoide (CMT); Síndrome de Neoplasia Endócrina Múltipla tipo 2 (NEM 2); Hipersensibilidade grave à semaglutida ou excipientes; Gestação (uso não recomendado)
+
+Peptídeo: Retatrutida
+Categoria: GLP-1 / Emagrecimento
+Resumo: Agonista triplo GLP-1/GIP/glucagon em desenvolvimento para obesidade e diabetes tipo 2.
+Dose típica: 2 mg, 1x por semana
+Faixa de dose: Ensaios: 1, 4, 8 e 12 mg/semana (fase 2); 4, 9 e 12 mg/semana com início em 2 mg (fase 3)
+Meia-vida: ~6 dias
+Frascos comuns: 5 mg, 10 mg, 60 mg
+Status regulatório: Em desenvolvimento
+Proibido pela WADA no esporte.
+Descrição: Retatrutida (LY3437943) é um peptídeo sintético investigacional da Eli Lilly, atuando como agonista triplo dos receptores GIP, GLP-1 e glucagon. Peptídeo de 39 aminoácidos com cadeia de ácido graxo diácido C20, administração subcutânea semanal. **Importante**: NÃO está aprovada por qualquer agência (FDA, EMA, ANVISA). Em julho de 2026 a ANVISA informou que não há pedido de registro e orientou a não usar produtos vendidos como retatrutida. Os ensaios de fase 3 TRIUMPH-1, 2, 3 e 4 já tiveram resultados divulgados; outros seguem em andamento.
+
+Na fase 2 (NEJM 2023), a perda ponderal média foi de 24,2% em 48 semanas com 12 mg/semana em pessoas sem diabetes. No TRIUMPH-1 (fase 3, NEJM 2026, 80 semanas), a média com 12 mg foi de 25,0% contando todos os participantes e de 28,3% considerando quem manteve o tratamento. No TRIUMPH-4 (68 semanas, comunicado da empresa de dezembro de 2025), 23,7% e 28,7% nas mesmas duas contas.
+Mecanismo: Ativa simultaneamente receptores de GLP-1, GIP e glucagon. GLP-1 e GIP reproduzem os efeitos observados nos análogos existentes (insulina glicose-dependente, supressão de glucagon pós-prandial, retardo do esvaziamento gástrico, modulação do apetite). A hipótese dos autores dos ensaios é que o agonismo ao receptor de glucagon aumente o gasto energético e a mobilização de gordura no fígado, contribuindo para a perda ponderal adicional e para a redução de gordura hepática; isso ainda não foi demonstrado diretamente em humanos.
+
+Estudos farmacológicos indicam menor potência relativa a GLP-1/glucagon humanos em comparação aos ligantes nativos, com maior potência relativa ao GIP. Conjugação a ácido graxo C20 confere meia-vida compatível com dosagem semanal.
+Efeitos colaterais: Náusea (fase 2: 45% com 12 mg e até 60% com início em dose mais alta; fase 3: até ~43%); Diarreia (fase 3: até ~35%); Constipação (fase 3: até ~26%); Vômito (fase 3: até ~25%); Diminuição do apetite; Disestesia (sensações cutâneas anormais), mais frequente nas doses altas: até ~21% com 12 mg em um ensaio de fase 3
+Contraindicações: Medicamento experimental — contraindicações formais ainda não estabelecidas em bula; Exclusões dos ensaios: história pessoal/familiar de CMT ou NEM 2; História de pancreatite; Gravidez e lactação; Hipersensibilidade à formulação

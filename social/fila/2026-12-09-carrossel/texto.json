@@ -1,0 +1,76 @@
+{
+  "hook": "Mito: o frasco de “cagrilintida” é o mesmo do estudo",
+  "hookIcon": "frasco",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "Mito derrubado",
+      "body": "Frasco de peptídeo de pesquisa não é o medicamento dos ensaios. Qualquer produto fora de ensaio clínico não passou por controle regulatório.",
+      "icon": "errado",
+      "pose": "ih"
+    },
+    {
+      "title": "O que é a cagrilintida",
+      "body": "Um análogo da amilina, hormônio liberado junto com a insulina pelo pâncreas. Da Novo Nordisk, é estudada sozinha e no CagriSema, com semaglutida.",
+      "icon": "livros",
+      "pose": "explicando"
+    },
+    {
+      "title": "Onde ela age",
+      "body": "No tronco encefálico e no hipotálamo, áreas que regulam a fome. Também deixa o estômago esvaziar mais devagar e segura o glucagon depois das refeições.",
+      "icon": "cerebro",
+      "pose": "pensando"
+    },
+    {
+      "title": "Por que semanal",
+      "body": "A meia-vida é de cerca de 7 dias. Por isso os ensaios usam uma aplicação por semana, com aumento gradual de dose.",
+      "icon": "ampulheta",
+      "pose": "explicando"
+    },
+    {
+      "title": "Dose? Só a de estudo",
+      "body": "Na fase 3, a dose-alvo foi 2,4 mg por semana, alcançada aos poucos. Não existe bula aprovada: qualquer esquema é decisão médica, dentro de pesquisa.",
+      "icon": "prancheta",
+      "pose": "alerta"
+    },
+    {
+      "title": "Efeitos que apareceram",
+      "body": "Náusea, vômito e constipação, mais frequentes na fase de aumento de dose. E apetite muito reduzido pode custar massa magra sem acompanhamento nutricional.",
+      "icon": "enjoo",
+      "pose": "ih"
+    },
+    {
+      "title": "Quem fica de fora",
+      "body": "Gestantes e lactantes, quem tem histórico de pancreatite e quem tem gastroparesia grave. No esporte, a WADA proíbe.",
+      "icon": "escudo",
+      "pose": "alerta"
+    },
+    {
+      "title": "Cola pra guardar",
+      "body": "É experimental e sem aprovação. Frasco de pesquisa não é o remédio testado. Pensa em tratar a obesidade? Leve a dúvida ao médico.",
+      "icon": "certo",
+      "pose": "apontando"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Mito: o frasco de cagrilintida que circula por aí é o mesmo do estudo. Não é, e isso muda tudo.",
+      "pose": "ih"
+    },
+    {
+      "text": "A cagrilintida imita a amilina e é estudada em aplicação semanal. Ela ainda está em fase 3, sem aprovação como medicamento.",
+      "pose": "explicando"
+    },
+    {
+      "text": "Produto fora de ensaio clínico não passou por controle regulatório. Sem esse controle, ninguém garante o que está no frasco.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Pensa em tratar a obesidade? Converse com o médico sobre o que é aprovado. Frasco de pesquisa e remédio de estudo, nunca mais a mesma coisa.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, o nome é igual e parece a mesma coisa. Mas o frasco de “cagrilintida” que circula como peptídeo de pesquisa não é o medicamento dos ensaios: qualquer produto fora de ensaio clínico não passou por controle regulatório.\n\nA cagrilintida é um análogo da amilina, hormônio liberado junto com a insulina. Age no tronco encefálico e no hipotálamo, reduz o apetite, deixa o estômago mais lento e segura o glucagon depois das refeições. A meia-vida é de cerca de 7 dias, por isso os ensaios usam aplicação semanal.\n\n1️⃣ Status: em desenvolvimento, sem aprovação como medicamento\n2️⃣ Dose: só a de estudo, com dose-alvo de 2,4 mg por semana na fase 3 e aumento gradual; sem bula, qualquer esquema é decisão médica\n3️⃣ Efeito colateral: náusea, vômito e constipação, mais na fase de aumento de dose\n\n⚠️ Gestação, lactação, histórico de pancreatite e gastroparesia grave ficam de fora. Apetite muito reduzido sem acompanhamento nutricional pode custar massa magra. No esporte, a WADA proíbe.",
+  "question": "Você já viu alguém tratando frasco de pesquisa como se fosse remédio aprovado?",
+  "share": "quem acha que o frasco de pesquisa é o mesmo remédio do estudo"
+}

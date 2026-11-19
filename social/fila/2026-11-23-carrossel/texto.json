@@ -1,0 +1,70 @@
+{
+  "hook": "Ninguém te conta isso sobre o Mounjaro e a pílula",
+  "hookIcon": "comprimido",
+  "hookPose": "alerta",
+  "slides": [
+    {
+      "title": "A pílula pode ser menos absorvida",
+      "body": "A tirzepatida pode reduzir a absorção do anticoncepcional oral. Começou ou subiu a dose? A bula orienta método não oral ou método de barreira junto por 4 semanas.",
+      "icon": "escudo",
+      "pose": "alerta"
+    },
+    {
+      "title": "O efeito mais comum é no estômago",
+      "body": "No SURMOUNT-1, a náusea atingiu de 24,6% a 33,3% dos participantes, conforme a dose. Diarreia, constipação e vômito vêm logo atrás.",
+      "icon": "enjoo",
+      "pose": "explicando"
+    },
+    {
+      "title": "Quase sempre leve e passageiro",
+      "body": "A maioria foi leve a moderada e apareceu na fase de subida de dose. Menos de 8% pararam o tratamento por efeito adverso.",
+      "icon": "grafico-desce",
+      "pose": "feliz"
+    },
+    {
+      "title": "Dose maior, enjoo maior? Não é bem assim",
+      "body": "A náusea foi parecida em 10 e 15 mg, porque o corpo se adapta ao longo da subida. Respeitar pelo menos 4 semanas em cada dose ajuda.",
+      "icon": "balanca",
+      "pose": "pensando"
+    },
+    {
+      "title": "Avise antes da sedação",
+      "body": "Com a tirzepatida, o estômago esvazia mais devagar. Antes de cirurgia ou exame com sedação, conte à equipe que você usa o remédio.",
+      "icon": "estetoscopio",
+      "pose": "piscadinha"
+    },
+    {
+      "title": "Raro, mas pede atendimento",
+      "body": "Dor abdominal forte que não passa, vômito persistente, sinais de desidratação, inchaço no rosto ou na garganta, pele ou olhos amarelados.",
+      "icon": "hospital",
+      "pose": "alerta"
+    },
+    {
+      "title": "Cola para guardar",
+      "body": "1️⃣ Pílula: método extra por 4 semanas ao começar e a cada subida. 2️⃣ Porções menores, comendo devagar. 3️⃣ Avise antes de sedação. 4️⃣ Sinal de alerta: atendimento.",
+      "icon": "certo",
+      "pose": "apontando"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Ninguém te conta isso: o Mounjaro pode reduzir a absorção da sua pílula anticoncepcional.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Ao começar e a cada aumento de dose, a bula orienta método não oral ou de barreira junto por 4 semanas.",
+      "pose": "explicando"
+    },
+    {
+      "text": "Os efeitos mais comuns são no estômago, quase sempre leves e na fase de subida. E antes de sedação, avise a equipe que você usa.",
+      "pose": "apontando"
+    },
+    {
+      "text": "Dúvida sobre o seu método é conversa com o médico. Então, contar só com a pílula nessas semanas, nunca mais.",
+      "pose": "piscadinha"
+    }
+  ],
+  "caption": "Eu sei, a gente começa o Mounjaro pensando no enjoo e esquece do resto. Mas a tirzepatida pode reduzir a absorção da pílula anticoncepcional: a bula orienta método não oral ou de barreira junto por 4 semanas após o início e após cada aumento de dose.\n\nOs efeitos colaterais mais comuns são gastrointestinais. No SURMOUNT-1, a náusea atingiu de 24,6% a 33,3% dos participantes, conforme a dose, quase sempre leve e na fase de subida. Menos de 8% pararam por efeito adverso.\n\n⚠️ Procure atendimento com dor abdominal forte que não passa, vômito persistente, sinais de desidratação, inchaço de rosto ou garganta, ou pele e olhos amarelados. Histórico pessoal ou familiar de carcinoma medular de tireoide ou NEM 2 é contraindicação.\n\nE antes de cirurgia ou exame com sedação, avise a equipe que você usa tirzepatida.",
+  "question": "Você sabia dessa história da pílula com o Mounjaro?",
+  "share": "aquela amiga que usa Mounjaro e toma pílula"
+}

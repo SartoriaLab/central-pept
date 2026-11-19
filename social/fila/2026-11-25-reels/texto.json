@@ -1,0 +1,76 @@
+{
+  "hook": "Mito: existe Mounjaro em frasco no Brasil.",
+  "hookIcon": "duvida",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "Mounjaro aqui é caneta",
+      "body": "No Brasil, a Lilly só tem a caneta KwikPen, com solução pronta. Frasco com pó é tirzepatida manipulada ou de outra origem, nunca Mounjaro.",
+      "icon": "certo",
+      "pose": "explicando"
+    },
+    {
+      "title": "Na caixa, confira",
+      "body": "Mounjaro, tirzepatida e dose impressos, fabricante Eli Lilly, registro ANVISA, lote e validade impressos (não em adesivo), lacre intacto e bula em português.",
+      "icon": "lupa",
+      "pose": "explicando"
+    },
+    {
+      "title": "Caneta solta é suspeita",
+      "body": "A apresentação nacional é caixa com 4 canetas. Caneta sem caixa ou caixa com uma só caneta merece desconfiança.",
+      "icon": "alerta",
+      "pose": "pensando"
+    },
+    {
+      "title": "Na caneta, confira",
+      "body": "Rótulo impresso de fábrica, lote igual ao da caixa, líquido límpido e incolor e seletor que trava com clique. Gira livre? Suspeito.",
+      "icon": "seringa",
+      "pose": "apontando"
+    },
+    {
+      "title": "Consulte o registro",
+      "body": "Em consultas.anvisa.gov.br, busque Mounjaro: o registro válido é da Eli Lilly do Brasil. Veja também se o lote aparece nos alertas de falsificação.",
+      "icon": "escudo",
+      "pose": "piscadinha"
+    },
+    {
+      "title": "Onde o risco é maior",
+      "body": "Anúncio em rede social ou marketplace, perfil sem CNPJ nem endereço e ninguém pedindo receita. A ANVISA exige receita retida para tirzepatida.",
+      "icon": "proibido",
+      "pose": "ih"
+    },
+    {
+      "title": "Desconfiou? Não aplique",
+      "body": "Fotografe a caixa, a caneta e o rótulo e notifique a ANVISA pelo Notivisa. Já aplicou e sentiu algo anormal? Pronto-socorro, levando o produto.",
+      "icon": "hospital",
+      "pose": "alerta"
+    },
+    {
+      "title": "Sua cola",
+      "body": "Mounjaro é caneta, em caixa com 4. Lote da caixa igual ao da caneta, impresso. Registro na ANVISA em nome da Eli Lilly. Frasco nunca é Mounjaro.",
+      "icon": "prancheta",
+      "pose": "apontando"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Mito: existe Mounjaro em frasco no Brasil. Não existe, e esse é o primeiro sinal de falsificação.",
+      "pose": "ih"
+    },
+    {
+      "text": "Aqui, o Mounjaro é só a caneta KwikPen da Eli Lilly, em caixa com 4 canetas. Frasco é tirzepatida manipulada ou de outra origem, nunca Mounjaro.",
+      "pose": "explicando"
+    },
+    {
+      "text": "Na caixa, o lote tem que ser igual ao da caneta e vir impresso, não em adesivo. Líquido turvo ou seletor sem clique? Não aplique.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Desconfiou, tire fotos e notifique a ANVISA pelo Notivisa. E se aparecer Mounjaro em frasco, você já sabe: é mito.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, quando aparece \"Mounjaro em frasco\" dá vontade de acreditar. Mas no Brasil a Lilly só tem a caneta KwikPen, com solução pronta. Frasco com pó é tirzepatida manipulada ou de outra origem, nunca Mounjaro.\n\n1️⃣ Na caixa: registro ANVISA, fabricante Eli Lilly, lote e validade impressos (não em adesivo), lacre intacto e bula em português.\n2️⃣ Na caneta: rótulo de fábrica, lote igual ao da caixa, líquido límpido e incolor, seletor que trava com clique.\n3️⃣ Na ANVISA: confira o registro em consultas.anvisa.gov.br e veja se o lote está em algum alerta de falsificação.\n\n⚠️ Desconfiou, não aplique. Fotografe tudo e notifique pelo Notivisa. Se já aplicou e apareceram sintomas anormais, procure o pronto-socorro levando o produto.",
+  "question": "Você já tinha visto anúncio de Mounjaro em frasco por aí?",
+  "share": "quem acha que Mounjaro também vem em frasco"
+}

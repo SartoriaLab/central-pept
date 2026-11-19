@@ -1,0 +1,76 @@
+{
+  "hook": "Três erros que eu vejo com a liraglutida",
+  "hookIcon": "alerta",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "Erro 1: tratar como se fosse semanal",
+      "body": "A liraglutida é de aplicação diária. A meia-vida é de cerca de 13 horas, por isso o esquema é de uma aplicação por dia.",
+      "icon": "relogio",
+      "pose": "ih"
+    },
+    {
+      "title": "Por que ela é diária",
+      "body": "Ela tem 97% de homologia com o GLP-1 natural e uma cadeia de ácido graxo que se liga à albumina e prolonga a ação. Prolonga, mas o esquema continua diário.",
+      "icon": "dna",
+      "pose": "explicando"
+    },
+    {
+      "title": "Erro 2: querer começar lá no alto",
+      "body": "Na bula, a dose inicial é 0,6 mg por dia, com aumento gradual. No controle de peso, a titulação é semanal, até no máximo 3 mg por dia.",
+      "icon": "grafico-sobe",
+      "pose": "alerta"
+    },
+    {
+      "title": "Diabetes e peso têm faixas diferentes",
+      "body": "No diabetes (Victoza), a faixa vai de 0,6 a 1,8 mg por dia. No controle de peso (Saxenda), chega a 3 mg. Quem define a sua é o médico.",
+      "icon": "balanca",
+      "pose": "explicando"
+    },
+    {
+      "title": "O estômago reclama, e costuma passar",
+      "body": "Náusea, diarreia, constipação e vômito são os efeitos mais comuns e, em geral, transitórios. Persistiu ou piorou? Conte para o médico.",
+      "icon": "enjoo",
+      "pose": "pensando"
+    },
+    {
+      "title": "Erro 3: esquecer de contar o histórico",
+      "body": "Pancreatite, carcinoma medular de tireoide ou NEM2 (seu ou da família), gestação ou alergia à liraglutida: o médico precisa saber antes de começar.",
+      "icon": "estetoscopio",
+      "pose": "alerta"
+    },
+    {
+      "title": "E o coração?",
+      "body": "Aumento da frequência cardíaca está entre os efeitos descritos. Pancreatite e cálculo na vesícula são raros, mas aparecem na lista.",
+      "icon": "coracao",
+      "pose": "pensando"
+    },
+    {
+      "title": "A cola pra guardar",
+      "body": "Liraglutida é diária. Começa em 0,6 mg e sobe aos poucos, como a bula descreve. Enjoo costuma passar. Pancreatite ou tireoide na história: conte antes. Ajuste só com o médico.",
+      "icon": "certo",
+      "pose": "apontando"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Três erros que eu vejo toda semana com a liraglutida. O primeiro: tratar como se fosse semanal.",
+      "pose": "ih"
+    },
+    {
+      "text": "Ela tem meia-vida de cerca de 13 horas, por isso é diária. O segundo erro é querer começar alto: a bula começa em 0,6 mg por dia e sobe aos poucos.",
+      "pose": "explicando"
+    },
+    {
+      "text": "O terceiro é esquecer de contar o histórico. Pancreatite ou câncer medular de tireoide na família são assuntos para o médico antes.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Diária, subindo devagar e com o histórico na mesa. Então, são três erros a menos com a liraglutida.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, quem vem de outro GLP-1 ou começa agora com Saxenda ou Victoza costuma tropeçar nos mesmos pontos. A liraglutida tem meia-vida de cerca de 13 horas, por isso a aplicação é diária.\n\n1️⃣ Ela é diária, não semanal\n2️⃣ A dose inicial da bula é 0,6 mg por dia, com aumento gradual: no diabetes vai até 1,8 mg por dia e, no controle de peso, até 3 mg por dia\n3️⃣ O histórico de saúde vai para a consulta antes de começar\n\n⚠️ Náusea, diarreia, constipação e vômito são os efeitos colaterais mais comuns e, em geral, transitórios. Pancreatite e cálculo na vesícula são raros, mas descritos. Quem tem histórico pessoal ou familiar de carcinoma medular de tireoide ou NEM2, histórico de pancreatite ou está gestante precisa falar com o médico. Ajuste de dose é sempre com ele.",
+  "question": "Qual foi a sua maior dúvida no começo da liraglutida?",
+  "share": "quem começou o Saxenda ou o Victoza agora"
+}

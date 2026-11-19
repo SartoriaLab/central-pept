@@ -1,0 +1,76 @@
+{
+  "hook": "Sua semaglutida ficou turva depois de misturar?",
+  "hookIcon": "frasco",
+  "hookPose": "pensando",
+  "slides": [
+    {
+      "title": "Caneta não se reconstitui",
+      "body": "Ozempic e Wegovy em caneta já vêm prontos. Só o frasco com pó liofilizado precisa de água bacteriostática.",
+      "icon": "lampada",
+      "pose": "explicando"
+    },
+    {
+      "title": "Limpe antes",
+      "body": "Lave as mãos e passe álcool 70% na tampa de borracha dos dois frascos. Deixe secar ao ar por alguns segundos.",
+      "icon": "escudo",
+      "pose": "explicando"
+    },
+    {
+      "title": "A água decide as unidades",
+      "body": "Frasco de 5 mg com 2 ml de água dá 2,5 mg/ml: a dose inicial de bula, 0,25 mg, fica em 10 unidades na seringa.",
+      "icon": "regua",
+      "pose": "pensando"
+    },
+    {
+      "title": "Pela parede, nunca no pó",
+      "body": "Deixe a água escorrer pela parede interna do frasco. O jato direto sobre o pó pode danificar o peptídeo.",
+      "icon": "gota",
+      "pose": "alerta"
+    },
+    {
+      "title": "Gire, não sacuda",
+      "body": "Gire o frasco entre as palmas das mãos por 30 a 60 segundos. Sacudir desnatura o peptídeo, então vai com calma.",
+      "icon": "errado",
+      "pose": "ih"
+    },
+    {
+      "title": "Turvou? Descarte",
+      "body": "A solução tem que ficar completamente transparente. Se continuar turva depois de 5 minutos de espera, o frasco pode estar comprometido.",
+      "icon": "lupa",
+      "pose": "alerta"
+    },
+    {
+      "title": "Geladeira e etiqueta",
+      "body": "Entre 2 e 8 °C, na prateleira do meio, nunca na porta nem no freezer. Dura 28 dias após a reconstituição. Etiqueta com data e concentração.",
+      "icon": "geladeira",
+      "pose": "piscadinha"
+    },
+    {
+      "title": "Sua cola",
+      "body": "Álcool nas tampas, água pela parede, girar sem sacudir, esperar ficar transparente, etiquetar e guardar. A dose e a subida são com o médico.",
+      "icon": "certo",
+      "pose": "apontando"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Sua semaglutida ficou turva depois de misturar? Aposto que você sacudiu o frasco pra dissolver mais rápido.",
+      "pose": "pensando"
+    },
+    {
+      "text": "Agitar desnatura o peptídeo. O certo é escorrer a água bacteriostática pela parede e girar o frasco entre as mãos, por 30 a 60 segundos.",
+      "pose": "explicando"
+    },
+    {
+      "text": "Depois, espere a solução ficar transparente. Se continuar turva depois de 5 minutos, o frasco pode estar comprometido: descarte.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Anota a concentração na etiqueta e usa a dose que o médico prescreveu. Frasco sacudido e turvo, nunca mais.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, dá vontade de sacudir o frasco pra dissolver logo. Todo mundo já fez. Mas agitar desnatura o peptídeo, e a semaglutida em pó pede calma na reconstituição.\n\n1️⃣ Lave as mãos e passe álcool 70% nas tampas dos dois frascos.\n2️⃣ Deixe a água bacteriostática escorrer pela parede, nunca direto no pó.\n3️⃣ Gire entre as palmas das mãos por 30 a 60 segundos e espere ficar transparente.\n4️⃣ Etiquete com data e concentração e guarde entre 2 e 8 °C por até 28 dias.\n\n⚠️ Continuou turva depois de 5 minutos de espera? Descarte. E água destilada no lugar da bacteriostática contamina o frasco em cerca de 24 horas.\n\nCom o frasco de 5 mg e 2 ml de água, a dose inicial de bula, 0,25 mg, fica em 10 unidades na seringa de insulina. Ajuste de dose é sempre com o médico.",
+  "question": "Você já viu a sua semaglutida ficar turva depois de misturar?",
+  "share": "aquela amiga que sacode o frasco pra dissolver logo"
+}

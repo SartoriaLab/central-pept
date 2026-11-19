@@ -1,0 +1,76 @@
+{
+  "hook": "Seu Ozempic está te dando enjoo todo dia e a dose vai subir?",
+  "hookIcon": "grafico-sobe",
+  "hookPose": "pensando",
+  "slides": [
+    {
+      "title": "A bula é referência, não obrigação",
+      "body": "Repetir a dose atual por mais 2 a 4 semanas é totalmente aceitável. A titulação da bula é referência; a decisão é sua com o médico.",
+      "icon": "prancheta",
+      "pose": "explicando"
+    },
+    {
+      "title": "Não suba a dose se...",
+      "body": "A náusea ainda é diária, você está perdendo refeições inteiras ou apareceu vômito persistente.",
+      "icon": "proibido",
+      "pose": "alerta"
+    },
+    {
+      "title": "Quando o enjoo aparece",
+      "body": "Nos primeiros 2 a 3 dias após cada subida, mais forte nas 12 a 24 horas após a aplicação. Tende a diminuir após 1 a 2 semanas em dose estável.",
+      "icon": "relogio",
+      "pose": "pensando"
+    },
+    {
+      "title": "No prato",
+      "body": "Refeições pequenas, 5 a 6 vezes ao dia. Carboidrato leve, como arroz, batata e bolacha sem açúcar, e proteína magra, como frango e peixe.",
+      "icon": "prato",
+      "pose": "explicando"
+    },
+    {
+      "title": "Líquidos longe das refeições",
+      "body": "Beber muito junto com a comida aumenta a saciedade precoce. Reforce a hidratação ao longo do dia, porque desidratação piora o enjoo.",
+      "icon": "gota",
+      "pose": "piscadinha"
+    },
+    {
+      "title": "Aplique com estratégia",
+      "body": "Mantenha o mesmo dia da semana. Muita gente prefere aplicar à noite, para dormir durante o pico do enjoo.",
+      "icon": "lua",
+      "pose": "feliz"
+    },
+    {
+      "title": "Hora de procurar o médico",
+      "body": "Dor abdominal forte e persistente, vômito que impede a hidratação por mais de 24 horas, febre, pele amarelada ou dor alta nas costas.",
+      "icon": "hospital",
+      "pose": "alerta"
+    },
+    {
+      "title": "Cola para guardar",
+      "body": "1️⃣ Enjoo diário: não suba, converse com o médico. 2️⃣ Prato pequeno, várias vezes. 3️⃣ Líquidos longe da comida. 4️⃣ Remédio para enjoo só com orientação médica.",
+      "icon": "certo",
+      "pose": "apontando"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Seu Ozempic está te dando enjoo todo dia, e a dose vai subir semana que vem?",
+      "pose": "pensando"
+    },
+    {
+      "text": "Com náusea diária, refeição perdida ou vômito persistente, não é hora de subir. Repetir a dose por mais 2 a 4 semanas, com o médico, é aceitável.",
+      "pose": "explicando"
+    },
+    {
+      "text": "Enquanto isso, faça refeições pequenas, evite gordura e fritura nos picos e beba os líquidos longe das refeições.",
+      "pose": "piscadinha"
+    },
+    {
+      "text": "Vômito que impede a hidratação por mais de 24 horas pede médico. Então, enjoo todo dia e dose subindo, nunca mais.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, a gente quer seguir o calendário certinho. Mas a titulação da bula é referência, não obrigação: se a náusea do Ozempic ainda é diária, se você está perdendo refeições ou se apareceu vômito persistente, repetir a dose atual por mais 2 a 4 semanas é totalmente aceitável. A decisão é com o médico.\n\n1️⃣ Refeições pequenas, 5 a 6 vezes ao dia\n2️⃣ Evite gordura, frituras e picantes nos picos\n3️⃣ Líquidos longe das refeições e hidratação reforçada\n4️⃣ Gengibre tem evidência razoável; dimenidrinato ou outro remédio para enjoo, só conversando com o médico\n\n⚠️ Procure o médico com dor abdominal forte e persistente, vômito que impede a hidratação por mais de 24 horas, febre, pele amarelada ou dor alta nas costas.",
+  "question": "O seu enjoo aparece mais no dia da aplicação ou depois?",
+  "share": "aquela amiga que sobe a dose do Ozempic mesmo enjoando todo dia"
+}

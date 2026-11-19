@@ -1,0 +1,70 @@
+{
+  "hook": "Você passa vitamina C, ácido e GHK-Cu tudo na mesma noite?",
+  "hookIcon": "pele",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "A regra do blog vai longe demais",
+      "body": "“Nunca use GHK-Cu com vitamina C” circula como se ela anulasse o peptídeo. Só que não há estudo em pele mostrando isso.",
+      "icon": "duvida",
+      "pose": "ih"
+    },
+    {
+      "title": "O que foi medido: tubo de ensaio",
+      "body": "Em laboratório, em pH neutro, o complexo de cobre do GHK se mostrou estável diante do ascorbato, a forma da vitamina C no sangue. É química em solução, não creme na pele.",
+      "icon": "microscopio",
+      "pose": "explicando"
+    },
+    {
+      "title": "O cuidado real é o pH",
+      "body": "Sérum de vitamina C pura costuma ser bem ácido, e a ligação do cobre ao GHK depende do pH. Ninguém mediu o encontro dos dois na pele: é precaução, não prova.",
+      "icon": "regua",
+      "pose": "pensando"
+    },
+    {
+      "title": "Retinol e ácidos: irritação somada",
+      "body": "Retinol e esfoliantes como glicólico, lático e salicílico já irritam sozinhos, ainda mais no começo. Tudo junto e, se a pele reagir, você não sabe qual foi.",
+      "icon": "alerta",
+      "pose": "alerta"
+    },
+    {
+      "title": "Separe por horário",
+      "body": "Vitamina C de manhã com protetor solar e GHK-Cu à noite, ou o contrário. Retinol ou ácido em noites alternadas, cada um no seu horário.",
+      "icon": "relogio",
+      "pose": "explicando"
+    },
+    {
+      "title": "Um ativo novo de cada vez",
+      "body": "Espere algumas semanas antes de acrescentar o próximo. A pele irritou? Suspenda o último que entrou. Se continuar, procure o dermatologista.",
+      "icon": "estetoscopio",
+      "pose": "piscadinha"
+    },
+    {
+      "title": "Cola pra guardar",
+      "body": "1. Vitamina C ou ácido num horário, GHK-Cu no outro. 2. Retinol e ácido em noites diferentes. 3. Protetor solar todo dia. 4. Um ativo novo por vez.",
+      "icon": "certo",
+      "pose": "apontando"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Você passa vitamina C, ácido, retinol e GHK-Cu tudo na mesma noite? Eu sei, a prateleira está linda.",
+      "pose": "ih"
+    },
+    {
+      "text": "Não há estudo mostrando que a vitamina C anula o GHK-Cu. O cuidado é outro: o sérum de vitamina C pura é bem ácido, e o cobre depende do pH.",
+      "pose": "explicando"
+    },
+    {
+      "text": "E retinol com ácido soma irritação. Se a pele reagir, você nem sabe quem foi o culpado.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Separe por horário e coloque um ativo novo de cada vez. A pele irritou? Fale com o dermatologista. Tudo na mesma noite, nunca mais.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, todo mundo faz: chega um sérum novo e vai tudo na mesma noite. Só que a regra “nunca use GHK-Cu com vitamina C” vai além do que os estudos mostram. Em laboratório, em pH neutro, o complexo de cobre do GHK ficou estável diante da vitamina C. Não há estudo em pele dizendo que ela anula o peptídeo.\n\nO cuidado de verdade é o pH: sérum de vitamina C pura e ácidos esfoliantes são bem ácidos, e a ligação do cobre ao GHK depende do pH. Retinol e ácidos ainda somam irritação, principalmente no começo.\n\n1️⃣ Vitamina C ou ácido num horário, GHK-Cu no outro\n2️⃣ Retinol e ácido em noites diferentes\n3️⃣ Protetor solar todos os dias\n4️⃣ Um ativo novo de cada vez, com algumas semanas entre eles\n\n⚠️ A pele irritou? Suspenda o último ativo que entrou e, se continuar, procure o dermatologista. Pele sensível, gestação ou tratamento dermatológico em andamento pedem orientação antes.",
+  "question": "Quantos ativos você usa hoje na rotina da noite?",
+  "share": "a amiga que passa cinco séruns na mesma noite"
+}

@@ -1,0 +1,76 @@
+{
+  "hook": "Ninguém te conta isso sobre a retatrutida",
+  "hookIcon": "lupa",
+  "hookPose": "alerta",
+  "slides": [
+    {
+      "title": "A mania da novidade",
+      "body": "Ver vídeo falando da retatrutida e pensar em largar o tratamento atual por ela. Eu sei, a curiosidade é grande. Mas olha o que quase ninguém fala.",
+      "icon": "duvida",
+      "pose": "ih"
+    },
+    {
+      "title": "Ela não é aprovada",
+      "body": "A retatrutida é investigacional: não tem aprovação da FDA, da EMA nem da ANVISA. Ainda está em estudos.",
+      "icon": "proibido",
+      "pose": "alerta"
+    },
+    {
+      "title": "O recado da ANVISA",
+      "body": "Em julho de 2026, a ANVISA informou que não há pedido de registro da retatrutida e orientou a não usar produtos vendidos com esse nome.",
+      "icon": "escudo",
+      "pose": "explicando"
+    },
+    {
+      "title": "O que existe são estudos",
+      "body": "Os resultados vêm de ensaios clínicos, com participantes acompanhados de perto. Fora deles, não dá pra saber o que tem num frasco sem registro.",
+      "icon": "microscopio",
+      "pose": "pensando"
+    },
+    {
+      "title": "Efeitos que apareceram nos ensaios",
+      "body": "Náusea, diarreia, constipação e vômito foram frequentes, além de disestesia, sensações estranhas na pele, mais comum nas doses altas.",
+      "icon": "enjoo",
+      "pose": "alerta"
+    },
+    {
+      "title": "E a liraglutida?",
+      "body": "É aprovada pela FDA, EMA e ANVISA, para diabetes tipo 2 e controle de peso, e tem o maior histórico de segurança da classe, com uso a partir de 12 anos.",
+      "icon": "prancheta",
+      "pose": "explicando"
+    },
+    {
+      "title": "Mecanismos diferentes",
+      "body": "A liraglutida age no receptor de GLP-1, com aplicação diária. A retatrutida age em três: GLP-1, GIP e glucagon, semanal, e segue em teste.",
+      "icon": "dna",
+      "pose": "pensando"
+    },
+    {
+      "title": "A cola pra guardar",
+      "body": "Retatrutida: experimental, sem registro, e a ANVISA orienta não usar. Liraglutida: aprovada, diária. Pensou em mudar de tratamento? Conversa com o médico antes.",
+      "icon": "certo",
+      "pose": "apontando"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Ninguém te conta isso sobre a retatrutida: ela não é aprovada em lugar nenhum. Nem pela FDA, nem pela ANVISA.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Em julho de 2026, a ANVISA disse que não existe pedido de registro e orientou a não usar o que circula com esse nome.",
+      "pose": "explicando"
+    },
+    {
+      "text": "Já a liraglutida é aprovada e tem o maior histórico de segurança da classe. Trocar de tratamento é uma conversa com o seu médico.",
+      "pose": "pensando"
+    },
+    {
+      "text": "Antes de seguir a novidade, olhe o registro. Então, agora você sabe o que ninguém te conta sobre a retatrutida.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, toda semana aparece uma novidade, e a retatrutida está em todo lugar. Mas quase ninguém fala o principal: ela é experimental e não tem aprovação da FDA, da EMA nem da ANVISA.\n\n1️⃣ Em julho de 2026, a ANVISA informou que não há pedido de registro e orientou a não usar produtos vendidos como retatrutida\n2️⃣ Os resultados que circulam vêm de ensaios clínicos, com acompanhamento de perto\n3️⃣ A liraglutida (Saxenda, Victoza) é aprovada para diabetes tipo 2 e controle de peso, com o maior histórico de segurança da classe\n\n⚠️ Nos ensaios da retatrutida, náusea, diarreia, constipação e vômito foram frequentes, além de disestesia nas doses altas. Frasco sem registro não tem garantia do que contém. Pensou em mudar de tratamento? Converse com o médico antes.",
+  "question": "Você já viu alguém falando de retatrutida por aí?",
+  "share": "aquela amiga que quer testar toda novidade que aparece na internet"
+}

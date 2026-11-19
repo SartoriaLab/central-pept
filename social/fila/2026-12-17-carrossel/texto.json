@@ -1,0 +1,76 @@
+{
+  "hook": "Você compara a sua dose em mg com a da amiga?",
+  "hookIcon": "regua",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "O número da caneta engana",
+      "body": "A mania: ouvir 'eu uso 3 mg' e achar que é mais forte que '2,5 mg'. Eu sei, parece lógico. Mas, se forem moléculas diferentes, a conta não fecha.",
+      "icon": "duvida",
+      "pose": "ih"
+    },
+    {
+      "title": "Liraglutida: a conta é por dia",
+      "body": "Começa em 0,6 mg por dia. No diabetes vai até 1,8 mg por dia; no controle de peso, até 3 mg por dia, com subida semanal.",
+      "icon": "relogio",
+      "pose": "explicando"
+    },
+    {
+      "title": "Tirzepatida: a conta é por semana",
+      "body": "Começa em 2,5 mg uma vez por semana. A faixa de bula vai de 2,5 a 15 mg por semana, com pelo menos 4 semanas entre cada subida.",
+      "icon": "calendario",
+      "pose": "explicando"
+    },
+    {
+      "title": "Molécula diferente, miligrama diferente",
+      "body": "A liraglutida age só no receptor de GLP-1. A tirzepatida age em dois: GIP e GLP-1. Um miligrama de uma não equivale a um miligrama da outra.",
+      "icon": "dna",
+      "pose": "pensando"
+    },
+    {
+      "title": "E o ritmo também muda",
+      "body": "A meia-vida da liraglutida é de cerca de 13 horas; a da tirzepatida, de cerca de 5 dias. Por isso uma é diária e a outra, semanal.",
+      "icon": "ampulheta",
+      "pose": "piscadinha"
+    },
+    {
+      "title": "Comparar dose só confunde",
+      "body": "Usar a dose da amiga como régua faz parecer que você está 'atrasada'. Não está: cada esquema tem a sua bula e o seu médico.",
+      "icon": "alerta",
+      "pose": "alerta"
+    },
+    {
+      "title": "Quando chamar o médico",
+      "body": "Náusea, diarreia ou vômito que não passam, dor abdominal ou qualquer dúvida sobre a subida: é conversa para a consulta, não para o grupo de amigas.",
+      "icon": "estetoscopio",
+      "pose": "explicando"
+    },
+    {
+      "title": "A cola pra guardar",
+      "body": "Liraglutida: mg por dia. Tirzepatida: mg por semana. Moléculas diferentes não se comparam pelo número. A sua dose é a da sua bula e do seu médico.",
+      "icon": "certo",
+      "pose": "apontando"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Você compara a sua dose em miligramas com a da sua amiga? Eu sei, todo mundo faz isso.",
+      "pose": "ih"
+    },
+    {
+      "text": "A liraglutida é contada por dia e vai até 3 mg no controle de peso. A tirzepatida é contada por semana, de 2,5 a 15 mg.",
+      "pose": "explicando"
+    },
+    {
+      "text": "São moléculas diferentes: uma age no GLP-1, a outra no GIP e no GLP-1. O número de uma não se compara com o da outra.",
+      "pose": "pensando"
+    },
+    {
+      "text": "A sua dose é a da sua bula e do seu médico. Então, a régua é sua, não a da amiga.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, é automático: a amiga fala a dose dela e a gente compara com a nossa. Só que liraglutida e tirzepatida são moléculas diferentes, com esquemas diferentes, e o número em mg de uma não se compara com o da outra.\n\n1️⃣ Liraglutida (Saxenda, Victoza): dose por dia, começa em 0,6 mg e vai até 3 mg por dia no controle de peso\n2️⃣ Tirzepatida (Mounjaro, Zepbound): dose por semana, de 2,5 a 15 mg, com pelo menos 4 semanas entre cada subida\n3️⃣ A liraglutida age no receptor de GLP-1; a tirzepatida, no GIP e no GLP-1\n\n⚠️ Náusea, diarreia, vômito e dor abdominal estão entre os efeitos colaterais das duas. Persistiu ou piorou? Fale com o médico. Dose e subida são definidas na consulta, nunca pela comparação.",
+  "question": "Alguém já te disse que a sua dose era 'fraca'?",
+  "share": "aquela amiga que vive comparando a dose dela com a sua"
+}

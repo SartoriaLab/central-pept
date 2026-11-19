@@ -1,0 +1,76 @@
+{
+  "hook": "Tirzepatida manipulada é igual ao Mounjaro? Não é.",
+  "hookIcon": "balanca",
+  "hookPose": "pensando",
+  "slides": [
+    {
+      "title": "Cópia, não genérico",
+      "body": "A farmácia de manipulação recebe a tirzepatida como matéria-prima e fraciona em frascos. Não é o mesmo produto do Mounjaro.",
+      "icon": "frasco",
+      "pose": "explicando"
+    },
+    {
+      "title": "A pureza pode variar",
+      "body": "Matéria-prima de fornecedor não farmacêutico pode ter impurezas acima de 2%, e a estabilidade não tem estudos equivalentes aos da indústria.",
+      "icon": "microscopio",
+      "pose": "pensando"
+    },
+    {
+      "title": "Rótulo x dose real",
+      "body": "Pode haver até 20% de variação entre o que diz o rótulo e o que está no frasco. Por isso, a mesma dose de antes não é a mesma coisa.",
+      "icon": "regua",
+      "pose": "ih"
+    },
+    {
+      "title": "Comece em dose baixa",
+      "body": "Mesmo com experiência prévia com Mounjaro, o cuidado é começar em dose baixa. Quem define a dose e a subida é o seu médico.",
+      "icon": "grafico-sobe",
+      "pose": "explicando"
+    },
+    {
+      "title": "Farmácia confiável tem",
+      "body": "Registro na ANVISA e alvará visíveis, COA do peptídeo com cada frasco, resultado de HPLC e farmacêutico responsável identificado.",
+      "icon": "escudo",
+      "pose": "piscadinha"
+    },
+    {
+      "title": "Sem receita? Fuja",
+      "body": "Prescrição médica é obrigatória. Farmácia que entrega sem receita está ignorando a regra mais básica.",
+      "icon": "proibido",
+      "pose": "alerta"
+    },
+    {
+      "title": "Em casa, o cuidado continua",
+      "body": "Geladeira entre 2 e 8 °C desde o recebimento, reconstituição com água bacteriostática e conta certa das unidades na seringa.",
+      "icon": "geladeira",
+      "pose": "explicando"
+    },
+    {
+      "title": "Sua cola",
+      "body": "Manipulada não é Mounjaro. Exija COA e HPLC, farmacêutico identificado e receita. Comece em dose baixa e com acompanhamento médico periódico.",
+      "icon": "certo",
+      "pose": "apontando"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Tirzepatida manipulada é igual ao Mounjaro? Não é. E muita gente troca e já começa na mesma dose de antes.",
+      "pose": "pensando"
+    },
+    {
+      "text": "A farmácia recebe a tirzepatida como matéria-prima e divide em frascos. É uma cópia, não um genérico: pureza e dose exata podem variar.",
+      "pose": "explicando"
+    },
+    {
+      "text": "Pode haver até 20% de diferença entre a dose real e o rótulo. Por isso, mesmo quem já usou Mounjaro começa em dose baixa, com o médico.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Farmácia confiável mostra o COA com HPLC, tem farmacêutico responsável e exige receita. Manipulada e Mounjaro: parecidos no nome, não no frasco.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, quando a pessoa troca o Mounjaro pela tirzepatida manipulada, a tentação é começar na mesma dose de antes. Mas manipulada não é equivalente: a farmácia recebe a tirzepatida como matéria-prima e fraciona em frascos. É uma cópia, não um genérico.\n\n⚠️ Pureza, estabilidade e dose exata podem variar. Pode haver até 20% de diferença entre o rótulo e a dose real, e impurezas acima de 2% em matéria-prima de fornecedor não farmacêutico.\n\n1️⃣ Farmácia confiável: registro ANVISA e alvará visíveis, COA e HPLC do peptídeo, farmacêutico responsável identificado e receita obrigatória.\n2️⃣ Em casa: geladeira entre 2 e 8 °C, reconstituição com água bacteriostática e conta certa das unidades.\n3️⃣ Dose: o cuidado é começar em dose baixa, mesmo com experiência prévia com Mounjaro, e acompanhamento médico periódico.\n\nQuem decide a dose e a troca é o seu médico.",
+  "question": "Você já pediu o COA do seu frasco para a farmácia?",
+  "share": "quem trocou o Mounjaro pela manipulada"
+}

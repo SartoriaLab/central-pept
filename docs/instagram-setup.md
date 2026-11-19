@@ -195,6 +195,38 @@ Sem o app aberto, a alternativa é o Agendador do Windows com o `claude` de linh
 
 ---
 
+## Parte 8 — Fila de textos prontos e o que viraliza
+
+A tarefa do dia tenta primeiro o texto pronto de `social/fila/<data>-<formato>/texto.json`
+(`run.ts <formato> --fila`). Sem texto válido para o dia, sai com código 3 e a conversa escreve na
+hora, como antes. `social/fila/PLANO.md` mostra o calendário; `REGRAS.md` tem as regras e o schema.
+
+- **Montar ou estender a fila:** `run.ts plano --dias 30` (a partir de amanhã; `--inicio AAAA-MM-DD`
+  muda o começo). Simula a escolha do tema dia a dia com o histórico do banco, sem repetir tema da
+  fila, e cria `brief.md`/`brief.json` em cada pasta nova. `--refazer` escolhe de novo os horários
+  ainda sem texto. Depois, peça ao Claude para escrever os `texto.json` seguindo os `brief.md`.
+- **Conferir um texto:** `run.ts --check social/fila/<pasta>` (mesma validação da publicação).
+- **Trocar um post:** edite o `texto.json` da pasta e rode o `--check`. Apagar o `texto.json` faz o dia
+  ser escrito na hora.
+- O tema escrito na hora evita os temas que a fila ainda vai publicar.
+
+O que a pesquisa de 2026 (Instagram, GLP-1, mulheres de 30 a 55) mostrou e já está nas regras:
+
+- Os sinais que mais pesam, segundo o chefe do Instagram, são tempo assistido, curtidas por alcance
+  e **envios por alcance**: por isso o "Manda pra..." de todo post. A taxa de pulo dos 3 primeiros
+  segundos decide o Reels: gancho na tela no primeiro quadro.
+- Carrossel de 7 a 10 imagens é o que mais engaja e é salvo (de 5 a 8 slides de conteúdo). Reels
+  alcança mais gente nova; carrossel é salvo cerca de 2×.
+- Temas com mais busca e envio: enjoo, constipação, queda de cabelo, "cara de Ozempic", massa
+  muscular e proteína, dose esquecida, guardar e viajar, Mounjaro × Ozempic × genérico, receita
+  retida, caneta falsa, retatrutida, álcool, parar e reganho, platô, escalonamento, pílula
+  anticoncepcional. `topicPriority` (`pick.ts`) põe na frente as dúvidas práticas de GLP-1.
+  Sem post no site sobre um tema, ele não entra: o robô só usa fatos do site.
+- Evitar: antes e depois, quilos perdidos, prazo para emagrecer, prescrever dose, urgência, promover
+  marca, nome de produto sem registro e repostar trecho de outro criador (regra de originalidade).
+
+---
+
 ## Me mande
 
 Não cole os valores aqui no chat. Coloque direto nos segredos do GitHub, que eu já uso no

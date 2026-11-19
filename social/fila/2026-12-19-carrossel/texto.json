@@ -1,0 +1,76 @@
+{
+  "hook": "Leu que kisspeptina ajuda na FIV? Era outra molécula.",
+  "hookIcon": "lupa",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "A confusão do fórum",
+      "body": "A mania: ler um resultado de fertilidade e achar que vale para a kisspeptina-10 'para pesquisa'. Eu sei, o nome é quase igual. A molécula, não.",
+      "icon": "duvida",
+      "pose": "ih"
+    },
+    {
+      "title": "O que é a kisspeptina",
+      "body": "Um hormônio do hipotálamo que liga o eixo reprodutivo. A kisspeptina-10 é o menor pedaço dela que ainda age por completo no receptor KISS1R.",
+      "icon": "cerebro",
+      "pose": "explicando"
+    },
+    {
+      "title": "A cascata, degrau por degrau",
+      "body": "A kisspeptina ativa os neurônios de GnRH. O GnRH estimula a hipófise. A hipófise libera LH e FSH, que agem nos ovários ou nos testículos.",
+      "icon": "livros",
+      "pose": "explicando"
+    },
+    {
+      "title": "O que a kisspeptina-10 mostrou",
+      "body": "Em homens saudáveis, uma injeção na veia fez o LH subir cerca de três vezes em 30 minutos. Estudo curto, feito em centro de pesquisa.",
+      "icon": "microscopio",
+      "pose": "pensando"
+    },
+    {
+      "title": "Na FIV, era a kisspeptina-54",
+      "body": "No ensaio com 60 mulheres em fertilização in vitro, a molécula usada foi a kisspeptina-54, mais longa. A maturação dos óvulos ocorreu em 95% delas.",
+      "icon": "lampada",
+      "pose": "piscadinha"
+    },
+    {
+      "title": "O efeito que some",
+      "body": "Com exposição contínua, o receptor se dessensibiliza e a resposta diminui. É a taquifilaxia, um dos motivos de o uso prolongado não ter base clínica.",
+      "icon": "grafico-desce",
+      "pose": "alerta"
+    },
+    {
+      "title": "Sem aprovação, sem dado longo",
+      "body": "Não é aprovada pela ANVISA, pela FDA nem pela EMA. A segurança de longo prazo é desconhecida e não existe dose aprovada. A WADA proíbe kisspeptina em homens.",
+      "icon": "proibido",
+      "pose": "explicando"
+    },
+    {
+      "title": "A cola pra guardar",
+      "body": "Kisspeptina-10 não é kisspeptina-54. Estudos curtos, em pesquisa. Sem aprovação. Gestação, câncer de mama ou próstata, ou qualquer dúvida hormonal: avaliação endocrinológica antes.",
+      "icon": "certo",
+      "pose": "apontando"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Você leu que a kisspeptina ajuda na fertilização in vitro? Então presta atenção, porque era outra molécula.",
+      "pose": "ih"
+    },
+    {
+      "text": "O estudo de fertilidade usou a kisspeptina-54, uma forma mais longa. A kisspeptina-10 foi testada por poucas horas, em homens saudáveis.",
+      "pose": "explicando"
+    },
+    {
+      "text": "Ela não é aprovada em nenhuma agência, e a segurança de longo prazo é desconhecida. Qualquer dúvida hormonal pede avaliação endocrinológica.",
+      "pose": "alerta"
+    },
+    {
+      "text": "O nome é parecido, o estudo não é. Então, antes de acreditar no fórum, confira qual kisspeptina foi testada na FIV.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, o nome engana: a gente lê \"kisspeptina na fertilização in vitro\" e acha que vale para a kisspeptina-10 que circula por aí. Mas os estudos de fertilidade mais avançados usam outra forma, a kisspeptina-54, em ambiente de pesquisa.\n\n1️⃣ A kisspeptina é o hormônio do hipotálamo que ativa os neurônios de GnRH e, em cascata, LH e FSH\n2️⃣ A kisspeptina-10 elevou o LH em homens saudáveis em estudos de curta duração, por via intravenosa\n3️⃣ No ensaio de fase 2 com 60 mulheres, foi a kisspeptina-54 que desencadeou a maturação dos óvulos em 95% delas\n\n⚠️ A kisspeptina-10 não é aprovada pela ANVISA, pela FDA nem pela EMA, não tem dose aprovada e a segurança de longo prazo é desconhecida. Com uso contínuo, o receptor se dessensibiliza. Gestação, condições hormônio-dependentes como câncer de mama ou próstata e qualquer uso pedem avaliação endocrinológica.",
+  "question": "Você já tinha ouvido falar em kisspeptina antes deste post?",
+  "share": "aquela amiga que está pesquisando tudo sobre fertilização in vitro"
+}

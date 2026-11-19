@@ -52,7 +52,8 @@ export const LIMITS = {
   hook: 70,
   slideTitle: 70,
   slideBody: 220,
-  slides: [2, 6] as const,
+  // Carrossel de 7 a 10 imagens (capa + conteúdo + guia) é o que mais engaja e é salvo.
+  slides: [2, 8] as const,
   // Reels de até ~35 s: vídeo curto é mais visto até o fim, o sinal que mais pesa no alcance.
   narration: [3, 4] as const,
   narrationLine: 160,

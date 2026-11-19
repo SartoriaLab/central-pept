@@ -1,0 +1,70 @@
+{
+  "hook": "Três erros ao comparar cagrilintida e retatrutida",
+  "hookIcon": "alerta",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "Erro 1: achar que alguma é aprovada",
+      "body": "Nenhuma das duas é. Em julho de 2026, a ANVISA informou que não há pedido de registro da retatrutida. A cagrilintida também segue em desenvolvimento.",
+      "icon": "prancheta",
+      "pose": "ih"
+    },
+    {
+      "title": "Erro 2: achar que funcionam igual",
+      "body": "A retatrutida ativa três receptores: GLP-1, GIP e glucagon. A cagrilintida imita a amilina, hormônio que sai junto com a insulina.",
+      "icon": "cerebro",
+      "pose": "explicando"
+    },
+    {
+      "title": "O glucagon ainda é hipótese",
+      "body": "A ideia de que o glucagon aumente o gasto de energia com a retatrutida é hipótese dos autores dos ensaios. Ainda não foi demonstrada diretamente em humanos.",
+      "icon": "fogo",
+      "pose": "pensando"
+    },
+    {
+      "title": "Erro 3: tratar frasco como remédio",
+      "body": "Frasco de retatrutida ou de cagrilintida fora de ensaio clínico não é o medicamento estudado. A ANVISA orientou a não usar produtos vendidos como retatrutida.",
+      "icon": "lupa",
+      "pose": "alerta"
+    },
+    {
+      "title": "Em comum: o estômago reclama",
+      "body": "Náusea, vômito e constipação aparecem nas duas. Na cagrilintida, mais na fase de aumento de dose; na retatrutida, também diarreia e sensações estranhas na pele.",
+      "icon": "enjoo",
+      "pose": "ih"
+    },
+    {
+      "title": "As duas são semanais",
+      "body": "Meia-vida de cerca de 6 dias na retatrutida e de 7 dias na cagrilintida: as duas são estudadas em aplicação semanal.",
+      "icon": "calendario",
+      "pose": "explicando"
+    },
+    {
+      "title": "Cola pra guardar",
+      "body": "Nenhuma é aprovada. Os mecanismos são diferentes. Frasco de pesquisa não é remédio de estudo. Pensa em tratar a obesidade? Converse com o médico.",
+      "icon": "certo",
+      "pose": "apontando"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Três erros que eu vejo toda semana quando comparam cagrilintida e retatrutida.",
+      "pose": "ih"
+    },
+    {
+      "text": "O primeiro é achar que alguma delas é aprovada. Nenhuma é, e a ANVISA orientou a não usar produtos vendidos como retatrutida.",
+      "pose": "alerta"
+    },
+    {
+      "text": "O segundo é achar que funcionam igual: uma ativa três receptores, a outra imita a amilina. O terceiro é tratar frasco de pesquisa como remédio.",
+      "pose": "explicando"
+    },
+    {
+      "text": "Dúvida sobre tratamento é com o médico, que conhece as opções aprovadas. E esses três erros, agora você não comete mais.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, todo mundo quer saber qual das moléculas novas é “a próxima”. Mas a comparação entre cagrilintida e retatrutida costuma tropeçar em três erros.\n\n1️⃣ Achar que alguma é aprovada: nenhuma é. Em julho de 2026, a ANVISA informou que não há pedido de registro da retatrutida, e a cagrilintida segue em desenvolvimento.\n2️⃣ Achar que funcionam igual: a retatrutida ativa receptores de GLP-1, GIP e glucagon; a cagrilintida imita a amilina, hormônio liberado junto com a insulina. O papel do glucagon no gasto de energia ainda não foi demonstrado diretamente em humanos.\n3️⃣ Tratar frasco de pesquisa como remédio: produto fora de ensaio clínico não passou por controle regulatório, e a ANVISA orientou a não usar produtos vendidos como retatrutida.\n\n⚠️ Efeito colateral nas duas: náusea, vômito e constipação; na retatrutida, também diarreia e sensações anormais na pele. Dúvida sobre tratamento para obesidade é conversa com o médico, sobre as opções aprovadas.",
+  "question": "Qual dessas moléculas apareceu mais no seu feed este mês?",
+  "share": "quem vive comparando as canetas novas que ainda estão em estudo"
+}

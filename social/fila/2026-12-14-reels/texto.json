@@ -1,0 +1,70 @@
+{
+  "hook": "Três erros de quem diz que o Ozempic “ficou fraco”",
+  "hookIcon": "alerta",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "Erro 1: achar que é a mesma coisa",
+      "body": "A semaglutida age só no receptor GLP-1. A retatrutida age no GLP-1, no GIP e no glucagon. Não é o Ozempic “turbinado”: é outra molécula.",
+      "icon": "dna",
+      "pose": "ih"
+    },
+    {
+      "title": "Erro 2: comparar estudos diferentes",
+      "body": "Nos ensaios STEP, semaglutida 2,4 mg: média de 10-15%. Na fase 2 da retatrutida, 12 mg: 24,2% em 48 semanas. Pessoas, durações e desenhos diferentes.",
+      "icon": "balanca",
+      "pose": "pensando"
+    },
+    {
+      "title": "Média de estudo não é promessa",
+      "body": "São médias de ensaio, com acompanhamento. Elas não dizem como cada pessoa vai responder, a uma ou à outra.",
+      "icon": "microscopio",
+      "pose": "explicando"
+    },
+    {
+      "title": "Erro 3: esquecer a aprovação",
+      "body": "A semaglutida é aprovada pela FDA como Ozempic, Wegovy e Rybelsus, e desde 2024 também para reduzir risco cardiovascular em adultos com doença cardiovascular e obesidade ou sobrepeso.",
+      "icon": "coracao",
+      "pose": "apontando"
+    },
+    {
+      "title": "A retatrutida segue experimental",
+      "body": "Sem aprovação da FDA, da EMA ou da ANVISA. Em julho de 2026 a ANVISA orientou a não usar produtos com esse nome.",
+      "icon": "proibido",
+      "pose": "alerta"
+    },
+    {
+      "title": "Os efeitos que mais aparecem",
+      "body": "Nas duas, náusea, vômito, diarreia e constipação. Na retatrutida, os estudos também relatam disestesia, uma sensação anormal na pele.",
+      "icon": "enjoo",
+      "pose": "explicando"
+    },
+    {
+      "title": "A cola: o Ozempic “ficou fraco”? Conta errada",
+      "body": "Moléculas diferentes, estudos diferentes, só uma aprovada. Qualquer dúvida sobre trocar ou ajustar o tratamento é com o médico.",
+      "icon": "certo",
+      "pose": "piscadinha"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Três erros de quem diz que o Ozempic ficou fraco perto da retatrutida. Olha só.",
+      "pose": "ih"
+    },
+    {
+      "text": "Um: são moléculas diferentes. A semaglutida age no GLP-1; a retatrutida, em três alvos. Dois: os números vêm de estudos diferentes, com duração diferente.",
+      "pose": "explicando"
+    },
+    {
+      "text": "Três: a retatrutida é experimental, sem aprovação em nenhum país; a semaglutida tem bula. Escolha de tratamento é conversa com o médico.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Então, antes de dizer que o Ozempic ficou fraco, lembre desses três erros.",
+      "pose": "piscadinha"
+    }
+  ],
+  "caption": "Eu sei, quando sai uma molécula nova, parece que a antiga “ficou fraca”. Mas a semaglutida (Ozempic, Wegovy) age no receptor GLP-1, e a retatrutida age em três alvos: GLP-1, GIP e glucagon. Não dá pra colocar uma no lugar da outra.\n\n1️⃣ Estudos diferentes: a semaglutida 2,4 mg teve média de 10-15% nos ensaios STEP; a retatrutida 12 mg, 24,2% em 48 semanas na fase 2. Pessoas e durações diferentes, e média de estudo não é promessa.\n2️⃣ Aprovação: a semaglutida é aprovada pela FDA, inclusive desde 2024 para reduzir risco cardiovascular em adultos com doença cardiovascular e obesidade ou sobrepeso.\n3️⃣ A retatrutida é experimental: sem aprovação da FDA, da EMA ou da ANVISA.\n\n⚠️ O efeito colateral nas duas é sobretudo gastrointestinal; na retatrutida, os estudos também relatam disestesia. Trocar ou ajustar tratamento é sempre com o médico.",
+  "question": "Alguém já te disse que o seu Ozempic “ficou fraco”?",
+  "share": "quem anda dizendo que o Ozempic “ficou fraco”"
+}

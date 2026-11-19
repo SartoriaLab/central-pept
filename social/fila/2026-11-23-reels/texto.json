@@ -1,0 +1,76 @@
+{
+  "hook": "Você pula o almoço pra não enjoar com o Mounjaro?",
+  "hookIcon": "enjoo",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "Estômago vazio piora o enjoo",
+      "body": "Pular refeição parece proteger, mas o estômago vazio costuma piorar a náusea. O gatilho mais comum é comer a quantidade de antes, na mesma velocidade.",
+      "icon": "prato",
+      "pose": "ih"
+    },
+    {
+      "title": "Por que a tirzepatida dá enjoo",
+      "body": "Ela deixa o estômago mais lento: a comida fica mais tempo ali. E também age em áreas do cérebro que controlam apetite e náusea.",
+      "icon": "cerebro",
+      "pose": "explicando"
+    },
+    {
+      "title": "Quando costuma aparecer",
+      "body": "Nos primeiros dias após a primeira aplicação, nos 2 a 3 dias seguintes a cada aumento de dose e depois de refeições grandes, gordurosas ou rápidas.",
+      "icon": "calendario",
+      "pose": "pensando"
+    },
+    {
+      "title": "No prato",
+      "body": "Porções menores, mais vezes ao dia. Coma devagar e pare no primeiro sinal de saciedade. Prefira comida leve e deixe fritura e álcool de lado.",
+      "icon": "salada",
+      "pose": "explicando"
+    },
+    {
+      "title": "Nos líquidos",
+      "body": "Beba em pequenos goles ao longo do dia, não um volume grande junto da refeição. Com vômito ou diarreia, não deixe de beber água.",
+      "icon": "gota",
+      "pose": "piscadinha"
+    },
+    {
+      "title": "Na dose",
+      "body": "Não suba enquanto o enjoo da dose atual não ceder: as 4 semanas por degrau são o mínimo. Se persistir, o médico pode manter a dose por mais tempo.",
+      "icon": "grafico-sobe",
+      "pose": "pensando"
+    },
+    {
+      "title": "Sinais que não são normais",
+      "body": "Dor abdominal forte e contínua, vômito por mais de 24 horas, pouca urina ou urina escura, tontura ao levantar: procure atendimento.",
+      "icon": "hospital",
+      "pose": "alerta"
+    },
+    {
+      "title": "Cola anti-enjoo",
+      "body": "1️⃣ Não pule refeição. 2️⃣ Prato menor, comendo devagar. 3️⃣ Goles ao longo do dia. 4️⃣ Enjoo não cedeu? Fale com o médico antes de subir a dose.",
+      "icon": "certo",
+      "pose": "apontando"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Você pula o almoço pra não enjoar com o Mounjaro? Eu sei, parece lógico.",
+      "pose": "ih"
+    },
+    {
+      "text": "Só que o estômago vazio costuma piorar a náusea. O gatilho mais comum é comer a mesma quantidade de antes, na mesma pressa.",
+      "pose": "explicando"
+    },
+    {
+      "text": "Faça porções menores, mais vezes e devagar, parando no primeiro sinal de saciedade. Vômito por mais de 24 horas pede atendimento.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Enjoo que não cede é conversa com o médico antes de subir a dose. Então, pular o almoço, nunca mais.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, todo mundo já pulou uma refeição achando que assim não enjoa. Mas com a tirzepatida o estômago vazio costuma piorar a náusea. O gatilho mais comum é comer a mesma quantidade de antes, na mesma velocidade.\n\n1️⃣ Porções menores, mais vezes ao dia, comendo devagar\n2️⃣ Comida leve; evite frituras, muito açúcar e álcool\n3️⃣ Líquidos em pequenos goles ao longo do dia\n4️⃣ Não suba a dose enquanto o enjoo da dose atual não ceder\n\nA náusea é o efeito colateral mais comum do Mounjaro e costuma aparecer nos 2 a 3 dias seguintes a cada aumento de dose.\n\n⚠️ Dor abdominal forte e contínua, vômito por mais de 24 horas ou sinais de desidratação pedem atendimento médico.",
+  "question": "Em qual semana o enjoo apareceu para você?",
+  "share": "aquela amiga que pula o almoço pra não enjoar"
+}

@@ -1,0 +1,76 @@
+{
+  "hook": "28 dias. Seu frasco vence mesmo com líquido sobrando.",
+  "hookIcon": "ampulheta",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "O prazo começa na primeira perfuração",
+      "body": "Não é a validade impressa no frasco fechado. Colocou água e furou a tampa, o relógio dos 28 dias começou a correr.",
+      "icon": "relogio",
+      "pose": "explicando"
+    },
+    {
+      "title": "De onde vem esse número",
+      "body": "É a regra do CDC e da farmacopeia americana (USP) para frasco de várias doses com conservante: datar ao abrir e descartar em até 28 dias.",
+      "icon": "livros",
+      "pose": "explicando"
+    },
+    {
+      "title": "Esterilidade, não potência",
+      "body": "A regra controla contaminação. Não há estudo publicado mostrando quanto cada peptídeo sem bula mantém de atividade aos 28 dias.",
+      "icon": "microscopio",
+      "pose": "pensando"
+    },
+    {
+      "title": "Bacteriostática x água estéril",
+      "body": "A bacteriostática tem 0,9% de álcool benzílico e aguenta várias doses. Água estéril sem conservante é dose única: usou, descarta o resto.",
+      "icon": "gota",
+      "pose": "explicando"
+    },
+    {
+      "title": "Geladeira certa",
+      "body": "Entre 2 e 8 °C, na prateleira do meio, longe da porta e do congelador. Nunca congele: se congelou, descarte.",
+      "icon": "geladeira",
+      "pose": "alerta"
+    },
+    {
+      "title": "Descarte antes se...",
+      "body": "A solução ficou turva, com partículas, mudou de cor ou bateu dúvida sobre a esterilidade (agulha que caiu, frasco rachado).",
+      "icon": "lupa",
+      "pose": "ih"
+    },
+    {
+      "title": "Quantas doses cabem no prazo",
+      "body": "Numa aplicação por semana, cabem no máximo 4 doses nos 28 dias. Se o frasco tem mais, o resto vence. O tamanho certo do frasco é conversa com o seu médico.",
+      "icon": "calendario",
+      "pose": "pensando"
+    },
+    {
+      "title": "Sua cola",
+      "body": "Data da reconstituição + 28 dias = data-limite. Na etiqueta: as duas datas e a concentração. Chegou o dia, descarte, mesmo com líquido.",
+      "icon": "prancheta",
+      "pose": "apontando"
+    }
+  ],
+  "narration": [
+    {
+      "text": "28 dias. É o prazo do seu frasco depois de reconstituído, mesmo que ainda tenha líquido lá dentro.",
+      "pose": "ih"
+    },
+    {
+      "text": "O relógio começa na primeira perfuração, não na fabricação. A regra vem do CDC, para frasco com água bacteriostática na geladeira.",
+      "pose": "explicando"
+    },
+    {
+      "text": "Depois disso, ninguém assegura a esterilidade nem a potência, e olhando o frasco não dá pra saber. Com água estéril sem conservante, é uso único.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Então anota na etiqueta a data de hoje mais 28 dias. Chegou a data, o frasco vai pro lixo, mesmo com líquido sobrando.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, dá dó jogar fora frasco com líquido sobrando. Todo mundo já pensou em usar até a última gota. Mas o frasco reconstituído tem prazo: com água bacteriostática e geladeira de 2 a 8 °C, a referência é de até 28 dias depois da primeira perfuração. É uma regra de esterilidade do CDC e da farmacopeia americana, não um estudo de cada peptídeo.\n\n1️⃣ Anote na etiqueta a data da reconstituição, a data-limite (data + 28 dias) e a concentração.\n2️⃣ Guarde na prateleira do meio, nunca na porta nem no congelador.\n3️⃣ Se a bula ou o fabricante der outro prazo, vale o dele.\n\n⚠️ Água estéril sem conservante é uso único. E se a solução ficar turva, com partículas ou mudar de cor, descarte antes dos 28 dias.\n\nSe as doses do seu frasco passam do prazo, converse com o seu médico sobre o tamanho do frasco. A dose é sempre a prescrita.",
+  "question": "Você anota a data no frasco ou guarda de cabeça?",
+  "share": "aquela amiga que usa o frasco até a última gota"
+}

@@ -1,0 +1,70 @@
+{
+  "hook": "50 unidades são 50 mg? Não. E essa confusão muda a dose.",
+  "hookIcon": "duvida",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "A seringa mede volume, não remédio",
+      "body": "A receita fala em mg. A seringa de insulina U-100 mede unidades: 100 unidades = 1 ml. Unidade é volume da solução que você preparou, não quantidade de remédio.",
+      "icon": "seringa",
+      "pose": "explicando"
+    },
+    {
+      "title": "Conta 1: a concentração",
+      "body": "Concentração = mg do frasco ÷ ml de água. Frasco de 10 mg com 2 ml de água fica com 5 mg/ml. Por isso a água que você usou precisa estar anotada.",
+      "icon": "regua",
+      "pose": "explicando"
+    },
+    {
+      "title": "Conta 2: as unidades",
+      "body": "Unidades = dose (mg) ÷ concentração × 100. Nesse frasco, a dose inicial de bula da tirzepatida, 2,5 mg, dá 50 unidades, ou 0,5 ml.",
+      "icon": "alvo",
+      "pose": "apontando"
+    },
+    {
+      "title": "Semaglutida tem outra conta",
+      "body": "Frasco de 5 mg de semaglutida com 2 ml fica com 2,5 mg/ml. A dose inicial de bula, 0,25 mg, dá 10 unidades. Tabela de um remédio não serve para o outro.",
+      "icon": "frasco",
+      "pose": "pensando"
+    },
+    {
+      "title": "Mesma dose, números diferentes",
+      "body": "Mais água dilui, e a dose ocupa mais unidades. Menos água concentra, e ocupa menos. Com 10 mg e 1 ml, os mesmos 2,5 mg viram 25 unidades.",
+      "icon": "gota",
+      "pose": "piscadinha"
+    },
+    {
+      "title": "Cuidado com a seringa U-40",
+      "body": "A escala é outra: o mesmo número de unidades dá 2,5 vezes mais volume. Todas essas contas valem só para a seringa U-100.",
+      "icon": "alerta",
+      "pose": "alerta"
+    },
+    {
+      "title": "Cola para guardar",
+      "body": "1️⃣ Anote no frasco os mg e a água. 2️⃣ Faça as duas contas. 3️⃣ Na dúvida, refaça antes de puxar. A dose é a que o médico prescreveu; a conta só traduz em unidades.",
+      "icon": "certo",
+      "pose": "apontando"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Cinquenta unidades na seringa são cinquenta miligramas de remédio? Não. E essa confusão muda a sua dose.",
+      "pose": "ih"
+    },
+    {
+      "text": "A seringa mede volume, não remédio. Um frasco de 10 mg com 2 ml de água fica com 5 mg por ml.",
+      "pose": "explicando"
+    },
+    {
+      "text": "Aí a dose de bula de 2,5 mg de tirzepatida vira 50 unidades. Com 1 ml de água, vira vinte e cinco. Por isso, anote a água no frasco.",
+      "pose": "apontando"
+    },
+    {
+      "text": "A dose é o médico quem define; a conta só traduz. Então, cinquenta unidades virando cinquenta miligramas, nunca mais.",
+      "pose": "piscadinha"
+    }
+  ],
+  "caption": "Eu sei, todo mundo já olhou a seringa e pensou em mg. Mas a seringa de insulina U-100 mede volume: 100 unidades = 1 ml. Quantas unidades a sua dose de tirzepatida ou semaglutida ocupa depende de quanta água foi no frasco.\n\n1️⃣ Concentração = mg do frasco ÷ ml de água (10 mg + 2 ml = 5 mg/ml)\n2️⃣ Unidades = dose ÷ concentração × 100 (2,5 mg de tirzepatida = 50 unidades)\n3️⃣ Semaglutida: frasco de 5 mg + 2 ml = 2,5 mg/ml, e 0,25 mg = 10 unidades\n\n⚠️ Seringa U-40 tem outra escala, e tabela de tirzepatida não serve para semaglutida. Caneta pronta (Mounjaro, Ozempic, Wegovy) não precisa dessa conta.\n\nA dose é sempre a que o médico prescreveu: a conta só traduz mg em unidades na seringa.",
+  "question": "Você anota no frasco quanta água colocou?",
+  "share": "quem prepara o próprio frasco e guarda a conta de cabeça"
+}

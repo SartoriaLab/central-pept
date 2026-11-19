@@ -1,8 +1,12 @@
 // Publicação diária do @dosecerta_br. Uso:
 //   tsx scripts/social/run.ts carrossel|reels [--dry] [--force]
+//   tsx scripts/social/run.ts carrossel|reels --fila      publica o texto pronto de social/fila/ do dia
+//   tsx scripts/social/run.ts plano [--dias 30] [--inicio AAAA-MM-DD] [--refazer]   monta a fila (queue.ts)
+//   tsx scripts/social/run.ts --check <pasta>              só valida o texto.json da pasta
 // --dry: escolhe, escreve, valida e renderiza em social/out/, sem publicar nem gravar no banco
 // (sem DATABASE_URL usa histórico vazio). SOCIAL_PAUSED=1 desliga tudo.
 // Um post por formato por dia: se já saiu, não publica de novo (--force publica mesmo assim).
+// --fila sem texto válido para hoje sai com código 3 (a tarefa agendada cai no --brief).
 // Variáveis: DATABASE_URL, IG_USER_ID, IG_ACCESS_TOKEN, BLOB_READ_WRITE_TOKEN e, para o texto,
 // ANTHROPIC_API_KEY ou o Claude Code deste computador (write.ts). Lidas do .env.local, se existir.
 // Agendado no Windows: scripts/social/agendar.ps1.
@@ -15,13 +19,101 @@ import { validateDraft } from './validate';
 import { buildCaption } from './caption';
 import { ctaFor, fetchActiveEbookSlugs } from './ebook-cta';
 import { renderCarousel, renderReel } from './render';
+import { dateRange, planQueue, queueKey, reservedFrom, type QueueItem } from './queue';
 import type { Draft, Format, HistoryEntry, Topic } from './types';
 
 const MAX_TOPICS = 3;
 const REFRESH_BEFORE_DAYS = 15;
+/** Código de saída do --fila sem texto pronto e válido para hoje. */
+const NO_QUEUE = 3;
 
 function today(): string {
   return new Date().toLocaleDateString('sv-SE', { timeZone: 'America/Sao_Paulo' });
+}
+
+const queueRoot = () => path.join(process.cwd(), 'social', 'fila');
+const rel = (p: string) => path.relative(process.cwd(), p).replaceAll('\\', '/');
+const tsxCommand = (args: string) => `"${process.execPath.replaceAll('\\', '/')}" node_modules/tsx/dist/cli.mjs scripts/social/run.ts ${args}`;
+
+/** Itens da fila (pastas com brief.json). */
+async function readQueue(): Promise<QueueItem[]> {
+  const names = await fs.readdir(queueRoot()).catch(() => [] as string[]);
+  const items: QueueItem[] = [];
+  for (const name of names) {
+    const m = /^(\d{4}-\d{2}-\d{2})-(carrossel|reels)$/.exec(name);
+    if (!m) continue;
+    try {
+      const brief = JSON.parse(await fs.readFile(path.join(queueRoot(), name, 'brief.json'), 'utf8')) as { topic: string };
+      items.push({ date: m[1], format: m[2] as Format, topicId: brief.topic });
+    } catch {
+      // Pasta sem brief.json: ignora.
+    }
+  }
+  return items.sort((a, b) => queueKey(a.date, a.format).localeCompare(queueKey(b.date, b.format)));
+}
+
+type Checked = { topic: Topic; draft: Draft; problems: [] } | { topic?: Topic; draft?: undefined; problems: string[] };
+
+/** brief.json + texto.json de uma pasta, com a mesma validação da publicação. */
+async function checkDir(dir: string, topics: Topic[]): Promise<Checked> {
+  let brief: { topic: string };
+  try {
+    brief = JSON.parse(await fs.readFile(path.join(dir, 'brief.json'), 'utf8'));
+  } catch {
+    return { problems: [`sem brief.json em ${rel(dir)}`] };
+  }
+  const topic = topics.find((t) => t.id === brief.topic);
+  if (!topic) return { problems: [`tema ${brief.topic} não existe mais`] };
+  let raw: unknown;
+  try {
+    raw = JSON.parse(await fs.readFile(path.join(dir, 'texto.json'), 'utf8'));
+  } catch (e) {
+    return { topic, problems: [`texto.json ausente ou com JSON inválido: ${(e as Error).message}`] };
+  }
+  const parsed = DraftSchema.safeParse(raw);
+  if (!parsed.success) return { topic, problems: parsed.error.issues.map((i) => `${i.path.join('.') || 'texto'}: ${i.message}`) };
+  const problems = validateDraft(parsed.data as Draft, topic.source);
+  return problems.length ? { topic, problems } : { topic, draft: parsed.data as Draft, problems: [] };
+}
+
+/** Regras e schema comuns a toda a fila (cada brief.md aponta para cá). */
+function rulesText(): string {
+  return `# Regras dos textos da fila
+
+Cada pasta \`social/fila/<data>-<formato>/\` tem um brief.md com o TEMA e a FONTE. Escreva o
+rascunho seguindo as REGRAS e salve como JSON puro (sem markdown) em \`texto.json\` na mesma pasta,
+no formato do SCHEMA. Um rascunho serve para carrossel e Reels: preencha todos os campos.
+
+## REGRAS
+
+${SYSTEM}
+
+## SCHEMA
+
+\`\`\`json
+${JSON.stringify(draftJsonSchema(), null, 2)}
+\`\`\`
+`;
+}
+
+function queueBriefText(topic: Topic, item: QueueItem, dir: string): string {
+  const focus =
+    item.format === 'reels'
+      ? 'Sai como Reels: capriche no gancho falado e nas falas (narration).'
+      : 'Sai como carrossel: capriche na capa (hook) e nos slides.';
+  return `# ${item.format} de ${item.date}
+
+Regras e schema: \`social/fila/REGRAS.md\`. ${focus}
+Salve o texto em \`${rel(dir)}/texto.json\` e confira com:
+
+    ${tsxCommand(`--check ${rel(dir)}`)}
+
+Se sair "REPROVADO", corrija só o que a lista aponta e rode de novo.
+
+## PEDIDO
+
+${userMessage(topic, [])}
+`;
 }
 
 async function draftFor(topic: Topic): Promise<{ draft: Draft; problems: string[] }> {
@@ -42,14 +134,14 @@ function argValue(flag: string): string | undefined {
 
 /** Instruções da etapa 1 para o Claude da conversa agendada: as mesmas regras da API. */
 function briefText(topic: Topic, outDir: string, format: Format, dry: boolean): string {
-  const rel = path.relative(process.cwd(), outDir).replaceAll('\\', '/');
+  const dir = rel(outDir);
   const flags = `${dry ? ' --dry' : ''}`;
   return `# Texto do ${format} de hoje
 
 Escreva o rascunho abaixo seguindo as REGRAS e salve como JSON puro (sem markdown) em
-\`${rel}/texto.json\`, no formato do SCHEMA. Depois rode:
+\`${dir}/texto.json\`, no formato do SCHEMA. Depois rode:
 
-    "${process.execPath.replaceAll('\\', '/')}" node_modules/tsx/dist/cli.mjs scripts/social/run.ts ${format} --draft ${rel}${flags}
+    ${tsxCommand(`${format} --draft ${dir}${flags}`)}
 
 Se sair "REPROVADO", corrija só o que a lista aponta e rode de novo (até 3 vezes). Se não passar,
 rode a etapa 1 de novo com \`--skip ${topic.id}\` para trocar de tema.
@@ -81,12 +173,73 @@ function loadLocalEnv(): void {
   }
 }
 
+/** `run.ts plano`: escolhe o tema de cada horário dos próximos dias e cria as pastas da fila. */
+async function plan(): Promise<void> {
+  const days = Number(argValue('--dias') ?? 30);
+  const tomorrow = dateRange(today(), 2)[1];
+  const start = argValue('--inicio') ?? tomorrow;
+  const state = process.env.DATABASE_URL ? await import('./state') : null;
+  const history: HistoryEntry[] = state ? await state.getHistory() : [];
+  if (!state) console.warn('Sem DATABASE_URL: plano sem o histórico do que já saiu.');
+  const topics = buildTopics();
+  // --refazer: escolhe de novo o tema dos horários que ainda não têm texto escrito.
+  const hasText = (i: QueueItem) =>
+    fs.stat(path.join(queueRoot(), queueKey(i.date, i.format), 'texto.json')).then(() => true, () => false);
+  let existing = await readQueue();
+  if (process.argv.includes('--refazer')) {
+    const keep = await Promise.all(existing.map(hasText));
+    existing = existing.filter((_, i) => keep[i]);
+  }
+  const items = planQueue(topics, history, start, days, existing);
+
+  await fs.mkdir(queueRoot(), { recursive: true });
+  await fs.writeFile(path.join(queueRoot(), 'REGRAS.md'), rulesText());
+  const known = new Set(existing.map((e) => queueKey(e.date, e.format)));
+  let created = 0;
+  for (const item of items) {
+    const dir = path.join(queueRoot(), queueKey(item.date, item.format));
+    if (known.has(queueKey(item.date, item.format))) continue;
+    const topic = topics.find((t) => t.id === item.topicId)!;
+    await fs.mkdir(dir, { recursive: true });
+    await fs.writeFile(path.join(dir, 'brief.json'), JSON.stringify({ topic: topic.id, format: item.format, date: item.date }, null, 2));
+    await fs.writeFile(path.join(dir, 'brief.md'), queueBriefText(topic, item, dir));
+    created++;
+  }
+
+  const all = await readQueue();
+  const rows: string[] = [];
+  for (const item of all) {
+    const dir = path.join(queueRoot(), queueKey(item.date, item.format));
+    const done = await fs.stat(path.join(dir, 'texto.json')).then(() => true, () => false);
+    const title = topics.find((t) => t.id === item.topicId)?.title ?? '(tema removido)';
+    rows.push(`| ${item.date} | ${item.format} | ${title} | \`${item.topicId}\` | ${done ? 'pronto' : 'falta texto'} |`);
+  }
+  await fs.writeFile(
+    path.join(queueRoot(), 'PLANO.md'),
+    `# Fila do @dosecerta_br\n\nGerado por \`run.ts plano\`. A tarefa do dia publica o texto.json da pasta; sem ele, escreve na hora.\n\n| Data | Formato | Tema | Id | Texto |\n| --- | --- | --- | --- | --- |\n${rows.join('\n')}\n`,
+  );
+  console.log(`Fila: ${items.length} horários de ${start} em diante, ${created} pastas novas em ${rel(queueRoot())}.`);
+}
+
 async function main() {
   loadLocalEnv();
+  if (process.argv[2] === 'plano') return plan();
+  const checkOnly = argValue('--check');
+  if (checkOnly) {
+    const { problems, topic } = await checkDir(path.resolve(checkOnly), buildTopics());
+    if (problems.length) {
+      console.log(`REPROVADO. Corrija em texto.json e rode de novo:\n- ${problems.join('\n- ')}`);
+      process.exitCode = 2;
+    } else {
+      console.log(`OK: ${topic!.id} passou na validação.`);
+    }
+    return;
+  }
+
   const format = process.argv[2] as Format;
   const dry = process.argv.includes('--dry');
   const force = process.argv.includes('--force');
-  if (format !== 'carrossel' && format !== 'reels') throw new Error('uso: run.ts carrossel|reels [--dry] [--force]');
+  if (format !== 'carrossel' && format !== 'reels') throw new Error('uso: run.ts carrossel|reels [--dry] [--force] [--fila]');
   if (process.env.SOCIAL_PAUSED === '1') {
     console.log('SOCIAL_PAUSED=1: nada a fazer.');
     return;
@@ -113,7 +266,11 @@ async function main() {
   // Etapa 1 da conversa agendada: escolhe o tema e deixa as instruções para o Claude da conversa.
   if (process.argv.includes('--brief')) {
     const skip = new Set((argValue('--skip') ?? '').split(',').filter(Boolean));
-    const topic = pickTopic(topics, history, format, new Date(), skip);
+    // Temas que a fila ainda vai publicar ficam de fora (se sobrar algum), para não sair repetido.
+    const reserved = reservedFrom(await readQueue(), today());
+    const topic =
+      pickTopic(topics, history, format, new Date(), new Set([...skip, ...reserved])) ??
+      pickTopic(topics, history, format, new Date(), skip);
     if (!topic) throw new Error('nenhum tema disponível');
     await fs.mkdir(outDir, { recursive: true });
     await fs.writeFile(path.join(outDir, 'brief.json'), JSON.stringify({ topic: topic.id, format }, null, 2));
@@ -128,19 +285,26 @@ async function main() {
   // Etapa 2: o texto escrito pelo Claude da conversa (texto.json) passa pela mesma validação.
   const draftDir = argValue('--draft');
   if (draftDir) {
-    const brief = JSON.parse(await fs.readFile(path.join(draftDir, 'brief.json'), 'utf8')) as { topic: string };
-    const topic = topics.find((t) => t.id === brief.topic);
-    if (!topic) throw new Error(`tema ${brief.topic} não existe mais`);
-    const parsed = DraftSchema.safeParse(JSON.parse(await fs.readFile(path.join(draftDir, 'texto.json'), 'utf8')));
-    const problems = parsed.success
-      ? validateDraft(parsed.data as Draft, topic.source)
-      : parsed.error.issues.map((i) => `${i.path.join('.') || 'texto'}: ${i.message}`);
-    if (problems.length) {
-      console.log(`REPROVADO. Corrija em texto.json e rode de novo:\n- ${problems.join('\n- ')}`);
+    const checked = await checkDir(draftDir, topics);
+    if (!checked.draft) {
+      console.log(`REPROVADO. Corrija em texto.json e rode de novo:\n- ${checked.problems.join('\n- ')}`);
       process.exitCode = 2;
       return;
     }
-    chosen = { topic, draft: parsed.data as Draft };
+    chosen = { topic: checked.topic, draft: checked.draft };
+  }
+
+  // Texto pronto da fila para hoje. Sem ele (ou reprovado), código 3: a tarefa escreve na hora.
+  if (process.argv.includes('--fila')) {
+    const dir = path.join(queueRoot(), queueKey(today(), format));
+    const checked = await checkDir(dir, topics);
+    if (!checked.draft) {
+      console.log(`SEM FILA para ${queueKey(today(), format)}:\n- ${checked.problems.join('\n- ')}`);
+      process.exitCode = NO_QUEUE;
+      return;
+    }
+    console.log(`Fila: ${checked.topic.id} (${checked.topic.category})`);
+    chosen = { topic: checked.topic, draft: checked.draft };
   }
 
   const tried = new Set<string>();

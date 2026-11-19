@@ -1,0 +1,76 @@
+{
+  "hook": "Você puxa dose pequena na seringa de 100 unidades?",
+  "hookIcon": "seringa",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "Mesma escala, tamanhos diferentes",
+      "body": "Nas seringas U-100, 1 unidade é sempre 0,01 ml. O que muda é o comprimento: na de 30 U, a mesma dose fica maior e mais fácil de ler.",
+      "icon": "regua",
+      "pose": "explicando"
+    },
+    {
+      "title": "Na de 100, o traço pode valer 2",
+      "body": "Uma dose de 7 unidades fica entre os traços 6 e 8. Errar meia marca já é 1 unidade, mais de 14% da dose.",
+      "icon": "alerta",
+      "pose": "alerta"
+    },
+    {
+      "title": "A regra de escolha",
+      "body": "A menor que comporte a dose inteira com folga: até 30 unidades, a de 30 U; até 50, a de 50 U; acima disso, a de 100 U.",
+      "icon": "alvo",
+      "pose": "explicando"
+    },
+    {
+      "title": "Pense na dose mais alta",
+      "body": "Se a dose prescrita vai subir e passar de 30 unidades em breve, pode valer começar já com a de 50 U.",
+      "icon": "grafico-sobe",
+      "pose": "pensando"
+    },
+    {
+      "title": "Como ler os traços",
+      "body": "Confira U-100 na embalagem, conte quantos traços há entre dois números e leia pela borda de borracha do êmbolo, na altura dos olhos. Tire as bolhas.",
+      "icon": "lupa",
+      "pose": "apontando"
+    },
+    {
+      "title": "U-40 é outra escala",
+      "body": "O mesmo número de unidades dá 2,5 vezes mais volume. Conta feita para U-100 e puxada na U-40 aplica 2,5 vezes a dose.",
+      "icon": "proibido",
+      "pose": "alerta"
+    },
+    {
+      "title": "Agulha fixa e curta",
+      "body": "A diretriz da SBD prefere agulha fixa, que evita o espaço morto, e agulhas curtas, de 4 a 6 mm. Reutilizar seringa não é recomendado.",
+      "icon": "escudo",
+      "pose": "piscadinha"
+    },
+    {
+      "title": "Sua cola",
+      "body": "Até 30 U: seringa de 30. De 30 a 50 U: de 50. Acima de 50 U: de 100. Unidade é volume, não mg: a conta depende do seu frasco. Dúvida? Médico ou farmacêutico.",
+      "icon": "certo",
+      "pose": "apontando"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Você puxa uma dose pequena na seringa de 100 unidades? Eu sei, é a que estava em casa.",
+      "pose": "ih"
+    },
+    {
+      "text": "Em muitas seringas de 100, cada traço vale 2 unidades. Uma dose de 7 unidades fica no meio do caminho, e você precisa adivinhar.",
+      "pose": "explicando"
+    },
+    {
+      "text": "A regra é usar a menor que comporte a dose com folga. Até 30 unidades, a de 30. E confira se está escrito U-100, não U-40.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Na dúvida sobre a conta, fale com o médico ou o farmacêutico. E dose pequena na seringa de 100 unidades, nunca mais.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, todo mundo usa a seringa que tem na gaveta. Mas o tamanho muda a precisão: as seringas U-100 têm a mesma escala (1 unidade = 0,01 ml), só que na de 30 U a dose fica mais espaçada e fácil de ler. Na de 100 U, muitas vezes cada traço vale 2 unidades, e dose pequena vira chute.\n\n1️⃣ Até 30 unidades: seringa de 30 U.\n2️⃣ De 30 a 50 unidades: seringa de 50 U.\n3️⃣ Acima de 50 unidades: seringa de 100 U.\n\n⚠️ Confira U-100 na embalagem e na seringa. Na U-40, o mesmo número de unidades dá 2,5 vezes mais volume.\n\nUnidade na seringa é volume, não mg. Quantos mg há em cada traço depende da concentração do seu frasco, e a dose é a que o médico prescreveu.",
+  "question": "Qual seringa você usa hoje: a de 30, a de 50 ou a de 100?",
+  "share": "quem usa a seringa de 100 pra qualquer dose"
+}

@@ -1,0 +1,70 @@
+{
+  "hook": "28,3% contra 20,9%? Essa conta está torta.",
+  "hookIcon": "regua",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "Cada estudo tem duas contas",
+      "body": "Uma conta todo mundo que entrou, inclusive quem parou o remédio. A outra estima o que aconteceria se todos seguissem até o fim, e é sempre maior.",
+      "icon": "prancheta",
+      "pose": "explicando"
+    },
+    {
+      "title": "O print mistura as duas",
+      "body": "Os 28,3% da retatrutida são a conta de quem seguiu o tratamento. Os 20,9% da tirzepatida são a conta de todos. Comparar assim exagera a diferença.",
+      "icon": "errado",
+      "pose": "ih"
+    },
+    {
+      "title": "Na mesma conta, os pares são estes",
+      "body": "Todos os participantes: 25,0% (retatrutida 12 mg, TRIUMPH-1) contra 20,9% (tirzepatida 15 mg, SURMOUNT-1). Quem seguiu: 28,3% contra 22,5%.",
+      "icon": "balanca",
+      "pose": "apontando"
+    },
+    {
+      "title": "Mesmo assim, não dá pra cravar",
+      "body": "O TRIUMPH-1 durou 80 semanas; o SURMOUNT-1, 72 semanas. O peso médio no início também foi diferente, e grupos diferentes podem responder diferente.",
+      "icon": "calendario",
+      "pose": "pensando"
+    },
+    {
+      "title": "Até o placebo foi diferente",
+      "body": "O placebo perdeu 3,9% no TRIUMPH-1 e 3,1% no SURMOUNT-1. Sinal de que os grupos não se comportaram igual.",
+      "icon": "microscopio",
+      "pose": "explicando"
+    },
+    {
+      "title": "Efeitos: abandono e disestesia",
+      "body": "Na dose mais alta, 11,3% pararam por efeito adverso com retatrutida e 6,2% com tirzepatida. Disestesia, sensação anormal na pele, apareceu em 12,5% com retatrutida 12 mg.",
+      "icon": "alerta",
+      "pose": "alerta"
+    },
+    {
+      "title": "A cola: conta torta não compara",
+      "body": "Mesma conta nos dois lados. Estudo diferente não é frente a frente: o TRIUMPH-5 ainda não tem resultado. Só a tirzepatida é aprovada. Decisão é com o médico.",
+      "icon": "certo",
+      "pose": "piscadinha"
+    }
+  ],
+  "narration": [
+    {
+      "text": "28,3% contra 20,9%: você já viu esse print comparando retatrutida e tirzepatida, né? Essa conta está torta.",
+      "pose": "ih"
+    },
+    {
+      "text": "Os 28,3% contam só quem seguiu o tratamento. Os 20,9% contam todo mundo. Na mesma conta, é 25,0% contra 20,9%.",
+      "pose": "explicando"
+    },
+    {
+      "text": "E são estudos diferentes, com duração e peso inicial diferentes. O estudo frente a frente, o TRIUMPH-5, ainda não tem resultado.",
+      "pose": "pensando"
+    },
+    {
+      "text": "Só a tirzepatida é aprovada, e tratamento é com o médico. Então, 28,3% contra 20,9%? Essa conta está torta.",
+      "pose": "piscadinha"
+    }
+  ],
+  "caption": "Eu sei, o print é tentador: 28,3% de um lado, 20,9% do outro. Mas esses dois números não usam a mesma conta. Os 28,3% da retatrutida contam só quem seguiu o tratamento; os 20,9% da tirzepatida contam todos os participantes.\n\n1️⃣ Na mesma conta: 25,0% contra 20,9% (todos) e 28,3% contra 22,5% (quem seguiu).\n2️⃣ Mesmo assim, os estudos tiveram duração, peso inicial e placebo diferentes.\n3️⃣ O estudo que compara as duas frente a frente, o TRIUMPH-5, ainda não tem resultado.\n\n⚠️ A retatrutida é experimental e não tem aprovação em nenhum país; só a tirzepatida é aprovada. As doses citadas são as dos estudos, e qualquer decisão de tratamento é com o médico.",
+  "question": "Você já tinha visto aquele print de 28,3% contra 20,9%?",
+  "share": "quem te mandou o print comparando retatrutida e tirzepatida"
+}

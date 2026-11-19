@@ -4,7 +4,8 @@ import { describe, expect, it } from 'vitest';
 import { bioUrl } from '@/lib/promocao/utm';
 import { getEbooks } from '@/lib/ebooks';
 import { buildTopics } from '@/scripts/social/topics';
-import { COOLDOWN_DAYS, pickTopic } from '@/scripts/social/pick';
+import { COOLDOWN_DAYS, pickTopic, topicPriority } from '@/scripts/social/pick';
+import { dateRange, formatsOn, planQueue, reservedFrom } from '@/scripts/social/queue';
 import { extractQuantities, validateDraft } from '@/scripts/social/validate';
 import { BORDAO_FECHAMENTO, MAX_CAPTION, MAX_HASHTAGS, SHARE_FALLBACK, buildCaption, ctaLine, ctaSpeech, shareLine } from '@/scripts/social/caption';
 import {
@@ -77,35 +78,83 @@ describe('temas', () => {
 });
 
 describe('pickTopic', () => {
-  const list = [topic('a'), topic('b', 'healing'), topic('c')];
+  // Mesma prioridade (0) para testar as outras regras isoladas.
+  const list = [topic('a', 'gh'), topic('b', 'healing'), topic('c', 'gh')];
 
   it('prefere tema nunca usado', () => {
-    const h: HistoryEntry[] = [{ topicId: 'a', format: 'carrossel', category: 'glp-1', at: new Date(now.getTime() - 100 * DAY) }];
+    const h: HistoryEntry[] = [{ topicId: 'a', format: 'carrossel', category: 'gh', at: new Date(now.getTime() - 100 * DAY) }];
     expect(pickTopic(list, h, 'reels', now)?.id).toBe('b');
   });
 
   it(`não repete antes de ${COOLDOWN_DAYS} dias`, () => {
     const h: HistoryEntry[] = [
-      { topicId: 'a', format: 'carrossel', category: 'glp-1', at: new Date(now.getTime() - 3 * DAY) },
+      { topicId: 'a', format: 'carrossel', category: 'gh', at: new Date(now.getTime() - 3 * DAY) },
       { topicId: 'b', format: 'reels', category: 'healing', at: new Date(now.getTime() - 2 * DAY) },
     ];
     expect(pickTopic(list, h, 'carrossel', now)?.id).toBe('c');
   });
 
   it('evita a categoria da última publicação', () => {
-    const h: HistoryEntry[] = [{ topicId: 'x', format: 'reels', category: 'glp-1', at: new Date(now.getTime() - DAY) }];
+    const h: HistoryEntry[] = [{ topicId: 'x', format: 'reels', category: 'gh', at: new Date(now.getTime() - DAY) }];
     expect(pickTopic(list, h, 'carrossel', now)?.id).toBe('b');
   });
 
   it('todos em quarentena: volta o de uso mais antigo', () => {
     const h: HistoryEntry[] = ['a', 'b', 'c'].map((id, i) => ({
-      topicId: id, format: 'reels' as const, category: 'glp-1', at: new Date(now.getTime() - (10 - i) * DAY),
+      topicId: id, format: 'reels' as const, category: 'gh', at: new Date(now.getTime() - (10 - i) * DAY),
     }));
     expect(pickTopic(list, h, 'reels', now)?.id).toBe('a');
   });
 
+  it('prioriza dúvida prática de GLP-1, depois GLP-1, depois o resto', () => {
+    const mix = [topic('peptide:bpc-157', 'healing'), topic('peptide:tirzepatida'), topic('post:nausea-ozempic-como-lidar')];
+    expect(mix.map(topicPriority)).toEqual([0, 1, 2]);
+    expect(pickTopic(mix, [], 'carrossel', now)?.id).toBe('post:nausea-ozempic-como-lidar');
+    const h: HistoryEntry[] = [{ topicId: 'post:nausea-ozempic-como-lidar', format: 'carrossel', category: 'glp-1', at: new Date(now.getTime() - DAY) }];
+    expect(pickTopic(mix, h, 'carrossel', now)?.id).toBe('peptide:tirzepatida');
+  });
+
   it('pula temas excluídos nesta execução', () => {
     expect(pickTopic(list, [], 'reels', now, new Set(['a']))?.id).toBe('b');
+  });
+});
+
+describe('fila (planQueue)', () => {
+  const list = ['a', 'b', 'c', 'd', 'e', 'f'].map((id, i) => topic(id, i % 2 ? 'healing' : 'glp-1'));
+
+  it('carrossel todo dia e Reels em dom, seg, qua e sex', () => {
+    // 2026-11-20 é sexta.
+    expect(formatsOn('2026-11-20')).toEqual(['carrossel', 'reels']);
+    expect(formatsOn('2026-11-21')).toEqual(['carrossel']);
+    expect(formatsOn('2026-11-22')).toEqual(['carrossel', 'reels']);
+    expect(formatsOn('2026-11-24')).toEqual(['carrossel']);
+    expect(dateRange('2026-11-30', 2)).toEqual(['2026-11-30', '2026-12-01']);
+  });
+
+  it('não repete tema dentro da quarentena e conta o histórico real', () => {
+    const h: HistoryEntry[] = [{ topicId: 'a', format: 'carrossel', category: 'glp-1', at: new Date('2026-11-19T15:00:00Z') }];
+    const items = planQueue(list, h, '2026-11-20', 3);
+    expect(items.map((i) => `${i.date}-${i.format}`)).toEqual([
+      '2026-11-20-carrossel', '2026-11-20-reels', '2026-11-21-carrossel', '2026-11-22-carrossel', '2026-11-22-reels',
+    ]);
+    const ids = items.map((i) => i.topicId);
+    expect(new Set(ids).size).toBe(ids.length);
+    expect(ids).not.toContain('a');
+  });
+
+  it('mantém itens existentes e não reusa o tema deles', () => {
+    const existing = [{ date: '2026-11-21', format: 'carrossel' as const, topicId: 'b' }];
+    const items = planQueue(list, [], '2026-11-20', 2, existing);
+    expect(items.find((i) => i.date === '2026-11-21')?.topicId).toBe('b');
+    expect(items.filter((i) => i.topicId === 'b')).toHaveLength(1);
+  });
+
+  it('reservedFrom: só o que ainda vai sair', () => {
+    const items = [
+      { date: '2026-11-19', format: 'carrossel' as const, topicId: 'x' },
+      { date: '2026-11-20', format: 'reels' as const, topicId: 'y' },
+    ];
+    expect([...reservedFrom(items, '2026-11-20')]).toEqual(['y']);
   });
 });
 

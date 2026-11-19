@@ -1,0 +1,70 @@
+{
+  "hook": "GHK-Cu do sérum e o injetável são a mesma coisa? Não.",
+  "hookIcon": "frasco",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "Mesma molécula, dois mundos",
+      "body": "O GHK-Cu do sérum e o do frasco injetável são a mesma molécula, mas com regulação e evidência bem diferentes. Misturar os dois é a confusão mais comum.",
+      "icon": "balanca",
+      "pose": "explicando"
+    },
+    {
+      "title": "No sérum: ingrediente permitido",
+      "body": "No uso tópico, é ingrediente cosmético permitido, considerado seguro pelo painel CIR nas concentrações baixas de uso. Os estudos em pessoas são pequenos.",
+      "icon": "pele",
+      "pose": "feliz"
+    },
+    {
+      "title": "No injetável: só pesquisa",
+      "body": "A forma injetável não tem aprovação para uso humano. Em 2026, a ANVISA alertou que ela não está regularizada em nenhuma categoria.",
+      "icon": "proibido",
+      "pose": "alerta"
+    },
+    {
+      "title": "Rótulo “apenas para pesquisa”",
+      "body": "Os frascos injetáveis vêm, em geral, de fornecedores não farmacêuticos, sem garantia de pureza ou esterilidade. Rótulo de pesquisa não é remédio.",
+      "icon": "lupa",
+      "pose": "ih"
+    },
+    {
+      "title": "O que ele faz, segundo os estudos",
+      "body": "Em laboratório, estimula colágeno e elastina. Em pessoas, há sinais pequenos na pele e evidência mais fraca em cicatrização. Para cabelo, não há estudo controlado dele sozinho.",
+      "icon": "microscopio",
+      "pose": "pensando"
+    },
+    {
+      "title": "Quem precisa de cuidado",
+      "body": "Alergia ao cobre e doença de Wilson são contraindicações. No tópico, pode haver irritação local. Gestação e lactação não têm dados: converse com o médico.",
+      "icon": "estetoscopio",
+      "pose": "explicando"
+    },
+    {
+      "title": "Cola pra guardar",
+      "body": "Sérum: ingrediente cosmético permitido. Injetável: pesquisa, sem aprovação para uso humano. A pele irritou? Suspenda e procure o dermatologista.",
+      "icon": "certo",
+      "pose": "apontando"
+    }
+  ],
+  "narration": [
+    {
+      "text": "O GHK-Cu do seu sérum e o injetável do fórum são a mesma coisa? Não são, e essa confusão é muito comum.",
+      "pose": "ih"
+    },
+    {
+      "text": "No sérum, ele é ingrediente cosmético permitido, considerado seguro nas concentrações baixas de uso. Os estudos em pessoas ainda são pequenos.",
+      "pose": "explicando"
+    },
+    {
+      "text": "Já o injetável não tem aprovação para uso humano. A ANVISA fez um alerta, e esses frascos não têm garantia de pureza nem de esterilidade.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Tem alergia ao cobre ou está grávida? Converse com o médico antes. E sérum e injetável, nunca mais na mesma frase.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, o nome é o mesmo e a confusão é fácil: o GHK-Cu do sérum e o GHK-Cu injetável dos fóruns de biohacking parecem a mesma coisa. A molécula é a mesma, mas a regulação e a evidência são de mundos diferentes.\n\n1️⃣ Tópico (sérum e creme): ingrediente cosmético permitido, considerado seguro pelo painel CIR nas concentrações baixas de uso. Concentração ideal não caracterizada e estudos pequenos em pessoas.\n2️⃣ Injetável: sem aprovação para uso humano. Em 2026, a ANVISA alertou que ele não está regularizado em nenhuma categoria.\n3️⃣ Em laboratório, o GHK-Cu estimula colágeno e elastina. Em cicatrização, a evidência em pessoas é mais fraca, e para cabelo não há estudo controlado dele sozinho.\n\n⚠️ Os frascos injetáveis vêm rotulados “apenas para pesquisa”, sem garantia de pureza ou esterilidade. Alergia ao cobre e doença de Wilson são contraindicações; gestação e lactação não têm dados. Irritação no tópico? Suspenda e procure o dermatologista.",
+  "question": "Você usa GHK-Cu em sérum, creme ou produto para o cabelo?",
+  "share": "quem acha que o GHK-Cu do sérum é igual ao injetável"
+}

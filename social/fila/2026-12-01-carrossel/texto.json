@@ -1,0 +1,70 @@
+{
+  "hook": "Você já procura o efeito do Ozempic no dia seguinte?",
+  "hookIcon": "relogio",
+  "hookPose": "piscadinha",
+  "slides": [
+    {
+      "title": "No dia seguinte ainda é cedo",
+      "body": "A semaglutida age em vários sistemas, cada um no seu tempo. Procurar o efeito completo logo depois da primeira dose só traz ansiedade.",
+      "icon": "ampulheta",
+      "pose": "ih"
+    },
+    {
+      "title": "Saciedade: 2 a 3 dias",
+      "body": "É o primeiro sinal que costuma aparecer. A redução do apetite fica mais consistente em 2 a 4 semanas.",
+      "icon": "cerebro",
+      "pose": "explicando"
+    },
+    {
+      "title": "Meia-vida de 7 dias",
+      "body": "Por isso a aplicação é semanal. E o remédio só chega ao estado estacionário, o nível estável no sangue, depois de 4 a 5 semanas.",
+      "icon": "calendario",
+      "pose": "pensando"
+    },
+    {
+      "title": "Glicada não muda em um mês",
+      "body": "A queda da hemoglobina glicada fica detectável nos exames a partir de 8 a 12 semanas. Na dose de manutenção, a redução em diabetes tipo 2 é de 1 a 2%.",
+      "icon": "lupa",
+      "pose": "explicando"
+    },
+    {
+      "title": "Cada subida pode trazer enjoo",
+      "body": "A dose sobe aos poucos para o corpo tolerar os efeitos no estômago. Cada subida pode trazer a náusea de volta por um tempo, e isso é esperado.",
+      "icon": "enjoo",
+      "pose": "alerta"
+    },
+    {
+      "title": "Nem tudo é o remédio",
+      "body": "A ação nos centros do apetite leva tempo para mudar hábitos. E o resultado depende também do que vai para o prato, não só da medicação.",
+      "icon": "salada",
+      "pose": "piscadinha"
+    },
+    {
+      "title": "Cola para guardar",
+      "body": "1️⃣ Saciedade em 2 a 3 dias. 2️⃣ Apetite mais estável em 2 a 4 semanas. 3️⃣ Glicada a partir de 8 a 12 semanas. 4️⃣ Subir a dose é decisão do médico, nunca da pressa.",
+      "icon": "certo",
+      "pose": "apontando"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Você já procura o efeito do Ozempic no dia seguinte? Eu sei, a ansiedade bate.",
+      "pose": "piscadinha"
+    },
+    {
+      "text": "A saciedade costuma aparecer em 2 a 3 dias. O apetite fica mais estável em 2 a 4 semanas.",
+      "pose": "explicando"
+    },
+    {
+      "text": "A glicada só mostra diferença no exame a partir de 8 a 12 semanas. E subir a dose é decisão do médico, não da pressa.",
+      "pose": "pensando"
+    },
+    {
+      "text": "Cada etapa tem o seu tempo. Então, procurar o efeito do Ozempic no dia seguinte, nunca mais.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, a gente aplica e já quer ver diferença. Mas a semaglutida age em vários sistemas, cada um no seu tempo, e tem meia-vida de cerca de 7 dias: só chega ao nível estável depois de 4 a 5 semanas.\n\n1️⃣ Saciedade: já perceptível em 2 a 3 dias\n2️⃣ Apetite: redução mais consistente em 2 a 4 semanas\n3️⃣ Hemoglobina glicada: queda detectável a partir de 8 a 12 semanas\n\n⚠️ Cada subida de dose do Ozempic pode trazer a náusea de volta por um tempo. A dose sobe aos poucos justamente para o corpo tolerar, e quem decide cada etapa é o médico.",
+  "question": "Qual foi o primeiro efeito que você percebeu?",
+  "share": "aquela amiga que já quer ver efeito do Ozempic no dia seguinte"
+}

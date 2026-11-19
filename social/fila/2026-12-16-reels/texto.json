@@ -1,0 +1,70 @@
+{
+  "hook": "Mito: injeção todo dia funciona mais que a semanal",
+  "hookIcon": "calendario",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "Todo dia é mais forte?",
+      "body": "A mania: achar que a injeção diária 'trabalha mais' que a semanal. Eu sei, faz sentido na cabeça. Mas a frequência conta outra coisa.",
+      "icon": "duvida",
+      "pose": "ih"
+    },
+    {
+      "title": "A frequência vem da meia-vida",
+      "body": "Liraglutida: meia-vida de cerca de 13 horas, aplicação diária. Semaglutida: cerca de 7 dias, aplicação semanal. É o tempo que cada uma fica agindo.",
+      "icon": "ampulheta",
+      "pose": "explicando"
+    },
+    {
+      "title": "Mesma família, mesmo alvo",
+      "body": "As duas ativam o receptor de GLP-1: estimulam a insulina dependente de glicose, reduzem o glucagon, retardam o estômago e aumentam a saciedade.",
+      "icon": "cerebro",
+      "pose": "pensando"
+    },
+    {
+      "title": "O que muda é a molécula",
+      "body": "A semaglutida tem um ácido graxo que aumenta a ligação à albumina e reduz a degradação. Resultado: meia-vida de cerca de uma semana.",
+      "icon": "dna",
+      "pose": "explicando"
+    },
+    {
+      "title": "E na eficácia?",
+      "body": "No emagrecimento, a liraglutida perde em eficácia para a semaglutida. Em compensação, tem o maior histórico de segurança da classe e uso a partir de 12 anos.",
+      "icon": "balanca",
+      "pose": "pensando"
+    },
+    {
+      "title": "Efeitos parecidos",
+      "body": "Nas duas, náusea, vômito, diarreia e constipação estão entre os efeitos descritos. Histórico de carcinoma medular de tireoide ou NEM2 contraindica ambas.",
+      "icon": "enjoo",
+      "pose": "alerta"
+    },
+    {
+      "title": "A cola pra guardar",
+      "body": "Diária ou semanal depende da meia-vida, não da força. Liraglutida: até 3 mg por dia no controle de peso. Semaglutida: até 2,4 mg por semana. Escolha e dose: com o médico.",
+      "icon": "certo",
+      "pose": "apontando"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Mito: se a injeção é todo dia, ela funciona mais que a de uma vez por semana. Calma, não é bem assim.",
+      "pose": "ih"
+    },
+    {
+      "text": "A liraglutida tem meia-vida de cerca de 13 horas, por isso é diária. A semaglutida tem meia-vida de cerca de 7 dias, por isso é semanal.",
+      "pose": "explicando"
+    },
+    {
+      "text": "A frequência só mostra quanto tempo cada uma fica agindo. As duas ativam o mesmo receptor, o GLP-1, e a escolha entre elas é com o médico.",
+      "pose": "pensando"
+    },
+    {
+      "text": "Cada uma tem o seu esquema de bula, e o ajuste é sempre na consulta. Então, todo dia não quer dizer mais forte.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, parece lógico: se a injeção é todo dia, deve funcionar mais. Mas a frequência vem da meia-vida, ou seja, de quanto tempo a molécula fica agindo, e não da força.\n\n1️⃣ Liraglutida (Saxenda, Victoza): meia-vida de cerca de 13 horas, aplicação diária, até 3 mg por dia no controle de peso\n2️⃣ Semaglutida (Ozempic, Wegovy): meia-vida de cerca de 7 dias, aplicação semanal, faixa de 0,25 a 2,4 mg por semana com titulação\n3️⃣ As duas ativam o receptor de GLP-1. No emagrecimento, a liraglutida perde em eficácia para a semaglutida; em compensação, tem o maior histórico de segurança da classe\n\n⚠️ Náusea, vômito, diarreia e constipação são efeitos colaterais descritos nas duas. Histórico pessoal ou familiar de carcinoma medular de tireoide ou NEM2 contraindica ambas. Escolha e dose são sempre com o médico.",
+  "question": "Antes deste vídeo, você achava que a injeção diária era mais forte?",
+  "share": "quem acha que injeção todo dia é mais forte que a semanal"
+}
