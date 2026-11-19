@@ -5,43 +5,50 @@
   "slides": [
     {
       "title": "Eu sei, dá vontade de trocar",
+      "layout": "padrao",
       "body": "Enjoo cansa, e a molécula nova do feed parece a saída. Só que a cagrilintida também tem enjoo na ficha.",
       "icon": "duvida",
       "pose": "ih"
     },
     {
       "title": "Enjoo está nas duas fichas",
-      "body": "Tirzepatida: náusea, diarreia, vômito e constipação. Cagrilintida: náusea, vômito e constipação, mais frequentes na fase de aumento de dose.",
+      "layout": "lado",
+      "body": "Tirzepatida: náusea, diarreia, vômito e constipação\nCagrilintida: náusea, vômito e constipação, mais na fase de aumento de dose",
       "icon": "prancheta",
       "pose": "explicando"
     },
     {
       "title": "Mecanismos diferentes",
+      "layout": "padrao",
       "body": "O Mounjaro, a tirzepatida, ativa os receptores de GIP e GLP-1. A cagrilintida imita a amilina, outro hormônio da saciedade.",
       "icon": "cerebro",
       "pose": "pensando"
     },
     {
       "title": "Aprovada x experimental",
-      "body": "A tirzepatida é aprovada pela FDA, com bula. A cagrilintida está em desenvolvimento, sem aprovação como medicamento.",
+      "layout": "lado",
+      "body": "Tirzepatida: aprovada pela FDA, com bula\nCagrilintida: em desenvolvimento, sem aprovação como medicamento",
       "icon": "balanca",
       "pose": "alerta"
     },
     {
-      "title": "Frasco de pesquisa não é atalho",
-      "body": "Qualquer cagrilintida fora de ensaio clínico não passou por controle regulatório. Não é um caminho para fugir do enjoo.",
+      "title": "Frasco de pesquisa é atalho contra o enjoo",
+      "layout": "mito",
+      "body": "Não é. Qualquer cagrilintida fora de ensaio clínico não passou por controle regulatório.",
       "icon": "proibido",
       "pose": "ih"
     },
     {
       "title": "Enjoo é assunto de consulta",
+      "layout": "padrao",
       "body": "Enjoo forte, vômito que não passa ou dor na barriga? Fale com o médico. É ele quem avalia a dose, o ritmo de aumento e as alternativas.",
       "icon": "estetoscopio",
       "pose": "explicando"
     },
     {
       "title": "Cola pra guardar",
-      "body": "Enjoo aparece nas duas fichas. Só a tirzepatida tem aprovação. Molécula nova não é atalho: leve o enjoo ao médico antes de qualquer troca.",
+      "layout": "passos",
+      "body": "Enjoo aparece nas duas fichas\nSó a tirzepatida tem aprovação\nMolécula nova não é atalho\nLeve o enjoo ao médico antes de qualquer troca",
       "icon": "certo",
       "pose": "apontando"
     }

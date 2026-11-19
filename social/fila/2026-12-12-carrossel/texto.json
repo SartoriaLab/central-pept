@@ -4,50 +4,58 @@
   "hookPose": "ih",
   "slides": [
     {
-      "title": "Erro 1: tratar como se fosse semanal",
-      "body": "A liraglutida é de aplicação diária. A meia-vida é de cerca de 13 horas, por isso o esquema é de uma aplicação por dia.",
+      "title": "Liraglutida é de uma vez por semana",
+      "layout": "mito",
+      "body": "Ela é de aplicação diária. A meia-vida é de cerca de 13 horas, por isso o esquema é de uma aplicação por dia.",
       "icon": "relogio",
       "pose": "ih"
     },
     {
       "title": "Por que ela é diária",
+      "layout": "padrao",
       "body": "Ela tem 97% de homologia com o GLP-1 natural e uma cadeia de ácido graxo que se liga à albumina e prolonga a ação. Prolonga, mas o esquema continua diário.",
       "icon": "dna",
       "pose": "explicando"
     },
     {
-      "title": "Erro 2: querer começar lá no alto",
+      "title": "Dá para começar direto na dose alta",
+      "layout": "mito",
       "body": "Na bula, a dose inicial é 0,6 mg por dia, com aumento gradual. No controle de peso, a titulação é semanal, até no máximo 3 mg por dia.",
       "icon": "grafico-sobe",
       "pose": "alerta"
     },
     {
       "title": "Diabetes e peso têm faixas diferentes",
-      "body": "No diabetes (Victoza), a faixa vai de 0,6 a 1,8 mg por dia. No controle de peso (Saxenda), chega a 3 mg. Quem define a sua é o médico.",
+      "layout": "lado",
+      "body": "Diabetes (Victoza): de 0,6 a 1,8 mg por dia\nControle de peso (Saxenda): chega a 3 mg por dia",
       "icon": "balanca",
       "pose": "explicando"
     },
     {
       "title": "O estômago reclama, e costuma passar",
+      "layout": "padrao",
       "body": "Náusea, diarreia, constipação e vômito são os efeitos mais comuns e, em geral, transitórios. Persistiu ou piorou? Conte para o médico.",
       "icon": "enjoo",
       "pose": "pensando"
     },
     {
-      "title": "Erro 3: esquecer de contar o histórico",
+      "title": "Histórico de saúde não precisa contar",
+      "layout": "mito",
       "body": "Pancreatite, carcinoma medular de tireoide ou NEM2 (seu ou da família), gestação ou alergia à liraglutida: o médico precisa saber antes de começar.",
       "icon": "estetoscopio",
       "pose": "alerta"
     },
     {
       "title": "E o coração?",
+      "layout": "padrao",
       "body": "Aumento da frequência cardíaca está entre os efeitos descritos. Pancreatite e cálculo na vesícula são raros, mas aparecem na lista.",
       "icon": "coracao",
       "pose": "pensando"
     },
     {
       "title": "A cola pra guardar",
-      "body": "Liraglutida é diária. Começa em 0,6 mg e sobe aos poucos, como a bula descreve. Enjoo costuma passar. Pancreatite ou tireoide na história: conte antes. Ajuste só com o médico.",
+      "layout": "passos",
+      "body": "Liraglutida é diária\nComeça em 0,6 mg e sobe aos poucos, como a bula descreve\nEnjoo costuma passar\nPancreatite ou tireoide na história? Conte antes; ajuste só com o médico",
       "icon": "certo",
       "pose": "apontando"
     }

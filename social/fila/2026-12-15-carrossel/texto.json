@@ -4,44 +4,51 @@
   "hookPose": "piscadinha",
   "slides": [
     {
-      "title": "Mesma lista, nível diferente",
+      "title": "Estão na mesma lista, então valem igual",
+      "layout": "mito",
       "body": "Os dois aparecem juntos em listas de longevidade, mas a regulação e a força da evidência são bem diferentes.",
       "icon": "balanca",
       "pose": "ih"
     },
     {
       "title": "GHK-Cu: cobre e colágeno",
+      "layout": "padrao",
       "body": "É um peptídeo de cobre. Em laboratório, estimula fibroblastos a produzir colágeno e elastina. No uso tópico, é ingrediente cosmético permitido.",
       "icon": "pele",
       "pose": "explicando"
     },
     {
-      "title": "Epithalon: aposta na telomerase",
-      "body": "É um tetrapeptídeo cuja hipótese central é ativar a telomerase e alongar telômeros. Boa parte dos mecanismos propostos ainda é especulativa.",
+      "title": "Epithalon comprovadamente alonga telômeros",
+      "layout": "mito",
+      "body": "Isso é hipótese. O Epithalon é um tetrapeptídeo cuja ideia central é ativar a telomerase e alongar telômeros, e boa parte dos mecanismos propostos ainda é especulativa.",
       "icon": "dna",
       "pose": "pensando"
     },
     {
       "title": "De onde vêm os estudos",
+      "layout": "padrao",
       "body": "A maior parte da literatura do Epithalon vem de um mesmo grupo russo, e a replicação independente fora da Rússia é escassa.",
       "icon": "microscopio",
       "pose": "ih"
     },
     {
-      "title": "Injetável: nenhum é aprovado",
-      "body": "O GHK-Cu injetável não tem aprovação para uso humano. O Epithalon não tem aprovação da FDA, da EMA nem da ANVISA, e a WADA proíbe no esporte.",
+      "title": "A versão injetável é aprovada",
+      "layout": "mito",
+      "body": "Nenhuma é. O GHK-Cu injetável não tem aprovação para uso humano. O Epithalon não tem aprovação da FDA, da EMA nem da ANVISA, e a WADA proíbe no esporte.",
       "icon": "proibido",
       "pose": "alerta"
     },
     {
-      "title": "Cuidados diferentes",
-      "body": "GHK-Cu: alergia ao cobre e doença de Wilson. Epithalon: histórico de câncer, pelo risco teórico da telomerase. Gestação e lactação: nos dois.",
+      "title": "Cuidados de cada um (gestação e lactação: nos dois)",
+      "layout": "lado",
+      "body": "GHK-Cu: alergia ao cobre e doença de Wilson\nEpithalon: histórico de câncer, pelo risco teórico da telomerase",
       "icon": "estetoscopio",
       "pose": "explicando"
     },
     {
       "title": "Cola pra guardar",
-      "body": "Estar na mesma lista não é ter a mesma evidência. Sérum de GHK-Cu é cosmético; injetáveis dos dois são pesquisa. Dúvida? Fale com o médico.",
+      "layout": "passos",
+      "body": "Estar na mesma lista não é ter a mesma evidência\nSérum de GHK-Cu é cosmético\nInjetáveis dos dois são pesquisa\nDúvida? Fale com o médico",
       "icon": "certo",
       "pose": "apontando"
     }

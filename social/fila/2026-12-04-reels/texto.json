@@ -5,45 +5,52 @@
   "slides": [
     {
       "title": "Cada estudo tem duas contas",
-      "body": "Uma conta todo mundo que entrou, inclusive quem parou o remédio. A outra estima o que aconteceria se todos seguissem até o fim, e é sempre maior.",
+      "body": "Todos: conta quem entrou, inclusive quem parou o remédio\nQuem seguiu: estima o que aconteceria se todos fossem até o fim, e é sempre maior",
       "icon": "prancheta",
-      "pose": "explicando"
+      "pose": "explicando",
+      "layout": "lado"
     },
     {
-      "title": "O print mistura as duas",
+      "title": "28,3% contra 20,9% é comparação justa",
       "body": "Os 28,3% da retatrutida são a conta de quem seguiu o tratamento. Os 20,9% da tirzepatida são a conta de todos. Comparar assim exagera a diferença.",
       "icon": "errado",
-      "pose": "ih"
+      "pose": "ih",
+      "layout": "mito"
     },
     {
       "title": "Na mesma conta, os pares são estes",
-      "body": "Todos os participantes: 25,0% (retatrutida 12 mg, TRIUMPH-1) contra 20,9% (tirzepatida 15 mg, SURMOUNT-1). Quem seguiu: 28,3% contra 22,5%.",
+      "body": "Todos: 25,0% (retatrutida 12 mg, TRIUMPH-1) contra 20,9% (tirzepatida 15 mg, SURMOUNT-1)\nQuem seguiu: 28,3% contra 22,5%",
       "icon": "balanca",
-      "pose": "apontando"
+      "pose": "apontando",
+      "layout": "lado"
     },
     {
       "title": "Mesmo assim, não dá pra cravar",
       "body": "O TRIUMPH-1 durou 80 semanas; o SURMOUNT-1, 72 semanas. O peso médio no início também foi diferente, e grupos diferentes podem responder diferente.",
       "icon": "calendario",
-      "pose": "pensando"
+      "pose": "pensando",
+      "layout": "padrao"
     },
     {
       "title": "Até o placebo foi diferente",
-      "body": "O placebo perdeu 3,9% no TRIUMPH-1 e 3,1% no SURMOUNT-1. Sinal de que os grupos não se comportaram igual.",
+      "body": "TRIUMPH-1: o placebo perdeu 3,9%\nSURMOUNT-1: o placebo perdeu 3,1%, sinal de que os grupos não se comportaram igual",
       "icon": "microscopio",
-      "pose": "explicando"
+      "pose": "explicando",
+      "layout": "lado"
     },
     {
       "title": "Efeitos: abandono e disestesia",
       "body": "Na dose mais alta, 11,3% pararam por efeito adverso com retatrutida e 6,2% com tirzepatida. Disestesia, sensação anormal na pele, apareceu em 12,5% com retatrutida 12 mg.",
       "icon": "alerta",
-      "pose": "alerta"
+      "pose": "alerta",
+      "layout": "padrao"
     },
     {
       "title": "A cola: conta torta não compara",
-      "body": "Mesma conta nos dois lados. Estudo diferente não é frente a frente: o TRIUMPH-5 ainda não tem resultado. Só a tirzepatida é aprovada. Decisão é com o médico.",
+      "body": "Mesma conta nos dois lados\nEstudo diferente não é frente a frente: o TRIUMPH-5 ainda não tem resultado\nSó a tirzepatida é aprovada\nDecisão é com o médico",
       "icon": "certo",
-      "pose": "piscadinha"
+      "pose": "piscadinha",
+      "layout": "passos"
     }
   ],
   "narration": [

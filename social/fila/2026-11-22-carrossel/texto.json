@@ -5,49 +5,57 @@
   "slides": [
     {
       "title": "Mesma escala, tamanhos diferentes",
+      "layout": "padrao",
       "body": "Nas seringas U-100, 1 unidade é sempre 0,01 ml. O que muda é o comprimento: na de 30 U, a mesma dose fica maior e mais fácil de ler.",
       "icon": "regua",
       "pose": "explicando"
     },
     {
-      "title": "Na de 100, o traço pode valer 2",
-      "body": "Uma dose de 7 unidades fica entre os traços 6 e 8. Errar meia marca já é 1 unidade, mais de 14% da dose.",
+      "title": "Mais de 14%",
+      "body": "Na seringa de 100, o traço pode valer 2: uma dose de 7 unidades fica entre os traços 6 e 8. Errar meia marca já é 1 unidade, mais de 14% da dose.",
+      "layout": "numero",
       "icon": "alerta",
       "pose": "alerta"
     },
     {
       "title": "A regra de escolha",
+      "layout": "padrao",
       "body": "A menor que comporte a dose inteira com folga: até 30 unidades, a de 30 U; até 50, a de 50 U; acima disso, a de 100 U.",
       "icon": "alvo",
       "pose": "explicando"
     },
     {
-      "title": "Pense na dose mais alta",
-      "body": "Se a dose prescrita vai subir e passar de 30 unidades em breve, pode valer começar já com a de 50 U.",
+      "title": "30 unidades",
+      "body": "Pense na dose mais alta: se a dose prescrita vai subir e passar de 30 unidades em breve, pode valer começar já com a de 50 U.",
+      "layout": "numero",
       "icon": "grafico-sobe",
       "pose": "pensando"
     },
     {
       "title": "Como ler os traços",
-      "body": "Confira U-100 na embalagem, conte quantos traços há entre dois números e leia pela borda de borracha do êmbolo, na altura dos olhos. Tire as bolhas.",
+      "body": "Confira U-100 na embalagem\nConte quantos traços há entre dois números\nLeia pela borda de borracha do êmbolo, na altura dos olhos\nTire as bolhas",
+      "layout": "passos",
       "icon": "lupa",
       "pose": "apontando"
     },
     {
       "title": "U-40 é outra escala",
+      "layout": "padrao",
       "body": "O mesmo número de unidades dá 2,5 vezes mais volume. Conta feita para U-100 e puxada na U-40 aplica 2,5 vezes a dose.",
       "icon": "proibido",
       "pose": "alerta"
     },
     {
-      "title": "Agulha fixa e curta",
-      "body": "A diretriz da SBD prefere agulha fixa, que evita o espaço morto, e agulhas curtas, de 4 a 6 mm. Reutilizar seringa não é recomendado.",
+      "title": "4 a 6 mm",
+      "body": "É a agulha curta que a diretriz da SBD prefere, e fixa, que evita o espaço morto. Reutilizar seringa não é recomendado.",
+      "layout": "numero",
       "icon": "escudo",
       "pose": "piscadinha"
     },
     {
       "title": "Sua cola",
-      "body": "Até 30 U: seringa de 30. De 30 a 50 U: de 50. Acima de 50 U: de 100. Unidade é volume, não mg: a conta depende do seu frasco. Dúvida? Médico ou farmacêutico.",
+      "body": "Até 30 U: seringa de 30\nDe 30 a 50 U: de 50\nAcima de 50 U: de 100\nUnidade é volume, não mg. Dúvida? Médico ou farmacêutico",
+      "layout": "passos",
       "icon": "certo",
       "pose": "apontando"
     }

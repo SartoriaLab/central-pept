@@ -3,6 +3,7 @@
 import type { Draft } from './types';
 import { isIllustration } from './illustrations';
 import { isPose } from './poses';
+import { LAYOUTS, layoutProblems } from './layouts';
 
 const UNIT: Record<string, string> = {
   mg: 'mg', mcg: 'mcg', 'µg': 'mcg', 'μg': 'mcg', ml: 'ml', ui: 'ui', u: 'u', unidade: 'u', unidades: 'u',
@@ -98,7 +99,13 @@ export function validateDraft(draft: Draft, source: string): string[] {
     if (s.body.length > LIMITS.slideBody) problems.push(`slide ${i + 1}: texto longo (${s.body.length}, máx. ${LIMITS.slideBody})`);
     if (s.icon !== undefined && !isIllustration(s.icon)) problems.push(`slide ${i + 1}: ilustração desconhecida "${s.icon}"`);
     if (s.pose !== undefined && !isPose(s.pose)) problems.push(`slide ${i + 1}: pose desconhecida "${s.pose}"`);
+    if (s.layout !== undefined && !(LAYOUTS as readonly string[]).includes(s.layout)) problems.push(`slide ${i + 1}: tipo desconhecido "${s.layout}"`);
+    else problems.push(...layoutProblems(i + 1, s));
   });
+  // Ritmo: pelo menos um slide fora do padrão quando há 4 ou mais.
+  if (draft.slides.length >= 4 && draft.slides.every((s) => (s.layout ?? 'padrao') === 'padrao')) {
+    problems.push('todos os slides são "padrao": use ao menos um tipo diferente (mito, passos, lado, numero ou pergunta)');
+  }
   const [minN, maxN] = LIMITS.narration;
   if (draft.narration.length < minN || draft.narration.length > maxN) problems.push(`${draft.narration.length} falas (use ${minN} a ${maxN})`);
   draft.narration.forEach((n, i) => {

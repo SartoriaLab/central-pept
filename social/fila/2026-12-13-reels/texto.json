@@ -5,43 +5,50 @@
   "slides": [
     {
       "title": "Dois alvos contra três",
-      "body": "A tirzepatida age nos receptores GIP e GLP-1. A retatrutida age nesses dois e também no glucagon. Não é a mesma molécula com um extra.",
+      "layout": "lado",
+      "body": "Tirzepatida: age nos receptores GIP e GLP-1\nRetatrutida: age nesses dois e também no glucagon",
       "icon": "dna",
       "pose": "explicando"
     },
     {
       "title": "Tolerar uma não prevê a outra",
+      "layout": "padrao",
       "body": "Os efeitos de cada molécula foram medidos em estudos próprios. Como você reagiu ao Mounjaro não diz como reagiria à retatrutida.",
       "icon": "duvida",
       "pose": "pensando"
     },
     {
-      "title": "O que se mediu com a retatrutida",
-      "body": "Na fase 3: náusea em até ~43%, diarreia em até ~35%, constipação em até ~26% e vômito em até ~25%.",
+      "title": "Até ~43%",
+      "layout": "numero",
+      "body": "Foi a náusea na fase 3 da retatrutida. A diarreia chegou a ~35%, a constipação a ~26% e o vômito a ~25%.",
       "icon": "enjoo",
       "pose": "alerta"
     },
     {
       "title": "O efeito que não está na lista da tirzepatida",
+      "layout": "padrao",
       "body": "Disestesia: sensações anormais na pele, mais frequentes nas doses altas. Chegou a ~21% com 12 mg em um ensaio de fase 3.",
       "icon": "pele",
       "pose": "ih"
     },
     {
       "title": "Nem a escada é a mesma",
-      "body": "Tirzepatida: bula de 2,5 a 15 mg por semana, subindo a cada ≥4 semanas. Retatrutida: só doses de estudo, com início em 2 mg e até 12 mg.",
+      "layout": "lado",
+      "body": "Tirzepatida: bula de 2,5 a 15 mg por semana, subindo a cada ≥4 semanas\nRetatrutida: só doses de estudo, com início em 2 mg e até 12 mg",
       "icon": "grafico-sobe",
       "pose": "explicando"
     },
     {
       "title": "Uma é aprovada, a outra não",
+      "layout": "padrao",
       "body": "A tirzepatida é aprovada pela FDA como Mounjaro e Zepbound. A retatrutida é experimental, e a ANVISA orientou, em julho de 2026, a não usar produtos com esse nome.",
       "icon": "escudo",
       "pose": "apontando"
     },
     {
       "title": "A cola: desceu bem? Não vale pra outra",
-      "body": "Molécula diferente, efeitos medidos à parte e nenhuma aprovação no caso da retatrutida. Qualquer troca de tratamento é conversa com o médico.",
+      "layout": "passos",
+      "body": "Molécula diferente\nEfeitos medidos à parte\nNenhuma aprovação no caso da retatrutida\nQualquer troca de tratamento é conversa com o médico",
       "icon": "estetoscopio",
       "pose": "piscadinha"
     }

@@ -4,46 +4,53 @@
   "hookPose": "ih",
   "slides": [
     {
-      "title": "Moléculas diferentes, alvos diferentes",
-      "body": "Ozempic é a semaglutida: age no receptor GLP-1. Mounjaro é a tirzepatida: age no GLP-1 e também no GIP. Por isso não dá pra tratar como “a mesma injeção”.",
+      "title": "Ozempic e Mounjaro são a mesma injeção",
+      "body": "Ozempic é a semaglutida: age no receptor GLP-1. Mounjaro é a tirzepatida: age no GLP-1 e também no GIP. Moléculas diferentes, alvos diferentes.",
       "icon": "dna",
-      "pose": "explicando"
+      "pose": "explicando",
+      "layout": "mito"
     },
     {
       "title": "A meia-vida também muda",
       "body": "A semaglutida tem meia-vida de ~7 dias; a tirzepatida, de ~5 dias. As duas são semanais, cada uma com a própria escada de dose na bula.",
       "icon": "ampulheta",
-      "pose": "pensando"
+      "pose": "pensando",
+      "layout": "padrao"
     },
     {
-      "title": "O que os estudos mediram no peso",
-      "body": "STEP-1, semaglutida 2,4 mg: média de ~14,9% em 68 semanas. SURMOUNT-1, tirzepatida 15 mg: ~20,9% em 72 semanas. São médias de estudo, não promessa pra ninguém.",
+      "title": "Peso nos estudos: média, não promessa",
+      "body": "Semaglutida 2,4 mg (STEP-1): ~14,9% em 68 semanas\nTirzepatida 15 mg (SURMOUNT-1): ~20,9% em 72 semanas",
       "icon": "grafico-desce",
-      "pose": "explicando"
+      "pose": "explicando",
+      "layout": "lado"
     },
     {
       "title": "E quando compararam frente a frente?",
       "body": "No SURMOUNT-5, que colocou as duas no mesmo estudo, a média foi de ~20,2% com tirzepatida e ~13,7% com semaglutida após 72 semanas.",
       "icon": "microscopio",
-      "pose": "apontando"
+      "pose": "apontando",
+      "layout": "pergunta"
     },
     {
-      "title": "Enjoo: o perfil é o mesmo",
-      "body": "Náusea foi relatada por 44% com semaglutida 2,4 mg e por 31% com tirzepatida 15 mg, mas em estudos diferentes. A comparação é só aproximada.",
+      "title": "Náusea, em estudos diferentes",
+      "body": "Semaglutida 2,4 mg: relatada por 44%\nTirzepatida 15 mg: relatada por 31%, comparação só aproximada",
       "icon": "enjoo",
-      "pose": "ih"
+      "pose": "ih",
+      "layout": "lado"
     },
     {
       "title": "Quem não pode usar nenhuma das duas",
       "body": "Quem tem histórico pessoal ou familiar de carcinoma medular de tireoide, síndrome NEM 2, e gestantes. Vale pras duas moléculas.",
       "icon": "alerta",
-      "pose": "alerta"
+      "pose": "alerta",
+      "layout": "padrao"
     },
     {
-      "title": "Mesmo remédio? Não. A cola:",
-      "body": "Semaglutida: só GLP-1, meia-vida de ~7 dias. Tirzepatida: GLP-1 + GIP, ~5 dias. Os números de estudo ajudam a conversa, mas quem escolhe com você, pelo seu histórico, é o médico.",
+      "title": "Mesmo remédio? Não. A cola",
+      "body": "Semaglutida: só GLP-1, meia-vida de ~7 dias\nTirzepatida: GLP-1 + GIP, ~5 dias\nNúmero de estudo ajuda a conversa\nQuem escolhe com você, pelo seu histórico, é o médico",
       "icon": "estetoscopio",
-      "pose": "piscadinha"
+      "pose": "piscadinha",
+      "layout": "passos"
     }
   ],
   "narration": [

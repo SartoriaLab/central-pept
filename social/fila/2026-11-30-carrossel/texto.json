@@ -4,52 +4,60 @@
   "hookPose": "ih",
   "slides": [
     {
-      "title": "Caixa bonita não basta",
+      "title": "Se a caixa é bonita, é original",
       "body": "Falsificação também vem em caixa caprichada. O detalhe que entrega é o lote: o da caixa tem que ser igual ao impresso na caneta.",
       "icon": "alerta",
-      "pose": "pensando"
+      "pose": "pensando",
+      "layout": "mito"
     },
     {
       "title": "Na caixa, confira",
-      "body": "Impressão de qualidade, sem erro de ortografia, fabricante Novo Nordisk, código escaneável e bula em português, em papel, não folha avulsa.",
+      "body": "Impressão de qualidade, sem erro de ortografia\nFabricante Novo Nordisk e código escaneável\nBula em português, em papel, não folha avulsa",
       "icon": "prancheta",
-      "pose": "explicando"
+      "pose": "explicando",
+      "layout": "passos"
     },
     {
       "title": "Na caneta, confira",
       "body": "Solução cristalina, sem partículas. Rótulo impresso de fábrica, nunca adesivo, com o mesmo lote da caixa.",
       "icon": "seringa",
-      "pose": "apontando"
+      "pose": "apontando",
+      "layout": "padrao"
     },
     {
-      "title": "Consulte a ANVISA",
+      "title": "O registro na ANVISA é válido?",
       "body": "Em consultas.anvisa.gov.br, busque Ozempic: o registro válido é da Novo Nordisk. Compare seu lote com os alertas, que listam lotes falsificados.",
       "icon": "escudo",
-      "pose": "piscadinha"
+      "pose": "piscadinha",
+      "layout": "pergunta"
     },
     {
       "title": "Onde o risco é maior",
       "body": "Anúncio em rede social ou marketplace, farmácia sem CNPJ claro e desconto bom demais pra ser verdade.",
       "icon": "proibido",
-      "pose": "ih"
+      "pose": "ih",
+      "layout": "padrao"
     },
     {
       "title": "Desconfiou? Não aplique",
-      "body": "Fotografe a embalagem e a caneta e notifique a ANVISA pelo Notivisa. Se foi pela internet, procure também o Procon.",
+      "body": "Fotografe a embalagem e a caneta\nNotifique a ANVISA pelo Notivisa\nFoi pela internet? Procure também o Procon",
       "icon": "duvida",
-      "pose": "alerta"
+      "pose": "alerta",
+      "layout": "passos"
     },
     {
       "title": "Já aplicou?",
       "body": "Se apareceram sintomas anormais depois de usar uma caneta suspeita, procure o pronto-socorro.",
       "icon": "hospital",
-      "pose": "explicando"
+      "pose": "explicando",
+      "layout": "pergunta"
     },
     {
       "title": "Sua cola",
-      "body": "Lote da caixa igual ao da caneta. Rótulo de fábrica, sem adesivo. Registro da Novo Nordisk na ANVISA. Suspeitou: não aplique e notifique.",
+      "body": "Lote da caixa igual ao da caneta\nRótulo de fábrica, sem adesivo\nRegistro da Novo Nordisk na ANVISA\nSuspeitou: não aplique e notifique",
       "icon": "certo",
-      "pose": "apontando"
+      "pose": "apontando",
+      "layout": "passos"
     }
   ],
   "narration": [

@@ -4,52 +4,60 @@
   "hookPose": "ih",
   "slides": [
     {
-      "title": "Ainda é estudo, não remédio",
-      "body": "A cagrilintida e o CagriSema estão em fase 3 e não têm aprovação da ANVISA. Manchete de estudo não é bula, por mais animadora que pareça.",
+      "title": "O CagriSema já é remédio",
+      "body": "Ainda é estudo. A cagrilintida e o CagriSema estão em fase 3 e não têm aprovação da ANVISA. Manchete de estudo não é bula, por mais animadora que pareça.",
       "icon": "prancheta",
-      "pose": "ih"
+      "pose": "ih",
+      "layout": "mito"
     },
     {
       "title": "Amilina, a parceira da insulina",
       "body": "A amilina sai das mesmas células do pâncreas que fazem insulina, depois das refeições. Ela ajuda a controlar a glicose e avisa o cérebro da saciedade.",
       "icon": "cerebro",
-      "pose": "explicando"
+      "pose": "explicando",
+      "layout": "padrao"
     },
     {
       "title": "A versão que dura a semana",
-      "body": "A amilina natural dura poucos minutos no sangue. A cagrilintida foi modificada para durar cerca de uma semana, por isso é estudada em aplicação semanal.",
+      "body": "Amilina natural: dura poucos minutos no sangue\nCagrilintida: modificada para durar cerca de uma semana, por isso é estudada em aplicação semanal",
       "icon": "ampulheta",
-      "pose": "explicando"
+      "pose": "explicando",
+      "layout": "lado"
     },
     {
       "title": "CagriSema é uma dupla",
       "body": "É a cagrilintida somada à semaglutida. A ideia: dois sinais de saciedade por vias parcialmente diferentes, para o efeito somado ser maior que o de cada uma.",
       "icon": "balanca",
-      "pose": "piscadinha"
+      "pose": "piscadinha",
+      "layout": "padrao"
     },
     {
-      "title": "O que os estudos REDEFINE mostraram",
+      "title": "O que os estudos REDEFINE mostraram?",
       "body": "Na fase 3, a perda média de peso foi bem maior que a do placebo, em pessoas com e sem diabetes tipo 2. São médias: a resposta de cada pessoa varia bastante.",
       "icon": "microscopio",
-      "pose": "pensando"
+      "pose": "pensando",
+      "layout": "pergunta"
     },
     {
-      "title": "O enjoo também apareceu",
-      "body": "No REDEFINE 1, efeitos gastrointestinais em 79,6% de quem usou CagriSema e em 39,9% no placebo, na maioria passageiros e de leves a moderados.",
+      "title": "79,6%",
+      "body": "No REDEFINE 1, foi a fatia de quem usou CagriSema com efeitos gastrointestinais, contra 39,9% no placebo. Na maioria, passageiros e de leves a moderados.",
       "icon": "enjoo",
-      "pose": "alerta"
+      "pose": "alerta",
+      "layout": "numero"
     },
     {
-      "title": "Frasco de pesquisa não é o do estudo",
+      "title": "Frasco de pesquisa é o do estudo",
       "body": "Frasco de “cagrilintida” fora de ensaio clínico não tem relação com o medicamento testado, nem garantia de identidade, pureza ou esterilidade.",
       "icon": "proibido",
-      "pose": "alerta"
+      "pose": "alerta",
+      "layout": "mito"
     },
     {
       "title": "Cola pra guardar",
-      "body": "Estudo promissor não é aprovação. Hoje, o acesso legítimo é só por ensaio clínico. Pensa em tratar a obesidade? O caminho é a consulta médica.",
+      "body": "Estudo promissor não é aprovação\nHoje, o acesso legítimo é só por ensaio clínico\nPensa em tratar a obesidade? O caminho é a consulta médica",
       "icon": "certo",
-      "pose": "apontando"
+      "pose": "apontando",
+      "layout": "passos"
     }
   ],
   "narration": [

@@ -4,50 +4,58 @@
   "hookPose": "pensando",
   "slides": [
     {
-      "title": "Caneta não se reconstitui",
-      "body": "Ozempic e Wegovy em caneta já vêm prontos. Só o frasco com pó liofilizado precisa de água bacteriostática.",
+      "title": "A caneta também precisa misturar",
+      "layout": "mito",
+      "body": "Não: Ozempic e Wegovy em caneta já vêm prontos. Só o frasco com pó liofilizado precisa de água bacteriostática.",
       "icon": "lampada",
       "pose": "explicando"
     },
     {
       "title": "Limpe antes",
-      "body": "Lave as mãos e passe álcool 70% na tampa de borracha dos dois frascos. Deixe secar ao ar por alguns segundos.",
+      "body": "Lave as mãos\nPasse álcool 70% na tampa de borracha dos dois frascos\nDeixe secar ao ar por alguns segundos",
+      "layout": "passos",
       "icon": "escudo",
       "pose": "explicando"
     },
     {
-      "title": "A água decide as unidades",
-      "body": "Frasco de 5 mg com 2 ml de água dá 2,5 mg/ml: a dose inicial de bula, 0,25 mg, fica em 10 unidades na seringa.",
+      "title": "10 unidades",
+      "layout": "numero",
+      "body": "É onde fica a dose inicial de bula, 0,25 mg, num frasco de 5 mg com 2 ml de água (2,5 mg/ml). A água decide as unidades.",
       "icon": "regua",
       "pose": "pensando"
     },
     {
       "title": "Pela parede, nunca no pó",
+      "layout": "padrao",
       "body": "Deixe a água escorrer pela parede interna do frasco. O jato direto sobre o pó pode danificar o peptídeo.",
       "icon": "gota",
       "pose": "alerta"
     },
     {
-      "title": "Gire, não sacuda",
-      "body": "Gire o frasco entre as palmas das mãos por 30 a 60 segundos. Sacudir desnatura o peptídeo, então vai com calma.",
+      "title": "Sacudir ajuda a dissolver",
+      "layout": "mito",
+      "body": "Sacudir desnatura o peptídeo. Gire o frasco entre as palmas das mãos por 30 a 60 segundos, com calma.",
       "icon": "errado",
       "pose": "ih"
     },
     {
-      "title": "Turvou? Descarte",
-      "body": "A solução tem que ficar completamente transparente. Se continuar turva depois de 5 minutos de espera, o frasco pode estar comprometido.",
+      "title": "5 minutos",
+      "layout": "numero",
+      "body": "É a espera para a solução ficar completamente transparente. Se continuar turva depois disso, o frasco pode estar comprometido: descarte.",
       "icon": "lupa",
       "pose": "alerta"
     },
     {
       "title": "Geladeira e etiqueta",
+      "layout": "padrao",
       "body": "Entre 2 e 8 °C, na prateleira do meio, nunca na porta nem no freezer. Dura 28 dias após a reconstituição. Etiqueta com data e concentração.",
       "icon": "geladeira",
       "pose": "piscadinha"
     },
     {
       "title": "Sua cola",
-      "body": "Álcool nas tampas, água pela parede, girar sem sacudir, esperar ficar transparente, etiquetar e guardar. A dose e a subida são com o médico.",
+      "body": "Álcool nas tampas, água pela parede\nGirar sem sacudir e esperar ficar transparente\nEtiquetar e guardar\nA dose e a subida são com o médico",
+      "layout": "passos",
       "icon": "certo",
       "pose": "apontando"
     }

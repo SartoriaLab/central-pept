@@ -5,49 +5,57 @@
   "slides": [
     {
       "title": "Cada uma está numa dose",
+      "layout": "padrao",
       "body": "Comparar o seu começo com quem já está em 10 ou 15 mg não é justo com você. A dose atual muda tudo, e a subida da bula é gradual.",
       "icon": "balanca",
       "pose": "ih"
     },
     {
-      "title": "As 4 primeiras semanas",
-      "body": "O tratamento começa em 2,5 mg, a dose inicial. Ela serve para o corpo se acostumar e não é dose de manutenção para perda de peso.",
+      "title": "2,5 mg",
+      "layout": "numero",
+      "body": "É a dose inicial, nas 4 primeiras semanas. Ela serve para o corpo se acostumar e não é dose de manutenção para perda de peso.",
       "icon": "calendario",
       "pose": "explicando"
     },
     {
       "title": "Cada dose leva um mês para firmar",
+      "layout": "padrao",
       "body": "A concentração estável chega depois de cerca de 4 semanas na mesma dose. Por isso a bula pede pelo menos 4 semanas em cada degrau.",
       "icon": "relogio",
       "pose": "pensando"
     },
     {
-      "title": "A subida é devagar mesmo",
-      "body": "A dose sobe 2,5 mg a cada 4 semanas ou mais. Quem vai até 15 mg só chega lá na 21ª semana. E nem todo mundo precisa da dose máxima.",
+      "title": "21ª semana",
+      "layout": "numero",
+      "body": "É quando chega aos 15 mg quem vai até lá: a dose sobe 2,5 mg a cada 4 semanas ou mais. E nem todo mundo precisa da dose máxima.",
       "icon": "grafico-sobe",
       "pose": "explicando"
     },
     {
       "title": "O efeito continua por meses",
+      "layout": "padrao",
       "body": "No SURMOUNT-1, o resultado final só foi medido em 72 semanas, e o efeito seguiu por mais de um ano antes de estabilizar.",
       "icon": "microscopio",
       "pose": "feliz"
     },
     {
-      "title": "Por que cada uma tem seu ritmo",
+      "title": "Por que cada uma tem seu ritmo?",
+      "layout": "pergunta",
       "body": "Dose atual, diabetes, alimentação, atividade física, sono, outros remédios e doses puladas. A variação individual também conta.",
       "icon": "pensando",
       "pose": "piscadinha"
     },
     {
       "title": "Antes de achar que falhou",
+      "layout": "padrao",
       "body": "Menos de 3 meses em dose estável é cedo. Em frasco, confira diluição e unidades. Veja conservação e procedência. Leve o registro de doses ao médico.",
       "icon": "lupa",
       "pose": "alerta"
     },
     {
       "title": "Cola para guardar",
-      "body": "1️⃣ Olhe para a sua dose, não para a da amiga. 2️⃣ Pelo menos 4 semanas por degrau. 3️⃣ Subir por conta própria só aumenta efeito colateral. 4️⃣ Quem decide a subida é o médico.",
+      "body": "Olhe para a sua dose, não para a da amiga\nPelo menos 4 semanas por degrau\nSubir por conta própria só aumenta efeito colateral\nQuem decide a subida é o médico",
+      "layout": "passos",
       "icon": "certo",
       "pose": "apontando"
     }

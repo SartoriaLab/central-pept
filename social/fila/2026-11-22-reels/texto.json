@@ -5,37 +5,43 @@
   "slides": [
     {
       "title": "O que o estudo mediu",
+      "layout": "padrao",
       "body": "No SURMOUNT-4, todos usaram tirzepatida por 36 semanas. Depois, metade seguiu com o remédio e metade passou para placebo, sem saber.",
       "icon": "microscopio",
       "pose": "explicando"
     },
     {
-      "title": "Quem parou, recuperou",
-      "body": "Em um ano, quem passou para placebo recuperou em média 14% do peso. Quem continuou com a tirzepatida perdeu mais 5,5%.",
+      "title": "Em um ano: quem parou x quem continuou",
+      "body": "Placebo: recuperou em média 14% do peso\nTirzepatida: perdeu mais 5,5%",
+      "layout": "lado",
       "icon": "grafico-sobe",
       "pose": "pensando"
     },
     {
       "title": "Mas não voltou ao zero",
+      "layout": "padrao",
       "body": "Quem parou ainda terminou 9,9% abaixo do peso inicial. E não é falha de quem usa: é o esperado quando se interrompe o tratamento de uma condição crônica.",
       "icon": "balanca",
       "pose": "feliz"
     },
     {
-      "title": "Por que a fome volta",
+      "title": "Por que a fome volta?",
+      "layout": "pergunta",
       "body": "Com meia-vida de cerca de 5 dias, a tirzepatida sai do corpo em mais ou menos um mês. Sem ela, o apetite volta ao padrão de antes.",
       "icon": "ampulheta",
       "pose": "explicando"
     },
     {
       "title": "Voltar na dose antiga? Não.",
+      "layout": "padrao",
       "body": "Depois de várias semanas sem aplicar, a tolerância se perde. Recomeçar direto na dose alta aumenta muito o risco de náusea e vômito intensos.",
       "icon": "alerta",
       "pose": "alerta"
     },
     {
       "title": "Cola da saída planejada",
-      "body": "1️⃣ Converse com o médico antes de parar. 2️⃣ Pergunte sobre dose de manutenção ou redução aos poucos. 3️⃣ Mantenha treino de força e proteína. 4️⃣ Pausou? O recomeço é com o médico.",
+      "body": "Converse com o médico antes de parar\nPergunte sobre dose de manutenção ou redução aos poucos\nMantenha treino de força e proteína\nPausou? O recomeço é com o médico",
+      "layout": "passos",
       "icon": "estetoscopio",
       "pose": "apontando"
     }

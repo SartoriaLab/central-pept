@@ -4,46 +4,53 @@
   "hookPose": "pensando",
   "slides": [
     {
-      "title": "Miligrama não é medida de força",
+      "title": "Mais miligrama é remédio mais forte",
       "body": "0,25 mg de semaglutida e 2,5 mg de tirzepatida são as doses de início de cada bula. São moléculas diferentes: o número sozinho não diz qual é “mais forte”.",
       "icon": "regua",
-      "pose": "explicando"
+      "pose": "explicando",
+      "layout": "mito"
     },
     {
       "title": "Cada uma tem a própria escada",
-      "body": "Semaglutida: de 0,25 a 2,4 mg por semana, com subida gradual. Tirzepatida: de 2,5 a 15 mg por semana, subindo a cada ≥4 semanas. É o que as bulas descrevem.",
+      "body": "Semaglutida: de 0,25 a 2,4 mg por semana, com subida gradual\nTirzepatida: de 2,5 a 15 mg por semana, subindo a cada ≥4 semanas",
       "icon": "grafico-sobe",
-      "pose": "apontando"
+      "pose": "apontando",
+      "layout": "lado"
     },
     {
       "title": "Por que os números são tão diferentes?",
       "body": "A semaglutida age só no receptor GLP-1. A tirzepatida age no GLP-1 e no GIP. Estruturas e alvos diferentes: o mg de uma não se traduz no mg da outra.",
       "icon": "dna",
-      "pose": "pensando"
+      "pose": "pensando",
+      "layout": "pergunta"
     },
     {
       "title": "A meia-vida também não é igual",
-      "body": "~7 dias na semaglutida, ~5 dias na tirzepatida. As duas são semanais, mas cada uma tem o próprio jeito de ficar no corpo.",
+      "body": "Semaglutida: ~7 dias, aplicação semanal\nTirzepatida: ~5 dias, aplicação semanal",
       "icon": "ampulheta",
-      "pose": "explicando"
+      "pose": "explicando",
+      "layout": "lado"
     },
     {
       "title": "O erro de subir pra “alcançar” a amiga",
       "body": "Subir a dose porque o número da outra é maior não faz sentido, nem dentro da mesma molécula. Mudança de dose é decisão do médico, olhando como você está.",
       "icon": "alerta",
-      "pose": "ih"
+      "pose": "ih",
+      "layout": "padrao"
     },
     {
-      "title": "O que dá pra comparar de verdade",
+      "title": "O que dá pra comparar de verdade?",
       "body": "Alvo, meia-vida, efeito colateral e o que cada bula indica. Esse é o papo pra levar à consulta, não o miligrama.",
       "icon": "estetoscopio",
-      "pose": "feliz"
+      "pose": "feliz",
+      "layout": "pergunta"
     },
     {
       "title": "A cola: dose “fraca”? Essa conta não existe",
-      "body": "Semaglutida: 0,25 a 2,4 mg. Tirzepatida: 2,5 a 15 mg. Doses de bula de moléculas diferentes. Compare você com você, e ajuste só com o médico.",
+      "body": "Semaglutida: 0,25 a 2,4 mg\nTirzepatida: 2,5 a 15 mg\nSão doses de bula de moléculas diferentes\nCompare você com você e ajuste só com o médico",
       "icon": "certo",
-      "pose": "piscadinha"
+      "pose": "piscadinha",
+      "layout": "passos"
     }
   ],
   "narration": [

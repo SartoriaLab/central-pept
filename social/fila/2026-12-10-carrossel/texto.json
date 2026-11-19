@@ -5,49 +5,57 @@
   "slides": [
     {
       "title": "Não é versão turbinada",
+      "layout": "padrao",
       "body": "A cagrilintida não é uma semaglutida nova. São hormônios diferentes: uma imita a amilina, a outra imita o GLP-1.",
       "icon": "errado",
       "pose": "ih"
     },
     {
-      "title": "Semaglutida: o lado GLP-1",
-      "body": "Imita o GLP-1: aumenta a insulina conforme a glicose, segura o glucagon, deixa o estômago mais lento e age nos centros de saciedade do cérebro.",
+      "title": "O que a semaglutida imita?",
+      "layout": "pergunta",
+      "body": "O GLP-1: aumenta a insulina conforme a glicose, segura o glucagon, deixa o estômago mais lento e age nos centros de saciedade do cérebro.",
       "icon": "cerebro",
       "pose": "explicando"
     },
     {
       "title": "Cagrilintida: o lado amilina",
+      "layout": "padrao",
       "body": "Imita a amilina, hormônio que sai junto com a insulina. Age no tronco encefálico e no hipotálamo, áreas da fome, e também deixa o estômago mais lento.",
       "icon": "dna",
       "pose": "explicando"
     },
     {
-      "title": "Por isso existe o CagriSema",
+      "title": "Então por que juntar as duas?",
+      "layout": "pergunta",
       "body": "Os mecanismos são complementares. Por isso a cagrilintida é estudada combinada com a semaglutida, no CagriSema.",
       "icon": "balanca",
       "pose": "piscadinha"
     },
     {
       "title": "As duas são semanais",
+      "layout": "padrao",
       "body": "As duas têm meia-vida de cerca de 7 dias e são usadas uma vez por semana. A semelhança está no calendário, não no mecanismo.",
       "icon": "calendario",
       "pose": "pensando"
     },
     {
       "title": "A diferença que mais pesa",
-      "body": "A semaglutida é aprovada pela FDA, como Ozempic e Wegovy, e tem bula. A cagrilintida está em desenvolvimento, sem aprovação como medicamento.",
+      "layout": "lado",
+      "body": "Semaglutida: aprovada pela FDA, como Ozempic e Wegovy, e tem bula\nCagrilintida: em desenvolvimento, sem aprovação como medicamento",
       "icon": "prancheta",
       "pose": "alerta"
     },
     {
       "title": "Enjoo aparece nas duas",
+      "layout": "padrao",
       "body": "Náusea, vômito e constipação estão nas duas fichas. Na cagrilintida, são mais frequentes na fase de aumento de dose. Enjoo que não passa é conversa com o médico.",
       "icon": "enjoo",
       "pose": "ih"
     },
     {
       "title": "Cola pra guardar",
-      "body": "Molécula nova não é a antiga mais forte. Uma imita a amilina, a outra o GLP-1. Só a semaglutida tem aprovação. Dúvida sobre o tratamento? Médico.",
+      "layout": "passos",
+      "body": "Molécula nova não é a antiga mais forte\nUma imita a amilina, a outra o GLP-1\nSó a semaglutida tem aprovação\nDúvida sobre o tratamento? Médico",
       "icon": "certo",
       "pose": "apontando"
     }

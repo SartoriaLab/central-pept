@@ -8,14 +8,18 @@ import { promisify } from 'node:util';
 import { createElement } from 'react';
 import satori from 'satori';
 import { Resvg } from '@resvg/resvg-js';
-import { CAROUSEL, Caption, CoverSlide, ContentSlide, CtaSlide, REEL, REEL_MASCOT, ReelCta, ReelScene, accentFor, type MascotBox, type Size } from './slides';
+import { CAROUSEL, Caption, CoverSlide, ContentSlide, CtaSlide, REEL, REEL_MASCOT, ReelCta, ReelScene, accentFor, type MascotBox, type SceneSide, type Size } from './slides';
 import { BORDAO_ABERTURA, ctaSpeech } from './caption';
 import { beatsFor, chunkWords } from './captions';
 import { mascotTimeline } from './lipsync';
 import Gotinha, { GOTINHA_RATIO } from './mascot';
 import type { Mouth, Pose } from './poses';
-import { speak, voiceLabel } from './voice';
+import { speakCached, voiceLabel } from './voice';
+import { THEMES, type Theme, type ThemeId } from './themes';
 import type { Cta, Draft, Topic } from './types';
+
+/** Opções visuais do post: o cenário (themes.ts). Sem ele, o azul-escuro padrão. */
+export type RenderOptions = { theme?: ThemeId };
 
 const run = promisify(execFile);
 
@@ -53,16 +57,17 @@ async function duration(file: string): Promise<number> {
 const LABEL: Record<Topic['kind'], string> = { post: 'Sem achismo', peptide: 'Ficha rápida', comparison: 'Comparativo' };
 
 /** Carrossel: capa + conteúdo + CTA, em JPEG. Devolve os caminhos na ordem. */
-export async function renderCarousel(draft: Draft, topic: Topic, cta: Cta | null, outDir: string): Promise<string[]> {
+export async function renderCarousel(draft: Draft, topic: Topic, cta: Cta | null, outDir: string, opts: RenderOptions = {}): Promise<string[]> {
   await fs.mkdir(outDir, { recursive: true });
   const accent = accentFor(topic.category);
+  const theme = THEMES[opts.theme ?? 'noite'](accent);
   const total = draft.slides.length + 2;
   const els = [
-    createElement(CoverSlide, { size: CAROUSEL, accent, hook: draft.hook, label: LABEL[topic.kind], swipe: true, icon: draft.hookIcon ?? draft.slides[0]?.icon, pose: draft.hookPose }),
+    createElement(CoverSlide, { size: CAROUSEL, accent, theme, hook: draft.hook, label: LABEL[topic.kind], swipe: true, icon: draft.hookIcon ?? draft.slides[0]?.icon, pose: draft.hookPose }),
     ...draft.slides.map((s, i) =>
-      createElement(ContentSlide, { size: CAROUSEL, accent, title: s.title, body: s.body, page: `${i + 2}/${total}`, icon: s.icon, pose: s.pose }),
+      createElement(ContentSlide, { size: CAROUSEL, accent, theme, title: s.title, body: s.body, page: `${i + 2}/${total}`, icon: s.icon, pose: s.pose, layout: s.layout }),
     ),
-    createElement(CtaSlide, { size: CAROUSEL, accent, cta, page: `${total}/${total}` }),
+    createElement(CtaSlide, { size: CAROUSEL, accent, theme, cta, page: `${total}/${total}` }),
   ];
   const files: string[] = [];
   for (const [i, el] of els.entries()) {
@@ -117,7 +122,13 @@ type Scene = {
   /** Pose da Gotinha na cena e onde ela entra no quadro (REEL_MASCOT). */
   pose: Pose;
   mascot: MascotBox;
+  /** Entrada da Gotinha deslizando de um lado (cenas do meio); sem ela, já está no lugar. */
+  enter?: 'left' | 'right';
+  theme: Theme;
 };
+
+const ENTER_PX = 320;
+const ENTER_S = 0.35;
 
 /** Desenhos da Gotinha já feitos neste Reels (pose + boca + olhos + tamanho → PNG transparente). */
 type MascotCache = Map<string, string>;
@@ -142,7 +153,7 @@ async function mascotPng(cache: MascotCache, outDir: string, pose: Pose, mouth: 
 async function renderScene(scene: Scene, i: number, outDir: string, mascots: MascotCache): Promise<{ video: string; audio: string; dur: number }> {
   const base = path.join(outDir, `cena-${i + 1}`);
   const audio = `${base}.mp3`;
-  const words = await speak(toSpeech(scene.speech), audio);
+  const words = await speakCached(toSpeech(scene.speech), audio);
   const dur = (await duration(audio)) + SCENE_PAD;
   const chunks = chunkWords(words);
   const beats = beatsFor(chunks, dur);
@@ -172,7 +183,7 @@ async function renderScene(scene: Scene, i: number, outDir: string, mascots: Mas
   }
   for (const b of beats) {
     const c = chunks[b.chunk];
-    const file = await frame(`${b.chunk}-${b.active}-${b.pop}`, createElement(Caption, { words: c.words, active: b.active, pop: b.pop, big: scene.big }));
+    const file = await frame(`${b.chunk}-${b.active}-${b.pop}`, createElement(Caption, { words: c.words, active: b.active, pop: b.pop, big: scene.big, theme: scene.theme }));
     list.push(`file '${path.basename(file)}'`, `duration ${(b.end - b.start).toFixed(3)}`);
   }
   list.push(list[list.length - 2]); // o concat ignora a duração do último arquivo sem repeti-lo
@@ -182,13 +193,16 @@ async function renderScene(scene: Scene, i: number, outDir: string, mascots: Mas
   const z = i % 2 === 0 ? `1+0.06*on/${Math.ceil(dur * FPS)}` : `1.06-0.06*on/${Math.ceil(dur * FPS)}`;
   const video = `${base}.mp4`;
   const { x, y } = scene.mascot;
+  // Entrada: desliza ENTER_PX px do lado escolhido até o lugar em ENTER_S s (desaceleração quadrática).
+  const dir = scene.enter === 'left' ? -1 : 1;
+  const xExpr = scene.enter ? `'${Math.round(x)}+${dir * ENTER_PX}*pow(max(0,1-t/${ENTER_S}),2)'` : String(Math.round(x));
   await ffmpeg([
     '-f', 'concat', '-safe', '0', '-i', listFile,
     '-f', 'concat', '-safe', '0', '-i', mlistFile,
     '-filter_complex',
     `[0:v]fps=${FPS},scale=1242:2208,zoompan=z='${z}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=1:s=1080x1920:fps=${FPS}[bg];` +
       `[1:v]fps=${FPS},format=rgba[g];` +
-      `[bg][g]overlay=x=${Math.round(x)}:y='${Math.round(y)}+${BOUNCE_PX}*sin(2*PI*${BOUNCE_HZ}*t)':eval=frame,format=yuv420p[v]`,
+      `[bg][g]overlay=x=${xExpr}:y='${Math.round(y)}+${BOUNCE_PX}*sin(2*PI*${BOUNCE_HZ}*t)':eval=frame,format=yuv420p[v]`,
     '-map', '[v]', '-t', dur.toFixed(3), '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '20', video,
   ]);
   for (const f of cache.values()) await fs.rm(f);
@@ -204,32 +218,47 @@ async function renderScene(scene: Scene, i: number, outDir: string, mascots: Mas
  * alternado no fundo e transição deslizando para a próxima; música de fundo baixa se houver
  * trilha em scripts/social/music. Capa do Reels em capa.png. MP4 H.264/AAC 1080×1920 30 fps.
  */
-export async function renderReel(draft: Draft, topic: Topic, cta: Cta | null, outDir: string): Promise<string> {
+/** Lado da Gotinha em cada cena do meio: alterna para o vídeo não ficar parado no mesmo quadro. */
+export function sceneSides(n: number, flip: boolean): SceneSide[] {
+  const cycle: SceneSide[] = flip ? ['right', 'left', 'center'] : ['left', 'right', 'center'];
+  return Array.from({ length: n }, (_, i) => cycle[i % cycle.length]);
+}
+
+export async function renderReel(draft: Draft, topic: Topic, cta: Cta | null, outDir: string, opts: RenderOptions = {}): Promise<string> {
   await fs.mkdir(outDir, { recursive: true });
   const accent = accentFor(topic.category);
+  const theme = THEMES[opts.theme ?? 'noite'](accent);
   await fs.writeFile(
     path.join(outDir, 'capa.png'),
-    await renderPng(createElement(CoverSlide, { size: REEL, accent, hook: draft.hook, label: LABEL[topic.kind], swipe: false, icon: draft.hookIcon ?? draft.slides[0]?.icon, pose: draft.hookPose }), REEL),
+    await renderPng(createElement(CoverSlide, { size: REEL, accent, theme, hook: draft.hook, label: LABEL[topic.kind], swipe: false, icon: draft.hookIcon ?? draft.slides[0]?.icon, pose: draft.hookPose }), REEL),
   );
 
   const hookIcon = draft.hookIcon ?? draft.slides[0]?.icon;
+  const middle = draft.narration.slice(1);
+  const sides = sceneSides(middle.length, theme.flip);
   // Bordões na mesma cena do gancho e da chamada final: cena a mais é segundo a mais, e o
   // começo do vídeo é onde mais gente desiste.
   const scenes: Scene[] = [
     {
-      speech: `${draft.narration[0].text} ${BORDAO_ABERTURA}`, big: true, pose: draft.narration[0].pose ?? draft.hookPose ?? 'ih', mascot: REEL_MASCOT.scene,
+      speech: `${draft.narration[0].text} ${BORDAO_ABERTURA}`, big: true, theme, pose: draft.narration[0].pose ?? draft.hookPose ?? 'ih', mascot: REEL_MASCOT.scene,
       // O gancho escrito inteiro já no primeiro quadro: quem rola sem som decide por ele.
-      frame: (caption) => createElement(ReelScene, { size: REEL, accent, headline: draft.hook, caption, icon: hookIcon }),
+      frame: (caption) => createElement(ReelScene, { size: REEL, accent, theme, headline: draft.hook, caption, icon: hookIcon }),
     },
-    ...draft.narration.slice(1).map(
-      (line, i): Scene => ({
-        speech: line.text, pose: line.pose ?? draft.slides[i]?.pose ?? 'explicando', mascot: REEL_MASCOT.scene,
-        frame: (caption) => createElement(ReelScene, { size: REEL, accent, title: draft.slides[i]?.title ?? topic.title, caption, icon: draft.slides[i]?.icon }),
-      }),
-    ),
+    ...middle.map((line, i): Scene => {
+      const side = sides[i];
+      const slide = draft.slides[i];
+      return {
+        speech: line.text, theme, pose: line.pose ?? slide?.pose ?? 'explicando',
+        mascot: side === 'center' ? REEL_MASCOT.scene : REEL_MASCOT[side],
+        enter: side === 'right' ? 'right' : 'left',
+        frame: (caption) => createElement(ReelScene, {
+          size: REEL, accent, theme, side, layout: slide?.layout, title: slide?.title ?? topic.title, caption, icon: slide?.icon,
+        }),
+      };
+    }),
     {
-      speech: ctaSpeech(cta, draft.share), pose: 'apontando', mascot: REEL_MASCOT.cta,
-      frame: (caption) => createElement(ReelCta, { size: REEL, accent, cta, caption }),
+      speech: ctaSpeech(cta, draft.share), theme, pose: 'apontando', mascot: REEL_MASCOT.cta, enter: 'left',
+      frame: (caption) => createElement(ReelCta, { size: REEL, accent, theme, cta, caption }),
     },
   ];
   console.log(`Voz: ${voiceLabel()}`);

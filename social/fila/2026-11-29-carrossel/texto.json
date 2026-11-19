@@ -4,44 +4,51 @@
   "hookPose": "ih",
   "slides": [
     {
-      "title": "Primeiro, o que é esperado",
+      "title": "Náusea em 44%",
+      "layout": "numero",
       "body": "Os efeitos mais comuns da semaglutida são no estômago: náusea, diarreia, vômito e constipação. A náusea chega a 44% na dose de 2,4 mg do Wegovy e costuma ser passageira.",
       "icon": "enjoo",
       "pose": "explicando"
     },
     {
-      "title": "Erro 1: aguentar dor forte calada",
+      "title": "Dor forte é enjoo, é só aguentar",
+      "layout": "mito",
       "body": "Dor abdominal forte e persistente não é enjoo comum. É o sinal de alerta de pancreatite, que é rara: cerca de 0,3%, contra 0,2% no placebo. Procure o médico.",
       "icon": "hospital",
       "pose": "alerta"
     },
     {
-      "title": "Erro 2: remédio de enjoo por conta",
+      "title": "Remédio de enjoo, só com orientação",
+      "layout": "padrao",
       "body": "Gengibre e medicação para o sintoma, como o dimenidrinato, entram conforme orientação médica. Não é para resolver sozinha.",
       "icon": "proibido",
       "pose": "ih"
     },
     {
-      "title": "Erro 3: apressar a subida",
-      "body": "A titulação pede 4 semanas ou mais em cada etapa. Respeitar esse tempo é uma das formas de diminuir os efeitos no estômago.",
+      "title": "4 semanas",
+      "layout": "numero",
+      "body": "Ou mais, é o que a titulação pede em cada etapa. Apressar a subida é erro: respeitar esse tempo é uma das formas de diminuir os efeitos no estômago.",
       "icon": "calendario",
       "pose": "pensando"
     },
     {
       "title": "O que ajuda no dia a dia",
-      "body": "Refeições menores e mais frequentes, menos gordura e fritura quando a náusea aparece e hidratação reforçada.",
+      "body": "Refeições menores e mais frequentes\nMenos gordura e fritura quando a náusea aparece\nHidratação reforçada",
+      "layout": "passos",
       "icon": "salada",
       "pose": "feliz"
     },
     {
       "title": "Quem não pode usar",
+      "layout": "padrao",
       "body": "Histórico pessoal ou familiar de carcinoma medular de tireoide, NEM 2, alergia grave à semaglutida ou aos excipientes, e gravidez.",
       "icon": "escudo",
       "pose": "explicando"
     },
     {
       "title": "Cola para guardar",
-      "body": "1️⃣ Dor forte e persistente: médico. 2️⃣ Remédio para enjoo só com orientação. 3️⃣ 4 semanas ou mais por etapa. 4️⃣ Prato menor, menos gordura, mais água.",
+      "body": "Dor forte e persistente: médico\nRemédio para enjoo só com orientação\n4 semanas ou mais por etapa\nPrato menor, menos gordura, mais água",
+      "layout": "passos",
       "icon": "certo",
       "pose": "apontando"
     }

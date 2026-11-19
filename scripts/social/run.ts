@@ -3,6 +3,7 @@
 //   tsx scripts/social/run.ts carrossel|reels --fila      publica o texto pronto de social/fila/ do dia
 //   tsx scripts/social/run.ts plano [--dias 30] [--inicio AAAA-MM-DD] [--refazer]   monta a fila (queue.ts)
 //   tsx scripts/social/run.ts --check <pasta>              só valida o texto.json da pasta
+//   tsx scripts/social/run.ts previa [--formato reels] [--ate AAAA-MM-DD]   gera a fila em social/out/ sem publicar
 // --dry: escolhe, escreve, valida e renderiza em social/out/, sem publicar nem gravar no banco
 // (sem DATABASE_URL usa histórico vazio). SOCIAL_PAUSED=1 desliga tudo.
 // Um post por formato por dia: se já saiu, não publica de novo (--force publica mesmo assim).
@@ -20,6 +21,7 @@ import { buildCaption } from './caption';
 import { ctaFor, fetchActiveEbookSlugs } from './ebook-cta';
 import { renderCarousel, renderReel } from './render';
 import { dateRange, planQueue, queueKey, reservedFrom, type QueueItem } from './queue';
+import { themeFor } from './themes';
 import type { Draft, Format, HistoryEntry, Topic } from './types';
 
 const MAX_TOPICS = 3;
@@ -221,9 +223,71 @@ async function plan(): Promise<void> {
   console.log(`Fila: ${items.length} horários de ${start} em diante, ${created} pastas novas em ${rel(queueRoot())}.`);
 }
 
+type Rendered = { files: string[]; caption: string };
+
+/**
+ * Imagens/vídeo e legenda em `outDir`. Se a prévia (`run.ts previa`) já gerou ali o mesmo texto
+ * com o mesmo guia, reaproveita: o Reels não é renderizado (nem a voz paga) duas vezes.
+ */
+async function renderTo(
+  draft: Draft, topic: Topic, format: Format, outDir: string, active: Set<string>, date: string,
+): Promise<Rendered & { reused: boolean }> {
+  const cta = ctaFor(topic, active);
+  const caption = buildCaption(draft, topic, cta);
+  const theme = themeFor(date, format);
+  const record = { topic: topic.id, cta: cta?.id ?? null, theme, draft };
+  try {
+    const saved = JSON.parse(await fs.readFile(path.join(outDir, 'rascunho.json'), 'utf8')) as typeof record & { files?: string[] };
+    const files = (saved.files ?? []).map((f) => path.join(outDir, f));
+    const same = JSON.stringify({ topic: saved.topic, cta: saved.cta, theme: saved.theme, draft: saved.draft }) === JSON.stringify(record);
+    if (same && files.length && (await Promise.all(files.map((f) => fs.stat(f).then(() => true, () => false)))).every(Boolean)) {
+      await fs.writeFile(path.join(outDir, 'legenda.txt'), caption);
+      return { files, caption, reused: true };
+    }
+  } catch {
+    // Sem prévia: renderiza.
+  }
+  await fs.mkdir(outDir, { recursive: true });
+  const files =
+    format === 'carrossel' ? await renderCarousel(draft, topic, cta, outDir, { theme }) : [await renderReel(draft, topic, cta, outDir, { theme })];
+  await fs.writeFile(path.join(outDir, 'legenda.txt'), caption);
+  await fs.writeFile(
+    path.join(outDir, 'rascunho.json'),
+    JSON.stringify({ ...record, files: files.map((f) => path.relative(outDir, f)) }, null, 2),
+  );
+  return { files, caption, reused: false };
+}
+
+/** `run.ts previa [--formato carrossel|reels] [--ate AAAA-MM-DD]`: gera em social/out/ os posts da fila, sem publicar. */
+async function preview(): Promise<void> {
+  const only = argValue('--formato') as Format | undefined;
+  const until = argValue('--ate') ?? '9999-12-31';
+  const topics = buildTopics();
+  const active = await fetchActiveEbookSlugs();
+  const items = (await readQueue()).filter((i) => i.date >= today() && i.date <= until && (!only || i.format === only));
+  let ok = 0;
+  for (const item of items) {
+    const key = queueKey(item.date, item.format);
+    const checked = await checkDir(path.join(queueRoot(), key), topics);
+    if (!checked.draft) {
+      console.log(`${key}: sem texto válido (${checked.problems[0]})`);
+      continue;
+    }
+    try {
+      const r = await renderTo(checked.draft, checked.topic, item.format, path.join(process.cwd(), 'social', 'out', key), active, item.date);
+      console.log(`${key}: ${r.reused ? 'já gerado' : 'gerado'} (${r.files.length} arquivo${r.files.length > 1 ? 's' : ''}, cenário ${themeFor(item.date, item.format)})`);
+      ok++;
+    } catch (e) {
+      console.log(`${key}: ERRO ${(e as Error).message}`);
+    }
+  }
+  console.log(`Prévia: ${ok} de ${items.length} em social/out/.`);
+}
+
 async function main() {
   loadLocalEnv();
   if (process.argv[2] === 'plano') return plan();
+  if (process.argv[2] === 'previa') return preview();
   const checkOnly = argValue('--check');
   if (checkOnly) {
     const { problems, topic } = await checkDir(path.resolve(checkOnly), buildTopics());
@@ -326,12 +390,8 @@ async function main() {
   if (!chosen) throw new Error(`nenhum rascunho passou na validação (${[...tried].join(', ')})`);
 
   const { topic, draft } = chosen;
-  const cta = ctaFor(topic, active);
-  const caption = buildCaption(draft, topic, cta);
-  const files = format === 'carrossel' ? await renderCarousel(draft, topic, cta, outDir) : [await renderReel(draft, topic, cta, outDir)];
-  await fs.writeFile(path.join(outDir, 'legenda.txt'), caption);
-  await fs.writeFile(path.join(outDir, 'rascunho.json'), JSON.stringify({ topic: topic.id, cta: cta?.id ?? null, draft }, null, 2));
-  console.log(`Arquivos em ${outDir}`);
+  const { files, caption, reused } = await renderTo(draft, topic, format, outDir, active, today());
+  console.log(`Arquivos em ${outDir}${reused ? ' (da prévia)' : ''}`);
 
   if (dry || !state) {
     console.log('--dry: não publicado.');

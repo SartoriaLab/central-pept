@@ -4,50 +4,58 @@
   "hookPose": "ih",
   "slides": [
     {
-      "title": "O número da caneta engana",
-      "body": "A mania: ouvir 'eu uso 3 mg' e achar que é mais forte que '2,5 mg'. Eu sei, parece lógico. Mas, se forem moléculas diferentes, a conta não fecha.",
+      "title": "3 mg é sempre mais forte que 2,5 mg",
+      "layout": "mito",
+      "body": "Eu sei, parece lógico. Mas, se forem moléculas diferentes, a conta não fecha: o número da caneta engana.",
       "icon": "duvida",
       "pose": "ih"
     },
     {
-      "title": "Liraglutida: a conta é por dia",
-      "body": "Começa em 0,6 mg por dia. No diabetes vai até 1,8 mg por dia; no controle de peso, até 3 mg por dia, com subida semanal.",
+      "title": "A conta: por dia ou por semana",
+      "layout": "lado",
+      "body": "Liraglutida: começa em 0,6 mg por dia; vai até 1,8 mg no diabetes e 3 mg no controle de peso\nTirzepatida: começa em 2,5 mg por semana; a bula vai até 15 mg por semana",
       "icon": "relogio",
       "pose": "explicando"
     },
     {
-      "title": "Tirzepatida: a conta é por semana",
-      "body": "Começa em 2,5 mg uma vez por semana. A faixa de bula vai de 2,5 a 15 mg por semana, com pelo menos 4 semanas entre cada subida.",
+      "title": "A subida também tem ritmo próprio",
+      "layout": "padrao",
+      "body": "Na liraglutida, a subida é semanal. Na tirzepatida, são pelo menos 4 semanas entre cada subida.",
       "icon": "calendario",
       "pose": "explicando"
     },
     {
-      "title": "Molécula diferente, miligrama diferente",
-      "body": "A liraglutida age só no receptor de GLP-1. A tirzepatida age em dois: GIP e GLP-1. Um miligrama de uma não equivale a um miligrama da outra.",
+      "title": "Um miligrama de uma não equivale ao da outra",
+      "layout": "lado",
+      "body": "Liraglutida: age só no receptor de GLP-1\nTirzepatida: age em dois, GIP e GLP-1",
       "icon": "dna",
       "pose": "pensando"
     },
     {
       "title": "E o ritmo também muda",
+      "layout": "padrao",
       "body": "A meia-vida da liraglutida é de cerca de 13 horas; a da tirzepatida, de cerca de 5 dias. Por isso uma é diária e a outra, semanal.",
       "icon": "ampulheta",
       "pose": "piscadinha"
     },
     {
-      "title": "Comparar dose só confunde",
-      "body": "Usar a dose da amiga como régua faz parecer que você está 'atrasada'. Não está: cada esquema tem a sua bula e o seu médico.",
+      "title": "Dose menor que a da amiga é estar atrasada",
+      "layout": "mito",
+      "body": "Não está. Usar a dose da amiga como régua só confunde: cada esquema tem a sua bula e o seu médico.",
       "icon": "alerta",
       "pose": "alerta"
     },
     {
       "title": "Quando chamar o médico",
+      "layout": "padrao",
       "body": "Náusea, diarreia ou vômito que não passam, dor abdominal ou qualquer dúvida sobre a subida: é conversa para a consulta, não para o grupo de amigas.",
       "icon": "estetoscopio",
       "pose": "explicando"
     },
     {
       "title": "A cola pra guardar",
-      "body": "Liraglutida: mg por dia. Tirzepatida: mg por semana. Moléculas diferentes não se comparam pelo número. A sua dose é a da sua bula e do seu médico.",
+      "layout": "passos",
+      "body": "Liraglutida: mg por dia\nTirzepatida: mg por semana\nMoléculas diferentes não se comparam pelo número\nA sua dose é a da sua bula e do seu médico",
       "icon": "certo",
       "pose": "apontando"
     }

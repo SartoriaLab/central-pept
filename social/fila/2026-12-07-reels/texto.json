@@ -4,46 +4,53 @@
   "hookPose": "ih",
   "slides": [
     {
-      "title": "De onde vem esse número",
-      "body": "Os cerca de 4.000 genes vêm de dados de laboratório, em três testes com linhagens de células tumorais. A própria fonte avisa: não é resultado clínico.",
+      "title": "4.000 genes",
+      "body": "O número vem de dados de laboratório, em três testes com linhagens de células tumorais. A própria fonte avisa: não é resultado clínico.",
       "icon": "lupa",
-      "pose": "explicando"
+      "pose": "explicando",
+      "layout": "numero"
     },
     {
-      "title": "Célula no laboratório não é você",
+      "title": "Se fez na célula, faz em você",
       "body": "O que acontece com células numa placa não mostra o que um produto faz numa pessoa. Esse dado é ponto de partida para pesquisa, não prova.",
       "icon": "microscopio",
-      "pose": "pensando"
+      "pose": "pensando",
+      "layout": "mito"
     },
     {
       "title": "E em pessoas?",
       "body": "A evidência é limitada. Em úlcera de pé diabético, o ensaio de fase 3 com 511 pacientes não superou o placebo. Depois de laser de CO2, 13 pacientes, sem diferença objetiva.",
       "icon": "prancheta",
-      "pose": "ih"
+      "pose": "ih",
+      "layout": "pergunta"
     },
     {
       "title": "Tópico: ingrediente permitido",
       "body": "Em sérum e creme, é ingrediente cosmético permitido, considerado seguro nas concentrações baixas de uso. A concentração ideal não foi caracterizada.",
       "icon": "pele",
-      "pose": "explicando"
+      "pose": "explicando",
+      "layout": "padrao"
     },
     {
-      "title": "Injetável: sem aprovação",
+      "title": "Frasco de pesquisa serve pra injetar",
       "body": "A forma injetável não tem aprovação para uso humano. Os frascos vêm rotulados “apenas para pesquisa”, sem garantia de pureza ou esterilidade.",
       "icon": "proibido",
-      "pose": "alerta"
+      "pose": "alerta",
+      "layout": "mito"
     },
     {
-      "title": "Quem não deve usar",
-      "body": "Alergia ao cobre e doença de Wilson são contraindicações. Gestação e lactação não têm dados. A pele irritou? Suspenda e procure o dermatologista.",
+      "title": "Quem não deve usar?",
+      "body": "Quem tem alergia ao cobre ou doença de Wilson: são contraindicações. Gestação e lactação não têm dados. A pele irritou? Suspenda e procure o dermatologista.",
       "icon": "estetoscopio",
-      "pose": "explicando"
+      "pose": "explicando",
+      "layout": "pergunta"
     },
     {
       "title": "Cola pra guardar",
-      "body": "Número de laboratório não é resultado em pessoas. Antes de acreditar num print, pergunte: isso foi medido em quem?",
+      "body": "Número de laboratório não é resultado em pessoas\nAntes de acreditar num print, pergunte\nIsso foi medido em quem?",
       "icon": "certo",
-      "pose": "apontando"
+      "pose": "apontando",
+      "layout": "passos"
     }
   ],
   "narration": [

@@ -16,7 +16,9 @@ import crypto from 'node:crypto';
 import { ctaFor } from '@/scripts/social/ebook-cta';
 import { FB_BASE, IG_BASE, InstagramClient, tokenShape } from '@/scripts/social/instagram';
 import { cliEnv, parseCliOutput } from '@/scripts/social/write';
-import { toSpeech } from '@/scripts/social/render';
+import { sceneSides, toSpeech } from '@/scripts/social/render';
+import { THEMES, THEME_IDS, accentOn, mix, themeFor } from '@/scripts/social/themes';
+import { layoutProblems, sides } from '@/scripts/social/layouts';
 import { nobreak } from '@/scripts/social/slides';
 import { beatsFor, chunkWords } from '@/scripts/social/captions';
 import { wordsFromChars } from '@/scripts/social/voice';
@@ -155,6 +157,47 @@ describe('fila (planQueue)', () => {
       { date: '2026-11-20', format: 'reels' as const, topicId: 'y' },
     ];
     expect([...reservedFrom(items, '2026-11-20')]).toEqual(['y']);
+  });
+});
+
+describe('cenários e tipos de slide', () => {
+  it('cenário muda de um dia para o outro e o Reels sai diferente do carrossel', () => {
+    const days = dateRange('2026-11-20', 30);
+    for (let i = 1; i < days.length; i++) expect(themeFor(days[i], 'carrossel')).not.toBe(themeFor(days[i - 1], 'carrossel'));
+    for (const d of days) expect(themeFor(d, 'reels')).not.toBe(themeFor(d, 'carrossel'));
+    expect(new Set(days.map((d) => themeFor(d, 'carrossel'))).size).toBe(THEME_IDS.length);
+  });
+
+  it('cor de destaque escurece em fundo claro', () => {
+    expect(accentOn(THEMES.claro('#38bdf8'), '#38bdf8')).not.toBe('#38bdf8');
+    expect(accentOn(THEMES.noite('#38bdf8'), '#38bdf8')).toBe('#38bdf8');
+    expect(mix('#000000', '#ffffff', 0.5)).toBe('#808080');
+  });
+
+  it('confere a forma de cada tipo', () => {
+    expect(layoutProblems(1, { layout: 'passos', title: 'Faça', body: 'Um\nDois' })).toEqual([]);
+    expect(layoutProblems(1, { layout: 'passos', title: 'Faça', body: 'Um só' })).toHaveLength(1);
+    expect(layoutProblems(1, { layout: 'lado', title: 'X', body: 'A: um\nB: dois' })).toEqual([]);
+    expect(layoutProblems(1, { layout: 'lado', title: 'X', body: 'A: um' })).toHaveLength(1);
+    expect(layoutProblems(1, { layout: 'numero', title: '28 dias', body: 'x' })).toEqual([]);
+    expect(layoutProblems(1, { layout: 'numero', title: 'Um título comprido demais', body: 'x' })).toHaveLength(1);
+    expect(layoutProblems(1, { layout: 'pergunta', title: 'Posso?', body: 'x' })).toEqual([]);
+    expect(layoutProblems(1, { layout: 'mito', title: 'Mito: tal coisa', body: 'x' })).toHaveLength(1);
+    expect(sides('Com 2 ml: 50 unidades\nCom 1 ml: 25 unidades')).toEqual([
+      { label: 'Com 2 ml', text: '50 unidades' }, { label: 'Com 1 ml', text: '25 unidades' },
+    ]);
+  });
+
+  it('carrossel de 4+ slides precisa de um tipo fora do padrão', () => {
+    const four = Array.from({ length: 4 }, () => ({ title: 'Título', body: 'Texto curto.' }));
+    expect(validateDraft(draft({ slides: four }), '')).toContainEqual(expect.stringContaining('padrao'));
+    const mixed = four.map((s, i) => (i === 3 ? { ...s, layout: 'pergunta' as const, title: 'Posso?' } : s));
+    expect(validateDraft(draft({ slides: mixed }), '').some((p) => p.includes('padrao'))).toBe(false);
+  });
+
+  it('Gotinha alterna de lado nas cenas do Reels', () => {
+    expect(sceneSides(4, false)).toEqual(['left', 'right', 'center', 'left']);
+    expect(sceneSides(2, true)).toEqual(['right', 'left']);
   });
 });
 

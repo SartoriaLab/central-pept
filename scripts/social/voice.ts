@@ -2,6 +2,7 @@
 // Com ELEVENLABS_API_KEY usa a ElevenLabs (voz natural; ELEVENLABS_VOICE_ID escolhe a voz);
 // sem ela, cai para o edge-tts grátis (tts_words.py). Precisa de rede.
 import { spawn } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
@@ -81,6 +82,27 @@ function edge(text: string, out: string): Promise<Word[]> {
 export async function speak(text: string, out: string): Promise<Word[]> {
   const key = process.env.ELEVENLABS_API_KEY?.trim();
   return key ? eleven(text, out, key) : edge(text, out);
+}
+
+/** Cache da voz (social/out/_voz): renderizar de novo (prévia, troca de visual) não paga a fala duas vezes. */
+const CACHE_DIR = path.join(process.cwd(), 'social', 'out', '_voz');
+
+export async function speakCached(text: string, out: string): Promise<Word[]> {
+  const voice = `${voiceLabel()}|${process.env.ELEVENLABS_VOICE_ID ?? ''}|${process.env.ELEVENLABS_MODEL ?? ''}`;
+  const key = createHash('sha1').update(`${voice}\n${text}`).digest('hex').slice(0, 20);
+  const mp3 = path.join(CACHE_DIR, `${key}.mp3`);
+  const json = path.join(CACHE_DIR, `${key}.json`);
+  try {
+    const words = JSON.parse(await fs.readFile(json, 'utf8')) as Word[];
+    await fs.copyFile(mp3, out);
+    return words;
+  } catch {
+    const words = await speak(text, out);
+    await fs.mkdir(CACHE_DIR, { recursive: true });
+    await fs.copyFile(out, mp3);
+    await fs.writeFile(json, JSON.stringify(words));
+    return words;
+  }
 }
 
 export function voiceLabel(): string {

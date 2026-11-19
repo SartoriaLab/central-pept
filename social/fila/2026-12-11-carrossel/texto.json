@@ -5,43 +5,50 @@
   "slides": [
     {
       "title": "Sem bula, não existe dose de uso",
+      "layout": "padrao",
       "body": "Toda dose que circula vem dos estudos: na fase 3, início em 2 mg e doses-alvo até 12 mg por semana. Isso é protocolo de pesquisa, não orientação de uso.",
       "icon": "alvo",
       "pose": "explicando"
     },
     {
-      "title": "Contraindicação? Ainda não definida",
+      "title": "Sem contraindicação, então pode usar",
+      "layout": "mito",
       "body": "Por ser experimental, não há contraindicações formais. O que existe são as exclusões dos estudos: histórico de CMT ou NEM 2, pancreatite, gravidez e amamentação.",
       "icon": "alerta",
       "pose": "ih"
     },
     {
       "title": "Efeitos medidos nos estudos",
+      "layout": "padrao",
       "body": "Na fase 3: náusea em até ~43%, diarreia em até ~35%, constipação em até ~26% e vômito em até ~25%. Números de estudo, com acompanhamento.",
       "icon": "enjoo",
       "pose": "alerta"
     },
     {
-      "title": "E a tal da disestesia",
-      "body": "São sensações anormais na pele, mais frequentes nas doses altas: chegaram a ~21% com 12 mg em um ensaio de fase 3.",
+      "title": "~21%",
+      "layout": "numero",
+      "body": "É até onde chegou a disestesia, sensação anormal na pele, com 12 mg em um ensaio de fase 3. Ela é mais frequente nas doses altas.",
       "icon": "pele",
       "pose": "pensando"
     },
     {
       "title": "Também é proibida no esporte",
+      "layout": "padrao",
       "body": "A WADA proíbe a retatrutida. Quem compete precisa saber disso antes de qualquer coisa.",
       "icon": "escudo",
       "pose": "apontando"
     },
     {
-      "title": "Aprovação: nenhuma, em lugar nenhum",
-      "body": "Nem FDA, nem EMA, nem ANVISA. Em julho de 2026 a ANVISA informou que não há pedido de registro e orientou a não usar produtos com esse nome.",
+      "title": "Lá fora ela já é aprovada",
+      "layout": "mito",
+      "body": "Em lugar nenhum: nem FDA, nem EMA, nem ANVISA. Em julho de 2026 a ANVISA informou que não há pedido de registro e orientou a não usar produtos com esse nome.",
       "icon": "proibido",
       "pose": "ih"
     },
     {
       "title": "A cola: sem bula, sem atalho",
-      "body": "Dose de estudo não é receita. Contraindicações ainda não definidas. Nenhuma aprovação. Quer tratar obesidade ou diabetes? Leve a dúvida ao médico.",
+      "layout": "passos",
+      "body": "Dose de estudo não é receita\nContraindicações ainda não definidas\nNenhuma aprovação\nQuer tratar obesidade ou diabetes? Leve a dúvida ao médico",
       "icon": "certo",
       "pose": "piscadinha"
     }

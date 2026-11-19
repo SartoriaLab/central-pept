@@ -5,49 +5,57 @@
   "slides": [
     {
       "title": "Nem toda caneta é semanal",
+      "layout": "padrao",
       "body": "Muita gente acha que toda caneta para obesidade é de uma vez por semana. A liraglutida, do Saxenda e do Victoza, é de uso diário.",
       "icon": "calendario",
       "pose": "ih"
     },
     {
-      "title": "Por que diária",
-      "body": "A meia-vida da liraglutida é de cerca de 13 horas. Não dá para esticar até a semana: por isso a bula descreve uma aplicação por dia.",
+      "title": "~13 horas",
+      "layout": "numero",
+      "body": "É a meia-vida da liraglutida. Não dá para esticar até a semana: por isso a bula descreve uma aplicação por dia.",
       "icon": "ampulheta",
       "pose": "explicando"
     },
     {
       "title": "A cagrilintida vai mais longe",
+      "layout": "padrao",
       "body": "A meia-vida dela é de cerca de 7 dias. Por isso os ensaios testam uma aplicação por semana.",
       "icon": "microscopio",
       "pose": "pensando"
     },
     {
       "title": "Hormônios diferentes",
-      "body": "A liraglutida imita o GLP-1, com 97% de semelhança com o hormônio natural. A cagrilintida imita a amilina, que sai junto com a insulina.",
+      "layout": "lado",
+      "body": "Liraglutida: imita o GLP-1, com 97% de semelhança com o hormônio natural\nCagrilintida: imita a amilina, que sai junto com a insulina",
       "icon": "dna",
       "pose": "explicando"
     },
     {
       "title": "Aprovada x experimental",
+      "layout": "padrao",
       "body": "A liraglutida é aprovada pelo FDA, pela EMA e pela ANVISA. A cagrilintida está em desenvolvimento, sem aprovação como medicamento.",
       "icon": "prancheta",
       "pose": "alerta"
     },
     {
       "title": "Ritmo de dose diferente",
-      "body": "Na bula da liraglutida para obesidade, a dose sobe toda semana até a de manutenção. Na cagrilintida, a subida gradual é de protocolo de estudo. Ajuste, só com o médico.",
+      "layout": "lado",
+      "body": "Liraglutida: na bula para obesidade, a dose sobe toda semana até a de manutenção\nCagrilintida: a subida gradual é de protocolo de estudo",
       "icon": "grafico-sobe",
       "pose": "explicando"
     },
     {
       "title": "Enjoo nas duas",
+      "layout": "padrao",
       "body": "Náusea, vômito e constipação aparecem nas duas fichas: em geral passageiros na liraglutida e mais comuns na subida de dose da cagrilintida.",
       "icon": "enjoo",
       "pose": "ih"
     },
     {
       "title": "Cola pra guardar",
-      "body": "Liraglutida: diária, meia-vida de cerca de 13 horas, aprovada. Cagrilintida: semanal nos estudos, cerca de 7 dias, experimental. Confirme o ritmo da sua com o médico.",
+      "layout": "passos",
+      "body": "Liraglutida: diária, meia-vida de cerca de 13 horas, aprovada\nCagrilintida: semanal nos estudos, cerca de 7 dias, experimental\nConfirme o ritmo da sua com o médico; ajuste, só com ele",
       "icon": "certo",
       "pose": "apontando"
     }

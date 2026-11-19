@@ -4,50 +4,58 @@
   "hookPose": "ih",
   "slides": [
     {
-      "title": "Mounjaro aqui é caneta",
+      "title": "Mounjaro também vem em frasco",
+      "layout": "mito",
       "body": "No Brasil, a Lilly só tem a caneta KwikPen, com solução pronta. Frasco com pó é tirzepatida manipulada ou de outra origem, nunca Mounjaro.",
       "icon": "certo",
       "pose": "explicando"
     },
     {
       "title": "Na caixa, confira",
-      "body": "Mounjaro, tirzepatida e dose impressos, fabricante Eli Lilly, registro ANVISA, lote e validade impressos (não em adesivo), lacre intacto e bula em português.",
+      "body": "Mounjaro, tirzepatida e dose impressos\nFabricante Eli Lilly e registro ANVISA\nLote e validade impressos, não em adesivo\nLacre intacto e bula em português",
+      "layout": "passos",
       "icon": "lupa",
       "pose": "explicando"
     },
     {
       "title": "Caneta solta é suspeita",
+      "layout": "padrao",
       "body": "A apresentação nacional é caixa com 4 canetas. Caneta sem caixa ou caixa com uma só caneta merece desconfiança.",
       "icon": "alerta",
       "pose": "pensando"
     },
     {
       "title": "Na caneta, confira",
-      "body": "Rótulo impresso de fábrica, lote igual ao da caixa, líquido límpido e incolor e seletor que trava com clique. Gira livre? Suspeito.",
+      "body": "Rótulo impresso de fábrica\nLote igual ao da caixa\nLíquido límpido e incolor\nSeletor que trava com clique; gira livre? Suspeito",
+      "layout": "passos",
       "icon": "seringa",
       "pose": "apontando"
     },
     {
       "title": "Consulte o registro",
+      "layout": "padrao",
       "body": "Em consultas.anvisa.gov.br, busque Mounjaro: o registro válido é da Eli Lilly do Brasil. Veja também se o lote aparece nos alertas de falsificação.",
       "icon": "escudo",
       "pose": "piscadinha"
     },
     {
-      "title": "Onde o risco é maior",
+      "title": "Onde o risco é maior?",
+      "layout": "pergunta",
       "body": "Anúncio em rede social ou marketplace, perfil sem CNPJ nem endereço e ninguém pedindo receita. A ANVISA exige receita retida para tirzepatida.",
       "icon": "proibido",
       "pose": "ih"
     },
     {
       "title": "Desconfiou? Não aplique",
+      "layout": "padrao",
       "body": "Fotografe a caixa, a caneta e o rótulo e notifique a ANVISA pelo Notivisa. Já aplicou e sentiu algo anormal? Pronto-socorro, levando o produto.",
       "icon": "hospital",
       "pose": "alerta"
     },
     {
       "title": "Sua cola",
-      "body": "Mounjaro é caneta, em caixa com 4. Lote da caixa igual ao da caneta, impresso. Registro na ANVISA em nome da Eli Lilly. Frasco nunca é Mounjaro.",
+      "body": "Mounjaro é caneta, em caixa com 4\nLote da caixa igual ao da caneta, impresso\nRegistro na ANVISA em nome da Eli Lilly\nFrasco nunca é Mounjaro",
+      "layout": "passos",
       "icon": "prancheta",
       "pose": "apontando"
     }

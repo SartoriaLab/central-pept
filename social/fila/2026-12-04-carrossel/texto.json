@@ -4,46 +4,53 @@
   "hookPose": "ih",
   "slides": [
     {
-      "title": "A regra do blog vai longe demais",
-      "body": "“Nunca use GHK-Cu com vitamina C” circula como se ela anulasse o peptídeo. Só que não há estudo em pele mostrando isso.",
+      "title": "Nunca use GHK-Cu com vitamina C",
+      "body": "Essa regra de blog circula como se a vitamina C anulasse o peptídeo. Só que não há estudo em pele mostrando isso.",
       "icon": "duvida",
-      "pose": "ih"
+      "pose": "ih",
+      "layout": "mito"
     },
     {
       "title": "O que foi medido: tubo de ensaio",
       "body": "Em laboratório, em pH neutro, o complexo de cobre do GHK se mostrou estável diante do ascorbato, a forma da vitamina C no sangue. É química em solução, não creme na pele.",
       "icon": "microscopio",
-      "pose": "explicando"
+      "pose": "explicando",
+      "layout": "padrao"
     },
     {
-      "title": "O cuidado real é o pH",
-      "body": "Sérum de vitamina C pura costuma ser bem ácido, e a ligação do cobre ao GHK depende do pH. Ninguém mediu o encontro dos dois na pele: é precaução, não prova.",
+      "title": "Então, qual é o cuidado real?",
+      "body": "O pH. Sérum de vitamina C pura costuma ser bem ácido, e a ligação do cobre ao GHK depende do pH. Ninguém mediu o encontro dos dois na pele: é precaução, não prova.",
       "icon": "regua",
-      "pose": "pensando"
+      "pose": "pensando",
+      "layout": "pergunta"
     },
     {
       "title": "Retinol e ácidos: irritação somada",
       "body": "Retinol e esfoliantes como glicólico, lático e salicílico já irritam sozinhos, ainda mais no começo. Tudo junto e, se a pele reagir, você não sabe qual foi.",
       "icon": "alerta",
-      "pose": "alerta"
+      "pose": "alerta",
+      "layout": "padrao"
     },
     {
       "title": "Separe por horário",
-      "body": "Vitamina C de manhã com protetor solar e GHK-Cu à noite, ou o contrário. Retinol ou ácido em noites alternadas, cada um no seu horário.",
+      "body": "Vitamina C de manhã, com protetor solar\nGHK-Cu à noite, ou o contrário\nRetinol ou ácido em noites alternadas",
       "icon": "relogio",
-      "pose": "explicando"
+      "pose": "explicando",
+      "layout": "passos"
     },
     {
       "title": "Um ativo novo de cada vez",
       "body": "Espere algumas semanas antes de acrescentar o próximo. A pele irritou? Suspenda o último que entrou. Se continuar, procure o dermatologista.",
       "icon": "estetoscopio",
-      "pose": "piscadinha"
+      "pose": "piscadinha",
+      "layout": "padrao"
     },
     {
       "title": "Cola pra guardar",
-      "body": "1. Vitamina C ou ácido num horário, GHK-Cu no outro. 2. Retinol e ácido em noites diferentes. 3. Protetor solar todo dia. 4. Um ativo novo por vez.",
+      "body": "Vitamina C ou ácido num horário, GHK-Cu no outro\nRetinol e ácido em noites diferentes\nProtetor solar todo dia\nUm ativo novo por vez",
       "icon": "certo",
-      "pose": "apontando"
+      "pose": "apontando",
+      "layout": "passos"
     }
   ],
   "narration": [

@@ -4,50 +4,58 @@
   "hookPose": "ih",
   "slides": [
     {
-      "title": "Unidade é volume",
-      "body": "Na seringa de insulina, 50 unidades são 0,5 ml da solução que você preparou. Quantos mg tem ali depende de quanta água entrou no frasco.",
+      "title": "0,5 ml",
+      "layout": "numero",
+      "body": "É o que são 50 unidades na seringa de insulina: volume da solução que você preparou. Quantos mg tem ali depende de quanta água entrou no frasco.",
       "icon": "seringa",
       "pose": "explicando"
     },
     {
       "title": "A água decide a conta",
+      "layout": "padrao",
       "body": "Frasco de 10 mg com 2 ml de água dá 5 mg/ml. Com 1 ml, dá 10 mg/ml. Mesma tirzepatida, unidades diferentes na seringa.",
       "icon": "gota",
       "pose": "pensando"
     },
     {
-      "title": "Mesma dose, números diferentes",
-      "body": "A dose de 2,5 mg dá 50 unidades a 5 mg/ml e 25 unidades a 10 mg/ml. Sem saber quanta água entrou, não existe resposta.",
+      "title": "Mesma dose de 2,5 mg, números diferentes",
+      "layout": "lado",
+      "body": "Com 2 ml (5 mg/ml): 50 unidades\nCom 1 ml (10 mg/ml): 25 unidades",
       "icon": "balanca",
       "pose": "ih"
     },
     {
       "title": "A etiqueta salva a semana seguinte",
+      "layout": "padrao",
       "body": "Anote no frasco a data e a concentração, tipo \"10 mg / 2 ml = 5 mg/ml\". Sem isso, na próxima dose você não sabe quantas unidades puxar.",
       "icon": "prancheta",
       "pose": "piscadinha"
     },
     {
       "title": "Água pela parede, sem sacudir",
-      "body": "Escorra a água bacteriostática devagar pela parede do frasco e gire suavemente. Agitar desnatura o peptídeo e forma espuma que atrapalha a medida.",
+      "body": "Escorra a água bacteriostática devagar pela parede do frasco\nGire suavemente\nNão agite: desnatura o peptídeo e forma espuma que atrapalha a medida",
+      "layout": "passos",
       "icon": "frasco",
       "pose": "explicando"
     },
     {
-      "title": "Olhe contra a luz",
-      "body": "Espere 5 minutos: a solução tem que ficar límpida e incolor. Turva, com partículas ou amarelada? Não use, descarte.",
+      "title": "5 minutos",
+      "layout": "numero",
+      "body": "É quanto esperar antes de olhar contra a luz: a solução tem que ficar límpida e incolor. Turva, com partículas ou amarelada? Não use, descarte.",
       "icon": "lupa",
       "pose": "alerta"
     },
     {
       "title": "Geladeira e prazo",
+      "layout": "padrao",
       "body": "Reconstituída, fica entre 2 e 8 °C, longe da porta e da luz, por até 28 dias. Nunca congele.",
       "icon": "geladeira",
       "pose": "explicando"
     },
     {
       "title": "Sua cola",
-      "body": "Unidades = dose (mg) × água (ml) × 100 ÷ mg do frasco. Anote a concentração, use água bacteriostática e a dose prescrita pelo médico.",
+      "body": "Unidades = dose (mg) × água (ml) × 100 ÷ mg do frasco\nAnote a concentração no frasco\nUse água bacteriostática e a dose prescrita pelo médico",
+      "layout": "passos",
       "icon": "certo",
       "pose": "apontando"
     }

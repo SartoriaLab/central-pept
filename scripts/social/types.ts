@@ -2,6 +2,7 @@
 // docs/superpowers/specs/2026-11-15-instagram-dosecerta-design.md
 import type { Illustration } from './illustrations';
 import type { Pose } from './poses';
+import type { SlideLayout } from './layouts';
 
 export type Format = 'carrossel' | 'reels';
 
@@ -38,7 +39,7 @@ export type Draft = {
   /** Pose da Gotinha na capa e no gancho do Reels. */
   hookPose?: Pose;
   /** Slides de conteúdo (sem capa nem CTA), 2 a 6; `icon` = chave de illustrations.ts. */
-  slides: { title: string; body: string; icon?: Illustration; pose?: Pose }[];
+  slides: { title: string; body: string; icon?: Illustration; pose?: Pose; layout?: SlideLayout }[];
   /**
    * Falas do Reels, uma por cena (3 a 6): a primeira é o gancho. Os bordões e a chamada final
    * são montados pelo código (caption.ts).

@@ -114,7 +114,10 @@ Feed, sitemap, busca, páginas de tag e imagem de compartilhamento saem sozinhos
    Fila (Parte 8): as tarefas tentam antes `run.ts <formato> --fila`, que publica o `texto.json` de
    `social/fila/<data>-<formato>/` (código 3 = sem texto válido → `--brief`). `run.ts plano --dias 30`
    monta a fila (`queue.ts`, mesma escolha de tema do robô) e `--check <pasta>` só valida.
-   `topicPriority` (`pick.ts`) põe primeiro as dúvidas práticas de GLP-1.
+   `topicPriority` (`pick.ts`) põe primeiro as dúvidas práticas de GLP-1. `run.ts previa` gera a
+   fila em `social/out/` e a publicação reaproveita (voz em cache em `social/out/_voz`).
+   Visual: cenário por data (`themes.ts`, `themeFor`) e tipo por slide (`layouts.ts`, campo `layout`
+   obrigatório; com 4+ slides, ao menos um fora de "padrao"). Fonte Inter não tem ✓/✗: não use.
 2. Código em `scripts/social/` (rodado com `tsx`): temas saem de posts, fichas e comparativos
    (`topics.ts`; posts de compra/preço e Melanotan II ficam fora), o Claude escreve (`write.ts`: API
    com `ANTHROPIC_API_KEY`; sem ela, `claude -p` da assinatura, com `CLAUDE_CODE_OAUTH_TOKEN` do

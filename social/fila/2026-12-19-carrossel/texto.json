@@ -4,50 +4,58 @@
   "hookPose": "ih",
   "slides": [
     {
-      "title": "A confusão do fórum",
-      "body": "A mania: ler um resultado de fertilidade e achar que vale para a kisspeptina-10 'para pesquisa'. Eu sei, o nome é quase igual. A molécula, não.",
+      "title": "Resultado de fertilidade vale para a kisspeptina-10",
+      "layout": "mito",
+      "body": "É a confusão do fórum com a kisspeptina-10 'para pesquisa'. Eu sei, o nome é quase igual. A molécula, não.",
       "icon": "duvida",
       "pose": "ih"
     },
     {
-      "title": "O que é a kisspeptina",
+      "title": "O que é a kisspeptina?",
+      "layout": "pergunta",
       "body": "Um hormônio do hipotálamo que liga o eixo reprodutivo. A kisspeptina-10 é o menor pedaço dela que ainda age por completo no receptor KISS1R.",
       "icon": "cerebro",
       "pose": "explicando"
     },
     {
       "title": "A cascata, degrau por degrau",
-      "body": "A kisspeptina ativa os neurônios de GnRH. O GnRH estimula a hipófise. A hipófise libera LH e FSH, que agem nos ovários ou nos testículos.",
+      "layout": "passos",
+      "body": "A kisspeptina ativa os neurônios de GnRH\nO GnRH estimula a hipófise\nA hipófise libera LH e FSH\nLH e FSH agem nos ovários ou nos testículos",
       "icon": "livros",
       "pose": "explicando"
     },
     {
-      "title": "O que a kisspeptina-10 mostrou",
-      "body": "Em homens saudáveis, uma injeção na veia fez o LH subir cerca de três vezes em 30 minutos. Estudo curto, feito em centro de pesquisa.",
+      "title": "30 minutos",
+      "layout": "numero",
+      "body": "Foi o tempo para o LH subir cerca de três vezes em homens saudáveis, após uma injeção de kisspeptina-10 na veia. Estudo curto, feito em centro de pesquisa.",
       "icon": "microscopio",
       "pose": "pensando"
     },
     {
-      "title": "Na FIV, era a kisspeptina-54",
-      "body": "No ensaio com 60 mulheres em fertilização in vitro, a molécula usada foi a kisspeptina-54, mais longa. A maturação dos óvulos ocorreu em 95% delas.",
+      "title": "Na FIV, usaram a kisspeptina-10",
+      "layout": "mito",
+      "body": "Era a kisspeptina-54, mais longa. No ensaio com 60 mulheres em fertilização in vitro, a maturação dos óvulos ocorreu em 95% delas.",
       "icon": "lampada",
       "pose": "piscadinha"
     },
     {
-      "title": "O efeito que some",
-      "body": "Com exposição contínua, o receptor se dessensibiliza e a resposta diminui. É a taquifilaxia, um dos motivos de o uso prolongado não ter base clínica.",
+      "title": "Usar direto mantém o efeito?",
+      "layout": "pergunta",
+      "body": "Não. Com exposição contínua, o receptor se dessensibiliza e a resposta diminui. É a taquifilaxia, um dos motivos de o uso prolongado não ter base clínica.",
       "icon": "grafico-desce",
       "pose": "alerta"
     },
     {
-      "title": "Sem aprovação, sem dado longo",
-      "body": "Não é aprovada pela ANVISA, pela FDA nem pela EMA. A segurança de longo prazo é desconhecida e não existe dose aprovada. A WADA proíbe kisspeptina em homens.",
+      "title": "Existe dose aprovada de kisspeptina",
+      "layout": "mito",
+      "body": "Não existe. Ela não é aprovada pela ANVISA, pela FDA nem pela EMA, e a segurança de longo prazo é desconhecida. A WADA proíbe kisspeptina em homens.",
       "icon": "proibido",
       "pose": "explicando"
     },
     {
       "title": "A cola pra guardar",
-      "body": "Kisspeptina-10 não é kisspeptina-54. Estudos curtos, em pesquisa. Sem aprovação. Gestação, câncer de mama ou próstata, ou qualquer dúvida hormonal: avaliação endocrinológica antes.",
+      "layout": "passos",
+      "body": "Kisspeptina-10 não é kisspeptina-54\nEstudos curtos, em pesquisa, sem aprovação\nGestação, câncer de mama ou próstata, ou qualquer dúvida hormonal? Avaliação endocrinológica antes",
       "icon": "certo",
       "pose": "apontando"
     }

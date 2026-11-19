@@ -4,46 +4,53 @@
   "hookPose": "ih",
   "slides": [
     {
-      "title": "O remédio faz tudo sozinho?",
+      "title": "O remédio faz tudo sozinho",
       "body": "Essa é a mania: começar a semaglutida e deixar o exercício para depois. Eu entendo, todo mundo pensa isso. Mas os estudos contam outra história.",
       "icon": "duvida",
-      "pose": "ih"
+      "pose": "ih",
+      "layout": "mito"
     },
     {
-      "title": "Até 40% pode ser massa magra",
+      "title": "Até 40%",
       "body": "Sem treino resistido, cerca de 40% da perda total pode vir de massa magra, ou seja, de músculo. E músculo faz falta no dia a dia.",
       "icon": "alerta",
-      "pose": "alerta"
+      "pose": "alerta",
+      "layout": "numero"
     },
     {
       "title": "Os estudos não testaram só o remédio",
       "body": "No STEP-1, a semaglutida 2,4 mg por semana veio junto com aconselhamento de estilo de vida. No STEP-3, com terapia intensiva de estilo de vida.",
       "icon": "microscopio",
-      "pose": "explicando"
+      "pose": "explicando",
+      "layout": "padrao"
     },
     {
       "title": "Ozempic e Wegovy: mesma molécula",
-      "body": "Os dois são semaglutida. O Ozempic é aprovado para diabetes tipo 2, com dose máxima de 2 mg por semana. O Wegovy, para obesidade, vai até 2,4 mg por semana.",
+      "body": "Ozempic: semaglutida para diabetes tipo 2, até 2 mg por semana\nWegovy: semaglutida para obesidade, até 2,4 mg por semana",
       "icon": "prancheta",
-      "pose": "pensando"
+      "pose": "pensando",
+      "layout": "lado"
     },
     {
       "title": "O estômago também sente",
       "body": "No STEP-1, 74% dos participantes relataram náusea, diarreia ou vômito em algum momento. Mais um motivo para usar com acompanhamento.",
       "icon": "enjoo",
-      "pose": "explicando"
+      "pose": "explicando",
+      "layout": "padrao"
     },
     {
-      "title": "Quando o médico precisa saber antes",
-      "body": "Histórico pessoal ou familiar de câncer medular de tireoide, NEM 2 ou pancreatite prévia: a semaglutida não é para você. Conte isso ao endocrinologista.",
+      "title": "Quem não deve usar?",
+      "body": "Quem tem histórico pessoal ou familiar de câncer medular de tireoide, NEM 2 ou pancreatite prévia: a semaglutida não é para você. Conte isso ao endocrinologista.",
       "icon": "estetoscopio",
-      "pose": "alerta"
+      "pose": "alerta",
+      "layout": "pergunta"
     },
     {
       "title": "A cola pra guardar",
-      "body": "Semaglutida é parte do tratamento, não ele inteiro. Treino de força entra na rotina. Alimentação junto. Dose e subida de dose com o endocrinologista.",
+      "body": "Semaglutida é parte do tratamento, não ele inteiro\nTreino de força entra na rotina\nAlimentação junto\nDose e subida de dose com o endocrinologista",
       "icon": "certo",
-      "pose": "apontando"
+      "pose": "apontando",
+      "layout": "passos"
     }
   ],
   "narration": [

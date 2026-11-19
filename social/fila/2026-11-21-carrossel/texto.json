@@ -5,43 +5,50 @@
   "slides": [
     {
       "title": "Não está aprovada em lugar nenhum",
+      "layout": "padrao",
       "body": "Nem ANVISA, nem FDA, nem EMA. Em 24 de julho de 2026 a ANVISA avisou que o fabricante nem pediu registro: ele aguarda o fim dos estudos clínicos.",
       "icon": "prancheta",
       "pose": "explicando"
     },
     {
       "title": "Então o que tem no frasco do anúncio?",
+      "layout": "pergunta",
       "body": "Ninguém sabe. A ANVISA cita o risco de o frasco não ter retatrutida nenhuma, ou ter outra substância, além de contaminação, falha de fabricação e dose incerta.",
       "icon": "lupa",
       "pose": "alerta"
     },
     {
-      "title": "“Manipulada” ou “para pesquisa” também não",
+      "title": "Se for manipulada ou para pesquisa, pode usar",
+      "layout": "mito",
       "body": "Não existe insumo regular de uma molécula que não foi aprovada em país nenhum. E o rótulo “não para consumo humano” não muda a situação do produto.",
       "icon": "frasco",
       "pose": "ih"
     },
     {
       "title": "Em outubro, a ANVISA mandou apreender",
+      "layout": "padrao",
       "body": "Uma resolução de outubro de 2026 mandou apreender canetas de retatrutida e de tirzepatida anunciadas em sites, e proibiu fabricação, importação, propaganda e uso.",
       "icon": "alerta",
       "pose": "apontando"
     },
     {
-      "title": "Quando ela pode chegar? Sem data",
-      "body": "A Lilly planeja pedir aprovação à FDA no 1º trimestre de 2027. Aqui, o pedido ainda teria de ser feito, e a ANVISA tem até 365 dias para decidir na via comum.",
+      "title": "Quando ela pode chegar?",
+      "layout": "pergunta",
+      "body": "Sem data. A Lilly planeja pedir aprovação à FDA no 1º trimestre de 2027. Aqui, o pedido ainda teria de ser feito, e a ANVISA tem até 365 dias para decidir na via comum.",
       "icon": "calendario",
       "pose": "pensando"
     },
     {
       "title": "Quer tratar obesidade ou diabetes?",
+      "layout": "padrao",
       "body": "Converse com o médico. Já existem remédios aprovados no Brasil, como a tirzepatida e a semaglutida, com bula, estudos publicados e acompanhamento possível.",
       "icon": "estetoscopio",
       "pose": "feliz"
     },
     {
       "title": "“Antes que proíbam”? Já é irregular hoje",
-      "body": "A cola: retatrutida não tem registro; todo produto oferecido hoje é irregular; urgência no anúncio é sinal de alerta. Teve efeito estranho? Procure atendimento e leve a embalagem.",
+      "body": "Lembre: retatrutida não tem registro\nTodo produto oferecido hoje é irregular\nUrgência no anúncio é sinal de alerta\nTeve efeito estranho? Procure atendimento e leve a embalagem",
+      "layout": "passos",
       "icon": "certo",
       "pose": "piscadinha"
     }

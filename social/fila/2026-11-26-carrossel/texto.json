@@ -4,50 +4,58 @@
   "hookPose": "ih",
   "slides": [
     {
-      "title": "Água é tudo igual? Não",
-      "body": "Água destilada ou para injeção sem conservante só é estéril com o frasco lacrado. Furou com a agulha, ficou exposta às bactérias do ambiente.",
+      "title": "Água é tudo igual",
+      "layout": "mito",
+      "body": "Não. Água destilada ou para injeção sem conservante só é estéril com o frasco lacrado. Furou com a agulha, ficou exposta às bactérias do ambiente.",
       "icon": "errado",
       "pose": "pensando"
     },
     {
-      "title": "O que a bacteriostática tem",
-      "body": "É água estéril com 0,9% de álcool benzílico. Esse conservante segura o crescimento de bactérias entre uma perfuração e outra.",
+      "title": "0,9% de álcool",
+      "layout": "numero",
+      "body": "É o que a bacteriostática tem: água estéril com 0,9% de álcool benzílico. Esse conservante segura o crescimento de bactérias entre uma perfuração e outra.",
       "icon": "frasco",
       "pose": "explicando"
     },
     {
       "title": "Por que isso importa",
+      "layout": "padrao",
       "body": "Sem conservante, a solução pode contaminar em poucas horas. Peptídeo contaminado pode causar infecção local séria, inclusive abscesso.",
       "icon": "alerta",
       "pose": "alerta"
     },
     {
-      "title": "A regra das 24 horas",
+      "title": "24 horas",
+      "layout": "numero",
       "body": "Vai aplicar mais de uma dose do mesmo frasco ou guardar por mais de 24 horas? Água bacteriostática, sem exceção.",
       "icon": "relogio",
       "pose": "piscadinha"
     },
     {
       "title": "Dose única é outra história",
+      "layout": "padrao",
       "body": "Água estéril para injeção, sem conservante, só serve se o frasco for usado inteiro de uma vez. O que sobrar vai fora.",
       "icon": "seringa",
       "pose": "explicando"
     },
     {
-      "title": "Nunca use",
-      "body": "Água da torneira, filtrada, mineral ou fervida. Nenhuma delas é estéril, e podem ter partículas e endotoxinas.",
+      "title": "Água filtrada ou fervida serve",
+      "layout": "mito",
+      "body": "Nunca use água da torneira, filtrada, mineral ou fervida. Nenhuma delas é estéril, e podem ter partículas e endotoxinas.",
       "icon": "proibido",
       "pose": "alerta"
     },
     {
       "title": "Depois de reconstituído",
+      "layout": "padrao",
       "body": "Com bacteriostática, o frasco dura 28 dias na geladeira, entre 2 e 8 °C. Nunca congele. Ficou turvo? Descarte.",
       "icon": "geladeira",
       "pose": "explicando"
     },
     {
       "title": "Sua cola",
-      "body": "Várias doses no mesmo frasco: bacteriostática. Dose única: água estéril pode servir. Torneira, filtrada ou mineral: nunca. Dúvida no diluente? Médico ou farmacêutico.",
+      "body": "Várias doses no mesmo frasco: bacteriostática\nDose única: água estéril pode servir\nTorneira, filtrada ou mineral: nunca\nDúvida no diluente? Médico ou farmacêutico",
+      "layout": "passos",
       "icon": "prancheta",
       "pose": "apontando"
     }

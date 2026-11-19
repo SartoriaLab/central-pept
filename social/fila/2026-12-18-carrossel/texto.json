@@ -5,49 +5,57 @@
   "slides": [
     {
       "title": "A mania da novidade",
+      "layout": "padrao",
       "body": "Ver vídeo falando da retatrutida e pensar em largar o tratamento atual por ela. Eu sei, a curiosidade é grande. Mas olha o que quase ninguém fala.",
       "icon": "duvida",
       "pose": "ih"
     },
     {
-      "title": "Ela não é aprovada",
-      "body": "A retatrutida é investigacional: não tem aprovação da FDA, da EMA nem da ANVISA. Ainda está em estudos.",
+      "title": "A retatrutida já é aprovada",
+      "layout": "mito",
+      "body": "Não é. Ela é investigacional: não tem aprovação da FDA, da EMA nem da ANVISA. Ainda está em estudos.",
       "icon": "proibido",
       "pose": "alerta"
     },
     {
       "title": "O recado da ANVISA",
+      "layout": "padrao",
       "body": "Em julho de 2026, a ANVISA informou que não há pedido de registro da retatrutida e orientou a não usar produtos vendidos com esse nome.",
       "icon": "escudo",
       "pose": "explicando"
     },
     {
-      "title": "O que existe são estudos",
+      "title": "Frasco sem registro é igual ao do estudo",
+      "layout": "mito",
       "body": "Os resultados vêm de ensaios clínicos, com participantes acompanhados de perto. Fora deles, não dá pra saber o que tem num frasco sem registro.",
       "icon": "microscopio",
       "pose": "pensando"
     },
     {
       "title": "Efeitos que apareceram nos ensaios",
+      "layout": "padrao",
       "body": "Náusea, diarreia, constipação e vômito foram frequentes, além de disestesia, sensações estranhas na pele, mais comum nas doses altas.",
       "icon": "enjoo",
       "pose": "alerta"
     },
     {
       "title": "E a liraglutida?",
-      "body": "É aprovada pela FDA, EMA e ANVISA, para diabetes tipo 2 e controle de peso, e tem o maior histórico de segurança da classe, com uso a partir de 12 anos.",
+      "layout": "lado",
+      "body": "Liraglutida: aprovada pela FDA, EMA e ANVISA, com o maior histórico de segurança da classe\nRetatrutida: investigacional, sem aprovação, ainda em estudos",
       "icon": "prancheta",
       "pose": "explicando"
     },
     {
       "title": "Mecanismos diferentes",
+      "layout": "padrao",
       "body": "A liraglutida age no receptor de GLP-1, com aplicação diária. A retatrutida age em três: GLP-1, GIP e glucagon, semanal, e segue em teste.",
       "icon": "dna",
       "pose": "pensando"
     },
     {
       "title": "A cola pra guardar",
-      "body": "Retatrutida: experimental, sem registro, e a ANVISA orienta não usar. Liraglutida: aprovada, diária. Pensou em mudar de tratamento? Conversa com o médico antes.",
+      "layout": "passos",
+      "body": "Retatrutida: experimental, sem registro, e a ANVISA orienta não usar\nLiraglutida: aprovada, diária\nPensou em mudar de tratamento? Conversa com o médico antes",
       "icon": "certo",
       "pose": "apontando"
     }

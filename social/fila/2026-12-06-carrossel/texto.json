@@ -4,52 +4,60 @@
   "hookPose": "pensando",
   "slides": [
     {
-      "title": "Mesma molécula, mesma concentração",
-      "body": "Os dois são liraglutida, 6 mg/mL. Por isso tanta gente acha que é só trocar um pelo outro. Eu sei, faz sentido. Mas não é bem assim.",
+      "title": "É só trocar um pelo outro",
+      "body": "Os dois são liraglutida, 6 mg/mL, na mesma concentração. Por isso tanta gente pensa assim. Eu sei, faz sentido. Mas não é bem assim.",
       "icon": "balanca",
-      "pose": "ih"
+      "pose": "ih",
+      "layout": "mito"
     },
     {
       "title": "Victoza: pensado para o diabetes",
       "body": "Indicado para diabetes tipo 2 e para reduzir o risco cardiovascular em adultos com diabetes e doença cardiovascular. Manutenção de 1,2 a 1,8 mg por dia.",
       "icon": "coracao",
-      "pose": "explicando"
+      "pose": "explicando",
+      "layout": "padrao"
     },
     {
-      "title": "Saxenda: pensado para o controle de peso",
-      "body": "Indicado para controle crônico de peso, em adultos e a partir de 12 anos. A dose de manutenção descrita na bula é de 3 mg por dia.",
+      "title": "3 mg por dia",
+      "body": "É a dose de manutenção do Saxenda descrita na bula. Ele é indicado para controle crônico de peso, em adultos e a partir de 12 anos.",
       "icon": "alvo",
-      "pose": "feliz"
+      "pose": "feliz",
+      "layout": "numero"
     },
     {
-      "title": "A subida é diferente em cada um",
-      "body": "Victoza começa com 0,6 mg por dia por uma semana e vai a 1,2 mg. Saxenda sobe 0,6 mg por semana até 3 mg, na quinta semana. Quem conduz é o médico.",
+      "title": "A subida é diferente, e quem conduz é o médico",
+      "body": "Victoza: 0,6 mg por dia por uma semana, depois 1,2 mg\nSaxenda: sobe 0,6 mg por semana até 3 mg, na quinta semana",
       "icon": "calendario",
-      "pose": "explicando"
+      "pose": "explicando",
+      "layout": "lado"
     },
     {
-      "title": "A regra das 16 semanas",
+      "title": "16 semanas",
       "body": "Ninguém te conta: na bula do Saxenda, se após 16 semanas a perda não chegou a 4% do peso inicial, o tratamento deve ser interrompido.",
       "icon": "ampulheta",
-      "pose": "piscadinha"
+      "pose": "piscadinha",
+      "layout": "numero"
     },
     {
-      "title": "Os dois juntos? Não.",
-      "body": "A bula de cada um orienta não usar Saxenda e Victoza ao mesmo tempo. É a mesma liraglutida nas duas canetas.",
+      "title": "Posso usar os dois juntos?",
+      "body": "Não. A bula de cada um orienta não usar Saxenda e Victoza ao mesmo tempo. É a mesma liraglutida nas duas canetas.",
       "icon": "proibido",
-      "pose": "alerta"
+      "pose": "alerta",
+      "layout": "pergunta"
     },
     {
       "title": "O efeito mais comum",
       "body": "Nos estudos citados na bula do Saxenda, a náusea foi o efeito mais frequente (39% contra 14% no placebo) e tende a diminuir com o tempo.",
       "icon": "enjoo",
-      "pose": "pensando"
+      "pose": "pensando",
+      "layout": "padrao"
     },
     {
       "title": "A cola pra guardar",
-      "body": "Mesma molécula, indicação, dose e subida diferentes. Não use os dois juntos. Saxenda tem a regra das 16 semanas. Câncer medular de tireoide ou NEM2 na história? Não usa.",
+      "body": "Mesma molécula, indicação, dose e subida diferentes\nNão use os dois juntos\nSaxenda tem a regra das 16 semanas\nCâncer medular de tireoide ou NEM2 na história? Não usa",
       "icon": "certo",
-      "pose": "apontando"
+      "pose": "apontando",
+      "layout": "passos"
     }
   ],
   "narration": [

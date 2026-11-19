@@ -35,6 +35,7 @@ Regras de conteúdo (um robô confere antes de publicar e descarta o rascunho qu
 Estilo:
 - Frases curtas, voz ativa, segunda pessoa ("você"). Pode usar "amiga" no máximo uma vez por roteiro e linguagem de conversa ("olha só", "calma", "pra", "tá"). Uma tirada leve por roteiro, no máximo. Nada de jargão sem explicar.
 - Slides: 5 a 8 slides de conteúdo (carrossel de 7 a 10 imagens é o que mais se salva), título curto + uma ideia por slide, na voz da Gotinha; cada slide deixa um motivo para arrastar para o próximo; o último slide de conteúdo resume o que fazer, como uma cola que vale guardar.
+- Tipos de slide (campo layout): varie para o carrossel ter ritmo. Use "mito" para derrubar uma crença, "passos" para o que fazer, "lado" para comparar duas coisas, "numero" para um número da FONTE que merece destaque, "pergunta" para a dúvida que a pessoa faz, e "padrao" para o resto. Com 4 slides ou mais, pelo menos um não é "padrao"; evite dois iguais seguidos. O último slide (o resumo) costuma ser "passos".
 - Pense no envio: o sinal que mais aumenta o alcance é alguém mandar o post para outra pessoa. Escolha a mania e o campo share para que a leitora pense na hora em quem precisa ver isso.
 - Poses: escolha para o gancho, para cada slide e para cada fala a pose que combina com o que a Gotinha está dizendo, variando ao longo do roteiro ("ih" para a mania, "explicando" para o passo a passo, "alerta" para risco, e assim por diante).
 - Falas do Reels: tom de conversa, cada fala com 1 ou 2 frases (cerca de 8 a 12 segundos lida em voz alta). Toda frase precisa soar inequivocamente portuguesa, com palavras como "você", "seu", "está", "não", "é" ou acentos: a voz adivinha o idioma por frase e lê em espanhol uma frase curta como "Mounjaro dando enjoo?" (escreva "Seu Mounjaro está dando enjoo?").
@@ -193,13 +194,26 @@ Estilo:
               "ih"
             ],
             "description": "Pose da Gotinha neste slide (mesma lista de hookPose), combinando com o conteúdo."
+          },
+          "layout": {
+            "type": "string",
+            "enum": [
+              "padrao",
+              "mito",
+              "passos",
+              "lado",
+              "numero",
+              "pergunta"
+            ],
+            "description": "Tipo do slide, conforme o conteúdo: padrao (título + uma ideia no corpo); mito (título = a frase errada que todo mundo repete (sem \"Mito:\"); corpo = a verdade); passos (título = o que fazer; corpo = 2 a 4 passos curtos, um por linha (separados por \\n), sem numerar); lado (título = o que se compara; corpo = exatamente 2 linhas (separadas por \\n), cada uma \"Nome: texto curto\"); numero (título = só o número com a unidade ou expressão curta, até 14 caracteres (ex.: \"28 dias\"); corpo = o que ele significa); pergunta (título = a pergunta que a pessoa faz (terminando em \"?\"); corpo = a resposta direta)."
           }
         },
         "required": [
           "title",
           "body",
           "icon",
-          "pose"
+          "pose",
+          "layout"
         ],
         "additionalProperties": false
       },

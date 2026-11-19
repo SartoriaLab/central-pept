@@ -4,44 +4,51 @@
   "hookPose": "ih",
   "slides": [
     {
-      "title": "Erro 1: achar que alguma é aprovada",
+      "title": "Pelo menos uma das duas já é aprovada",
+      "layout": "mito",
       "body": "Nenhuma das duas é. Em julho de 2026, a ANVISA informou que não há pedido de registro da retatrutida. A cagrilintida também segue em desenvolvimento.",
       "icon": "prancheta",
       "pose": "ih"
     },
     {
-      "title": "Erro 2: achar que funcionam igual",
-      "body": "A retatrutida ativa três receptores: GLP-1, GIP e glucagon. A cagrilintida imita a amilina, hormônio que sai junto com a insulina.",
+      "title": "Elas não funcionam igual",
+      "layout": "lado",
+      "body": "Retatrutida: ativa três receptores, GLP-1, GIP e glucagon\nCagrilintida: imita a amilina, hormônio que sai junto com a insulina",
       "icon": "cerebro",
       "pose": "explicando"
     },
     {
       "title": "O glucagon ainda é hipótese",
+      "layout": "padrao",
       "body": "A ideia de que o glucagon aumente o gasto de energia com a retatrutida é hipótese dos autores dos ensaios. Ainda não foi demonstrada diretamente em humanos.",
       "icon": "fogo",
       "pose": "pensando"
     },
     {
-      "title": "Erro 3: tratar frasco como remédio",
+      "title": "Frasco fora de estudo é o remédio testado",
+      "layout": "mito",
       "body": "Frasco de retatrutida ou de cagrilintida fora de ensaio clínico não é o medicamento estudado. A ANVISA orientou a não usar produtos vendidos como retatrutida.",
       "icon": "lupa",
       "pose": "alerta"
     },
     {
       "title": "Em comum: o estômago reclama",
-      "body": "Náusea, vômito e constipação aparecem nas duas. Na cagrilintida, mais na fase de aumento de dose; na retatrutida, também diarreia e sensações estranhas na pele.",
+      "layout": "lado",
+      "body": "Cagrilintida: náusea, vômito e constipação, mais na fase de aumento de dose\nRetatrutida: as mesmas, e também diarreia e sensações estranhas na pele",
       "icon": "enjoo",
       "pose": "ih"
     },
     {
       "title": "As duas são semanais",
+      "layout": "padrao",
       "body": "Meia-vida de cerca de 6 dias na retatrutida e de 7 dias na cagrilintida: as duas são estudadas em aplicação semanal.",
       "icon": "calendario",
       "pose": "explicando"
     },
     {
       "title": "Cola pra guardar",
-      "body": "Nenhuma é aprovada. Os mecanismos são diferentes. Frasco de pesquisa não é remédio de estudo. Pensa em tratar a obesidade? Converse com o médico.",
+      "layout": "passos",
+      "body": "Nenhuma é aprovada\nOs mecanismos são diferentes\nFrasco de pesquisa não é remédio de estudo\nPensa em tratar a obesidade? Converse com o médico",
       "icon": "certo",
       "pose": "apontando"
     }

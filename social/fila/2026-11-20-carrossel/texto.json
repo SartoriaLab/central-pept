@@ -4,44 +4,51 @@
   "hookPose": "ih",
   "slides": [
     {
-      "title": "A seringa mede volume, não remédio",
-      "body": "A receita fala em mg. A seringa de insulina U-100 mede unidades: 100 unidades = 1 ml. Unidade é volume da solução que você preparou, não quantidade de remédio.",
+      "title": "A seringa mostra quantos mg eu vou aplicar",
+      "body": "A seringa de insulina U-100 mede unidades: 100 unidades = 1 ml. Unidade é volume da solução que você preparou, não quantidade de remédio. A receita é que fala em mg.",
+      "layout": "mito",
       "icon": "seringa",
       "pose": "explicando"
     },
     {
       "title": "Conta 1: a concentração",
+      "layout": "padrao",
       "body": "Concentração = mg do frasco ÷ ml de água. Frasco de 10 mg com 2 ml de água fica com 5 mg/ml. Por isso a água que você usou precisa estar anotada.",
       "icon": "regua",
       "pose": "explicando"
     },
     {
-      "title": "Conta 2: as unidades",
-      "body": "Unidades = dose (mg) ÷ concentração × 100. Nesse frasco, a dose inicial de bula da tirzepatida, 2,5 mg, dá 50 unidades, ou 0,5 ml.",
+      "title": "50 unidades",
+      "body": "Conta 2: unidades = dose (mg) ÷ concentração × 100. Nesse frasco, a dose inicial de bula da tirzepatida, 2,5 mg, dá 50 unidades, ou 0,5 ml.",
+      "layout": "numero",
       "icon": "alvo",
       "pose": "apontando"
     },
     {
       "title": "Semaglutida tem outra conta",
+      "layout": "padrao",
       "body": "Frasco de 5 mg de semaglutida com 2 ml fica com 2,5 mg/ml. A dose inicial de bula, 0,25 mg, dá 10 unidades. Tabela de um remédio não serve para o outro.",
       "icon": "frasco",
       "pose": "pensando"
     },
     {
-      "title": "Mesma dose, números diferentes",
-      "body": "Mais água dilui, e a dose ocupa mais unidades. Menos água concentra, e ocupa menos. Com 10 mg e 1 ml, os mesmos 2,5 mg viram 25 unidades.",
+      "title": "25 unidades",
+      "body": "É o que os mesmos 2,5 mg viram num frasco de 10 mg com 1 ml. Menos água concentra, e a dose ocupa menos unidades. Mais água dilui, e ocupa mais.",
+      "layout": "numero",
       "icon": "gota",
       "pose": "piscadinha"
     },
     {
       "title": "Cuidado com a seringa U-40",
+      "layout": "padrao",
       "body": "A escala é outra: o mesmo número de unidades dá 2,5 vezes mais volume. Todas essas contas valem só para a seringa U-100.",
       "icon": "alerta",
       "pose": "alerta"
     },
     {
       "title": "Cola para guardar",
-      "body": "1️⃣ Anote no frasco os mg e a água. 2️⃣ Faça as duas contas. 3️⃣ Na dúvida, refaça antes de puxar. A dose é a que o médico prescreveu; a conta só traduz em unidades.",
+      "body": "Anote no frasco os mg e a água\nFaça as duas contas\nNa dúvida, refaça antes de puxar\nA dose é a que o médico prescreveu; a conta só traduz em unidades",
+      "layout": "passos",
       "icon": "certo",
       "pose": "apontando"
     }

@@ -4,50 +4,58 @@
   "hookPose": "alerta",
   "slides": [
     {
-      "title": "Erro 1: a porta da geladeira",
+      "title": "Na porta da geladeira está ótimo",
+      "layout": "mito",
       "body": "Antes de abrir, a caneta vai na geladeira, entre 2 e 8 °C, na prateleira do meio e na caixa. Na porta, a temperatura oscila.",
       "icon": "geladeira",
       "pose": "ih"
     },
     {
       "title": "Congelou? Já era",
+      "layout": "padrao",
       "body": "A semaglutida perde potência de forma irreversível quando congela. Descarte, mesmo depois de descongelar.",
       "icon": "gelo",
       "pose": "alerta"
     },
     {
-      "title": "Erro 2: contar 56 dias",
+      "title": "Depois de aberta, dura 56 dias",
+      "layout": "mito",
       "body": "Esse número é da bula americana do Ozempic. No Brasil vale a bula da caixa: até 6 semanas (42 dias) depois do primeiro uso.",
       "icon": "calendario",
       "pose": "pensando"
     },
     {
-      "title": "Depois de aberta",
+      "title": "Onde guardar depois de aberta",
+      "layout": "padrao",
       "body": "Pelas bulas brasileiras de Ozempic e Wegovy, a caneta pode ficar abaixo de 30 °C ou na geladeira. Anote nela a data do primeiro uso.",
       "icon": "prancheta",
       "pose": "explicando"
     },
     {
-      "title": "Erro 3: mala despachada",
+      "title": "No avião, a caneta vai na mala",
+      "layout": "mito",
       "body": "Em voo, a caneta vai na bagagem de mão: a despachada pode congelar. Bolsa térmica com gelox segura por até 8 horas.",
       "icon": "relogio",
       "pose": "explicando"
     },
     {
-      "title": "Carro no calor, não",
-      "body": "Evite deixar a caneta no carro em dias quentes. Acima de 30 °C, a molécula degrada.",
+      "title": "30 °C",
+      "layout": "numero",
+      "body": "Acima disso, a molécula degrada. Por isso, evite deixar a caneta no carro em dias quentes.",
       "icon": "termometro",
       "pose": "alerta"
     },
     {
       "title": "Como saber se estragou",
+      "layout": "padrao",
       "body": "Turva, com partículas, amarelada ou marrom, congelada ou passada do prazo da bula: descarte, mesmo com produto sobrando.",
       "icon": "lupa",
       "pose": "ih"
     },
     {
       "title": "Sua cola",
-      "body": "Fechada: geladeira, prateleira do meio, longe da porta. Aberta: até 6 semanas, abaixo de 30 °C ou na geladeira. Viagem: bagagem de mão. Dúvida? Bula ou médico.",
+      "body": "Fechada: geladeira, prateleira do meio, longe da porta\nAberta: até 6 semanas, abaixo de 30 °C ou na geladeira\nViagem: bagagem de mão\nDúvida? Bula ou médico",
+      "layout": "passos",
       "icon": "certo",
       "pose": "apontando"
     }

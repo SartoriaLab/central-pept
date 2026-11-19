@@ -4,50 +4,58 @@
   "hookPose": "pensando",
   "slides": [
     {
-      "title": "A bula é referência, não obrigação",
-      "body": "Repetir a dose atual por mais 2 a 4 semanas é totalmente aceitável. A titulação da bula é referência; a decisão é sua com o médico.",
+      "title": "A subida da bula é obrigatória",
+      "layout": "mito",
+      "body": "A titulação da bula é referência. Repetir a dose atual por mais 2 a 4 semanas é totalmente aceitável; a decisão é sua com o médico.",
       "icon": "prancheta",
       "pose": "explicando"
     },
     {
-      "title": "Não suba a dose se...",
-      "body": "A náusea ainda é diária, você está perdendo refeições inteiras ou apareceu vômito persistente.",
+      "title": "Quando não subir a dose?",
+      "layout": "pergunta",
+      "body": "Se a náusea ainda é diária, você está perdendo refeições inteiras ou apareceu vômito persistente.",
       "icon": "proibido",
       "pose": "alerta"
     },
     {
       "title": "Quando o enjoo aparece",
+      "layout": "padrao",
       "body": "Nos primeiros 2 a 3 dias após cada subida, mais forte nas 12 a 24 horas após a aplicação. Tende a diminuir após 1 a 2 semanas em dose estável.",
       "icon": "relogio",
       "pose": "pensando"
     },
     {
       "title": "No prato",
-      "body": "Refeições pequenas, 5 a 6 vezes ao dia. Carboidrato leve, como arroz, batata e bolacha sem açúcar, e proteína magra, como frango e peixe.",
+      "body": "Refeições pequenas, 5 a 6 vezes ao dia\nCarboidrato leve: arroz, batata, bolacha sem açúcar\nProteína magra: frango e peixe",
+      "layout": "passos",
       "icon": "prato",
       "pose": "explicando"
     },
     {
       "title": "Líquidos longe das refeições",
+      "layout": "padrao",
       "body": "Beber muito junto com a comida aumenta a saciedade precoce. Reforce a hidratação ao longo do dia, porque desidratação piora o enjoo.",
       "icon": "gota",
       "pose": "piscadinha"
     },
     {
-      "title": "Aplique com estratégia",
+      "title": "Qual o melhor horário para aplicar?",
+      "layout": "pergunta",
       "body": "Mantenha o mesmo dia da semana. Muita gente prefere aplicar à noite, para dormir durante o pico do enjoo.",
       "icon": "lua",
       "pose": "feliz"
     },
     {
       "title": "Hora de procurar o médico",
+      "layout": "padrao",
       "body": "Dor abdominal forte e persistente, vômito que impede a hidratação por mais de 24 horas, febre, pele amarelada ou dor alta nas costas.",
       "icon": "hospital",
       "pose": "alerta"
     },
     {
       "title": "Cola para guardar",
-      "body": "1️⃣ Enjoo diário: não suba, converse com o médico. 2️⃣ Prato pequeno, várias vezes. 3️⃣ Líquidos longe da comida. 4️⃣ Remédio para enjoo só com orientação médica.",
+      "body": "Enjoo diário: não suba, converse com o médico\nPrato pequeno, várias vezes\nLíquidos longe da comida\nRemédio para enjoo só com orientação médica",
+      "layout": "passos",
       "icon": "certo",
       "pose": "apontando"
     }

@@ -5,49 +5,57 @@
   "slides": [
     {
       "title": "O prazo começa na primeira perfuração",
+      "layout": "padrao",
       "body": "Não é a validade impressa no frasco fechado. Colocou água e furou a tampa, o relógio dos 28 dias começou a correr.",
       "icon": "relogio",
       "pose": "explicando"
     },
     {
-      "title": "De onde vem esse número",
+      "title": "28 dias",
+      "layout": "numero",
       "body": "É a regra do CDC e da farmacopeia americana (USP) para frasco de várias doses com conservante: datar ao abrir e descartar em até 28 dias.",
       "icon": "livros",
       "pose": "explicando"
     },
     {
       "title": "Esterilidade, não potência",
+      "layout": "padrao",
       "body": "A regra controla contaminação. Não há estudo publicado mostrando quanto cada peptídeo sem bula mantém de atividade aos 28 dias.",
       "icon": "microscopio",
       "pose": "pensando"
     },
     {
-      "title": "Bacteriostática x água estéril",
+      "title": "Bacteriostática ou água estéril?",
+      "layout": "pergunta",
       "body": "A bacteriostática tem 0,9% de álcool benzílico e aguenta várias doses. Água estéril sem conservante é dose única: usou, descarta o resto.",
       "icon": "gota",
       "pose": "explicando"
     },
     {
       "title": "Geladeira certa",
+      "layout": "padrao",
       "body": "Entre 2 e 8 °C, na prateleira do meio, longe da porta e do congelador. Nunca congele: se congelou, descarte.",
       "icon": "geladeira",
       "pose": "alerta"
     },
     {
-      "title": "Descarte antes se...",
-      "body": "A solução ficou turva, com partículas, mudou de cor ou bateu dúvida sobre a esterilidade (agulha que caiu, frasco rachado).",
+      "title": "Quando descartar antes do prazo?",
+      "layout": "pergunta",
+      "body": "Se a solução ficou turva, com partículas, mudou de cor ou bateu dúvida sobre a esterilidade (agulha que caiu, frasco rachado).",
       "icon": "lupa",
       "pose": "ih"
     },
     {
-      "title": "Quantas doses cabem no prazo",
-      "body": "Numa aplicação por semana, cabem no máximo 4 doses nos 28 dias. Se o frasco tem mais, o resto vence. O tamanho certo do frasco é conversa com o seu médico.",
+      "title": "4 doses",
+      "layout": "numero",
+      "body": "É o máximo que cabe nos 28 dias numa aplicação por semana. Se o frasco tem mais, o resto vence. O tamanho certo do frasco é conversa com o seu médico.",
       "icon": "calendario",
       "pose": "pensando"
     },
     {
       "title": "Sua cola",
-      "body": "Data da reconstituição + 28 dias = data-limite. Na etiqueta: as duas datas e a concentração. Chegou o dia, descarte, mesmo com líquido.",
+      "body": "Data da reconstituição + 28 dias = data-limite\nNa etiqueta: as duas datas e a concentração\nChegou o dia, descarte, mesmo com líquido",
+      "layout": "passos",
       "icon": "prancheta",
       "pose": "apontando"
     }

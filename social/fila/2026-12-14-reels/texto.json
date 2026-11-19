@@ -4,44 +4,51 @@
   "hookPose": "ih",
   "slides": [
     {
-      "title": "Erro 1: achar que é a mesma coisa",
-      "body": "A semaglutida age só no receptor GLP-1. A retatrutida age no GLP-1, no GIP e no glucagon. Não é o Ozempic “turbinado”: é outra molécula.",
+      "title": "Retatrutida é o Ozempic “turbinado”",
+      "layout": "mito",
+      "body": "Não é: é outra molécula. A semaglutida age só no receptor GLP-1. A retatrutida age no GLP-1, no GIP e no glucagon.",
       "icon": "dna",
       "pose": "ih"
     },
     {
-      "title": "Erro 2: comparar estudos diferentes",
-      "body": "Nos ensaios STEP, semaglutida 2,4 mg: média de 10-15%. Na fase 2 da retatrutida, 12 mg: 24,2% em 48 semanas. Pessoas, durações e desenhos diferentes.",
+      "title": "Estudos diferentes, números diferentes",
+      "layout": "lado",
+      "body": "Semaglutida 2,4 mg (ensaios STEP): média de 10-15%\nRetatrutida 12 mg (fase 2): 24,2% em 48 semanas",
       "icon": "balanca",
       "pose": "pensando"
     },
     {
       "title": "Média de estudo não é promessa",
-      "body": "São médias de ensaio, com acompanhamento. Elas não dizem como cada pessoa vai responder, a uma ou à outra.",
+      "layout": "padrao",
+      "body": "São médias de ensaio, com acompanhamento, e com pessoas, durações e desenhos diferentes. Elas não dizem como cada pessoa vai responder, a uma ou à outra.",
       "icon": "microscopio",
       "pose": "explicando"
     },
     {
-      "title": "Erro 3: esquecer a aprovação",
-      "body": "A semaglutida é aprovada pela FDA como Ozempic, Wegovy e Rybelsus, e desde 2024 também para reduzir risco cardiovascular em adultos com doença cardiovascular e obesidade ou sobrepeso.",
-      "icon": "coracao",
+      "title": "Aprovação: só uma tem",
+      "layout": "lado",
+      "body": "Semaglutida: aprovada pela FDA como Ozempic, Wegovy e Rybelsus, e desde 2024 também para reduzir risco cardiovascular\nRetatrutida: experimental, sem aprovação da FDA, da EMA ou da ANVISA",
+      "icon": "prancheta",
       "pose": "apontando"
     },
     {
-      "title": "A retatrutida segue experimental",
-      "body": "Sem aprovação da FDA, da EMA ou da ANVISA. Em julho de 2026 a ANVISA orientou a não usar produtos com esse nome.",
+      "title": "O recado da ANVISA",
+      "layout": "padrao",
+      "body": "A retatrutida segue experimental. Em julho de 2026, a ANVISA orientou a não usar produtos com esse nome.",
       "icon": "proibido",
       "pose": "alerta"
     },
     {
       "title": "Os efeitos que mais aparecem",
-      "body": "Nas duas, náusea, vômito, diarreia e constipação. Na retatrutida, os estudos também relatam disestesia, uma sensação anormal na pele.",
+      "layout": "lado",
+      "body": "Semaglutida: náusea, vômito, diarreia e constipação\nRetatrutida: as mesmas, e os estudos também relatam disestesia, uma sensação anormal na pele",
       "icon": "enjoo",
       "pose": "explicando"
     },
     {
       "title": "A cola: o Ozempic “ficou fraco”? Conta errada",
-      "body": "Moléculas diferentes, estudos diferentes, só uma aprovada. Qualquer dúvida sobre trocar ou ajustar o tratamento é com o médico.",
+      "layout": "passos",
+      "body": "Moléculas diferentes\nEstudos diferentes\nSó uma aprovada\nDúvida sobre trocar ou ajustar o tratamento? Com o médico",
       "icon": "certo",
       "pose": "piscadinha"
     }

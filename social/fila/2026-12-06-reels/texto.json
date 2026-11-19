@@ -4,46 +4,53 @@
   "hookPose": "ih",
   "slides": [
     {
-      "title": "Mesma molécula, dois mundos",
+      "title": "Sérum e injetável são a mesma coisa",
       "body": "O GHK-Cu do sérum e o do frasco injetável são a mesma molécula, mas com regulação e evidência bem diferentes. Misturar os dois é a confusão mais comum.",
       "icon": "balanca",
-      "pose": "explicando"
+      "pose": "explicando",
+      "layout": "mito"
     },
     {
       "title": "No sérum: ingrediente permitido",
       "body": "No uso tópico, é ingrediente cosmético permitido, considerado seguro pelo painel CIR nas concentrações baixas de uso. Os estudos em pessoas são pequenos.",
       "icon": "pele",
-      "pose": "feliz"
+      "pose": "feliz",
+      "layout": "padrao"
     },
     {
-      "title": "No injetável: só pesquisa",
-      "body": "A forma injetável não tem aprovação para uso humano. Em 2026, a ANVISA alertou que ela não está regularizada em nenhuma categoria.",
+      "title": "E o injetável, é aprovado?",
+      "body": "Não. A forma injetável não tem aprovação para uso humano. Em 2026, a ANVISA alertou que ela não está regularizada em nenhuma categoria.",
       "icon": "proibido",
-      "pose": "alerta"
+      "pose": "alerta",
+      "layout": "pergunta"
     },
     {
       "title": "Rótulo “apenas para pesquisa”",
       "body": "Os frascos injetáveis vêm, em geral, de fornecedores não farmacêuticos, sem garantia de pureza ou esterilidade. Rótulo de pesquisa não é remédio.",
       "icon": "lupa",
-      "pose": "ih"
+      "pose": "ih",
+      "layout": "padrao"
     },
     {
       "title": "O que ele faz, segundo os estudos",
-      "body": "Em laboratório, estimula colágeno e elastina. Em pessoas, há sinais pequenos na pele e evidência mais fraca em cicatrização. Para cabelo, não há estudo controlado dele sozinho.",
+      "body": "Laboratório: estimula colágeno e elastina\nPessoas: sinais pequenos na pele, evidência mais fraca em cicatrização e nenhum estudo controlado dele sozinho para cabelo",
       "icon": "microscopio",
-      "pose": "pensando"
+      "pose": "pensando",
+      "layout": "lado"
     },
     {
       "title": "Quem precisa de cuidado",
       "body": "Alergia ao cobre e doença de Wilson são contraindicações. No tópico, pode haver irritação local. Gestação e lactação não têm dados: converse com o médico.",
       "icon": "estetoscopio",
-      "pose": "explicando"
+      "pose": "explicando",
+      "layout": "padrao"
     },
     {
       "title": "Cola pra guardar",
-      "body": "Sérum: ingrediente cosmético permitido. Injetável: pesquisa, sem aprovação para uso humano. A pele irritou? Suspenda e procure o dermatologista.",
+      "body": "Sérum: ingrediente cosmético permitido\nInjetável: pesquisa, sem aprovação para uso humano\nA pele irritou? Suspenda e procure o dermatologista",
       "icon": "certo",
-      "pose": "apontando"
+      "pose": "apontando",
+      "layout": "passos"
     }
   ],
   "narration": [

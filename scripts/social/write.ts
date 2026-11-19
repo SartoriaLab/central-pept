@@ -10,6 +10,7 @@ import { z } from 'zod/v4';
 import { LIMITS } from './validate';
 import { ILLUSTRATIONS, ILLUSTRATION_KEYS } from './illustrations';
 import { POSES, POSE_HINTS } from './poses';
+import { LAYOUTS, LAYOUT_HINTS } from './layouts';
 import { BORDAO_ABERTURA, BORDAO_FECHAMENTO } from './caption';
 import type { Draft, Topic } from './types';
 
@@ -30,6 +31,9 @@ export const DraftSchema = z.object({
           .enum(ILLUSTRATION_KEYS)
           .describe(`Ilustração do slide: ${Object.entries(ILLUSTRATIONS).map(([k, d]) => `${k} (${d})`).join('; ')}. Evite repetir no mesmo post.`),
         pose: z.enum(POSES).describe('Pose da Gotinha neste slide (mesma lista de hookPose), combinando com o conteúdo.'),
+        layout: z
+          .enum(LAYOUTS)
+          .describe(`Tipo do slide, conforme o conteúdo: ${Object.entries(LAYOUT_HINTS).map(([k, d]) => `${k} (${d})`).join('; ')}.`),
       }),
     )
     .describe(`${LIMITS.slides[0]} a ${LIMITS.slides[1]} slides de conteúdo, sem capa e sem chamada final.`),
@@ -81,6 +85,7 @@ Regras de conteúdo (um robô confere antes de publicar e descarta o rascunho qu
 Estilo:
 - Frases curtas, voz ativa, segunda pessoa ("você"). Pode usar "amiga" no máximo uma vez por roteiro e linguagem de conversa ("olha só", "calma", "pra", "tá"). Uma tirada leve por roteiro, no máximo. Nada de jargão sem explicar.
 - Slides: 5 a 8 slides de conteúdo (carrossel de 7 a 10 imagens é o que mais se salva), título curto + uma ideia por slide, na voz da Gotinha; cada slide deixa um motivo para arrastar para o próximo; o último slide de conteúdo resume o que fazer, como uma cola que vale guardar.
+- Tipos de slide (campo layout): varie para o carrossel ter ritmo. Use "mito" para derrubar uma crença, "passos" para o que fazer, "lado" para comparar duas coisas, "numero" para um número da FONTE que merece destaque, "pergunta" para a dúvida que a pessoa faz, e "padrao" para o resto. Com 4 slides ou mais, pelo menos um não é "padrao"; evite dois iguais seguidos. O último slide (o resumo) costuma ser "passos".
 - Pense no envio: o sinal que mais aumenta o alcance é alguém mandar o post para outra pessoa. Escolha a mania e o campo share para que a leitora pense na hora em quem precisa ver isso.
 - Poses: escolha para o gancho, para cada slide e para cada fala a pose que combina com o que a Gotinha está dizendo, variando ao longo do roteiro ("ih" para a mania, "explicando" para o passo a passo, "alerta" para risco, e assim por diante).
 - Falas do Reels: tom de conversa, cada fala com 1 ou 2 frases (cerca de 8 a 12 segundos lida em voz alta). Toda frase precisa soar inequivocamente portuguesa, com palavras como "você", "seu", "está", "não", "é" ou acentos: a voz adivinha o idioma por frase e lê em espanhol uma frase curta como "Mounjaro dando enjoo?" (escreva "Seu Mounjaro está dando enjoo?").

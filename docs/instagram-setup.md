@@ -206,6 +206,15 @@ hora, como antes. `social/fila/PLANO.md` mostra o calendário; `REGRAS.md` tem a
   fila, e cria `brief.md`/`brief.json` em cada pasta nova. `--refazer` escolhe de novo os horários
   ainda sem texto. Depois, peça ao Claude para escrever os `texto.json` seguindo os `brief.md`.
 - **Conferir um texto:** `run.ts --check social/fila/<pasta>` (mesma validação da publicação).
+- **Ver antes de sair:** `run.ts previa` gera em `social/out/<data>-<formato>/` as imagens e os vídeos
+  da fila (`--formato reels`, `--ate AAAA-MM-DD`). No dia, a publicação reaproveita o que a prévia
+  gerou (mesmo texto, guia e cenário); a voz fica em cache em `social/out/_voz`, então gerar de
+  novo não paga a fala duas vezes.
+- **Visual que muda:** cinco cenários (`themes.ts`: noite, claro, cor da categoria, caderno,
+  azulejo) giram pela data, nunca o mesmo em dois dias seguidos, e o Reels do dia sai num
+  cenário diferente do carrossel. Cada slide tem um tipo (`layouts.ts`: padrão, mito × verdade,
+  passo a passo, lado a lado, número em destaque, pergunta e resposta), escolhido por quem
+  escreve. No Reels a Gotinha alterna de lado e entra deslizando em cada cena.
 - **Trocar um post:** edite o `texto.json` da pasta e rode o `--check`. Apagar o `texto.json` faz o dia
   ser escrito na hora.
 - O tema escrito na hora evita os temas que a fila ainda vai publicar.

@@ -4,52 +4,60 @@
   "hookPose": "ih",
   "slides": [
     {
-      "title": "A mania de adiantar a subida",
-      "body": "Achar que a primeira dose 'não faz nada' e querer pular logo para a próxima. Eu sei, a ansiedade bate em todo mundo. Mas olha o que a bula diz.",
+      "title": "A primeira dose não faz nada",
+      "body": "E aí vem a mania de adiantar a subida e pular logo para a próxima. Eu sei, a ansiedade bate em todo mundo. Mas olha o que a bula diz.",
       "icon": "alerta",
-      "pose": "ih"
+      "pose": "ih",
+      "layout": "mito"
     },
     {
-      "title": "Dose de começo não é dose final",
-      "body": "Na bula, 0,25 mg por semana é a dose inicial. O próprio esquema prevê aumentar aos poucos, até no máximo 2,4 mg por semana. Isso se chama titulação.",
+      "title": "0,25 mg",
+      "body": "Na bula, é a dose inicial por semana, não a final. O próprio esquema prevê aumentar aos poucos, até no máximo 2,4 mg por semana. Isso se chama titulação.",
       "icon": "alvo",
-      "pose": "explicando"
+      "pose": "explicando",
+      "layout": "numero"
     },
     {
       "title": "O que ela faz no corpo",
       "body": "A semaglutida aumenta a insulina quando a glicose sobe, reduz o glucagon, retarda o esvaziamento do estômago e age nos centros de saciedade.",
       "icon": "cerebro",
-      "pose": "pensando"
+      "pose": "pensando",
+      "layout": "padrao"
     },
     {
-      "title": "O estômago sente",
-      "body": "Mais de 20% relatam náusea com o Ozempic, e até 44% com o Wegovy. Vômito, diarreia e constipação também estão na lista. O ritmo da subida é conversa com o médico.",
+      "title": "Mais de 20%",
+      "body": "Relatam náusea com o Ozempic, e até 44% com o Wegovy. Vômito, diarreia e constipação também estão na lista. O ritmo da subida é conversa com o médico.",
       "icon": "enjoo",
-      "pose": "alerta"
+      "pose": "alerta",
+      "layout": "numero"
     },
     {
       "title": "Uma vez por semana, por quê?",
       "body": "A molécula tem um ácido graxo que se liga à albumina do sangue. Isso dá meia-vida de cerca de 7 dias, e por isso a aplicação é semanal.",
       "icon": "ampulheta",
-      "pose": "explicando"
+      "pose": "explicando",
+      "layout": "pergunta"
     },
     {
       "title": "Ozempic, Wegovy e Rybelsus",
       "body": "Todos são semaglutida. Ozempic é para diabetes tipo 2, Wegovy para obesidade e Rybelsus é a versão oral. Cada um tem a sua bula.",
       "icon": "comprimido",
-      "pose": "piscadinha"
+      "pose": "piscadinha",
+      "layout": "padrao"
     },
     {
-      "title": "Conte antes de começar",
-      "body": "Histórico pessoal ou familiar de carcinoma medular de tireoide, NEM 2, alergia grave à semaglutida ou gestação: o médico precisa saber antes.",
+      "title": "O que o médico precisa saber antes?",
+      "body": "Histórico pessoal ou familiar de carcinoma medular de tireoide, NEM 2, alergia grave à semaglutida ou gestação. Conte antes de começar.",
       "icon": "estetoscopio",
-      "pose": "alerta"
+      "pose": "alerta",
+      "layout": "pergunta"
     },
     {
       "title": "A cola pra guardar",
-      "body": "0,25 mg é o começo, não a meta. A subida segue a titulação. Náusea é efeito comum. Uma aplicação por semana. Ritmo e ajuste: sempre com o médico.",
+      "body": "0,25 mg é o começo, não a meta\nA subida segue a titulação\nNáusea é efeito comum; uma aplicação por semana\nRitmo e ajuste: sempre com o médico",
       "icon": "certo",
-      "pose": "apontando"
+      "pose": "apontando",
+      "layout": "passos"
     }
   ],
   "narration": [

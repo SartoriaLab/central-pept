@@ -4,52 +4,60 @@
   "hookPose": "pensando",
   "slides": [
     {
-      "title": "Cópia, não genérico",
-      "body": "A farmácia de manipulação recebe a tirzepatida como matéria-prima e fraciona em frascos. Não é o mesmo produto do Mounjaro.",
+      "title": "Manipulada é genérico do Mounjaro",
+      "body": "É cópia, não genérico. A farmácia de manipulação recebe a tirzepatida como matéria-prima e fraciona em frascos. Não é o mesmo produto do Mounjaro.",
       "icon": "frasco",
-      "pose": "explicando"
+      "pose": "explicando",
+      "layout": "mito"
     },
     {
       "title": "A pureza pode variar",
       "body": "Matéria-prima de fornecedor não farmacêutico pode ter impurezas acima de 2%, e a estabilidade não tem estudos equivalentes aos da indústria.",
       "icon": "microscopio",
-      "pose": "pensando"
+      "pose": "pensando",
+      "layout": "padrao"
     },
     {
-      "title": "Rótulo x dose real",
-      "body": "Pode haver até 20% de variação entre o que diz o rótulo e o que está no frasco. Por isso, a mesma dose de antes não é a mesma coisa.",
+      "title": "Até 20%",
+      "body": "É a variação que pode haver entre o que diz o rótulo e o que está no frasco. Por isso, a mesma dose de antes não é a mesma coisa.",
       "icon": "regua",
-      "pose": "ih"
+      "pose": "ih",
+      "layout": "numero"
     },
     {
-      "title": "Comece em dose baixa",
-      "body": "Mesmo com experiência prévia com Mounjaro, o cuidado é começar em dose baixa. Quem define a dose e a subida é o seu médico.",
+      "title": "Já usava Mounjaro, começo na mesma dose?",
+      "body": "Não. Mesmo com experiência prévia com Mounjaro, o cuidado é começar em dose baixa. Quem define a dose e a subida é o seu médico.",
       "icon": "grafico-sobe",
-      "pose": "explicando"
+      "pose": "explicando",
+      "layout": "pergunta"
     },
     {
       "title": "Farmácia confiável tem",
-      "body": "Registro na ANVISA e alvará visíveis, COA do peptídeo com cada frasco, resultado de HPLC e farmacêutico responsável identificado.",
+      "body": "Registro na ANVISA e alvará visíveis\nCOA do peptídeo com cada frasco\nResultado de HPLC\nFarmacêutico responsável identificado",
       "icon": "escudo",
-      "pose": "piscadinha"
+      "pose": "piscadinha",
+      "layout": "passos"
     },
     {
-      "title": "Sem receita? Fuja",
-      "body": "Prescrição médica é obrigatória. Farmácia que entrega sem receita está ignorando a regra mais básica.",
+      "title": "Entregou sem receita?",
+      "body": "Fuja. Prescrição médica é obrigatória. Farmácia que entrega sem receita está ignorando a regra mais básica.",
       "icon": "proibido",
-      "pose": "alerta"
+      "pose": "alerta",
+      "layout": "pergunta"
     },
     {
       "title": "Em casa, o cuidado continua",
       "body": "Geladeira entre 2 e 8 °C desde o recebimento, reconstituição com água bacteriostática e conta certa das unidades na seringa.",
       "icon": "geladeira",
-      "pose": "explicando"
+      "pose": "explicando",
+      "layout": "padrao"
     },
     {
       "title": "Sua cola",
-      "body": "Manipulada não é Mounjaro. Exija COA e HPLC, farmacêutico identificado e receita. Comece em dose baixa e com acompanhamento médico periódico.",
+      "body": "Manipulada não é Mounjaro\nExija COA e HPLC, farmacêutico identificado e receita\nComece em dose baixa e com acompanhamento médico periódico",
       "icon": "certo",
-      "pose": "apontando"
+      "pose": "apontando",
+      "layout": "passos"
     }
   ],
   "narration": [

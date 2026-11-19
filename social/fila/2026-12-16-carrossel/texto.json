@@ -5,49 +5,57 @@
   "slides": [
     {
       "title": "Resposta: a retatrutida",
+      "layout": "padrao",
       "body": "Semaglutida e tirzepatida são aprovadas pela FDA. A retatrutida segue em desenvolvimento, sem aprovação da FDA, da EMA ou da ANVISA.",
       "icon": "escudo",
       "pose": "apontando"
     },
     {
-      "title": "Mais nova não quer dizer pronta",
+      "title": "A mais nova é a mais pronta",
+      "layout": "mito",
       "body": "A mais nova é a que ainda está em estudo. Em julho de 2026 a ANVISA orientou a não usar produtos com o nome retatrutida.",
       "icon": "alerta",
       "pose": "ih"
     },
     {
       "title": "Um, dois, três alvos",
+      "layout": "padrao",
       "body": "Semaglutida: GLP-1. Tirzepatida: GLP-1 e GIP. Retatrutida: GLP-1, GIP e glucagon. O papel do glucagon ainda é hipótese, não demonstrada em humanos.",
       "icon": "dna",
       "pose": "explicando"
     },
     {
-      "title": "A meia-vida de cada uma",
-      "body": "~7 dias na semaglutida, ~5 dias na tirzepatida e ~6 dias na retatrutida. As três foram feitas para uso semanal.",
+      "title": "5 a 7 dias",
+      "layout": "numero",
+      "body": "É a meia-vida das três: ~7 dias na semaglutida, ~5 dias na tirzepatida e ~6 dias na retatrutida. As três foram feitas para uso semanal.",
       "icon": "ampulheta",
       "pose": "pensando"
     },
     {
       "title": "Dose: bula para duas, estudo para uma",
+      "layout": "padrao",
       "body": "Semaglutida: 0,25 a 2,4 mg por semana. Tirzepatida: 2,5 a 15 mg por semana. Retatrutida: não tem bula; na fase 3, os estudos começaram em 2 mg.",
       "icon": "prancheta",
       "pose": "explicando"
     },
     {
-      "title": "O que os estudos mediram",
+      "title": "Dá para comparar esses números direto",
+      "layout": "mito",
       "body": "Semaglutida 2,4 mg: 10-15% nos ensaios STEP. Tirzepatida 15 mg: ~20,9% em 72 semanas. Retatrutida 12 mg: 25,0% em 80 semanas. Estudos diferentes, não frente a frente.",
       "icon": "microscopio",
       "pose": "apontando"
     },
     {
       "title": "Efeitos: parecidos, com um extra",
+      "layout": "padrao",
       "body": "As três trazem sobretudo náusea, diarreia, vômito e constipação. Na retatrutida, os estudos também relatam disestesia, mais frequente nas doses altas.",
       "icon": "enjoo",
       "pose": "alerta"
     },
     {
       "title": "A cola do teste",
-      "body": "Aprovadas: semaglutida e tirzepatida. Experimental: retatrutida. Números de estudos diferentes não definem qual faz sentido pra você: essa escolha é com o médico.",
+      "layout": "passos",
+      "body": "Aprovadas: semaglutida e tirzepatida\nExperimental: retatrutida\nNúmeros de estudos diferentes não definem qual faz sentido pra você\nEssa escolha é com o médico",
       "icon": "certo",
       "pose": "piscadinha"
     }

@@ -5,43 +5,50 @@
   "slides": [
     {
       "title": "De onde vem esse número",
+      "layout": "padrao",
       "body": "No estudo STEP-4, todos usaram semaglutida 2,4 mg por 20 semanas. Depois, uma parte seguiu com o remédio e outra trocou por placebo.",
       "icon": "microscopio",
       "pose": "explicando"
     },
     {
-      "title": "Quem trocou por placebo",
-      "body": "Recuperou cerca de 70% do que tinha perdido em 48 semanas. Quem continuou com a semaglutida manteve a perda.",
+      "title": "Cerca de 70%",
+      "layout": "numero",
+      "body": "É quanto recuperou do que tinha perdido, em 48 semanas, quem trocou por placebo. Quem continuou com a semaglutida manteve a perda.",
       "icon": "grafico-sobe",
       "pose": "pensando"
     },
     {
       "title": "Ela age enquanto está ativa",
+      "layout": "padrao",
       "body": "A semaglutida trata a obesidade enquanto está no corpo, como o remédio de pressão trata a hipertensão. Parou, o efeito vai embora.",
       "icon": "escudo",
       "pose": "explicando"
     },
     {
-      "title": "Por que o apetite volta",
+      "title": "Por que o apetite volta?",
+      "layout": "pergunta",
       "body": "Apetite e saciedade voltam ao estado de antes em cerca de 4 semanas após parar. E a adaptação do metabolismo continua.",
       "icon": "cerebro",
       "pose": "pensando"
     },
     {
       "title": "O remédio não faz tudo sozinho",
+      "layout": "padrao",
       "body": "Eu sei, dá vontade de largar o treino de força quando o remédio está ajudando. Mas é ele que preserva a massa muscular, durante e depois.",
       "icon": "musculo",
       "pose": "ih"
     },
     {
-      "title": "Parar? Só com plano",
-      "body": "Reduzir a dose aos poucos, com orientação médica, em vez de parar de uma vez. Continuar por longo prazo também é uma opção clínica válida.",
+      "title": "Como parar, então?",
+      "layout": "pergunta",
+      "body": "Só com plano: reduzindo a dose aos poucos, com orientação médica, em vez de parar de uma vez. Continuar por longo prazo também é uma opção clínica válida.",
       "icon": "estetoscopio",
       "pose": "explicando"
     },
     {
       "title": "Cola anti-rebote",
-      "body": "1️⃣ Treino resistido sempre. 2️⃣ Proteína em dia. 3️⃣ Acompanhe o peso toda semana. 4️⃣ Nada de parar de uma vez: a saída se decide com o médico.",
+      "body": "Treino resistido sempre\nProteína em dia\nAcompanhe o peso toda semana\nNada de parar de uma vez: a saída se decide com o médico",
+      "layout": "passos",
       "icon": "certo",
       "pose": "apontando"
     }
