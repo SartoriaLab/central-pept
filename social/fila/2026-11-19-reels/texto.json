@@ -1,0 +1,58 @@
+{
+  "hook": "Tesamorelina é semanal igual à sua caneta? Não é.",
+  "hookIcon": "calendario",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "Ela é semanal como a caneta GLP-1?",
+      "body": "Não. Eu sei, a gente se acostuma com a caneta de uma vez por semana. Mas a bula da tesamorelina descreve uso diário, 1x por dia.",
+      "icon": "duvida",
+      "pose": "ih",
+      "layout": "pergunta"
+    },
+    {
+      "title": "26 a 38 min",
+      "body": "É a meia-vida da tesamorelina: o tempo para o corpo eliminar metade dela. É curta, e é por isso que a administração é diária.",
+      "icon": "ampulheta",
+      "pose": "explicando",
+      "layout": "numero"
+    },
+    {
+      "title": "Sua caneta x tesamorelina",
+      "body": "Caneta GLP-1: uma aplicação por semana\nTesamorelina: 2 mg por dia, dose fixa de bula",
+      "icon": "balanca",
+      "pose": "pensando",
+      "layout": "lado"
+    },
+    {
+      "title": "Serve para qualquer pessoa?",
+      "body": "A indicação aprovada pela FDA é específica: gordura visceral abdominal em adultos HIV-positivos em terapia antirretroviral. Anti-idade e perda de gordura geral não foram avaliados.",
+      "icon": "microscopio",
+      "pose": "alerta",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Efeitos x contraindicações",
+      "body": "Efeitos relatados: dor nas articulações, inchaço, formigamento, náusea\nNão usar: gravidez, câncer ativo, problema na hipófise",
+      "icon": "alerta",
+      "pose": "explicando",
+      "layout": "lado"
+    },
+    {
+      "title": "Pra não confundir",
+      "body": "Tesamorelina não é semanal\nDose de bula: 2 mg por dia, fixa\nFora da indicação, não foi avaliada\nDúvida? Fale com o seu médico",
+      "icon": "prancheta",
+      "pose": "apontando",
+      "layout": "passos"
+    }
+  ],
+  "narration": [
+    { "text": "Você acha que a tesamorelina é semanal, igual à sua caneta? Não é, não.", "pose": "ih" },
+    { "text": "A meia-vida dela é de 26 a 38 minutos. É curta, então a bula descreve uso diário, com dose fixa de 2 mg.", "pose": "explicando" },
+    { "text": "E a indicação aprovada é só para adultos com HIV em tratamento. Outros usos não foram avaliados: dúvida, é com o médico.", "pose": "alerta" },
+    { "text": "Então, se te disseram que ela é igual à caneta, agora você já sabe: semanal ela não é.", "pose": "piscadinha" }
+  ],
+  "caption": "Eu sei, todo mundo faz: a gente se acostuma com a caneta GLP-1 de uma vez por semana e acha que todo peptídeo injetável funciona igual. A tesamorelina não.\n\nEla é um análogo do GHRH: faz a hipófise liberar o próprio GH. A meia-vida é de cerca de 26 a 38 minutos, curta, e por isso a bula descreve administração diária. A dose de bula é 2 mg por dia, fixa.\n\n⚠️ A indicação aprovada pela FDA é específica: gordura visceral abdominal em adultos HIV-positivos em terapia antirretroviral. Anti-envelhecimento, performance e perda de gordura geral são off-label e não foram avaliados em ensaios regulatórios. Efeitos colaterais relatados: dor nas articulações, inchaço, formigamento e náusea. É contraindicada na gravidez, em câncer ativo e em problemas na hipófise.\n\n1️⃣ Tesamorelina não é semanal como a caneta\n2️⃣ Dose de bula: 2 mg por dia, fixa\n3️⃣ Fora da indicação aprovada, não foi avaliada: converse com o seu médico",
+  "question": "Qual peptídeo você achava que era semanal e descobriu que não é?",
+  "share": "aquela amiga que acha que todo peptídeo é semanal como a caneta"
+}
