@@ -1,0 +1,77 @@
+{
+  "hook": "Gonadorelina mais vezes estimula mais? Pode é desligar o eixo.",
+  "hookIcon": "grafico-desce",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "Quanto mais vezes, mais ela estimula",
+      "layout": "mito",
+      "body": "Com a gonadorelina, o ritmo manda. Dada de forma contínua, o receptor dessensibiliza e o eixo é suprimido: o oposto do que se queria.",
+      "icon": "errado",
+      "pose": "ih"
+    },
+    {
+      "title": "O que é a gonadorelina",
+      "layout": "padrao",
+      "body": "É a forma sintética do GnRH, o hormônio do hipotálamo que manda a hipófise liberar LH e FSH. Ela não repõe testosterona: faz o próprio corpo produzir.",
+      "icon": "cerebro",
+      "pose": "explicando"
+    },
+    {
+      "title": "90 a 120 min",
+      "layout": "numero",
+      "body": "É o intervalo aproximado dos pulsos naturais de GnRH. A hipófise responde a esse padrão pulsátil, e não a um nível constante.",
+      "icon": "relogio",
+      "pose": "pensando"
+    },
+    {
+      "title": "Gonadorelina x hCG",
+      "layout": "lado",
+      "body": "hCG: imita o LH e age direto nos testículos\nGonadorelina: estimula a hipófise, um degrau acima",
+      "icon": "balanca",
+      "pose": "explicando"
+    },
+    {
+      "title": "Ela é aprovada?",
+      "layout": "pergunta",
+      "body": "Já foi aprovada pela FDA para diagnóstico e indução de ovulação, mas essas apresentações saíram do mercado por motivo comercial. Na reposição de testosterona, o uso é off-label.",
+      "icon": "prancheta",
+      "pose": "ih"
+    },
+    {
+      "title": "Na mulher, ela também age",
+      "layout": "padrao",
+      "body": "O mesmo par, LH e FSH, comanda o desenvolvimento dos folículos e a ovulação. Gravidez é contraindicação, fora de protocolo supervisionado de indução.",
+      "icon": "estetoscopio",
+      "pose": "alerta"
+    },
+    {
+      "title": "A cola pra guardar",
+      "layout": "passos",
+      "body": "Ritmo pulsátil, não contínuo\nNão repõe testosterona, estimula o corpo\nNa TRT, o uso é off-label\nDose e frequência: só com o médico",
+      "icon": "certo",
+      "pose": "apontando"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Você acha que gonadorelina mais vezes estimula mais? Olha, ela pode é desligar o eixo.",
+      "pose": "ih"
+    },
+    {
+      "text": "O corpo libera GnRH em pulsos, mais ou menos a cada 90 a 120 minutos. A hipófise responde a esse ritmo, não a um nível constante.",
+      "pose": "explicando"
+    },
+    {
+      "text": "Dada de forma contínua, ela dessensibiliza o receptor e suprime o eixo. E o uso na reposição de testosterona é off-label.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Então, dose e frequência são com o médico. Porque, com a gonadorelina, mais vezes pode desligar o eixo.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, a lógica do \"mais vezes, mais efeito\" parece óbvia. Com a gonadorelina, a forma sintética do GnRH, ela é justamente o erro: o que manda é o ritmo.\n\n1️⃣ A gonadorelina faz a hipófise liberar LH e FSH, que no homem estimulam a testosterona e a produção de espermatozoides, e na mulher comandam os folículos e a ovulação\n2️⃣ O corpo libera GnRH em pulsos, a cada 90 a 120 minutos, aproximadamente, e a hipófise responde a esse padrão\n3️⃣ Na reposição de testosterona (TRT), ela é usada off-label, via manipulação, para tentar manter a função testicular e a fertilidade\n\n⚠️ Dada de forma contínua, ela dessensibiliza o receptor e suprime o eixo, o oposto do desejado. Não existe dose de bula para o uso na TRT: dose e frequência são decisão individual do médico. As apresentações aprovadas pela FDA (Factrel e Lutrepulse) foram descontinuadas por motivo comercial, não por segurança.",
+  "question": "Você sabia que o mesmo hormônio pode estimular ou desligar o eixo?",
+  "share": "o marido ou o amigo que está fazendo reposição de testosterona"
+}

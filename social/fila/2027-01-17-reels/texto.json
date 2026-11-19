@@ -1,0 +1,70 @@
+{
+  "hook": "Ozempic, Wegovy e Rybelsus são três remédios? Não, é uma molécula",
+  "hookIcon": "comprimido",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "Mesma molécula, nomes diferentes",
+      "layout": "lado",
+      "body": "Semaglutida: Ozempic, Wegovy e Rybelsus\nTirzepatida: Mounjaro e Zepbound",
+      "icon": "frasco",
+      "pose": "explicando"
+    },
+    {
+      "title": "Rybelsus é outro remédio",
+      "layout": "mito",
+      "body": "O Rybelsus é a semaglutida por via oral, aprovada em 2019. A molécula é a mesma do Ozempic e do Wegovy, que são injetáveis semanais.",
+      "icon": "errado",
+      "pose": "ih"
+    },
+    {
+      "title": "Cada marca, uma aprovação",
+      "layout": "padrao",
+      "body": "O Ozempic foi aprovado para diabetes tipo 2 e o Wegovy para obesidade. Na tirzepatida é igual: Mounjaro para diabetes tipo 2, Zepbound para obesidade.",
+      "icon": "prancheta",
+      "pose": "pensando"
+    },
+    {
+      "title": "O que muda entre as moléculas",
+      "layout": "lado",
+      "body": "Semaglutida: age no GLP-1, meia-vida de ~7 dias\nTirzepatida: age no GLP-1 e no GIP, meia-vida de ~5 dias",
+      "icon": "dna",
+      "pose": "explicando"
+    },
+    {
+      "title": "Por que isso importa para você",
+      "layout": "padrao",
+      "body": "Alergia grave à semaglutida vale para qualquer marca dela. E histórico de carcinoma medular de tireoide ou NEM 2 contraindica as duas moléculas.",
+      "icon": "alerta",
+      "pose": "alerta"
+    },
+    {
+      "title": "Cola para a consulta",
+      "layout": "passos",
+      "body": "Diga o nome da molécula, não só da marca\nConte qualquer alergia grave que já teve\nFale do histórico de tireoide da família\nTroca de marca ou de molécula: com o médico",
+      "icon": "certo",
+      "pose": "apontando"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Ozempic, Wegovy e Rybelsus são três remédios diferentes? Não: é uma molécula só, a semaglutida.",
+      "pose": "ih"
+    },
+    {
+      "text": "O Ozempic é para diabetes tipo 2, o Wegovy para obesidade, e o Rybelsus é a versão em comprimido. Mounjaro e Zepbound são a tirzepatida.",
+      "pose": "explicando"
+    },
+    {
+      "text": "E isso importa: alergia grave à semaglutida vale para todas as marcas dela. Na consulta, diga o nome da molécula.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Então, são três nomes na caixa e uma molécula só lá dentro: a semaglutida.",
+      "pose": "piscadinha"
+    }
+  ],
+  "caption": "Eu sei, com tanto nome de caneta e de comprimido, fica fácil achar que cada um é um remédio. Mas Ozempic, Wegovy e Rybelsus são a mesma molécula: a semaglutida. E Mounjaro e Zepbound são a tirzepatida.\n\n1️⃣ Semaglutida: Ozempic (diabetes tipo 2), Wegovy (obesidade) e Rybelsus (via oral). Age no receptor GLP-1, meia-vida de ~7 dias\n2️⃣ Tirzepatida: Mounjaro (diabetes tipo 2) e Zepbound (obesidade). Age no GLP-1 e no GIP, meia-vida de ~5 dias\n3️⃣ Na consulta, diga o nome da molécula, não só o da marca\n\n⚠️ Alergia grave à semaglutida é contraindicação em qualquer marca dela. Histórico pessoal ou familiar de carcinoma medular de tireoide ou NEM 2 contraindica as duas moléculas. Troca de marca ou de molécula é sempre com o médico.",
+  "question": "Você sabia que o Rybelsus é a mesma semaglutida do Ozempic?",
+  "share": "aquela amiga que acha que Wegovy e Ozempic são remédios diferentes"
+}

@@ -1,0 +1,77 @@
+{
+  "hook": "AOD-9604 faz o mesmo que a caneta de GLP-1? Não faz.",
+  "hookIcon": "pensando",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "AOD-9604 x semaglutida",
+      "layout": "lado",
+      "body": "AOD-9604: fase IIb sem significância, sem aprovação\nSemaglutida: ensaios de fase 3 e aprovação regulatória",
+      "icon": "balanca",
+      "pose": "explicando"
+    },
+    {
+      "title": "De onde vem o AOD-9604",
+      "layout": "padrao",
+      "body": "É um fragmento modificado do hormônio do crescimento, criado nos anos 1990 para quebrar gordura sem mexer na glicose nem no IGF-1.",
+      "icon": "dna",
+      "pose": "pensando"
+    },
+    {
+      "title": "536 pacientes",
+      "layout": "numero",
+      "body": "Foi o estudo decisivo, de fase IIb, ao longo de 24 semanas. Ele não atingiu significância estatística.",
+      "icon": "microscopio",
+      "pose": "ih"
+    },
+    {
+      "title": "Foi bem tolerado, então funciona",
+      "layout": "mito",
+      "body": "Nos ensaios ele foi bem tolerado, mas o efeito não se sustentou. Tolerar bem e funcionar são perguntas diferentes.",
+      "icon": "errado",
+      "pose": "explicando"
+    },
+    {
+      "title": "2007: fim da linha como remédio",
+      "layout": "padrao",
+      "body": "Sem efeito consistente, o desenvolvimento foi interrompido. Hoje ele circula como peptídeo de pesquisa e manipulado, sem aprovação da ANVISA, da FDA ou da EMA.",
+      "icon": "grafico-desce",
+      "pose": "alerta"
+    },
+    {
+      "title": "Dá pra somar à caneta de GLP-1?",
+      "layout": "pergunta",
+      "body": "Não há evidência humana que sustente os usos off-label de hoje. E produto \"para pesquisa\" não tem controle de pureza nem de esterilidade. Isso é conversa com o médico.",
+      "icon": "estetoscopio",
+      "pose": "ih"
+    },
+    {
+      "title": "A cola pra guardar",
+      "layout": "passos",
+      "body": "O AOD-9604 falhou na fase IIb\nNão é aprovado como remédio\nNão faz o mesmo que um GLP-1\nQuer mexer no tratamento? Fale com o médico",
+      "icon": "certo",
+      "pose": "apontando"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Você acha que o AOD-9604 faz o mesmo que a sua caneta de GLP-1? Não faz, e eu te conto por quê.",
+      "pose": "ih"
+    },
+    {
+      "text": "Ele é um pedaço do hormônio do crescimento, testado como remédio para obesidade. No estudo decisivo, com 536 pacientes, não atingiu significância.",
+      "pose": "explicando"
+    },
+    {
+      "text": "O desenvolvimento parou em 2007, e ele não é aprovado pela ANVISA. Já a semaglutida tem fase 3 e aprovação.",
+      "pose": "pensando"
+    },
+    {
+      "text": "Pensou em somar algo à caneta? Fala com o seu médico. Porque AOD-9604 e GLP-1 não fazem a mesma coisa.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, quando um peptídeo aparece como \"queimador de gordura do hormônio do crescimento\", dá vontade de colocar junto com a caneta. Mas a história do AOD-9604 é bem mais sóbria do que o marketing conta.\n\n1️⃣ É um fragmento modificado do GH, criado para reproduzir o efeito de quebra de gordura sem mexer na glicose nem no IGF-1\n2️⃣ Foi testado como remédio para obesidade: o estudo de fase IIb, com 536 pacientes e 24 semanas, não atingiu significância estatística\n3️⃣ O desenvolvimento foi interrompido em 2007, e hoje ele circula como peptídeo de pesquisa e manipulado\n\n⚠️ O AOD-9604 não é aprovado pela ANVISA, pela FDA nem pela EMA, não tem dose de bula e o perfil de segurança de longo prazo em uso off-label não está estabelecido. Os agonistas de GLP-1, como a semaglutida e a tirzepatida, têm ensaios de fase 3 e aprovação. Qualquer mudança ou acréscimo ao tratamento é conversa com o médico.",
+  "question": "Alguém já te sugeriu juntar outro peptídeo com a sua caneta?",
+  "share": "aquela amiga que quer colocar mais um peptídeo junto com a caneta"
+}

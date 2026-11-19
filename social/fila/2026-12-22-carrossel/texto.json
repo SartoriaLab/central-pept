@@ -1,0 +1,77 @@
+{
+  "hook": "2003, numa placa de cultura: é daí que vem a fama do Epithalon",
+  "hookIcon": "microscopio",
+  "hookPose": "pensando",
+  "slides": [
+    {
+      "title": "2003",
+      "layout": "numero",
+      "body": "É o ano do estudo mais citado: a telomerase foi ativada e os telômeros alongaram em fibroblastos humanos. Mas em cultura celular, não em gente.",
+      "icon": "livros",
+      "pose": "explicando"
+    },
+    {
+      "title": "Telômero e telomerase, sem complicar",
+      "layout": "padrao",
+      "body": "Telômeros são as capas das pontas dos cromossomos e encurtam a cada divisão. A telomerase é a enzima que reconstrói essas capas. A ideia é que o Epithalon a ative.",
+      "icon": "dna",
+      "pose": "explicando"
+    },
+    {
+      "title": "Já foi provado que aumenta a longevidade",
+      "layout": "mito",
+      "body": "As coortes russas relataram menos mortalidade em idosos, mas são observacionais, vêm quase todas do mesmo grupo e foram pouco replicadas fora da Rússia.",
+      "icon": "errado",
+      "pose": "ih"
+    },
+    {
+      "title": "O que se viu x o que se promete",
+      "layout": "lado",
+      "body": "No laboratório: telomerase ativada em células\nEm pessoas: nenhum ensaio randomizado e replicado",
+      "icon": "balanca",
+      "pose": "pensando"
+    },
+    {
+      "title": "O cuidado que ninguém conta",
+      "layout": "padrao",
+      "body": "Reativar a telomerase é uma característica de muitas células de câncer. Por isso existe um risco teórico, e histórico de câncer é contraindicação.",
+      "icon": "alerta",
+      "pose": "alerta"
+    },
+    {
+      "title": "E o tal ciclo russo, é dose?",
+      "layout": "pergunta",
+      "body": "Não é dose de bula: o Epithalon não é aprovado pela ANVISA, pela FDA nem pela EMA. E o que circula vem de mercado não regulado, sem garantia de pureza.",
+      "icon": "prancheta",
+      "pose": "ih"
+    },
+    {
+      "title": "A cola pra guardar",
+      "layout": "passos",
+      "body": "Estudo em placa não é estudo em você\nUm grupo só, pouca replicação\nHistórico de câncer, gestação ou lactação: fora\nQuer cuidar do envelhecimento? Fale com o médico",
+      "icon": "certo",
+      "pose": "apontando"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Sabe de onde vem a fama do Epithalon? De um estudo de 2003, feito numa placa de cultura.",
+      "pose": "pensando"
+    },
+    {
+      "text": "Ele ativou a telomerase em células humanas no laboratório. Em pessoas, não existe ensaio randomizado e replicado.",
+      "pose": "explicando"
+    },
+    {
+      "text": "E tem um cuidado: reativar a telomerase é coisa de muita célula de câncer. Por isso há um risco teórico.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Então, antes de acreditar na promessa de longevidade, lembra: essa fama nasceu numa placa de cultura.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, \"peptídeo que reverte o envelhecimento\" é difícil de ignorar. O Epithalon (AEDG) é um tetrapeptídeo sintético estudado por ativar a telomerase, a enzima que reconstrói as pontas dos cromossomos. A promessa é grande; a base, ainda frágil.\n\n1️⃣ O estudo mais citado, de 2003, mostrou telomerase ativada e telômeros alongados em fibroblastos humanos, mas em cultura celular\n2️⃣ As coortes russas de idosos são observacionais e vêm quase todas do mesmo grupo de pesquisa\n3️⃣ A replicação independente fora da Rússia é escassa: a evidência é promissora, porém preliminar\n\n⚠️ Reativar a telomerase é uma característica de muitas células de câncer, então existe um risco teórico oncológico e os efeitos de longo prazo não estão bem caracterizados. O Epithalon não é aprovado pela ANVISA, pela FDA nem pela EMA, e não tem dose de bula. Histórico de câncer, gestação e lactação são contraindicações. Envelhecimento é conversa com o médico.",
+  "question": "Você já tinha ouvido falar em telômeros antes deste post?",
+  "share": "aquela amiga que testa tudo que promete frear o envelhecimento"
+}

@@ -1,0 +1,65 @@
+{
+  "hook": "Três coisas que te contam errado sobre o BPC-157",
+  "hookIcon": "lupa",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "Proteção corporal no nome quer dizer seguro",
+      "body": "O nome vem de Body Protection Compound, e é só um nome. A segurança em humanos se baseia principalmente em estudos com animais.",
+      "icon": "escudo",
+      "pose": "ih",
+      "layout": "mito"
+    },
+    {
+      "title": "De onde ele vem",
+      "body": "É um fragmento de 15 aminoácidos derivado de uma proteína do suco gástrico humano. Foi estudado em animais pelo potencial de reparar tendão, músculo e mucosa do intestino.",
+      "icon": "dna",
+      "pose": "explicando",
+      "layout": "padrao"
+    },
+    {
+      "title": "Já foi estudado, então funciona em gente",
+      "body": "Boa parte dos dados vem de modelos animais. Em humanos, os dados são limitados, e não há aprovação da FDA: o uso em gente é off-label, de pesquisa.",
+      "icon": "microscopio",
+      "pose": "pensando",
+      "layout": "mito"
+    },
+    {
+      "title": "O que se fala x o que se sabe",
+      "body": "Internet: cicatriza tendão e ligamento\nEstudos: potencial visto em modelos animais",
+      "icon": "balanca",
+      "pose": "explicando",
+      "layout": "lado"
+    },
+    {
+      "title": "Combina com qualquer remédio",
+      "body": "As interações com outros remédios não foram bem caracterizadas. Quem usa anticoagulante precisa de acompanhamento, e gestantes e lactantes não têm estudo.",
+      "icon": "comprimido",
+      "pose": "alerta",
+      "layout": "mito"
+    },
+    {
+      "title": "Câncer na história muda tudo",
+      "body": "Um dos mecanismos propostos é estimular a formação de novos vasos. Por isso, histórico de câncer ativo está entre as contraindicações.",
+      "icon": "alerta",
+      "pose": "alerta",
+      "layout": "padrao"
+    },
+    {
+      "title": "Antes de acreditar no nome",
+      "body": "Lembre: é peptídeo de pesquisa\nConte ao médico todo remédio que usa\nCâncer na história? Fique de fora\nNo esporte, é proibido desde 2022",
+      "icon": "prancheta",
+      "pose": "apontando",
+      "layout": "passos"
+    }
+  ],
+  "narration": [
+    { "text": "Três coisas que te contam errado sobre o BPC-157. A primeira já está no nome.", "pose": "ih" },
+    { "text": "Proteção corporal é só o nome. A segurança em humanos se baseia, principalmente, em estudos com animais.", "pose": "explicando" },
+    { "text": "Ele não é aprovado para uso humano, e as interações com outros remédios não foram bem caracterizadas.", "pose": "alerta" },
+    { "text": "Então, antes de acreditar no nome, converse com o médico. São três erros, e agora você não cai em nenhum.", "pose": "piscadinha" }
+  ],
+  "caption": "Eu sei, um peptídeo chamado \"proteção corporal\" parece inofensivo. Mas BPC-157 vem de Body Protection Compound, e o nome não diz nada sobre segurança. Ele é um fragmento de 15 aminoácidos derivado de uma proteína do suco gástrico humano.\n\nO BPC-157 foi estudado em modelos animais pelo potencial de reparar tendão, ligamento, músculo e mucosa do intestino. Em humanos, os dados são limitados: não há aprovação da FDA, e o uso em gente é off-label, de pesquisa.\n\n⚠️ As interações com outros remédios não foram bem caracterizadas. Quem usa anticoagulante precisa de acompanhamento, gestantes e lactantes não têm estudo, e histórico de câncer ativo é contraindicação. No esporte, o BPC-157 é proibido pela WADA desde 2022.\n\n1️⃣ Lembre que é peptídeo de pesquisa\n2️⃣ Conte ao médico todo remédio que você usa\n3️⃣ Histórico de câncer? Fique de fora",
+  "question": "Você já achou que BPC-157 era seguro só pelo nome?",
+  "share": "aquela amiga que confia em qualquer coisa com \"proteção\" no nome"
+}

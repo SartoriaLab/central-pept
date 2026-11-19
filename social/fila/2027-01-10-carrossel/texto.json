@@ -1,0 +1,77 @@
+{
+  "hook": "Você joga fora a caixa do Mounjaro?",
+  "hookIcon": "alerta",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "Por que guardar a caixa?",
+      "layout": "pergunta",
+      "body": "É nela que estão o registro ANVISA, o lote e a validade impressos. Sem a caixa, você perde o jeito mais simples de conferir a caneta.",
+      "icon": "prancheta",
+      "pose": "explicando"
+    },
+    {
+      "title": "Lote da caixa e lote da caneta",
+      "layout": "lado",
+      "body": "Original: o mesmo número, impresso de fábrica\nSuspeita: números diferentes ou rótulo em adesivo",
+      "icon": "lupa",
+      "pose": "pensando"
+    },
+    {
+      "title": "Caneta sem caixa já é sinal",
+      "layout": "padrao",
+      "body": "A apresentação nacional é caixa com 4 canetas. Caneta solta, ou caixa com uma só, merece desconfiança antes de qualquer aplicação.",
+      "icon": "proibido",
+      "pose": "ih"
+    },
+    {
+      "title": "Confira na ANVISA",
+      "layout": "passos",
+      "body": "Entre em consultas.anvisa.gov.br\nBusque Mounjaro: o registro é da Eli Lilly do Brasil\nCompare registro, apresentação e dose com a caixa\nVeja se o lote está em algum alerta",
+      "icon": "escudo",
+      "pose": "explicando"
+    },
+    {
+      "title": "Ninguém pediu sua receita?",
+      "layout": "pergunta",
+      "body": "Desde 23 de junho de 2025, a ANVISA exige receita retida para tirzepatida. Venda sem receita já é irregular e sinal de que outras regras podem estar sendo ignoradas.",
+      "icon": "estetoscopio",
+      "pose": "pensando"
+    },
+    {
+      "title": "Desconfiou? Não aplique",
+      "layout": "padrao",
+      "body": "Fotografe a caixa, a caneta e o rótulo e notifique a ANVISA pelo Notivisa. Já aplicou e sentiu algo anormal? Pronto-socorro, levando o produto.",
+      "icon": "hospital",
+      "pose": "alerta"
+    },
+    {
+      "title": "Sua cola",
+      "layout": "passos",
+      "body": "Guarde a caixa até a última caneta\nLote da caixa igual ao da caneta\nRegistro conferido na ANVISA\nDesconfiou: não aplique e notifique",
+      "icon": "certo",
+      "pose": "apontando"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Você joga fora a caixa do Mounjaro? Eu sei, parece só papelão. Mas é ela que ajuda a provar que a caneta é original.",
+      "pose": "ih"
+    },
+    {
+      "text": "Na caixa estão o registro da ANVISA, o lote e a validade impressos. E o lote tem que ser igual ao da caneta.",
+      "pose": "explicando"
+    },
+    {
+      "text": "Lote diferente, rótulo em adesivo ou caneta sem caixa? Não aplique: fotografe tudo e notifique a ANVISA pelo Notivisa.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Já aplicou e sentiu algo anormal? Pronto-socorro, levando o produto. E a caixa do Mounjaro, você não joga mais fora.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, a caixa parece só papelão e a gente quer liberar espaço. Mas é nela que estão o registro ANVISA, o lote e a validade do Mounjaro, impressos de fábrica. Sem ela, fica difícil saber se a caneta é original.\n\n1️⃣ Compare o lote: o da caixa tem que ser igual ao da caneta, impresso, nunca em adesivo.\n2️⃣ Confira em consultas.anvisa.gov.br: o registro válido é da Eli Lilly do Brasil.\n3️⃣ Veja se o lote aparece nos alertas de falsificação da ANVISA.\n\n⚠️ Caneta sem caixa, caixa com uma só caneta ou venda sem receita são sinais de alerta. A apresentação nacional é caixa com 4 canetas, e a ANVISA exige receita retida para tirzepatida.\n\nDesconfiou, não aplique. Fotografe tudo e notifique pelo Notivisa. Se já aplicou e apareceram sintomas anormais, procure o pronto-socorro levando o produto.",
+  "question": "Você costuma guardar a caixa até usar a última caneta?",
+  "share": "aquela amiga que joga a caixa fora assim que abre"
+}

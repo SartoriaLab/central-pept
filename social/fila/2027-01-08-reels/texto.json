@@ -1,0 +1,70 @@
+{
+  "hook": "Entre 8 e 72 horas. É quando o Mounjaro chega ao pico.",
+  "hookIcon": "grafico-sobe",
+  "hookPose": "pensando",
+  "slides": [
+    {
+      "title": "Até 72 horas",
+      "layout": "numero",
+      "body": "O pico da tirzepatida no sangue vem entre 8 e 72 horas depois da aplicação. Não sentir nada na hora é normal.",
+      "icon": "relogio",
+      "pose": "explicando"
+    },
+    {
+      "title": "Por que é uma vez por semana",
+      "layout": "padrao",
+      "body": "A meia-vida é de cerca de 5 dias: o remédio fica no corpo a semana toda. Doses puladas quebram a concentração estável.",
+      "icon": "ampulheta",
+      "pose": "explicando"
+    },
+    {
+      "title": "4 semanas",
+      "layout": "numero",
+      "body": "É o tempo, em cada dose, para chegar à concentração estável. Por isso a bula pede pelo menos 4 semanas em cada degrau.",
+      "icon": "calendario",
+      "pose": "pensando"
+    },
+    {
+      "title": "Sentiu menos fome no primeiro dia?",
+      "layout": "pergunta",
+      "body": "Muita gente sente menos fome e saciedade mais rápida já nos primeiros dias. Mas 2,5 mg é a dose inicial da bula, não a de manutenção.",
+      "icon": "cerebro",
+      "pose": "feliz"
+    },
+    {
+      "title": "No frasco, a conta pesa",
+      "layout": "padrao",
+      "body": "Erro de dose é causa frequente de \"não fez efeito\". Confira a conta da diluição e as unidades na seringa antes de concluir qualquer coisa.",
+      "icon": "seringa",
+      "pose": "alerta"
+    },
+    {
+      "title": "Cola para guardar",
+      "layout": "passos",
+      "body": "Pico entre 8 e 72 horas, não na hora\nCerca de 4 semanas para cada dose firmar\nAntes de 3 meses em dose estável é cedo\nSubida de dose é com o médico",
+      "icon": "certo",
+      "pose": "apontando"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Entre 8 e 72 horas: é quando o Mounjaro chega ao pico no sangue. Então não, ele não age na hora em que você aplica.",
+      "pose": "pensando"
+    },
+    {
+      "text": "A meia-vida é de cerca de 5 dias, por isso a aplicação é semanal. E cada dose leva cerca de 4 semanas para ficar estável.",
+      "pose": "explicando"
+    },
+    {
+      "text": "Antes de 3 meses em dose estável é cedo para concluir. Em frasco, confira a diluição: erro de dose é causa frequente.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Quem decide subir a dose é o médico. E da próxima vez, lembra: o pico vem entre 8 e 72 horas, não na hora.",
+      "pose": "piscadinha"
+    }
+  ],
+  "caption": "Eu sei, a gente aplica e já fica esperando sentir alguma coisa. Mas a tirzepatida chega ao pico no sangue entre 8 e 72 horas depois da injeção, e o efeito completo de cada dose leva semanas.\n\n1️⃣ Meia-vida de cerca de 5 dias: por isso o Mounjaro é semanal\n2️⃣ Cada dose leva cerca de 4 semanas para chegar à concentração estável\n3️⃣ As 4 primeiras semanas são de 2,5 mg, dose inicial que não é de manutenção\n\n⚠️ Parece que não está funcionando? Antes de 3 meses em dose estável é cedo para concluir. Em frasco, confira a diluição e as unidades na seringa, e veja armazenamento e procedência. Aumentar a dose por conta própria só aumenta os efeitos colaterais: a decisão de subir é do médico.",
+  "question": "Você esperava sentir o Mounjaro no mesmo dia da aplicação?",
+  "share": "quem aplicou ontem e já acha que o Mounjaro não fez nada"
+}

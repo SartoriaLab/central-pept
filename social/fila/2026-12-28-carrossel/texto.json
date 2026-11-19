@@ -1,0 +1,65 @@
+{
+  "hook": "Esqueceu a chave de novo e já pensou no Semax para a memória?",
+  "hookIcon": "pensando",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "Ele é remédio de verdade, só que na Rússia",
+      "body": "O Semax está na lista russa de medicamentos essenciais e é usado lá como neuroprotetor, em casos como AVC. Fora de lá, FDA, EMA e ANVISA nunca o aprovaram.",
+      "icon": "hospital",
+      "pose": "explicando",
+      "layout": "padrao"
+    },
+    {
+      "title": "O BDNF triplica, então turbina a memória",
+      "body": "Essa triplicação do BDNF, uma proteína ligada à memória, foi vista em modelos animais. Em pessoas saudáveis buscando foco, o efeito é bem menos estabelecido.",
+      "icon": "cerebro",
+      "pose": "ih",
+      "layout": "mito"
+    },
+    {
+      "title": "Estudado x prometido",
+      "body": "Hospital russo: neuroproteção em AVC e recuperação cognitiva\nPessoa saudável: foco e memória com pouca evidência",
+      "icon": "balanca",
+      "pose": "pensando",
+      "layout": "lado"
+    },
+    {
+      "title": "A ciência de fora ainda é pouca",
+      "body": "A literatura em inglês é modesta: muitos estudos pequenos, nem sempre com placebo. Isso não quer dizer que não funciona. Quer dizer que falta certeza.",
+      "icon": "livros",
+      "pose": "explicando",
+      "layout": "padrao"
+    },
+    {
+      "title": "Sem dependência, então pode usar sempre",
+      "body": "Os estudos não relatam dependência. Mas o uso prolongado fora da Rússia tem dados limitados, e ausência de relato não é segurança comprovada.",
+      "icon": "alerta",
+      "pose": "alerta",
+      "layout": "mito"
+    },
+    {
+      "title": "No Brasil, ele não tem registro",
+      "body": "Todo Semax por aqui vem do mercado não regulado, sem garantia de identidade, pureza ou dose. Em gravidez e lactação, os dados são insuficientes.",
+      "icon": "lupa",
+      "pose": "explicando",
+      "layout": "padrao"
+    },
+    {
+      "title": "Se a memória anda falhando",
+      "body": "Conte ao médico o que mudou e desde quando\nPergunte: o estudo foi em gente ou em animal?\nLembre: no Brasil, não tem registro",
+      "icon": "estetoscopio",
+      "pose": "apontando",
+      "layout": "passos"
+    }
+  ],
+  "narration": [
+    { "text": "Esqueceu a chave de novo e já pensou no Semax para a memória? Eu sei, a promessa é tentadora.", "pose": "ih" },
+    { "text": "Ele é remédio na Rússia, estudado em casos como AVC. E o famoso aumento de BDNF não foi visto em gente, só em animais.", "pose": "explicando" },
+    { "text": "Em gente saudável buscando foco, a evidência é fraca. E no Brasil ele não tem registro.", "pose": "pensando" },
+    { "text": "Então memória falhando é conversa com o médico, não com o spray. E a chave, você acha depois.", "pose": "piscadinha" }
+  ],
+  "caption": "Eu sei, todo mundo já esqueceu a chave, o nome de alguém, a panela no fogo, e aí aparece um vídeo do Semax prometendo turbinar o cérebro. Vale entender o que é estudo e o que é promessa.\n\nO Semax é um peptídeo russo, usado lá como neuroprotetor em casos como AVC e na lista de medicamentos essenciais do país. A triplicação do BDNF que tanto se cita foi vista em modelos animais. Em pessoas saudáveis buscando foco e memória, o efeito é muito menos estabelecido, e a literatura em inglês é modesta.\n\n⚠️ FDA, EMA e ANVISA nunca aprovaram o Semax. No Brasil, ele não tem registro: o que circula vem do mercado não regulado, sem garantia de identidade, pureza ou dose. Ausência de relato de dependência também não é segurança de longo prazo comprovada.\n\n1️⃣ Conte ao médico o que mudou na sua memória\n2️⃣ Pergunte se o estudo foi em gente ou em animal\n3️⃣ Desconfie de spray que promete turbinar o cérebro",
+  "question": "O que mais te faz esquecer as coisas: o cansaço, a correria ou o estresse?",
+  "share": "aquela amiga que vive esquecendo a chave e acredita em spray milagroso"
+}

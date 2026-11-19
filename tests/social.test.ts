@@ -4,7 +4,7 @@ import { describe, expect, it } from 'vitest';
 import { bioUrl } from '@/lib/promocao/utm';
 import { getEbooks } from '@/lib/ebooks';
 import { buildTopics } from '@/scripts/social/topics';
-import { COOLDOWN_DAYS, pickTopic, topicPriority } from '@/scripts/social/pick';
+import { COOLDOWN_DAYS, PEPTIDE_GAP_DAYS, pickTopic, topicPriority } from '@/scripts/social/pick';
 import { dateRange, formatsOn, planQueue, reservedFrom } from '@/scripts/social/queue';
 import { extractQuantities, validateDraft } from '@/scripts/social/validate';
 import { BORDAO_FECHAMENTO, MAX_CAPTION, MAX_HASHTAGS, SHARE_FALLBACK, buildCaption, ctaLine, ctaSpeech, shareLine } from '@/scripts/social/caption';
@@ -119,6 +119,17 @@ describe('pickTopic', () => {
   it('pula temas excluídos nesta execução', () => {
     expect(pickTopic(list, [], 'reels', now, new Set(['a']))?.id).toBe('b');
   });
+
+  it(`post e ficha do mesmo peptídeo de nicho ficam ${PEPTIDE_GAP_DAYS} dias separados`, () => {
+    const post = { ...topic('post:tb-500-guia', 'healing'), kind: 'post' as const, peptides: ['tb-500'] };
+    const ficha = { ...topic('peptide:tb-500', 'healing'), peptides: ['tb-500'] };
+    const outro = topic('peptide:kpv', 'healing');
+    const pool = [post, ficha, outro];
+    const h = (days: number): HistoryEntry[] => [{ topicId: post.id, format: 'reels', category: 'healing', at: new Date(now.getTime() - days * DAY) }];
+    expect(pickTopic(pool, h(3), 'carrossel', now)?.id).toBe('peptide:kpv');
+    expect(pickTopic([post, ficha], h(3), 'carrossel', now)?.id).toBe('peptide:tb-500');
+    expect(pickTopic([ficha, outro], h(PEPTIDE_GAP_DAYS + 1), 'carrossel', now)?.id).toBe('peptide:tb-500');
+  });
 });
 
 describe('fila (planQueue)', () => {
@@ -149,6 +160,17 @@ describe('fila (planQueue)', () => {
     const items = planQueue(list, [], '2026-11-20', 2, existing);
     expect(items.find((i) => i.date === '2026-11-21')?.topicId).toBe('b');
     expect(items.filter((i) => i.topicId === 'b')).toHaveLength(1);
+  });
+
+  it('tema da fila de antes volta depois da quarentena', () => {
+    const one = [topic('a')];
+    const before = [{ date: '2026-11-20', format: 'carrossel' as const, topicId: 'a' }];
+    // Dentro da quarentena: só há 'a', então volta mesmo assim (fallback), mas um tema novo ganharia.
+    const two = [topic('a'), topic('b', 'gh')];
+    expect(planQueue(two, [], '2026-11-25', 1, before)[0].topicId).toBe('b');
+    // Depois de COOLDOWN_DAYS, 'a' (prioridade maior) volta.
+    expect(planQueue(two, [], '2027-01-10', 1, before)[0].topicId).toBe('a');
+    expect(planQueue(one, [], '2026-11-25', 1, before)[0].topicId).toBe('a');
   });
 
   it('reservedFrom: só o que ainda vai sair', () => {

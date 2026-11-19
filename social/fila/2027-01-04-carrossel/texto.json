@@ -1,0 +1,77 @@
+{
+  "hook": "Três erros na conta de unidades que mudam a sua dose.",
+  "hookIcon": "alerta",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "Por que a mesma dose dá números diferentes?",
+      "body": "Porque a unidade da seringa mede volume. Mais água dilui, e a dose ocupa mais unidades; menos água concentra, e ocupa menos. Cada frasco tem a sua conta.",
+      "icon": "pensando",
+      "pose": "pensando",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Mudou a dose, é só pingar mais água no frasco",
+      "body": "Erro 1. A concentração vale para o frasco inteiro. Se a próxima etapa pede outra combinação, é frasco novo, preparado do zero. Água a mais em frasco pronto bagunça a conta.",
+      "icon": "frasco",
+      "pose": "ih",
+      "layout": "mito"
+    },
+    {
+      "title": "2,5 mg",
+      "body": "Erro 2: usar a tabela de outro remédio. Tirzepatida e semaglutida têm doses muito diferentes, e 2,5 mg de uma não equivale a 2,5 mg da outra.",
+      "icon": "balanca",
+      "pose": "explicando",
+      "layout": "numero"
+    },
+    {
+      "title": "Número quebrado eu arredondo de olho",
+      "body": "Erro 3. Com frasco de 15 mg e 1 ml, a dose de 2,5 mg dá 16,7 unidades, entre dois traços. Outra quantidade de água costuma dar um número fácil de medir.",
+      "icon": "regua",
+      "pose": "ih",
+      "layout": "mito"
+    },
+    {
+      "title": "100 U",
+      "body": "É tudo que cabe de uma vez numa seringa de 1 ml. Na tirzepatida, 7,5 mg num frasco de 10 mg com 2 ml passa disso. Aí é a combinação de frasco e água que muda.",
+      "icon": "seringa",
+      "pose": "alerta",
+      "layout": "numero"
+    },
+    {
+      "title": "E o prazo do frasco entra na conta?",
+      "body": "Entra. A referência é de até 28 dias na geladeira. Numa aplicação por semana, cabem 4 doses: um frasco de 15 mg na dose de 2,5 mg teria 6, e 2 venceriam.",
+      "icon": "calendario",
+      "pose": "pensando",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Cola para cada etapa",
+      "body": "Etapa nova com outra combinação? Frasco novo\nUse só a tabela do seu remédio\nPrefira a combinação que dá número redondo\nA dose é a do médico; a conta só traduz",
+      "icon": "certo",
+      "pose": "apontando",
+      "layout": "passos"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Três erros na conta de unidades que mudam a sua dose. O primeiro: pingar mais água no frasco quando a dose sobe.",
+      "pose": "ih"
+    },
+    {
+      "text": "A concentração vale pro frasco inteiro: combinação nova é frasco novo, do zero. E tabela de tirzepatida não serve pra semaglutida.",
+      "pose": "explicando"
+    },
+    {
+      "text": "O terceiro é arredondar de olho. Com 15 mg e 1 ml, a dose de 2,5 mg dá 16,7 unidades. Outra quantidade de água costuma dar número redondo.",
+      "pose": "alerta"
+    },
+    {
+      "text": "A dose é sempre a que o médico prescreveu. Então, antes de puxar, confira se você não caiu em nenhum dos três erros.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, quando a dose muda dá vontade de aproveitar o frasco que já está pronto. Mas a conta de unidades depende da concentração, e a concentração vale para o frasco inteiro. Unidades na seringa U-100 = dose (mg) ÷ concentração (mg/ml) × 100.\n\n1️⃣ Etapa nova que pede outra combinação é frasco novo, preparado do zero. Não acrescente água a um frasco já reconstituído.\n2️⃣ Use a tabela do seu remédio: 2,5 mg de tirzepatida não equivalem a 2,5 mg de semaglutida.\n3️⃣ Número quebrado, como 16,7 unidades, obriga a estimar entre traços. Outra quantidade de água costuma resolver.\n\n⚠️ Tudo que passa de 100 unidades não cabe numa seringa de 1 ml de uma vez. E o frasco reconstituído tem referência de até 28 dias na geladeira: numa aplicação por semana, só 4 doses cabem nesse prazo.\n\nCaneta pronta (Mounjaro, Ozempic, Wegovy) não precisa dessa conta. A dose, o momento de subir e o tempo em cada etapa são decisões do médico; a conta só traduz mg em unidades.",
+  "question": "Quando a sua dose mudou, você preparou um frasco novo ou aproveitou o antigo?",
+  "share": "quem pinga mais água no frasco quando a dose muda"
+}

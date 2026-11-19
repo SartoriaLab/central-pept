@@ -1,0 +1,77 @@
+{
+  "hook": "Os 3 erros de quem lê \"aprovado no Japão\" sobre o GHRP-2",
+  "hookIcon": "alerta",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "Primeiro, o que ele é",
+      "layout": "padrao",
+      "body": "Um hexapeptídeo sintético, também chamado pralmorelina, que ativa o receptor da grelina e faz a hipófise liberar hormônio do crescimento.",
+      "icon": "dna",
+      "pose": "explicando"
+    },
+    {
+      "title": "Aprovado no Japão, então liberado pra usar",
+      "layout": "mito",
+      "body": "Lá ele é só agente diagnóstico: um exame de deficiência de GH em adultos, com dose única de 100 µg na veia. Não tem registro na ANVISA, na FDA nem na EMA.",
+      "icon": "prancheta",
+      "pose": "ih"
+    },
+    {
+      "title": "1 país só",
+      "layout": "numero",
+      "body": "O Japão é o único registro do GHRP-2 no mundo, e só para diagnóstico. Fora disso, ele é peptídeo de pesquisa, sem uso terapêutico aprovado.",
+      "icon": "lupa",
+      "pose": "pensando"
+    },
+    {
+      "title": "Ele só mexe no hormônio do crescimento",
+      "layout": "mito",
+      "body": "Ele também eleva cortisol, ACTH e prolactina, e quanto maior a dose, maior a elevação. Menos que a hexarelina e o GHRP-6, mas eleva.",
+      "icon": "cerebro",
+      "pose": "alerta"
+    },
+    {
+      "title": "Fome: GHRP-2 x GHRP-6",
+      "layout": "lado",
+      "body": "GHRP-2: estimula o apetite de forma moderada\nGHRP-6: é o que mais dá fome na classe",
+      "icon": "prato",
+      "pose": "explicando"
+    },
+    {
+      "title": "Se você usa caneta, guarda isso",
+      "layout": "padrao",
+      "body": "O GHRP-2 ativa o receptor da grelina, o hormônio da fome. Pensou em somar outro peptídeo à caneta de GLP-1? Isso é conversa com o médico antes.",
+      "icon": "estetoscopio",
+      "pose": "pensando"
+    },
+    {
+      "title": "A cola pra guardar",
+      "layout": "passos",
+      "body": "Japão: só exame diagnóstico\nMexe em cortisol e prolactina\nAtiva o receptor da fome\nGestação, lactação ou câncer ativo: fora",
+      "icon": "certo",
+      "pose": "apontando"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Você leu que o GHRP-2 é aprovado no Japão e achou que estava liberado? Calma, tem erro aí.",
+      "pose": "ih"
+    },
+    {
+      "text": "Lá ele é só um exame diagnóstico, com dose única na veia. E não tem registro na ANVISA.",
+      "pose": "explicando"
+    },
+    {
+      "text": "Ele também eleva cortisol e prolactina, e ativa o receptor da grelina, que é o hormônio da fome.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Então, quando você ler aprovado no Japão, lembra: aprovado só para um exame, não para usar.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, \"aprovado no Japão\" parece selo de segurança. Mas no caso do GHRP-2 (pralmorelina), esse detalhe é justamente onde mora a confusão.\n\n1️⃣ No Japão, ele é aprovado só como agente diagnóstico da deficiência de GH em adultos, em dose única de 100 µg na veia. Não tem registro na ANVISA, na FDA nem na EMA\n2️⃣ Ele não mexe só no hormônio do crescimento: eleva cortisol, ACTH e prolactina de forma dose-dependente\n3️⃣ Ele ativa o receptor da grelina, o hormônio da fome, e estimula o apetite, de forma mais moderada que o GHRP-6\n\n⚠️ Fora do uso diagnóstico japonês, não existe dose aprovada, e o GHRP-2 é proibido pela WADA. Malignidade ativa, gestação, lactação e distúrbios do eixo adrenal estão entre as contraindicações. Se você usa caneta de GLP-1 e pensa em somar outro peptídeo, converse com o médico antes.",
+  "question": "Você já viu alguém usar \"aprovado lá fora\" como argumento?",
+  "share": "aquela amiga que acha que aprovado lá fora é aprovado pra ela"
+}

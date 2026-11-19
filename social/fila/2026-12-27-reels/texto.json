@@ -1,0 +1,51 @@
+{
+  "hook": "Ninguém te conta: a sermorelina saiu do mercado em 2008",
+  "hookIcon": "calendario",
+  "hookPose": "alerta",
+  "slides": [
+    {
+      "title": "Antes e agora",
+      "body": "Em 1990: aprovada pela FDA como Geref, para crianças\nHoje: descontinuada, só em manipulação e off-label",
+      "icon": "balanca",
+      "pose": "explicando",
+      "layout": "lado"
+    },
+    {
+      "title": "Saiu do mercado porque fazia mal",
+      "body": "Saiu em 2008 por decisão comercial, e a FDA confirmou em 2013 que não foi por segurança. Mas não ter saído por segurança não é o mesmo que estar aprovada hoje.",
+      "icon": "errado",
+      "pose": "ih",
+      "layout": "mito"
+    },
+    {
+      "title": "Sermorelina ajuda a emagrecer?",
+      "body": "Ela não é remédio para peso. Faz a hipófise liberar o próprio GH, mas não existem ensaios modernos mostrando perda de peso relevante com ela.",
+      "icon": "duvida",
+      "pose": "pensando",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Manipulada é igual à aprovada",
+      "body": "No Brasil, ela não tem registro ativo na ANVISA. O que aparece vem de manipulação ou do mercado não regulado, com risco na identidade, pureza e dose.",
+      "icon": "frasco",
+      "pose": "alerta",
+      "layout": "mito"
+    },
+    {
+      "title": "Antes de acreditar no vídeo",
+      "body": "Pergunte: ela é aprovada hoje?\nLembre: não é remédio para peso\nLeve a dúvida ao seu médico",
+      "icon": "estetoscopio",
+      "pose": "apontando",
+      "layout": "passos"
+    }
+  ],
+  "narration": [
+    { "text": "Ninguém te conta que a sermorelina saiu do mercado em 2008. E isso muda tudo pra você.", "pose": "alerta" },
+    { "text": "Ela foi aprovada nos Estados Unidos para crianças com falta de GH. Saiu por decisão comercial, não por segurança.", "pose": "explicando" },
+    { "text": "Só que não ter saído por segurança não é estar aprovada hoje. No Brasil, ela não tem registro ativo, e não é remédio para peso.", "pose": "ih" },
+    { "text": "Então, dúvida sobre ela é com o médico, não com o vídeo. Já foi aprovada, sim, mas saiu do mercado em 2008.", "pose": "apontando" }
+  ],
+  "caption": "Eu sei, quando um vídeo diz \"é aprovada pela FDA\", a gente relaxa. Com a sermorelina, essa frase está no passado: ela foi aprovada em 1990 como Geref, para diagnóstico e para crianças com deficiência de GH, e saiu do mercado em 2008 por decisão comercial, não por segurança.\n\nEla faz a hipófise liberar o próprio GH, em pulsos. Mas não é remédio para peso: não existem ensaios modernos mostrando perda de peso relevante com sermorelina. E não há mais dose de bula ativa.\n\n⚠️ No Brasil, a sermorelina não tem registro ativo na ANVISA. O que aparece vem de manipulação ou do mercado não regulado, com risco de variação na identidade, pureza e dose de um peptídeo injetável. No esporte, ela é proibida pela WADA.\n\n1️⃣ Pergunte se é aprovada hoje, não se já foi\n2️⃣ Lembre que não é remédio para peso\n3️⃣ Leve a dúvida ao seu médico",
+  "question": "Você já tinha visto a sermorelina sendo indicada para emagrecer?",
+  "share": "quem acha que a sermorelina é remédio aprovado para emagrecer"
+}

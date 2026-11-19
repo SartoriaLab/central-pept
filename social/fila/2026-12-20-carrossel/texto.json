@@ -1,0 +1,77 @@
+{
+  "hook": "Leu que o KPV desinflama o intestino? Pergunta: testado em quem?",
+  "hookIcon": "duvida",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "O que é o KPV?",
+      "layout": "pergunta",
+      "body": "São só três aminoácidos: lisina, prolina e valina. É o pedaço final do α-MSH, um hormônio que o próprio corpo produz.",
+      "icon": "dna",
+      "pose": "explicando"
+    },
+    {
+      "title": "Se vem de um hormônio do corpo, é seguro",
+      "layout": "mito",
+      "body": "Não é bem assim. A segurança do KPV em humanos não foi caracterizada, porque não existe ensaio clínico publicado em pessoas.",
+      "icon": "escudo",
+      "pose": "ih"
+    },
+    {
+      "title": "O que o estudo mostrou de verdade",
+      "layout": "padrao",
+      "body": "Em camundongos com colite, o KPV entrou nas células do intestino pelo transportador PepT1 e inibiu o NF-κB, um dos interruptores da inflamação.",
+      "icon": "microscopio",
+      "pose": "explicando"
+    },
+    {
+      "title": "Onde o KPV foi testado",
+      "layout": "lado",
+      "body": "Camundongos e células: menos inflamação intestinal\nPessoas: nenhum ensaio clínico publicado",
+      "icon": "balanca",
+      "pose": "pensando"
+    },
+    {
+      "title": "E a dose que circula por aí?",
+      "layout": "pergunta",
+      "body": "Não existe dose clínica estabelecida. Os números dos protocolos informais vêm de extrapolação a partir de animais, não de estudo em gente.",
+      "icon": "prancheta",
+      "pose": "ih"
+    },
+    {
+      "title": "Frasco \"para pesquisa\" não conta o que tem",
+      "layout": "padrao",
+      "body": "Sem certificado de análise de laboratório independente, não dá para saber se o conteúdo bate com o rótulo. E o KPV não é aprovado pela ANVISA, pela FDA nem pela EMA.",
+      "icon": "lupa",
+      "pose": "alerta"
+    },
+    {
+      "title": "A cola pra guardar",
+      "layout": "passos",
+      "body": "Estudo em camundongo não é estudo em você\nIntestino estranho com a caneta? Fale com o médico\nRetocolite ou Crohn: não troque o tratamento\nGestante ou amamentando: sem nenhum estudo",
+      "icon": "certo",
+      "pose": "apontando"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Você leu que o KPV desinflama o intestino? Então faz uma pergunta antes: ele foi testado em quem?",
+      "pose": "ih"
+    },
+    {
+      "text": "O efeito apareceu em camundongos com colite. Em pessoas, não existe nenhum ensaio clínico publicado, nem dose estabelecida.",
+      "pose": "explicando"
+    },
+    {
+      "text": "Intestino estranho com a caneta, retocolite ou Crohn é conversa com o médico, não com o fórum.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Então, antes de acreditar no que dizem do KPV, faça aquela pergunta: testado em quem?",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, todo mundo já leu um \"estudo mostrou\" e acreditou na hora. Com o KPV, o tripeptídeo derivado do α-MSH que aparece em todo fórum de saúde intestinal, a pergunta que muda tudo é: estudado em quem?\n\n1️⃣ Em camundongos com colite, o KPV reduziu a inflamação do intestino, entrando nas células pelo transportador PepT1 e inibindo o NF-κB\n2️⃣ Em humanos, não há nenhum ensaio clínico publicado: não se sabe se funciona, qual dose, qual via nem quais efeitos colaterais\n3️⃣ Não existe dose clínica estabelecida; os números que circulam são extrapolação de estudos em animais\n\n⚠️ O KPV não é aprovado pela ANVISA, pela FDA nem pela EMA, e o perfil de segurança em humanos não foi caracterizado. Produto \"para pesquisa\" não garante identidade nem pureza. Se a caneta de tirzepatida ou semaglutida está mexendo com seu intestino, ou se você tem retocolite ou Crohn, isso é conversa com o médico.",
+  "question": "Você já viu alguém indicando KPV para o intestino?",
+  "share": "aquela amiga que acredita em tudo que lê nos fóruns de intestino"
+}

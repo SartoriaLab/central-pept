@@ -1,0 +1,77 @@
+{
+  "hook": "Seus exames melhoraram e você quer parar o Mounjaro por conta?",
+  "hookIcon": "prancheta",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "Exame melhorou, então o problema acabou?",
+      "body": "Não é bem assim. Obesidade é condição crônica: como a pressão e o colesterol quando o remédio é suspenso, os resultados tendem a voltar.",
+      "icon": "pensando",
+      "pose": "pensando",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Não foi só o peso que recuou",
+      "body": "No SURMOUNT-4, em quem passou para placebo, as melhoras de circunferência abdominal, pressão arterial, glicemia e lipídios também recuaram, acompanhando o ganho de peso.",
+      "icon": "coracao",
+      "pose": "alerta",
+      "layout": "padrao"
+    },
+    {
+      "title": "89,5%",
+      "body": "É a parte de quem continuou a tirzepatida que manteve ao menos 80% do peso perdido, um ano depois. Entre quem trocou por placebo, foram 16,6%.",
+      "icon": "grafico-desce",
+      "pose": "explicando",
+      "layout": "numero"
+    },
+    {
+      "title": "Por que tudo volta depois de parar?",
+      "body": "Porque o efeito depende da presença do remédio. Com meia-vida de cerca de 5 dias, a tirzepatida sai do corpo em aproximadamente um mês, e o apetite volta ao padrão de antes.",
+      "icon": "ampulheta",
+      "pose": "explicando",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Com diabetes tipo 2, atenção dobrada",
+      "body": "A glicose volta a subir depois da suspensão. Por isso, com diabetes, nunca interrompa a tirzepatida sem orientação médica.",
+      "icon": "alerta",
+      "pose": "alerta",
+      "layout": "padrao"
+    },
+    {
+      "title": "5, 10 ou 15 mg",
+      "body": "São as doses de manutenção que a bula prevê. Manter uma dose menor ou reduzir aos poucos são opções a discutir com o médico; ainda não há protocolo de retirada validado.",
+      "icon": "alvo",
+      "pose": "explicando",
+      "layout": "numero"
+    },
+    {
+      "title": "Exame bom? Leve para a consulta",
+      "body": "Mostre os exames ao médico\nPergunte sobre manutenção ou redução aos poucos\nMantenha treino de força e proteína\nCom diabetes, nunca pare sem orientação",
+      "icon": "estetoscopio",
+      "pose": "apontando",
+      "layout": "passos"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Seus exames melhoraram e você quer parar o Mounjaro por conta própria? Eu sei, dá vontade.",
+      "pose": "ih"
+    },
+    {
+      "text": "No estudo SURMOUNT-4, em quem parou, a pressão, a glicemia e as gorduras do sangue também pioraram de novo, junto com o peso que voltou.",
+      "pose": "explicando"
+    },
+    {
+      "text": "O efeito depende do remédio no corpo. E com diabetes tipo 2, a glicose volta a subir: nunca interrompa sem orientação.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Dose menor ou redução aos poucos se decide com o médico. Então, exame bom é motivo pra consulta, não pra parar sozinha.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, quando a pressão, a glicemia e os exames melhoram, dá vontade de achar que o problema acabou e parar o Mounjaro. Mas parte dessa melhora é efeito da tirzepatida, e ele depende da presença do remédio no corpo.\n\nNo estudo SURMOUNT-4, em quem trocou a tirzepatida por placebo, as melhoras de circunferência abdominal, pressão arterial, glicemia e lipídios recuaram, acompanhando o peso que voltou. Um ano depois, 89,5% de quem continuou mantinham ao menos 80% do peso perdido, contra 16,6% de quem parou.\n\n⚠️ Com diabetes tipo 2, a glicose volta a subir depois da suspensão: nunca interrompa sem orientação médica. E, depois de semanas sem aplicar, voltar direto na dose alta aumenta o risco de náusea e vômito intensos.\n\n1️⃣ Leve os exames para a consulta e converse sobre o próximo passo.\n2️⃣ A bula prevê doses de manutenção de 5, 10 ou 15 mg; manter uma dose menor ou reduzir aos poucos são opções a discutir com o médico.\n3️⃣ Treino de força e proteína suficiente ajudam a manter o resultado.",
+  "question": "Qual exame mais melhorou desde que você começou o tratamento?",
+  "share": "aquela amiga que quer parar o Mounjaro porque os exames ficaram bons"
+}

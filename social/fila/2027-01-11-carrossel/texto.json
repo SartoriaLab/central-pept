@@ -1,0 +1,77 @@
+{
+  "hook": "Mito: se sobrou remédio na caneta, ainda dá pra usar.",
+  "hookIcon": "duvida",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "42 dias",
+      "layout": "numero",
+      "body": "É o prazo da caneta de Ozempic ou Wegovy depois do primeiro uso, pelas bulas brasileiras. Passou, descarte, mesmo com produto sobrando.",
+      "icon": "calendario",
+      "pose": "explicando"
+    },
+    {
+      "title": "Sobrou remédio, então ainda vale",
+      "layout": "mito",
+      "body": "O prazo conta a partir do primeiro uso, não do que resta dentro. Passou de 6 semanas, ou do prazo da sua bula, a caneta vai para o descarte.",
+      "icon": "errado",
+      "pose": "ih"
+    },
+    {
+      "title": "Como eu vou lembrar a data?",
+      "layout": "pergunta",
+      "body": "Anote na própria caneta o dia do primeiro uso. Assim você não depende da memória lá na sexta semana.",
+      "icon": "prancheta",
+      "pose": "piscadinha"
+    },
+    {
+      "title": "Aberta, ela tem que morar na geladeira",
+      "layout": "mito",
+      "body": "Pelas bulas brasileiras, depois do primeiro uso ela pode ficar abaixo de 30 °C ou na geladeira. O que degrada a semaglutida é passar disso.",
+      "icon": "geladeira",
+      "pose": "explicando"
+    },
+    {
+      "title": "E se mudou de aspecto?",
+      "layout": "pergunta",
+      "body": "Turva, com partículas, amarelada ou marrom: descarte. Vale o mesmo se ela congelou, mesmo depois de descongelar.",
+      "icon": "lupa",
+      "pose": "alerta"
+    },
+    {
+      "title": "Caneta usada vai no lixo de casa",
+      "layout": "mito",
+      "body": "Canetas e seringas usadas vão em recipiente para perfurocortante. Farmácias e UBS aceitam a entrega desse material.",
+      "icon": "proibido",
+      "pose": "ih"
+    },
+    {
+      "title": "Sua cola",
+      "layout": "passos",
+      "body": "Anote o dia do primeiro uso\nAté 6 semanas, mesmo sobrando\nAberta: abaixo de 30 °C ou na geladeira\nUsada: recipiente de perfurocortante",
+      "icon": "certo",
+      "pose": "apontando"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Mito: se sobrou remédio na caneta de Ozempic, ainda dá pra usar. Eu sei, dá dó jogar fora.",
+      "pose": "ih"
+    },
+    {
+      "text": "Pelas bulas brasileiras de Ozempic e Wegovy, a caneta aberta vale por até 6 semanas. O prazo conta do primeiro uso.",
+      "pose": "explicando"
+    },
+    {
+      "text": "Por isso, anote na caneta a data do primeiro uso. Turva, com a cor alterada ou congelada? Descarte também.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Dúvida sobre o prazo é com a bula da sua caixa ou o médico. E caneta vencida só porque sobrou remédio? Agora você sabe: é mito.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, dá dó jogar fora uma caneta que ainda tem remédio. Mas o prazo da caneta de Ozempic ou Wegovy conta a partir do primeiro uso: pelas bulas brasileiras, até 6 semanas (42 dias), sobrando produto ou não.\n\n1️⃣ Anote na caneta o dia do primeiro uso.\n2️⃣ Aberta, ela pode ficar abaixo de 30 °C ou na geladeira, entre 2 e 8 °C.\n3️⃣ Passou de 6 semanas, ou do prazo da sua bula: descarte, mesmo com produto sobrando.\n4️⃣ Caneta usada vai em recipiente para perfurocortante, nunca no lixo comum. Farmácias e UBS aceitam a entrega.\n\n⚠️ Turva, com partículas, com cor alterada ou congelada: descarte, mesmo depois de descongelar. A semaglutida perde potência de forma irreversível quando congela. Outras semaglutidas têm regra própria, então vale sempre a bula da sua caixa.",
+  "question": "Você anota na caneta o dia em que começou a usar?",
+  "share": "aquela amiga que usa a caneta até a última gota, passe o tempo que passar"
+}

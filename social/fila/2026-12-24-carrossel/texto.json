@@ -1,0 +1,77 @@
+{
+  "hook": "Usa caneta pra controlar a fome e te falaram de GHRP-6?",
+  "hookIcon": "prato",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "Por que o GHRP-6 dá tanta fome?",
+      "layout": "pergunta",
+      "body": "Ele ativa o receptor da grelina, o hormônio da fome, no hipotálamo. Entre os GHRPs, é o que mais estimula o apetite, e a fome costuma vir logo depois da aplicação.",
+      "icon": "cerebro",
+      "pose": "explicando"
+    },
+    {
+      "title": "O que é o GHRP-6",
+      "layout": "padrao",
+      "body": "Um hexapeptídeo sintético, um dos primeiros secretagogos de GH. Ele faz a hipófise liberar hormônio do crescimento e virou o protótipo da classe.",
+      "icon": "dna",
+      "pose": "pensando"
+    },
+    {
+      "title": "O que você busca x o que ele faz",
+      "layout": "lado",
+      "body": "Sua caneta: você usa para controlar a fome\nGHRP-6: é o peptídeo que mais dá fome na classe",
+      "icon": "balanca",
+      "pose": "ih"
+    },
+    {
+      "title": "Estudado há tanto tempo, já deve ser aprovado",
+      "layout": "mito",
+      "body": "Foi bem estudado em ensaios iniciais, mas nunca foi aprovado em nenhum país. Não tem registro na ANVISA, na FDA nem na EMA.",
+      "icon": "prancheta",
+      "pose": "explicando"
+    },
+    {
+      "title": "A fome não vem sozinha",
+      "layout": "padrao",
+      "body": "Ele também eleva cortisol, ACTH e prolactina, mais que a ipamorelina. E há relatos de rubor no rosto, sonolência e retenção de líquido.",
+      "icon": "alerta",
+      "pose": "alerta"
+    },
+    {
+      "title": "E qual é a dose de bula?",
+      "layout": "pergunta",
+      "body": "Não existe, porque ele nunca foi aprovado. Não há esquema clínico validado nem dose segura estabelecida fora de pesquisa.",
+      "icon": "lupa",
+      "pose": "pensando"
+    },
+    {
+      "title": "A cola pra guardar",
+      "layout": "passos",
+      "body": "É o GHRP que mais dá fome\nNunca foi aprovado em nenhum país\nMexe em cortisol e prolactina\nPensou em somar à caneta? Fale com o médico",
+      "icon": "certo",
+      "pose": "apontando"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Você usa caneta para controlar a fome e alguém te falou de GHRP-6? Ele é justamente o que dá fome.",
+      "pose": "ih"
+    },
+    {
+      "text": "Ele ativa o receptor da grelina, o hormônio da fome. Entre os GHRPs, é o que mais estimula o apetite.",
+      "pose": "explicando"
+    },
+    {
+      "text": "Também eleva cortisol e prolactina, e nunca foi aprovado em nenhum país. Não tem registro na ANVISA.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Então, antes de somar qualquer peptídeo à caneta, fala com o médico. Porque o GHRP-6 é o que dá fome.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, na academia ou no grupo sempre aparece alguém indicando \"um peptídeo do GH\". Se você usa caneta de GLP-1, vale saber qual é a marca registrada do GHRP-6: a fome.\n\n1️⃣ O GHRP-6 é um hexapeptídeo sintético, protótipo dos secretagogos de GH, que faz a hipófise liberar hormônio do crescimento\n2️⃣ Ele ativa o receptor da grelina, o hormônio da fome, no hipotálamo: entre os GHRPs, é o que mais estimula o apetite\n3️⃣ Ele também eleva cortisol, ACTH e prolactina, e há relatos de rubor, sonolência e retenção de líquido\n\n⚠️ O GHRP-6 nunca foi aprovado em nenhum país: não tem registro na ANVISA, na FDA nem na EMA, não tem dose de bula e é proibido pela WADA. Produto fora de pesquisa não garante identidade, pureza nem dose. Malignidade ativa, gestação, lactação e hiperprolactinemia estão entre as contraindicações. Qualquer peptídeo somado à caneta é conversa com o médico.",
+  "question": "Alguém já te indicou um peptídeo sem contar o efeito colateral?",
+  "share": "aquela amiga que usa caneta e ouviu falar de GHRP-6 na academia"
+}

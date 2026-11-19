@@ -1,0 +1,77 @@
+{
+  "hook": "Seu Mounjaro está te dando diarreia?",
+  "hookIcon": "vomito",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "Diarreia do remédio é só um incômodo",
+      "layout": "mito",
+      "body": "No SURMOUNT-1, ela apareceu em 18,7% a 23% dos participantes, conforme a dose. Quase sempre leve, mas, se não para, tira água do corpo.",
+      "icon": "errado",
+      "pose": "ih"
+    },
+    {
+      "title": "A sede some junto com a fome",
+      "layout": "padrao",
+      "body": "A diminuição do apetite é esperada com a tirzepatida, mas pode levar a comer e beber menos do que o corpo precisa.",
+      "icon": "cerebro",
+      "pose": "explicando"
+    },
+    {
+      "title": "Como saber se estou desidratada?",
+      "layout": "pergunta",
+      "body": "Pouca urina, tontura ao levantar e boca muito seca são os sinais. Com eles, a conversa já é de atendimento, não só de um copo d'água.",
+      "icon": "gota",
+      "pose": "pensando"
+    },
+    {
+      "title": "Por que isso preocupa",
+      "layout": "padrao",
+      "body": "Vômito e diarreia prolongados podem levar a lesão renal aguda por desidratação. É raro, mas está na bula, e hidratação faz parte do tratamento.",
+      "icon": "alerta",
+      "pose": "alerta"
+    },
+    {
+      "title": "O que ajuda no dia a dia",
+      "layout": "passos",
+      "body": "Hidratação ao longo do dia\nRefeições menores, comendo devagar\nMenos gordura, fritura e álcool após a aplicação\nProteína e fibras em dia",
+      "icon": "salada",
+      "pose": "explicando"
+    },
+    {
+      "title": "E se não melhorar?",
+      "layout": "pergunta",
+      "body": "Vômito persistente ou não conseguir manter líquidos pede atendimento. Sintoma que não cede: o médico pode manter a dose atual por mais tempo ou voltar um degrau.",
+      "icon": "estetoscopio",
+      "pose": "pensando"
+    },
+    {
+      "title": "Cola para guardar",
+      "layout": "passos",
+      "body": "Diarreia ou vômito: reforce os líquidos\nFique de olho na urina e na tontura\nNão segura líquido? Atendimento\nSintoma que não cede: médico",
+      "icon": "certo",
+      "pose": "apontando"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Seu Mounjaro está te dando diarreia e você continua bebendo pouca água? Eu sei, a sede some junto com a fome.",
+      "pose": "ih"
+    },
+    {
+      "text": "Diarreia e vômito tiram água do corpo. Quando não param, podem levar a desidratação e, mais raro, a lesão nos rins.",
+      "pose": "explicando"
+    },
+    {
+      "text": "Pouca urina, tontura ao levantar ou boca muito seca? Não é caso de esperar: procure atendimento.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Se o sintoma não cede, o médico pode manter a dose por mais tempo. E se o Mounjaro der diarreia, você já sabe: água em dia.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, com o Mounjaro a sede some junto com a fome, e a gente nem percebe que está bebendo pouco. Só que diarreia e vômito tiram água do corpo. No SURMOUNT-1, a diarreia apareceu em 18,7% a 23% dos participantes e o vômito em 8,3% a 12,2%, quase sempre leves e na fase de subida de dose.\n\n1️⃣ Hidratação ao longo do dia, principalmente com diarreia ou vômito\n2️⃣ Refeições menores, comendo devagar\n3️⃣ Menos gordura, fritura e álcool nos dias seguintes à aplicação\n4️⃣ Proteína e fibras em dia\n\n⚠️ Vômito e diarreia prolongados podem levar a lesão renal aguda por desidratação, um efeito colateral raro da tirzepatida. Pouca urina, tontura ao levantar, boca muito seca ou não conseguir manter líquidos: procure atendimento.\n\nSe o sintoma não cede, o médico pode manter a dose atual por mais tempo ou voltar um degrau.",
+  "question": "Qual efeito colateral do Mounjaro mais apareceu para você?",
+  "share": "aquela amiga que esquece de beber água desde que começou o Mounjaro"
+}

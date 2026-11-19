@@ -1,0 +1,77 @@
+{
+  "hook": "Esqueceu a dose da semana? O prazo muda de caneta pra caneta.",
+  "hookIcon": "relogio",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "Quanto tempo você tem para aplicar",
+      "body": "Ozempic e Wegovy: até 5 dias depois da data prevista\nMounjaro: até 4 dias (96 horas) depois da data prevista",
+      "icon": "calendario",
+      "pose": "explicando",
+      "layout": "lado"
+    },
+    {
+      "title": "96 horas",
+      "body": "É o prazo da bula do Mounjaro, a tirzepatida: um dia a menos que o da semaglutida. Passou disso, pule a dose esquecida e aplique a próxima no dia de sempre.",
+      "icon": "ampulheta",
+      "pose": "apontando",
+      "layout": "numero"
+    },
+    {
+      "title": "Aplico duas juntas para compensar",
+      "body": "Nenhuma bula manda isso. Dose dobrada aumenta de uma vez a quantidade de remédio no sangue e, com ela, o risco de náusea, vômito e diarreia.",
+      "icon": "proibido",
+      "pose": "alerta",
+      "layout": "mito"
+    },
+    {
+      "title": "Caneta semanal x comprimido diário",
+      "body": "Caneta: dentro do prazo, aplique assim que lembrar\nRybelsus: pule e tome só um comprimido na manhã seguinte",
+      "icon": "comprimido",
+      "pose": "explicando",
+      "layout": "lado"
+    },
+    {
+      "title": "3 dias",
+      "body": "É o mínimo desde a última injeção para trocar o dia da semana, pelas bulas de Ozempic, Wegovy e Mounjaro. A dose atrasada caiu num dia melhor? Pode virar o seu novo dia.",
+      "icon": "lampada",
+      "pose": "piscadinha",
+      "layout": "numero"
+    },
+    {
+      "title": "Fiquei semanas sem aplicar, volto na mesma dose",
+      "body": "Aí a bula não resolve sozinha. Depois de uma pausa, a tolerância pode cair, e voltar direto na dose alta pode dar náusea e vômito intensos. Quem decide o recomeço é o médico.",
+      "icon": "estetoscopio",
+      "pose": "ih",
+      "layout": "mito"
+    },
+    {
+      "title": "Cola da dose esquecida",
+      "body": "Conte os dias desde a data prevista\nOzempic e Wegovy: até 5 dias. Mounjaro: até 4\nPassou do prazo? Pule e siga no dia de sempre\nNunca dobre; várias esquecidas, fale com o médico",
+      "icon": "certo",
+      "pose": "apontando",
+      "layout": "passos"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Esqueceu a dose da semana? Calma, o prazo pra aplicar muda de caneta pra caneta.",
+      "pose": "ih"
+    },
+    {
+      "text": "No Ozempic e no Wegovy, você tem até 5 dias depois da data prevista. No Mounjaro, até 4 dias. Passou disso, pule e siga no dia de sempre.",
+      "pose": "explicando"
+    },
+    {
+      "text": "Dose dobrada pra compensar, nunca: aumenta o risco de náusea e vômito. Esqueceu várias seguidas? Aí é conversa com o médico.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Então, da próxima vez que esquecer a dose da semana, conte os dias e confira o prazo da sua caneta.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, todo mundo esquece a dose da semana uma hora: viagem, rotina diferente, caneta na geladeira de outra casa. A boa notícia é que as bulas brasileiras trazem uma regra clara, e o que muda de uma marca para outra é o prazo.\n\n1️⃣ Ozempic e Wegovy (semaglutida): até 5 dias depois da data prevista, aplique assim que lembrar. Mais que isso, pule e siga no dia de sempre.\n2️⃣ Mounjaro (tirzepatida): até 4 dias (96 horas). Passou, pule e aplique no dia habitual.\n3️⃣ Rybelsus, o comprimido diário: pule o esquecido e tome só um na manhã seguinte.\n\n⚠️ Nenhuma bula manda dobrar a dose para compensar. Para trocar o dia da aplicação, precisam ter passado pelo menos 3 dias (72 horas) desde a última injeção. Tirzepatida ou semaglutida em frasco não tem bula própria aprovada: a regra de dose esquecida vem de quem prescreveu.\n\nFicou duas semanas ou mais sem aplicar, usa insulina ou está com dúvida sobre o seu caso? Fale com o médico antes de decidir. Alarme semanal e um dia fixo ajudam a esquecer menos.",
+  "question": "Qual é o seu truque pra não esquecer a dose da semana?",
+  "share": "aquela amiga que sempre esquece a caneta quando viaja"
+}

@@ -1,0 +1,77 @@
+{
+  "hook": "Mito: LL-37 injetável é o \"antibiótico natural\" do corpo",
+  "hookIcon": "errado",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "Ele existe mesmo no seu corpo",
+      "layout": "padrao",
+      "body": "O LL-37 é produzido por neutrófilos, pela pele e pelas mucosas. É uma das primeiras defesas contra bactérias, fungos e alguns vírus: rompe a membrana deles.",
+      "icon": "escudo",
+      "pose": "explicando"
+    },
+    {
+      "title": "Onde foi testado x onde é usado",
+      "layout": "lado",
+      "body": "Nos ensaios: gel sobre úlcera venosa de perna\nNos protocolos informais: injetável, sem nenhum estudo clínico",
+      "icon": "balanca",
+      "pose": "pensando"
+    },
+    {
+      "title": "34 pacientes",
+      "layout": "numero",
+      "body": "Foi o primeiro ensaio com o gel em úlcera venosa. A cicatrização acelerou nas concentrações intermediárias, mas a maior não foi melhor que o placebo.",
+      "icon": "microscopio",
+      "pose": "explicando"
+    },
+    {
+      "title": "Aí veio o teste de confirmação",
+      "layout": "padrao",
+      "body": "Com 148 pacientes, em vários centros, o gel não mostrou melhora significativa na população total. O benefício não se confirmou.",
+      "icon": "grafico-desce",
+      "pose": "ih"
+    },
+    {
+      "title": "Mais LL-37 é sempre melhor",
+      "layout": "mito",
+      "body": "Em certas condições ele é pró-inflamatório. Níveis altos na pele se associam à psoríase e à rosácea, e ele pode participar de respostas autoimunes.",
+      "icon": "pele",
+      "pose": "alerta"
+    },
+    {
+      "title": "Existe dose de LL-37 injetável?",
+      "layout": "pergunta",
+      "body": "Não. Para uso sistêmico não há dose estabelecida, e a segurança dessa via em humanos não foi caracterizada. Ele também não é aprovado pela ANVISA, pela FDA nem pela EMA.",
+      "icon": "prancheta",
+      "pose": "ih"
+    },
+    {
+      "title": "A cola pra guardar",
+      "layout": "passos",
+      "body": "A evidência é de gel em ferida, e é mista\nInjetável: nenhum ensaio clínico\nPsoríase, rosácea ou doença autoimune: fora\nFerida que não fecha? Avaliação médica",
+      "icon": "certo",
+      "pose": "apontando"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Mito: o LL-37 injetável é o antibiótico natural do seu corpo. Olha, não é bem assim.",
+      "pose": "ih"
+    },
+    {
+      "text": "Ele existe no corpo, sim, mas os estudos usaram gel em ferida de perna. E o ensaio maior não confirmou o benefício.",
+      "pose": "explicando"
+    },
+    {
+      "text": "O uso injetável não tem nenhum ensaio clínico. E quem tem psoríase ou rosácea pode até ver a inflamação piorar.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Então, ferida que não fecha é caso de médico. E esse antibiótico natural injetável fica no mito.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, \"antibiótico natural do próprio corpo\" soa perfeito. O LL-37, fragmento da catelicidina humana, existe mesmo na pele e nas mucosas e rompe a membrana de bactérias e fungos. Mas o que foi estudado é bem diferente do que circula por aí.\n\n1️⃣ Os ensaios clínicos usaram gel tópico em úlcera venosa de perna, não injeção\n2️⃣ O primeiro ensaio, com 34 pacientes, foi positivo nas concentrações intermediárias\n3️⃣ O ensaio maior, com 148 pacientes, não mostrou melhora significativa na população total\n4️⃣ Para uso injetável, não há nenhum ensaio clínico, nem dose estabelecida\n\n⚠️ O LL-37 não é aprovado pela ANVISA, pela FDA nem pela EMA, e a segurança sistêmica em humanos não foi caracterizada. Níveis altos na pele se associam à psoríase e à rosácea, então quem tem essas condições, doença autoimune ativa, gestantes e lactantes ficam de fora. Ferida crônica precisa de avaliação médica.",
+  "question": "Você já tinha visto o LL-37 sendo chamado de antibiótico natural?",
+  "share": "aquela amiga com rosácea que testa tudo que vê na internet"
+}

@@ -1,0 +1,77 @@
+{
+  "hook": "Parou o Ozempic e a fome voltou com tudo?",
+  "hookIcon": "prato",
+  "hookPose": "pensando",
+  "slides": [
+    {
+      "title": "A fome voltou. Fiz algo errado?",
+      "layout": "pergunta",
+      "body": "Não. Sem a semaglutida no corpo, apetite e saciedade voltam ao estado de antes do tratamento. É o esperado, não falta de força de vontade.",
+      "icon": "pensando",
+      "pose": "feliz"
+    },
+    {
+      "title": "4 semanas",
+      "layout": "numero",
+      "body": "É, em média, o tempo para apetite e saciedade voltarem ao que eram depois de parar a semaglutida. Por isso o efeito some rápido.",
+      "icon": "calendario",
+      "pose": "explicando"
+    },
+    {
+      "title": "Por que o corpo puxa de volta?",
+      "layout": "pergunta",
+      "body": "A adaptação do metabolismo continua, os hábitos nem sempre mudaram por completo e o corpo tende a defender o peso de antes.",
+      "icon": "fogo",
+      "pose": "pensando"
+    },
+    {
+      "title": "Remédio de pressão e semaglutida",
+      "layout": "lado",
+      "body": "Remédio de pressão: trata a hipertensão enquanto é usado\nSemaglutida: trata a obesidade enquanto está ativa",
+      "icon": "coracao",
+      "pose": "explicando"
+    },
+    {
+      "title": "Usar por muito tempo é seguro?",
+      "layout": "pergunta",
+      "body": "Dados de 2 anos ou mais, dos estudos STEP-5 e SUSTAIN-6, mostraram perfil de segurança mantido. A FDA considera aceitável o uso crônico para obesidade.",
+      "icon": "microscopio",
+      "pose": "explicando"
+    },
+    {
+      "title": "Parar de uma vez ou aos poucos",
+      "layout": "lado",
+      "body": "De uma vez: o apetite volta sem nenhum plano\nAos poucos, com o médico: dose reduzida, treino e proteína em dia",
+      "icon": "balanca",
+      "pose": "piscadinha"
+    },
+    {
+      "title": "Sua cola",
+      "layout": "passos",
+      "body": "Fome de volta após parar é esperada\nContinuar é uma opção clínica válida\nVai parar? Dose reduzida aos poucos, com o médico\nTreino resistido e proteína seguem",
+      "icon": "certo",
+      "pose": "apontando"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Parou o Ozempic e a fome voltou com tudo? Calma, isso não é falta de força de vontade.",
+      "pose": "pensando"
+    },
+    {
+      "text": "Depois de parar, apetite e saciedade voltam ao estado de antes em cerca de 4 semanas. A semaglutida trata enquanto está ativa.",
+      "pose": "explicando"
+    },
+    {
+      "text": "Continuar por longo prazo é uma opção válida. Se a decisão for parar, o caminho é reduzir a dose aos poucos, com o médico.",
+      "pose": "feliz"
+    },
+    {
+      "text": "Treino resistido e proteína seguem junto. E se a fome voltar depois de parar o Ozempic, agora você sabe por quê.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, quando a fome volta depois de parar o Ozempic, a primeira reação é se culpar. Mas não é falta de força de vontade: sem a semaglutida no corpo, apetite e saciedade voltam ao estado de antes em cerca de 4 semanas.\n\nA semaglutida trata a obesidade enquanto está ativa, como o remédio de pressão trata a hipertensão. A adaptação do metabolismo continua e o corpo tende a defender o peso de antes.\n\n1️⃣ Continuar por longo prazo é uma opção clínica válida: dados de 2 anos ou mais (STEP-5 e SUSTAIN-6) mostraram perfil de segurança mantido.\n2️⃣ Se for parar, reduza a dose aos poucos, com orientação médica, em vez de parar de uma vez.\n3️⃣ Treino resistido e proteína em dia, durante e depois.\n\n⚠️ Parar a semaglutida sem estratégia leva a efeito rebote previsível. A decisão é sua com o médico, olhando resposta ao remédio, efeitos colaterais e alternativas.",
+  "question": "Você já conversou com o médico sobre o plano para depois do Ozempic?",
+  "share": "aquela amiga que quer parar o Ozempic de uma vez"
+}

@@ -1,0 +1,77 @@
+{
+  "hook": "Mito: se a ipamorelina é “seletiva”, ela é segura.",
+  "hookIcon": "duvida",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "O que “seletiva” quer dizer",
+      "body": "Que ela libera hormônio do crescimento (GH) sem elevar muito o cortisol, o ACTH e a prolactina, como outros peptídeos da mesma classe fazem. É uma diferença de perfil, não um selo de segurança.",
+      "icon": "lupa",
+      "pose": "explicando",
+      "layout": "padrao"
+    },
+    {
+      "title": "Se é seletiva, não dá efeito nenhum",
+      "body": "Dá. A ficha lista reação no local da aplicação, dor de cabeça leve a moderada, rubor passageiro, tontura e fome leve.",
+      "icon": "errado",
+      "pose": "ih",
+      "layout": "mito"
+    },
+    {
+      "title": "Fome leve, justo pra quem usa caneta",
+      "body": "Ela age no receptor da grelina. A fome é menos intensa que com o GHRP-6, mas, se você usa GLP-1 pelo apetite, isso merece entrar na conversa com o médico.",
+      "icon": "prato",
+      "pose": "pensando",
+      "layout": "padrao"
+    },
+    {
+      "title": "2 horas",
+      "body": "É a meia-vida descrita. Por isso os estudos de pesquisa falam em mais de uma aplicação por dia, bem diferente da sua caneta semanal.",
+      "icon": "ampulheta",
+      "pose": "explicando",
+      "layout": "numero"
+    },
+    {
+      "title": "Ela parou no meio do caminho",
+      "body": "Chegou à fase II de estudos para a paralisia do intestino depois de cirurgia, mas o desenvolvimento foi interrompido. Nunca teve aprovação para uso clínico.",
+      "icon": "microscopio",
+      "pose": "explicando",
+      "layout": "padrao"
+    },
+    {
+      "title": "Juntar com outro peptídeo de GH por conta própria é tranquilo",
+      "body": "Não é. Usar junto com outros secretagogos de GH sem supervisão está entre as contraindicações, ao lado de câncer ativo, gestação, amamentação e doença aguda grave.",
+      "icon": "proibido",
+      "pose": "alerta",
+      "layout": "mito"
+    },
+    {
+      "title": "Sua cola",
+      "body": "“Seletiva” não é sinônimo de segura\nÉ peptídeo de pesquisa e proibido pela WADA\nFome leve pode mexer no plano com a caneta\nQualquer combinação, só com o médico",
+      "icon": "certo",
+      "pose": "apontando",
+      "layout": "passos"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Mito: se a ipamorelina é seletiva, ela é segura. Olha, não é bem assim.",
+      "pose": "ih"
+    },
+    {
+      "text": "Seletiva quer dizer que ela mexe menos no cortisol e na prolactina. Mas ela ainda pode dar dor de cabeça, rubor, tontura e fome leve.",
+      "pose": "explicando"
+    },
+    {
+      "text": "E fome, pra quem usa caneta por causa do apetite, pesa. Ela nunca foi aprovada: é peptídeo de pesquisa.",
+      "pose": "pensando"
+    },
+    {
+      "text": "Qualquer combinação é conversa com o médico. Então, lembra: seletiva não é sinônimo de segura.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, “seletiva” no anúncio soa como “sem risco”. Todo mundo cai nessa palavra. Mas, na ipamorelina, seletiva quer dizer outra coisa: ela libera hormônio do crescimento (GH) sem elevar de forma importante o cortisol, o ACTH e a prolactina, diferente de outros peptídeos da mesma classe.\n\n⚠️ Ela continua tendo efeito colateral: reação no local da aplicação, dor de cabeça, rubor passageiro, tontura e fome leve. Ela age no receptor da grelina, e quem usa caneta GLP-1 por causa do apetite deve levar isso ao médico.\n\n1️⃣ Não tem aprovação regulatória: chegou à fase II e o desenvolvimento foi interrompido.\n2️⃣ É peptídeo de pesquisa e proibida pela WADA no esporte.\n3️⃣ Contraindicações: câncer ativo, gestação, amamentação, doença aguda grave e uso junto com outros secretagogos de GH sem supervisão.\n\nQualquer dúvida sobre peptídeo ou combinação é para conversar com o seu médico.",
+  "question": "Você já viu a palavra “seletivo” em anúncio de peptídeo?",
+  "share": "aquela amiga que confia em tudo que vem escrito “seletivo” no anúncio"
+}

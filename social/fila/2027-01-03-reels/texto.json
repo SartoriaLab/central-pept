@@ -1,0 +1,70 @@
+{
+  "hook": "Sermorelina é hormônio do crescimento? Não, e isso muda tudo.",
+  "hookIcon": "cerebro",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "29 aminoácidos",
+      "body": "É o tamanho dela: os primeiros 29 do GHRH, o hormônio que manda a hipófise liberar GH. Ela não é o GH; é o recado para o corpo liberar o próprio.",
+      "icon": "dna",
+      "pose": "explicando",
+      "layout": "numero"
+    },
+    {
+      "title": "Por isso ela depende da sua hipófise",
+      "body": "Ela estimula a liberação em pulsos, como o corpo faz, mas precisa de uma hipófise com estoque funcionando. Tanto que já foi usada como teste da reserva de GH.",
+      "icon": "pensando",
+      "pose": "pensando",
+      "layout": "padrao"
+    },
+    {
+      "title": "11 a 12 min",
+      "body": "É a meia-vida dela: enzimas do sangue a degradam muito rápido.",
+      "icon": "ampulheta",
+      "pose": "explicando",
+      "layout": "numero"
+    },
+    {
+      "title": "Tireoide e corticoide fazem diferença?",
+      "body": "Fazem. Hipotireoidismo sem tratamento pode atenuar a resposta, e corticoide em dose alta está nas contraindicações. Conte ao médico todos os remédios que você usa.",
+      "icon": "alerta",
+      "pose": "alerta",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Os efeitos descritos",
+      "body": "Reação no local da aplicação, rubor no rosto, dor de cabeça, alteração do paladar, náusea e, raramente, reação alérgica.",
+      "icon": "termometro",
+      "pose": "explicando",
+      "layout": "padrao"
+    },
+    {
+      "title": "Antes de qualquer decisão",
+      "body": "Lembre: ela não é GH pronto\nTireoide e remédios na mesa da consulta\nCâncer ativo, gestação e amamentação: contraindicado\nNo Brasil, sem registro ativo na ANVISA",
+      "icon": "estetoscopio",
+      "pose": "apontando",
+      "layout": "passos"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Sermorelina é hormônio do crescimento? Não, e isso muda tudo pra quem pensa em usar.",
+      "pose": "ih"
+    },
+    {
+      "text": "Ela é um pedaço do hormônio que pede pra hipófise liberar o GH. Ela só funciona se a sua hipófise estiver respondendo.",
+      "pose": "explicando"
+    },
+    {
+      "text": "E hipotireoidismo sem tratamento pode atenuar a resposta. Corticoide em dose alta, câncer ativo e gestação são contraindicações.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Então, converse com o médico antes de tudo. Sermorelina não é hormônio do crescimento pronto: ela depende da sua hipófise.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, todo peptídeo do “eixo do GH” parece a mesma coisa. Mas a sermorelina não é hormônio do crescimento: ela corresponde aos 29 primeiros aminoácidos do GHRH, o hormônio que manda a hipófise liberar o próprio GH, em pulsos.\n\nPor isso ela depende de uma hipófise com estoque funcionando, e já foi usada como teste diagnóstico da reserva de GH. A meia-vida é de cerca de 11 a 12 min, porque enzimas do sangue a degradam muito rápido.\n\n⚠️ Hipotireoidismo sem tratamento pode atenuar a resposta. Contraindicações: câncer ativo, gestação, amamentação, hipersensibilidade e uso de corticoide em dose alta.\n\n1️⃣ Efeitos colaterais descritos: reação no local, rubor, dor de cabeça, alteração do paladar, náusea e, raramente, reação alérgica.\n2️⃣ No Brasil, não tem registro ativo na ANVISA, e é proibida pela WADA no esporte.\n3️⃣ Leve ao médico a sua tireoide e todos os remédios que você usa antes de qualquer decisão.",
+  "question": "Você sabia que a sermorelina depende da hipófise pra funcionar?",
+  "share": "quem acha que sermorelina é hormônio do crescimento pronto"
+}

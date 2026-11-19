@@ -1,7 +1,7 @@
 // Fila de textos prontos (social/fila/<data>-<formato>/): o plano simula a escolha do tema dia a
 // dia, como o robô faria, e cada pasta guarda o tema (brief.json) e o texto escrito (texto.json).
 // No dia, `run.ts <formato> --fila` publica o texto da pasta; sem pasta, a tarefa cai no --brief.
-import { pickTopic } from './pick';
+import { COOLDOWN_DAYS, pickTopic } from './pick';
 import type { Format, HistoryEntry, Topic } from './types';
 
 /** Dias com Reels (0 = domingo), iguais ao cron da tarefa dosecerta-reels. */
@@ -42,16 +42,25 @@ export function planQueue(
   existing: QueueItem[] = [],
 ): QueueItem[] {
   const byKey = new Map(existing.map((e) => [queueKey(e.date, e.format), e]));
-  const reserved = new Set(existing.map((e) => e.topicId));
   const category = new Map(topics.map((t) => [t.id, t.category]));
-  const sim = [...history];
+  // Itens da fila antes do início contam como já publicados (quarentena de cada tema).
+  const sim = [
+    ...history,
+    ...existing
+      .filter((e) => e.date < start)
+      .map((e) => ({ topicId: e.topicId, format: e.format, category: category.get(e.topicId) ?? 'geral', at: slotTime(e.date, e.format) })),
+  ];
   const out: QueueItem[] = [];
+  const later = existing.filter((e) => e.date >= start);
 
   for (const date of dateRange(start, days)) {
     for (const format of formatsOn(date)) {
       const at = slotTime(date, format);
       let item = byKey.get(queueKey(date, format));
       if (!item) {
+        // Temas que a fila já publica perto deste horário (dentro da quarentena) ficam de fora.
+        const near = (e: QueueItem) => Math.abs(slotTime(e.date, e.format).getTime() - at.getTime()) < COOLDOWN_DAYS * 86_400_000;
+        const reserved = new Set(later.filter(near).map((e) => e.topicId));
         const topic = pickTopic(topics, sim, format, at, reserved) ?? pickTopic(topics, sim, format, at);
         if (!topic) continue;
         item = { date, format, topicId: topic.id };

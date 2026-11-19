@@ -4,6 +4,9 @@ import type { Format, HistoryEntry, Topic } from './types';
 /** Um tema não volta antes disso (em qualquer formato). */
 export const COOLDOWN_DAYS = 45;
 
+/** Post e ficha do mesmo peptídeo de nicho (prioridade 0) ficam ao menos isso separados. */
+export const PEPTIDE_GAP_DAYS = 14;
+
 const DAY = 24 * 60 * 60 * 1000;
 
 /**
@@ -22,7 +25,8 @@ export function topicPriority(t: Topic): number {
 }
 
 /**
- * Regras, em ordem: (1) fora da quarentena de COOLDOWN_DAYS; (2) maior `topicPriority`;
+ * Regras, em ordem: (1) fora da quarentena de COOLDOWN_DAYS; (1b) peptídeo de nicho que saiu há
+ * menos de PEPTIDE_GAP_DAYS (em post ou ficha) fica para depois; (2) maior `topicPriority`;
  * (3) categoria diferente da última publicação; (4) nunca usado antes do usado há mais tempo.
  * Sem candidato fora da quarentena, volta o tema de uso mais antigo. Empates seguem a ordem de
  * `topics`. `exclude`: temas que já falharam nesta execução (ou reservados pela fila).
@@ -47,8 +51,20 @@ export function pickTopic(
   const age = (t: Topic) => lastUse.get(t.id) ?? -Infinity;
   const byOldest = (a: Topic, b: Topic) => age(a) - age(b);
 
-  const rested = pool.filter((t) => now.getTime() - age(t) >= COOLDOWN_DAYS * DAY);
-  if (rested.length === 0) return [...pool].sort(byOldest)[0];
+  const allRested = pool.filter((t) => now.getTime() - age(t) >= COOLDOWN_DAYS * DAY);
+  if (allRested.length === 0) return [...pool].sort(byOldest)[0];
+
+  // Peptídeo de nicho que acabou de sair (post ou ficha) espera PEPTIDE_GAP_DAYS.
+  const byId = new Map(topics.map((t) => [t.id, t]));
+  const recent = new Set(
+    history
+      .filter((h) => now.getTime() - h.at.getTime() < PEPTIDE_GAP_DAYS * DAY)
+      .map((h) => byId.get(h.topicId))
+      .filter((t): t is Topic => !!t && topicPriority(t) === 0)
+      .flatMap((t) => t.peptides),
+  );
+  const spaced = allRested.filter((t) => topicPriority(t) > 0 || !t.peptides.some((p) => recent.has(p)));
+  const rested = spaced.length > 0 ? spaced : allRested;
 
   const top = Math.max(...rested.map(topicPriority));
   const fresh = rested.filter((t) => topicPriority(t) === top);

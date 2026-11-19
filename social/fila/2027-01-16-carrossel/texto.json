@@ -1,0 +1,77 @@
+{
+  "hook": "Pensando em trocar de caneta só por causa do enjoo?",
+  "hookIcon": "enjoo",
+  "hookPose": "pensando",
+  "slides": [
+    {
+      "title": "Trocar de caneta acaba com o enjoo?",
+      "layout": "pergunta",
+      "body": "Não dá para prometer. Semaglutida e tirzepatida têm o mesmo perfil de efeito colateral: náusea, diarreia, vômito e constipação.",
+      "icon": "duvida",
+      "pose": "explicando"
+    },
+    {
+      "title": "Hipótese não é prova",
+      "layout": "padrao",
+      "body": "Existe a hipótese de que a ação da tirzepatida no GIP reduza a náusea. Mas isso ainda não foi comprovado em humanos.",
+      "icon": "microscopio",
+      "pose": "pensando"
+    },
+    {
+      "title": "A tabela mostra qual enjoa menos",
+      "layout": "mito",
+      "body": "Os números de efeito colateral vêm de estudos diferentes, com populações e escadas de dose diferentes. A comparação entre as duas é só aproximada.",
+      "icon": "errado",
+      "pose": "ih"
+    },
+    {
+      "title": "A dose também muda o número",
+      "layout": "padrao",
+      "body": "Nos estudos da tirzepatida, a náusea foi de 33% na dose de 10 mg e de 31% na de 15 mg. Comparar canetas sem olhar dose e estudo engana.",
+      "icon": "regua",
+      "pose": "explicando"
+    },
+    {
+      "title": "O que o médico olha antes de uma troca?",
+      "layout": "pergunta",
+      "body": "Seu histórico, outras doenças, risco de tireoide na família, pancreatite prévia e o objetivo do seu tratamento.",
+      "icon": "estetoscopio",
+      "pose": "apontando"
+    },
+    {
+      "title": "Cada uma tem seus pontos",
+      "layout": "padrao",
+      "body": "A semaglutida (Ozempic) tem mais dados de longo prazo e de segurança cardiovascular. A tirzepatida (Mounjaro) age em dois receptores, GLP-1 e GIP.",
+      "icon": "balanca",
+      "pose": "feliz"
+    },
+    {
+      "title": "Antes de pensar em trocar",
+      "layout": "passos",
+      "body": "Anote quando o enjoo aparece e quanto dura\nNão troque pelo relato da amiga\nLeve o histórico da família à consulta\nTroca e dose: decisão com o médico",
+      "icon": "certo",
+      "pose": "apontando"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Pensando em trocar de caneta só por causa do enjoo? Olha isso antes de decidir.",
+      "pose": "pensando"
+    },
+    {
+      "text": "Semaglutida e tirzepatida têm o mesmo perfil de efeito colateral: náusea, diarreia, vômito e constipação.",
+      "pose": "explicando"
+    },
+    {
+      "text": "Os números de enjoo vêm de estudos diferentes. E a ideia de que o GIP reduz a náusea ainda não foi comprovada em humanos.",
+      "pose": "ih"
+    },
+    {
+      "text": "Troca de caneta é decisão com o médico. Então, antes de trocar só por causa do enjoo, consulta.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, quando o enjoo aperta, a primeira ideia é trocar de caneta, ainda mais se a amiga diz que com a outra não enjoou. Mas semaglutida (Ozempic, Wegovy) e tirzepatida (Mounjaro, Zepbound) têm o mesmo perfil de efeito colateral: náusea, diarreia, vômito e constipação.\n\n1️⃣ Os números de efeito colateral vêm de estudos diferentes, com populações e escadas de dose diferentes: a comparação é só aproximada\n2️⃣ A hipótese de que o GIP reduza a náusea ainda não foi comprovada em humanos\n3️⃣ A dose muda o número: na tirzepatida, a náusea foi de 33% com 10 mg e de 31% com 15 mg\n\n⚠️ Troca de caneta é decisão clínica: o médico considera seu histórico, outras doenças, risco de tireoide na família, pancreatite prévia e o objetivo do tratamento.",
+  "question": "Em qual etapa da dose o seu enjoo apareceu mais?",
+  "share": "aquela amiga que quer trocar de caneta por causa do enjoo"
+}

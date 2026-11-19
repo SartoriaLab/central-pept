@@ -1,0 +1,51 @@
+{
+  "hook": "Cerca de 8 dias. Guarda esse número do CJC-1295.",
+  "hookIcon": "ampulheta",
+  "hookPose": "alerta",
+  "slides": [
+    {
+      "title": "Com DAC x sem DAC",
+      "body": "Com DAC: meia-vida de cerca de 8 dias, GH alto por dias\nSem DAC: meia-vida de cerca de 30 minutos, estímulo curto",
+      "icon": "balanca",
+      "pose": "explicando",
+      "layout": "lado"
+    },
+    {
+      "title": "Por que juntam com a ipamorelina?",
+      "body": "Agem em receptores diferentes da hipófise: um aumenta o tamanho do pulso de GH, o outro a frequência. A liberação maior com os dois juntos foi vista em animais.",
+      "icon": "microscopio",
+      "pose": "pensando",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Combo popular é combo aprovado",
+      "body": "Nem o CJC-1295 nem a ipamorelina são aprovados para uso humano. Os dois estão na lista proibida da WADA, e os protocolos que circulam são informais.",
+      "icon": "proibido",
+      "pose": "ih",
+      "layout": "mito"
+    },
+    {
+      "title": "E o açúcar no sangue?",
+      "body": "GH alto por muito tempo pode causar resistência à insulina transitória. Inchaço e formigamento nas mãos são descritos como sinal de excesso.",
+      "icon": "alerta",
+      "pose": "alerta",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Se te falaram do combo",
+      "body": "Lembre: nenhum dos dois é aprovado\nConte ao médico se sua glicemia é alterada\nFormigamento ou inchaço? Procure avaliação",
+      "icon": "estetoscopio",
+      "pose": "apontando",
+      "layout": "passos"
+    }
+  ],
+  "narration": [
+    { "text": "São cerca de 8 dias. Guarda esse número do CJC-1295, porque quase ninguém fala dele.", "pose": "alerta" },
+    { "text": "É a meia-vida da versão com DAC, que deixa o GH alto por dias. É isso que preocupa no uso prolongado.", "pose": "explicando" },
+    { "text": "E nem o CJC nem a ipamorelina são aprovados. GH alto sustentado pode causar resistência à insulina.", "pose": "pensando" },
+    { "text": "Então, combo da moda é conversa com o médico, com a glicemia na mesa. E você não esquece mais os 8 dias.", "pose": "piscadinha" }
+  ],
+  "caption": "Eu sei, o combo CJC-1295 + ipamorelina aparece em todo canto como o \"mais usado\". Mas quase ninguém conta a diferença entre as versões: o CJC-1295 com DAC tem meia-vida de cerca de 8 dias e mantém o GH e o IGF-1 altos por dias, o que preocupa no uso prolongado. A versão sem DAC dura cerca de 30 minutos.\n\nOs dois agem em receptores diferentes da hipófise, e a liberação maior de GH com a dupla foi vista em animais. Nem o CJC-1295 nem a ipamorelina são aprovados para uso humano, e os dois são proibidos pela WADA. Os protocolos que circulam são informais, não dose de bula.\n\n⚠️ GH alto sustentado pode causar resistência à insulina transitória. Retenção de líquido e formigamento ou dormência nas mãos são descritos como sinal de excesso. Também há preocupação teórica com IGF-1 elevado em quem tem histórico de câncer.\n\n1️⃣ Lembre que nenhum dos dois é aprovado\n2️⃣ Conte ao médico se sua glicemia é alterada\n3️⃣ Formigamento ou inchaço pedem avaliação",
+  "question": "Você já tinha ouvido falar da diferença entre CJC-1295 com e sem DAC?",
+  "share": "quem acha que CJC-1295 com DAC e sem DAC são a mesma coisa"
+}

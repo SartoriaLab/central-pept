@@ -78,10 +78,22 @@ function edge(text: string, out: string): Promise<Word[]> {
   });
 }
 
+/** O serviço grátis às vezes não devolve áudio (NoAudioReceived): tenta de novo com espera crescente. */
+async function edgeRetry(text: string, out: string, tries = 4): Promise<Word[]> {
+  for (let i = 1; ; i++) {
+    try {
+      return await edge(text, out);
+    } catch (e) {
+      if (i >= tries) throw e;
+      await new Promise((r) => setTimeout(r, 4000 * i));
+    }
+  }
+}
+
 /** Gera `out` (mp3) e devolve as palavras com início e fim em segundos. */
 export async function speak(text: string, out: string): Promise<Word[]> {
   const key = process.env.ELEVENLABS_API_KEY?.trim();
-  return key ? eleven(text, out, key) : edge(text, out);
+  return key ? eleven(text, out, key) : edgeRetry(text, out);
 }
 
 /** Cache da voz (social/out/_voz): renderizar de novo (prévia, troca de visual) não paga a fala duas vezes. */

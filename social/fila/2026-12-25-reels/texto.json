@@ -1,0 +1,77 @@
+{
+  "hook": "Você sempre escolhe o \"mais forte\"? Com a hexarelina, isso pesa.",
+  "hookIcon": "musculo",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "55 min",
+      "layout": "numero",
+      "body": "É a meia-vida da hexarelina na veia, em humanos. Curta, mas o efeito dela no sistema hormonal vai bem além do hormônio do crescimento.",
+      "icon": "ampulheta",
+      "pose": "explicando"
+    },
+    {
+      "title": "O GHRP mais forte é o melhor",
+      "layout": "mito",
+      "body": "Ela é das mais potentes para liberar GH, mas potência não é segurança. Foi o perfil hormonal amplo que fez o desenvolvimento clínico parar.",
+      "icon": "errado",
+      "pose": "ih"
+    },
+    {
+      "title": "Ipamorelina x hexarelina",
+      "layout": "lado",
+      "body": "Ipamorelina: a mais seletiva, quase só GH\nHexarelina: muito potente, mexe em cortisol e prolactina",
+      "icon": "balanca",
+      "pose": "explicando"
+    },
+    {
+      "title": "O pico não se mantém",
+      "layout": "padrao",
+      "body": "Com uso crônico ou dose alta, a hipófise responde cada vez menos. É a dessensibilização: a liberação de GH diminui com o tempo.",
+      "icon": "grafico-desce",
+      "pose": "alerta"
+    },
+    {
+      "title": "Ela é aprovada em algum país?",
+      "layout": "pergunta",
+      "body": "Não. Foi testada em fase II para deficiência de GH e insuficiência cardíaca, mas nunca foi comercializada. Não tem registro na ANVISA, na FDA nem na EMA.",
+      "icon": "prancheta",
+      "pose": "pensando"
+    },
+    {
+      "title": "Quando a cautela é maior",
+      "layout": "padrao",
+      "body": "Malignidade ativa, gestação, lactação, doença crítica aguda e problemas de prolactina ou do eixo adrenal. E produto não regulado não garante pureza nem dose.",
+      "icon": "alerta",
+      "pose": "alerta"
+    },
+    {
+      "title": "A cola pra guardar",
+      "layout": "passos",
+      "body": "Mais potente não é mais seguro\nEla eleva cortisol e prolactina\nA resposta cai com o uso crônico\nNunca foi aprovada em nenhum país",
+      "icon": "certo",
+      "pose": "apontando"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Você sempre escolhe o mais forte achando que é o melhor? Com a hexarelina, isso pesa.",
+      "pose": "ih"
+    },
+    {
+      "text": "Ela é um dos secretagogos que mais liberam hormônio do crescimento. Mas também eleva cortisol e prolactina.",
+      "pose": "explicando"
+    },
+    {
+      "text": "E, com uso crônico, a hipófise responde cada vez menos. Por isso o desenvolvimento parou, e ela nunca foi aprovada.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Então, potência não é segurança. Da próxima vez, desconfia quando a promessa for ser o mais forte.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, todo mundo cai no \"vou no mais forte, que funciona melhor\". A hexarelina (examorelina) aparece nos fóruns como o GHRP mais potente, e é mesmo. Só que foi justamente o resto que ela faz que a tirou do caminho dos remédios.\n\n1️⃣ Ela ativa o receptor da grelina e libera hormônio do crescimento com potência maior que a do GHRP-6\n2️⃣ Diferente da ipamorelina, ela eleva cortisol, ACTH e prolactina, mais quanto maior a dose\n3️⃣ Com uso crônico ou dose alta, a hipófise dessensibiliza e a liberação de GH diminui com o tempo\n\n⚠️ A hexarelina nunca foi aprovada em nenhum país: não tem registro na ANVISA, na FDA nem na EMA, não tem dose de bula e é proibida pela WADA. Malignidade ativa, gestação, lactação, hiperprolactinemia e distúrbios do eixo adrenal pedem cautela. Qualquer dúvida sobre hormônio do crescimento é conversa com o médico.",
+  "question": "Você também já escolheu alguma coisa só porque era a mais forte?",
+  "share": "aquele amigo da academia que sempre quer o peptídeo mais forte"
+}

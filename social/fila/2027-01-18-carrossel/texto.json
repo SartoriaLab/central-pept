@@ -1,0 +1,77 @@
+{
+  "hook": "Vitamina C pura e derivado são a mesma coisa pro GHK-Cu? Não.",
+  "hookIcon": "lupa",
+  "hookPose": "pensando",
+  "slides": [
+    {
+      "title": "Vitamina C no rótulo",
+      "layout": "lado",
+      "body": "Pura (ácido L-ascórbico): fórmula muito ácida\nDerivado (ascorbil fosfato, por exemplo): costuma ter pH mais alto",
+      "icon": "prancheta",
+      "pose": "explicando"
+    },
+    {
+      "title": "Por que a pura pede mais cuidado?",
+      "layout": "pergunta",
+      "body": "Ela só é bem absorvida na pele com fórmula de pH abaixo de 3,5. E a ligação do cobre ao GHK depende do pH: em meio ácido, os prótons competem com o cobre.",
+      "icon": "regua",
+      "pose": "pensando"
+    },
+    {
+      "title": "Ácido hialurônico também atrapalha o GHK-Cu",
+      "layout": "mito",
+      "body": "Tem ácido no nome, mas não é esfoliante nem tem o problema de pH. Os que pedem horário separado são os esfoliantes: glicólico, lático e salicílico.",
+      "icon": "gota",
+      "pose": "ih"
+    },
+    {
+      "title": "Junto ou separado",
+      "layout": "lado",
+      "body": "Costumam combinar: niacinamida e ácido hialurônico\nMelhor separar: vitamina C pura e ácidos esfoliantes",
+      "icon": "balanca",
+      "pose": "apontando"
+    },
+    {
+      "title": "E o retinol, entra em qual grupo?",
+      "layout": "pergunta",
+      "body": "Não é ácido como a vitamina C, mas é um dos ativos que mais irritam no começo. Por isso fica em noites diferentes dos ácidos.",
+      "icon": "lua",
+      "pose": "explicando"
+    },
+    {
+      "title": "Se não tem estudo, pode tudo junto",
+      "layout": "mito",
+      "body": "Faltar estudo de interação não prova risco nem segurança. Por isso: um ativo novo de cada vez, com algumas semanas antes do próximo.",
+      "icon": "microscopio",
+      "pose": "alerta"
+    },
+    {
+      "title": "Cola do rótulo",
+      "layout": "passos",
+      "body": "Vitamina C pura: horário diferente do GHK-Cu\nDerivado: o cuidado de pH pesa menos\nEsfoliante e retinol: noites diferentes\nIrritou: suspenda o último e fale com o dermatologista",
+      "icon": "certo",
+      "pose": "apontando"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Vitamina C pura e derivado de vitamina C são a mesma coisa para o GHK-Cu? Não, e isso muda a sua rotina.",
+      "pose": "pensando"
+    },
+    {
+      "text": "A vitamina C pura é formulada bem ácida, e a ligação do cobre ao GHK depende do pH. Os derivados costumam ter pH mais alto.",
+      "pose": "explicando"
+    },
+    {
+      "text": "E ácido hialurônico não é esfoliante: ele e a niacinamida não têm esse problema de pH. Separe os esfoliantes e o retinol.",
+      "pose": "piscadinha"
+    },
+    {
+      "text": "A pele irritou? Fale com o dermatologista. Então, olha o rótulo: vitamina C pura e derivado não são a mesma coisa.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, a gente lê \"vitamina C\" no frasco e acha que é tudo igual. Mas, para quem usa sérum de GHK-Cu, o que pede cuidado é o pH: a vitamina C pura (ácido L-ascórbico) só é bem absorvida com fórmula de pH abaixo de 3,5, e a ligação do cobre ao GHK depende do pH. Derivados, como o ascorbil fosfato, costumam ter pH mais alto, e o cuidado pesa menos.\n\n1️⃣ Vitamina C pura e ácidos esfoliantes (glicólico, lático, salicílico): em horário diferente do GHK-Cu\n2️⃣ Niacinamida e ácido hialurônico: sem o problema de pH e com pouca tendência a irritar\n3️⃣ Retinol: não é ácido, mas irrita no começo; fica em noites diferentes dos ácidos\n4️⃣ Um ativo novo de cada vez\n\n⚠️ Não há estudo de interação do GHK-Cu com esses ativos na pele: separar é precaução, não prova. Irritou? Suspenda o último ativo e procure o dermatologista. Pele sensível, gestação ou alergia ao cobre pedem orientação antes.",
+  "question": "A sua vitamina C é pura ou derivado? Olha no rótulo e me conta?",
+  "share": "aquela amiga que cortou o ácido hialurônico com medo do GHK-Cu"
+}

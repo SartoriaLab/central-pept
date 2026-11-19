@@ -1,0 +1,84 @@
+{
+  "hook": "Ninguém te conta o que olhar na caneta antes de aplicar",
+  "hookIcon": "lupa",
+  "hookPose": "piscadinha",
+  "slides": [
+    {
+      "title": "Por que olhar a caneta toda vez?",
+      "layout": "pergunta",
+      "body": "Porque a falsificação de Ozempic cresceu junto com a procura, e a ANVISA emitiu vários alertas. Uma olhada rápida antes da dose vira rotina de proteção.",
+      "icon": "escudo",
+      "pose": "explicando"
+    },
+    {
+      "title": "O líquido",
+      "layout": "lado",
+      "body": "Original: solução cristalina, sem partículas\nSuspeita: qualquer partícula ou líquido que não é cristalino",
+      "icon": "gota",
+      "pose": "apontando"
+    },
+    {
+      "title": "Gire o seletor de dose",
+      "layout": "padrao",
+      "body": "Na caneta original, o seletor gira livremente, sem travar. Seletor que emperra é motivo para parar e desconfiar.",
+      "icon": "seringa",
+      "pose": "pensando"
+    },
+    {
+      "title": "O rótulo",
+      "layout": "lado",
+      "body": "Original: impresso de fábrica, com o mesmo lote da caixa\nSuspeito: adesivo colado no corpo da caneta",
+      "icon": "prancheta",
+      "pose": "ih"
+    },
+    {
+      "title": "O código da caixa também fala",
+      "layout": "padrao",
+      "body": "O QR code ou o código de barras deve ser escaneável e levar a uma informação oficial. Não leva a lugar nenhum? Mais um sinal.",
+      "icon": "lampada",
+      "pose": "piscadinha"
+    },
+    {
+      "title": "Desconfiei. E agora?",
+      "layout": "pergunta",
+      "body": "Não aplique. Fotografe a embalagem e a caneta e notifique a ANVISA pelo Notivisa.",
+      "icon": "alerta",
+      "pose": "alerta"
+    },
+    {
+      "title": "Já aplicou uma caneta suspeita",
+      "layout": "padrao",
+      "body": "Fique de olho no corpo: se aparecerem sintomas anormais, procure o pronto-socorro.",
+      "icon": "hospital",
+      "pose": "explicando"
+    },
+    {
+      "title": "Checagem antes da dose",
+      "layout": "passos",
+      "body": "Líquido cristalino, sem partículas\nSeletor girando sem travar\nRótulo de fábrica, sem adesivo\nNa dúvida: não aplique e notifique",
+      "icon": "certo",
+      "pose": "apontando"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Ninguém te conta o que olhar na caneta antes de aplicar. E é bem rápido, você vai ver.",
+      "pose": "piscadinha"
+    },
+    {
+      "text": "O líquido tem que ser cristalino, sem partículas. E o seletor de dose precisa girar livremente, sem travar.",
+      "pose": "explicando"
+    },
+    {
+      "text": "O rótulo é impresso de fábrica, nunca adesivo. Desconfiou? Não aplique: fotografe e notifique a ANVISA pelo Notivisa.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Então, antes de toda dose, faça aquela olhada na caneta que ninguém te contou.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, a gente tira a caneta da geladeira e aplica no automático. Mas com a falsificação de Ozempic em alta, a ANVISA já emitiu vários alertas, e a própria caneta dá sinais antes da dose.\n\n1️⃣ Líquido: a solução do Ozempic (semaglutida) original é cristalina, sem partículas\n2️⃣ Seletor de dose: gira livremente, sem travar\n3️⃣ Rótulo: impresso de fábrica, nunca adesivo, com o mesmo lote da caixa\n4️⃣ Código: o QR code ou o código de barras da caixa deve ser escaneável e levar a uma informação oficial\n\n⚠️ Desconfiou de uma caneta falsificada? Não aplique. Fotografe a embalagem e a caneta e notifique a ANVISA pelo Notivisa. Se já aplicou e surgiram sintomas anormais, procure o pronto-socorro.",
+  "question": "Você já reparou no líquido da sua caneta antes de aplicar?",
+  "share": "aquela amiga que aplica no automático, sem nem olhar a caneta"
+}

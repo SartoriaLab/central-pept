@@ -1,0 +1,77 @@
+{
+  "hook": "Cinco situações em que o CJC-1295 é contraindicado.",
+  "hookIcon": "prancheta",
+  "hookPose": "alerta",
+  "slides": [
+    {
+      "title": "O anúncio mostra a dose, não a ficha",
+      "body": "Eu sei, a gente olha o frasco e a dose e para por aí. Mas a ficha do CJC-1295 traz uma lista de quem não deve usar, e ela quase nunca aparece no anúncio.",
+      "icon": "lupa",
+      "pose": "ih",
+      "layout": "padrao"
+    },
+    {
+      "title": "Tem ou teve câncer há pouco tempo?",
+      "body": "Câncer ativo ou história recente de neoplasia é contraindicação. Ele eleva o IGF-1 de forma sustentada, e isso traz um risco teórico de estimular tumores.",
+      "icon": "alerta",
+      "pose": "alerta",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Grávida ou amamentando",
+      "body": "Gestação e lactação estão na lista de contraindicações. Pensando em engravidar? Isso também entra na conversa com o médico.",
+      "icon": "coracao",
+      "pose": "explicando",
+      "layout": "padrao"
+    },
+    {
+      "title": "Tem diabetes com problema na retina?",
+      "body": "Retinopatia diabética proliferativa é contraindicação. Se você tem diabetes, conte ao médico como está a sua retina antes de qualquer decisão.",
+      "icon": "estetoscopio",
+      "pose": "pensando",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Doença aguda grave e alergia",
+      "body": "Doença crítica aguda e hipersensibilidade ao peptídeo fecham a lista das cinco situações.",
+      "icon": "hospital",
+      "pose": "explicando",
+      "layout": "padrao"
+    },
+    {
+      "title": "Se não estou na lista, está liberado",
+      "body": "Não. O CJC-1295 não tem aprovação em nenhuma agência, é peptídeo de pesquisa no Brasil e é proibido pela WADA. E ainda há rubor, dor de cabeça, tontura, retenção de líquido e formigamento.",
+      "icon": "proibido",
+      "pose": "ih",
+      "layout": "mito"
+    },
+    {
+      "title": "Sua cola",
+      "body": "Leia as contraindicações, não só a dose\nCâncer, gestação ou retinopatia: contraindicado\nNão tem aprovação em lugar nenhum\nDecisão é com o seu médico",
+      "icon": "certo",
+      "pose": "apontando",
+      "layout": "passos"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Cinco situações em que o CJC-1295 é contraindicado, e que quase nenhum anúncio mostra.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Câncer ativo ou recente, gestação ou amamentação e retinopatia diabética proliferativa estão na lista. Ele mantém o IGF-1 alto, com risco teórico.",
+      "pose": "explicando"
+    },
+    {
+      "text": "Doença aguda grave e alergia ao peptídeo completam as cinco. E, mesmo fora da lista, ele continua sem aprovação em agência nenhuma.",
+      "pose": "ih"
+    },
+    {
+      "text": "Então, antes de olhar a dose, confira as cinco situações. E qualquer decisão é com o seu médico.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, no anúncio a gente vê o frasco, a dose e a promessa, e para por aí. Mas a ficha do CJC-1295 traz uma lista de contraindicações que quase nunca aparece. Ele é um análogo do GHRH que estimula a liberação do hormônio do crescimento e eleva o IGF-1 de forma sustentada, o que traz um risco teórico de estimular tumores.\n\n1️⃣ Câncer ativo ou história recente de neoplasia.\n2️⃣ Gestação e lactação.\n3️⃣ Retinopatia diabética proliferativa.\n4️⃣ Doença crítica aguda.\n5️⃣ Hipersensibilidade ao peptídeo.\n\n⚠️ Estar fora da lista não quer dizer que está liberado: o CJC-1295 não tem aprovação em nenhuma agência regulatória, é peptídeo de pesquisa no Brasil e é proibido pela WADA. Os efeitos descritos incluem reação no local, rubor e calor no rosto, dor de cabeça, tontura, retenção de líquido e formigamento.\n\nQualquer decisão sobre peptídeo, com ou sem caneta GLP-1 junto, é conversa com o seu médico.",
+  "question": "Quando você vê um anúncio de peptídeo, procura as contraindicações?",
+  "share": "aquela amiga que só olha a dose e nunca lê a ficha"
+}

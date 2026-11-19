@@ -1,0 +1,65 @@
+{
+  "hook": "Copiou o ciclo de BPC-157 da amiga e nem sabe de onde ele veio?",
+  "hookIcon": "calendario",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "De onde vem esse ciclo?",
+      "body": "Do uso informal. Não há dados clínicos robustos que definam quanto tempo usar nem pausas obrigatórias. Os ciclos que circulam não vêm de estudo controlado.",
+      "icon": "duvida",
+      "pose": "pensando",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Se a amiga usou e foi bem, é seguro",
+      "body": "Relatos de boa tolerância são anedóticos. A maior parte da evidência de segurança vem de animais, e o BPC-157 não é aprovado para uso humano em nenhum país.",
+      "icon": "errado",
+      "pose": "ih",
+      "layout": "mito"
+    },
+    {
+      "title": "12 semanas",
+      "body": "Além disso, não existem dados sistemáticos de segurança em humanos. Usar sem prazo é andar num terreno que ninguém mediu.",
+      "icon": "ampulheta",
+      "pose": "alerta",
+      "layout": "numero"
+    },
+    {
+      "title": "Quem deve ficar de fora?",
+      "body": "Quem tem câncer ativo ou histórico recente: o efeito de formar vasos, que ajudaria a cicatrizar, preocupa em contexto de tumor. Gestantes e lactantes também, por falta de estudo.",
+      "icon": "escudo",
+      "pose": "explicando",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Pausa certa resolve o frasco ruim",
+      "body": "Não resolve. O mercado cinza tem contaminação frequente, e nenhuma pausa corrige o que está errado dentro do frasco.",
+      "icon": "frasco",
+      "pose": "ih",
+      "layout": "mito"
+    },
+    {
+      "title": "Quando é hora de procurar o médico?",
+      "body": "Dor, febre ou vermelhidão no local da injeção, palpitação, falta de ar ou náusea que não passa. E antes de começar, se você já usa outros remédios.",
+      "icon": "hospital",
+      "pose": "alerta",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Antes de copiar o ciclo de alguém",
+      "body": "Lembre: não é aprovado para uso humano\nConte ao médico seus remédios e histórico\nCâncer na história? Fique de fora\nSintoma estranho? Procure atendimento",
+      "icon": "prancheta",
+      "pose": "apontando",
+      "layout": "passos"
+    }
+  ],
+  "narration": [
+    { "text": "Copiou o ciclo de BPC-157 da amiga? Eu sei, todo mundo faz. Mas você sabe de onde ele veio?", "pose": "ih" },
+    { "text": "Esses ciclos são do uso informal. Não há estudo que defina quanto tempo usar nem quando pausar.", "pose": "explicando" },
+    { "text": "E não existem dados de segurança em humanos além de 12 semanas. Quem tem câncer ou histórico recente não deve usar.", "pose": "alerta" },
+    { "text": "Então, antes de copiar, converse com o médico. O ciclo da amiga é da amiga, não é estudo.", "pose": "piscadinha" }
+  ],
+  "caption": "Eu sei, todo mundo já recebeu aquele ciclo pronto de BPC-157 no grupo, com semanas de uso e semanas de pausa. Só que ninguém conta de onde ele veio: são práticas informais, sem base em estudo controlado. Não há dados clínicos robustos que definam duração ou pausas obrigatórias.\n\nO BPC-157 não é aprovado para uso humano em nenhum país, e a maior parte da evidência de segurança vem de animais. Em humanos, não existem dados sistemáticos de segurança além de 12 semanas, e os relatos de boa tolerância são anedóticos.\n\n⚠️ Quem tem câncer ativo ou histórico recente deve evitar, pela preocupação teórica com a formação de novos vasos. Gestantes e lactantes não têm estudo. O mercado cinza tem contaminação frequente. Dor, febre ou vermelhidão no local da injeção, palpitação, falta de ar ou náusea persistente pedem avaliação médica.\n\n1️⃣ Lembre que o ciclo da internet não é estudo\n2️⃣ Conte ao médico seus remédios e seu histórico\n3️⃣ Sintoma estranho? Procure atendimento",
+  "question": "Você já recebeu um protocolo pronto de peptídeo de alguém do grupo?",
+  "share": "aquela amiga que passa o ciclo de BPC-157 para o grupo todo"
+}

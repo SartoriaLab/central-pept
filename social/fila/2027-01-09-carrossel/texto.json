@@ -1,0 +1,77 @@
+{
+  "hook": "Ninguém te conta: seu frasco pode vencer antes de acabar.",
+  "hookIcon": "ampulheta",
+  "hookPose": "alerta",
+  "slides": [
+    {
+      "title": "28 dias",
+      "layout": "numero",
+      "body": "É quanto a tirzepatida reconstituída dura na geladeira, entre 2 e 8 °C. Depois disso, a perda de potência e o risco de contaminação deixam de ser previsíveis.",
+      "icon": "calendario",
+      "pose": "explicando"
+    },
+    {
+      "title": "Quantas doses rende o meu frasco?",
+      "layout": "pergunta",
+      "body": "Frasco de 10 mg: 4 doses de 2,5 mg. Frasco de 15 mg: 6 doses de 2,5 mg, ou seja, 6 semanas. Esse vence antes de acabar.",
+      "icon": "frasco",
+      "pose": "pensando"
+    },
+    {
+      "title": "Na dose inicial de 2,5 mg",
+      "layout": "lado",
+      "body": "Frasco de 10 mg: fecha a conta em 4 semanas\nFrasco de 15 mg: sobra produto depois dos 28 dias",
+      "icon": "balanca",
+      "pose": "explicando"
+    },
+    {
+      "title": "E o frasco de 60 mg?",
+      "layout": "pergunta",
+      "body": "Com aplicação semanal, só a dose de 15 mg acaba em 4 semanas. Em qualquer dose menor, parte do frasco passa do prazo.",
+      "icon": "alerta",
+      "pose": "ih"
+    },
+    {
+      "title": "10 unidades",
+      "layout": "numero",
+      "body": "Abaixo disso, a dose fica difícil de medir com precisão, o que acontece em concentrações altas. Nesse caso, a seringa de 30 U tem marcações mais finas.",
+      "icon": "regua",
+      "pose": "explicando"
+    },
+    {
+      "title": "Seringa nova ou reaproveitada",
+      "layout": "lado",
+      "body": "Nova a cada aplicação: agulha com corte e frasco protegido\nReaproveitada: agulha romba e contaminação dentro do frasco",
+      "icon": "seringa",
+      "pose": "ih"
+    },
+    {
+      "title": "Cola para guardar",
+      "layout": "passos",
+      "body": "Anote no frasco a data e a concentração\nConte as doses antes dos 28 dias\nMenos de 10 unidades? Seringa de 30 U\nUma seringa por aplicação, na dose do médico",
+      "icon": "certo",
+      "pose": "apontando"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Ninguém te conta isso: o seu frasco de tirzepatida pode vencer antes de acabar.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Depois de reconstituído, ele dura 28 dias na geladeira. Um frasco de 15 mg na dose de 2,5 mg renderia 6 semanas.",
+      "pose": "explicando"
+    },
+    {
+      "text": "Por isso, conte as doses antes de preparar e anote no frasco a data e a concentração.",
+      "pose": "piscadinha"
+    },
+    {
+      "text": "A dose é a que o médico prescreveu; a conta do prazo é sua. E frasco vencendo cheio na geladeira, nunca mais.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, o frasco maior parece que vai durar mais. Mas a tirzepatida reconstituída dura 28 dias na geladeira, entre 2 e 8 °C, e o que passar disso perde a previsibilidade de potência e de segurança.\n\n1️⃣ Frasco de 10 mg na dose inicial de 2,5 mg: 4 doses, a conta fecha em 4 semanas\n2️⃣ Frasco de 15 mg na mesma dose: renderia 6 semanas, então vence antes de acabar\n3️⃣ Frasco de 60 mg com aplicação semanal: só a dose de 15 mg acaba em 4 semanas\n\n⚠️ Concentração alta deixa as doses baixas com menos de 10 unidades, difíceis de medir. A seringa de 30 U tem marcações mais finas. E reutilizar seringa leva contaminação para dentro do frasco.\n\nEtiquete o frasco com data e concentração. A dose é sempre a prescrita pelo médico.",
+  "question": "Qual frasco de tirzepatida você usa hoje?",
+  "share": "quem pega o frasco maior achando que vai render mais"
+}
