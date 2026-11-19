@@ -10,7 +10,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { buildTopics } from './topics';
 import { pickTopic } from './pick';
-import { writeDraft } from './write';
+import { DraftSchema, SYSTEM, draftJsonSchema, userMessage, writeDraft } from './write';
 import { validateDraft } from './validate';
 import { buildCaption } from './caption';
 import { ctaFor, fetchActiveEbookSlugs } from './ebook-cta';
@@ -33,6 +33,41 @@ async function draftFor(topic: Topic): Promise<{ draft: Draft; problems: string[
     problems = validateDraft(draft, topic.source);
   }
   return { draft, problems };
+}
+
+function argValue(flag: string): string | undefined {
+  const i = process.argv.indexOf(flag);
+  return i >= 0 ? process.argv[i + 1] : undefined;
+}
+
+/** Instruções da etapa 1 para o Claude da conversa agendada: as mesmas regras da API. */
+function briefText(topic: Topic, outDir: string, format: Format, dry: boolean): string {
+  const rel = path.relative(process.cwd(), outDir).replaceAll('\\', '/');
+  const flags = `${dry ? ' --dry' : ''}`;
+  return `# Texto do ${format} de hoje
+
+Escreva o rascunho abaixo seguindo as REGRAS e salve como JSON puro (sem markdown) em
+\`${rel}/texto.json\`, no formato do SCHEMA. Depois rode:
+
+    "${process.execPath.replaceAll('\\', '/')}" node_modules/tsx/dist/cli.mjs scripts/social/run.ts ${format} --draft ${rel}${flags}
+
+Se sair "REPROVADO", corrija só o que a lista aponta e rode de novo (até 3 vezes). Se não passar,
+rode a etapa 1 de novo com \`--skip ${topic.id}\` para trocar de tema.
+
+## REGRAS
+
+${SYSTEM}
+
+## SCHEMA
+
+\`\`\`json
+${JSON.stringify(draftJsonSchema(), null, 2)}
+\`\`\`
+
+## PEDIDO
+
+${userMessage(topic, [])}
+`;
 }
 
 /** .env.local do projeto (rodando neste computador). Variável já definida no ambiente prevalece. */
@@ -73,9 +108,42 @@ async function main() {
   const history: HistoryEntry[] = state ? await state.getHistory() : [];
   const topics = buildTopics();
   const active = await fetchActiveEbookSlugs();
+  const outDir = path.join(process.cwd(), 'social', 'out', `${today()}-${format}`);
+
+  // Etapa 1 da conversa agendada: escolhe o tema e deixa as instruções para o Claude da conversa.
+  if (process.argv.includes('--brief')) {
+    const skip = new Set((argValue('--skip') ?? '').split(',').filter(Boolean));
+    const topic = pickTopic(topics, history, format, new Date(), skip);
+    if (!topic) throw new Error('nenhum tema disponível');
+    await fs.mkdir(outDir, { recursive: true });
+    await fs.writeFile(path.join(outDir, 'brief.json'), JSON.stringify({ topic: topic.id, format }, null, 2));
+    await fs.writeFile(path.join(outDir, 'brief.md'), briefText(topic, outDir, format, dry));
+    console.log(`Tema: ${topic.id} (${topic.category})`);
+    console.log(`Instruções em ${path.join(outDir, 'brief.md')}`);
+    return;
+  }
+
+  let chosen: { topic: Topic; draft: Draft } | null = null;
+
+  // Etapa 2: o texto escrito pelo Claude da conversa (texto.json) passa pela mesma validação.
+  const draftDir = argValue('--draft');
+  if (draftDir) {
+    const brief = JSON.parse(await fs.readFile(path.join(draftDir, 'brief.json'), 'utf8')) as { topic: string };
+    const topic = topics.find((t) => t.id === brief.topic);
+    if (!topic) throw new Error(`tema ${brief.topic} não existe mais`);
+    const parsed = DraftSchema.safeParse(JSON.parse(await fs.readFile(path.join(draftDir, 'texto.json'), 'utf8')));
+    const problems = parsed.success
+      ? validateDraft(parsed.data as Draft, topic.source)
+      : parsed.error.issues.map((i) => `${i.path.join('.') || 'texto'}: ${i.message}`);
+    if (problems.length) {
+      console.log(`REPROVADO. Corrija em texto.json e rode de novo:\n- ${problems.join('\n- ')}`);
+      process.exitCode = 2;
+      return;
+    }
+    chosen = { topic, draft: parsed.data as Draft };
+  }
 
   const tried = new Set<string>();
-  let chosen: { topic: Topic; draft: Draft } | null = null;
   while (!chosen && tried.size < MAX_TOPICS) {
     const topic = pickTopic(topics, history, format, new Date(), tried);
     if (!topic) break;
@@ -96,7 +164,6 @@ async function main() {
   const { topic, draft } = chosen;
   const cta = ctaFor(topic, active);
   const caption = buildCaption(draft, topic, cta);
-  const outDir = path.join(process.cwd(), 'social', 'out', `${today()}-${format}`);
   const files = format === 'carrossel' ? await renderCarousel(draft, topic, cta, outDir) : [await renderReel(draft, topic, cta, outDir)];
   await fs.writeFile(path.join(outDir, 'legenda.txt'), caption);
   await fs.writeFile(path.join(outDir, 'rascunho.json'), JSON.stringify({ topic: topic.id, cta: cta?.id ?? null, draft }, null, 2));

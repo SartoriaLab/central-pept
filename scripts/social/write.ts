@@ -17,7 +17,7 @@ export const MODEL = 'claude-opus-5-5';
 
 const POSE_LIST = Object.entries(POSE_HINTS).map(([k, d]) => `${k} (${d})`).join('; ');
 
-const DraftSchema = z.object({
+export const DraftSchema = z.object({
   hook: z.string().describe(`Frase da capa, até ${LIMITS.hook} caracteres: a mania ou o erro do dia a dia que a pessoa reconhece. Nunca um cumprimento.`),
   hookIcon: z.enum(ILLUSTRATION_KEYS).describe('Ilustração da capa, diferente das dos slides (mesma lista do campo icon dos slides).'),
   hookPose: z.enum(POSES).describe(`Pose da Gotinha na capa e no gancho: ${POSE_LIST}.`),
@@ -52,7 +52,7 @@ const DraftSchema = z.object({
     .describe(`Para quem a pessoa mandaria este post, até ${LIMITS.share} caracteres, completando "Manda pra ...": uma pessoa concreta ligada à mania do dia (ex.: "aquela amiga que também come correndo", "quem guarda a caneta na porta da geladeira"). Sem o "Manda pra".`),
 });
 
-const SYSTEM = `Você escreve o conteúdo diário do Instagram @dosecerta_br ("Dose Certa | Peptídeos sem achismo"), um perfil educativo do site Central Peptídeos. Público: principalmente mulheres brasileiras de 30 a 55 anos que usam ou pensam em usar tirzepatida, semaglutida e outros peptídeos e querem fazer certo.
+export const SYSTEM = `Você escreve o conteúdo diário do Instagram @dosecerta_br ("Dose Certa | Peptídeos sem achismo"), um perfil educativo do site Central Peptídeos. Público: principalmente mulheres brasileiras de 30 a 55 anos que usam ou pensam em usar tirzepatida, semaglutida e outros peptídeos e querem fazer certo.
 
 Quem fala é a Gotinha, a mascote do perfil: uma gota amarela simpática, protagonista de todo vídeo e de todo carrossel. Ela fala em primeira pessoa, olhando para a câmera, como aquela amiga que entende do assunto e explica sem enrolar. Descontraída, porém informativa: a graça está no jeito de falar, a informação continua exata.
 
@@ -84,7 +84,7 @@ Estilo:
 - Legenda: na voz da Gotinha também; o primeiro bloco acolhe quem tem a mania ("Eu sei, todo mundo faz") e explica o porquê; quem não arrasta os slides precisa sair com o conteúdo. 2 a 4 blocos curtos; se houver passos, numere com 1️⃣ 2️⃣ 3️⃣; se houver um erro comum ou risco, um bloco começando com ⚠️. Use as palavras que a pessoa digitaria na busca (nome do peptídeo, "dose", "unidades", "seringa", "efeito colateral").
 - Pergunta dos comentários: concreta e fácil de responder em poucas palavras (ex.: "Qual frasco e quanta água você usa?", "Em qual semana o enjoo apareceu para você?"). Nunca peça que a pessoa conte a dose para receber uma indicação.`;
 
-function userMessage(topic: Topic, previousProblems: string[]): string {
+export function userMessage(topic: Topic, previousProblems: string[]): string {
   const retry = previousProblems.length
     ? `\n\nA tentativa anterior foi descartada por estes problemas; corrija todos:\n- ${previousProblems.join('\n- ')}`
     : '';

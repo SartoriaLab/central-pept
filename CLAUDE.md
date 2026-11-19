@@ -100,17 +100,21 @@ Feed, sitemap, busca, páginas de tag e imagem de compartilhamento saem sozinhos
 
 ## Instagram @dosecerta_br (automático)
 
-1. Roda no computador do dono, pelo Agendador do Windows (`npm run social:agendar` cria as tarefas
-   `\DoseCerta\`): carrossel todo dia às 12h e Reels às 19h30 de domingo, segunda, quarta e sexta
-   enquanto a conta aquece (dias em `agendar.ps1`). Só com o usuário logado; desligado no horário →
-   roda ao entrar. `agendado.ps1` usa o Node 20 do nvm, lê o `.env.local` e grava `social/logs/`.
-   Um post por formato por dia (`publishedOn`; `--force` passa por cima). O workflow do GitHub ficou
-   só manual (precisa de `ANTHROPIC_API_KEY`): não volte o `schedule` lá, seriam dois robôs.
-   Pausa: `SOCIAL_PAUSED=1` no ambiente/`.env.local`. Setup: `docs/instagram-setup.md` (Parte 7).
+1. Roda no computador do dono por **tarefas agendadas do app Claude** (`dosecerta-carrossel` todo
+   dia às 12h; `dosecerta-reels` às 19h30 de domingo, segunda, quarta e sexta enquanto a conta
+   aquece; prompts em `~/.claude/scheduled-tasks/`). Cada uma abre uma conversa que roda
+   `run.ts <formato> --brief` (escolhe o tema e grava `brief.md` com regras, schema e fonte), escreve
+   ela mesma o `texto.json` e roda `--draft <pasta>` (mesma validação, render e publicação; exit 2 =
+   reprovado). Sem chave de API nem token. Precisa do app aberto; fechado no horário → roda ao abrir.
+   Um post por formato por dia (`publishedOn`; `--force` passa por cima); sem as variáveis de
+   publicação no `.env.local` para logo no começo. O workflow do GitHub ficou só manual (precisa de
+   `ANTHROPIC_API_KEY`): não volte o `schedule` lá, seriam dois robôs. Alternativa sem o app:
+   Agendador do Windows (`npm run social:agendar`, `agendado.ps1`) com `claude -p`.
+   Pausa: desative as tarefas no app ou `SOCIAL_PAUSED=1`. Setup: `docs/instagram-setup.md` (Parte 7).
 2. Código em `scripts/social/` (rodado com `tsx`): temas saem de posts, fichas e comparativos
    (`topics.ts`; posts de compra/preço e Melanotan II ficam fora), o Claude escreve (`write.ts`: API
    com `ANTHROPIC_API_KEY`; sem ela, `claude -p` da assinatura, com `CLAUDE_CODE_OAUTH_TOKEN` do
-   `claude setup-token` no `.env.local` para rodar agendado) e
+   `claude setup-token`; nas tarefas do app, a própria conversa escreve) e
    `validate.ts` barra número que não está na fonte e linguagem de venda. Slide e fala final do guia
    seguem `ebookFor*` (`ebook-cta.ts`).
 3. `npm run social:preview` renderiza um exemplo sem API; `npm run social:carrossel -- --dry` gera de

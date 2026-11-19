@@ -168,24 +168,27 @@ Kit. Código: `app/api/instagram/webhook/route.ts` e `lib/instagram-dm.ts`.
 
 ## Parte 7 — Robô neste computador (sem GitHub e sem chave da Anthropic)
 
-O texto sai do Claude Code instalado aqui, na sua assinatura; quem dispara é o Agendador do Windows.
-Carrossel todo dia às 12h; Reels às 19h30 de domingo, segunda, quarta e sexta. Só roda com você
-logado; se o computador estava desligado no horário, roda quando você entrar.
+Duas **tarefas agendadas do app Claude** (barra lateral → Agendadas): "Dose Certa: carrossel do dia"
+todo dia às 12h e "Dose Certa: Reels" às 19h30 de domingo, segunda, quarta e sexta. Cada uma abre
+uma conversa que escolhe o tema, escreve o texto e publica, na sua assinatura. O app precisa estar
+aberto; se estava fechado no horário, a tarefa roda quando você abrir.
 
-1. **Login do Claude Code para tarefas agendadas:** num terminal, `claude setup-token`, autorize no
-   navegador e copie o token que aparece.
-2. **`.env.local`** (na pasta do projeto; não vai para o git): acrescente uma linha por variável, no
+1. **`.env.local`** (na pasta do projeto; não vai para o git): acrescente uma linha por variável, no
    formato `NOME=valor`:
-   - `CLAUDE_CODE_OAUTH_TOKEN`: o token do passo 1;
    - `DATABASE_URL` e `BLOB_READ_WRITE_TOKEN`: os mesmos da Vercel (`vercel env pull` traz os dois);
    - `IG_USER_ID` e `IG_ACCESS_TOKEN`: o ID e o token do Instagram (Parte 3);
    - opcional: `ELEVENLABS_API_KEY` e `ELEVENLABS_VOICE_ID` (Parte 5).
-3. **Teste sem publicar:** `powershell -ExecutionPolicy Bypass -File scripts\social\agendado.ps1
-   -Formato carrossel -Dry`. Os arquivos ficam em `social/out/` e o log em `social/logs/`.
-4. **Ligar:** `npm run social:agendar` cria as tarefas (Agendador de Tarefas → pasta DoseCerta).
-   Para desligar: `npm run social:agendar -- -Remover`, ou desative a tarefa no Agendador.
-5. **Postar na hora:** no Agendador, botão direito na tarefa → **Executar**; ou o comando do passo 3
-   sem `-Dry`. Se já saiu post daquele formato no dia, ele não publica de novo (`-Force` publica).
+   Sem elas, a tarefa para no começo com "faltam variáveis" e não gasta nada.
+2. **Primeira vez:** abra a tarefa no app e clique **Executar agora**. Aprove o Bash e a escrita de
+   arquivo quando pedir: o app guarda essas aprovações e as próximas rodam sozinhas.
+3. **Postar na hora:** **Executar agora** na tarefa. Se já saiu post daquele formato no dia, não
+   publica de novo.
+4. **Pausar:** desative a tarefa no app.
+
+Sem o app aberto, a alternativa é o Agendador do Windows com o `claude` de linha de comando:
+`claude setup-token`, `CLAUDE_CODE_OAUTH_TOKEN` no `.env.local` e `npm run social:agendar`
+(remover: `npm run social:agendar -- -Remover`). Teste sem publicar:
+`powershell -ExecutionPolicy Bypass -File scripts\social\agendado.ps1 -Formato carrossel -Dry`.
 
 ---
 
