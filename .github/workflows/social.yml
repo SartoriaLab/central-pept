@@ -1,13 +1,15 @@
 name: Instagram diário
 
-# Carrossel às 12h e Reels às 19h30 (Brasília, UTC-3). O GitHub pode atrasar o cron alguns minutos.
+# Carrossel todo dia às 12h e Reels às 19h30 de domingo, segunda, quarta e sexta (Brasília, UTC-3),
+# enquanto a conta aquece; depois, Reels todo dia: troque `0,1,3,5` por `*`. O GitHub pode atrasar
+# o cron alguns minutos.
 # Pausar: variável do repositório SOCIAL_PAUSED = 1 (Settings → Secrets and variables → Variables).
 # Spec: docs/superpowers/specs/2026-11-15-instagram-dosecerta-design.md
 
 on:
   schedule:
     - cron: '0 15 * * *'   # carrossel
-    - cron: '30 22 * * *'  # reels
+    - cron: '30 22 * * 0,1,3,5'  # reels (22h30 UTC = 19h30 em Brasília, mesmo dia)
   workflow_dispatch:
     inputs:
       format:

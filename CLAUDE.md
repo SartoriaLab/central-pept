@@ -100,7 +100,8 @@ Feed, sitemap, busca, páginas de tag e imagem de compartilhamento saem sozinhos
 
 ## Instagram @dosecerta_br (automático)
 
-1. GitHub Actions (`.github/workflows/social.yml`) publica carrossel às 12h e Reels às 19h30 (Brasília).
+1. GitHub Actions (`.github/workflows/social.yml`) publica carrossel todo dia às 12h e Reels às 19h30
+   (Brasília) de domingo, segunda, quarta e sexta enquanto a conta aquece (dias no cron do Reels).
    Pausa: variável do repo `SOCIAL_PAUSED=1`. Setup da conta e segredos: `docs/instagram-setup.md`.
 2. Código em `scripts/social/` (rodado com `tsx`): temas saem de posts, fichas e comparativos
    (`topics.ts`; posts de compra/preço e Melanotan II ficam fora), o Claude escreve (`write.ts`) e
