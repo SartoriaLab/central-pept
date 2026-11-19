@@ -1,15 +1,12 @@
 name: Instagram diário
 
-# Carrossel todo dia às 12h e Reels às 19h30 de domingo, segunda, quarta e sexta (Brasília, UTC-3),
-# enquanto a conta aquece; depois, Reels todo dia: troque `0,1,3,5` por `*`. O GitHub pode atrasar
-# o cron alguns minutos.
+# Só disparo manual. Os posts agendados rodam no computador do dono, pelo Agendador do Windows
+# (scripts/social/agendar.ps1), com o texto pelo Claude Code dele; este workflow precisa do segredo
+# ANTHROPIC_API_KEY. Não ponha `schedule` aqui de novo: seriam dois robôs postando.
 # Pausar: variável do repositório SOCIAL_PAUSED = 1 (Settings → Secrets and variables → Variables).
 # Spec: docs/superpowers/specs/2026-11-15-instagram-dosecerta-design.md
 
 on:
-  schedule:
-    - cron: '0 15 * * *'   # carrossel
-    - cron: '30 22 * * 0,1,3,5'  # reels (22h30 UTC = 19h30 em Brasília, mesmo dia)
   workflow_dispatch:
     inputs:
       format:
@@ -47,14 +44,8 @@ jobs:
       - name: Formato
         id: fmt
         run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            echo "format=${{ inputs.format }}" >> "$GITHUB_OUTPUT"
-            echo "dry=${{ inputs.dry && '--dry' || '' }}" >> "$GITHUB_OUTPUT"
-          elif [ "${{ github.event.schedule }}" = "0 15 * * *" ]; then
-            echo "format=carrossel" >> "$GITHUB_OUTPUT"
-          else
-            echo "format=reels" >> "$GITHUB_OUTPUT"
-          fi
+          echo "format=${{ inputs.format }}" >> "$GITHUB_OUTPUT"
+          echo "dry=${{ inputs.dry && '--dry' || '' }}" >> "$GITHUB_OUTPUT"
 
       - name: Gerar e publicar
         run: npx tsx scripts/social/run.ts ${{ steps.fmt.outputs.format }} ${{ steps.fmt.outputs.dry }}

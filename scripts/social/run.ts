@@ -1,8 +1,11 @@
 // Publicação diária do @dosecerta_br. Uso:
-//   tsx scripts/social/run.ts carrossel|reels [--dry]
+//   tsx scripts/social/run.ts carrossel|reels [--dry] [--force]
 // --dry: escolhe, escreve, valida e renderiza em social/out/, sem publicar nem gravar no banco
 // (sem DATABASE_URL usa histórico vazio). SOCIAL_PAUSED=1 desliga tudo.
-// Segredos: ANTHROPIC_API_KEY, DATABASE_URL, IG_USER_ID, IG_ACCESS_TOKEN, BLOB_READ_WRITE_TOKEN.
+// Um post por formato por dia: se já saiu, não publica de novo (--force publica mesmo assim).
+// Variáveis: DATABASE_URL, IG_USER_ID, IG_ACCESS_TOKEN, BLOB_READ_WRITE_TOKEN e, para o texto,
+// ANTHROPIC_API_KEY ou o Claude Code deste computador (write.ts). Lidas do .env.local, se existir.
+// Agendado no Windows: scripts/social/agendar.ps1.
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { buildTopics } from './topics';
@@ -32,18 +35,41 @@ async function draftFor(topic: Topic): Promise<{ draft: Draft; problems: string[
   return { draft, problems };
 }
 
+/** .env.local do projeto (rodando neste computador). Variável já definida no ambiente prevalece. */
+function loadLocalEnv(): void {
+  const file = path.join(process.cwd(), '.env.local');
+  const load = (process as { loadEnvFile?: (p: string) => void }).loadEnvFile;
+  try {
+    load?.(file);
+  } catch {
+    // Sem .env.local (GitHub Actions): segue com o ambiente.
+  }
+}
+
 async function main() {
+  loadLocalEnv();
   const format = process.argv[2] as Format;
   const dry = process.argv.includes('--dry');
-  if (format !== 'carrossel' && format !== 'reels') throw new Error('uso: run.ts carrossel|reels [--dry]');
+  const force = process.argv.includes('--force');
+  if (format !== 'carrossel' && format !== 'reels') throw new Error('uso: run.ts carrossel|reels [--dry] [--force]');
   if (process.env.SOCIAL_PAUSED === '1') {
     console.log('SOCIAL_PAUSED=1: nada a fazer.');
     return;
   }
 
+  if (!dry) {
+    // Confere antes de gastar o Claude com o texto: sem estas não há como publicar.
+    const missing = ['DATABASE_URL', 'IG_USER_ID', 'IG_ACCESS_TOKEN', 'BLOB_READ_WRITE_TOKEN'].filter((k) => !process.env[k]?.trim());
+    if (missing.length) throw new Error(`faltam variáveis para publicar (.env.local): ${missing.join(', ')}`);
+  }
+
   const useDb = !dry || !!process.env.DATABASE_URL;
   const state = useDb ? await import('./state') : null;
   if (state) await state.ensureTables();
+  if (state && !dry && !force && (await state.publishedOn(format, today()))) {
+    console.log(`Já saiu ${format} hoje (${today()}): nada a fazer. Use --force para publicar outro.`);
+    return;
+  }
   const history: HistoryEntry[] = state ? await state.getHistory() : [];
   const topics = buildTopics();
   const active = await fetchActiveEbookSlugs();

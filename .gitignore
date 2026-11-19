@@ -27,3 +27,4 @@ next-env.d.ts
 
 # Arquivos gerados pela automação do Instagram (scripts/social)
 /social/out/
+/social/logs/

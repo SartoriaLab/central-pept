@@ -15,7 +15,8 @@
     "social:carrossel": "tsx scripts/social/run.ts carrossel",
     "social:reels": "tsx scripts/social/run.ts reels",
     "social:preview": "tsx scripts/social/preview.ts",
-    "social:gotinha": "tsx scripts/social/mascot-sheet.tsx"
+    "social:gotinha": "tsx scripts/social/mascot-sheet.tsx",
+    "social:agendar": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/social/agendar.ps1"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^1.8.0",

@@ -1,5 +1,9 @@
 // Roteiro do dia pelo Claude: um rascunho serve para carrossel e Reels (slides, falas e
 // legenda). A fonte vai na mensagem do usuário; o sistema é fixo (cacheável).
+// Com ANTHROPIC_API_KEY usa a API; sem ela, o Claude Code instalado neste computador (`claude -p`,
+// assinatura do usuário; para rodar agendado, CLAUDE_CODE_OAUTH_TOKEN do `claude setup-token`).
+import { spawn } from 'node:child_process';
+import os from 'node:os';
 import Anthropic from '@anthropic-ai/sdk';
 import { betaZodOutputFormat } from '@anthropic-ai/sdk/helpers/beta/zod';
 import { z } from 'zod/v4';
@@ -80,11 +84,20 @@ Estilo:
 - Legenda: na voz da Gotinha também; o primeiro bloco acolhe quem tem a mania ("Eu sei, todo mundo faz") e explica o porquê; quem não arrasta os slides precisa sair com o conteúdo. 2 a 4 blocos curtos; se houver passos, numere com 1️⃣ 2️⃣ 3️⃣; se houver um erro comum ou risco, um bloco começando com ⚠️. Use as palavras que a pessoa digitaria na busca (nome do peptídeo, "dose", "unidades", "seringa", "efeito colateral").
 - Pergunta dos comentários: concreta e fácil de responder em poucas palavras (ex.: "Qual frasco e quanta água você usa?", "Em qual semana o enjoo apareceu para você?"). Nunca peça que a pessoa conte a dose para receber uma indicação.`;
 
-export async function writeDraft(topic: Topic, previousProblems: string[] = [], client = new Anthropic()): Promise<Draft> {
+function userMessage(topic: Topic, previousProblems: string[]): string {
   const retry = previousProblems.length
     ? `\n\nA tentativa anterior foi descartada por estes problemas; corrija todos:\n- ${previousProblems.join('\n- ')}`
     : '';
+  return `TEMA: ${topic.title}\n\nFONTE:\n${topic.source}${retry}`;
+}
 
+export async function writeDraft(topic: Topic, previousProblems: string[] = [], client?: Anthropic): Promise<Draft> {
+  const user = userMessage(topic, previousProblems);
+  if (client || process.env.ANTHROPIC_API_KEY?.trim()) return writeWithApi(topic, user, client ?? new Anthropic());
+  return writeWithCli(topic, user);
+}
+
+async function writeWithApi(topic: Topic, user: string, client: Anthropic): Promise<Draft> {
   const response = await client.beta.messages.parse({
     model: MODEL,
     max_tokens: 16000,
@@ -92,12 +105,7 @@ export async function writeDraft(topic: Topic, previousProblems: string[] = [], 
     fallbacks: 'default',
     output_config: { effort: 'medium', format: betaZodOutputFormat(DraftSchema) },
     system: [{ type: 'text', text: SYSTEM, cache_control: { type: 'ephemeral' } }],
-    messages: [
-      {
-        role: 'user',
-        content: `TEMA: ${topic.title}\n\nFONTE:\n${topic.source}${retry}`,
-      },
-    ],
+    messages: [{ role: 'user', content: user }],
   });
 
   if (response.stop_reason === 'refusal') {
@@ -107,4 +115,86 @@ export async function writeDraft(topic: Topic, previousProblems: string[] = [], 
   const draft = response.parsed_output;
   if (!draft) throw new Error(`Resposta sem JSON válido no tema ${topic.id}`);
   return draft;
+}
+
+const CLI_TIMEOUT_MS = 10 * 60_000;
+
+/**
+ * Ambiente do `claude` filho: sem as variáveis de uma sessão do Claude Code/Desktop que porventura
+ * chamou o robô (elas trocam o login e o endereço da API). Fica o token de longa duração.
+ */
+export function cliEnv(env: Record<string, string | undefined>): Record<string, string | undefined> {
+  const out: Record<string, string | undefined> = {};
+  for (const [k, v] of Object.entries(env)) {
+    if (/^(CLAUDE|ANTHROPIC)/.test(k) && k !== 'CLAUDE_CODE_OAUTH_TOKEN') continue;
+    out[k] = v;
+  }
+  return out;
+}
+
+/** JSON do `claude -p --output-format json`: devolve a saída estruturada ou explica a falha. */
+export function parseCliOutput(stdout: string, topicId: string): unknown {
+  let res: { is_error?: boolean; result?: string; structured_output?: unknown };
+  try {
+    res = JSON.parse(stdout);
+  } catch {
+    throw new Error(`Claude Code devolveu algo que não é JSON no tema ${topicId}: ${stdout.slice(0, 300)}`);
+  }
+  if (res.is_error) {
+    const hint = /authenticate|OAuth|login/i.test(res.result ?? '')
+      ? ' (rode `claude setup-token` e ponha CLAUDE_CODE_OAUTH_TOKEN no .env.local)'
+      : '';
+    throw new Error(`Claude Code falhou no tema ${topicId}: ${res.result ?? 'sem mensagem'}${hint}`);
+  }
+  if (res.structured_output !== undefined) return res.structured_output;
+  try {
+    return JSON.parse(res.result ?? '');
+  } catch {
+    throw new Error(`Resposta sem JSON válido no tema ${topicId}`);
+  }
+}
+
+/** Schema do rascunho para o `--json-schema` (o validador do claude não aceita o `$schema` 2020-12). */
+export function draftJsonSchema(): Record<string, unknown> {
+  const { $schema: _ignored, ...schema } = z.toJSONSchema(DraftSchema) as Record<string, unknown>;
+  return schema;
+}
+
+async function writeWithCli(topic: Topic, user: string): Promise<Draft> {
+  const args = [
+    '-p',
+    '--output-format', 'json',
+    '--json-schema', JSON.stringify(draftJsonSchema()),
+    '--system-prompt', SYSTEM,
+    '--model', MODEL,
+    '--effort', 'medium',
+    '--tools', '',
+    '--strict-mcp-config',
+    '--no-session-persistence',
+  ];
+  const stdout = await new Promise<string>((resolve, reject) => {
+    const child = spawn(process.env.CLAUDE_BIN || 'claude', args, {
+      env: cliEnv(process.env) as NodeJS.ProcessEnv,
+      // Fora do projeto: sem CLAUDE.md, configurações e permissões da pasta do site.
+      cwd: os.tmpdir(),
+      windowsHide: true,
+    });
+    let out = '';
+    let err = '';
+    const timer = setTimeout(() => child.kill(), CLI_TIMEOUT_MS);
+    child.stdout.on('data', (d) => (out += d));
+    child.stderr.on('data', (d) => (err += d));
+    child.on('error', (e) => {
+      clearTimeout(timer);
+      reject(new Error(`não achei o Claude Code (comando claude): ${e.message}`));
+    });
+    child.on('close', () => {
+      clearTimeout(timer);
+      // Erros de login e de API também saem no JSON, com código diferente de zero: quem decide é o parse.
+      if (out.trim()) resolve(out);
+      else reject(new Error(`Claude Code saiu sem resposta no tema ${topic.id}: ${err.slice(0, 500)}`));
+    });
+    child.stdin.end(user);
+  });
+  return DraftSchema.parse(parseCliOutput(stdout, topic.id)) as Draft;
 }

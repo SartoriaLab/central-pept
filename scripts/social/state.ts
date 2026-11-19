@@ -78,6 +78,23 @@ export async function releaseDm(commentId: string): Promise<void> {
   await db.delete(socialDms).where(eq(socialDms.commentId, commentId));
 }
 
+/** Já saiu um post deste formato no dia `day` (AAAA-MM-DD, horário de Brasília)? */
+export async function publishedOn(format: Format, day: string): Promise<boolean> {
+  const rows = await db
+    .select({ id: socialPosts.id })
+    .from(socialPosts)
+    .where(
+      and(
+        eq(socialPosts.format, format),
+        eq(socialPosts.status, 'publicado'),
+        // created_at é gravado em UTC (now() do Postgres na Neon).
+        sql`(${socialPosts.createdAt} AT TIME ZONE 'UTC' AT TIME ZONE 'America/Sao_Paulo')::date = ${day}::date`,
+      ),
+    )
+    .limit(1);
+  return rows.length > 0;
+}
+
 /** Publicados e reprovados dos últimos `days` dias (ambos contam na quarentena do tema). */
 export async function getHistory(days = 120): Promise<HistoryEntry[]> {
   const since = new Date(Date.now() - days * 86_400_000);

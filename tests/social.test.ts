@@ -14,6 +14,7 @@ import { EXIT_COUPON } from '@/lib/ebooks';
 import crypto from 'node:crypto';
 import { ctaFor } from '@/scripts/social/ebook-cta';
 import { FB_BASE, IG_BASE, InstagramClient, tokenShape } from '@/scripts/social/instagram';
+import { cliEnv, parseCliOutput } from '@/scripts/social/write';
 import { toSpeech } from '@/scripts/social/render';
 import { nobreak } from '@/scripts/social/slides';
 import { beatsFor, chunkWords } from '@/scripts/social/captions';
@@ -329,6 +330,32 @@ describe('InstagramClient', () => {
     expect(err).toContain('token desconhecido, 18 chars, com caracteres fora do padrão');
     expect(err).not.toContain('segredo');
     expect(tokenShape('IGAAabc')).toBe('token IG, 7 chars');
+  });
+});
+
+describe('texto pelo Claude Code (sem chave de API)', () => {
+  it('usa a saída estruturada do claude -p', () => {
+    const out = JSON.stringify({ type: 'result', is_error: false, result: '', structured_output: { hook: 'Oi?' } });
+    expect(parseCliOutput(out, 't1')).toEqual({ hook: 'Oi?' });
+  });
+
+  it('cai para o JSON do campo result quando não há saída estruturada', () => {
+    const out = JSON.stringify({ is_error: false, result: '{"hook":"Oi?"}' });
+    expect(parseCliOutput(out, 't1')).toEqual({ hook: 'Oi?' });
+  });
+
+  it('erro de login explica como resolver', () => {
+    const out = JSON.stringify({ is_error: true, result: 'Failed to authenticate: OAuth session expired' });
+    expect(() => parseCliOutput(out, 't1')).toThrow(/claude setup-token/);
+  });
+
+  it('saída que não é JSON vira erro claro', () => {
+    expect(() => parseCliOutput('Error: boom', 't1')).toThrow('não é JSON');
+  });
+
+  it('tira do ambiente as variáveis de sessão do Claude, mas mantém o token de longa duração', () => {
+    const env = cliEnv({ PATH: 'p', ANTHROPIC_BASE_URL: 'x', CLAUDE_CODE_SIMPLE: '1', CLAUDECODE: '1', CLAUDE_CODE_OAUTH_TOKEN: 't' });
+    expect(env).toEqual({ PATH: 'p', CLAUDE_CODE_OAUTH_TOKEN: 't' });
   });
 });
 
