@@ -1,0 +1,70 @@
+{
+  "hook": "Até 44% têm náusea no Wegovy. Não é só com você.",
+  "hookIcon": "enjoo",
+  "hookPose": "pensando",
+  "slides": [
+    {
+      "title": "Até 44%",
+      "layout": "numero",
+      "body": "É até quanto a náusea aparece com o Wegovy, a semaglutida para controle de peso. No Ozempic, passa de 20%. Ou seja: é uma queixa comum, não um defeito seu.",
+      "icon": "microscopio",
+      "pose": "explicando"
+    },
+    {
+      "title": "E na liraglutida, a diária?",
+      "layout": "padrao",
+      "body": "Náusea, diarreia, constipação e vômito também são os efeitos mais comuns dela. A ficha diz que, em geral, são transitórios.",
+      "icon": "calendario",
+      "pose": "pensando"
+    },
+    {
+      "title": "Trocar de caneta acaba com o enjoo",
+      "layout": "mito",
+      "body": "Eu sei, é a primeira ideia. Mas as duas têm náusea entre os efeitos mais comuns. Trocar não é garantia de estômago tranquilo: isso se decide com o médico.",
+      "icon": "errado",
+      "pose": "ih"
+    },
+    {
+      "title": "Por que as queixas se parecem",
+      "layout": "padrao",
+      "body": "As duas ativam o mesmo receptor, o GLP-1, e retardam o esvaziamento do estômago. Mesma família, queixas parecidas.",
+      "icon": "prato",
+      "pose": "explicando"
+    },
+    {
+      "title": "Enjoo que não passa é só aguentar",
+      "layout": "mito",
+      "body": "Não é. Na liraglutida, pancreatite e pedra na vesícula são raras, mas descritas. Enjoo que não melhora ou dor forte na barriga é assunto para o médico.",
+      "icon": "hospital",
+      "pose": "alerta"
+    },
+    {
+      "title": "A cola do enjoo",
+      "layout": "passos",
+      "body": "Náusea é comum nas duas: não é só com você\nNa liraglutida, em geral passa\nTrocar de caneta não é garantia\nNão melhorou ou dói muito? Fale com o médico",
+      "icon": "certo",
+      "pose": "apontando"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Até 44% das pessoas tiveram náusea com o Wegovy. Então não, esse enjoo não é só com você.",
+      "pose": "pensando"
+    },
+    {
+      "text": "Na liraglutida, a diária, náusea, diarreia e constipação também estão entre os efeitos mais comuns, e em geral passam.",
+      "pose": "explicando"
+    },
+    {
+      "text": "As duas agem no mesmo receptor e deixam o estômago esvaziar mais devagar. Por isso trocar de uma pra outra não é garantia.",
+      "pose": "ih"
+    },
+    {
+      "text": "Enjoo que não melhora ou dor forte na barriga é conversa com o médico. E lembra: até 44%, não é só com você.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, quando o enjoo aparece, a gente acha que só está acontecendo com a gente, ou que trocar de caneta resolve. Só que, na semaglutida e na liraglutida, a náusea está entre os efeitos colaterais mais comuns.\n\n1️⃣ Semaglutida (Ozempic, Wegovy): a náusea passa de 20% no Ozempic e chega a até 44% no Wegovy\n2️⃣ Liraglutida (Saxenda, Victoza): náusea, diarreia, constipação e vômito são os efeitos mais comuns e, em geral, transitórios\n3️⃣ As duas ativam o receptor de GLP-1 e retardam o esvaziamento do estômago, por isso as queixas se parecem\n\n⚠️ Trocar uma pela outra não é garantia de acabar com o enjoo: dose e escolha são sempre com o médico. Na liraglutida, pancreatite e pedra na vesícula são raras, mas descritas. Enjoo que não melhora ou dor abdominal forte pede consulta.",
+  "question": "Em qual semana o enjoo apareceu para você?",
+  "share": "aquela amiga que acha que só ela enjoa com a caneta"
+}

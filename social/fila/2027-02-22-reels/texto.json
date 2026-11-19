@@ -1,0 +1,77 @@
+{
+  "hook": "Mito: a glicada do primeiro mês já diz se o Mounjaro funciona.",
+  "hookIcon": "prancheta",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "2 a 3 meses",
+      "body": "É o período que a hemoglobina glicada resume: a média da glicose desse intervalo. O exame do primeiro mês ainda carrega boa parte do tempo de antes do remédio.",
+      "icon": "calendario",
+      "pose": "explicando",
+      "layout": "numero"
+    },
+    {
+      "title": "Se a glicada não caiu no primeiro mês, não funcionou",
+      "body": "Cedo demais. O exame só mostra o efeito completo depois de 2 a 3 meses em dose estável. Antes de 3 meses em dose estável, é cedo para concluir.",
+      "icon": "errado",
+      "pose": "ih",
+      "layout": "mito"
+    },
+    {
+      "title": "Mas a dose de 2,5 mg já age na glicose?",
+      "body": "Age. No diabetes, a dose inicial já reduz a glicose. Mas ela serve para o corpo se acostumar, e a bula pede pelo menos 4 semanas em cada degrau.",
+      "icon": "alvo",
+      "pose": "pensando",
+      "layout": "pergunta"
+    },
+    {
+      "title": "5 mg",
+      "body": "É a menor dose de manutenção prevista em bula, depois das quatro semanas iniciais. É quando a glicemia de jejum costuma cair de forma mais consistente.",
+      "icon": "grafico-desce",
+      "pose": "apontando",
+      "layout": "numero"
+    },
+    {
+      "title": "Quanto a glicada caiu no estudo?",
+      "body": "No SURPASS-2, com diabetes tipo 2, caiu de 2,01 a 2,30 pontos percentuais em 40 semanas, conforme a dose. É resultado de estudo, com acompanhamento, não promessa.",
+      "icon": "microscopio",
+      "pose": "explicando",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Exame ruim é sinal pra subir a dose por conta",
+      "body": "Subida é com o médico. Antes, vale conferir doses puladas, a conta de unidades no frasco e a conservação: produto mal conservado ou falsificado perde efeito.",
+      "icon": "alerta",
+      "pose": "alerta",
+      "layout": "mito"
+    },
+    {
+      "title": "Cola do exame",
+      "body": "Glicada resume 2 a 3 meses\nConte o tempo em dose estável\nConfira doses puladas e unidades\nLeve o resultado ao médico",
+      "icon": "certo",
+      "pose": "piscadinha",
+      "layout": "passos"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Mito: a glicada do primeiro mês já diz se o Mounjaro está funcionando. Eu sei, a ansiedade pelo exame é grande.",
+      "pose": "ih"
+    },
+    {
+      "text": "A hemoglobina glicada mostra a média da glicose de 2 a 3 meses. Por isso, o efeito completo só aparece depois desse tempo em dose estável.",
+      "pose": "explicando"
+    },
+    {
+      "text": "E o começo é de 2,5 mg, a dose inicial da bula. A dose sobe aos poucos, com pelo menos 4 semanas em cada degrau, e quem decide é o médico.",
+      "pose": "pensando"
+    },
+    {
+      "text": "Leve o exame ao médico e dê tempo à dose. Então, glicada do primeiro mês como veredito, nunca mais.",
+      "pose": "piscadinha"
+    }
+  ],
+  "caption": "Eu sei, dá vontade de fazer o exame logo e ver o número cair. Só que a hemoglobina glicada (HbA1c) reflete a média de glicose dos últimos 2 a 3 meses: o efeito completo da tirzepatida só aparece depois desse intervalo em dose estável.\n\n1️⃣ As 4 primeiras semanas são de 2,5 mg, a dose inicial; no diabetes, ela já reduz a glicose, mas não é dose de manutenção\n2️⃣ A menor dose de manutenção da bula é 5 mg, e cada dose leva cerca de 4 semanas para ficar estável\n3️⃣ Antes de 3 meses em dose estável, é cedo para concluir\n\n⚠️ Antes de achar que o Mounjaro não funciona, confira doses puladas, a conta de unidades no frasco e a conservação. A subida de dose é sempre decisão do médico.",
+  "question": "Com quanto tempo de tratamento você fez o primeiro exame de glicada?",
+  "share": "aquela amiga com diabetes que quer repetir a glicada no primeiro mês"
+}

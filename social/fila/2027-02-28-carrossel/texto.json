@@ -1,0 +1,77 @@
+{
+  "hook": "Você aplica o Ozempic e janta pesado no mesmo dia?",
+  "hookIcon": "enjoo",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "12 a 24 horas",
+      "body": "É quando a náusea costuma ser mais intensa depois da aplicação. Essa é a janela para deixar o prato mais leve.",
+      "icon": "relogio",
+      "pose": "explicando",
+      "layout": "numero"
+    },
+    {
+      "title": "Um copão de suco ajuda a comida a descer",
+      "body": "Líquido junto com a refeição aumenta a saciedade precoce. Beba ao longo do dia, longe do prato, com a hidratação reforçada: desidratação piora o enjoo.",
+      "icon": "bebida",
+      "pose": "ih",
+      "layout": "mito"
+    },
+    {
+      "title": "Prato pesado e prato leve",
+      "body": "Pesado: fritura, gordura, picante e carne vermelha gordurosa\nLeve: arroz, batata, bolacha sem açúcar, frango ou peixe",
+      "icon": "prato",
+      "pose": "explicando",
+      "layout": "lado"
+    },
+    {
+      "title": "5 a 6 vezes",
+      "body": "São as refeições pequenas por dia, no lugar de 3 grandes. Prato menor, mais vezes, para o estômago não encher de uma vez.",
+      "icon": "salada",
+      "pose": "piscadinha",
+      "layout": "numero"
+    },
+    {
+      "title": "Remédio de enjoo eu tomo por conta",
+      "body": "O gengibre, em chá ou bala, tem evidência razoável. O dimenidrinato é só pontual, conversando com o médico. A ondansetrona, mais forte, exige prescrição.",
+      "icon": "comprimido",
+      "pose": "alerta",
+      "layout": "mito"
+    },
+    {
+      "title": "24 horas",
+      "body": "Vômito que impede a hidratação por mais de 24 horas pede médico. Dor abdominal forte e persistente, febre, pele amarelada ou dor alta nas costas também.",
+      "icon": "hospital",
+      "pose": "alerta",
+      "layout": "numero"
+    },
+    {
+      "title": "Cola do dia da aplicação",
+      "body": "Jantar leve: arroz, batata, frango ou peixe\nSem fritura, gordura ou picante no pico\nLíquidos longe do prato\nVômito sem parar ou dor forte: médico",
+      "icon": "certo",
+      "pose": "apontando",
+      "layout": "passos"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Você aplica o Ozempic e janta pesado no mesmo dia? Eu sei, a vida não para por causa da caneta.",
+      "pose": "ih"
+    },
+    {
+      "text": "O enjoo costuma ser mais forte nas 12 a 24 horas depois da aplicação. Nessa janela, fritura, gordura e picante ficam de fora.",
+      "pose": "explicando"
+    },
+    {
+      "text": "Prefira arroz, batata, frango ou peixe, em pratos pequenos, e beba longe da comida. Remédio pra enjoo, só conversando com o médico.",
+      "pose": "apontando"
+    },
+    {
+      "text": "Vômito que impede a hidratação por mais de 24 horas é caso de médico. E jantar pesado no dia da caneta, nunca mais.",
+      "pose": "alerta"
+    }
+  ],
+  "caption": "Eu sei, o dia da aplicação do Ozempic cai no meio da semana normal, com o jantar de sempre. Só que a náusea da semaglutida costuma ser mais intensa nas 12 a 24 horas depois da aplicação, e é aí que o prato pesa.\n\n1️⃣ No pico, prato leve: arroz, batata, bolacha sem açúcar, frango ou peixe\n2️⃣ Refeições pequenas, 5 a 6 vezes por dia, no lugar de 3 grandes\n3️⃣ Líquidos longe das refeições, com a hidratação reforçada ao longo do dia\n4️⃣ Gengibre ajuda; remédio para enjoo, só conversando com o médico\n\n⚠️ Vômito que impede a hidratação por mais de 24 horas, dor abdominal forte e persistente, febre ou pele amarelada: procure o médico.",
+  "question": "O que você costuma jantar no dia da aplicação?",
+  "share": "aquela amiga que aplica a caneta e vai direto pro rodízio"
+}

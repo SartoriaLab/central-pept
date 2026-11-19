@@ -1,0 +1,70 @@
+{
+  "hook": "Você pula o almoço porque a caneta tirou sua fome?",
+  "hookIcon": "prato",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "Sem fome, pode pular a refeição",
+      "layout": "mito",
+      "body": "Não é bem assim. Apetite baixo é efeito esperado, mas comer quase nada tem custo. E a ficha da cagrilintida fala disso com todas as letras.",
+      "icon": "errado",
+      "pose": "ih"
+    },
+    {
+      "title": "Cada uma tira a fome de um jeito",
+      "layout": "lado",
+      "body": "Tirzepatida: ativa os receptores GIP e GLP-1, com saciedade no cérebro\nCagrilintida: imita a amilina e age no tronco encefálico e no hipotálamo",
+      "icon": "cerebro",
+      "pose": "explicando"
+    },
+    {
+      "title": "O alerta que está na ficha",
+      "layout": "padrao",
+      "body": "Na cagrilintida, a lista de efeitos traz redução excessiva do apetite e risco de perda de massa magra sem acompanhamento nutricional.",
+      "icon": "musculo",
+      "pose": "alerta"
+    },
+    {
+      "title": "Uma tem bula, a outra está em estudo",
+      "layout": "lado",
+      "body": "Tirzepatida: aprovada pela FDA como Mounjaro e Zepbound\nCagrilintida: em desenvolvimento, sem aprovação como medicamento",
+      "icon": "prancheta",
+      "pose": "pensando"
+    },
+    {
+      "title": "Fome baixa pede plano, não jejum",
+      "layout": "padrao",
+      "body": "Diminuição do apetite também está na lista da tirzepatida. Conte ao médico e peça acompanhamento nutricional para montar refeições que caibam no apetite de agora.",
+      "icon": "salada",
+      "pose": "explicando"
+    },
+    {
+      "title": "A cola do prato",
+      "layout": "passos",
+      "body": "Apetite baixo é efeito esperado\nPular refeição não é a saída\nAcompanhamento nutricional entra no plano\nComendo quase nada há dias? Conte ao médico",
+      "icon": "certo",
+      "pose": "apontando"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Você pula o almoço porque a caneta tirou sua fome? Eu sei, parece até vantagem.",
+      "pose": "ih"
+    },
+    {
+      "text": "A tirzepatida e a cagrilintida tiram a fome por caminhos diferentes. A cagrilintida imita a amilina e ainda é experimental, sem aprovação.",
+      "pose": "explicando"
+    },
+    {
+      "text": "E a ficha dela avisa: apetite que cai demais, sem acompanhamento nutricional, traz risco de perder massa magra.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Fome baixa é assunto para o médico e o nutricionista. Então, o almoço volta pro prato.",
+      "pose": "piscadinha"
+    }
+  ],
+  "caption": "Eu sei, quando a fome some, pular o almoço parece até vantagem. Mas comer quase nada tem custo, e a ficha da cagrilintida fala disso com todas as letras: redução excessiva do apetite e risco de perda de massa magra sem acompanhamento nutricional.\n\n1️⃣ Caminhos diferentes: o Mounjaro, a tirzepatida, ativa os receptores GIP e GLP-1; a cagrilintida imita a amilina e age no tronco encefálico e no hipotálamo.\n2️⃣ Status diferente: a tirzepatida é aprovada pela FDA; a cagrilintida está em desenvolvimento, sem aprovação como medicamento.\n3️⃣ Diminuição do apetite aparece nas duas fichas. Fome baixa pede plano com acompanhamento nutricional, não refeição pulada.\n\n⚠️ Está comendo quase nada há dias, ou o efeito colateral está atrapalhando a rotina? Conte ao médico.",
+  "question": "Em qual refeição a fome some mais pra você?",
+  "share": "a amiga que vive pulando o almoço desde que começou a caneta"
+}

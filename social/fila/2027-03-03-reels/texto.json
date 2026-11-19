@@ -1,0 +1,70 @@
+{
+  "hook": "Vai começar a caneta só porque a sua amiga começou?",
+  "hookIcon": "pensando",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "Se deu certo pra ela, serve pra mim",
+      "body": "A bula não olha a sua amiga, olha você. Semaglutida e tirzepatida têm indicação definida e uma lista de quem não pode usar.",
+      "icon": "errado",
+      "pose": "ih",
+      "layout": "mito"
+    },
+    {
+      "title": "Para quem a bula indica",
+      "body": "Diabetes tipo 2 em adultos, ou obesidade e sobrepeso com outra doença associada. Vale para as duas moléculas, e quem confere o seu caso é o médico.",
+      "icon": "prancheta",
+      "pose": "explicando",
+      "layout": "padrao"
+    },
+    {
+      "title": "E quem não pode usar nenhuma das duas?",
+      "body": "Quem tem história pessoal ou familiar de carcinoma medular de tireoide, ou a síndrome NEM 2. Isso a sua amiga não tem como saber por você.",
+      "icon": "alerta",
+      "pose": "alerta",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Alergia grave também entra na conta",
+      "body": "Com a tirzepatida, há relato de anafilaxia e angioedema. Na semaglutida, alergia grave à molécula ou aos componentes da fórmula também contraindica.",
+      "icon": "escudo",
+      "pose": "explicando",
+      "layout": "padrao"
+    },
+    {
+      "title": "E se eu estiver pensando em engravidar?",
+      "body": "Na bula da semaglutida, o uso na gestação não é recomendado. Grávida ou planejando? Conte ao médico antes de começar qualquer caneta.",
+      "icon": "estetoscopio",
+      "pose": "pensando",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Antes de seguir a amiga",
+      "body": "Marque a sua própria consulta\nLeve o histórico de tireoide da família\nConte alergias e planos de gravidez\nMolécula e dose: decisão do médico",
+      "icon": "certo",
+      "pose": "apontando",
+      "layout": "passos"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Você vai começar a caneta só porque a sua amiga começou? Eu sei, a animação contagia.",
+      "pose": "ih"
+    },
+    {
+      "text": "A bula de semaglutida e de tirzepatida diz para quem é: diabetes tipo 2, ou obesidade e sobrepeso com outra doença junto.",
+      "pose": "explicando"
+    },
+    {
+      "text": "E diz quem não pode usar: carcinoma medular de tireoide na família, NEM 2 ou alergia grave. Isso só a sua consulta responde.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Então, a caneta da sua amiga começou na consulta dela. A sua começa na sua.",
+      "pose": "piscadinha"
+    }
+  ],
+  "caption": "Eu sei, quando a amiga começa a caneta, dá vontade de ir junto. Mas a bula de semaglutida (Ozempic, Wegovy) e de tirzepatida (Mounjaro) não olha a amiga: olha você.\n\n1️⃣ Indicação: diabetes tipo 2 em adultos, ou obesidade e sobrepeso com outra doença associada.\n2️⃣ Quem não pode usar nenhuma das duas: história pessoal ou familiar de carcinoma medular de tireoide e síndrome NEM 2.\n3️⃣ Alergia grave: com a tirzepatida há relato de anafilaxia e angioedema; na semaglutida, alergia grave à molécula também contraindica.\n\n⚠️ Na semaglutida, o uso na gestação não é recomendado. Qual molécula, qual dose e se é para você: decisão com o médico, na sua consulta.",
+  "question": "Você começou a caneta junto com alguém da família ou com uma amiga?",
+  "share": "a amiga que quer começar a caneta junto com você"
+}

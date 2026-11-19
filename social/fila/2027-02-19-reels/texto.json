@@ -1,0 +1,77 @@
+{
+  "hook": "Te mandaram que a retatrutida chegou? Eu responderia assim.",
+  "hookIcon": "lupa",
+  "hookPose": "pensando",
+  "slides": [
+    {
+      "title": "A retatrutida já chegou ao Brasil?",
+      "body": "Não. Ela não tem registro na ANVISA nem em nenhuma agência do mundo. Até a nota de julho de 2026, o fabricante nem tinha feito o pedido aqui.",
+      "icon": "duvida",
+      "pose": "ih",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Confira você mesma",
+      "body": "O jeito confiável de acompanhar é a consulta de produtos registrados no site da ANVISA e os comunicados da própria Lilly. Print de anúncio não é registro.",
+      "icon": "prancheta",
+      "pose": "explicando",
+      "layout": "padrao"
+    },
+    {
+      "title": "Lei 6.360",
+      "body": "De 1976: nenhum remédio pode ser oferecido ou entregue ao consumo antes de ser registrado. Sem registro aqui nem aprovação lá fora, não existe caminho legal até o público.",
+      "icon": "livros",
+      "pose": "apontando",
+      "layout": "numero"
+    },
+    {
+      "title": "E se eu já usei?",
+      "body": "Teve algum efeito inesperado? Procure atendimento e leve a embalagem: a informação ajuda o médico e a vigilância sanitária.",
+      "icon": "hospital",
+      "pose": "alerta",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Viu anúncio? Dá pra denunciar",
+      "body": "Anúncio irregular pode ser denunciado nos canais de atendimento da ANVISA ou da vigilância sanitária do seu estado ou município.",
+      "icon": "escudo",
+      "pose": "piscadinha",
+      "layout": "padrao"
+    },
+    {
+      "title": "120 dias",
+      "body": "É o prazo da ANVISA na via prioritária, contado do protocolo; na comum, até 365 dias. Só que esse relógio nem começou: o pedido ainda não foi feito.",
+      "icon": "calendario",
+      "pose": "pensando",
+      "layout": "numero"
+    },
+    {
+      "title": "Resposta pronta pra amiga",
+      "body": "Não tem registro em país nenhum\nConfira no site da ANVISA\nAnúncio irregular se denuncia\nObesidade ou diabetes? Médico e remédio aprovado",
+      "icon": "certo",
+      "pose": "apontando",
+      "layout": "passos"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Sua amiga te mandou que a retatrutida já chegou no Brasil? Olha o que eu responderia pra ela.",
+      "pose": "pensando"
+    },
+    {
+      "text": "Não chegou. Ela não tem registro na ANVISA nem em país nenhum, e a Lilly só planeja pedir à FDA no primeiro trimestre de 2027.",
+      "pose": "explicando"
+    },
+    {
+      "text": "Quer conferir qualquer remédio? A consulta de produtos registrados fica no site da ANVISA. E anúncio irregular pode ser denunciado.",
+      "pose": "apontando"
+    },
+    {
+      "text": "Pra tratar obesidade ou diabetes, o caminho é o médico. Então, quando disserem que a retatrutida chegou, você já sabe o que responder.",
+      "pose": "piscadinha"
+    }
+  ],
+  "caption": "Eu sei, todo mundo já recebeu: “chegou a retatrutida”. Só que ela não tem registro na ANVISA nem em nenhuma agência do mundo. A Lilly planeja pedir aprovação à FDA no 1º trimestre de 2027, e no Brasil o pedido ainda precisa ser feito. Depois dele, a ANVISA tem até 365 dias na via comum.\n\n1️⃣ Confira qualquer remédio na consulta de produtos registrados, no site da ANVISA\n2️⃣ Anúncio irregular pode ser denunciado à ANVISA ou à vigilância sanitária do seu estado ou município\n3️⃣ Quer tratar obesidade ou diabetes? Converse com o médico sobre os remédios já aprovados no Brasil\n\n⚠️ Já usou um produto vendido como retatrutida e teve efeito inesperado? Procure atendimento e leve a embalagem.",
+  "question": "Quantas vezes já te mandaram que a retatrutida “chegou”?",
+  "share": "aquela amiga que mandou no grupo que a retatrutida chegou"
+}

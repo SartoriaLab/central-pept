@@ -1,0 +1,77 @@
+{
+  "hook": "Gonadorelina: três usos, três esquemas. Copiar o de alguém não dá.",
+  "hookIcon": "calendario",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "3 usos",
+      "body": "A mesma gonadorelina já foi usada em diagnóstico, na indução de ovulação e hoje aparece na reposição de testosterona. Cada uso tem um esquema próprio.",
+      "icon": "prancheta",
+      "pose": "explicando",
+      "layout": "numero"
+    },
+    {
+      "title": "Diagnóstico x ovulação",
+      "body": "Diagnóstico: dose única, em puberdade atrasada e hipogonadismo\nOvulação: bomba com pulsos a cada 90 min, com supervisão",
+      "icon": "balanca",
+      "pose": "explicando",
+      "layout": "lado"
+    },
+    {
+      "title": "Na reposição de testosterona, tem dose de bula",
+      "body": "Não tem. Na TRT, ela é usada off-label, via manipulação, para tentar manter a função dos testículos e a fertilidade. O esquema é decisão individual do médico.",
+      "icon": "frasco",
+      "pose": "ih",
+      "layout": "mito"
+    },
+    {
+      "title": "2 a 10 min",
+      "body": "É a meia-vida da gonadorelina. Curtinha assim, o efeito depende do ritmo: é por isso que cada uso tem uma frequência diferente.",
+      "icon": "ampulheta",
+      "pose": "pensando",
+      "layout": "numero"
+    },
+    {
+      "title": "Se funcionou pra ele, funciona igual pra mim",
+      "body": "O ritmo manda. Em dose ou frequência inadequada, o receptor dessensibiliza e o eixo pode ser suprimido: o oposto do que se queria.",
+      "icon": "alerta",
+      "pose": "alerta",
+      "layout": "mito"
+    },
+    {
+      "title": "Efeitos x quem não deve usar",
+      "body": "Efeitos: reação local, dor de cabeça, rubor, náusea passageira\nContraindicada: gravidez fora de protocolo, alergia, atleta homem (WADA)",
+      "icon": "escudo",
+      "pose": "explicando",
+      "layout": "lado"
+    },
+    {
+      "title": "Antes de copiar um esquema",
+      "body": "Pergunte: qual é o uso, e qual o esquema?\nNa TRT, é off-label e sem dose de bula\nAtleta homem: proibida pela WADA (S2)\nDose e frequência: só com o médico",
+      "icon": "estetoscopio",
+      "pose": "apontando",
+      "layout": "passos"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Gonadorelina tem três usos e três esquemas diferentes. Copiar o da amiga ou do marido não dá.",
+      "pose": "ih"
+    },
+    {
+      "text": "Ela já foi usada em diagnóstico e na indução de ovulação, com pulsos a cada 90 minutos. Na reposição de testosterona, é off-label.",
+      "pose": "explicando"
+    },
+    {
+      "text": "No ritmo errado, o receptor dessensibiliza e o eixo pode desligar. E, para atleta homem, ela é proibida pela WADA.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Então, dose e frequência são com o médico. Esquema de gonadorelina não se copia de ninguém.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, quando alguém próximo conta que usa um remédio, dá vontade de copiar o esquema. Com a gonadorelina, a forma sintética do GnRH, isso não funciona: a mesma molécula tem usos e esquemas bem diferentes.\n\n1️⃣ Diagnóstico: dose única, em puberdade atrasada e hipogonadismo hipogonadotrófico\n2️⃣ Indução de ovulação: bomba de infusão com pulsos a cada 90 min, em protocolo supervisionado\n3️⃣ Reposição de testosterona (TRT): uso off-label, via manipulação, sem dose de bula\n\n⚠️ No ritmo errado, o receptor dessensibiliza e o eixo pode ser suprimido. Os efeitos mais relatados são reação local, dor de cabeça, rubor e náusea passageira; reação alérgica grave é rara. Gravidez fora de protocolo de indução é contraindicação, e a gonadorelina consta na Lista Proibida da WADA (S2) para atletas do sexo masculino, dentro e fora de competição. Dose e frequência são sempre com o médico.",
+  "question": "Você já pensou em copiar o esquema de remédio de alguém próximo?",
+  "share": "o marido ou a amiga que copia o esquema de remédio dos outros"
+}

@@ -1,0 +1,70 @@
+{
+  "hook": "Funcionou em camundongo e você já quer trocar a caneta?",
+  "hookIcon": "microscopio",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "O que animou a internet",
+      "body": "Em camundongos, o MOTS-c foi ligado a melhor sensibilidade à insulina, termogênese e mais capacidade de exercício. Repara na palavra: camundongos.",
+      "icon": "microscopio",
+      "pose": "piscadinha",
+      "layout": "padrao"
+    },
+    {
+      "title": "Funcionou no animal, funciona em mim",
+      "body": "Não dá pra pular etapas. Em pessoas, o MOTS-c teve um primeiro ensaio, de farmacocinética e segurança, e nenhum ensaio de fase tardia concluído.",
+      "icon": "errado",
+      "pose": "ih",
+      "layout": "mito"
+    },
+    {
+      "title": "Onde cada uma está",
+      "body": "MOTS-c: apenas pesquisa, sem dose terapêutica aprovada\nSemaglutida: aprovada pela FDA, com ensaios de fase 3 (SUSTAIN e STEP)",
+      "icon": "balanca",
+      "pose": "explicando",
+      "layout": "lado"
+    },
+    {
+      "title": "Mecanismos que não se parecem",
+      "body": "O MOTS-c vem da mitocôndria e age pela AMPK, ligada à entrada de glicose no músculo. A semaglutida age no receptor de GLP-1: insulina, glucagon, estômago e saciedade.",
+      "icon": "dna",
+      "pose": "explicando",
+      "layout": "padrao"
+    },
+    {
+      "title": "Dá pra trocar uma pela outra",
+      "body": "Mecanismos diferentes e níveis de evidência diferentes. No MOTS-c, os efeitos de longo prazo são desconhecidos. Trocar ou somar tratamento é decisão com o médico.",
+      "icon": "alerta",
+      "pose": "alerta",
+      "layout": "mito"
+    },
+    {
+      "title": "A cola do camundongo",
+      "body": "Camundongo não é gente\nMOTS-c: só pesquisa, proibido pela WADA\nSemaglutida: aprovada, com bula\nPensou em trocar? Fale com o médico",
+      "icon": "certo",
+      "pose": "apontando",
+      "layout": "passos"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Viu que o MOTS-c melhorou a insulina em camundongo e já pensou em trocar a sua caneta? Calma, eu também me empolgo.",
+      "pose": "ih"
+    },
+    {
+      "text": "Esses resultados são de animais. Em pessoas, o MOTS-c só teve um primeiro ensaio de segurança, sem fase tardia concluída.",
+      "pose": "explicando"
+    },
+    {
+      "text": "A semaglutida passou por ensaios de fase 3 e é aprovada. O MOTS-c segue só em pesquisa. Trocar de tratamento é conversa com o médico.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Então, camundongo animado não é motivo pra trocar a sua caneta.",
+      "pose": "piscadinha"
+    }
+  ],
+  "caption": "Eu sei, dá vontade: lê que o MOTS-c melhorou a sensibilidade à insulina e já pensa em trocar a semaglutida. Mas esses resultados vêm de camundongos. Em pessoas, o MOTS-c teve um primeiro ensaio, de farmacocinética e segurança, e não há ensaio de fase tardia concluído nem aprovação. Os dados de segurança em humanos são muito limitados e os efeitos de longo prazo, desconhecidos.\n\nA semaglutida (Ozempic, Wegovy) passou pelos ensaios de fase 3 SUSTAIN e STEP e é aprovada pela FDA. E os mecanismos não se parecem: o MOTS-c vem da mitocôndria e age pela AMPK; a semaglutida age no receptor de GLP-1.\n\n1️⃣ Resultado em camundongo não é resultado em gente\n2️⃣ MOTS-c: só pesquisa, sem dose terapêutica aprovada\n3️⃣ Semaglutida: aprovada, com bula\n\n⚠️ O MOTS-c é proibido pela WADA no esporte. Pensou em trocar ou somar algo à sua caneta? Converse com o médico antes.",
+  "question": "Você já se empolgou com algum estudo feito só em animais?",
+  "share": "a amiga que lê um estudo em camundongo e já quer trocar de caneta"
+}

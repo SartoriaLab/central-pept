@@ -1,0 +1,70 @@
+{
+  "hook": "Tesamorelina é uma semaglutida para gordura abdominal? Não é.",
+  "hookIcon": "duvida",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "Onde cada uma age",
+      "body": "Tesamorelina: na hipófise, liberando o próprio GH\nSemaglutida: no receptor GLP-1, no apetite e na digestão",
+      "icon": "cerebro",
+      "pose": "explicando",
+      "layout": "lado"
+    },
+    {
+      "title": "Se as duas mexem com gordura, servem pra mesma coisa",
+      "body": "Não. A tesamorelina é aprovada pela FDA só para gordura visceral em adultos com HIV em tratamento. A semaglutida, para diabetes tipo 2, manejo de peso e risco cardiovascular.",
+      "icon": "errado",
+      "pose": "ih",
+      "layout": "mito"
+    },
+    {
+      "title": "Efeitos mais relatados",
+      "body": "Tesamorelina: dor nas articulações, inchaço, formigamento\nSemaglutida: náusea, vômito, diarreia, prisão de ventre",
+      "icon": "balanca",
+      "pose": "explicando",
+      "layout": "lado"
+    },
+    {
+      "title": "Dá pra trocar uma pela outra",
+      "body": "Não dá. Mecanismo, indicação, efeitos e cuidados são diferentes. E o uso da tesamorelina fora da indicação aprovada não foi avaliado em ensaios regulatórios.",
+      "icon": "alerta",
+      "pose": "alerta",
+      "layout": "mito"
+    },
+    {
+      "title": "Quem não deve usar",
+      "body": "Tesamorelina: câncer ativo, gravidez, problema na hipófise\nSemaglutida: histórico de câncer medular de tireoide ou NEM 2",
+      "icon": "proibido",
+      "pose": "pensando",
+      "layout": "lado"
+    },
+    {
+      "title": "Antes de pensar em somar ou trocar",
+      "body": "Pergunte: qual é a indicação de cada uma?\nTesamorelina fora da indicação: não avaliada\nNa gravidez, nenhuma das duas\nQualquer mudança: com o médico",
+      "icon": "estetoscopio",
+      "pose": "apontando",
+      "layout": "passos"
+    }
+  ],
+  "narration": [
+    {
+      "text": "A tesamorelina é uma semaglutida para gordura abdominal? Não é, não.",
+      "pose": "ih"
+    },
+    {
+      "text": "A tesamorelina age na hipófise e faz o corpo liberar o próprio GH. A semaglutida age no receptor GLP-1, no apetite e na digestão.",
+      "pose": "explicando"
+    },
+    {
+      "text": "As indicações também são outras. A tesamorelina é aprovada só para adultos com HIV em tratamento, e fora disso não foi avaliada.",
+      "pose": "pensando"
+    },
+    {
+      "text": "Então, trocar ou somar é conversa com o médico. Semaglutida da gordura abdominal, a tesamorelina não é.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, quando duas injeções aparecem falando de gordura, parece que é tudo a mesma coisa. Mas a tesamorelina e a semaglutida (Ozempic e Wegovy) são moléculas bem diferentes.\n\n1️⃣ Tesamorelina: análogo do GHRH, age na hipófise e estimula a liberação do próprio GH, com lipólise preferencialmente visceral. Aprovada pela FDA só para lipodistrofia em adultos HIV-positivos em terapia antirretroviral\n2️⃣ Semaglutida: agonista do receptor GLP-1, atua na saciedade, retarda o esvaziamento do estômago e aumenta a insulina dependente de glicose. Indicada para diabetes tipo 2, manejo crônico de peso e redução de risco cardiovascular\n3️⃣ Os efeitos mais relatados também diferem: dor nas articulações, inchaço e formigamento com a tesamorelina; náusea, vômito e diarreia com a semaglutida\n\n⚠️ O uso da tesamorelina fora da indicação aprovada não foi avaliado em ensaios regulatórios, e ela é proibida pela WADA (S2). Câncer ativo e problemas na hipófise contraindicam a tesamorelina; histórico de carcinoma medular de tireoide ou NEM 2 contraindica a semaglutida. Na gravidez, nenhuma das duas. Trocar ou somar é sempre decisão do médico.",
+  "question": "Quando você começou a caneta, sabia para que ela era indicada?",
+  "share": "aquela amiga que acha que toda injeção pra gordura é igual"
+}

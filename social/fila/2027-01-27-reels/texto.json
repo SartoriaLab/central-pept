@@ -1,0 +1,70 @@
+{
+  "hook": "Ninguém te conta: o “extra” da retatrutida ainda é hipótese",
+  "hookIcon": "lupa",
+  "hookPose": "piscadinha",
+  "slides": [
+    {
+      "title": "Parecidas por fora",
+      "layout": "padrao",
+      "body": "Tirzepatida e retatrutida têm 39 aminoácidos e a mesma cadeia de ácido graxo C20, que permite uma aplicação por semana. A diferença está em um receptor.",
+      "icon": "dna",
+      "pose": "explicando"
+    },
+    {
+      "title": "O receptor a mais",
+      "layout": "lado",
+      "body": "Tirzepatida: ativa os receptores GIP e GLP-1\nRetatrutida: ativa GIP, GLP-1 e também o de glucagon",
+      "icon": "alvo",
+      "pose": "apontando"
+    },
+    {
+      "title": "O glucagon queima a gordura do fígado, já provado",
+      "layout": "mito",
+      "body": "É hipótese dos autores dos ensaios: mais gasto de energia e mobilização de gordura no fígado. Isso ainda não foi demonstrado diretamente em humanos.",
+      "icon": "fogo",
+      "pose": "ih"
+    },
+    {
+      "title": "Na tirzepatida também há pergunta aberta",
+      "layout": "padrao",
+      "body": "A coativação do GIP contribui para a sensibilidade à insulina, mas a sinergia exata com o GLP-1 ainda está sob investigação.",
+      "icon": "microscopio",
+      "pose": "pensando"
+    },
+    {
+      "title": "O que já está estabelecido",
+      "layout": "lado",
+      "body": "Tirzepatida: aprovada pela FDA como Mounjaro e Zepbound\nRetatrutida: experimental, sem aprovação da FDA, da EMA ou da ANVISA",
+      "icon": "escudo",
+      "pose": "alerta"
+    },
+    {
+      "title": "A cola do receptor a mais",
+      "layout": "passos",
+      "body": "A diferença é o receptor de glucagon\nO efeito dele no fígado ainda é hipótese\nSó a tirzepatida tem bula\nDúvida sobre o seu tratamento? Com o médico",
+      "icon": "certo",
+      "pose": "apontando"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Ninguém te conta isso: o “extra” da retatrutida, perto do Mounjaro, ainda é hipótese.",
+      "pose": "piscadinha"
+    },
+    {
+      "text": "As duas são quase irmãs, com 39 aminoácidos e uso semanal. A diferença é que a retatrutida também ativa o receptor de glucagon.",
+      "pose": "explicando"
+    },
+    {
+      "text": "A ideia de que o glucagon aumenta o gasto de energia e mobiliza gordura do fígado ainda não foi demonstrada diretamente em humanos.",
+      "pose": "pensando"
+    },
+    {
+      "text": "E só a tirzepatida tem aprovação; dúvida é com o médico. Então, o “extra” da retatrutida? Ainda é hipótese.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, todo mundo repete que a retatrutida é “o Mounjaro com um extra que queima gordura do fígado”. Olha o que a fonte diz: a tirzepatida ativa os receptores GIP e GLP-1; a retatrutida ativa esses dois e também o de glucagon. As duas têm 39 aminoácidos e cadeia de ácido graxo C20, com uso semanal.\n\n1️⃣ O papel do glucagon é hipótese dos autores dos ensaios: aumentar o gasto de energia e a mobilização de gordura no fígado. Isso ainda não foi demonstrado diretamente em humanos.\n2️⃣ Na tirzepatida também há pergunta aberta: a sinergia exata entre GIP e GLP-1 ainda está sob investigação.\n3️⃣ Só a tirzepatida tem bula, aprovada pela FDA como Mounjaro e Zepbound.\n\n⚠️ A retatrutida é experimental, sem aprovação da FDA, da EMA ou da ANVISA. Dúvida sobre tratamento é sempre com o médico.",
+  "question": "Você já ouviu que a retatrutida “queima a gordura do fígado”?",
+  "share": "quem acha que a retatrutida é o Mounjaro que queima gordura do fígado"
+}

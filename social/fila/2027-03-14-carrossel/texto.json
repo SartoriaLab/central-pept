@@ -1,0 +1,70 @@
+{
+  "hook": "Tirzepatida, retatrutida… o nome parece igual e você confunde?",
+  "hookIcon": "duvida",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "Nome parecido, remédio parecido",
+      "body": "Eu sei, todo mundo troca. Mas a tirzepatida age em dois receptores, GIP e GLP-1. A retatrutida age em três: GIP, GLP-1 e glucagon.",
+      "icon": "errado",
+      "pose": "ih",
+      "layout": "mito"
+    },
+    {
+      "title": "Quiz: qual foi aprovada pela FDA em 2022?",
+      "body": "A tirzepatida, como Mounjaro, para diabetes tipo 2. Em 2023 veio o Zepbound, para obesidade. A retatrutida não é aprovada por nenhuma agência.",
+      "icon": "calendario",
+      "pose": "explicando",
+      "layout": "pergunta"
+    },
+    {
+      "title": "~5 x ~6 dias",
+      "body": "É a meia-vida: cerca de 5 dias na tirzepatida e de 6 dias na retatrutida. Por isso as duas são semanais, e é aí que a confusão começa.",
+      "icon": "ampulheta",
+      "pose": "pensando",
+      "layout": "numero"
+    },
+    {
+      "title": "Quiz: qual tem indicação definida em bula?",
+      "body": "A tirzepatida: adultos com diabetes tipo 2 e adultos com obesidade ou sobrepeso com comorbidade. A retatrutida é estudada para obesidade e diabetes tipo 2, sem indicação aprovada.",
+      "icon": "prancheta",
+      "pose": "explicando",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Julho de 2026",
+      "body": "Foi quando a ANVISA informou que não há pedido de registro da retatrutida e orientou a não usar produtos vendidos com esse nome.",
+      "icon": "alerta",
+      "pose": "alerta",
+      "layout": "numero"
+    },
+    {
+      "title": "A cola pra não trocar os nomes",
+      "body": "Tirzepatida: Mounjaro e Zepbound, aprovada\nRetatrutida: experimental, sem registro\nAs duas: uso semanal\nDúvida sobre a sua caneta: médico",
+      "icon": "certo",
+      "pose": "apontando",
+      "layout": "passos"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Tirzepatida, retatrutida: o nome parece igual e você confunde? Eu sei, todo mundo troca.",
+      "pose": "ih"
+    },
+    {
+      "text": "A tirzepatida é o Mounjaro e o Zepbound, aprovada e com bula. A retatrutida é experimental, sem aprovação de nenhuma agência.",
+      "pose": "explicando"
+    },
+    {
+      "text": "E não é só o nome: uma age em dois receptores, a outra em três. Dúvida sobre a sua caneta? Confirme com o médico.",
+      "pose": "piscadinha"
+    },
+    {
+      "text": "Então, da próxima vez que os nomes embaralharem, lembra: o nome é parecido, o remédio não é.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, tirzepatida e retatrutida soam quase iguais, e no grupo todo mundo troca uma pela outra. Mas são remédios bem diferentes.\n\nA tirzepatida (Mounjaro, Zepbound) é aprovada pela FDA desde 2022, com bula e indicação para adultos com diabetes tipo 2 e adultos com obesidade ou sobrepeso com comorbidade. A retatrutida é experimental: não é aprovada por nenhuma agência, e em julho de 2026 a ANVISA informou que não há pedido de registro.\n\n1️⃣ Tirzepatida: dois receptores, GIP e GLP-1\n2️⃣ Retatrutida: três, GIP, GLP-1 e glucagon\n3️⃣ As duas são semanais: meia-vida de cerca de 5 e 6 dias\n\n⚠️ A ANVISA orientou a não usar produtos vendidos como retatrutida. Dúvida sobre a sua caneta ou a sua dose? Confirme com o médico.",
+  "question": "Você já trocou o nome de alguma caneta numa conversa? Qual?",
+  "share": "aquela amiga que sempre troca tirzepatida por retatrutida"
+}

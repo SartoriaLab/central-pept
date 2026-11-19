@@ -1,0 +1,77 @@
+{
+  "hook": "Ninguém te conta por que a fome volta quando o Mounjaro para.",
+  "hookIcon": "cerebro",
+  "hookPose": "pensando",
+  "slides": [
+    {
+      "title": "Se a fome voltou, faltou força de vontade",
+      "body": "Não é falha de quem usa. É o esperado quando se interrompe o tratamento de uma condição crônica, e aconteceu no estudo mesmo com a orientação de dieta e exercício.",
+      "icon": "errado",
+      "pose": "ih",
+      "layout": "mito"
+    },
+    {
+      "title": "Então por que a fome volta?",
+      "body": "Porque o efeito no apetite depende do remédio circulando. Com meia-vida de cerca de 5 dias, a tirzepatida sai do corpo em aproximadamente um mês.",
+      "icon": "ampulheta",
+      "pose": "explicando",
+      "layout": "pergunta"
+    },
+    {
+      "title": "O corpo também puxa de volta",
+      "body": "Depois de emagrecer, o gasto de energia cai e os hormônios da fome sobem. Essa adaptação acontece com qualquer método, não só com o remédio.",
+      "icon": "fogo",
+      "pose": "pensando",
+      "layout": "padrao"
+    },
+    {
+      "title": "Isso acontece só com o Mounjaro?",
+      "body": "Não. Na extensão do estudo STEP 1, com a semaglutida, um ano depois de parar os participantes tinham recuperado cerca de dois terços do peso perdido.",
+      "icon": "microscopio",
+      "pose": "explicando",
+      "layout": "pergunta"
+    },
+    {
+      "title": "A fase de menos fome é uma janela",
+      "body": "É a hora de firmar a rotina de alimentação, sono e atividade física. Treino de força e proteína suficiente ajudam a preservar a massa magra.",
+      "icon": "musculo",
+      "pose": "piscadinha",
+      "layout": "padrao"
+    },
+    {
+      "title": "Na hora de parar, é só não aplicar mais",
+      "body": "Parar de uma vez não é a única saída. Dose de manutenção menor ou redução aos poucos são opções a discutir com o médico; ainda não há protocolo de retirada validado.",
+      "icon": "estetoscopio",
+      "pose": "alerta",
+      "layout": "mito"
+    },
+    {
+      "title": "Cola para quando pensar em parar",
+      "body": "Fome de volta é fisiologia, não fraqueza\nA saída se planeja com o médico\nFirme a rotina enquanto a fome está baixa\nCom diabetes, nunca pare sem orientação",
+      "icon": "certo",
+      "pose": "apontando",
+      "layout": "passos"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Ninguém te conta por que a fome volta quando o Mounjaro para. E não, não é falta de força de vontade.",
+      "pose": "pensando"
+    },
+    {
+      "text": "O efeito no apetite depende do remédio no corpo, e ele sai em cerca de um mês. E o corpo ainda aumenta os hormônios da fome.",
+      "pose": "explicando"
+    },
+    {
+      "text": "Por isso a saída se planeja com o médico, com dose de manutenção ou redução aos poucos. E a fase de menos fome é a hora de firmar a rotina.",
+      "pose": "apontando"
+    },
+    {
+      "text": "Então, se a fome voltar, lembra: é fisiologia, não fraqueza. E força de vontade sozinha não é plano de saída.",
+      "pose": "piscadinha"
+    }
+  ],
+  "caption": "Eu sei, quando a fome volta, a primeira coisa que a gente pensa é “faltou força de vontade”. Não é isso. O efeito da tirzepatida no apetite depende do remédio circulando: com meia-vida de cerca de 5 dias, ela sai do corpo em aproximadamente um mês. E o corpo, depois de emagrecer, reduz o gasto de energia e aumenta os hormônios da fome, com qualquer método.\n\n1️⃣ Antes de parar o Mounjaro, converse com o médico: dose de manutenção menor ou redução aos poucos são opções a discutir\n2️⃣ Use a fase de menos fome para firmar a rotina de alimentação, sono e atividade física\n3️⃣ Treino de força e proteína suficiente ajudam a preservar a massa magra\n\n⚠️ Com diabetes tipo 2, a glicose volta a subir depois da suspensão: nunca interrompa a tirzepatida sem orientação médica.",
+  "question": "O que você já mudou na sua rotina desde que começou o tratamento?",
+  "share": "aquela amiga que acha que vai parar o Mounjaro só na força de vontade"
+}

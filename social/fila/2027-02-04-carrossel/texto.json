@@ -1,0 +1,63 @@
+{
+  "hook": "A dose de GHRP-6 do grupo veio da bula? Ele nem tem bula.",
+  "hookIcon": "regua",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "De onde vem a dose do grupo?",
+      "layout": "pergunta",
+      "body": "Não da bula. Nos estudos de pesquisa, o GHRP-6 foi dado na veia, com dose calculada pelo peso de cada pessoa. Não é o esquema que se repete por aí.",
+      "icon": "seringa",
+      "pose": "ih"
+    },
+    {
+      "title": "Estudado, mas nunca aprovado",
+      "layout": "padrao",
+      "body": "Ele foi um dos primeiros GHRPs e passou por ensaios clínicos iniciais, mas nunca obteve aprovação em nenhum país. Por isso não existe dose de bula.",
+      "icon": "prancheta",
+      "pose": "explicando"
+    },
+    {
+      "title": "2,5h",
+      "layout": "numero",
+      "body": "É a meia-vida de eliminação do GHRP-6 na veia. A fase de distribuição é ainda mais rápida: cerca de 7,6 min.",
+      "icon": "ampulheta",
+      "pose": "pensando"
+    },
+    {
+      "title": "O que vem junto",
+      "layout": "padrao",
+      "body": "Além de aumentar muito o apetite, ele eleva cortisol, ACTH e prolactina, e pode causar rubor no rosto, sonolência e retenção de líquido.",
+      "icon": "alerta",
+      "pose": "alerta"
+    },
+    {
+      "title": "A cola pra guardar",
+      "layout": "passos",
+      "body": "Dose de grupo não é dose de bula\nNos estudos, foi na veia e por peso\nEle aumenta muito o apetite\nPensou nele? Fale com o médico antes",
+      "icon": "certo",
+      "pose": "apontando"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Aquela dose de GHRP-6 que circula no grupo veio da bula? Ele nem tem bula.",
+      "pose": "ih"
+    },
+    {
+      "text": "Ele nunca foi aprovado em nenhum país. Nos estudos de pesquisa, foi dado na veia, com dose calculada pelo peso.",
+      "pose": "explicando"
+    },
+    {
+      "text": "E ele aumenta muito o apetite, além de elevar cortisol e prolactina.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Se você usa caneta, isso é conversa com o médico. Então, dose de grupo não é dose de bula.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, quando uma dose aparece repetida no grupo, ela parece oficial. Mas o GHRP-6 nunca teve bula, então não existe dose aprovada para copiar.\n\n1️⃣ O GHRP-6 foi um dos primeiros secretagogos de GH e passou por ensaios clínicos iniciais, mas nunca obteve aprovação em nenhum país\n2️⃣ Nos estudos de pesquisa, foi dado na veia, com dose calculada pelo peso, um esquema bem diferente do que se repete por aí\n3️⃣ A meia-vida de eliminação na veia é de cerca de 2,5h\n\n⚠️ Ele é o GHRP que mais aumenta o apetite e também eleva cortisol, ACTH e prolactina, com relatos de rubor, sonolência e retenção de líquido. É proibido pela WADA. Malignidade ativa, gestação, lactação e hiperprolactinemia estão entre as contraindicações. Usa caneta de GLP-1 e ouviu falar dele? Converse com o médico antes.",
+  "question": "Você costuma conferir de onde veio uma dose que aparece no grupo?",
+  "share": "aquela amiga que anota toda dose que vê no grupo"
+}

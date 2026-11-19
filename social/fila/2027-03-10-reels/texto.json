@@ -1,0 +1,63 @@
+{
+  "hook": "Planeja engravidar e ainda não falou da caneta com o médico?",
+  "hookIcon": "coracao",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "Falo da caneta quando o teste der positivo",
+      "body": "Eu sei, a gente deixa pra depois. Mas o melhor é antes: a gestação está nas fichas da semaglutida e da cagrilintida, e o plano de engravidar muda a conversa sobre o tratamento.",
+      "icon": "calendario",
+      "pose": "ih",
+      "layout": "mito"
+    },
+    {
+      "title": "O que cada ficha diz",
+      "body": "Semaglutida: uso na gestação não recomendado\nCagrilintida: contraindicada para gestantes e lactantes",
+      "icon": "prancheta",
+      "pose": "explicando",
+      "layout": "lado"
+    },
+    {
+      "title": "E na amamentação, muda alguma coisa?",
+      "body": "A ficha da cagrilintida inclui lactantes nas contraindicações. Amamentando ou planejando amamentar? Essa dúvida também vai para o médico.",
+      "icon": "duvida",
+      "pose": "pensando",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Hormônios diferentes, status diferentes",
+      "body": "Semaglutida: imita o GLP-1 e é aprovada pela FDA, como Ozempic e Wegovy\nCagrilintida: imita a amilina e segue em desenvolvimento, sem aprovação",
+      "icon": "balanca",
+      "pose": "alerta",
+      "layout": "lado"
+    },
+    {
+      "title": "Antes de tentar engravidar",
+      "body": "Conte o plano ao médico\nDiga qual caneta você usa\nPergunte também sobre amamentar\nCagrilintida: só em estudo ou com prescrição",
+      "icon": "certo",
+      "pose": "apontando",
+      "layout": "passos"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Você planeja engravidar e ainda não falou da caneta com o seu médico? Eu sei, a gente deixa pra depois.",
+      "pose": "ih"
+    },
+    {
+      "text": "Na ficha da semaglutida, o uso na gestação não é recomendado. Na cagrilintida, gestantes e lactantes estão nas contraindicações.",
+      "pose": "explicando"
+    },
+    {
+      "text": "E a cagrilintida ainda está em desenvolvimento, sem aprovação. O plano de gravidez muda a conversa sobre qualquer uma das duas.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Então, conte ao médico antes do teste, não depois. A caneta também entra na conversa sobre engravidar.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, todo mundo deixa pra falar disso quando o teste der positivo. Mas, se você usa ou pensa em usar semaglutida ou cagrilintida, o plano de engravidar é assunto de antes.\n\nNa ficha da semaglutida (Ozempic, Wegovy), o uso na gestação não é recomendado. Na cagrilintida, gestantes e lactantes estão entre as contraindicações. São hormônios diferentes, um imita o GLP-1 e o outro a amilina, mas a gestação aparece nas duas fichas.\n\n1️⃣ Conte o plano de engravidar ao médico\n2️⃣ Diga qual caneta você usa\n3️⃣ Pergunte também sobre a amamentação\n\n⚠️ A cagrilintida ainda está em desenvolvimento, sem aprovação como medicamento. A semaglutida é aprovada pela FDA.",
+  "question": "O seu médico já conversou com você sobre caneta e planos de gravidez?",
+  "share": "aquela amiga que está tentando engravidar e usa caneta"
+}

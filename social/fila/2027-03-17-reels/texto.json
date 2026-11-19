@@ -1,0 +1,70 @@
+{
+  "hook": "Sua filha adolescente pediu pra usar a sua caneta?",
+  "hookIcon": "duvida",
+  "hookPose": "pensando",
+  "slides": [
+    {
+      "title": "Minha filha pode usar a minha caneta?",
+      "body": "A caneta é sua, receitada pra você. Para uma adolescente, a avaliação é outra, e quem faz é o médico dela.",
+      "icon": "duvida",
+      "pose": "pensando",
+      "layout": "pergunta"
+    },
+    {
+      "title": "O que a ficha diz sobre idade",
+      "body": "Liraglutida: tem uso pediátrico a partir de 12 anos\nTirzepatida: indicada para adultos",
+      "icon": "calendario",
+      "pose": "explicando",
+      "layout": "lado"
+    },
+    {
+      "title": "Uso a partir de 12 anos não é liberar",
+      "body": "Quer dizer que existe indicação estudada nessa idade. Se faz sentido pra ela, qual dose e como acompanhar, quem decide é o médico.",
+      "icon": "estetoscopio",
+      "pose": "explicando",
+      "layout": "padrao"
+    },
+    {
+      "title": "E se a sua caneta for a tirzepatida?",
+      "body": "A indicação descrita é para adultos com diabetes tipo 2, ou com obesidade ou sobrepeso com comorbidade. Adolescente fica fora dessa ficha.",
+      "icon": "prancheta",
+      "pose": "alerta",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Por que não dividir a caneta",
+      "body": "Cada caneta é ajustada pra quem recebeu a receita. E o esquema muda: a liraglutida é diária, a tirzepatida é semanal, cada uma com a sua subida de dose.",
+      "icon": "seringa",
+      "pose": "explicando",
+      "layout": "padrao"
+    },
+    {
+      "title": "Se ela te pediu a caneta",
+      "body": "Não empreste nem divida\nMarque uma consulta pra ela\nDeixe o médico explicar as opções",
+      "icon": "certo",
+      "pose": "apontando",
+      "layout": "passos"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Sua filha adolescente pediu pra usar a sua caneta? Eu sei, essa pergunta aparece em muita casa.",
+      "pose": "pensando"
+    },
+    {
+      "text": "Na ficha, a liraglutida tem uso a partir de 12 anos. A tirzepatida é indicada para adultos.",
+      "pose": "explicando"
+    },
+    {
+      "text": "Mesmo na liraglutida, quem indica e acompanha é o médico, depois de avaliar a sua filha. Caneta não se empresta nem se divide.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Então, se ela pediu a sua caneta, a resposta começa numa consulta.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, essa pergunta aparece em muita casa: a filha adolescente vê a mãe usando a caneta e quer usar também. A resposta curta é que a caneta é sua, receitada e ajustada pra você.\n\nO que a ficha diz: a liraglutida (Victoza, Saxenda), a diária, tem uso pediátrico a partir de 12 anos. A tirzepatida (Mounjaro), a semanal, é indicada para adultos com diabetes tipo 2 ou com obesidade ou sobrepeso com comorbidade. Ter uso estudado numa idade não é liberação: quem avalia se faz sentido, qual dose e como acompanhar é o médico.\n\n1️⃣ Não empreste nem divida a caneta\n2️⃣ Marque uma consulta pra ela\n3️⃣ Deixe o médico explicar as opções\n\n⚠️ Cada caneta tem o esquema e a dose de quem recebeu a receita. Dividir mistura dose, esquema e cuidados de duas pessoas diferentes.",
+  "question": "Alguém da sua casa já perguntou sobre a sua caneta?",
+  "share": "a amiga com filha adolescente que já perguntou da caneta"
+}

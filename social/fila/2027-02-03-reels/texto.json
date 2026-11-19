@@ -1,0 +1,63 @@
+{
+  "hook": "Você leu \"nenhum efeito colateral\" e já ficou tranquila?",
+  "hookIcon": "escudo",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "Não tem efeito colateral, então é seguro",
+      "layout": "mito",
+      "body": "Não tem é estudo suficiente. Os dados de segurança do MOTS-c em humanos são muito limitados, e os efeitos de longo prazo, desconhecidos.",
+      "icon": "errado",
+      "pose": "ih"
+    },
+    {
+      "title": "De onde vem a fama",
+      "layout": "padrao",
+      "body": "Em camundongos, ele melhorou a sensibilidade à insulina e a capacidade de exercício. Em pessoas, a evidência ainda é limitada.",
+      "icon": "microscopio",
+      "pose": "explicando"
+    },
+    {
+      "title": "Camundongo x gente",
+      "layout": "lado",
+      "body": "Camundongos: perfil toxicológico aparentemente favorável\nPessoas: só um primeiro ensaio, de farmacocinética e segurança",
+      "icon": "balanca",
+      "pose": "pensando"
+    },
+    {
+      "title": "Nem o básico está fechado",
+      "layout": "padrao",
+      "body": "A meia-vida em pessoas ainda está em caracterização, e não há dose terapêutica aprovada: os protocolos de pesquisa não são padronizados.",
+      "icon": "ampulheta",
+      "pose": "alerta"
+    },
+    {
+      "title": "A cola pra guardar",
+      "layout": "passos",
+      "body": "Pouco relato não é segurança\nQuase tudo veio de camundongos\nGravidez, lactação ou câncer: fora\nGlicose alterada? Fale com o médico",
+      "icon": "certo",
+      "pose": "apontando"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Você leu que o MOTS-c não tem efeito colateral e já ficou tranquila? Calma, não é bem assim.",
+      "pose": "ih"
+    },
+    {
+      "text": "Quase tudo que se sabe dele vem de camundongos. Em pessoas, só houve um primeiro ensaio, de segurança e farmacocinética.",
+      "pose": "explicando"
+    },
+    {
+      "text": "Os dados de segurança em humanos são muito limitados, e os efeitos de longo prazo são desconhecidos.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Pouco relato quer dizer pouco estudo. Então, nenhum efeito colateral, no MOTS-c, ainda quer dizer: ninguém sabe.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, quando a gente lê \"sem efeito colateral\", dá um alívio. Mas, no caso do MOTS-c, o peptídeo mitocondrial, pouco relato quer dizer pouco estudo, e não segurança comprovada.\n\n1️⃣ Em camundongos, o MOTS-c melhorou a sensibilidade à insulina e a capacidade de exercício, com perfil toxicológico aparentemente favorável\n2️⃣ Em pessoas, só houve um primeiro ensaio clínico, de farmacocinética e segurança; não há ensaios de fase tardia concluídos\n3️⃣ A meia-vida em humanos ainda está em caracterização, e não existe dose terapêutica aprovada\n\n⚠️ Os dados de segurança em humanos são muito limitados e os efeitos de longo prazo, desconhecidos. O MOTS-c não tem aprovação regulatória e é proibido pela WADA. Gravidez, lactação e câncer ativo ou recente estão entre as contraindicações. Glicose ou insulina alteradas são conversa com o médico.",
+  "question": "Você já viu algum peptídeo vendido como \"sem efeito colateral\"?",
+  "share": "aquela amiga que confia em tudo que diz \"sem efeito colateral\""
+}

@@ -1,0 +1,70 @@
+{
+  "hook": "Rótulo de só pesquisa quer dizer que já foi testado? Não.",
+  "hookIcon": "frasco",
+  "hookPose": "pensando",
+  "slides": [
+    {
+      "title": "Só pesquisa quer dizer que já foi testado",
+      "layout": "mito",
+      "body": "Quer dizer o contrário. A hexarelina não tem aprovação em nenhum país e é considerada um peptídeo exclusivamente de pesquisa.",
+      "icon": "lupa",
+      "pose": "ih"
+    },
+    {
+      "title": "A história dela",
+      "layout": "padrao",
+      "body": "Foi investigada em fase II para deficiência de GH e insuficiência cardíaca. O desenvolvimento foi descontinuado, e ela nunca foi comercializada.",
+      "icon": "microscopio",
+      "pose": "explicando"
+    },
+    {
+      "title": "Ela só mexe no hormônio do crescimento?",
+      "layout": "pergunta",
+      "body": "Não. Ela também eleva cortisol, ACTH e prolactina, mais quanto maior a dose. Foi isso que limitou o interesse clínico.",
+      "icon": "cerebro",
+      "pose": "alerta"
+    },
+    {
+      "title": "Sem dose de bula",
+      "layout": "padrao",
+      "body": "Nos estudos, ela foi dada na veia, com dose calculada pelo peso. Como o uso clínico nunca foi aprovado, não existe dose de bula.",
+      "icon": "prancheta",
+      "pose": "pensando"
+    },
+    {
+      "title": "Quem precisa de mais cautela?",
+      "layout": "pergunta",
+      "body": "Malignidade ativa, gestação, lactação, doença crítica aguda e alterações de prolactina ou do eixo adrenal estão nas contraindicações.",
+      "icon": "alerta",
+      "pose": "alerta"
+    },
+    {
+      "title": "A cola pra guardar",
+      "layout": "passos",
+      "body": "Só pesquisa não é aprovado\nEla mexe em cortisol e prolactina\nNão existe dose de bula\nDúvida sobre GH? Fale com o médico",
+      "icon": "certo",
+      "pose": "apontando"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Você vê escrito só para pesquisa e acha que quer dizer testado e aprovado? Não é bem isso.",
+      "pose": "pensando"
+    },
+    {
+      "text": "A hexarelina foi estudada em fase II, mas o desenvolvimento parou e ela nunca foi comercializada. Não tem aprovação em nenhum país.",
+      "pose": "explicando"
+    },
+    {
+      "text": "Ela libera hormônio do crescimento, mas também eleva cortisol e prolactina. E não existe dose de bula.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Se alguém te indicar junto com a caneta, leve ao médico. Então, só para pesquisa quer dizer isso mesmo: não é para o dia a dia.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, \"uso em pesquisa\" no rótulo soa sério, quase como um selo. Mas, no caso da hexarelina (examorelina), quer dizer justamente que ela nunca virou remédio.\n\n1️⃣ Ela foi investigada em fase II para deficiência de GH e insuficiência cardíaca, o desenvolvimento foi descontinuado e ela nunca foi comercializada\n2️⃣ Libera hormônio do crescimento, mas também eleva cortisol, ACTH e prolactina, mais quanto maior a dose\n3️⃣ Nos estudos, foi dada na veia, com dose calculada pelo peso: o uso clínico nunca foi aprovado, então não há dose de bula\n\n⚠️ A hexarelina não tem aprovação em nenhum país e é proibida pela WADA. Malignidade ativa, gestação, lactação, hiperprolactinemia e distúrbios do eixo adrenal estão entre as contraindicações. Pensou em somar qualquer peptídeo à caneta de GLP-1? Converse com o médico antes.",
+  "question": "Você já tinha visto \"só para pesquisa\" escrito em algum frasco?",
+  "share": "aquela amiga que acha que \"só para pesquisa\" é selo de qualidade"
+}

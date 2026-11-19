@@ -1,0 +1,77 @@
+{
+  "hook": "Tem diabetes e compara seu resultado com o de quem não tem?",
+  "hookIcon": "balanca",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "Se perdi menos que ela, o remédio não pega em mim",
+      "body": "Nos estudos do CagriSema, quem tem diabetes tipo 2 perdeu menos peso, em média, do que quem não tem. E esse padrão se repete em toda a classe.",
+      "icon": "pensando",
+      "pose": "ih",
+      "layout": "mito"
+    },
+    {
+      "title": "13,7%",
+      "body": "Foi a média no REDEFINE 2, com diabetes tipo 2, contra 3,4% no placebo. No REDEFINE 1, sem diabetes, a média foi 20,4% contra 3,0%. Mesmo tratamento, populações diferentes.",
+      "icon": "microscopio",
+      "pose": "explicando",
+      "layout": "numero"
+    },
+    {
+      "title": "Por que a comparação engana",
+      "body": "Com diabetes tipo 2, a pessoa perde menos peso do que alguém sem diabetes com o mesmo tratamento. Comparar com a vizinha sem diabetes é comparar situações diferentes.",
+      "icon": "alerta",
+      "pose": "pensando",
+      "layout": "padrao"
+    },
+    {
+      "title": "73,5%",
+      "body": "No REDEFINE 2, foi a fatia de quem usou CagriSema e chegou a hemoglobina glicada de 6,5% ou menos, contra 15,9% no placebo. No diabetes, a glicose também é resultado.",
+      "icon": "alvo",
+      "pose": "comemorando",
+      "layout": "numero"
+    },
+    {
+      "title": "O que é o CagriSema",
+      "body": "É a cagrilintida, que imita a amilina, somada à semaglutida, que imita o GLP-1. Dois sinais de saciedade por vias parcialmente diferentes, uma aplicação por semana.",
+      "icon": "dna",
+      "pose": "explicando",
+      "layout": "padrao"
+    },
+    {
+      "title": "Média de estudo vale igual pra todo mundo",
+      "body": "São médias: a resposta de cada pessoa varia bastante. Efeitos gastrointestinais foram frequentes, 72,5% contra 34,4% no placebo. E o CagriSema segue sem aprovação da ANVISA.",
+      "icon": "enjoo",
+      "pose": "alerta",
+      "layout": "mito"
+    },
+    {
+      "title": "Cola pra guardar",
+      "body": "Com diabetes, a média de perda nos estudos é menor\nGlicose controlada também é resultado\nCagriSema ainda é estudo, sem aprovação\nCompare você com você, junto com o médico",
+      "icon": "certo",
+      "pose": "apontando",
+      "layout": "passos"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Você tem diabetes tipo 2 e compara o seu resultado com o de quem não tem? Eu sei, todo mundo compara.",
+      "pose": "ih"
+    },
+    {
+      "text": "Nos estudos do CagriSema, quem tinha diabetes perdeu menos peso, em média, do que quem não tinha. E isso se repete em toda a classe.",
+      "pose": "explicando"
+    },
+    {
+      "text": "No diabetes, a glicose também é resultado: a maioria chegou a uma hemoglobina glicada de 6,5% ou menos. Mas o CagriSema ainda é estudo, sem aprovação.",
+      "pose": "piscadinha"
+    },
+    {
+      "text": "Quer entender o seu caso? Converse com o médico. Então, a sua régua é você mesma, não quem não tem diabetes.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, todo mundo compara: a colega perdeu mais e a gente logo acha que o remédio não pega. Mas os estudos do CagriSema mostram um padrão que se repete em toda a classe: pessoas com diabetes tipo 2 perdem menos peso, em média, do que pessoas sem diabetes com o mesmo tratamento.\n\n1️⃣ REDEFINE 1, sem diabetes: média de 20,4% com CagriSema contra 3,0% no placebo\n2️⃣ REDEFINE 2, com diabetes tipo 2: média de 13,7% contra 3,4% no placebo\n3️⃣ No REDEFINE 2, 73,5% chegaram a hemoglobina glicada de 6,5% ou menos, contra 15,9% no placebo\n\nO CagriSema é a cagrilintida, que imita a amilina, somada à semaglutida. São médias de estudo: a resposta de cada pessoa varia bastante.\n\n⚠️ Cagrilintida e CagriSema estão em fase 3 e não têm aprovação da ANVISA. Efeitos gastrointestinais foram frequentes (72,5% contra 34,4% no placebo, no REDEFINE 2). Quer entender o seu resultado? Compare você com você, junto com o médico.",
+  "question": "Além do peso, que outro resultado o seu médico acompanha com você?",
+  "share": "quem tem diabetes e vive se comparando com quem não tem"
+}

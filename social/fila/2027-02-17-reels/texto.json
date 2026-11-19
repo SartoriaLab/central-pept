@@ -1,0 +1,63 @@
+{
+  "hook": "Mito: se foi estudada para o coração, faz bem para o coração.",
+  "hookIcon": "coracao",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "Duas histórias diferentes",
+      "body": "Hexarelina: testada em fase II para coração e deficiência de GH; parou e nunca foi comercializada\nGHRP-2: aprovado só no Japão, como exame para deficiência de GH",
+      "icon": "livros",
+      "pose": "explicando",
+      "layout": "lado"
+    },
+    {
+      "title": "Estudada para o coração, boa para o coração",
+      "body": "A hexarelina tem efeitos no coração por um receptor próprio, mas o desenvolvimento clínico foi descontinuado. Ela não tem aprovação em nenhum país.",
+      "icon": "errado",
+      "pose": "ih",
+      "layout": "mito"
+    },
+    {
+      "title": "Qual mexe mais com cortisol e prolactina?",
+      "body": "Os dois elevam, e quanto maior a dose, mais sobem. Na hexarelina, o efeito costuma ser mais forte do que no GHRP-2.",
+      "icon": "grafico-sobe",
+      "pose": "pensando",
+      "layout": "pergunta"
+    },
+    {
+      "title": "O GHRP-2 é mais leve, então é tranquilo",
+      "body": "Ele também eleva cortisol e prolactina e estimula o apetite. Fora do exame no Japão, é peptídeo de pesquisa, sem aprovação na FDA, na EMA ou na ANVISA.",
+      "icon": "alerta",
+      "pose": "alerta",
+      "layout": "mito"
+    },
+    {
+      "title": "Cola pra guardar",
+      "body": "Estudado não quer dizer aprovado\nOs dois sobem cortisol e prolactina\nProlactina alta ou problema adrenal: contraindicado\nQualquer dúvida: com o médico",
+      "icon": "certo",
+      "pose": "apontando",
+      "layout": "passos"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Mito: se a hexarelina foi estudada para o coração, ela faz bem para o coração. Não é bem assim.",
+      "pose": "ih"
+    },
+    {
+      "text": "Ela foi testada para insuficiência cardíaca, mas o desenvolvimento parou e ela nunca foi aprovada. O GHRP-2 só tem aprovação no Japão, como exame.",
+      "pose": "explicando"
+    },
+    {
+      "text": "E os dois elevam cortisol e prolactina, a hexarelina ainda mais. Tem prolactina alta ou alteração adrenal? Fale com o médico.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Então, estudada para o coração não quer dizer boa para o coração. Estudo não é aprovação.",
+      "pose": "piscadinha"
+    }
+  ],
+  "caption": "Eu sei, quando a gente lê que um peptídeo “foi estudado para o coração”, parece selo de qualidade. Com a hexarelina e o GHRP-2, vale olhar onde o estudo parou.\n\n1️⃣ Hexarelina: testada em fase II para deficiência de GH e insuficiência cardíaca. O desenvolvimento foi descontinuado, ela nunca foi comercializada e não tem aprovação em nenhum país.\n2️⃣ GHRP-2: aprovado só no Japão, como exame para diagnosticar deficiência de GH. Fora disso, é peptídeo de pesquisa, sem aprovação na FDA, na EMA ou na ANVISA.\n\n⚠️ Os dois elevam cortisol e prolactina conforme a dose, a hexarelina de forma mais marcada, e o GHRP-2 ainda estimula o apetite. Prolactina alta ou problema no eixo adrenal estão nas contraindicações. Os dois estão na lista de proibidos da WADA. Qualquer dúvida, fale com o médico.",
+  "question": "Você já confiou em um peptídeo só porque leu que foi estudado?",
+  "share": "aquela amiga que confia em tudo que tem “estudado” no título"
+}

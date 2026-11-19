@@ -1,0 +1,63 @@
+{
+  "hook": "Você acha que aplicar todo dia funciona mais que uma vez por semana?",
+  "hookIcon": "calendario",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "Por que um é diário e o outro, semanal?",
+      "body": "Por causa da meia-vida: o tempo que o remédio leva para cair pela metade no sangue. Não tem a ver com força.",
+      "icon": "ampulheta",
+      "pose": "pensando",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Quanto tempo cada um fica no corpo",
+      "body": "Tirzepatida: meia-vida de cerca de 5 dias, uso semanal\nAOD-9604: meia-vida curta, de horas, aplicação diária",
+      "icon": "relogio",
+      "pose": "explicando",
+      "layout": "lado"
+    },
+    {
+      "title": "Aplicação diária é mais potente",
+      "body": "O AOD-9604 é diário e, mesmo assim, o estudo decisivo para obesidade não atingiu significância. A tirzepatida é semanal e tem aprovação.",
+      "icon": "errado",
+      "pose": "ih",
+      "layout": "mito"
+    },
+    {
+      "title": "Posso aplicar a caneta mais vezes pra render?",
+      "body": "A bula descreve uso semanal, com a dose subindo em degraus de pelo menos 4 semanas. Mudar frequência ou dose é decisão do médico.",
+      "icon": "estetoscopio",
+      "pose": "alerta",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Cola pra guardar",
+      "body": "A frequência segue a meia-vida, não a força\nTirzepatida: uma vez por semana, como na bula\nAOD-9604: sem aprovação na FDA, EMA ou ANVISA\nDúvida na dose: médico",
+      "icon": "certo",
+      "pose": "apontando",
+      "layout": "passos"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Você acha que aplicar todo dia funciona mais do que uma vez por semana? Eu sei, parece lógico, mas não é assim.",
+      "pose": "ih"
+    },
+    {
+      "text": "A tirzepatida tem meia-vida de cerca de 5 dias, por isso é semanal. A do AOD-9604 é de horas, por isso ele é diário.",
+      "pose": "explicando"
+    },
+    {
+      "text": "E mesmo aplicado todo dia, o AOD-9604 não atingiu significância no estudo decisivo. Dose e frequência, só com o médico.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Então, aplicar todo dia não quer dizer funcionar mais. Quem manda é a meia-vida.",
+      "pose": "piscadinha"
+    }
+  ],
+  "caption": "Eu sei, a gente pensa que injeção diária é “mais forte” que a semanal. Mas a frequência de um remédio vem da meia-vida, o tempo que ele leva para cair pela metade no sangue.\n\n1️⃣ Tirzepatida (Mounjaro): meia-vida de cerca de 5 dias, por isso a bula descreve uso uma vez por semana, com a dose subindo em degraus de pelo menos 4 semanas.\n2️⃣ AOD-9604: meia-vida curta, de horas, por isso a aplicação é diária. Mesmo assim, o estudo decisivo para obesidade não atingiu significância, e ele não tem aprovação na FDA, na EMA nem na ANVISA.\n\n⚠️ Aplicar a caneta mais vezes ou mudar a dose por conta própria não está na bula. Qualquer ajuste é com o médico.",
+  "question": "Qual dia da semana é o da sua caneta?",
+  "share": "aquela amiga que acha que mais aplicação é mais resultado"
+}

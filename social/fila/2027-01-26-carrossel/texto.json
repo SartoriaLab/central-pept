@@ -1,0 +1,70 @@
+{
+  "hook": "Victoza e Saxenda são remédios diferentes? É a mesma liraglutida",
+  "hookIcon": "duvida",
+  "hookPose": "pensando",
+  "slides": [
+    {
+      "title": "Então por que dois nomes?",
+      "layout": "pergunta",
+      "body": "Porque a mesma molécula foi aprovada para dois usos: diabetes tipo 2, como Victoza, e controle crônico de peso, como Saxenda.",
+      "icon": "livros",
+      "pose": "explicando"
+    },
+    {
+      "title": "Mesma molécula, faixas diferentes",
+      "layout": "lado",
+      "body": "Victoza: diabetes tipo 2, de 0,6 a 1,8 mg por dia\nSaxenda: controle de peso, em dose de 3 mg por dia",
+      "icon": "balanca",
+      "pose": "pensando"
+    },
+    {
+      "title": "A escada começa devagar",
+      "layout": "padrao",
+      "body": "A dose inicial descrita é 0,6 mg, uma vez por dia, com aumento gradual. No controle de peso, a subida é semanal até 3 mg. Ajuste, só com o médico.",
+      "icon": "grafico-sobe",
+      "pose": "explicando"
+    },
+    {
+      "title": "A caneta da minha amiga é mais forte?",
+      "layout": "pergunta",
+      "body": "É a mesma liraglutida, em outra faixa de dose e para outra indicação. Qual faz sentido pra você, quem decide é o médico, olhando o seu caso.",
+      "icon": "pensando",
+      "pose": "ih"
+    },
+    {
+      "title": "Os efeitos também são os mesmos",
+      "layout": "padrao",
+      "body": "Náusea, diarreia, constipação e vômito são os mais comuns e, em geral, passam. Aumento da frequência cardíaca também está na lista.",
+      "icon": "enjoo",
+      "pose": "alerta"
+    },
+    {
+      "title": "A cola: dois nomes, uma molécula",
+      "layout": "passos",
+      "body": "Victoza e Saxenda são liraglutida\nMuda a indicação e a faixa de dose\nAs duas são diárias e sobem aos poucos\nPancreatite ou tireoide na família? Conte antes",
+      "icon": "certo",
+      "pose": "apontando"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Victoza e Saxenda são remédios diferentes? Não: é a mesma liraglutida.",
+      "pose": "pensando"
+    },
+    {
+      "text": "O que muda é o uso. Victoza é para diabetes tipo 2, de 0,6 a 1,8 mg por dia. Saxenda é para controle de peso, em dose de 3 mg por dia.",
+      "pose": "explicando"
+    },
+    {
+      "text": "As duas são diárias e começam devagar, como a bula descreve. Trocar uma pela outra por conta própria, não: isso é conversa com o médico.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Então, quando alguém disser que são remédios diferentes, você já sabe: é a mesma liraglutida.",
+      "pose": "piscadinha"
+    }
+  ],
+  "caption": "Eu sei, com dois nomes e duas caixas diferentes, parece que são dois remédios. Não são: Victoza e Saxenda são a mesma liraglutida, um GLP-1 de uso diário, aprovada pelo FDA, pela EMA e pela ANVISA para dois usos.\n\n1️⃣ Victoza: diabetes tipo 2, de 0,6 a 1,8 mg por dia.\n2️⃣ Saxenda: controle crônico de peso, em dose de 3 mg por dia.\n3️⃣ A dose inicial descrita é 0,6 mg por dia, com aumento gradual; no controle de peso, a titulação é semanal. Ajuste de dose é sempre com o médico.\n\nA liraglutida também tem indicação de redução de risco cardiovascular em diabéticos de alto risco e uso pediátrico a partir de 12 anos.\n\n⚠️ Efeito colateral: náusea, diarreia, constipação e vômito são os mais comuns; aumento da frequência cardíaca, pancreatite e cálculo na vesícula também estão descritos. Histórico de pancreatite, de carcinoma medular de tireoide ou NEM2 (seu ou da família) e gestação precisam ser conversados com o médico antes.",
+  "question": "Você também achava que Victoza e Saxenda eram remédios diferentes?",
+  "share": "quem acha que a Saxenda da amiga é mais forte que a sua Victoza"
+}

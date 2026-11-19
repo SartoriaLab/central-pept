@@ -1,0 +1,70 @@
+{
+  "hook": "Você também acha que imunidade boa é imunidade turbinada?",
+  "hookIcon": "grafico-sobe",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "Imunidade boa é imunidade no máximo",
+      "body": "Não é bem assim. A timosina alfa-1 não liga a defesa no máximo: o efeito dela é de modulação, não de estimulação imune indiscriminada.",
+      "icon": "escudo",
+      "pose": "ih",
+      "layout": "mito"
+    },
+    {
+      "title": "Modular é o quê, na prática?",
+      "body": "Ela age em células dendríticas, favorece o amadurecimento dos linfócitos T, aumenta a atividade das células NK e a produção de citocinas como IFN-γ e IL-2.",
+      "icon": "dna",
+      "pose": "explicando",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Onde ela é aprovada",
+      "body": "Cerca de 35 países, sobretudo na Ásia: hepatite B e C, resposta a vacinas\nFDA, EMA e ANVISA: nenhuma aprovação",
+      "icon": "balanca",
+      "pose": "explicando",
+      "layout": "lado"
+    },
+    {
+      "title": "Quem tem imunidade baixa só ganha com ela",
+      "body": "Quem toma remédio contra rejeição de transplante fica de fora: há risco teórico de ela reduzir o efeito desse tratamento. Gestantes e lactantes também, por falta de dados.",
+      "icon": "alerta",
+      "pose": "alerta",
+      "layout": "mito"
+    },
+    {
+      "title": "E o esquema que circula por aí?",
+      "body": "O esquema de bula, de 1,6 mg duas vezes por semana, é o do Zadaxin em hepatite B. Para longevidade, a evidência é limitada. Qualquer dose é com o médico.",
+      "icon": "prancheta",
+      "pose": "pensando",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Antes de turbinar qualquer coisa",
+      "body": "Imunidade se modula, não se liga no máximo\nTransplantado em imunossupressão: fora\nSem aprovação da ANVISA\nInfecção que volta? Consulta médica",
+      "icon": "estetoscopio",
+      "pose": "apontando",
+      "layout": "passos"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Você também acha que imunidade boa é imunidade turbinada? Eu sei, todo mundo cresce ouvindo isso.",
+      "pose": "ih"
+    },
+    {
+      "text": "A timosina alfa-1 não liga a defesa no máximo. Ela modula, ajudando os linfócitos T e as células NK a se organizarem.",
+      "pose": "explicando"
+    },
+    {
+      "text": "Por isso, quem toma remédio contra rejeição de transplante fica de fora. E ela não tem aprovação da ANVISA.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Então, dúvida é com o médico. E imunidade boa é a equilibrada, não a turbinada.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, a gente cresce ouvindo que precisa \"turbinar a imunidade\". Mas a timosina alfa-1 (timalfasina), um peptídeo de 28 aminoácidos isolado do timo, mostra outra lógica: o efeito dela é de modulação, não de estimulação imune indiscriminada.\n\n1️⃣ Ela age em células dendríticas, favorece o amadurecimento dos linfócitos T, a atividade das células NK e citocinas como IFN-γ e IL-2\n2️⃣ Como Zadaxin, é aprovada em cerca de 35 países, principalmente na Ásia, como adjuvante em hepatite B e C crônicas e para reforçar a resposta a vacinas em idosos e imunodeprimidos\n3️⃣ O esquema de bula, de 1,6 mg duas vezes por semana, é o da hepatite B; para longevidade, a evidência é limitada\n\n⚠️ Ela não tem aprovação da ANVISA, da FDA nem da EMA. Quem está em imunossupressão pós-transplante fica de fora, pelo risco teórico de reduzir o efeito do tratamento, e gestantes e lactantes não têm dados suficientes. Infecção que volta toda hora pede consulta, e qualquer dose é decisão do médico.",
+  "question": "Pra você, imunidade boa é imunidade forte ou equilibrada?",
+  "share": "a tia que acha que imunidade boa é imunidade no máximo"
+}

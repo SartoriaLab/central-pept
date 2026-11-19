@@ -1,0 +1,63 @@
+{
+  "hook": "O KPV é um pedaço do α-MSH. Então mexe na cor da pele? Não.",
+  "hookIcon": "duvida",
+  "hookPose": "pensando",
+  "slides": [
+    {
+      "title": "Parente do α-MSH, mas não igual",
+      "body": "O KPV é o pedacinho final do α-MSH: lisina, prolina e valina. Ele guarda a ação anti-inflamatória do hormônio, mas não os efeitos de pigmentação.",
+      "icon": "dna",
+      "pose": "explicando",
+      "layout": "padrao"
+    },
+    {
+      "title": "Por que ele não mexe na cor da pele?",
+      "body": "Porque não ativa o receptor MC1R da mesma forma que o hormônio. Isso vem de estudos em células e em animais, com colite e dermatite.",
+      "icon": "pele",
+      "pose": "pensando",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Parente de hormônio faz tudo que o hormônio faz",
+      "body": "Não faz. Cada peptídeo precisa de estudo próprio, e o KPV não tem ensaio clínico robusto em humanos.",
+      "icon": "errado",
+      "pose": "ih",
+      "layout": "mito"
+    },
+    {
+      "title": "E o que falta saber?",
+      "body": "Quase tudo em gente: meia-vida e segurança em humanos não foram caracterizadas, e não há dose clínica estabelecida. A qualidade do mercado cinza também varia.",
+      "icon": "lupa",
+      "pose": "alerta",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Antes de acreditar no parentesco",
+      "body": "Parente de hormônio não é o hormônio\nSem aprovação e sem dose clínica\nGestante ou amamentando: sem estudos\nPele ou intestino? Fale com o médico",
+      "icon": "estetoscopio",
+      "pose": "apontando",
+      "layout": "passos"
+    }
+  ],
+  "narration": [
+    {
+      "text": "O KPV é um pedaço do alfa-MSH. Então ele mexe na cor da sua pele? Não é bem assim.",
+      "pose": "pensando"
+    },
+    {
+      "text": "Ele guarda a ação anti-inflamatória do hormônio, mas não ativa o receptor MC1R do mesmo jeito. Por isso não tem os efeitos de pigmentação.",
+      "pose": "explicando"
+    },
+    {
+      "text": "Só que isso foi visto em animais e em células. Em gente, a meia-vida e a segurança não foram caracterizadas.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Então, dúvida de pele ou de intestino é com o médico. A cor da pele ele não muda, mas estudo em você ele também não tem.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, quando a gente lê que um peptídeo é \"parente\" de um hormônio, já imagina que ele faz tudo que o hormônio faz. O KPV é o tripeptídeo final do α-MSH (lisina, prolina e valina), e a graça dele é justamente fazer menos.\n\n1️⃣ Ele preserva a ação anti-inflamatória do α-MSH, mas sem os efeitos de pigmentação, porque não ativa o receptor MC1R da mesma forma\n2️⃣ Isso vem de modelos animais, de colite e dermatite, e de estudos em células\n3️⃣ Em humanos, não há ensaios clínicos robustos: meia-vida, dose clínica e segurança não foram caracterizadas\n\n⚠️ O KPV não tem aprovação regulatória e é proibido pela WADA no esporte. Gestantes e lactantes não têm nenhum estudo, e a qualidade do que circula no mercado cinza é variável. Problema de pele ou de intestino, inclusive com a caneta GLP-1, é conversa com o médico, sem trocar tratamento por conta própria.",
+  "question": "Você já achou que um peptídeo fazia o mesmo que o hormônio de onde ele veio?",
+  "share": "aquela amiga que acha que pedaço de hormônio faz tudo que ele faz"
+}

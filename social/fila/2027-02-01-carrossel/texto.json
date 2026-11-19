@@ -1,0 +1,70 @@
+{
+  "hook": "Quer começar na dose alta pra ir mais rápido? Olha esse número.",
+  "hookIcon": "grafico-sobe",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "Começar alto encurta o caminho?",
+      "layout": "pergunta",
+      "body": "Na fase 2 da retatrutida, quem começou já em dose mais alta teve até 60% de náusea. Com 12 mg, foram 45%. Pular degrau cobra do estômago.",
+      "icon": "enjoo",
+      "pose": "ih"
+    },
+    {
+      "title": "Começo baixo nas duas",
+      "layout": "lado",
+      "body": "Liraglutida: bula começa em 0,6 mg por dia, com subida semanal\nRetatrutida: na fase 3, o estudo começou em 2 mg por semana",
+      "icon": "calendario",
+      "pose": "explicando"
+    },
+    {
+      "title": "Até 43%",
+      "layout": "numero",
+      "body": "Foi a náusea na fase 3 da retatrutida, mesmo começando baixo. Diarreia chegou a 35% e vômito, a 25%. Subir devagar não zera o enjoo.",
+      "icon": "vomito",
+      "pose": "pensando"
+    },
+    {
+      "title": "Dá pra usar a retatrutida hoje?",
+      "layout": "pergunta",
+      "body": "Não. Ela não tem aprovação em nenhuma agência. Em julho de 2026, a ANVISA orientou a não usar produtos vendidos com esse nome.",
+      "icon": "proibido",
+      "pose": "alerta"
+    },
+    {
+      "title": "Até 21%",
+      "layout": "numero",
+      "body": "Foi a disestesia, sensações estranhas na pele, com 12 mg em um ensaio de fase 3. Ela é mais frequente nas doses altas.",
+      "icon": "pele",
+      "pose": "explicando"
+    },
+    {
+      "title": "A cola da subida",
+      "layout": "passos",
+      "body": "Começar alto não encurta o caminho\nNa liraglutida, a bula sobe aos poucos\nRetatrutida: experimental, sem registro\nCada degrau é decidido com o médico",
+      "icon": "certo",
+      "pose": "apontando"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Você tem vontade de começar na dose alta pra ir mais rápido? Olha esse número do estudo da retatrutida.",
+      "pose": "ih"
+    },
+    {
+      "text": "Na fase 2, quem começou já em dose mais alta teve até 60% de náusea. Na fase 3, o início foi em 2 mg por semana.",
+      "pose": "explicando"
+    },
+    {
+      "text": "A liraglutida, que é aprovada, também começa baixo na bula, e sobe aos poucos. A retatrutida segue experimental, sem registro.",
+      "pose": "pensando"
+    },
+    {
+      "text": "Cada degrau é decidido com o médico. Então, dose alta logo de cara pra ir mais rápido? Não é assim que funciona.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, a vontade de pular etapa é grande, principalmente quando a amiga já está na dose maior. Mas os estudos mostram por que a subida é em degraus.\n\n1️⃣ Na fase 2 da retatrutida, a náusea foi de 45% com 12 mg e chegou a até 60% em quem começou já em dose mais alta\n2️⃣ Na fase 3, o início foi em 2 mg por semana, e mesmo assim a náusea chegou a até 43%\n3️⃣ A liraglutida (Saxenda, Victoza) começa em 0,6 mg por dia na bula, com subida semanal\n\n⚠️ A retatrutida é experimental: não tem aprovação da FDA, da EMA nem da ANVISA, e em julho de 2026 a ANVISA orientou a não usar produtos vendidos com esse nome. Nos ensaios, também apareceu disestesia, mais frequente nas doses altas. Dose inicial e cada subida são sempre decididas com o médico.",
+  "question": "Você já sentiu vontade de pular uma etapa da subida de dose?",
+  "share": "aquela amiga que quer começar logo na dose da outra"
+}

@@ -1,0 +1,77 @@
+{
+  "hook": "Off-label quer dizer “não funciona”? Também não é isso.",
+  "hookIcon": "duvida",
+  "hookPose": "pensando",
+  "slides": [
+    {
+      "title": "O que é off-label, afinal?",
+      "body": "É o uso fora da indicação aprovada na bula. No PT-141, a bremelanotida, tudo o que foge do grupo estudado entra aqui.",
+      "icon": "livros",
+      "pose": "explicando",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Dentro e fora da bula",
+      "body": "Na bula: mulheres na pré-menopausa com desejo sexual baixo diagnosticado\nFora dela: homens e qualquer outro uso, sem respaldo regulatório",
+      "icon": "prancheta",
+      "pose": "explicando",
+      "layout": "lado"
+    },
+    {
+      "title": "Off-label quer dizer que não faz nada",
+      "body": "Não é isso. Quer dizer que falta a comprovação de eficácia e de segurança que a aprovação exigiu. E é essa comprovação que dá segurança à recomendação.",
+      "icon": "microscopio",
+      "pose": "ih",
+      "layout": "mito"
+    },
+    {
+      "title": "E a dose, fora da bula?",
+      "body": "Não existe dose oficial. A única com respaldo é a da bula, de 1,75 mg, no máximo 1 dose a cada 24 horas; esquemas diferentes são off-label. Ajuste, só com o médico.",
+      "icon": "alvo",
+      "pose": "explicando",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Fora da bula, qualquer frasco serve",
+      "body": "No Brasil, o PT-141 não tem registro na ANVISA. O que circula fora da farmácia vem de mercado não regulado, sem garantia de identidade, pureza ou dose.",
+      "icon": "frasco",
+      "pose": "alerta",
+      "layout": "mito"
+    },
+    {
+      "title": "Quem não deve usar de jeito nenhum?",
+      "body": "Quem tem pressão alta não controlada, doença do coração ou risco cardiovascular alto, e na gravidez. Cada dose sobe a pressão por um tempo, mesmo na forma aprovada.",
+      "icon": "coracao",
+      "pose": "alerta",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Cola do off-label",
+      "body": "Off-label é fora da bula, sem comprovação\nFora da bula, não existe dose oficial\nNo Brasil, o PT-141 não tem registro\nQueixa de desejo: avaliação médica primeiro",
+      "icon": "certo",
+      "pose": "apontando",
+      "layout": "passos"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Off-label quer dizer que o remédio não funciona? Também não é isso. E no PT-141 essa diferença importa.",
+      "pose": "pensando"
+    },
+    {
+      "text": "Ele foi aprovado só para mulheres na pré-menopausa com desejo sexual baixo diagnosticado. Fora disso, inclusive em homens, é off-label.",
+      "pose": "explicando"
+    },
+    {
+      "text": "Off-label quer dizer sem a comprovação de eficácia e de segurança, e sem dose oficial. No Brasil, nem registro tem. Converse com o médico.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Então, off-label não quer dizer que não funciona. Quer dizer que ninguém comprovou.",
+      "pose": "piscadinha"
+    }
+  ],
+  "caption": "Eu sei, “off-label” parece palavra de bula que ninguém explica. Tem quem ache que quer dizer “não funciona” e tem quem ache que quer dizer “liberado”. No PT-141 (bremelanotida, Vyleesi), não é nem uma coisa nem outra.\n\n1️⃣ Off-label é o uso fora da indicação aprovada. O PT-141 foi aprovado nos EUA só para mulheres na pré-menopausa com transtorno do desejo sexual hipoativo. Em homens ou em qualquer outro uso, é off-label.\n2️⃣ Off-label não quer dizer que não faz nada: quer dizer que falta a comprovação de eficácia e segurança. E fora da bula não existe dose oficial; a única com respaldo é a de 1,75 mg, no máximo 1 dose a cada 24 horas.\n\n⚠️ No Brasil, o PT-141 não tem registro na ANVISA, e o que circula fora da farmácia não tem garantia de identidade, pureza ou dose. Cada dose sobe a pressão por um tempo: pressão alta não controlada, doença cardiovascular e gravidez estão nas contraindicações. Queixa de desejo é conversa com o médico.",
+  "question": "Você já tinha ouvido a palavra off-label antes?",
+  "share": "aquela amiga que acha que off-label é o mesmo que liberado"
+}

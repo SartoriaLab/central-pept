@@ -1,0 +1,63 @@
+{
+  "hook": "Semax 0,1% ou 1%: parece detalhe, mas é dez vezes de diferença.",
+  "hookIcon": "gota",
+  "hookPose": "alerta",
+  "slides": [
+    {
+      "title": "As duas versões russas",
+      "body": "0,1%: a concentração menor\n1%: dez vezes mais peptídeo no mesmo volume",
+      "icon": "frasco",
+      "pose": "explicando",
+      "layout": "lado"
+    },
+    {
+      "title": "10 vezes",
+      "body": "É a diferença entre as duas concentrações. Por isso o nome no rótulo não basta: a porcentagem muda quanto peptídeo vai em cada gota.",
+      "icon": "regua",
+      "pose": "alerta",
+      "layout": "numero"
+    },
+    {
+      "title": "Rússia x Brasil",
+      "body": "Rússia: na lista de medicamentos essenciais\nBrasil: sem aprovação da ANVISA, como na FDA e na EMA",
+      "icon": "hospital",
+      "pose": "pensando",
+      "layout": "lado"
+    },
+    {
+      "title": "Nootrópico é tipo café, serve pra todo mundo",
+      "body": "Ele mexe com dopamina e serotonina. Por isso pede cautela em quadro de mania ou psicose. Na gravidez e na amamentação, os dados são insuficientes.",
+      "icon": "cerebro",
+      "pose": "ih",
+      "layout": "mito"
+    },
+    {
+      "title": "Pra não cair no detalhe",
+      "body": "Leia a concentração, não só o nome\n0,1% e 1% não são a mesma coisa\nSem aprovação da ANVISA\nDúvida? Fale com o médico",
+      "icon": "estetoscopio",
+      "pose": "apontando",
+      "layout": "passos"
+    }
+  ],
+  "narration": [
+    {
+      "text": "No rótulo do Semax, 0,1% ou 1% parece só um detalhe. Mas é dez vezes de diferença.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Na Rússia, ele existe nas duas concentrações, para uso no nariz. No mesmo volume, uma tem dez vezes mais peptídeo que a outra.",
+      "pose": "explicando"
+    },
+    {
+      "text": "Fora da Rússia, ele não é aprovado, nem pela ANVISA. E quem tem quadro de mania ou psicose precisa de cautela.",
+      "pose": "pensando"
+    },
+    {
+      "text": "Então, dúvida é com o médico. E, no rótulo, 0,1% ou 1% nunca é só um detalhe.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, a gente bate o olho no nome do rótulo e acha que já sabe tudo. No Semax, o peptídeo russo usado lá como nootrópico e neuroprotetor, a formulação para o nariz existe em 0,1% e em 1%: no mesmo volume, uma tem dez vezes mais peptídeo que a outra.\n\n1️⃣ Concentração não é detalhe: leia a porcentagem, não só o nome\n2️⃣ O Semax consta da lista russa de medicamentos essenciais, mas não foi avaliado nem aprovado pela FDA, pela EMA ou pela ANVISA\n3️⃣ A literatura em inglês é bem mais modesta que a russa, e o uso prolongado fora da Rússia tem dados limitados\n\n⚠️ Ele age em dopamina e serotonina, por isso pede cautela em quadro de mania ou psicose. Na gravidez e na amamentação, os dados são insuficientes. Dose é sempre decisão do médico.",
+  "question": "Você costuma ler a concentração no rótulo ou só o nome do remédio?",
+  "share": "aquela amiga que só lê o nome no rótulo"
+}

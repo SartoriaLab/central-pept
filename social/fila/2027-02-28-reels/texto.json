@@ -1,0 +1,70 @@
+{
+  "hook": "\"A bula do meu Ozempic veio numa folha avulsa.\" Isso é normal?",
+  "hookIcon": "prancheta",
+  "hookPose": "pensando",
+  "slides": [
+    {
+      "title": "A bula veio numa folha avulsa. É normal?",
+      "body": "Não é. A bula do Ozempic original vem em português, em papel, dentro da caixa. Folha avulsa impressa é sinal de alerta de falsificação.",
+      "icon": "duvida",
+      "pose": "explicando",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Bula original e bula suspeita",
+      "body": "Original: em português, em papel, dentro da caixa\nSuspeita: folha avulsa impressa, solta na embalagem",
+      "icon": "livros",
+      "pose": "explicando",
+      "layout": "lado"
+    },
+    {
+      "title": "E o que mais olhar na caixa?",
+      "body": "Impressão de alta qualidade, cor azul consistente e nenhum erro de ortografia. O fabricante é a Novo Nordisk A/S, com importação exclusiva da Novo Nordisk Brasil.",
+      "icon": "lupa",
+      "pose": "apontando",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Erro de digitação na caixa acontece",
+      "body": "Na original, não. Caixa com erro de ortografia, cor que muda de um lado para o outro ou impressão borrada é motivo para parar antes da primeira dose.",
+      "icon": "errado",
+      "pose": "ih",
+      "layout": "mito"
+    },
+    {
+      "title": "Achei um desses sinais. Aplico assim mesmo?",
+      "body": "Não aplique. Fotografe a embalagem e a caneta e notifique a ANVISA pelo Notivisa. Se foi pela internet, procure também o Procon.",
+      "icon": "alerta",
+      "pose": "alerta",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Cola da embalagem",
+      "body": "Bula em português, em papel, na caixa\nImpressão caprichada, sem erro de ortografia\nFabricante Novo Nordisk\nSinal estranho: não aplique e notifique",
+      "icon": "certo",
+      "pose": "apontando",
+      "layout": "passos"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Me perguntaram: a bula do Ozempic veio numa folha avulsa. Isso é normal? Não é.",
+      "pose": "pensando"
+    },
+    {
+      "text": "A bula original vem em português, em papel, dentro da caixa. Folha avulsa impressa é sinal de falsificação.",
+      "pose": "explicando"
+    },
+    {
+      "text": "Olhe a caixa também: impressão caprichada, sem erro de ortografia, e fabricante Novo Nordisk. Desconfiou? Não aplique e notifique a ANVISA.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Já aplicou e sentiu algo anormal? Procure o pronto-socorro. E bula em folha avulsa, agora você sabe: não é normal.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, quase ninguém abre a bula: ela vai direto pro lixo junto com o plástico. Mas a bula também ajuda a mostrar se o Ozempic, a semaglutida, é original. Na caneta verdadeira, ela vem em português, em papel, dentro da caixa. Folha avulsa impressa é sinal de alerta.\n\n1️⃣ Bula em português, em papel, dentro da caixa\n2️⃣ Caixa com impressão de alta qualidade, cor azul consistente e sem erro de ortografia\n3️⃣ Fabricante Novo Nordisk A/S, com importação da Novo Nordisk Brasil\n\n⚠️ Achou um desses sinais? Não aplique. Fotografe a embalagem e a caneta e notifique a ANVISA pelo Notivisa. Já aplicou e sentiu algo anormal? Pronto-socorro.",
+  "question": "Você costuma abrir a bula quando pega uma caixa nova?",
+  "share": "aquela amiga que joga a bula fora sem nem abrir"
+}

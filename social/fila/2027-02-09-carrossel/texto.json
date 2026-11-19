@@ -1,0 +1,70 @@
+{
+  "hook": "Taça de vinho e DSIP pra dormir na mesma noite? Calma lá.",
+  "hookIcon": "lua",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "O que está na lista de cuidados",
+      "body": "Não combinar: álcool e sedativos\nNão fazer depois da aplicação: dirigir",
+      "icon": "proibido",
+      "pose": "alerta",
+      "layout": "lado"
+    },
+    {
+      "title": "Por que essa mistura pede cuidado?",
+      "body": "O mecanismo do DSIP é pouco definido. Uma das hipóteses envolve os receptores GABA-A. Somar isso a álcool ou a sedativos está entre as contraindicações.",
+      "icon": "bebida",
+      "pose": "pensando",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Se der sono no dia seguinte, é sinal de que funcionou",
+      "body": "Sonolência durante o dia, dor de cabeça e tontura são efeitos relatados, não prova de efeito. E é por isso que dirigir depois também está na lista.",
+      "icon": "sono",
+      "pose": "ih",
+      "layout": "mito"
+    },
+    {
+      "title": "E quanto tempo ele dura no corpo?",
+      "body": "A meia-vida é de cerca de 2 a 4 min, medida na veia de animais. Em humanos, os dados são escassos, e não existem dados de segurança de longo prazo.",
+      "icon": "ampulheta",
+      "pose": "explicando",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Peptídeo é mais leve que remédio para dormir",
+      "body": "O DSIP não tem aprovação em nenhum país, e os estudos em insônia são pequenos, antigos e de resultados inconsistentes. Parecer leve não é o mesmo que ser estudado.",
+      "icon": "microscopio",
+      "pose": "alerta",
+      "layout": "mito"
+    },
+    {
+      "title": "Se a noite está difícil",
+      "body": "DSIP com álcool ou calmante: contraindicado\nCom sono, não dirija\nGestante ou amamentando: fora\nInsônia que não passa? Fale com o médico",
+      "icon": "estetoscopio",
+      "pose": "apontando",
+      "layout": "passos"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Taça de vinho e DSIP para dormir na mesma noite? Calma lá, que essa conta não fecha.",
+      "pose": "ih"
+    },
+    {
+      "text": "Usar junto com álcool ou sedativos está nas contraindicações do DSIP. E dirigir depois da aplicação também.",
+      "pose": "explicando"
+    },
+    {
+      "text": "Ele não é aprovado em nenhum país, e os estudos em insônia são pequenos e antigos. Segurança de longo prazo não tem dados.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Então, insônia é conversa com o médico. E vinho com DSIP na mesma noite fica de fora.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, depois de um dia pesado, a taça de vinho parece o jeito mais fácil de desligar. Mas, se alguém te falou do DSIP, o tal peptídeo do sono, saiba que usar junto com álcool ou sedativos está entre as contraindicações dele.\n\n1️⃣ O mecanismo é pouco definido; uma das hipóteses envolve os receptores GABA-A\n2️⃣ Sonolência durante o dia, dor de cabeça e tontura são efeitos relatados, e dirigir depois da aplicação está na lista de cuidados\n3️⃣ A meia-vida é de cerca de 2 a 4 min, medida em animais; em humanos, os dados são escassos\n\n⚠️ O DSIP não tem aprovação em nenhum país, os estudos em insônia são pequenos, antigos e inconsistentes, e não existem dados de segurança de longo prazo. Gestantes e lactantes ficam de fora. Insônia que não passa merece avaliação médica.",
+  "question": "O que mais atrapalha o seu sono: a cabeça cheia ou o celular?",
+  "share": "aquela amiga que toma uma taça de vinho pra conseguir dormir"
+}

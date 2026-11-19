@@ -1,0 +1,70 @@
+{
+  "hook": "Você contou ao médico o histórico de tireoide da sua família?",
+  "hookIcon": "estetoscopio",
+  "hookPose": "pensando",
+  "slides": [
+    {
+      "title": "“É da minha mãe, não meu.” Conta mesmo assim?",
+      "body": "Conta. Na bula da semaglutida, a contraindicação vale para história pessoal ou familiar de carcinoma medular de tireoide.",
+      "icon": "duvida",
+      "pose": "ih",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Não é qualquer problema de tireoide",
+      "body": "A bula fala de um tipo específico, o carcinoma medular de tireoide, e de uma síndrome, a NEM 2. Não sabe o nome exato do diagnóstico? Leve a dúvida para a consulta.",
+      "icon": "lupa",
+      "pose": "explicando",
+      "layout": "padrao"
+    },
+    {
+      "title": "As duas condições da bula",
+      "body": "Carcinoma medular de tireoide: história pessoal ou familiar\nNEM 2: síndrome de neoplasia endócrina múltipla tipo 2",
+      "icon": "prancheta",
+      "pose": "pensando",
+      "layout": "lado"
+    },
+    {
+      "title": "O que mais o médico precisa saber?",
+      "body": "Alergia grave à semaglutida ou aos componentes da fórmula, e gestação: o uso não é recomendado na gravidez.",
+      "icon": "escudo",
+      "pose": "alerta",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Ozempic, Wegovy e Rybelsus",
+      "body": "Todos são semaglutida: os dois primeiros em caneta, o Rybelsus em comprimido. A conversa sobre o histórico vale para qualquer um deles.",
+      "icon": "comprimido",
+      "pose": "piscadinha",
+      "layout": "padrao"
+    },
+    {
+      "title": "Antes de começar",
+      "body": "Pergunte na família sobre câncer de tireoide\nLeve o nome do diagnóstico, se souber\nConte de alergias e de gestação\nNa dúvida, pergunte ao médico",
+      "icon": "certo",
+      "pose": "apontando",
+      "layout": "passos"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Você contou ao médico o histórico de tireoide da sua família? Eu sei, a gente pensa que é da mãe, não nosso.",
+      "pose": "ih"
+    },
+    {
+      "text": "Na bula da semaglutida, a história familiar conta. Ela fala de um tipo específico: o carcinoma medular de tireoide, e da síndrome NEM 2.",
+      "pose": "explicando"
+    },
+    {
+      "text": "Alergia grave e gestação também entram nessa conversa. Não sabe o nome do diagnóstico? Leve a dúvida, que o médico ajuda.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Então, antes do Ozempic, a pergunta é da família inteira: o histórico de tireoide de vocês já chegou ao seu médico?",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, quando o diagnóstico é da mãe, da tia ou da avó, a gente acha que não precisa contar. Mas na bula da semaglutida (Ozempic, Wegovy, Rybelsus) a contraindicação vale para história pessoal ou familiar de carcinoma medular de tireoide.\n\n1️⃣ A bula fala de um tipo específico: carcinoma medular de tireoide, e da síndrome NEM 2 (neoplasia endócrina múltipla tipo 2)\n2️⃣ Não sabe o nome exato do diagnóstico da família? Leve a dúvida para a consulta\n3️⃣ Alergia grave à semaglutida ou aos componentes e gestação também precisam ser ditas\n\n⚠️ Efeito colateral mais comum é gastrointestinal: náusea, vômito, diarreia, constipação e dor abdominal. Dose e ajuste da semaglutida são sempre com o médico, que precisa da história completa para decidir com você.",
+  "question": "Alguém na sua família já te perguntou sobre o histórico de saúde antes de começar?",
+  "share": "a irmã que também começou o Ozempic"
+}

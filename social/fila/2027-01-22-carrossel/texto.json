@@ -1,0 +1,77 @@
+{
+  "hook": "Sérum de GHK-Cu: quanto mais concentrado, melhor? Ninguém mediu.",
+  "hookIcon": "regua",
+  "hookPose": "pensando",
+  "slides": [
+    {
+      "title": "Quanto mais GHK-Cu no sérum, melhor",
+      "body": "A concentração ideal não foi caracterizada em estudos. As faixas que circulam vêm de sugestão de fornecedor, não de pesquisa em pessoas.",
+      "icon": "errado",
+      "pose": "ih",
+      "layout": "mito"
+    },
+    {
+      "title": "O que ele faz no laboratório",
+      "body": "Carrega o cobre e estimula as células da pele a produzir colágeno e elastina. É o motivo de tanto interesse, mas em pessoas os estudos são pequenos.",
+      "icon": "microscopio",
+      "pose": "explicando",
+      "layout": "padrao"
+    },
+    {
+      "title": "~200 ng/mL",
+      "body": "Seria o nível de GHK no sangue aos 20 anos, caindo para cerca de 80 aos 60, segundo as revisões do próprio descobridor. Não há confirmação independente.",
+      "icon": "grafico-desce",
+      "pose": "pensando",
+      "layout": "numero"
+    },
+    {
+      "title": "Se o corpo já produz, pode à vontade",
+      "body": "Mesmo no tópico, irritação local e vermelhidão passageira são relatadas, e a frequência não foi medida. Quem é sensível ao cobre pode ter dermatite de contato.",
+      "icon": "pele",
+      "pose": "ih",
+      "layout": "mito"
+    },
+    {
+      "title": "O cobre pede cuidado",
+      "body": "Alergia ao cobre, doença de Wilson e outros distúrbios do metabolismo do cobre são contraindicações. Gestação e lactação não têm dados, nem no tópico.",
+      "icon": "escudo",
+      "pose": "explicando",
+      "layout": "padrao"
+    },
+    {
+      "title": "O injetável é o sérum mais concentrado",
+      "body": "É outra situação. O injetável não tem aprovação para uso humano, a meia-vida não foi caracterizada e os frascos vêm rotulados “apenas para pesquisa”.",
+      "icon": "proibido",
+      "pose": "alerta",
+      "layout": "mito"
+    },
+    {
+      "title": "Cola pra guardar",
+      "body": "Mais concentrado não é comprovadamente melhor\nIrritou? Suspenda e procure o dermatologista\nAlergia ao cobre ou doença de Wilson: fale com o médico antes\nInjetável: só pesquisa",
+      "icon": "certo",
+      "pose": "apontando",
+      "layout": "passos"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Você acha que, quanto mais concentrado o sérum de GHK-Cu, melhor? Olha, ninguém mediu isso.",
+      "pose": "pensando"
+    },
+    {
+      "text": "A concentração ideal não foi caracterizada em estudos. As faixas que circulam são sugestão de fornecedor, e os estudos em pessoas são pequenos.",
+      "pose": "explicando"
+    },
+    {
+      "text": "E mesmo no tópico pode haver irritação. Tem alergia ao cobre ou doença de Wilson? Converse com o médico antes.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Então, no sérum de GHK-Cu, mais concentrado não quer dizer melhor: quer dizer só mais concentrado.",
+      "pose": "piscadinha"
+    }
+  ],
+  "caption": "Eu sei, a lógica parece óbvia: se o GHK-Cu é bom, mais GHK-Cu deve ser melhor. Só que a concentração ideal no tópico não foi caracterizada em estudos. As faixas que circulam vêm de sugestão de fornecedor, e os estudos em pessoas são pequenos.\n\n1️⃣ No tópico, o GHK-Cu é ingrediente cosmético permitido, considerado seguro pelo painel CIR nas concentrações baixas de uso\n2️⃣ Em laboratório, ele estimula colágeno e elastina; em pessoas, a evidência ainda é limitada\n3️⃣ A queda do GHK com a idade vem das revisões do próprio descobridor, sem confirmação independente\n\n⚠️ Irritação local, vermelhidão passageira e dermatite de contato em quem é sensível ao cobre são relatadas. Alergia ao cobre e doença de Wilson são contraindicações, e gestação e lactação não têm dados. A forma injetável não tem aprovação para uso humano. Pele irritada? Suspenda e procure o dermatologista.",
+  "question": "Você já trocou de sérum só porque o outro era mais concentrado?",
+  "share": "quem escolhe sérum pela maior porcentagem do rótulo"
+}

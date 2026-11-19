@@ -1,0 +1,70 @@
+{
+  "hook": "Repetiu a glicada logo no começo do Ozempic e se frustrou?",
+  "hookIcon": "microscopio",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "A glicada tem o próprio relógio",
+      "body": "A semaglutida age em vários sistemas, cada um no seu tempo. A saciedade aparece antes; a queda da hemoglobina glicada no exame leva mais tempo.",
+      "icon": "relogio",
+      "pose": "explicando",
+      "layout": "padrao"
+    },
+    {
+      "title": "8 a 12 semanas",
+      "body": "É a partir de quando a queda da hemoglobina glicada fica detectável nos exames. Antes disso, o número pode parecer parado.",
+      "icon": "calendario",
+      "pose": "apontando",
+      "layout": "numero"
+    },
+    {
+      "title": "Primeira semana e as seguintes",
+      "body": "Primeira semana: a glicemia ainda muda pouco\nEntre a 2ª e a 4ª semana: a glicemia começa a estabilizar",
+      "icon": "lupa",
+      "pose": "explicando",
+      "layout": "lado"
+    },
+    {
+      "title": "4 a 5 semanas",
+      "body": "É o tempo para a semaglutida chegar ao estado estacionário, o nível estável no sangue. A meia-vida dela é de cerca de 7 dias.",
+      "icon": "ampulheta",
+      "pose": "pensando",
+      "layout": "numero"
+    },
+    {
+      "title": "Exame cedo e exame na hora",
+      "body": "Cedo demais: o exame ainda não mostra a queda\nA partir de 8 a 12 semanas: a queda fica detectável",
+      "icon": "balanca",
+      "pose": "piscadinha",
+      "layout": "lado"
+    },
+    {
+      "title": "Sua cola",
+      "body": "Saciedade vem antes da glicada\nGlicada: a partir de 8 a 12 semanas\nNível estável: 4 a 5 semanas\nData do exame e dose: com o médico",
+      "icon": "certo",
+      "pose": "apontando",
+      "layout": "passos"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Você repetiu o exame de glicada logo no começo do Ozempic e se frustrou com o resultado? Eu sei, a ansiedade bate.",
+      "pose": "ih"
+    },
+    {
+      "text": "A queda da hemoglobina glicada só fica detectável a partir de 8 a 12 semanas. Na primeira semana, a glicemia ainda muda pouco.",
+      "pose": "explicando"
+    },
+    {
+      "text": "É que a semaglutida leva de 4 a 5 semanas para chegar ao nível estável no sangue. A data do exame se combina com o seu médico.",
+      "pose": "apontando"
+    },
+    {
+      "text": "Então, glicada repetida cedo demais, nunca mais: o exame tem o tempo dele.",
+      "pose": "piscadinha"
+    }
+  ],
+  "caption": "Eu sei, depois de começar o Ozempic a vontade é ver o resultado no exame logo. Mas a semaglutida age em vários sistemas, cada um no seu tempo, e a hemoglobina glicada é dos mais lentos.\n\n1️⃣ Na primeira semana, a glicemia ainda muda pouco\n2️⃣ Entre a 2ª e a 4ª semana, a glicemia começa a estabilizar em quem tem diabetes\n3️⃣ A queda da glicada fica detectável nos exames a partir de 8 a 12 semanas\n\n⚠️ A semaglutida tem meia-vida de cerca de 7 dias e leva de 4 a 5 semanas para chegar ao nível estável no sangue. A data do exame e qualquer mudança de dose são com o médico.",
+  "question": "Em qual semana do tratamento você fez o primeiro exame de glicada?",
+  "share": "aquela amiga que quer repetir a glicada logo depois de começar"
+}

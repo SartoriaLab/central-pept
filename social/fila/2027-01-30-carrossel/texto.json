@@ -1,0 +1,70 @@
+{
+  "hook": "Mudou de caneta e ficou perdida no número de mg?",
+  "hookIcon": "duvida",
+  "hookPose": "pensando",
+  "slides": [
+    {
+      "title": "Mais mg é sempre mais forte",
+      "layout": "mito",
+      "body": "Cada molécula tem a sua escala. O número de mg só faz sentido dentro da faixa da própria caneta, não comparado com a de outra.",
+      "icon": "regua",
+      "pose": "ih"
+    },
+    {
+      "title": "2,4 mg",
+      "layout": "numero",
+      "body": "Na semaglutida, é o topo da faixa de bula, que começa em 0,25 mg por semana e sobe com titulação.",
+      "icon": "grafico-sobe",
+      "pose": "explicando"
+    },
+    {
+      "title": "Na tirzepatida, quase o mesmo número é o começo",
+      "layout": "padrao",
+      "body": "A faixa vai de 2,5 a 15 mg por semana, com subida a cada 4 semanas ou mais. Os 2,5 mg são a dose inicial.",
+      "icon": "calendario",
+      "pose": "pensando"
+    },
+    {
+      "title": "2 mg",
+      "layout": "numero",
+      "body": "Foi o começo da retatrutida na fase 3, com doses-alvo de até 12 mg. É dose de estudo: ela não tem aprovação nem bula.",
+      "icon": "microscopio",
+      "pose": "alerta"
+    },
+    {
+      "title": "Trocou de caneta, mantém o mesmo número",
+      "layout": "mito",
+      "body": "Não funciona assim: o número de uma molécula não vale na outra. Quem define a dose depois de uma troca é o médico.",
+      "icon": "alerta",
+      "pose": "ih"
+    },
+    {
+      "title": "A cola do mg",
+      "layout": "passos",
+      "body": "Semaglutida: de 0,25 a 2,4 mg por semana\nTirzepatida: de 2,5 a 15 mg por semana\nRetatrutida: só doses de estudo\nTrocou de caneta? A dose nova é com o médico",
+      "icon": "certo",
+      "pose": "apontando"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Mudou de caneta e ficou perdida no número de mg? Calma, isso confunde todo mundo.",
+      "pose": "pensando"
+    },
+    {
+      "text": "Na semaglutida, 2,4 mg é o topo da faixa de bula. Na tirzepatida, 2,5 mg é só o começo. Cada molécula tem a sua escala.",
+      "pose": "explicando"
+    },
+    {
+      "text": "E a retatrutida nem tem bula: os 2 mg são o início da fase 3, dose de estudo. Dose depois de uma troca é sempre com o médico.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Então, o número de mg de uma caneta não vale na outra. E perdida nesse número, nunca mais.",
+      "pose": "piscadinha"
+    }
+  ],
+  "caption": "Eu sei, quem passa de uma caneta para outra tenta comparar pelo número de mg. Só que cada molécula tem a sua escala, e o mesmo número quer dizer coisas bem diferentes.\n\n1️⃣ Semaglutida (Ozempic, Wegovy): dose de bula de 0,25 a 2,4 mg por semana, com titulação. Os 2,4 mg são o topo da faixa.\n2️⃣ Tirzepatida (Mounjaro, Zepbound): de 2,5 a 15 mg por semana, com subida a cada 4 semanas ou mais. Os 2,5 mg são a dose inicial.\n3️⃣ Retatrutida: não tem bula nem aprovação da FDA, da EMA ou da ANVISA. Os 2 mg foram o início da fase 3, com doses-alvo de até 12 mg, em protocolo de estudo.\n\n⚠️ O número de mg de uma molécula não vale na outra. Trocou de caneta? A dose de início e o ritmo de ajuste são definidos pelo médico.",
+  "question": "Qual caneta você usou primeiro e qual usa hoje?",
+  "share": "a amiga que trocou de caneta e ainda faz conta com o mg da antiga"
+}

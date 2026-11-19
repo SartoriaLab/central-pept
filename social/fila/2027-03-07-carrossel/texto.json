@@ -1,0 +1,70 @@
+{
+  "hook": "Passa GHK-Cu pra clarear mancha? Não é bem essa a função dele",
+  "hookIcon": "brilho",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "Clareador e GHK-Cu não fazem o mesmo trabalho",
+      "body": "Clareador: age na mancha, como a vitamina C e os despigmentantes\nGHK-Cu: age em regeneração, colágeno e elastina",
+      "icon": "balanca",
+      "pose": "explicando",
+      "layout": "lado"
+    },
+    {
+      "title": "Então por que a pele parece mais uniforme?",
+      "body": "A melhora de textura, firmeza e qualidade da pele pode dar essa impressão. Mas, para manchas e melasma, a evidência específica é limitada.",
+      "icon": "pensando",
+      "pose": "pensando",
+      "layout": "pergunta"
+    },
+    {
+      "title": "O que os estudos de pele mostraram",
+      "body": "Em 1998, com 20 voluntários, o marcador de colágeno subiu em 7 de 10 pessoas com o creme. Em 2016, com 40 mulheres por 8 semanas, houve redução de rugas contra um sérum controle.",
+      "icon": "microscopio",
+      "pose": "explicando",
+      "layout": "padrao"
+    },
+    {
+      "title": "E se a pele irritar?",
+      "body": "Irritação local e vermelhidão passageira são relatadas, e quem é sensível ao cobre pode ter dermatite. Alergia ao cobre e doença de Wilson são contraindicações.",
+      "icon": "alerta",
+      "pose": "alerta",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Mancha pede tratamento próprio",
+      "body": "O GHK-Cu não substitui um tratamento despigmentante. Tem mancha ou melasma? Quem indica o caminho é o dermatologista.",
+      "icon": "estetoscopio",
+      "pose": "explicando",
+      "layout": "padrao"
+    },
+    {
+      "title": "Cola do espelho",
+      "body": "GHK-Cu: textura e firmeza, com estudos pequenos\nMancha e melasma: evidência limitada\nNão troque o tratamento da mancha por ele\nIrritou? Suspenda e procure o dermatologista",
+      "icon": "certo",
+      "pose": "apontando",
+      "layout": "passos"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Você passa GHK-Cu para clarear mancha? Eu sei, o rótulo anti-idade faz parecer que ele resolve tudo.",
+      "pose": "ih"
+    },
+    {
+      "text": "Ele age em regeneração, colágeno e elastina, não como um clareador. Para mancha e melasma, a evidência é limitada.",
+      "pose": "explicando"
+    },
+    {
+      "text": "A pele pode parecer mais uniforme pela textura, mas ele não substitui o despigmentante. Mancha que não sai é assunto do dermatologista.",
+      "pose": "apontando"
+    },
+    {
+      "text": "Então, GHK-Cu é para textura e firmeza. Para clarear mancha, não é bem essa a função dele.",
+      "pose": "piscadinha"
+    }
+  ],
+  "caption": "Eu sei, todo mundo já passou um sérum anti-idade esperando que ele resolvesse a mancha também. O GHK-Cu não é um clareador clássico: ele atua em regeneração e na produção de colágeno e elastina. A melhora de textura e firmeza pode dar impressão de pele mais uniforme, mas para manchas e melasma a evidência é limitada.\n\n1️⃣ O que os estudos de pele mostraram: sinais favoráveis em estudos pequenos, como o de 2016, com 40 mulheres por 8 semanas, que mediu redução de rugas.\n2️⃣ Mancha e melasma pedem tratamento despigmentante próprio, e o GHK-Cu não substitui esse tratamento.\n\n⚠️ Irritação local e vermelhidão passageira são relatadas no uso tópico. Alergia ao cobre e doença de Wilson são contraindicações. Irritou ou a mancha não melhora? Procure o dermatologista.",
+  "question": "Qual é a sua maior dúvida de pele hoje: mancha, textura ou firmeza?",
+  "share": "aquela amiga que testa todo sérum esperando clarear a mancha"
+}

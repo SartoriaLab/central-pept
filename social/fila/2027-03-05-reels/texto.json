@@ -1,0 +1,70 @@
+{
+  "hook": "Cagrilintida é só mais um GLP-1? Não, ela imita outro hormônio",
+  "hookIcon": "cerebro",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "Cagrilintida é mais um GLP-1?",
+      "body": "Não. Ela é um análogo da amilina, outro hormônio. Age nos receptores de amilina e de calcitonina, no tronco encefálico e no hipotálamo, áreas que regulam a fome.",
+      "icon": "duvida",
+      "pose": "pensando",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Ela tem um parente antigo",
+      "body": "Já existe um análogo de amilina de curta duração aprovado nos EUA para diabetes, a pranlintida, que pede várias injeções por dia. A cagrilintida foi feita para durar cerca de uma semana.",
+      "icon": "livros",
+      "pose": "explicando",
+      "layout": "padrao"
+    },
+    {
+      "title": "10,8%",
+      "body": "Foi a média com cagrilintida sozinha, 4,5 mg, em 26 semanas na fase 2, contra 9,0% com liraglutida 3,0 mg. Média de estudo, não promessa individual.",
+      "icon": "microscopio",
+      "pose": "explicando",
+      "layout": "numero"
+    },
+    {
+      "title": "Por que juntar com a semaglutida",
+      "body": "O mecanismo da amilina é complementar ao do GLP-1: dois sinais de saciedade por vias parcialmente diferentes. Essa é a ideia do CagriSema, que soma as duas.",
+      "icon": "balanca",
+      "pose": "explicando",
+      "layout": "padrao"
+    },
+    {
+      "title": "E já dá pra usar?",
+      "body": "Não. Cagrilintida e CagriSema estão em fase 3, sem aprovação da ANVISA. Frasco com esse nome fora de ensaio clínico não tem garantia de identidade, pureza ou esterilidade.",
+      "icon": "alerta",
+      "pose": "alerta",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Cola pra não confundir",
+      "body": "Cagrilintida imita a amilina, não o GLP-1\nCagriSema é ela somada à semaglutida\nAinda em fase 3, sem aprovação\nPensa em tratar a obesidade? Fale com o médico",
+      "icon": "prancheta",
+      "pose": "apontando",
+      "layout": "passos"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Cagrilintida é só mais um GLP-1 com outro nome? Não, ela imita outro hormônio.",
+      "pose": "ih"
+    },
+    {
+      "text": "Ela copia a amilina, que o pâncreas libera junto com a insulina. A amilina natural dura minutos; a cagrilintida foi feita para durar uma semana.",
+      "pose": "explicando"
+    },
+    {
+      "text": "No CagriSema, ela soma um sinal de saciedade diferente ao da semaglutida. Mas ainda está em estudo, sem aprovação da ANVISA.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Então, mais um GLP-1? Não: é a amilina, um hormônio diferente, e ainda em pesquisa.",
+      "pose": "piscadinha"
+    }
+  ],
+  "caption": "Eu sei, com tanta caneta nova, parece que tudo é “mais um GLP-1”. A cagrilintida não é: ela é um análogo da amilina, hormônio que sai das mesmas células do pâncreas que fazem a insulina e avisa o cérebro da saciedade.\n\n1️⃣ Onde age: receptores de amilina e de calcitonina, no tronco encefálico e no hipotálamo.\n2️⃣ Quanto dura: a amilina natural dura poucos minutos; a cagrilintida foi modificada para durar cerca de uma semana.\n3️⃣ Com quem anda: no CagriSema, ela é somada à semaglutida, porque os dois mecanismos de saciedade se complementam.\n\n⚠️ Cagrilintida e CagriSema estão em fase 3 e não têm aprovação da ANVISA. Efeitos gastrointestinais foram frequentes nos estudos. Pensa em tratar a obesidade? A conversa é com o médico.",
+  "question": "Antes deste vídeo, você já tinha ouvido falar em amilina?",
+  "share": "quem acha que toda caneta nova é “mais um Ozempic”"
+}

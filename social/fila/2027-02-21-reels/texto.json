@@ -1,0 +1,77 @@
+{
+  "hook": "Quatro coisas pra contar ao médico antes do Mounjaro.",
+  "hookIcon": "estetoscopio",
+  "hookPose": "explicando",
+  "slides": [
+    {
+      "title": "Contraindicação x cautela",
+      "body": "Contraindica: carcinoma medular de tireoide ou NEM 2 na sua história ou na da família\nPede cautela: pancreatite no passado ou doença gastrointestinal grave",
+      "icon": "balanca",
+      "pose": "explicando",
+      "layout": "lado"
+    },
+    {
+      "title": "Por que a tireoide entra na conversa?",
+      "body": "Em ratos, a tirzepatida causou tumores de células C da tireoide. Não se sabe se o mesmo ocorre em humanos; por precaução, a bula contraindica nesse histórico.",
+      "icon": "microscopio",
+      "pose": "pensando",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Remédio de diabetes junto",
+      "body": "Com insulina ou sulfonilureia, o risco de hipoglicemia aumenta, e a dose desses remédios pode precisar de ajuste. Quem ajusta é o médico.",
+      "icon": "seringa",
+      "pose": "alerta",
+      "layout": "padrao"
+    },
+    {
+      "title": "E a pílula anticoncepcional?",
+      "body": "Pode ser menos absorvida. A bula orienta método não oral ou de barreira junto por 4 semanas após o início e após cada aumento de dose.",
+      "icon": "comprimido",
+      "pose": "ih",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Gravidez, amamentação e retina",
+      "body": "Na gravidez e na amamentação, o uso não é recomendado. E quem já tem retinopatia diabética precisa de acompanhamento: a queda rápida da glicose pode piorá-la por um tempo.",
+      "icon": "coracao",
+      "pose": "explicando",
+      "layout": "padrao"
+    },
+    {
+      "title": "E depois de começar, o que avisar?",
+      "body": "Nódulo no pescoço, rouquidão persistente ou dificuldade para engolir. E, antes de cirurgia ou exame com sedação, conte à equipe que você usa o remédio.",
+      "icon": "alerta",
+      "pose": "apontando",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Leve na consulta",
+      "body": "Tireoide: o seu histórico e o da família\nPancreatite no passado\nTodos os remédios, inclusive insulina e pílula\nGravidez ou amamentação",
+      "icon": "prancheta",
+      "pose": "piscadinha",
+      "layout": "passos"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Quatro coisas que você precisa contar ao médico antes do Mounjaro. Eu sei, a gente sempre esquece metade na consulta.",
+      "pose": "explicando"
+    },
+    {
+      "text": "Um: câncer medular de tireoide na família, que contraindica o remédio. Dois: pancreatite no passado, que pede cautela.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Três: insulina ou outro remédio de diabetes, pelo risco de hipoglicemia. Quatro: se você está grávida ou amamentando.",
+      "pose": "apontando"
+    },
+    {
+      "text": "Anota a lista e leva na consulta. Então, esquecer essas quatro coisas antes do Mounjaro, nunca mais.",
+      "pose": "piscadinha"
+    }
+  ],
+  "caption": "Eu sei, a gente chega na consulta e esquece metade. Antes do Mounjaro, a tirzepatida, estas informações mudam a conversa com o médico:\n\n1️⃣ Histórico pessoal ou familiar de carcinoma medular de tireoide ou NEM 2: é contraindicação\n2️⃣ Pancreatite no passado, doença gastrointestinal grave, gravidez ou amamentação\n3️⃣ Todos os remédios: com insulina ou sulfonilureia, o risco de hipoglicemia aumenta; a pílula pode ser menos absorvida, e a bula orienta método não oral ou de barreira por 4 semanas após o início e após cada aumento de dose\n\n⚠️ Depois de começar, nódulo no pescoço, rouquidão persistente ou dificuldade para engolir devem ser relatados ao médico. Dor abdominal intensa e persistente pede avaliação imediata.\n\nOs efeitos colaterais mais comuns, como náusea e diarreia, costumam ser leves e aparecer na fase de subida de dose.",
+  "question": "Qual dessas quatro coisas você não sabia que precisava contar?",
+  "share": "aquela amiga que vai começar o Mounjaro e já tem consulta marcada"
+}

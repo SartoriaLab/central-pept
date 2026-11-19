@@ -1,0 +1,77 @@
+{
+  "hook": "Lembrou da caneta só no domingo? Antes tarde nem sempre vale.",
+  "hookIcon": "calendario",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "Aplico na segunda e lembrei no sábado. Ainda dá?",
+      "body": "No Ozempic e no Wegovy, sim: até 5 dias depois da data prevista, aplique assim que lembrar e volte para a segunda na semana seguinte.",
+      "icon": "pensando",
+      "pose": "pensando",
+      "layout": "pergunta"
+    },
+    {
+      "title": "6 dias",
+      "body": "É o que dá se você lembrar só no domingo. Passou do prazo de 5 dias: pule a dose esquecida e aplique na segunda, como sempre.",
+      "icon": "relogio",
+      "pose": "apontando",
+      "layout": "numero"
+    },
+    {
+      "title": "Antes tarde do que nunca",
+      "body": "Na dose esquecida, não. Fora do prazo, a bula manda pular e seguir no dia de sempre. E nada de dose extra para compensar.",
+      "icon": "proibido",
+      "pose": "ih",
+      "layout": "mito"
+    },
+    {
+      "title": "E no Mounjaro, aplicado na segunda às 8 h?",
+      "body": "Até sexta às 8 h, aplique assim que lembrar. Depois disso, pule e espere a segunda. São 4 dias, ou 96 horas: assim sobram pelo menos 3 dias até a próxima.",
+      "icon": "ampulheta",
+      "pose": "explicando",
+      "layout": "pergunta"
+    },
+    {
+      "title": "2 dias",
+      "body": "É a régua da bula americana do Wegovy: faltam menos de 2 dias para a próxima dose? Pule. Numa semana, dá praticamente o mesmo limite dos 5 dias.",
+      "icon": "regua",
+      "pose": "piscadinha",
+      "layout": "numero"
+    },
+    {
+      "title": "E a caneta manipulada ou em frasco?",
+      "body": "Não tem bula própria aprovada, então não existe regra oficial de dose esquecida. Nesse caso, a orientação vem de quem prescreveu.",
+      "icon": "frasco",
+      "pose": "explicando",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Cola do domingo",
+      "body": "Conte os dias desde a data prevista\nOzempic e Wegovy: até 5. Mounjaro: até 4\nPassou? Pule e siga no dia de sempre\nVárias esquecidas: fale com o médico",
+      "icon": "certo",
+      "pose": "apontando",
+      "layout": "passos"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Lembrou da caneta só no domingo? Eu sei, a gente pensa: antes tarde do que nunca. Na dose esquecida, nem sempre.",
+      "pose": "ih"
+    },
+    {
+      "text": "Se a aplicação é na segunda, no Ozempic e no Wegovy dá até sábado. No domingo já são 6 dias: pule e aplique na segunda.",
+      "pose": "explicando"
+    },
+    {
+      "text": "No Mounjaro o prazo é menor, de 4 dias. Dose dobrada, nunca. Esqueceu várias seguidas? Aí é conversa com o médico.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Então, lembrou no domingo? Conte os dias antes de aplicar. Antes tarde nem sempre vale.",
+      "pose": "piscadinha"
+    }
+  ],
+  "caption": "Eu sei, quando a gente lembra da caneta atrasada, a vontade é aplicar na hora: antes tarde do que nunca. Na dose esquecida, a bula pensa diferente, e a conta é simples.\n\n1️⃣ Ozempic e Wegovy (semaglutida), aplicação na segunda: até sábado, aplique assim que lembrar. No domingo já são 6 dias: pule e aplique na segunda.\n2️⃣ Mounjaro (tirzepatida), aplicação na segunda às 8 h: até sexta às 8 h, aplique. Depois, pule. São 4 dias (96 horas).\n3️⃣ Caneta manipulada ou frasco: não tem bula própria aprovada, então a regra vem de quem prescreveu.\n\n⚠️ Nenhuma bula manda dobrar a dose para compensar. Ficou duas semanas ou mais sem aplicar, usa insulina ou está com dúvida sobre o seu caso? Fale com o médico antes de decidir.",
+  "question": "Em que dia da semana você costuma lembrar da dose atrasada?",
+  "share": "aquela amiga que lembra da caneta sempre no fim de semana"
+}

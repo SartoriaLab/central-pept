@@ -1,0 +1,70 @@
+{
+  "hook": "A Carla engravidou e manteve o sérum de GHK-Cu sem perguntar nada",
+  "hookIcon": "pele",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "O caso da Carla",
+      "body": "Ela descobriu a gravidez e manteve a rotina de pele igualzinha, sérum de GHK-Cu incluído. Eu sei, a gente nem lembra de perguntar sobre o skincare.",
+      "icon": "pensando",
+      "pose": "ih",
+      "layout": "padrao"
+    },
+    {
+      "title": "O que a ficha diz sobre gestação?",
+      "body": "Que não há dados. Gestação e lactação aparecem entre as contraindicações justamente pela ausência de estudo, tanto no uso tópico quanto no injetável.",
+      "icon": "prancheta",
+      "pose": "explicando",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Se é cosmético, serve pra qualquer fase da vida",
+      "body": "O tópico é ingrediente permitido, considerado seguro nas concentrações baixas de uso. Mas, para gestação e lactação, não há dados. Permitido não quer dizer estudado em toda situação.",
+      "icon": "errado",
+      "pose": "ih",
+      "layout": "mito"
+    },
+    {
+      "title": "O cobre também pede atenção",
+      "body": "Alergia ao cobre e doença de Wilson são contraindicações em qualquer fase. E, no tópico, pode haver irritação local e dermatite de contato em quem é sensível ao cobre.",
+      "icon": "alerta",
+      "pose": "alerta",
+      "layout": "padrao"
+    },
+    {
+      "title": "E o GHK-Cu injetável?",
+      "body": "Não tem aprovação para uso humano, a meia-vida não foi caracterizada e os frascos vêm rotulados “apenas para pesquisa”. Fora de pesquisa, o uso não é recomendado.",
+      "icon": "proibido",
+      "pose": "alerta",
+      "layout": "pergunta"
+    },
+    {
+      "title": "O que a Carla fez depois",
+      "body": "Levou a lista dos ativos para o obstetra\nPerguntou também sobre a amamentação\nIrritou? Suspende e procura o dermatologista\nInjetável fora de pesquisa: não",
+      "icon": "estetoscopio",
+      "pose": "apontando",
+      "layout": "passos"
+    }
+  ],
+  "narration": [
+    {
+      "text": "A Carla descobriu a gravidez e manteve o sérum de GHK-Cu como se nada tivesse mudado. Você faria igual?",
+      "pose": "ih"
+    },
+    {
+      "text": "Na ficha do GHK-Cu, gestação e lactação não têm dados, nem no sérum nem no injetável. Sem estudo, ninguém pode dizer que é seguro.",
+      "pose": "explicando"
+    },
+    {
+      "text": "Por isso, o caminho é simples: leve a lista dos seus ativos para o obstetra e pergunte antes de seguir.",
+      "pose": "apontando"
+    },
+    {
+      "text": "Então, rotina de pele igualzinha na gravidez? Antes, a pergunta na consulta. A Carla já fez a dela.",
+      "pose": "piscadinha"
+    }
+  ],
+  "caption": "Eu sei, quando a gravidez chega, a gente pensa em tudo, menos no sérum da prateleira. Mas vale perguntar: na ficha do GHK-Cu, gestação e lactação aparecem entre as contraindicações porque não há dados, nem no uso tópico nem no injetável.\n\n1️⃣ O GHK-Cu tópico é ingrediente cosmético permitido, considerado seguro nas concentrações baixas de uso. Isso não quer dizer que foi estudado na gravidez.\n2️⃣ Alergia ao cobre e doença de Wilson são contraindicações em qualquer fase.\n3️⃣ O injetável não tem aprovação para uso humano e fica no campo da pesquisa.\n\n⚠️ Grávida, tentando engravidar ou amamentando? Leve a lista dos seus ativos de pele para o obstetra antes de seguir. A pele irritou? Suspenda e procure o dermatologista.",
+  "question": "Na gravidez, você mudou alguma coisa na rotina de pele?",
+  "share": "aquela amiga grávida que não larga a rotina de séruns"
+}

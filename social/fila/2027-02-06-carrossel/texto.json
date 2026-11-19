@@ -1,0 +1,70 @@
+{
+  "hook": "O Selank some do sangue em minutos. Então é repetir toda hora? Não.",
+  "hookIcon": "relogio",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "Se some em minutos, como ainda age?",
+      "body": "A meia-vida no sangue é muito curta, de minutos. Mas os efeitos funcionais descritos duram várias horas. Tempo no sangue e tempo de efeito são coisas diferentes.",
+      "icon": "duvida",
+      "pose": "pensando",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Sangue x efeito",
+      "body": "No sangue: some em poucos minutos\nNo efeito: descrito por várias horas",
+      "icon": "ampulheta",
+      "pose": "explicando",
+      "layout": "lado"
+    },
+    {
+      "title": "Quanto mais vezes por dia, mais calma",
+      "body": "Não é assim. O esquema descrito vem dos estudos russos, com uso no nariz. Fora da Rússia, não existe dose de bula reconhecida. Frequência é conversa com o médico.",
+      "icon": "alerta",
+      "pose": "ih",
+      "layout": "mito"
+    },
+    {
+      "title": "Ele age como um calmante comum?",
+      "body": "Os estudos sugerem que ele modula o receptor GABA-A de um jeito diferente dos benzodiazepínicos. Os ensaios russos não relatam sedação nem dependência.",
+      "icon": "cerebro",
+      "pose": "explicando",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Não dá sono, então não faz mal",
+      "body": "Dor de cabeça leve e reação local foram relatadas. O uso de longo prazo, em muita gente, não está bem caracterizado. Na gravidez e na amamentação, os dados são insuficientes.",
+      "icon": "escudo",
+      "pose": "alerta",
+      "layout": "mito"
+    },
+    {
+      "title": "Antes de mexer na frequência",
+      "body": "Meia-vida curta não pede dose extra\nFora da Rússia, não há dose de bula\nNo Brasil, ele não tem registro na ANVISA\nAnsiedade apertou? Fale com seu médico",
+      "icon": "estetoscopio",
+      "pose": "apontando",
+      "layout": "passos"
+    }
+  ],
+  "narration": [
+    {
+      "text": "O Selank some do sangue em minutos. Então você precisa repetir toda hora? Não é bem assim.",
+      "pose": "ih"
+    },
+    {
+      "text": "A meia-vida no sangue é curta, mas o efeito descrito dura várias horas. São dois relógios diferentes.",
+      "pose": "explicando"
+    },
+    {
+      "text": "Fora da Rússia não existe dose de bula, e o uso de longo prazo não foi bem caracterizado. Frequência é com o médico.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Então, sumir do sangue em minutos não é motivo para você repetir toda hora.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, a gente lê \"meia-vida de minutos\" e já pensa: então tem que repetir toda hora. Com o Selank, um peptídeo sintético aprovado como ansiolítico só na Rússia, a meia-vida no sangue é muito curta, mas os efeitos funcionais descritos duram várias horas.\n\n1️⃣ Tempo no sangue não é tempo de efeito\n2️⃣ O esquema descrito vem dos estudos russos, com uso no nariz; fora da Rússia não há dose de bula reconhecida\n3️⃣ Os estudos sugerem ação no receptor GABA-A diferente da dos benzodiazepínicos, sem sedação nem dependência relatadas\n\n⚠️ O Selank não tem aprovação da ANVISA, da FDA nem da EMA, a evidência fora da Rússia é modesta e o uso de longo prazo não está bem caracterizado. Na gravidez e na amamentação, os dados são insuficientes. Qualquer mudança de frequência ou de dose é com o médico.",
+  "question": "Você já confundiu meia-vida com tempo de efeito de um remédio?",
+  "share": "aquela amiga que acha que remédio que some rápido precisa repetir"
+}

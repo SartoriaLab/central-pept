@@ -1,0 +1,70 @@
+{
+  "hook": "Você repete que a retatrutida “queima gordura no fígado”?",
+  "hookIcon": "fogo",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "O terceiro alvo queima gordura no fígado",
+      "body": "Isso é hipótese dos autores dos estudos: que o glucagon aumente o gasto de energia e a mobilização de gordura no fígado. Ainda não foi demonstrado diretamente em humanos.",
+      "icon": "microscopio",
+      "pose": "ih",
+      "layout": "mito"
+    },
+    {
+      "title": "E o GIP da tirzepatida, faz o quê?",
+      "body": "Contribui para a sensibilidade à insulina e o metabolismo de gordura. Mas como exatamente ele soma com o GLP-1, a tal sinergia, ainda está sob investigação.",
+      "icon": "pensando",
+      "pose": "pensando",
+      "layout": "pergunta"
+    },
+    {
+      "title": "O que já está bem descrito",
+      "body": "Semaglutida e tirzepatida: aprovadas pela FDA, com bula e efeitos descritos\nRetatrutida: em desenvolvimento, sem aprovação da FDA, da EMA ou da ANVISA",
+      "icon": "prancheta",
+      "pose": "explicando",
+      "layout": "lado"
+    },
+    {
+      "title": "Formigamento na pele é coisa de toda caneta?",
+      "body": "A disestesia, uma sensação anormal na pele, apareceu nos estudos da retatrutida, mais nas doses altas. Sentiu algo assim com qualquer caneta? Conte ao médico.",
+      "icon": "pele",
+      "pose": "alerta",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Se está no vídeo, já foi provado",
+      "body": "Muito do que circula é hipótese ou pesquisa em andamento. Na retatrutida, alguns ensaios de fase 3 já tiveram resultados, e outros seguem em andamento.",
+      "icon": "duvida",
+      "pose": "piscadinha",
+      "layout": "mito"
+    },
+    {
+      "title": "A cola antes de repetir",
+      "body": "Hipótese não é fato\nGlucagon na retatrutida: não demonstrado em humanos\nGIP na tirzepatida: sinergia ainda em estudo\nDúvida sobre a sua caneta? Com o médico",
+      "icon": "certo",
+      "pose": "apontando",
+      "layout": "passos"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Você repete que a retatrutida queima gordura no fígado? Calma, isso ainda é hipótese.",
+      "pose": "ih"
+    },
+    {
+      "text": "Os autores dos estudos supõem que o glucagon aumente o gasto de energia, mas isso não foi demonstrado diretamente em humanos.",
+      "pose": "explicando"
+    },
+    {
+      "text": "Na tirzepatida, como o GIP soma com o GLP-1 também segue em investigação. Semaglutida e tirzepatida são aprovadas; a retatrutida, não.",
+      "pose": "pensando"
+    },
+    {
+      "text": "Então, antes de repetir que ela queima gordura no fígado, lembra: é hipótese.",
+      "pose": "piscadinha"
+    }
+  ],
+  "caption": "Eu sei, a frase pega: “a retatrutida queima gordura no fígado”. Mas o que existe é uma hipótese dos autores dos estudos: que o terceiro alvo dela, o glucagon, aumente o gasto de energia e a mobilização de gordura no fígado. Isso ainda não foi demonstrado diretamente em humanos.\n\nCom a tirzepatida é parecido: o GIP contribui para a sensibilidade à insulina e o metabolismo de gordura, mas a sinergia exata com o GLP-1 ainda está sob investigação. Semaglutida e tirzepatida são aprovadas pela FDA; a retatrutida segue em desenvolvimento, sem aprovação.\n\n1️⃣ Hipótese não é fato\n2️⃣ Glucagon da retatrutida: não demonstrado em humanos\n3️⃣ GIP da tirzepatida: sinergia ainda em estudo\n\n⚠️ Nos estudos da retatrutida apareceu disestesia, uma sensação anormal na pele, mais nas doses altas. Sentiu algo diferente com a sua caneta? Conte ao médico.",
+  "question": "Qual frase sobre caneta você mais vê repetida por aí?",
+  "share": "a amiga que repete tudo que ouve sobre a retatrutida"
+}

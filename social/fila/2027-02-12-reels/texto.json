@@ -1,0 +1,63 @@
+{
+  "hook": "Você acha que GH alto o dia inteiro rende mais que em picos?",
+  "hookIcon": "grafico-sobe",
+  "hookPose": "pensando",
+  "slides": [
+    {
+      "title": "Pico x platô",
+      "body": "Ipamorelina: libera o GH em pulsos, com meia-vida de cerca de 2 horas\nCJC-1295 com DAC: se prende à albumina e mantém o GH alto por dias",
+      "icon": "relogio",
+      "pose": "explicando",
+      "layout": "lado"
+    },
+    {
+      "title": "Quanto mais tempo o GH fica alto, melhor",
+      "body": "Com o CJC-1295 com DAC, o GH e o IGF-1 sobem de forma sustentada. É esse efeito cumulativo que dá a ele um perfil de risco diferente das versões de curta duração.",
+      "icon": "alerta",
+      "pose": "ih",
+      "layout": "mito"
+    },
+    {
+      "title": "O que um estudo em pessoas viu",
+      "body": "Em homens saudáveis, uma dose única de CJC-1295 elevou principalmente o GH entre os pulsos, sem mudar a frequência nem o tamanho deles.",
+      "icon": "microscopio",
+      "pose": "explicando",
+      "layout": "padrao"
+    },
+    {
+      "title": "Se dura pouco, não dá efeito nenhum",
+      "body": "A ipamorelina também pode dar dor de cabeça, rubor, tontura e fome leve. E nenhum dos dois é aprovado: são peptídeos de pesquisa.",
+      "icon": "errado",
+      "pose": "alerta",
+      "layout": "mito"
+    },
+    {
+      "title": "Antes de cair no papo do GH alto",
+      "body": "Pico e platô não são a mesma coisa\nIGF-1 alto sustentado tem risco teórico\nCâncer, gestação ou retinopatia: contraindicado\nQualquer combinação: com o médico",
+      "icon": "certo",
+      "pose": "apontando",
+      "layout": "passos"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Você acha que GH alto o dia inteiro rende mais do que em picos? Essa é a grande diferença entre o CJC-1295 e a ipamorelina.",
+      "pose": "pensando"
+    },
+    {
+      "text": "A ipamorelina age em pulsos, com meia-vida de cerca de 2 horas. O CJC com DAC se prende à albumina e mantém o GH alto por dias.",
+      "pose": "explicando"
+    },
+    {
+      "text": "E GH e IGF-1 altos o tempo todo têm um risco próprio. Nenhum dos dois é aprovado: isso é conversa com o médico.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Então, da próxima vez que prometerem GH alto o dia inteiro, lembra: mais tempo não quer dizer melhor.",
+      "pose": "piscadinha"
+    }
+  ],
+  "caption": "Eu sei, parece lógico: se o GH fica alto mais tempo, deve render mais. Só que o CJC-1295 e a ipamorelina mostram que não é tão simples.\n\n1️⃣ Ipamorelina: libera o hormônio do crescimento em pulsos e tem meia-vida de cerca de 2 horas. Pode dar dor de cabeça, rubor, tontura e fome leve.\n2️⃣ CJC-1295 com DAC: se liga à albumina e mantém GH e IGF-1 altos por dias, de forma sustentada. Esse efeito cumulativo dá a ele um perfil de risco diferente.\n\n⚠️ Nenhum dos dois é aprovado: são peptídeos de pesquisa e estão na lista de proibidos da WADA. Câncer ativo ou recente e gestação contraindicam os dois; retinopatia diabética proliferativa também entra na lista do CJC-1295. Qualquer combinação é conversa com o médico.",
+  "question": "Você sabia que existe CJC-1295 com DAC e sem DAC?",
+  "share": "aquele amigo da academia que quer o GH lá em cima o dia inteiro"
+}

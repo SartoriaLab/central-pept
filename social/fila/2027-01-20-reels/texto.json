@@ -1,0 +1,70 @@
+{
+  "hook": "Trocou o tratamento da queda de cabelo pelo tônico de cobre?",
+  "hookIcon": "duvida",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "O que existe de estudo no cabelo",
+      "body": "AHK-Cu: outra molécula, usada em boa parte da pesquisa capilar\nGHK-Cu sozinho: nenhum estudo controlado do tópico para cabelo",
+      "icon": "microscopio",
+      "pose": "explicando",
+      "layout": "lado"
+    },
+    {
+      "title": "Peptídeo de cobre substitui o tratamento da queda",
+      "body": "Ele é melhor visto como coadjuvante numa rotina, não como substituto de tratamentos com evidência mais robusta para queda de cabelo.",
+      "icon": "errado",
+      "pose": "ih",
+      "layout": "mito"
+    },
+    {
+      "title": "Então por que ele aparece no tônico?",
+      "body": "A ideia é melhorar o ambiente em volta do folículo, estimular a matriz extracelular e trazer ação antioxidante e anti-inflamatória. É a lógica do uso, não prova no cabelo.",
+      "icon": "lampada",
+      "pose": "pensando",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Tônico e injetável não são a mesma conversa",
+      "body": "Tópico: ingrediente cosmético permitido, seguro nas concentrações baixas de uso\nInjetável: sem aprovação para uso humano, alvo de alerta da ANVISA",
+      "icon": "balanca",
+      "pose": "explicando",
+      "layout": "lado"
+    },
+    {
+      "title": "E se o couro cabeludo irritar?",
+      "body": "Irritação local e vermelhidão passageira são relatadas. Suspenda e procure o dermatologista. Alergia ao cobre e doença de Wilson são contraindicações.",
+      "icon": "alerta",
+      "pose": "alerta",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Cola pra guardar",
+      "body": "Tônico de cobre: coadjuvante, não substituto\nTratamento da queda: siga com quem prescreveu\nIrritou? Suspenda e procure o dermatologista",
+      "icon": "certo",
+      "pose": "apontando",
+      "layout": "passos"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Você trocou o tratamento da queda de cabelo pelo tônico de cobre? Eu sei, o rótulo anima muito.",
+      "pose": "ih"
+    },
+    {
+      "text": "Olha só: boa parte da pesquisa capilar usou outra molécula, o AHK-Cu. Do GHK-Cu sozinho no cabelo, não existe estudo controlado.",
+      "pose": "explicando"
+    },
+    {
+      "text": "Ele pode entrar como coadjuvante na rotina, mas não substitui tratamento com evidência mais robusta. Irritou? Procure o dermatologista.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Então, tônico de cobre é companhia, não troca: o tratamento da queda continua com quem prescreveu.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, o rótulo do tônico de cobre anima e dá vontade de largar o resto. Mas, no cabelo, o GHK-Cu é melhor visto como coadjuvante numa rotina, não como substituto de tratamentos com evidência mais robusta para queda de cabelo.\n\n1️⃣ Boa parte da pesquisa capilar foi feita com outra molécula, o AHK-Cu\n2️⃣ Não há estudo controlado de GHK-Cu tópico sozinho para cabelo\n3️⃣ A lógica do uso é melhorar o ambiente em volta do folículo, estimular a matriz extracelular e trazer ação antioxidante e anti-inflamatória\n\n⚠️ No tópico, o GHK-Cu é ingrediente cosmético permitido, considerado seguro nas concentrações baixas de uso; irritação local pode acontecer. Alergia ao cobre e doença de Wilson são contraindicações, e gestação e lactação não têm dados. A forma injetável não tem aprovação para uso humano. Couro cabeludo irritado? Suspenda e procure o dermatologista.",
+  "question": "Você usa algum produto com peptídeo de cobre no cabelo?",
+  "share": "quem largou o tratamento da queda pelo tônico de cobre"
+}

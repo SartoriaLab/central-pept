@@ -1,0 +1,70 @@
+{
+  "hook": "AOD quer dizer “remédio antiobesidade”. E nunca foi aprovado.",
+  "hookIcon": "lupa",
+  "hookPose": "pensando",
+  "slides": [
+    {
+      "title": "O que quer dizer AOD?",
+      "body": "Anti-Obesity Drug 9604, “remédio antiobesidade” em inglês. É o nome de projeto de um fragmento modificado do hormônio do crescimento, criado nos anos 1990 na Austrália.",
+      "icon": "duvida",
+      "pose": "explicando",
+      "layout": "pergunta"
+    },
+    {
+      "title": "2007",
+      "body": "Foi quando o desenvolvimento do AOD-9604 como remédio parou: o estudo de fase IIb, com 536 pacientes em 24 semanas, não atingiu significância estatística.",
+      "icon": "calendario",
+      "pose": "alerta",
+      "layout": "numero"
+    },
+    {
+      "title": "Nome não é aprovação",
+      "body": "O AOD-9604 não tem aprovação como medicamento na FDA, na EMA ou na ANVISA. Hoje circula como peptídeo para pesquisa, com evidência muito limitada nos usos off-label.",
+      "icon": "proibido",
+      "pose": "ih",
+      "layout": "padrao"
+    },
+    {
+      "title": "E a retatrutida, que vive nas manchetes?",
+      "body": "Tem resultados de fase 3 divulgados, mas também segue sem aprovação da FDA, da EMA ou da ANVISA. Em julho de 2026, a ANVISA orientou a não usar produtos vendidos com esse nome.",
+      "icon": "microscopio",
+      "pose": "pensando",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Dois mecanismos bem diferentes",
+      "body": "O AOD-9604 não ativa o receptor de GH e não induz IGF-1. A retatrutida age em três receptores: GLP-1, GIP e glucagon. Em comum, os dois são proibidos pela WADA no esporte.",
+      "icon": "dna",
+      "pose": "explicando",
+      "layout": "padrao"
+    },
+    {
+      "title": "A cola antes de confiar no nome",
+      "body": "Nome não é aprovação\nAOD-9604: parou em 2007, sem aprovação\nRetatrutida: experimental, sem registro\nViu um dos dois como atalho? Leve ao médico",
+      "icon": "certo",
+      "pose": "apontando",
+      "layout": "passos"
+    }
+  ],
+  "narration": [
+    {
+      "text": "AOD, do AOD-9604, quer dizer remédio antiobesidade, em inglês. E sabe o que pouca gente conta? Ele nunca foi aprovado.",
+      "pose": "pensando"
+    },
+    {
+      "text": "O estudo de fase IIb, com 536 pacientes, não atingiu significância estatística, e o desenvolvimento parou em 2007.",
+      "pose": "explicando"
+    },
+    {
+      "text": "A retatrutida tem estudos de fase 3, mas também segue sem aprovação. Os dois são experimentais; qualquer dúvida é com o médico.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Então, nome bonito não é aprovação. Nem quando o nome diz remédio antiobesidade.",
+      "pose": "piscadinha"
+    }
+  ],
+  "caption": "Eu sei, o nome engana: AOD vem de “Anti-Obesity Drug 9604”, remédio antiobesidade em inglês. Mas o AOD-9604, um fragmento modificado do hormônio do crescimento, nunca foi aprovado como medicamento. O estudo de fase IIb, com 536 pacientes em 24 semanas, não atingiu significância estatística, e o desenvolvimento parou em 2007. Hoje circula como peptídeo para pesquisa, com evidência muito limitada.\n\nA retatrutida é outra história, mas também experimental: tem resultados de fase 3 divulgados e segue sem aprovação da FDA, da EMA ou da ANVISA. Os mecanismos não se parecem: o AOD-9604 não ativa o receptor de GH nem induz IGF-1; a retatrutida age no GLP-1, no GIP e no glucagon.\n\n1️⃣ Nome não é aprovação\n2️⃣ AOD-9604: desenvolvimento interrompido em 2007\n3️⃣ Retatrutida: experimental, sem registro\n\n⚠️ Os dois são proibidos pela WADA no esporte. Viu algum deles apresentado como atalho? Leve a dúvida ao médico.",
+  "question": "Você já confiou num remédio só pelo nome?",
+  "share": "a amiga que confia em qualquer nome que tenha “antiobesidade”"
+}

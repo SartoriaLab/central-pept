@@ -1,0 +1,70 @@
+{
+  "hook": "Verdadeiro ou falso: a caneta do topo do ranking é a melhor pra você?",
+  "hookIcon": "duvida",
+  "hookPose": "pensando",
+  "slides": [
+    {
+      "title": "A que mais emagreceu no estudo serve pra todo mundo?",
+      "body": "Falso. Nos estudos, a média de peso foi maior com tirzepatida. Mas média é de um grupo: não diz como o seu corpo responde nem olha o seu histórico.",
+      "icon": "balanca",
+      "pose": "ih",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Quem tem diabetes tipo 2 olha mais um número",
+      "body": "Semaglutida: queda média de ~1,5% na glicada (HbA1c)\nTirzepatida: queda de ~1,8-2,4%, conforme a dose",
+      "icon": "grafico-desce",
+      "pose": "explicando",
+      "layout": "lado"
+    },
+    {
+      "title": "Tempo de uso não conta?",
+      "body": "Conta, e é verdade que a semaglutida tem mais estrada: aprovada desde 2017, com mais dados de longo prazo. A tirzepatida foi aprovada em 2022.",
+      "icon": "calendario",
+      "pose": "pensando",
+      "layout": "pergunta"
+    },
+    {
+      "title": "O coração também entra na conversa",
+      "body": "A semaglutida tem mais estudos de segurança cardiovascular. Em 2024, a FDA aprovou o uso para reduzir risco cardiovascular em adultos com doença cardiovascular e obesidade ou sobrepeso.",
+      "icon": "coracao",
+      "pose": "explicando",
+      "layout": "padrao"
+    },
+    {
+      "title": "O histórico da família não muda nada?",
+      "body": "Falso. Carcinoma medular de tireoide na família, NEM 2 e gravidez contraindicam as duas. Pancreatite prévia também é assunto pra consulta.",
+      "icon": "estetoscopio",
+      "pose": "alerta",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Cola antes de falar em escolha",
+      "body": "Diga seu objetivo: peso, glicose ou os dois\nConte o histórico de tireoide e de pancreatite\nFale do coração e de outras doenças\nQuem escolhe com você é o médico, não o ranking",
+      "icon": "prancheta",
+      "pose": "apontando",
+      "layout": "passos"
+    }
+  ],
+  "narration": [
+    {
+      "text": "Verdadeiro ou falso: a caneta que está no topo do ranking do grupo é a melhor pra você?",
+      "pose": "pensando"
+    },
+    {
+      "text": "Falso. A média de peso do estudo não olha o seu caso. Quem tem diabetes tipo 2 também acompanha a glicada, e as duas baixam esse número.",
+      "pose": "explicando"
+    },
+    {
+      "text": "A semaglutida tem mais tempo de uso e mais estudos de coração. E histórico de tireoide na família pesa para as duas.",
+      "pose": "alerta"
+    },
+    {
+      "text": "Quem junta tudo isso é o médico. Então, a melhor caneta pra você não sai do topo do ranking: sai da sua consulta.",
+      "pose": "apontando"
+    }
+  ],
+  "caption": "Eu sei, todo mundo já viu aquele ranking de “qual caneta é melhor” no grupo. Ele mostra uma coisa só: a média de peso dos estudos. A escolha entre semaglutida (Ozempic, Wegovy) e tirzepatida (Mounjaro) olha muito mais do que isso.\n\n1️⃣ Diabetes tipo 2: a glicada (HbA1c) caiu em média ~1,5% com semaglutida e ~1,8-2,4% com tirzepatida, conforme a dose.\n2️⃣ Tempo de uso: a semaglutida está aprovada desde 2017, tem mais dados de longo prazo e mais estudos de segurança cardiovascular.\n3️⃣ Histórico: carcinoma medular de tireoide na família, NEM 2 e gravidez contraindicam as duas.\n\n⚠️ Média de estudo é de um grupo, não promessa pra você. Quem pesa seu objetivo, suas doenças e seu histórico é o médico.",
+  "question": "Na sua consulta, o médico perguntou mais sobre peso, glicose ou histórico da família?",
+  "share": "aquela amiga que escolhe caneta pelo ranking do grupo"
+}
