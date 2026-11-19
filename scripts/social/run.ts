@@ -183,12 +183,17 @@ async function main() {
     let { token } = saved;
     if (!expiresAt || expiresAt.getTime() - Date.now() < REFRESH_BEFORE_DAYS * 86_400_000) {
       try {
-        const fresh = await new InstagramClient({ userId: 'me', token }).refreshToken();
+        const fresh = await new InstagramClient({
+          userId: 'me',
+          token,
+          appId: process.env.IG_APP_ID,
+          appSecret: process.env.IG_APP_SECRET,
+        }).refreshToken();
         await state.saveToken(fresh.token, fresh.expiresAt);
         token = fresh.token;
         console.log(`Token renovado até ${fresh.expiresAt.toISOString().slice(0, 10)}`);
       } catch (e) {
-        // Token com menos de 24 h não renova: segue com o atual.
+        // Token do Instagram com menos de 24 h, ou do Facebook sem IG_APP_SECRET: segue com o atual.
         console.warn(`Não renovou o token: ${(e as Error).message}`);
       }
     }

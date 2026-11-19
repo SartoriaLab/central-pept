@@ -23,9 +23,15 @@ export function tokenShape(token: string): string {
 type Sleep = (ms: number) => Promise<void>;
 const realSleep: Sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
+/** App da Meta "Dose Certa Publicador" (não é segredo; a chave secreta vem de IG_APP_SECRET). */
+export const DEFAULT_APP_ID = '1855908455448795';
+
 export type IgOptions = {
   userId: string;
   token: string;
+  /** Só para renovar token do Facebook (EAA): ID e chave secreta do app da Meta. */
+  appId?: string;
+  appSecret?: string;
   fetchFn?: typeof fetch;
   sleep?: Sleep;
   /** Intervalo e limite da espera do processamento (Reels demora). */
@@ -46,8 +52,8 @@ export class InstagramClient {
     this.timeoutMs = opts.timeoutMs ?? 10 * 60_000;
   }
 
-  private async call<T>(method: 'GET' | 'POST', path: string, params: Record<string, string>): Promise<T> {
-    const qs = new URLSearchParams({ ...params, access_token: this.opts.token });
+  private async call<T>(method: 'GET' | 'POST', path: string, params: Record<string, string>, auth = true): Promise<T> {
+    const qs = new URLSearchParams(auth ? { ...params, access_token: this.opts.token } : params);
     const base = apiBase(this.opts.token);
     const res =
       method === 'GET'
@@ -135,11 +141,40 @@ export class InstagramClient {
     await this.call('POST', `/${commentId}/replies`, { message: text });
   }
 
-  /** Renova o token de longa duração (precisa ter mais de 24 h). */
+  /**
+   * Renova o token de longa duração. Token do Instagram (IG...): refresh_access_token, precisa ter
+   * mais de 24 h. Token do Facebook (EAA..., do login unificado): troca fb_exchange_token, que pede
+   * o ID e a chave secreta do app; a validade vem da resposta ou do debug_token.
+   */
   async refreshToken(): Promise<{ token: string; expiresAt: Date }> {
+    if (this.opts.token.startsWith('EAA')) return this.refreshFacebookToken();
     const json = await this.call<{ access_token: string; expires_in: number }>('GET', '/refresh_access_token', {
       grant_type: 'ig_refresh_token',
     });
     return { token: json.access_token, expiresAt: new Date(Date.now() + json.expires_in * 1000) };
+  }
+
+  private async refreshFacebookToken(): Promise<{ token: string; expiresAt: Date }> {
+    const appId = this.opts.appId?.trim() || DEFAULT_APP_ID;
+    const secret = this.opts.appSecret?.trim();
+    if (!secret) throw new Error('IG_APP_SECRET não definido: sem a chave secreta do app o token do Facebook não renova');
+    const json = await this.call<{ access_token: string; expires_in?: number }>(
+      'GET',
+      '/oauth/access_token',
+      { grant_type: 'fb_exchange_token', client_id: appId, client_secret: secret, fb_exchange_token: this.opts.token },
+      false,
+    );
+    if (json.expires_in) return { token: json.access_token, expiresAt: new Date(Date.now() + json.expires_in * 1000) };
+    // Sem expires_in na resposta: pergunta a validade ao debug_token (0 = não expira).
+    const debug = await this.call<{ data: { expires_at?: number; data_access_expires_at?: number } }>(
+      'GET',
+      '/debug_token',
+      { input_token: json.access_token, access_token: `${appId}|${secret}` },
+      false,
+    );
+    const at = debug.data.expires_at || 0;
+    // Não expira: anota 60 dias para conferir de novo lá na frente.
+    const expiresAt = at > 0 ? new Date(at * 1000) : new Date(Date.now() + 60 * 86_400_000);
+    return { token: json.access_token, expiresAt };
   }
 }

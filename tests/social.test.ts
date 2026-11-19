@@ -323,6 +323,35 @@ describe('InstagramClient', () => {
     expect(calls[1].url.startsWith(`${IG_BASE}/m1?`)).toBe(true);
   });
 
+  it('renova token do Facebook (EAA) com fb_exchange_token, sem mandar o token como access_token', async () => {
+    const { fn, calls } = fakeFetch([{ access_token: 'EAAnovo', token_type: 'bearer', expires_in: 5_183_944 }]);
+    const r = await new InstagramClient({ ...opts, token: 'EAAvelho', appSecret: 'chave', fetchFn: fn }).refreshToken();
+    expect(r.token).toBe('EAAnovo');
+    expect(r.expiresAt.getTime()).toBeGreaterThan(Date.now() + 59 * 86_400_000);
+    const url = new URL(calls[0].url);
+    expect(`${url.origin}${url.pathname}`).toBe(`${FB_BASE}/oauth/access_token`);
+    expect(url.searchParams.get('grant_type')).toBe('fb_exchange_token');
+    expect(url.searchParams.get('client_id')).toBe('1855908455448795');
+    expect(url.searchParams.get('fb_exchange_token')).toBe('EAAvelho');
+    expect(url.searchParams.has('access_token')).toBe(false);
+  });
+
+  it('sem expires_in, a validade vem do debug_token', async () => {
+    const exp = Math.floor(Date.now() / 1000) + 50 * 86_400;
+    const { fn, calls } = fakeFetch([{ access_token: 'EAAnovo' }, { data: { expires_at: exp } }]);
+    const r = await new InstagramClient({ ...opts, token: 'EAAvelho', appSecret: 'chave', fetchFn: fn }).refreshToken();
+    expect(r.expiresAt.getTime()).toBe(exp * 1000);
+    const debug = new URL(calls[1].url);
+    expect(debug.pathname).toContain('/debug_token');
+    expect(debug.searchParams.get('input_token')).toBe('EAAnovo');
+  });
+
+  it('token do Facebook sem IG_APP_SECRET não tenta renovar', async () => {
+    const { fn, calls } = fakeFetch([]);
+    await expect(new InstagramClient({ ...opts, token: 'EAAvelho', fetchFn: fn }).refreshToken()).rejects.toThrow('IG_APP_SECRET');
+    expect(calls).toHaveLength(0);
+  });
+
   it('token inválido (190) mostra o formato do token, nunca o valor', async () => {
     const { fn } = fakeFetch([{ error: { message: 'Cannot parse access token', code: 190 } }]);
     const ig = new InstagramClient({ ...opts, token: 'segredo com espaço', fetchFn: fn });

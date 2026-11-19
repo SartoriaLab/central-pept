@@ -134,7 +134,9 @@ Feed, sitemap, busca, páginas de tag e imagem de compartilhamento saem sozinhos
    página do guia do post com o cupom `EXIT_COUPON` e responde o comentário em público; o guia vem do título
    entre aspas da linha 📘 da legenda (`ctaLine`; mudou o formato dela → mude `ebookFromCaption`). Um
    direct por pessoa por post (`social_dms`). Setup na Meta: `docs/instagram-setup.md`, Parte 6.
-4. Histórico e token renovado ficam em `social_posts`/`social_state`, criadas pelo próprio robô
+4. Token: o do login unificado é do Facebook (`EAA…`), usa `graph.facebook.com` (`apiBase`) e renova
+   por `fb_exchange_token` com `IG_APP_SECRET` no `.env.local` (`refreshToken`); o `IG…` usa
+   `refresh_access_token`. Histórico e token renovado ficam em `social_posts`/`social_state`, criadas pelo próprio robô
    (`ensureTables` em `state.ts`, espelho de `drizzle/schema.ts`: mudou um, mude o outro). O webhook
    cria só `social_state` e `social_dms` (`ensureWebhookTables`), pois pode rodar antes do robô.
 5. Bio do perfil aponta para `/links` (noindex), com UTM `instagram/bio` (`bioUrl`).

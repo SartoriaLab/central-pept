@@ -177,8 +177,11 @@ aberto; se estava fechado no horário, a tarefa roda quando você abrir.
    formato `NOME=valor`:
    - `DATABASE_URL` e `BLOB_READ_WRITE_TOKEN`: os mesmos da Vercel (`vercel env pull` traz os dois);
    - `IG_USER_ID` e `IG_ACCESS_TOKEN`: o ID e o token do Instagram (Parte 3);
+   - `IG_APP_SECRET`: a mesma Chave Secreta do Aplicativo da Vercel (Parte 6, passo 3). O token do
+     login unificado começa com `EAA` e vence em 60 dias; o robô o renova sozinho 15 dias antes,
+     e só consegue com essa chave. O token renovado fica no banco e vale também para o direct;
    - opcional: `ELEVENLABS_API_KEY` e `ELEVENLABS_VOICE_ID` (Parte 5).
-   Sem elas, a tarefa para no começo com "faltam variáveis" e não gasta nada.
+   Sem as quatro primeiras, a tarefa para no começo com "faltam variáveis" e não gasta nada.
 2. **Primeira vez:** abra a tarefa no app e clique **Executar agora**. Aprove o Bash e a escrita de
    arquivo quando pedir: o app guarda essas aprovações e as próximas rodam sozinhas.
 3. **Postar na hora:** **Executar agora** na tarefa. Se já saiu post daquele formato no dia, não
