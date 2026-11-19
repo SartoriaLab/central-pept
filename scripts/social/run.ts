@@ -3,11 +3,11 @@
 //   tsx scripts/social/run.ts carrossel|reels --fila      publica o texto pronto de social/fila/ do dia
 //   tsx scripts/social/run.ts plano [--dias 30] [--inicio AAAA-MM-DD] [--refazer]   monta a fila (queue.ts)
 //   tsx scripts/social/run.ts --check <pasta>              só valida o texto.json da pasta
-//   tsx scripts/social/run.ts previa [--formato reels] [--ate AAAA-MM-DD]   gera a fila em social/out/ sem publicar
+//   tsx scripts/social/run.ts previa [--formato reels] [--de AAAA-MM-DD] [--ate AAAA-MM-DD]   gera a fila em social/out/ sem publicar
 // --dry: escolhe, escreve, valida e renderiza em social/out/, sem publicar nem gravar no banco
 // (sem DATABASE_URL usa histórico vazio). SOCIAL_PAUSED=1 desliga tudo.
 // Um post por formato por dia: se já saiu, não publica de novo (--force publica mesmo assim).
-// --fila sem texto válido para hoje sai com código 3 (a tarefa agendada cai no --brief).
+// --fila sem texto válido para hoje sai com código 3 (agendado.ps1 não publica; com -ComIA escreve na hora).
 // Variáveis: DATABASE_URL, IG_USER_ID, IG_ACCESS_TOKEN, BLOB_READ_WRITE_TOKEN e, para o texto,
 // ANTHROPIC_API_KEY ou o Claude Code deste computador (write.ts). Lidas do .env.local, se existir.
 // Agendado no Windows: scripts/social/agendar.ps1.
@@ -258,13 +258,17 @@ async function renderTo(
   return { files, caption, reused: false };
 }
 
-/** `run.ts previa [--formato carrossel|reels] [--ate AAAA-MM-DD]`: gera em social/out/ os posts da fila, sem publicar. */
+/**
+ * `run.ts previa [--formato carrossel|reels] [--de AAAA-MM-DD] [--ate AAAA-MM-DD]`: gera em social/out/
+ * os posts da fila, sem publicar. Faixas de datas diferentes podem rodar em paralelo.
+ */
 async function preview(): Promise<void> {
   const only = argValue('--formato') as Format | undefined;
+  const from = [argValue('--de') ?? '', today()].sort()[1];
   const until = argValue('--ate') ?? '9999-12-31';
   const topics = buildTopics();
   const active = await fetchActiveEbookSlugs();
-  const items = (await readQueue()).filter((i) => i.date >= today() && i.date <= until && (!only || i.format === only));
+  const items = (await readQueue()).filter((i) => i.date >= from && i.date <= until && (!only || i.format === only));
   let ok = 0;
   for (const item of items) {
     const key = queueKey(item.date, item.format);
@@ -442,7 +446,8 @@ async function main() {
 }
 
 main()
-  .then(() => process.exit(0))
+  // exitCode guarda os códigos 2 (--draft reprovado) e 3 (--fila sem texto).
+  .then(() => process.exit(process.exitCode ?? 0))
   .catch((e) => {
     console.error(e);
     process.exit(1);

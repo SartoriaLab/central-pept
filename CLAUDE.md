@@ -100,19 +100,20 @@ Feed, sitemap, busca, páginas de tag e imagem de compartilhamento saem sozinhos
 
 ## Instagram @dosecerta_br (automático)
 
-1. Roda no computador do dono por **tarefas agendadas do app Claude** (`dosecerta-carrossel` todo
-   dia às 12h; `dosecerta-reels` às 19h30 de domingo, segunda, quarta e sexta enquanto a conta
-   aquece; prompts em `~/.claude/scheduled-tasks/`). Cada uma abre uma conversa que roda
-   `run.ts <formato> --brief` (escolhe o tema e grava `brief.md` com regras, schema e fonte), escreve
-   ela mesma o `texto.json` e roda `--draft <pasta>` (mesma validação, render e publicação; exit 2 =
-   reprovado). Sem chave de API nem token. Precisa do app aberto; fechado no horário → roda ao abrir.
+1. Roda no computador do dono **sem IA**, pelo Agendador do Windows (pasta `\DoseCerta\`, criada por
+   `npm run social:agendar`): carrossel todo dia às 12h; Reels às 19h30 de domingo, segunda, quarta
+   e sexta enquanto a conta aquece. A tarefa chama `agendado.ps1`, que roda `run.ts <formato> --fila`:
+   publica o `texto.json` pronto de `social/fila/<data>-<formato>/` (reaproveita a prévia de
+   `social/out/`). Sem texto para o dia, não publica e sai com código 3 (log em `social/logs/`): a
+   fila acabou, hora de o Claude gerar mais (`run.ts plano` + textos). `agendado.ps1 -ComIA` escreve
+   na hora com `claude -p`. PC ligado e usuário logado; desligado no horário → roda ao entrar.
    Um post por formato por dia (`publishedOn`; `--force` passa por cima); sem as variáveis de
    publicação no `.env.local` para logo no começo. O workflow do GitHub ficou só manual (precisa de
-   `ANTHROPIC_API_KEY`): não volte o `schedule` lá, seriam dois robôs. Alternativa sem o app:
-   Agendador do Windows (`npm run social:agendar`, `agendado.ps1`) com `claude -p`.
-   Pausa: desative as tarefas no app ou `SOCIAL_PAUSED=1`. Setup: `docs/instagram-setup.md` (Parte 7).
-   Fila (Parte 8): as tarefas tentam antes `run.ts <formato> --fila`, que publica o `texto.json` de
-   `social/fila/<data>-<formato>/` (código 3 = sem texto válido → `--brief`). `run.ts plano --dias 30`
+   `ANTHROPIC_API_KEY`): não volte o `schedule` lá, seriam dois robôs. As tarefas do app Claude
+   (`dosecerta-carrossel`, `dosecerta-reels`; `--brief` + `--draft`, a conversa escreve) ficaram
+   desativadas: ligar as duas junto com o Agendador = dois robôs.
+   Pausa: `npm run social:agendar -- -Remover` ou `SOCIAL_PAUSED=1`. Setup: `docs/instagram-setup.md` (Parte 7).
+   Fila (Parte 8): `run.ts <formato> --fila` (código 3 = sem texto válido). `run.ts plano --dias 30`
    monta a fila (`queue.ts`, mesma escolha de tema do robô) e `--check <pasta>` só valida.
    `topicPriority` (`pick.ts`) põe primeiro as dúvidas práticas de GLP-1. `run.ts previa` gera a
    fila em `social/out/` e a publicação reaproveita (voz em cache em `social/out/_voz`).

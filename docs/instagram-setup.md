@@ -168,10 +168,23 @@ Kit. Código: `app/api/instagram/webhook/route.ts` e `lib/instagram-dm.ts`.
 
 ## Parte 7 — Robô neste computador (sem GitHub e sem chave da Anthropic)
 
-Duas **tarefas agendadas do app Claude** (barra lateral → Agendadas): "Dose Certa: carrossel do dia"
-todo dia às 12h e "Dose Certa: Reels" às 19h30 de domingo, segunda, quarta e sexta. Cada uma abre
-uma conversa que escolhe o tema, escreve o texto e publica, na sua assinatura. O app precisa estar
-aberto; se estava fechado no horário, a tarefa roda quando você abrir.
+**Sem IA (padrão desde 19/11/2026):** duas tarefas do **Agendador do Windows** (pasta `DoseCerta`):
+"Carrossel" todo dia às 12h e "Reels" às 19h30 de domingo, segunda, quarta e sexta. Cada uma roda
+`scripts\social\agendado.ps1`, que publica o texto pronto da fila (Parte 8) com as imagens e o vídeo
+da prévia. Não usa o Claude nem o app. O computador precisa estar ligado com o seu usuário logado;
+se estava desligado no horário, a tarefa roda quando você entrar.
+
+- **Criar ou recriar:** `npm run social:agendar` (remover: `npm run social:agendar -- -Remover`).
+- **Fila acabou:** a tarefa não publica nada e o log em `social/logs/` diz "Sem texto pronto na
+  fila". Peça ao Claude mais 30 dias de conteúdo (plano, textos e prévia).
+- **Teste sem publicar:** `powershell -ExecutionPolicy Bypass -File scripts\social\agendado.ps1 -Formato carrossel -Dry`.
+- **Escrever na hora quando faltar texto:** `-ComIA` no `agendado.ps1` (usa `claude -p`, com
+  `claude setup-token` e `CLAUDE_CODE_OAUTH_TOKEN` no `.env.local`).
+
+**Com IA (desativado):** duas **tarefas agendadas do app Claude** (barra lateral → Agendadas), "Dose
+Certa: carrossel do dia" e "Dose Certa: Reels", nos mesmos horários. Cada uma abre uma conversa que
+publica a fila ou, sem ela, escolhe o tema, escreve o texto e publica, na sua assinatura. Não deixe
+as duas formas ligadas ao mesmo tempo.
 
 1. **`.env.local`** (na pasta do projeto; não vai para o git): acrescente uma linha por variável, no
    formato `NOME=valor`:
@@ -182,16 +195,9 @@ aberto; se estava fechado no horário, a tarefa roda quando você abrir.
      e só consegue com essa chave. O token renovado fica no banco e vale também para o direct;
    - opcional: `ELEVENLABS_API_KEY` e `ELEVENLABS_VOICE_ID` (Parte 5).
    Sem as quatro primeiras, a tarefa para no começo com "faltam variáveis" e não gasta nada.
-2. **Primeira vez:** abra a tarefa no app e clique **Executar agora**. Aprove o Bash e a escrita de
-   arquivo quando pedir: o app guarda essas aprovações e as próximas rodam sozinhas.
-3. **Postar na hora:** **Executar agora** na tarefa. Se já saiu post daquele formato no dia, não
-   publica de novo.
-4. **Pausar:** desative a tarefa no app.
-
-Sem o app aberto, a alternativa é o Agendador do Windows com o `claude` de linha de comando:
-`claude setup-token`, `CLAUDE_CODE_OAUTH_TOKEN` no `.env.local` e `npm run social:agendar`
-(remover: `npm run social:agendar -- -Remover`). Teste sem publicar:
-`powershell -ExecutionPolicy Bypass -File scripts\social\agendado.ps1 -Formato carrossel -Dry`.
+2. **Postar na hora:** no Agendador do Windows, clique com o botão direito na tarefa → **Executar**.
+   Se já saiu post daquele formato no dia, não publica de novo.
+3. **Pausar:** desabilite as tarefas no Agendador ou `npm run social:agendar -- -Remover`.
 
 ---
 
