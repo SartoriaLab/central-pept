@@ -33,19 +33,12 @@ export default function HeroCalc({
   const [mg, setMg] = useState<number | ''>(first.vialMg);
   const [waterMl, setWaterMl] = useState<number | ''>(2);
   const [dose, setDose] = useState<number | ''>(first.typicalDose);
-  // A oferta do guia só entra depois que a pessoa mexe na conta: o exemplo pronto não é o número dela.
-  const [touched, setTouched] = useState(false);
-  const edit = (set: (n: number | '') => void) => (n: number | '') => {
-    setTouched(true);
-    set(n);
-  };
 
   const peptide = peptides.find((p) => p.slug === slug) ?? first;
 
   function pick(next: string) {
     const p = peptides.find((x) => x.slug === next);
     if (!p) return;
-    setTouched(true);
     setSlug(p.slug);
     setMg(p.vialMg);
     setWaterMl(2);
@@ -79,9 +72,9 @@ export default function HeroCalc({
       </select>
 
       <div className="mt-3 grid grid-cols-3 gap-2">
-        <Mini label="Frasco" unit="mg" value={mg} onChange={edit(setMg)} />
-        <Mini label="Água" unit="ml" value={waterMl} onChange={edit(setWaterMl)} />
-        <Mini label="Dose" unit={peptide.doseUnit} value={dose} onChange={edit(setDose)} />
+        <Mini label="Frasco" unit="mg" value={mg} onChange={setMg} />
+        <Mini label="Água" unit="ml" value={waterMl} onChange={setWaterMl} />
+        <Mini label="Dose" unit={peptide.doseUnit} value={dose} onChange={setDose} />
       </div>
 
       <div className="mt-4 pt-4 border-t border-border" role="status">
@@ -118,8 +111,8 @@ export default function HeroCalc({
         )}
       </div>
 
-      {touched && result && !tooBig ? (
-        <EbookOffer variant="line" offer={offer} lead={`Você vai puxar ${fmt(units, 1)} U.`} className="!my-0 mt-4" />
+      {result && !tooBig ? (
+        <EbookOffer variant="line" offer={offer} lead={`Você vai puxar ${fmt(units, 1)} U.`} className="!mb-0 !mt-4" />
       ) : null}
 
       <Link href={href} className="mt-4 btn-outline w-full">

@@ -55,7 +55,7 @@ export default function OfferBar({ offer, show, href, direct = false }: Props) {
             markOfferClicked();
             track(EVENTS.ebookCheckout, { ebook: offer.id, posicao: 'barra', origem: 'direto', pagina: window.location.pathname });
           }}
-          className="btn-teal !h-9 !px-3 text-xs whitespace-nowrap"
+          className="flex h-9 items-center whitespace-nowrap rounded-lg bg-[#16a34a] px-3 text-xs font-black uppercase text-white"
         >
           Quero o guia
         </a>

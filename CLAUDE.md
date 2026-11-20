@@ -93,14 +93,14 @@ Feed, sitemap, busca, páginas de tag e imagem de compartilhamento saem sozinhos
    `result` abre a barra fixa do celular (`OfferBar`) quando o bloco sai da tela; o pop-up de saída
    (`ExitOffer`, no layout) usa a oferta da página, 1 vez a cada 7 dias, e desliga em
    `EXIT_OFFER_ENABLED`. Eventos levam `pagina` (`lib/track.ts`).
-   Visual: oferta, pergunta do frasco e pop-up usam os tokens do site (painel teal claro, botão teal, etiqueta
-   âmbar para lançamento). Nada de fundo escuro, amarelo vivo, caixa alta ou emoji de urgência: o site promete
-   fonte primária, a oferta tem de parecer recomendação. Na home (`HeroCalc`) a oferta só entra depois que a
-   pessoa mexe na conta. Capa (`EbookCover`) tem cara de livro; a landing mostra a página de amostra atrás dela.
+   Visual: oferta, pergunta do frasco, faixa, barra e pop-up são chamativos de propósito (painel escuro, amarelo,
+   botão verde, caixa alta). Decisão do dono em 20/11/2026: uma versão no tom calmo do site foi publicada e
+   desfeita no mesmo dia. Não suavize a oferta sem ele pedir.
+   Capa (`EbookCover`) tem cara de livro; a landing mostra a página de amostra atrás dela.
 5. `npm test` (`tests/ebooks.test.ts`) confere slugs, referências e uma oferta por página.
 6. Calculadora de reconstituição: oferta do guia T1 ("Você Tem Certeza de Que Entende Seu Frasco?"). No primeiro
    cálculo da visita o resultado fica travado por uma pergunta com os números da pessoa (`lib/quiz-frasco.ts`,
-   `FrascoQuiz`; desliga em `QUIZ_GATE_ENABLED`); a resposta abre a oferta. Evento `Quiz Frasco`. Ordem da tela: número e seringa → oferta (copy com o nome do peptídeo, prop `subject`; botão principal direto no checkout, botão para a página) → detalhes do frasco.
+   `FrascoQuiz`; desliga em `QUIZ_GATE_ENABLED`); a resposta abre a oferta. Evento `Quiz Frasco`. Ordem da tela: número e seringa → oferta (copy com o nome do peptídeo, prop `subject`; botão verde direto no checkout, botão para a página) → detalhes do frasco.
    Preço de lançamento: `launch` no ebook gera a frase "R$ X nas N primeiras unidades. Depois, R$ Y". Só vale
    enquanto o aumento vai acontecer: ao subir o preço na Kiwify, apague `launch` e ponha `price: after` no mesmo dia.
    Tabela personalizada (`TAB`, R$ 9,90): oferta extra no checkout do T1.
