@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { articleOgImageUrl, getRelatedArticles, tagSlug, type Article } from '@/lib/articles';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
 import ShareButtons from '@/components/ui/ShareButtons';
+import NewsletterSignup from '@/components/ui/NewsletterSignup';
 import RelatedPosts from '@/components/blog/RelatedPosts';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import { getPeptideBySlug } from '@/lib/peptides';
@@ -225,6 +226,16 @@ export default function ArticleLayout({ article, children, inlineOffer = false }
             <Link href="/contato" className="text-teal-700 font-semibold hover:underline">Avise a gente</Link> — correção de dado incorreto é prioridade.
           </p>
         </aside>
+
+        {/* Quem leu até aqui é quem mais volta: convite para receber os próximos guias. */}
+        <div className="mt-10 not-prose">
+          <NewsletterSignup
+            variant="compact"
+            via="post"
+            title="Receba os próximos guias por email"
+            text="Mudança de bula, regra nova da Anvisa e guias práticos como este, a cada 2-3 semanas. Sem spam; cancele quando quiser."
+          />
+        </div>
 
         {/* Social share */}
         <div className="mt-10 pt-8 border-t border-border not-prose">

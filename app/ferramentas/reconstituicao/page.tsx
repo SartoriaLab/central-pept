@@ -6,7 +6,7 @@ import RelatedLinks, { type RelatedLink } from '@/components/ui/RelatedLinks';
 import { SITE_URL } from '@/lib/site';
 import ReconstitutionCalculator from '@/components/calculator/ReconstitutionCalculator';
 import { ebookForTool, offerFor } from '@/lib/ebooks';
-import { getPeptides } from '@/lib/peptides';
+import { getCalcPeptides } from '@/lib/peptides';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
 import FAQ, { type FAQItem } from '@/components/ui/FAQ';
 import ToolSchema from '@/components/ui/ToolSchema';
@@ -46,7 +46,7 @@ const RELATED_LINKS: RelatedLink[] = [
   { href: '/ferramentas/mistura', label: 'Calculadora de mistura', desc: 'Combine peptídeos e veja a dose de cada um.' },
 ];
 
-const TOTAL = getPeptides().length;
+const TOTAL = getCalcPeptides().length;
 
 export const metadata: Metadata = {
   title: 'Calculadora de Peptídeos: reconstituição e unidades na seringa',
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
 };
 
 export default function ReconstitucaoPage() {
-  const peptides = getPeptides();
+  const peptides = getCalcPeptides();
 
   return (
     <div className="max-w-6xl mx-auto px-4 md:px-6 py-6 md:py-10">

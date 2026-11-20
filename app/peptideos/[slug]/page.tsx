@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
+import { clipDescription } from '@/lib/meta';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { getPeptideBySlug, getPeptideSlugs, getPeptides, CATEGORY_LABELS } from '@/lib/peptides';
+import { getCalcPeptides, getPeptideBySlug, getPeptideSlugs, getPeptides, CATEGORY_LABELS } from '@/lib/peptides';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
 import { RegulatoryBadge, WadaBadge } from '@/components/peptide/StatusBadge';
 import Breadcrumb from '@/components/ui/Breadcrumb';
@@ -40,7 +41,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const p = getPeptideBySlug(slug);
   if (!p) return { title: 'Peptídeo não encontrado' };
-  const description = `${p.shortDescription} Dose típica de ${p.typicalDose} ${p.doseUnit} (${p.frequency}). Mecanismo, efeitos colaterais, contraindicações e referências.`;
+  const description = clipDescription(`${p.shortDescription} Dose típica de ${p.typicalDose} ${p.doseUnit} (${p.frequency}). Mecanismo, efeitos colaterais, contraindicações e referências.`);
   return {
     title: `${p.name}: o que é, dose, efeitos colaterais e meia-vida`,
     description,
@@ -207,7 +208,8 @@ export default async function PeptidePage({
 
       {/* ═══ CONTEÚDO ═══ */}
       <div className="max-w-4xl mx-auto px-4 md:px-6 py-8 md:py-12">
-        <QuickCalcWidget peptide={p} />
+        {/* Lista enxuta: a ficha inteira como prop repetiria o texto da página no HTML. */}
+        <QuickCalcWidget peptide={getCalcPeptides().find((x) => x.slug === p.slug) ?? p} />
 
         {/* Info cards — grid de 4 com ícones */}
         <section className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-8 mb-8">

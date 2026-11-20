@@ -8,10 +8,11 @@ const PATHS: Record<string, string> = {
   'custo-glp1': 'M12 2v20M17 6H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6',
   'tabela-doses-glp1': 'M4 5h16v14H4zM4 10h16M4 15h16M10 5v14',
   'duracao-frasco': 'M9 2h6M10 2v3M14 2v3M8 5h8l1 4v11a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V9zM12 12v3l2 1',
+  'dose-esquecida': 'M12 7v5l3 2M3.5 12a8.5 8.5 0 1 0 2.6-6.1M3 4v4h4',
   diario: 'M6 3h11a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zM8 8h6M8 12h6M8 16h3',
 };
 
-const ORANGE = new Set(['mistura', 'titulacao', 'custo-glp1', 'diario']);
+const ORANGE = new Set(['mistura', 'titulacao', 'custo-glp1', 'diario', 'dose-esquecida']);
 
 export function toolColor(slug: string): 'teal' | 'orange' {
   return ORANGE.has(slug) ? 'orange' : 'teal';

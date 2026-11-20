@@ -68,7 +68,11 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const { p, dose } = r;
   const vials = p.commonAmounts.filter((v) => v >= dose);
   const best = bestCombo(vials.length ? vials : p.commonAmounts, dose);
-  const title = `${p.name} ${fmt(dose, 2)} mg: quantas unidades puxar na seringa`;
+  // Existe frasco com os mesmos mg (tirzepatida 10 mg é dose e é frasco): sem "Dose de", as
+  // duas páginas sairiam com o mesmo título.
+  const title = p.commonAmounts.includes(dose)
+    ? `Dose de ${mg(dose)} de ${p.name}: quantas unidades puxar na seringa`
+    : `${p.name} ${fmt(dose, 2)} mg: quantas unidades puxar na seringa`;
   const description = best
     ? `Dose de ${mg(dose)} de ${p.name}: ${fmt(best.r!.unitsPerDose, 1)} unidades na seringa U100 com frasco de ${mg(best.vial)} e ${fmt(best.water, 1)} ml de água. Tabela para cada frasco, duração do frasco e etapa da subida de dose.`
     : `Dose de ${mg(dose)} de ${p.name} em unidades na seringa U100, por frasco e volume de água.`;
@@ -86,7 +90,6 @@ export default async function DosePage({ params }: { params: Promise<Params> }) 
   const steps = getDoseSteps(p.slug, dose);
   const allDoses = getPageDoses(p.slug);
   const brands = getBrandsByPeptide(p.slug);
-  const path = dosePath(p.slug, dose);
   const isFirst = steps.some((s) => s.index === 0);
   const { perWeek, source } = getDoseInfo(p.slug, dose);
 
@@ -148,7 +151,11 @@ export default async function DosePage({ params }: { params: Promise<Params> }) 
 
       <header className="mb-8">
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight">
-          {p.name} <span className="text-teal-700">{mg(dose)}</span>: quantas unidades puxar
+          {p.commonAmounts.includes(dose) ? (
+            <>Dose de <span className="text-teal-700">{mg(dose)}</span> de {p.name}: quantas unidades puxar</>
+          ) : (
+            <>{p.name} <span className="text-teal-700">{mg(dose)}</span>: quantas unidades puxar</>
+          )}
         </h1>
         {best && (
           <p className="mt-4 text-lg text-ink-2 leading-relaxed">

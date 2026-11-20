@@ -4,6 +4,28 @@ const nextConfig = {
   // Empacotado pelo Next para usar o mesmo React do App Router; carregado direto de
   // node_modules ele criaria elementos com outra cópia do React e o build quebra.
   transpilePackages: ['next-mdx-remote'],
+  async headers() {
+    const base = [
+      { key: 'X-Content-Type-Options', value: 'nosniff' },
+      { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+      { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
+    ];
+    return [
+      { source: '/:path*', headers: base },
+      // Só /embed/* pode abrir em iframe de outro site (é para isso que existe). O resto do site
+      // dentro de um iframe alheio serviria para clickjacking nos botões de compra.
+      { source: '/((?!embed/).*)', headers: [{ key: 'X-Frame-Options', value: 'SAMEORIGIN' }] },
+    ];
+  },
+  async rewrites() {
+    return [
+      // Navegadores e iPhones pedem estes endereços fixos sem olhar o <link rel="icon"> da página
+      // (davam ~1.300 respostas 404 por semana). Os ícones de verdade saem de app/icone.
+      { source: '/favicon.ico', destination: '/icone/32' },
+      { source: '/apple-touch-icon.png', destination: '/icone/180' },
+      { source: '/apple-touch-icon-precomposed.png', destination: '/icone/180' },
+    ];
+  },
   async redirects() {
     return [
       // Ebooks foram descontinuados: endereços antigos voltam para a home.

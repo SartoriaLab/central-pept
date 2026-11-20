@@ -14,9 +14,12 @@ export default function ShareButtons({ title, url, compact }: Props) {
   // Endereço absoluto só depois de montar: ler `window` durante a renderização
   // faz o HTML do servidor divergir do cliente.
   const [shareUrl, setShareUrl] = useState(url ?? '');
+  // Celular: a folha de compartilhamento do sistema chega a qualquer app (Instagram, mensagens).
+  const [canShare, setCanShare] = useState(false);
   useEffect(() => {
     if (url) setShareUrl(url.startsWith('http') ? url : `${window.location.origin}${url}`);
     else setShareUrl(window.location.href);
+    setCanShare(typeof window.navigator.share === 'function');
   }, [url]);
 
   const encodedUrl = encodeURIComponent(shareUrl);
@@ -68,12 +71,7 @@ export default function ShareButtons({ title, url, compact }: Props) {
   }
 
   async function nativeShare() {
-    const nav = window.navigator as Navigator & { share?: (data: ShareData) => Promise<void> };
-    if (typeof nav.share === 'function') {
-      try { await nav.share({ title, url: shareUrl }); } catch { /* cancelled */ }
-    } else {
-      copyLink();
-    }
+    try { await window.navigator.share({ title, url: shareUrl }); } catch { /* cancelado */ }
   }
 
   if (compact) {
@@ -115,6 +113,18 @@ export default function ShareButtons({ title, url, compact }: Props) {
   return (
     <div className="not-prose flex flex-wrap items-center gap-2">
       <span className="text-xs font-bold uppercase tracking-wider text-ink-3 mr-1">Compartilhar</span>
+      {canShare && (
+        <button
+          type="button"
+          onClick={nativeShare}
+          className="inline-flex items-center gap-1.5 px-3 h-11 rounded bg-teal-700 text-white dark:text-bg text-sm font-semibold hover:brightness-110 transition"
+        >
+          <svg viewBox="0 0 20 20" width={14} height={14} fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+            <path d="M10 13V3M6.5 6.5 10 3l3.5 3.5M4 11v4a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-4" />
+          </svg>
+          Enviar
+        </button>
+      )}
       {targets.map((t) => (
         <a
           key={t.name}

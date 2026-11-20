@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import ReconstitutionCalculator from '@/components/calculator/ReconstitutionCalculator';
-import { getPeptides } from '@/lib/peptides';
+import { getCalcPeptides } from '@/lib/peptides';
 import { SITE_URL } from '@/lib/site';
 
 // Versão sem cabeçalho/rodapé para rodar em iframe de outros sites.
@@ -16,7 +16,7 @@ export default function EmbedReconstituicaoPage() {
   const full = `${SITE_URL}/ferramentas/reconstituicao`;
   return (
     <div className="px-3 py-4 md:px-5 md:py-5">
-      <ReconstitutionCalculator peptides={getPeptides()} />
+      <ReconstitutionCalculator peptides={getCalcPeptides()} />
       <p className="mt-5 text-xs text-ink-3 leading-relaxed">
         Ferramenta informativa — não substitui orientação médica.{' '}
         <a href={full} target="_blank" rel="noopener" className="font-semibold text-teal-700 hover:underline">

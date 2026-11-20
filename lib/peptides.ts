@@ -1142,10 +1142,168 @@ export const PEPTIDES: Peptide[] = [
     regulatoryStatus: 'research-only',
     wadaProhibited: true,
   },
+
+  {
+    slug: 'survodutida',
+    name: 'Survodutida',
+    typicalDose: 0.3,
+    doseUnit: 'mg',
+    frequency: '1x por semana (dose inicial de ensaio, com aumento gradual)',
+    shortDescription: 'Agonista duplo glucagon/GLP-1 da Boehringer Ingelheim, com resultados de fase 3 em obesidade publicados em 2026. Sem aprovação regulatória.',
+    commonAmounts: [5, 10],
+    category: 'glp-1',
+    doseRange: 'Ensaios: início em 0,3 mg/semana (fase 1); 0,6, 2,4, 3,6 e 4,8 mg/semana (fase 2); 3,6 e 6,0 mg/semana (fase 3), sempre com subida gradual',
+    halfLife: 'Não caracterizada nos resumos publicados dos ensaios (valor não confirmado em fonte primária)',
+    longDescription:
+      'Survodutida (BI 456906) é um peptídeo investigacional de aplicação subcutânea semanal, coinventado com a Zealand Pharma e licenciado à Boehringer Ingelheim, que conduz o desenvolvimento. É um agonista duplo dos receptores de glucagon e de GLP-1, estudado para obesidade, diabetes tipo 2 e doença hepática gordurosa (MASLD/MASH). **Importante**: NÃO está aprovada por nenhuma agência (FDA, EMA, ANVISA). Qualquer produto vendido como survodutida fora de ensaio clínico não passou por controle regulatório.\n\nNa fase 2 em obesidade (Lancet Diabetes & Endocrinology, 2024; 387 participantes, 46 semanas), a perda média de peso foi de 6,2% a 14,9% conforme a dose, contra 2,8% com placebo. Na fase 3, com 76 semanas e contando todos os participantes, o SYNCHRONIZE-1 (NEJM 2026; 725 adultos sem diabetes) registrou perda média de 12,2% com 3,6 mg e de 13,0% com 6,0 mg, contra 5,4% com placebo. No SYNCHRONIZE-2 (NEJM 2026; 752 adultos com diabetes tipo 2), as médias foram de 8,2% e 9,8%, contra 3,9% com placebo.',
+    mechanism:
+      'Peptídeo de 29 aminoácidos derivado do glucagon, com um diácido graxo C18 que o liga à albumina e prolonga a ação, o que permite a aplicação semanal. Ativa os receptores de GLP-1 e de glucagon, com potência maior no de GLP-1 (proporção de cerca de 1:8 em plasma humano, em estudo pré-clínico). O componente GLP-1 reduz o apetite, retarda o esvaziamento gástrico e estimula a insulina de forma dependente de glicose.\n\nA hipótese dos desenvolvedores é que o agonismo ao receptor de glucagon aumente o gasto energético e reduza a gordura no fígado; em camundongos, o composto aumentou o gasto energético e reduziu a ingestão de alimento. Em humanos, esse efeito adicional ainda não foi demonstrado diretamente. Diferente da tirzepatida e da retatrutida, a survodutida não age no receptor de GIP.',
+    sideEffects: [
+      'Sintomas gastrointestinais, em geral leves a moderados: 80,9% com 3,6 mg e 89,7% com 6,0 mg no SYNCHRONIZE-1, contra 47,9% com placebo',
+      'No SYNCHRONIZE-2 (diabetes tipo 2): eventos gastrointestinais em 72,8% e 77,7%, contra 38,6% com placebo',
+      'Fase 2: eventos adversos em 91% dos participantes com survodutida e 75% com placebo; 60,4% completaram as 46 semanas',
+      'Segurança de longo prazo ainda em avaliação',
+    ],
+    contraindications: [
+      'Medicamento experimental — contraindicações formais ainda não estabelecidas em bula',
+      'Exclusões dos ensaios de fase 3: história pessoal ou familiar de carcinoma medular de tireoide ou NEM 2',
+      'História de pancreatite aguda ou crônica (exclusão dos ensaios)',
+      'Gravidez, lactação ou plano de engravidar (exclusão dos ensaios)',
+      'Atletas sob regra antidopagem: substância sem aprovação regulatória (seção S0 da Lista Proibida da WADA)',
+    ],
+    references: [
+      { title: 'le Roux CW, et al. Survodutide Once Weekly for the Treatment of Adults with Obesity (SYNCHRONIZE-1). N Engl J Med. 2026.', url: 'https://pubmed.ncbi.nlm.nih.gov/42253238/' },
+      { title: 'Wharton S, et al. Survodutide Once Weekly in Adults with Obesity and Type 2 Diabetes (SYNCHRONIZE-2). N Engl J Med. 2026.', url: 'https://pubmed.ncbi.nlm.nih.gov/42820639/' },
+      { title: 'le Roux CW, et al. Glucagon and GLP-1 receptor dual agonist survodutide for obesity: a randomised, double-blind, placebo-controlled, dose-finding phase 2 trial. Lancet Diabetes Endocrinol. 2024.', url: 'https://pubmed.ncbi.nlm.nih.gov/38330987/' },
+      { title: 'Zimmermann T, et al. BI 456906: Discovery and preclinical pharmacology of a novel GCGR/GLP-1R dual agonist with robust anti-obesity efficacy. Mol Metab. 2022.', url: 'https://pubmed.ncbi.nlm.nih.gov/36356832/' },
+    ],
+    lastReviewed: '2026-11-20',
+    regulatoryStatus: 'investigational',
+    wadaProhibited: true,
+  },
+
+  {
+    slug: 'mazdutida',
+    name: 'Mazdutida',
+    typicalDose: 2,
+    doseUnit: 'mg',
+    frequency: '1x por semana (dose inicial, aumentar gradualmente)',
+    shortDescription: 'Agonista duplo GLP-1/glucagon (IBI362, LY3305677) da Innovent e da Eli Lilly. Aprovada apenas na China, em 2025, para controle de peso e diabetes tipo 2.',
+    commonAmounts: [5, 10],
+    category: 'glp-1',
+    doseRange: 'Ensaios na China: início em 2 mg/semana e manutenção em 4 ou 6 mg/semana (GLORY-1); 9 mg/semana no GLORY-2. Fase 1 de dose alta: até 16 mg/semana',
+    halfLife: '~8 dias (fase 1 com 16 mg)',
+    longDescription:
+      'Mazdutida (IBI362, também LY3305677) é um análogo sintético de ação longa da oxintomodulina, hormônio intestinal que ativa os receptores de GLP-1 e de glucagon. É desenvolvida pela Eli Lilly em parceria com a Innovent Biologics, que tem licença exclusiva para a China. Em junho de 2025 a agência chinesa NMPA aprovou a mazdutida (marca Xinermei) para controle de peso em adultos com obesidade (IMC de 28 ou mais) ou com sobrepeso (IMC de 24 ou mais) e ao menos uma comorbidade; em setembro de 2025 veio a aprovação para controle glicêmico no diabetes tipo 2. **Importante**: a aprovação vale só para a China. Não localizamos aprovação da FDA, da EMA nem da ANVISA até a data desta revisão, e os frascos vendidos "para pesquisa" não são o medicamento registrado.\n\nNo GLORY-1 (NEJM 2025; 610 adultos chineses, 48 semanas), a perda média de peso foi de 11,0% com 4 mg e de 14,0% com 6 mg, enquanto o grupo placebo ganhou 0,3%. No GLORY-2 (JAMA 2026; 461 adultos chineses com IMC de 30 ou mais, 60 semanas), a dose de 9 mg levou a perda média de 16,7%, contra 1,5% com placebo. Os participantes do GLORY-1 tinham IMC médio de 31,1 e peso médio de 87,2 kg, abaixo do habitual nos ensaios ocidentais, o que limita a comparação direta com outros medicamentos.',
+    mechanism:
+      'Peptídeo sintético análogo da oxintomodulina de mamíferos, com uma cadeia de ácido graxo que prolonga a meia-vida e permite a aplicação semanal. Ativa os receptores de GLP-1 e de glucagon. O componente GLP-1 aumenta a secreção de insulina dependente de glicose, retarda o esvaziamento gástrico e reduz o apetite.\n\nA hipótese é que o componente glucagon aumente o gasto energético e a oxidação de gordura no fígado, somando-se ao efeito do GLP-1 sobre o apetite. Diferente da tirzepatida e da retatrutida, a mazdutida não age no receptor de GIP.',
+    sideEffects: [
+      'Efeitos gastrointestinais são os mais frequentes, em geral leves a moderados',
+      'GLORY-2 (9 mg): vômito em 53,1%, náusea em 46,9% e diarreia em 39,4%, contra 1,3%, 3,2% e 6,5% com placebo',
+      'Abandono do tratamento por evento adverso: 1,5% (4 mg) e 0,5% (6 mg) no GLORY-1; 2,9% com 9 mg no GLORY-2',
+      'Diminuição do apetite',
+    ],
+    contraindications: [
+      'Fora da China não há bula aprovada: contraindicações formais não foram avaliadas por FDA, EMA ou ANVISA',
+      'Gravidez e lactação',
+      'História de pancreatite (cautela da classe dos agonistas de GLP-1)',
+      'História pessoal ou familiar de carcinoma medular de tireoide ou NEM 2 (alerta da classe dos agonistas de GLP-1)',
+      'Uso de produto sem registro, fora de prescrição médica ou de ensaio clínico',
+    ],
+    references: [
+      { title: 'Ji L, et al. Once-Weekly Mazdutide in Chinese Adults with Obesity or Overweight (GLORY-1). N Engl J Med. 2025.', url: 'https://pubmed.ncbi.nlm.nih.gov/40421736/' },
+      { title: 'Gao L, et al. Mazdutide 9 mg for weight reduction in Chinese adults with obesity (GLORY-2). JAMA. 2026.', url: 'https://pubmed.ncbi.nlm.nih.gov/42251595/' },
+      { title: 'Shirley M. Mazdutide: First Approval. Drugs. 2025.', url: 'https://pubmed.ncbi.nlm.nih.gov/41028652/' },
+      { title: 'Bhattachar SN, et al. Mazdutide reduces body weight in adults with overweight or obesity: A high-dose Phase 1 trial. Diabetes Obes Metab. 2025.', url: 'https://pubmed.ncbi.nlm.nih.gov/40832785/' },
+    ],
+    lastReviewed: '2026-11-20',
+    regulatoryStatus: 'regional-approved',
+    wadaProhibited: false,
+  },
+
+  {
+    slug: 'elamipretida',
+    name: 'Elamipretida',
+    typicalDose: 40,
+    doseUnit: 'mg',
+    frequency: '1x por dia (dose de bula para síndrome de Barth)',
+    shortDescription: 'Tetrapeptídeo que se liga à cardiolipina da mitocôndria (SS-31). Aprovação acelerada da FDA em 2025 (Forzinity), apenas para síndrome de Barth.',
+    commonAmounts: [50],
+    category: 'longevity',
+    doseRange: 'Bula da FDA: 40 mg por via subcutânea 1x por dia em pessoas com 30 kg ou mais; 20 mg/dia com função renal muito reduzida (TFGe abaixo de 30 mL/min, sem diálise)',
+    halfLife: 'Não caracterizada na bula da FDA (Forzinity)',
+    longDescription:
+      'A elamipretida (SS-31) é um tetrapeptídeo sintético (D-Arg-dimetil-Tyr-Lys-Phe-NH2) da Stealth BioTherapeutics que se concentra na membrana interna da mitocôndria. Em 19 de setembro de 2025 a FDA concedeu aprovação acelerada ao Forzinity para melhorar a força muscular em adultos e crianças com síndrome de Barth que pesem ao menos 30 kg. A síndrome de Barth é uma doença genética rara ligada ao cromossomo X. A aprovação se baseou em um desfecho intermediário (força do músculo extensor do joelho), e a FDA exigiu um ensaio confirmatório randomizado e controlado por placebo.\n\nA evidência é limitada. No ensaio TAZPOWER (12 participantes), a fase randomizada de 12 semanas não atingiu os desfechos primários; os ganhos apareceram na extensão aberta, sem grupo controle (95,9 metros a mais no teste de caminhada de 6 minutos após 36 semanas). Na miopatia mitocondrial primária, o ensaio MMPOWER-3 (218 participantes, 40 mg/dia por 24 semanas) não mostrou melhora da caminhada nem da fadiga em relação ao placebo. **Importante**: não há ensaio clínico que sustente o uso para longevidade ou desempenho em pessoas saudáveis, e o pó vendido como "SS-31 para pesquisa" não é o medicamento aprovado, que vem em solução pronta de 80 mg/mL.',
+    mechanism:
+      'Liga-se à cardiolipina, fosfolipídio da membrana interna da mitocôndria que organiza os complexos da cadeia respiratória. Segundo a bula, a elamipretida se localiza nessa membrana e melhora a morfologia e a função mitocondrial. A síndrome de Barth é justamente um distúrbio genético do metabolismo da cardiolipina, o que explica a escolha dessa doença para o desenvolvimento do medicamento.\n\nFarmacocinética em bula: pico plasmático entre 0,5 e 1 hora após a aplicação subcutânea, biodisponibilidade de cerca de 92%, baixa ligação a proteínas (cerca de 39%) e eliminação pela urina (cerca de 100% da dose recuperada em 48 horas). A bula não informa a meia-vida.',
+    sideEffects: [
+      'Reações no local da injeção, as mais comuns: vermelhidão em 100% dos participantes com elamipretida e 25% com placebo; dor em 75% e 42%; endurecimento e coceira em 67% e 17%',
+      'Aumento de eosinófilos no sangue em tratamentos de 30 dias ou mais',
+      'Reações de hipersensibilidade, incluindo reações alérgicas graves',
+      'Na extensão do TAZPOWER, 2 de 10 participantes interromperam o uso por reação no local da injeção',
+    ],
+    contraindications: [
+      'Hipersensibilidade grave à elamipretida ou a algum excipiente (contraindicação de bula)',
+      'Recém-nascidos: a formulação contém álcool benzílico e não é aprovada para neonatos',
+      'Pessoas com menos de 30 kg: segurança e eficácia não estabelecidas',
+      'Função renal muito reduzida exige ajuste de dose; em diálise não há dose estabelecida',
+      'Uso fora da indicação aprovada (síndrome de Barth) não tem eficácia demonstrada',
+    ],
+    references: [
+      { title: 'FDA Grants Accelerated Approval to First Treatment for Barth Syndrome (Set 2025)', url: 'https://www.fda.gov/news-events/press-announcements/fda-grants-accelerated-approval-first-treatment-barth-syndrome' },
+      { title: 'FORZINITY (elamipretide hydrochloride) injection — bula (DailyMed)', url: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=146bf34c-76f2-48db-ac07-fb29cce2cd75' },
+      { title: 'Thompson WR, et al. A phase 2/3 randomized clinical trial followed by an open-label extension to evaluate the effectiveness of elamipretide in Barth syndrome (TAZPOWER). Genet Med. 2021.', url: 'https://pubmed.ncbi.nlm.nih.gov/33077895/' },
+      { title: 'Karaa A, et al. Efficacy and Safety of Elamipretide in Individuals With Primary Mitochondrial Myopathy: The MMPOWER-3 Randomized Clinical Trial. Neurology. 2023.', url: 'https://pubmed.ncbi.nlm.nih.gov/37268435/' },
+    ],
+    lastReviewed: '2026-11-20',
+    regulatoryStatus: 'fda-approved',
+    wadaProhibited: false,
+  },
 ];
 
 export function getPeptides(): Peptide[] {
   return PEPTIDES;
+}
+
+// Prop de componente client vai inteira no HTML da página. A ficha completa (descrição longa,
+// mecanismo, efeitos, referências) pesa ~130 KB somando todos os peptídeos, e as calculadoras
+// só leem meia dúzia de campos: use as versões enxutas abaixo ao passar a lista para o cliente.
+const CALC_FIELDS = [
+  'slug', 'name', 'typicalDose', 'doseUnit', 'frequency', 'shortDescription', 'commonAmounts', 'category',
+] as const satisfies readonly (keyof Peptide)[];
+
+const CARD_FIELDS = [
+  ...CALC_FIELDS, 'regulatoryStatus', 'wadaProhibited', 'doseRange', 'halfLife',
+] as const satisfies readonly (keyof Peptide)[];
+
+function pick(p: Peptide, fields: readonly (keyof Peptide)[]): Peptide {
+  const out: Partial<Peptide> = {};
+  for (const f of fields) if (p[f] !== undefined) Object.assign(out, { [f]: p[f] });
+  return out as Peptide;
+}
+
+const CALC_PEPTIDES = PEPTIDES.map((p) => pick(p, CALC_FIELDS));
+const CARD_PEPTIDES = PEPTIDES.map((p) => pick(p, CARD_FIELDS));
+// O comparador mostra só os 180 primeiros caracteres do mecanismo; o 181º existe para ele
+// saber que o texto continua e pôr as reticências.
+const COMPARE_PEPTIDES = PEPTIDES.map((p) => ({
+  ...pick(p, CARD_FIELDS),
+  ...(p.mechanism ? { mechanism: p.mechanism.slice(0, 181) } : {}),
+}));
+
+/** Lista para as calculadoras (client): nome, dose, frequência, frascos e categoria. */
+export function getCalcPeptides(): Peptide[] {
+  return CALC_PEPTIDES;
+}
+
+/** Lista para a enciclopédia (client): campos das calculadoras + status, faixa de dose e meia-vida. */
+export function getCardPeptides(): Peptide[] {
+  return CARD_PEPTIDES;
+}
+
+/** Lista para o comparador (client): campos da enciclopédia + começo do mecanismo. */
+export function getComparePeptides(): Peptide[] {
+  return COMPARE_PEPTIDES;
 }
 
 // Slugs antigos que ainda podem chegar por link salvo, parâmetro de URL ou localStorage.

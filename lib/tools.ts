@@ -56,6 +56,15 @@ export const TOOLS: Tool[] = [
     priority: 0.85,
   },
   {
+    slug: 'dose-esquecida',
+    title: 'Esqueci a Dose — Ozempic, Wegovy e Mounjaro',
+    shortTitle: 'Esqueci a dose',
+    desc: 'Informe o dia em que a dose deveria ter sido aplicada e veja o que a bula manda: aplicar agora ou pular, o prazo exato e a data da próxima dose.',
+    shortDesc: 'Aplico agora ou pulo? O prazo da bula de cada marca.',
+    og: { title: 'Esqueci a dose do Ozempic ou Mounjaro: aplico agora ou pulo?', eyebrow: 'Ferramenta' },
+    priority: 0.85,
+  },
+  {
     slug: 'cronograma',
     title: 'Cronograma de Doses',
     shortTitle: 'Cronograma',

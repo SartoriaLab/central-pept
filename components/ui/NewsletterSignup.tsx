@@ -5,7 +5,16 @@ import Link from 'next/link';
 import { NEWSLETTER_CONSENT } from '@/lib/newsletter';
 import { EVENTS, track } from '@/lib/track';
 
-export default function NewsletterSignup() {
+type Props = {
+  /** `card`: bloco grande (home e blog). `compact`: faixa enxuta (fim de artigo e rodapé). */
+  variant?: 'card' | 'compact';
+  /** Onde o formulário está (post, rodape…): vai junto com a página em `source`, para medir. */
+  via?: string;
+  title?: string;
+  text?: string;
+};
+
+export default function NewsletterSignup({ variant = 'card', via, title, text }: Props) {
   const id = useId();
   const [email, setEmail] = useState('');
   const [consent, setConsent] = useState(false);
@@ -21,7 +30,7 @@ export default function NewsletterSignup() {
       const res = await fetch('/api/newsletter', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, consent, website, source: window.location.pathname }),
+        body: JSON.stringify({ email, consent, website, source: `${window.location.pathname}${via ? `#${via}` : ''}` }),
       });
       const data = (await res.json().catch(() => ({}))) as { error?: string };
       if (!res.ok) throw new Error(data.error);
@@ -29,7 +38,7 @@ export default function NewsletterSignup() {
       setMessage('Pronto! Você vai receber os próximos artigos no seu email.');
       setEmail('');
       setConsent(false);
-      track(EVENTS.newsletterSignup, { page: window.location.pathname });
+      track(EVENTS.newsletterSignup, { pagina: window.location.pathname, ...(via ? { via } : {}) });
     } catch (err) {
       setStatus('error');
       setMessage(
@@ -40,21 +49,27 @@ export default function NewsletterSignup() {
     }
   }
 
+  const compact = variant === 'compact';
+
   return (
-    <section className="card p-6 md:p-8 bg-gradient-to-br from-teal-50 to-surface">
+    <section className={`card bg-gradient-to-br from-teal-50 to-surface ${compact ? 'p-5' : 'p-6 md:p-8'}`} aria-label="Receber novidades por email">
       <div className="flex items-start gap-4">
-        <span className="hidden sm:flex w-12 h-12 rounded-xl bg-teal text-white items-center justify-center flex-shrink-0">
+        <span className={`${compact ? 'hidden' : 'hidden sm:flex'} w-12 h-12 rounded-xl bg-teal text-white items-center justify-center flex-shrink-0`}>
           <svg viewBox="0 0 24 24" width={22} height={22} fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
             <path d="M4 4h16c1 0 2 1 2 2v12c0 1-1 2-2 2H4c-1 0-2-1-2-2V6c0-1 1-2 2-2z" />
             <path d="m22 7-10 7L2 7" />
           </svg>
         </span>
         <div className="flex-1 min-w-0">
-          <h2 className="font-bold text-lg text-ink">Novos artigos direto no seu email</h2>
+          <h2 className={`font-bold text-ink ${compact ? 'text-base' : 'text-lg'}`}>{title ?? 'Novos artigos direto no seu email'}</h2>
           <p className="text-sm text-ink-2 mt-1 leading-relaxed">
-            Um email a cada 2-3 semanas com novos guias, comparações e atualizações
-            regulatórias sobre peptídeos. <strong>Sem spam</strong> — cancele a
-            qualquer momento.
+            {text ?? (
+              <>
+                Um email a cada 2-3 semanas com novos guias, comparações e atualizações
+                regulatórias sobre peptídeos. <strong>Sem spam</strong> — cancele a
+                qualquer momento.
+              </>
+            )}
           </p>
           <form onSubmit={submit} className="mt-4">
             <div className="flex flex-col sm:flex-row gap-2">

@@ -6,7 +6,7 @@ import { SITE_URL } from '@/lib/site';
 import EmbedSnippet from '@/components/ui/EmbedSnippet';
 import VialPlanner from '@/components/calculator/VialPlanner';
 import { ebookForTool, offerFor } from '@/lib/ebooks';
-import { getPeptides } from '@/lib/peptides';
+import { getCalcPeptides } from '@/lib/peptides';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
 import FAQ, { type FAQItem } from '@/components/ui/FAQ';
 import ToolSchema from '@/components/ui/ToolSchema';
@@ -73,7 +73,7 @@ export default function DuracaoFrascoPage() {
         </p>
       </header>
 
-      <VialPlanner peptides={getPeptides()} offer={offerFor(ebookForTool('duracao-frasco'))} />
+      <VialPlanner peptides={getCalcPeptides()} offer={offerFor(ebookForTool('duracao-frasco'))} />
 
       <EmbedSnippet
         embedUrl={`${SITE_URL}/embed/duracao-frasco`}

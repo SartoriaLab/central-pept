@@ -4,6 +4,7 @@
 export const EVENTS = {
   reconstitution: 'Calculo Reconstituicao',
   cost: 'Calculo Custo GLP1',
+  missedDose: 'Calculo Dose Esquecida',
   icsDownload: 'Download ICS',
   print: 'Imprimir',
   copyResult: 'Copiar Resultado',

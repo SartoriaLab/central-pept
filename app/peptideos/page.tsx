@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { socialImage } from '@/lib/og';
-import { getPeptides } from '@/lib/peptides';
+import { getCardPeptides } from '@/lib/peptides';
 import PeptideBrowser from '@/components/peptide/PeptideBrowser';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
 import Link from 'next/link';
@@ -9,7 +9,7 @@ import { getBrands } from '@/lib/brands';
 import EbookOffer from '@/components/ebook/EbookOffer';
 import { ebookForHub, offerFor } from '@/lib/ebooks';
 
-const TOTAL = getPeptides().length;
+const TOTAL = getCardPeptides().length;
 
 export const metadata: Metadata = {
   title: `Enciclopédia de Peptídeos: dose, efeitos e status de ${TOTAL} compostos`,
@@ -20,7 +20,10 @@ export const metadata: Metadata = {
 };
 
 export default function PeptideosPage() {
-  const peptides = getPeptides();
+  const peptides = getCardPeptides();
+  // Quem digita a marca ("ozempic") na busca da enciclopédia chega ao princípio ativo.
+  const aliases: Record<string, string> = {};
+  for (const b of getBrands()) aliases[b.peptideSlug] = `${aliases[b.peptideSlug] ?? ''} ${b.name}`.trim();
 
   return (
     <>
@@ -40,7 +43,7 @@ export default function PeptideosPage() {
       </section>
 
       <div className="max-w-6xl mx-auto px-4 md:px-6 py-8 md:py-10">
-        <PeptideBrowser peptides={peptides} />
+        <PeptideBrowser peptides={peptides} aliases={aliases} />
 
         <section className="mt-10" aria-labelledby="por-objetivo">
           <h2 id="por-objetivo" className="text-xl md:text-2xl font-bold mb-2">Peptídeos por objetivo e listas</h2>

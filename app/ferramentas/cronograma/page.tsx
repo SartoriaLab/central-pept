@@ -6,7 +6,7 @@ import { SITE_URL } from '@/lib/site';
 import EmbedSnippet from '@/components/ui/EmbedSnippet';
 import ScheduleCalculator from '@/components/calculator/ScheduleCalculator';
 import { ebookForTool, offerFor } from '@/lib/ebooks';
-import { getPeptides } from '@/lib/peptides';
+import { getCalcPeptides } from '@/lib/peptides';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
 import FAQ, { type FAQItem } from '@/components/ui/FAQ';
 import ToolSchema from '@/components/ui/ToolSchema';
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
 };
 
 export default function CronogramaPage() {
-  const peptides = getPeptides();
+  const peptides = getCalcPeptides();
 
   return (
     <div className="max-w-6xl mx-auto px-4 md:px-6 py-6 md:py-10">

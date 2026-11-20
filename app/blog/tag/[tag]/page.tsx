@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { clipDescription } from '@/lib/meta';
 import Link from 'next/link';
 import ArticleCard from '@/components/blog/ArticleCard';
 import { notFound } from 'next/navigation';
@@ -25,9 +26,9 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const group = getTagGroup(slug);
   if (!group) return { title: 'Tag não encontrada', robots: { index: false, follow: true } };
   const n = group.articles.length;
-  const description = TIRZE_TAGS.has(slug)
+  const description = clipDescription(TIRZE_TAGS.has(slug)
     ? `Guias de tirzepatida (Mounjaro, Zepbound): preço por dose, onde comprar com procedência, reconstituição e como identificar produto falso. ${plural(n)}.`
-    : `${plural(n)} da Central Peptídeos sobre ${group.label}: ${group.articles.slice(0, 3).map((a) => a.title).join('; ')}.`;
+    : `${plural(n)} da Central Peptídeos sobre ${group.label}: ${group.articles.slice(0, 3).map((a) => a.title).join('; ')}.`);
   return {
     title: `${group.label} — ${plural(n)}`,
     description,

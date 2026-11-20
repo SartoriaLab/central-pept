@@ -13,7 +13,7 @@ import { calcByVolume, doseToMg, fmt, fmtConcentration } from '@/components/calc
 import {
   getPeptideBySlug,
   getPeptideSlugs,
-  getPeptides,
+  getCalcPeptides,
   REGULATORY_LABELS,
   type Peptide,
 } from '@/lib/peptides';
@@ -127,7 +127,7 @@ export default async function PeptideReconstitutionPage({ params }: { params: Pr
   const p = getPeptideBySlug(peptideo);
   if (!p) notFound();
 
-  const peptides = getPeptides();
+  const peptides = getCalcPeptides();
   const rows = buildRows(p);
   const example = pickExample(rows);
   const faq = buildFaq(p, rows, example);

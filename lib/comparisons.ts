@@ -29,6 +29,7 @@ export const COMPARISONS: Comparison[] = [
   { slug: 'cagrilintida-vs-tirzepatida', peptideSlugs: ['cagrilintida', 'tirzepatida'], title: 'Cagrilintida vs Tirzepatida', relatedPost: 'cagrilintida-o-que-e' },
   { slug: 'cagrilintida-vs-retatrutida', peptideSlugs: ['cagrilintida', 'retatrutida'], title: 'Cagrilintida vs Retatrutida', relatedPost: 'cagrilintida-o-que-e' },
   { slug: 'cagrilintida-vs-liraglutida', peptideSlugs: ['cagrilintida', 'liraglutida'], title: 'Cagrilintida vs Liraglutida', relatedPost: 'liraglutida-saxenda-victoza' },
+  { slug: 'retatrutida-vs-survodutida-vs-mazdutida', peptideSlugs: ['retatrutida', 'survodutida', 'mazdutida'], title: 'Retatrutida vs Survodutida vs Mazdutida', relatedPost: 'survodutida-o-que-e' },
 
   // ── Cicatrização / pele ──
   { slug: 'bpc-157-vs-tb-500-vs-ghk-cu', peptideSlugs: ['bpc-157', 'tb-500', 'ghk-cu'], title: 'BPC-157 vs TB-500 vs GHK-Cu', relatedPost: 'tb-500-para-que-serve' },

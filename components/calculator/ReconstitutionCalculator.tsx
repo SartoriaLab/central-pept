@@ -52,9 +52,20 @@ const LS_CUSTOMS_KEY = 'peptidecalc:customs:v1';
 // Tamanhos de frasco padrão para sugerir (mg). Merged com commonAmounts do peptídeo.
 const STANDARD_VIAL_SIZES = [5, 10, 15, 20, 30];
 
-/** Seringa inicial da página do peptídeo (frasco mais comum + 2 ml + dose típica). */
+/**
+ * Água inicial do frasco mais comum: 2 ml. Cai para 1 ml quando, com 2 ml, a dose típica não cabe
+ * na seringa de 100 U (dose alta em frasco pequeno), para a página não abrir com aviso de excesso.
+ */
+function water0(p: Peptide): number {
+  const mg = p.commonAmounts[0];
+  if (!mg) return 2;
+  const units = (doseToMg(p.typicalDose, p.doseUnit) / (mg / 2)) * 100;
+  return units > 100 && units <= 200 ? 1 : 2;
+}
+
+/** Seringa inicial da página do peptídeo (frasco mais comum + água inicial + dose típica). */
 function syringe0(p: Peptide): SyringeSize {
-  return p.commonAmounts[0] ? fittingSyringe(p, p.commonAmounts[0], 2, p.typicalDose) : 50;
+  return p.commonAmounts[0] ? fittingSyringe(p, p.commonAmounts[0], water0(p), p.typicalDose) : 50;
 }
 
 export default function ReconstitutionCalculator({ peptides, initialPeptideSlug, offer }: Props) {
@@ -72,7 +83,7 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug,
 
   // Página por peptídeo: frasco mais comum + 2 ml, para o resultado aparecer de cara.
   const [mg, setMg] = useState<number | ''>(initialPeptide?.commonAmounts[0] ?? '');
-  const [waterMl, setWaterMl] = useState<number | ''>(initialPeptide ? 2 : '');
+  const [waterMl, setWaterMl] = useState<number | ''>(initialPeptide ? water0(initialPeptide) : '');
   const [units, setUnits] = useState<number | ''>('');
   const [dose, setDose] = useState<number | ''>(initialPeptide ? initialPeptide.typicalDose : '');
   const [mode, setMode] = useState<Mode>('volume');
@@ -141,13 +152,13 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug,
         if (urlMg !== '') setMg(urlMg);
         else if (p.commonAmounts.length > 0) setMg(p.commonAmounts[0]);
         if (urlWater !== '') setWaterMl(urlWater);
-        else if (urlUnits === '') setWaterMl(2);
+        else if (urlUnits === '') setWaterMl(urlMg === '' ? water0(p) : 2);
         if (urlUnits !== '') setUnits(urlUnits);
         if (urlMode === 'volume' || urlMode === 'units') setMode(urlMode);
         if (urlSyringe === '30' || urlSyringe === '50' || urlSyringe === '100') {
           setSyringe(parseInt(urlSyringe) as SyringeSize);
         } else if (urlMg === '' && urlWater === '' && urlUnits === '' && urlDose === '' && p.commonAmounts[0]) {
-          setSyringe(fittingSyringe(p, p.commonAmounts[0], 2, p.typicalDose));
+          setSyringe(syringe0(p));
         }
         setHydrated(true);
         return;
@@ -207,7 +218,7 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug,
     if (!initialPeptide) return '';
     const p = new URLSearchParams();
     if (initialPeptide.commonAmounts[0]) p.set('mg', String(initialPeptide.commonAmounts[0]));
-    p.set('water', '2');
+    p.set('water', String(water0(initialPeptide)));
     p.set('dose', String(initialPeptide.typicalDose));
     p.set('syringe', String(syringe0(initialPeptide)));
     return p.toString();
@@ -284,7 +295,7 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug,
     // Se só tem um tamanho comum, auto-preenche mg
     if (p.commonAmounts.length === 1 && !mg) setMg(p.commonAmounts[0]);
     // Se não tem água preenchida, sugere 2 ml como padrão razoável
-    if (mode === 'volume' && !waterMl) setWaterMl(2);
+    if (mode === 'volume' && !waterMl) setWaterMl(!mg || mg === p.commonAmounts[0] ? water0(p) : 2);
   }
 
   // Carregar exemplo pronto: o peptídeo já escolhido ou, sem escolha, BPC-157
@@ -294,10 +305,10 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug,
     setPeptide(example);
     setDose(example.typicalDose);
     setMg(example.commonAmounts[0] ?? 5);
-    setWaterMl(2);
+    setWaterMl(water0(example));
     setUnits('');
     setMode('volume');
-    setSyringe(50);
+    setSyringe(Math.max(50, syringe0(example)) as SyringeSize);
     setToast('Exemplo carregado. Edite os campos à vontade.');
   }
 
@@ -887,7 +898,7 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug,
                 Carregar exemplo
               </button>
               <p className="mt-3 text-xs text-ink-3">
-                Preenche {peptide ? peptide.name : 'BPC-157'} {peptide?.commonAmounts[0] ?? 5} mg em 2 ml de água para você ver funcionando.
+                Preenche {peptide ? peptide.name : 'BPC-157'} {peptide?.commonAmounts[0] ?? 5} mg em {peptide ? water0(peptide) : 2} ml de água para você ver funcionando.
               </p>
             </div>
           ) : locked && quiz ? (
@@ -1019,7 +1030,6 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug,
               <VialDuration
                 key={peptide?.slug}
                 dosesPerVial={result.dosesPerVial}
-                peptideName={peptide?.name}
                 frequency={peptide?.frequency}
               />
 
@@ -1369,7 +1379,7 @@ function defaultVialFreq(frequency?: string): VialFreq {
   return m[1] === '3' || m[2] === '3' ? '3x-week' : 'weekly';
 }
 
-function VialDuration({ dosesPerVial, peptideName, frequency }: { dosesPerVial: number; peptideName?: string; frequency?: string }) {
+function VialDuration({ dosesPerVial, frequency }: { dosesPerVial: number; frequency?: string }) {
   const [freq, setFreq] = useState<VialFreq>(() => defaultVialFreq(frequency));
 
   const durationDays = useMemo(() => {
@@ -1424,7 +1434,7 @@ function VialDuration({ dosesPerVial, peptideName, frequency }: { dosesPerVial: 
           <span className="text-2xl font-extrabold text-ink tabular-nums leading-none">
             {weeks > 0 ? `${weeks} sem` : ''}
             {weeks > 0 && rem > 0 ? ` + ${rem}d` : ''}
-            {weeks === 0 ? `${days} dias` : ''}
+            {weeks === 0 ? `${days} ${days === 1 ? 'dia' : 'dias'}` : ''}
           </span>
           <span className="text-xs text-ink-3">
             · próxima compra ~{nextBuyDate}

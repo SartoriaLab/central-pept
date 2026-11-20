@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
+import { clipDescription } from '@/lib/meta';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Comparator from '@/components/peptide/Comparator';
 import {
-  getPeptides,
+  getComparePeptides,
   getPeptideBySlug,
   CATEGORY_LABELS,
   REGULATORY_LABELS,
@@ -34,7 +35,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const { slug } = await params;
   const bc = getBrandComparison(slug);
   if (bc) {
-    const description = `${bc.title}: princípio ativo, indicação, doses e estudos lado a lado. ${bc.differenceText}`.slice(0, 300);
+    const description = clipDescription(`${bc.title}: princípio ativo, indicação, doses e estudos lado a lado. ${bc.differenceText}`);
     return {
       title: `${bc.title}: qual a diferença`,
       description,
@@ -98,7 +99,7 @@ export default async function ComparisonPage({ params }: { params: Promise<Param
   const c = getComparison(slug);
   if (!c) notFound();
 
-  const peptides = getPeptides();
+  const peptides = getComparePeptides();
   const items = c.peptideSlugs
     .map((s) => getPeptideBySlug(s))
     .filter((p): p is Peptide => !!p);

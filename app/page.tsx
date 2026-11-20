@@ -147,12 +147,12 @@ export default function HomePage() {
           </p>
         </div>
 
-        <div className="grid gap-4 md:gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-2 gap-3 md:gap-6 lg:grid-cols-3">
           {TOOLS.map((t) => (
             <Link
               key={t.slug}
               href={`/ferramentas/${t.slug}`}
-              className="group relative card p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 overflow-hidden"
+              className="group relative card p-4 sm:p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 overflow-hidden"
             >
               <div
                 className={`absolute top-0 right-0 w-32 h-32 rounded-full blur-2xl opacity-20 group-hover:opacity-40 transition-opacity -translate-y-1/2 translate-x-1/2 ${
@@ -161,10 +161,10 @@ export default function HomePage() {
                 aria-hidden
               />
               <div className="relative">
-                <ToolIcon slug={t.slug} className="mb-4" />
-                <h3 className="text-lg font-bold text-ink leading-tight">{t.shortTitle}</h3>
-                <p className="text-sm text-ink-2 mt-2 leading-relaxed">{t.shortDesc}</p>
-                <div className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-teal-700 group-hover:gap-2 transition-all">
+                <ToolIcon slug={t.slug} className="mb-3 sm:mb-4" />
+                <h3 className="text-base sm:text-lg font-bold text-ink leading-tight">{t.shortTitle}</h3>
+                <p className="text-[13px] sm:text-sm text-ink-2 mt-1.5 sm:mt-2 leading-snug sm:leading-relaxed">{t.shortDesc}</p>
+                <div className="mt-4 hidden sm:inline-flex items-center gap-1 text-sm font-semibold text-teal-700 group-hover:gap-2 transition-all">
                   Abrir
                   <svg viewBox="0 0 20 20" width={14} height={14} fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M5 10h10M10 5l5 5-5 5" /></svg>
                 </div>

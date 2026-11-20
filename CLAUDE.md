@@ -41,6 +41,10 @@ Feed, sitemap, busca, páginas de tag e imagem de compartilhamento saem sozinhos
 2. Se tiver frascos/apresentações, confira `lib/vials.ts`; marcas em `lib/brands.ts`;
    comparações em `lib/comparisons.ts`.
 3. `npm test` confere slugs repetidos e referências quebradas entre esses arquivos.
+4. Todo peptídeo entra em `places.peptides` de um ebook (`lib/ebooks.ts`), senão o teste falha.
+5. Componente client recebe lista enxuta, nunca `getPeptides()`: `getCalcPeptides()` (calculadoras),
+   `getCardPeptides()` (enciclopédia) e `getComparePeptides()` (comparador). A lista inteira como prop vai
+   para o HTML de cada página. Campo novo usado no client → inclua em `CALC_FIELDS`/`CARD_FIELDS`.
 
 ## Adicionar uma ferramenta
 
@@ -70,6 +74,10 @@ Feed, sitemap, busca, páginas de tag e imagem de compartilhamento saem sozinhos
    `app/manifest.ts` precisa de `scope: '/'` (sem ele o app instalado mostra a barra de endereço fora de
    `/ferramentas`). Instalações: `App Instalado`, uma vez por aparelho, contado só em
    `components/layout/ServiceWorker.tsx`; relatório em `/admin/assistente/eventos` ("App instalado").
+
+8. Dose esquecida (`/ferramentas/dose-esquecida`): prazos de bula em `MISSED_MEDS` (`lib/missed-dose.ts`), os
+   mesmos do post `dose-esquecida-semaglutida-tirzepatida`; mudou a bula → mude os dois. Sem `storageKey`
+   de propósito (data guardada mostraria atraso antigo). Oferta segue o medicamento escolhido.
 
 ## Ebooks pagos
 
@@ -169,6 +177,10 @@ Feed, sitemap, busca, páginas de tag e imagem de compartilhamento saem sozinhos
 - URL, nome, host e email do site: `lib/site.ts`.
 - Cores por categoria e selos de status: `lib/category-style.ts`.
 - Exportar calendário: `lib/ics.ts`.
+- Description gerada de texto longo: `clipDescription` (`lib/meta.ts`), nunca `.slice()`.
+- Newsletter: `NewsletterSignup` (`variant="compact"` no fim dos posts e no rodapé; `via` vai na origem
+  gravada, `rota#via`). O rodapé decide onde aparece em `FooterNewsletter` (`HIDDEN`). Só grava o email:
+  ainda não existe envio.
 - Eventos de analytics: `lib/track.ts` (nomes em `lib/event-names.ts`). As ações de `STORED_EVENTS`
   (`lib/site-events.ts`) vão para a tabela `site_events` via `/api/evento`; relatório em
   `/admin/assistente/eventos`. "Visto" e "calculado" não vão ao banco (volume): visitas vêm da Vercel Analytics.
@@ -180,4 +192,6 @@ Feed, sitemap, busca, páginas de tag e imagem de compartilhamento saem sozinhos
   a cores fixas.
 - `lib/articles.ts` lê arquivos (`fs`): não importe em componentes client.
   A busca global carrega `/busca.json`.
+- Cabeçalhos de segurança e reescrita de `/favicon.ico` e `/apple-touch-icon*.png` ficam em
+  `next.config.mjs`; `X-Frame-Options` não vale em `/embed/*` (iframe em outros sites).
 - Banco só em newsletter, `/admin` e o webhook do Instagram. Mudou `drizzle/schema.ts` → `npm run db:push`.

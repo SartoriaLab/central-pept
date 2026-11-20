@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { socialImage } from '@/lib/og';
 import Link from 'next/link';
 import Comparator from '@/components/peptide/Comparator';
-import { getPeptides } from '@/lib/peptides';
+import { getComparePeptides } from '@/lib/peptides';
 import { COMPARISONS } from '@/lib/comparisons';
 import { getBrandComparisons } from '@/lib/brand-comparisons';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 };
 
 export default function CompararPage() {
-  const peptides = getPeptides();
+  const peptides = getComparePeptides();
 
   return (
     <>

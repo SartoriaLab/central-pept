@@ -5,13 +5,17 @@ import Link from 'next/link';
 import { CATEGORY_LABELS, REGULATORY_LABELS, type Peptide, type RegulatoryStatus } from '@/lib/peptides';
 import { RegulatoryBadge, WadaBadge } from './StatusBadge';
 import { categoryAccent } from '@/lib/category-style';
+import { normalize } from '@/lib/search';
 
-
-type Props = { peptides: Peptide[] };
+type Props = {
+  peptides: Peptide[];
+  /** Outros nomes pelos quais o peptídeo é procurado (marcas), por slug: "ozempic" acha semaglutida. */
+  aliases?: Record<string, string>;
+};
 
 type StatusFilter = 'all' | RegulatoryStatus | 'wada';
 
-export default function PeptideBrowser({ peptides }: Props) {
+export default function PeptideBrowser({ peptides, aliases }: Props) {
   const [query, setQuery] = useState('');
   const [cat, setCat] = useState<string>('all');
   const [status, setStatus] = useState<StatusFilter>('all');
@@ -51,18 +55,17 @@ export default function PeptideBrowser({ peptides }: Props) {
   }, [peptides]);
 
   const filtered = useMemo(() => {
-    const q = query.trim().toLowerCase();
+    // Sem acento e sem maiúsculas: "peptideo", "timosina" e "OZEMPIC" acham o que devem.
+    const q = normalize(query.trim());
     return peptides.filter((p) => {
       if (cat !== 'all' && p.category !== cat) return false;
       if (status === 'wada' && !p.wadaProhibited) return false;
       if (status !== 'all' && status !== 'wada' && p.regulatoryStatus !== status) return false;
       if (!q) return true;
-      return (
-        p.name.toLowerCase().includes(q) ||
-        (p.shortDescription?.toLowerCase().includes(q) ?? false)
-      );
+      const text = normalize([p.name, p.slug.replace(/-/g, ' '), p.shortDescription ?? '', aliases?.[p.slug] ?? ''].join(' '));
+      return q.split(/s+/).every((token) => text.includes(token));
     });
-  }, [peptides, query, cat, status]);
+  }, [peptides, aliases, query, cat, status]);
 
   return (
     <>

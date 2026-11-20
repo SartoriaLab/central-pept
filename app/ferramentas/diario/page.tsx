@@ -6,7 +6,7 @@ import { SITE_URL } from '@/lib/site';
 import InjectionDiary from '@/components/calculator/InjectionDiary';
 import { ebookForTool, offerFor } from '@/lib/ebooks';
 import InjectionSiteGuide from '@/components/peptide/InjectionSiteGuide';
-import { getPeptides } from '@/lib/peptides';
+import { getCalcPeptides } from '@/lib/peptides';
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
 import FAQ, { type FAQItem } from '@/components/ui/FAQ';
 import ToolSchema from '@/components/ui/ToolSchema';
@@ -70,7 +70,7 @@ export default function DiarioPage() {
         </p>
       </header>
 
-      <InjectionDiary peptides={getPeptides()} offer={offerFor(ebookForTool('diario'))} />
+      <InjectionDiary peptides={getCalcPeptides()} offer={offerFor(ebookForTool('diario'))} />
 
       <div className="mt-10">
         <InjectionSiteGuide />

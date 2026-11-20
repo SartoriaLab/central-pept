@@ -25,10 +25,24 @@ export function proxy(request: NextRequest) {
   const [scheme, encoded] = auth.split(' ');
   if (scheme !== 'Basic' || !encoded) return unauthorized();
 
-  const [u, p] = Buffer.from(encoded, 'base64').toString().split(':');
-  if (u !== user || p !== pass) return unauthorized();
+  // Só o primeiro ":" separa usuário e senha: a senha pode conter ":".
+  const decoded = Buffer.from(encoded, 'base64').toString();
+  const sep = decoded.indexOf(':');
+  if (sep < 0) return unauthorized();
+  const okUser = safeEqual(decoded.slice(0, sep), user);
+  const okPass = safeEqual(decoded.slice(sep + 1), pass);
+  if (!okUser || !okPass) return unauthorized();
 
   return NextResponse.next();
+}
+
+/** Comparação em tempo constante: o tempo de resposta não revela quantos caracteres bateram. */
+function safeEqual(a: string, b: string): boolean {
+  const x = Buffer.from(a);
+  const y = Buffer.from(b);
+  let diff = x.length ^ y.length;
+  for (let i = 0; i < x.length; i++) diff |= x[i] ^ (y[i % (y.length || 1)] ?? 0);
+  return diff === 0;
 }
 
 function unauthorized() {

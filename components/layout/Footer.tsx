@@ -2,13 +2,15 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { TOOLS } from '@/lib/tools';
 import { getActiveEbooks } from '@/lib/ebooks';
+import FooterNewsletter from './FooterNewsletter';
 
 export default function Footer() {
   const hasGuides = getActiveEbooks().length > 0;
   return (
     <footer role="contentinfo" className="border-t border-border bg-surface mt-16 no-print">
-      <div className="max-w-6xl mx-auto px-4 md:px-6 py-10 md:py-14 grid gap-10 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr_1fr] text-sm">
-        <div>
+      <FooterNewsletter />
+      <div className="max-w-6xl mx-auto px-4 md:px-6 py-10 md:py-14 grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-[1.4fr_1fr_1fr_1fr_1fr] text-sm">
+        <div className="col-span-2 lg:col-span-1">
           <Image
             src="/logo.webp"
             alt="Central Peptídeos"

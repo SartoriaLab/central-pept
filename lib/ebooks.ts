@@ -789,7 +789,7 @@ export const EBOOKS: Ebook[] = [
     bumps: ['T1'],
     cover: 'from-amber-500 via-teal-600 to-slate-800',
     checkoutEnv: 'KIWIFY_CHECKOUT_LONGEVIDADE',
-    places: { peptides: ['mots-c', 'epithalon', 'timosina-alfa-1'], categories: ['longevidade'] },
+    places: { peptides: ['mots-c', 'epithalon', 'timosina-alfa-1', 'elamipretida'], categories: ['longevidade'] },
   },
   {
     id: 'C5',
@@ -821,7 +821,7 @@ export const EBOOKS: Ebook[] = [
     bumps: ['T1'],
     cover: 'from-lime-500 via-teal-600 to-sky-800',
     checkoutEnv: 'KIWIFY_CHECKOUT_EMAGRECEDORES',
-    places: { peptides: ['liraglutida', 'cagrilintida', 'aod-9604'] },
+    places: { peptides: ['liraglutida', 'cagrilintida', 'aod-9604', 'survodutida', 'mazdutida'] },
   },
   {
     id: 'C6',

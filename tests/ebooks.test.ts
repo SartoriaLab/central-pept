@@ -104,8 +104,9 @@ describe('uma oferta por página', () => {
   });
 
   it('ferramentas, categorias, marcas, comparativos e seções', () => {
-    // Titulação escolhe o ebook pelo peptídeo do esquema selecionado.
-    for (const t of TOOLS.filter((x) => x.slug !== 'titulacao')) expect(ebookForTool(t.slug), t.slug).toBeDefined();
+    // Titulação e dose esquecida escolhem o ebook pelo peptídeo do medicamento selecionado.
+    const byPeptide = ['titulacao', 'dose-esquecida'];
+    for (const t of TOOLS.filter((x) => !byPeptide.includes(x.slug))) expect(ebookForTool(t.slug), t.slug).toBeDefined();
     for (const c of getCategoryPages()) expect(ebookForCategory(c.slug), c.slug).toBeDefined();
     for (const b of getBrands()) expect(ebookForPeptide(b.peptideSlug), b.slug).toBeDefined();
     for (const c of COMPARISONS) expect(ebookForComparison(c.peptideSlugs), c.slug).toBeDefined();

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import TabelaGenerator from '@/components/tabela/TabelaGenerator';
 import { NO_EBOOK_PEPTIDES } from '@/lib/ebooks';
-import { getPeptides } from '@/lib/peptides';
+import { getCalcPeptides } from '@/lib/peptides';
 
 // Página de entrega da Tabela personalizada (produto pago na Kiwify). Fora do sitemap e da busca.
 export const metadata: Metadata = {
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 };
 
 export default function TabelaPersonalizadaPage() {
-  const peptides = getPeptides()
+  const peptides = getCalcPeptides()
     .filter((p) => !NO_EBOOK_PEPTIDES.includes(p.slug))
     .sort((a, b) => a.name.localeCompare(b.name, 'pt-BR'));
   return (

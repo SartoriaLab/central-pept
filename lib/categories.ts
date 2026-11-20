@@ -143,11 +143,12 @@ export const CATEGORY_PAGES: CategoryPage[] = [
     intro: [
       'MOTS-c e Epithalon são os peptídeos mais associados a "anti-envelhecimento". O MOTS-c é codificado pelo DNA mitocondrial e estudado por seu papel no metabolismo energético; o Epithalon é um tetrapeptídeo sintético investigado por ativar a telomerase em células.',
       'Os dados são majoritariamente pré-clínicos ou de estudos pequenos. Nenhum dos dois é aprovado como medicamento, e não há dose terapêutica estabelecida.',
+      'A elamipretida (SS-31) entra na lista por agir na mitocôndria. É a única com aprovação: a FDA a liberou em 2025, de forma acelerada, apenas para a síndrome de Barth, uma doença genética rara. Não há ensaio que sustente o uso para longevidade em pessoas saudáveis.',
     ],
     keyPoints: [
       'Não existe ensaio clínico mostrando aumento de expectativa de vida em humanos com qualquer peptídeo.',
       'As doses divulgadas vêm de protocolos de pesquisa não padronizados.',
-      'A meia-vida plasmática de ambos é curta; os efeitos descritos são indiretos.',
+      'A meia-vida plasmática de MOTS-c e Epithalon é curta; os efeitos descritos são indiretos.',
       'Sem registro sanitário, a qualidade do produto é o principal risco prático.',
     ],
     faq: [
@@ -163,7 +164,7 @@ export const CATEGORY_PAGES: CategoryPage[] = [
       },
       {
         q: 'Peptídeos de longevidade são aprovados?',
-        a: 'Não. MOTS-c e Epithalon não têm aprovação de FDA, EMA ou ANVISA. São substâncias de pesquisa.',
+        a: 'Para longevidade, não. MOTS-c e Epithalon não têm aprovação de FDA, EMA ou ANVISA: são substâncias de pesquisa. A elamipretida tem aprovação acelerada da FDA (2025) só para a síndrome de Barth, não para envelhecimento.',
       },
     ],
   },

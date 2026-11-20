@@ -9,6 +9,7 @@ import { calcByVolume, doseToMg, fmt, fmtConcentration } from '@/components/calc
 import { getPeptideBySlug, type Peptide } from '@/lib/peptides';
 import { getArticlesByPeptide } from '@/lib/articles';
 import { getTitrationDoses } from '@/lib/titration';
+import { dosePath, getPageDoses } from '@/lib/dose-pages';
 import { getVialPages, isCanonicalVial, parseVialSlug, vialPath, vialSlug } from '@/lib/vials';
 import { social } from '@/lib/og';
 import ShareButtons from '@/components/ui/ShareButtons';
@@ -78,7 +79,10 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const { p, vial } = r;
   const water = bestWater(p, vial);
   const units = calcByVolume(vial, water, doseToMg(p.typicalDose, p.doseUnit))?.unitsPerDose ?? 0;
-  const title = `${p.name} ${fmt(vial, 2)} mg: quantas unidades puxar na seringa`;
+  // Existe página de dose com os mesmos mg (tirzepatida 10 mg): "Frasco de" separa os títulos.
+  const title = getPageDoses(p.slug).includes(vial)
+    ? `Frasco de ${p.name} ${fmt(vial, 2)} mg: quantas unidades puxar na seringa`
+    : `${p.name} ${fmt(vial, 2)} mg: quantas unidades puxar na seringa`;
   const description = `Frasco de ${p.name} ${fmt(vial, 2)} mg com ${fmt(water, 1)} ml de água: dose de ${doseText(p, p.typicalDose)} = ${fmt(units, 1)} unidades na seringa U100. Tabela pronta para cada dose e volume de água.`;
   const path = vialPath(p, vial);
   return {
@@ -95,6 +99,8 @@ export default async function VialPage({ params }: { params: Promise<Params> }) 
   const { p, vial } = r;
 
   const vialLabel = `${fmt(vial, 2)} mg`;
+  // Mesmos mg também são uma dose com página própria (tirzepatida 10 mg): o título diz "Frasco de".
+  const hasDosePage = getPageDoses(p.slug).includes(vial);
   const doses = tableDoses(p, vial);
   const typicalMg = doseToMg(p.typicalDose, p.doseUnit);
   const water = bestWater(p, vial);
@@ -154,8 +160,18 @@ export default async function VialPage({ params }: { params: Promise<Params> }) 
 
       <header className="mb-8">
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight">
+          {hasDosePage && 'Frasco de '}
           {p.name} <span className="text-teal-700">{vialLabel}</span>: quantas unidades puxar
         </h1>
+        {hasDosePage && (
+          <p className="mt-3 text-sm text-ink-2 no-print">
+            Esta página trata do frasco de {vialLabel}. Se {vialLabel} é a sua dose por aplicação, veja{' '}
+            <Link href={dosePath(p.slug, vial)} className="text-teal-700 font-semibold hover:underline">
+              dose de {vialLabel} de {p.name}
+            </Link>
+            .
+          </p>
+        )}
         {best && (
           <p className="mt-4 text-lg text-ink-2 leading-relaxed">
             Frasco de {vialLabel} + {fmt(water, 1)} ml de água bacteriostática ={' '}

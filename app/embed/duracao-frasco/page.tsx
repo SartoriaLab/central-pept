@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import VialPlanner from '@/components/calculator/VialPlanner';
-import { getPeptides } from '@/lib/peptides';
+import { getCalcPeptides } from '@/lib/peptides';
 import { SITE_URL } from '@/lib/site';
 
 // Versão para iframe (sem cabeçalho/rodapé, sem localStorage, botões nem oferta).
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default function EmbedDuracaoFrascoPage() {
   return (
     <div className="px-3 py-4 md:px-5 md:py-5">
-      <VialPlanner peptides={getPeptides()} embed />
+      <VialPlanner peptides={getCalcPeptides()} embed />
       <p className="mt-5 text-xs text-ink-3 leading-relaxed">
         Ferramenta informativa — não substitui orientação médica.{' '}
         <a href={`${SITE_URL}/ferramentas/duracao-frasco`} target="_blank" rel="noopener" className="font-semibold text-teal-700 hover:underline">

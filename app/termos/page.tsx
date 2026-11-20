@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Termos de Uso',
-  description: 'Termos de uso da Central Peptídeos.',
+  description: 'Termos de uso da Central Peptídeos: caráter informativo do conteúdo, limites das calculadoras, propriedade intelectual e responsabilidade de quem usa o site.',
   alternates: { canonical: '/termos' },
 };
 

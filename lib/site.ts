@@ -11,7 +11,7 @@ export const CONTACT_EMAIL = 'contato@centralpeptideos.com.br';
  * comparativos, glossário). Atualize ao mexer no conteúdo dessas páginas: o sitemap usa
  * este valor em <lastmod>, e uma data que muda a cada build faz o Google ignorar o campo.
  */
-export const CONTENT_UPDATED_AT = '2026-11-12';
+export const CONTENT_UPDATED_AT = '2026-11-20';
 
 // Perfil do Instagram (marca própria, "um projeto Central Peptídeos"). Bio aponta para /links.
 export const INSTAGRAM_HANDLE = 'dosecerta_br';
