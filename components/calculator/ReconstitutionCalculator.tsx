@@ -45,6 +45,14 @@ type Props = {
   initialPeptideSlug?: string;
   /** Oferta de ebook embaixo do resultado (não passe no embed). */
   offer?: Offer | null;
+  /**
+   * Tabela com os números da pessoa (lib/ebooks.ts → tableOffer): é a oferta do resultado.
+   * O guia (`offer`) fica na calculadora vazia e entra como oferta extra no checkout da tabela.
+   * Sem ela, o resultado oferece o guia.
+   */
+  tableOffer?: Offer | null;
+  /** Peptídeos sem oferta (NO_EBOOK_PEPTIDES): a página da tabela não os lista. */
+  noTableSlugs?: string[];
 };
 
 const LS_STATE_KEY = 'peptidecalc:state:v1';
@@ -69,10 +77,15 @@ function syringe0(p: Peptide): SyringeSize {
   return p.commonAmounts[0] ? fittingSyringe(p, p.commonAmounts[0], water0(p), p.typicalDose) : 50;
 }
 
-export default function ReconstitutionCalculator({ peptides, initialPeptideSlug, offer }: Props) {
+export default function ReconstitutionCalculator({ peptides, initialPeptideSlug, offer, tableOffer, noTableSlugs }: Props) {
   // Pré-seleção já no render do servidor: a página por peptídeo sai com a calculadora preenchida.
   const initialPeptide = initialPeptideSlug ? peptides.find((p) => p.slug === initialPeptideSlug) ?? null : null;
   const [peptide, setPeptide] = useState<Peptide | null>(initialPeptide);
+  // Oferta do resultado: a tabela quando o peptídeo está na lista dela (personalizado e sem oferta
+  // ficam de fora); senão o guia.
+  const table =
+    tableOffer && peptide && peptide.category !== 'custom' && !(noTableSlugs ?? []).includes(peptide.slug) ? tableOffer : null;
+  const resultOffer = table ?? offer;
   const [customs, setCustoms] = useState<Peptide[]>([]);
   const [comboOpen, setComboOpen] = useState(false);
   const [comboQuery, setComboQuery] = useState('');
@@ -1005,12 +1018,14 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug,
           {locked ? null : result && Number.isFinite(result.unitsPerDose) && result.unitsPerDose > 0 ? (
             <EbookOffer
               variant="result"
-              offer={offer}
+              offer={resultOffer}
               lead={`Você vai puxar ${fmt(result.unitsPerDose, 1)} unidades.`}
               subject={peptide?.name}
               className="mt-4"
             >
-              {answered && offer?.id === 'T1' ? <FrascoFeedback quiz={answered.quiz} answer={answered.answer} /> : null}
+              {answered && (table || offer?.id === 'T1') ? (
+                <FrascoFeedback quiz={answered.quiz} answer={answered.answer} next={table ? 'tabela' : 'guia'} />
+              ) : null}
             </EbookOffer>
           ) : (
             <EbookOffer variant="line" offer={offer} className="mt-4" />
@@ -1034,7 +1049,8 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug,
                 />
               )}
 
-              {offer?.id === 'T1' ? (
+              {/* Com a tabela no resultado, o guia já está no checkout dela: uma chamada só. */}
+              {offer?.id === 'T1' && !table ? (
                 <OfferStrip
                   offer={offer}
                   title={peptide?.name ? `Vai aplicar ${peptide.name}? Confira antes.` : 'Vai aplicar? Confira antes.'}

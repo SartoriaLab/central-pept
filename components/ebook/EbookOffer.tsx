@@ -185,7 +185,8 @@ export default function EbookOffer({ offer, variant = 'card', lead, subject, cla
           <EbookCover title={offer.title} cover={offer.cover} label={offer.coverLabel} size="xs" />
           <div className="min-w-0 flex-1">
             <p className="text-sm leading-snug text-slate-200">
-              <strong className="block text-[15px] font-black text-white">{lead ?? offer.title}</strong>
+              {/* !text-white: dentro de artigo, `.prose-article strong` escurece o título no painel escuro. */}
+              <strong className="block text-[15px] font-black !text-white">{lead ?? offer.title}</strong>
               {offer.line}
             </p>
             {offer.launch ? (
@@ -259,7 +260,7 @@ export default function EbookOffer({ offer, variant = 'card', lead, subject, cla
   }
 
   // card e result (das outras calculadoras): mesmo painel; result abre com o dado calculado.
-  const kicker = variant === 'result' ? 'Próximo passo' : subject ? `Para quem usa ${subject}` : offer.coverLabel;
+  const kicker = variant === 'result' ? (isTable ? 'Leve esta conta impressa' : 'Próximo passo') : subject ? `Para quem usa ${subject}` : offer.coverLabel;
   return (
     <>
       <aside
@@ -303,6 +304,11 @@ export default function EbookOffer({ offer, variant = 'card', lead, subject, cla
             <div className="min-w-0">
               <Price offer={offer} />
               <div className="mt-4">{buttons(false)}</div>
+              {offer.addon ? (
+                <p className="mt-3 rounded-lg bg-white/5 px-3 py-2 text-center text-xs font-semibold leading-snug text-slate-200">
+                  {offer.addon}
+                </p>
+              ) : null}
             </div>
           </div>
         </div>

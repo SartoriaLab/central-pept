@@ -57,7 +57,7 @@ export default function OfferBar({ offer, show, href, direct = false }: Props) {
           }}
           className="flex h-9 items-center whitespace-nowrap rounded-lg bg-[#16a34a] px-3 text-xs font-black uppercase text-white"
         >
-          Quero o guia
+          {offer.cta === 'Ver a tabela' ? 'Quero a tabela' : 'Quero o guia'}
         </a>
       ) : (
         <Link

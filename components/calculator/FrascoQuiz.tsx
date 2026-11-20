@@ -109,8 +109,12 @@ export default function FrascoQuiz({ quiz, peptideName, onAnswer }: Props) {
   );
 }
 
-/** Resposta da pergunta, no topo da oferta do guia. */
-export function FrascoFeedback({ quiz, answer }: { quiz: Quiz; answer: QuizAnswer }) {
+/**
+ * Resposta da pergunta, no topo da oferta. `next` diz o que vem logo abaixo: o guia do frasco
+ * ou a tabela com os números da pessoa (a frase final faz a ponte para a oferta certa).
+ */
+export function FrascoFeedback({ quiz, answer, next = 'guia' }: { quiz: Quiz; answer: QuizAnswer; next?: 'guia' | 'tabela' }) {
+  const table = next === 'tabela';
   const correct = answer === 'certa';
   const conc = `${(Math.round(quiz.concentration * 1000) / 1000).toLocaleString('pt-BR', { maximumFractionDigits: 3 })} mg/ml`;
   return (
@@ -125,8 +129,10 @@ export function FrascoFeedback({ quiz, answer }: { quiz: Quiz; answer: QuizAnswe
       {correct ? (
         <>
           <strong className="block text-base text-white">✓ Acertou: {fmtMg(quiz.answerMg)}.</strong>
-          10 unidades são 0,1 ml, e cada ml tem {conc}. A conta você domina. Os 7 erros do guia são os que a conta não pega:
-          unidade lida como mg, vírgula entre mcg e mg, água esquecida no frasco seguinte, bolha, seringa errada…
+          10 unidades são 0,1 ml, e cada ml tem {conc}. A conta você domina.{' '}
+          {table
+            ? 'O que costuma falhar é refazê-la de cabeça a cada aplicação e lembrar o dia de descartar o frasco.'
+            : 'Os 7 erros do guia são os que a conta não pega: unidade lida como mg, vírgula entre mcg e mg, água esquecida no frasco seguinte, bolha, seringa errada…'}
         </>
       ) : (
         <>
@@ -134,8 +140,10 @@ export function FrascoFeedback({ quiz, answer }: { quiz: Quiz; answer: QuizAnswe
             {answer === 'nao-sei' ? `A resposta: ${fmtMg(quiz.answerMg)}.` : `✗ Seriam ${fmtMg(quiz.answerMg)}.`}
           </strong>
           10 unidades são 0,1 ml, e cada ml tem {conc} ({fmtMg(quiz.vialMg)} ÷ {fmtMl(quiz.waterMl)}). Confundir o que tem no
-          frasco com o que tem em cada ml muda a dose sem nada parecer errado. O guia mostra essa e as outras armadilhas de
-          leitura, cada uma com a conta do desvio.
+          frasco com o que tem em cada ml muda a dose sem nada parecer errado.{' '}
+          {table
+            ? 'Com os seus números numa folha, você confere em vez de refazer a conta a cada aplicação.'
+            : 'O guia mostra essa e as outras armadilhas de leitura, cada uma com a conta do desvio.'}
         </>
       )}
     </div>

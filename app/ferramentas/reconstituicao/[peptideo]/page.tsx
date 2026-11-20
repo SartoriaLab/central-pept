@@ -8,7 +8,7 @@ import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
 import RelatedLinks, { type RelatedLink } from '@/components/ui/RelatedLinks';
 import ToolSchema from '@/components/ui/ToolSchema';
 import ReconstitutionCalculator from '@/components/calculator/ReconstitutionCalculator';
-import { ebookForTool, offerFor } from '@/lib/ebooks';
+import { NO_EBOOK_PEPTIDES, ebookForTool, offerFor, tableOffer } from '@/lib/ebooks';
 import { calcByVolume, doseToMg, fmt, fmtConcentration } from '@/components/calculator/calc';
 import {
   getPeptideBySlug,
@@ -195,7 +195,7 @@ export default async function PeptideReconstitutionPage({ params }: { params: Pr
       <ReconstitutionCalculator
         peptides={peptides}
         initialPeptideSlug={p.slug}
-        offer={offerFor(ebookForTool('reconstituicao'))}
+        offer={offerFor(ebookForTool('reconstituicao'))} tableOffer={tableOffer()} noTableSlugs={NO_EBOOK_PEPTIDES}
       />
 
       {rows.length > 0 && (

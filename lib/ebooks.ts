@@ -108,6 +108,8 @@ export type EbookOffer = {
   checkoutUrl: string;
   /** Primeira página de amostra (imagem em /public). */
   sample?: string;
+  /** Frase sobre a oferta extra do checkout (só `tableOffer` preenche). */
+  addon?: string;
 };
 
 /** Pop-up de saída (components/ebook/ExitOffer.tsx). Desligue aqui se ele não trouxer venda. */
@@ -1385,6 +1387,26 @@ export function offerFor(e: Ebook | undefined, opts: { pen?: boolean } = {}): Eb
     if (offer) return offer;
   }
   return null;
+}
+
+const TABLE_ID = 'TAB';
+
+/**
+ * Oferta do resultado da calculadora de reconstituição: a tabela com os números que a pessoa
+ * acabou de digitar (preço de impulso). O guia do frasco entra como oferta extra no checkout
+ * dela (order bump na Kiwify, por BUMP_PRICE): `addon` avisa disso. null sem checkout da tabela:
+ * a calculadora volta a oferecer o guia.
+ */
+export function tableOffer(): EbookOffer | null {
+  const table = getEbookById(TABLE_ID);
+  const offer = toOffer(table);
+  if (!table || !offer) return null;
+  const guide = (table.bumps ?? []).includes(RECONSTITUTION_ID) ? getEbookById(RECONSTITUTION_ID) : undefined;
+  if (!guide || !checkoutUrl(guide)) return offer;
+  return {
+    ...offer,
+    addon: `No checkout, você pode levar junto o guia "${guide.title}" por ${formatPrice(BUMP_PRICE)} (avulso, ${formatPrice(guide.price)}).`,
+  };
 }
 
 /** Kit ativo que inclui este ebook (para oferecer o pacote na landing do avulso). */

@@ -103,7 +103,10 @@ Feed, sitemap, busca, páginas de tag e imagem de compartilhamento saem sozinhos
    `FrascoQuiz`; desliga em `QUIZ_GATE_ENABLED`); a resposta abre a oferta. Evento `Quiz Frasco`. Ordem da tela: número e seringa → oferta (copy com o nome do peptídeo, prop `subject`; botão verde direto no checkout, botão para a página) → detalhes do frasco.
    Preço de lançamento: `launch` no ebook gera a frase "R$ X nas N primeiras unidades. Depois, R$ Y". Só vale
    enquanto o aumento vai acontecer: ao subir o preço na Kiwify, apague `launch` e ponha `price: after` no mesmo dia.
-   Tabela personalizada (`TAB`, R$ 9,90): oferta extra no checkout do T1.
+   Tabela personalizada (`TAB`, R$ 9,90): é a oferta do **resultado** (`tableOffer()` → prop `tableOffer`), com o
+   guia como oferta extra no checkout dela (frase `addon`, preço `BUMP_PRICE`; mudou o bump na Kiwify → mude lá).
+   O guia T1 segue na calculadora vazia, na home e como reserva (peptídeo personalizado ou de `NO_EBOOK_PEPTIDES`,
+   que a página da tabela não lista). No checkout do T1 a tabela continua como oferta extra.
    Produto "digital" na Kiwify que redireciona para `/tabela-personalizada?k=<chave>` (só o hash da chave fica
    em `components/tabela/TabelaGenerator.tsx`; trocou a chave na Kiwify → troque o hash). Cálculo em `lib/tabela.ts`.
    `checkoutDefault` serve de checkout quando a variável de ambiente não existe.
