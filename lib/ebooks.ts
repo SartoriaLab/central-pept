@@ -917,7 +917,7 @@ export const EBOOKS: Ebook[] = [
       'Prazos de armazenamento a partir das bulas de Ozempic, Wegovy e Mounjaro',
       'Padrão de seringas de insulina U-100',
     ],
-    bumps: ['TAB', 'T2'],
+    bumps: ['TAB'],
     sample: ['/ebooks/reconstituicao-sem-erro/amostra-1.webp', '/ebooks/reconstituicao-sem-erro/amostra-2.webp'],
     faq: [
       {
