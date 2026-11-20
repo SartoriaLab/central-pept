@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import EbookOffer from '@/components/ebook/EbookOffer';
+import Gotinha from '@/components/brand/Gotinha';
 import { ebookForHub, offerFor } from '@/lib/ebooks';
 
 export const metadata: Metadata = {
@@ -20,6 +21,9 @@ export default function NotFound() {
     <>
       <section className="bg-gradient-mesh border-b border-border">
         <div className="max-w-4xl mx-auto px-4 md:px-6 pt-10 pb-8 md:pt-14 md:pb-12">
+          <div className="mb-3">
+            <Gotinha pose="ih" size={96} id="gotinha-404" />
+          </div>
           <span className="text-xs font-bold uppercase tracking-widest text-teal-700">Erro 404</span>
           <h1 className="mt-2 text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight">
             Página não encontrada

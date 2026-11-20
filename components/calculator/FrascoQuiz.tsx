@@ -3,6 +3,7 @@
 // Pergunta obrigatória antes do resultado da calculadora de reconstituição: a pessoa responde
 // (1 toque, certo ou errado) e o resultado aparece. Usa os números que ela digitou. A resposta
 // vira o primeiro bloco da oferta do guia (FrascoFeedback).
+// Visual no tom do site (tokens de app/globals.css): cartão claro, mesmas cores da calculadora.
 
 import type { FrascoQuiz as Quiz, QuizAnswer } from '@/lib/quiz-frasco';
 import { fmtMg } from '@/lib/quiz-frasco';
@@ -26,57 +27,57 @@ function LockIcon({ size = 14 }: { size?: number }) {
   );
 }
 
+const OPTION =
+  'flex w-full items-center justify-between rounded border-[1.5px] border-border-2 bg-surface px-4 text-left transition hover:border-teal hover:bg-teal-50';
+
 // O cartão diz três coisas, nesta ordem: o resultado já está pronto, falta 1 toque, a pergunta.
 export default function FrascoQuiz({ quiz, peptideName, onAnswer }: Props) {
   const of = peptideName ? ` de ${peptideName}` : '';
   return (
     <section
-      className="no-print overflow-hidden rounded-2xl bg-[#0b1220] text-white shadow-2xl ring-1 ring-black/20 animate-slide-up"
+      className="no-print overflow-hidden rounded-xl border border-teal/30 bg-surface shadow-lg animate-slide-up"
       aria-labelledby="quiz-frasco-titulo"
     >
       {/* 1. O resultado já existe */}
-      <div className="flex items-center gap-2.5 bg-[#16a34a] px-4 py-3" role="status">
-        <span className="flex h-7 w-7 shrink-0 items-center justify-center keep-white rounded-full bg-white text-base font-black text-[#16a34a]" aria-hidden>
-          ✓
+      <div className="flex items-center gap-2.5 border-b border-teal/20 bg-teal-50 px-4 py-3" role="status">
+        <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-teal-700 text-white" aria-hidden>
+          <svg viewBox="0 0 20 20" width={15} height={15} fill="none" stroke="currentColor" strokeWidth={2.8} strokeLinecap="round" strokeLinejoin="round">
+            <path d="M4 10.5l4 4 8-9" />
+          </svg>
         </span>
-        <p className="text-base font-black leading-tight sm:text-lg">Seu resultado{of} está pronto</p>
+        <p className="text-base font-bold leading-tight text-ink">Seu resultado{of} está pronto</p>
       </div>
 
-      <div className="bg-[radial-gradient(120%_70%_at_50%_0%,#1e293b_0%,#0b1220_70%)] p-5">
+      <div className="p-5">
         {/* Prévia borrada do cartão de resultado (número de enfeite, não é o da pessoa) */}
-        <div className="keep-white relative overflow-hidden rounded-xl bg-white px-4 py-4 text-center" aria-hidden>
+        <div className="relative overflow-hidden rounded-lg border border-border bg-bg px-4 py-4 text-center" aria-hidden>
           <div className="select-none blur-[7px]">
-            <div className="text-[10px] font-bold uppercase tracking-wider text-slate-500">Puxe até</div>
-            <div className="mt-1 text-5xl font-extrabold leading-none tracking-tight text-[#0f766e]">
-              88,8 <span className="text-lg font-semibold text-slate-500">unidades</span>
+            <div className="text-[10px] font-bold uppercase tracking-wider text-ink-3">Puxe até</div>
+            <div className="mt-1 text-5xl font-extrabold leading-none tracking-tight text-teal">
+              88,8 <span className="text-lg font-semibold text-ink-3">unidades</span>
             </div>
-            <div className="mx-auto mt-3 h-4 w-4/5 rounded-full bg-slate-200">
-              <div className="h-4 w-1/2 rounded-full bg-[#14b8a6]" />
+            <div className="mx-auto mt-3 h-4 w-4/5 rounded-full bg-border">
+              <div className="h-4 w-1/2 rounded-full bg-teal" />
             </div>
           </div>
-          <div className="absolute inset-0 flex items-center justify-center bg-white/40">
-            <span className="inline-flex items-center gap-2 rounded-full bg-[#0b1220] px-4 py-2 text-sm font-black text-white shadow-lg">
+          <div className="absolute inset-0 flex items-center justify-center">
+            <span className="inline-flex items-center gap-2 rounded-full bg-ink px-4 py-2 text-sm font-bold text-bg shadow-lg">
               <LockIcon /> Responda abaixo para ver
             </span>
           </div>
         </div>
 
         {/* 2. Falta 1 toque */}
-        <p className="mt-5 flex items-center gap-2 text-xs font-black uppercase tracking-[0.14em] text-[#facc15]">
-          <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#facc15] text-[11px] text-[#0b1220]" aria-hidden>
-            1
-          </span>
-          Só 1 pergunta · 1 toque
-        </p>
+        <p className="mt-5 text-xs font-semibold text-teal-700">Falta uma pergunta, um toque.</p>
 
         {/* 3. A pergunta */}
-        <h2 id="quiz-frasco-titulo" className="mt-2 text-xl font-black leading-tight sm:text-2xl">
-          Você entende o <span className="text-[#facc15]">seu</span> frasco{of}?
+        <h2 id="quiz-frasco-titulo" className="mt-1 text-xl font-extrabold leading-tight text-ink sm:text-2xl">
+          Você entende o seu frasco{of}?
         </h2>
-        <p className="mt-2 text-[15px] leading-relaxed text-white/85">
-          Você colocou <strong className="text-white">{fmtMg(quiz.vialMg)}</strong> de {peptideName ?? 'peptídeo'} em{' '}
-          <strong className="text-white">{fmtMl(quiz.waterMl)}</strong> de água. Quanto de peptídeo tem em{' '}
-          <strong className="text-white">10 unidades</strong> da seringa (0,1 ml)?
+        <p className="mt-2 text-[15px] leading-relaxed text-ink-2">
+          Você colocou <strong className="text-ink">{fmtMg(quiz.vialMg)}</strong> de {peptideName ?? 'peptídeo'} em{' '}
+          <strong className="text-ink">{fmtMl(quiz.waterMl)}</strong> de água. Quanto de peptídeo tem em{' '}
+          <strong className="text-ink">10 unidades</strong> da seringa (0,1 ml)?
         </p>
 
         <div className="mt-4 grid gap-2.5" role="group" aria-label="Respostas">
@@ -85,23 +86,23 @@ export default function FrascoQuiz({ quiz, peptideName, onAnswer }: Props) {
               key={o.label}
               type="button"
               onClick={() => onAnswer(o.correct ? 'certa' : 'errada')}
-              className="keep-white flex h-14 w-full items-center justify-between rounded-xl bg-white px-4 text-left text-lg font-extrabold text-slate-900 shadow-md transition hover:-translate-y-0.5 hover:bg-[#fef9c3] active:translate-y-0"
+              className={`${OPTION} h-14 text-lg font-bold text-ink`}
             >
               {o.label}
-              <span className="text-xs font-bold text-slate-500" aria-hidden>ver resultado →</span>
+              <span className="text-xs font-semibold text-ink-3" aria-hidden>ver resultado</span>
             </button>
           ))}
           <button
             type="button"
             onClick={() => onAnswer('nao-sei')}
-            className="flex h-12 w-full items-center justify-between rounded-xl border border-white/30 px-4 text-base font-bold text-white/90 transition hover:bg-white/10"
+            className={`${OPTION} h-12 text-base font-semibold text-ink-2`}
           >
             Não sei
-            <span className="text-xs font-bold text-white/60" aria-hidden>ver resultado →</span>
+            <span className="text-xs font-semibold text-ink-3" aria-hidden>ver resultado</span>
           </button>
         </div>
 
-        <p className="mt-3 text-center text-xs font-semibold text-white/75">
+        <p className="mt-3 text-center text-xs text-ink-3">
           Qualquer resposta libera o resultado na hora. Sem cadastro.
         </p>
       </div>
@@ -115,23 +116,23 @@ export function FrascoFeedback({ quiz, answer }: { quiz: Quiz; answer: QuizAnswe
   const conc = `${(Math.round(quiz.concentration * 1000) / 1000).toLocaleString('pt-BR', { maximumFractionDigits: 3 })} mg/ml`;
   return (
     <div
-      className={`mb-5 rounded-xl border-l-4 px-4 py-3 text-sm leading-relaxed ${
-        correct ? 'border-emerald-400 bg-emerald-400/15 text-emerald-50' : answer === 'nao-sei'
-            ? 'border-amber-400 bg-amber-400/15 text-amber-50'
-            : 'border-rose-400 bg-rose-400/15 text-rose-50'
+      className={`mb-5 rounded-lg border px-4 py-3 text-sm leading-relaxed ${
+        correct ? 'border-green-200 bg-green-50 text-green-800' : answer === 'nao-sei'
+            ? 'border-amber-200 bg-amber-50 text-amber-800'
+            : 'border-red-200 bg-red-50 text-red-800'
       }`}
       role="status"
     >
       {correct ? (
         <>
-          <strong className="block text-base text-white">✓ Acertou: {fmtMg(quiz.answerMg)}.</strong>
+          <strong className="block text-base text-ink">Acertou: {fmtMg(quiz.answerMg)}.</strong>
           10 unidades são 0,1 ml, e cada ml tem {conc}. A conta você domina. Os 7 erros do guia são os que a conta não pega:
           unidade lida como mg, vírgula entre mcg e mg, água esquecida no frasco seguinte, bolha, seringa errada…
         </>
       ) : (
         <>
-          <strong className="block text-base text-white">
-            {answer === 'nao-sei' ? `A resposta: ${fmtMg(quiz.answerMg)}.` : `✗ Seriam ${fmtMg(quiz.answerMg)}.`}
+          <strong className="block text-base text-ink">
+            {answer === 'nao-sei' ? `A resposta: ${fmtMg(quiz.answerMg)}.` : `Seriam ${fmtMg(quiz.answerMg)}.`}
           </strong>
           10 unidades são 0,1 ml, e cada ml tem {conc} ({fmtMg(quiz.vialMg)} ÷ {fmtMl(quiz.waterMl)}). Confundir o que tem no
           frasco com o que tem em cada ml muda a dose sem nada parecer errado. O guia mostra essa e as outras armadilhas de

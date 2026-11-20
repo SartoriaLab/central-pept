@@ -147,12 +147,12 @@ export default function ExitOffer() {
         role="dialog"
         aria-modal="true"
         aria-labelledby="popup-saida-titulo"
-        className="relative w-full max-w-md rounded-2xl bg-[#0b1220] bg-[radial-gradient(120%_70%_at_50%_0%,#1e293b_0%,#0b1220_70%)] text-white ring-1 ring-black/20 shadow-2xl p-5 sm:p-6 animate-slide-up"
+        className="relative w-full max-w-md rounded-xl border border-border bg-surface text-ink shadow-xl p-5 sm:p-6 animate-slide-up"
       >
         <button
           type="button"
           onClick={close}
-          className="absolute top-2 right-2 w-10 h-10 rounded-lg flex items-center justify-center text-white/60 hover:text-white"
+          className="absolute top-2 right-2 w-10 h-10 rounded-lg flex items-center justify-center text-ink-3 hover:text-ink"
           aria-label="Fechar"
         >
           <svg viewBox="0 0 20 20" width={18} height={18} fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" aria-hidden>
@@ -162,33 +162,35 @@ export default function ExitOffer() {
         <div className="flex items-start gap-4 pr-8">
           <EbookCover title={offer.title} cover={offer.cover} label={offer.coverLabel} />
           <div className="min-w-0">
-            <p className="text-xs font-black uppercase tracking-[0.14em] text-[#facc15]">Antes de sair</p>
-            <h2 id="popup-saida-titulo" className="mt-1 text-xl font-black text-white leading-tight">
+            <p className="text-xs font-semibold text-teal-700">Antes de sair</p>
+            <h2 id="popup-saida-titulo" className="mt-1 text-xl font-extrabold text-ink leading-tight">
               {offer.title}
             </h2>
-            <p className="mt-1 text-sm text-slate-300 leading-snug">{offer.hook}</p>
+            <p className="mt-1 text-sm text-ink-2 leading-snug">{offer.hook}</p>
           </div>
         </div>
-        <ul className="mt-4 space-y-1.5 text-sm font-semibold text-slate-100">
+        <ul className="mt-4 space-y-1.5 text-sm text-ink-2">
           {offer.bullets.slice(0, 2).map((b) => (
             <li key={b} className="flex gap-2">
-              <span className="font-black text-[#22c55e]" aria-hidden>✓</span>
+              <svg viewBox="0 0 20 20" width={18} height={18} className="mt-0.5 shrink-0 text-teal-700" fill="none" stroke="currentColor" strokeWidth={2.4} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                <path d="M4 10.5l4 4 8-9" />
+              </svg>
               <span>{b}</span>
             </li>
           ))}
         </ul>
-        {offer.anchor ? <p className="mt-4 rounded-lg border-l-4 border-[#facc15] bg-white/5 px-3 py-2 text-sm font-semibold leading-snug text-slate-200">{offer.anchor}</p> : null}
-        {offer.launchNote ? <p className="mt-3 rounded-lg bg-[#facc15] px-3 py-2 text-center text-sm font-black text-[#0b1220]">🔥 {offer.launchNote}</p> : null}
+        {offer.anchor ? <p className="mt-4 border-l-2 border-teal/50 pl-3 text-sm leading-snug text-ink-2">{offer.anchor}</p> : null}
+        {offer.launchNote ? <p className="mt-3 rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-sm font-semibold text-amber-800">{offer.launchNote}</p> : null}
         {EXIT_COUPON ? (
-          <div className="mt-4 rounded-xl border-2 border-dashed border-[#facc15] bg-[#facc15]/10 px-4 py-3 text-center">
-            <p className="text-xs font-black uppercase tracking-wider text-[#facc15]">
+          <div className="mt-4 rounded-lg border border-dashed border-teal/50 bg-teal-50 px-4 py-3 text-center">
+            <p className="text-xs font-semibold text-teal-700">
               Cupom de {EXIT_COUPON.percent}% para você
             </p>
-            <p className="mt-1 font-mono text-2xl font-black tracking-widest text-white">{EXIT_COUPON.code}</p>
-            <p className="mt-1 text-sm text-slate-300">
+            <p className="mt-1 font-mono text-2xl font-bold tracking-widest text-ink">{EXIT_COUPON.code}</p>
+            <p className="mt-1 text-sm text-ink-2">
               <span className="line-through">{offer.priceLabel}</span>{' '}
-              <strong className="text-[#22c55e]">{formatPrice(couponPrice(offer.price, EXIT_COUPON.percent))}</strong>
-              {' '}· já vai aplicado no checkout
+              <strong className="text-teal-700">{formatPrice(couponPrice(offer.price, EXIT_COUPON.percent))}</strong>
+              , já aplicado no checkout
             </p>
           </div>
         ) : null}
@@ -204,14 +206,14 @@ export default function ExitOffer() {
             track(EVENTS.ebookPopupClick, { ebook: offer.id, pagina: pathname });
             setOpen(false);
           }}
-          className="mt-5 flex h-14 w-full items-center justify-center rounded-xl bg-[#16a34a] text-lg font-black uppercase text-white shadow-[0_5px_0_#14532d] transition hover:bg-[#22c55e]"
+          className="btn-primary mt-5 !h-12 w-full !text-base"
         >
-          {EXIT_COUPON ? 'Usar meu cupom' : `${offer.cta} · ${offer.priceLabel}`}
+          {EXIT_COUPON ? 'Usar meu cupom' : `${offer.cta}, ${offer.priceLabel}`}
         </Link>
-        <p className="mt-3 text-center text-xs font-semibold text-slate-300">
-          {offer.pages} páginas · acesso imediato · 7 dias de garantia
+        <p className="mt-3 text-center text-xs text-ink-3">
+          {offer.pages} páginas, acesso imediato, 7 dias de garantia.
         </p>
-        <button type="button" onClick={close} className="mt-3 w-full text-center text-sm text-white/60 hover:text-white">
+        <button type="button" onClick={close} className="mt-3 w-full text-center text-sm text-ink-3 hover:text-ink">
           Agora não
         </button>
       </div>

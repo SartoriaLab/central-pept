@@ -40,7 +40,6 @@ const STEPS = [
 
 export default function HomePage() {
   const peptides = getPeptides();
-  const fdaApproved = peptides.filter((p) => p.regulatoryStatus === 'fda-approved').length;
   const articles = getArticles();
   const recentPosts = articles.slice(0, 3);
   const kitOffer = offerFor(ebookForHub());
@@ -94,13 +93,18 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Stats strip */}
-          <div className="mt-12 md:mt-16 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
-            <Stat n={peptides.length} label="Peptídeos catalogados" />
-            <Stat n={fdaApproved} label="Aprovados pela FDA" />
-            <Stat n={articles.length} label="Guias e artigos" />
-            <Stat n={TOOLS.length} label="Calculadoras ativas" />
-          </div>
+          {/* O que tem no site, numa linha: cada número leva para a seção dele */}
+          <p className="mt-10 md:mt-14 flex flex-wrap justify-center gap-x-6 gap-y-1.5 text-sm text-ink-3">
+            <Link href="/peptideos" className="hover:text-teal-700">
+              <strong className="font-bold text-ink tabular-nums">{peptides.length}</strong> peptídeos na enciclopédia
+            </Link>
+            <Link href="/ferramentas" className="hover:text-teal-700">
+              <strong className="font-bold text-ink tabular-nums">{TOOLS.length}</strong> calculadoras
+            </Link>
+            <Link href="/blog" className="hover:text-teal-700">
+              <strong className="font-bold text-ink tabular-nums">{articles.length}</strong> guias e artigos
+            </Link>
+          </p>
         </div>
       </section>
 
@@ -312,15 +316,6 @@ export default function HomePage() {
           </Link>
         </div>
       </section>
-    </div>
-  );
-}
-
-function Stat({ n, label }: { n: number | string; label: string }) {
-  return (
-    <div className="text-center">
-      <div className="text-3xl md:text-4xl font-extrabold tracking-tight text-ink tabular-nums">{n}</div>
-      <div className="text-xs md:text-sm text-ink-3 mt-1 leading-tight">{label}</div>
     </div>
   );
 }

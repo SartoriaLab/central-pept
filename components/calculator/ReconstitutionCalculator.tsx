@@ -24,6 +24,7 @@ import { EVENTS, track, trackOnce } from '@/lib/track';
 import EbookOffer from '@/components/ebook/EbookOffer';
 import FrascoQuiz, { FrascoFeedback } from './FrascoQuiz';
 import OfferStrip from '@/components/ebook/OfferStrip';
+import Gotinha from '@/components/brand/Gotinha';
 import { buildFrascoQuiz, QUIZ_GATE_ENABLED, QUIZ_KEY, type FrascoQuiz as Quiz, type QuizAnswer } from '@/lib/quiz-frasco';
 import InstallPrompt from '@/components/pwa/InstallPrompt';
 import type { EbookOffer as Offer } from '@/lib/ebooks';
@@ -874,32 +875,23 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug,
       <div>
         <div className="md:sticky md:top-24">
           {!result ? (
-            <div className="bg-surface border-[1.5px] border-dashed border-border-2 rounded-xl p-8 text-center">
-              <div className="w-14 h-14 mx-auto mb-4 rounded-full bg-teal-50 text-teal-700 flex items-center justify-center">
-                <svg viewBox="0 0 24 24" width={26} height={26} fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-                  <path d="M8 2h8M9 2v3.5M13 2v3.5M8 5.5h6l2 4v8a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-8z" />
-                  <path d="M6 11h10" />
-                </svg>
+            // Estado vazio curto: no celular ele fica entre os campos e o resultado, então não pode
+            // empurrar a tela. A Gotinha aponta o que falta; o exemplo preenche tudo em um toque.
+            <div className="flex items-center gap-4 rounded-xl border-[1.5px] border-dashed border-border-2 bg-surface p-4 sm:p-5">
+              <div className="shrink-0">
+                <Gotinha pose="explicando" size={72} id="gotinha-vazio" />
               </div>
-              <p className="font-semibold text-ink text-base">Como funciona</p>
-              <ol className="mt-3 text-sm text-ink-2 text-left max-w-xs mx-auto space-y-1.5 list-decimal list-inside">
-                <li>Escolha o peptídeo (ou adicione um personalizado)</li>
-                <li>Informe os mg do frasco e a dose desejada</li>
-                <li>Adicione a água — veja quantas unidades puxar</li>
-              </ol>
-              <button
-                type="button"
-                onClick={loadExample}
-                className="mt-5 btn-teal text-sm"
-              >
-                <svg viewBox="0 0 20 20" width={16} height={16} fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-                  <path d="M5 3v14l10-7z" fill="currentColor" />
-                </svg>
-                Carregar exemplo
-              </button>
-              <p className="mt-3 text-xs text-ink-3">
-                Preenche {peptide ? peptide.name : 'BPC-157'} {peptide?.commonAmounts[0] ?? 5} mg em {peptide ? water0(peptide) : 2} ml de água para você ver funcionando.
-              </p>
+              <div className="min-w-0">
+                <p className="text-base font-semibold leading-snug text-ink">
+                  Informe frasco, água e dose: o número de unidades aparece aqui.
+                </p>
+                <button type="button" onClick={loadExample} className="mt-3 btn-outline !h-10 text-sm">
+                  Ver um exemplo pronto
+                </button>
+                <p className="mt-2 text-xs text-ink-3">
+                  {peptide ? peptide.name : 'BPC-157'} {peptide?.commonAmounts[0] ?? 5} mg em {peptide ? water0(peptide) : 2} ml de água.
+                </p>
+              </div>
             </div>
           ) : locked && quiz ? (
             // Resultado travado até responder a pergunta do frasco (1 toque, certo ou errado).

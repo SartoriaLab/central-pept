@@ -126,7 +126,20 @@ export default async function EbookPage({ params }: { params: Promise<Params> })
           </div>
           <div className="grid gap-8 md:grid-cols-[auto_1fr] items-center">
             <div className="flex justify-center">
-              <EbookCover title={e.title} cover={e.cover} size="lg" label={coverLabel(e)} />
+              {/* Livro na frente e uma página real do PDF atrás: o produto antes do clique. */}
+              <div className={`relative ${e.sample?.[0] ? 'pr-16 sm:pr-20 md:pr-24' : ''}`}>
+                {e.sample?.[0] ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={e.sample[0]}
+                    alt={`Página de amostra de ${e.title}`}
+                    className="keep-white absolute right-0 top-[6%] h-[88%] w-auto max-w-none rotate-6 rounded-sm bg-white shadow-lg ring-1 ring-black/10"
+                  />
+                ) : null}
+                <div className="-rotate-2">
+                  <EbookCover title={e.title} cover={e.cover} size="lg" label={coverLabel(e)} />
+                </div>
+              </div>
             </div>
             <div>
               <p className="text-xs font-bold uppercase tracking-widest text-teal-700">{KIND_LABELS[e.kind]}</p>

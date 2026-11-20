@@ -4,16 +4,16 @@
 // (lib/ebooks.ts → offerFor/toOffer) e não renderiza nada quando ela é null.
 //
 // Variantes:
-//   card   — painel escuro com capa, gancho, itens, preço e dois botões (ficha, marca, fim de artigo, índices)
-//   line   — faixa escura curta com capa e botão (logo depois do resumo do artigo, calculadora vazia)
+//   card   — painel claro com capa, gancho, itens, preço e dois botões (ficha, marca, fim de artigo, índices)
+//   line   — faixa curta com capa e botão (logo depois do resumo do artigo, calculadora vazia)
 //   result — embaixo do resultado da calculadora; `lead` usa o dado calculado. No celular, quando
 //            a pessoa rola para além do bloco, aparece uma barra fina no rodapé (OfferBar).
-//            O guia de reconstituição (T1) tem copy própria: "um erro de interpretação pode custar caro".
+//            O guia de reconstituição (T1) tem copy própria, sobre a leitura do frasco.
 //
-// Todas: botão verde direto no checkout da Kiwify (Ebook Checkout) e botão secundário para a
+// Todas: botão principal direto no checkout da Kiwify (Ebook Checkout) e botão secundário para a
 // página do guia (Ebook Clique). `subject` (nome do peptídeo) entra na copy quando existe.
-// Cores fixas nos dois temas; todo bg-white leva `keep-white` (o modo escuro troca bg-white
-// pela superfície escura em app/globals.css).
+// Visual no tom do site (tokens de app/globals.css, valem nos dois temas): painel teal claro,
+// botão teal, sem caixa alta nem urgência. A oferta é uma recomendação, não um anúncio.
 //
 // Toda variante registra a oferta para o pop-up de saída (offer-store → ExitOffer).
 // Nunca aparece na impressão (no-print) nem nos embeds (a calculadora não recebe oferta).
@@ -48,48 +48,55 @@ export function offerHref(offer: Offer, origem: string, pathname: string | null)
   return `/ebooks/${offer.slug}?origem=${origem}&de=${encodeURIComponent(pathname || '/')}`;
 }
 
-const PANEL = 'no-print overflow-hidden rounded-2xl bg-[#0b1220] text-white shadow-2xl ring-1 ring-black/20';
-const GLOW = 'bg-[radial-gradient(120%_70%_at_50%_0%,#1e293b_0%,#0b1220_70%)]';
-const GREEN =
-  'flex w-full flex-col items-center justify-center rounded-xl bg-[#16a34a] px-4 text-center text-white shadow-[0_5px_0_#14532d,0_12px_24px_rgba(22,163,74,0.4)] transition hover:-translate-y-0.5 hover:bg-[#22c55e] active:translate-y-1 active:shadow-[0_2px_0_#14532d]';
-const OUTLINE =
-  'flex h-12 w-full items-center justify-center rounded-xl border-2 border-white/25 text-sm font-extrabold text-white transition hover:border-white/60 hover:bg-white/10';
+const PANEL = 'no-print overflow-hidden rounded-xl border border-teal/30 bg-teal-50/70';
+const BUY =
+  'flex w-full flex-col items-center justify-center rounded bg-teal-700 px-4 text-center text-white transition hover:brightness-110';
 
 function Check() {
   return (
-    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#16a34a] text-xs font-black text-white" aria-hidden>
-      ✓
-    </span>
+    <svg
+      viewBox="0 0 20 20"
+      width={18}
+      height={18}
+      className="mt-0.5 shrink-0 text-teal-700"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2.4}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+    >
+      <path d="M4 10.5l4 4 8-9" />
+    </svg>
   );
 }
 
-/** Preço: etiqueta de lançamento quando existe; senão o preço grande. */
+/** Preço: etiqueta de lançamento quando existe; senão o preço e o que ele compra. */
 function Price({ offer, className = '' }: { offer: Offer; className?: string }) {
   if (offer.launch) {
     return <LaunchPrice priceLabel={offer.priceLabel} afterLabel={offer.launch.afterLabel} units={offer.launch.units} className={className} />;
   }
   return (
-    <div className={`rounded-2xl border-2 border-[#facc15]/60 bg-[#facc15]/10 px-4 py-3 text-center ${className}`}>
-      <p className="text-[11px] font-black uppercase tracking-[0.14em] text-[#facc15]">
-        {offer.coverLabel} · {offer.pages} páginas
+    <div className={className}>
+      <p className="mb-0 text-3xl font-extrabold leading-none tracking-tight text-ink tabular-nums">{offer.priceLabel}</p>
+      <p className="mb-0 mt-1.5 text-xs text-ink-3">
+        {offer.coverLabel}, {offer.pages} páginas. Pagamento único.
       </p>
-      <p className="mt-1 text-4xl font-black leading-none tracking-tight">{offer.priceLabel}</p>
-      <p className="mt-1.5 text-xs font-bold text-white/70">pagamento único · Pix ou cartão</p>
     </div>
   );
 }
 
-/** Itens do guia num cartão branco, com a página de amostra quando houver. */
+/** Itens do guia num cartão, com a página de amostra quando houver. */
 function Contents({ offer, extra }: { offer: Offer; extra?: string }) {
   const items = extra ? [...offer.bullets, extra] : offer.bullets;
   return (
-    <div className="keep-white rounded-xl bg-white p-4 text-slate-900 shadow-lg">
+    <div className="rounded-lg border border-border bg-surface p-4">
       <div className="flex items-start gap-4">
         <div className="min-w-0 flex-1">
-          <p className="text-[11px] font-black uppercase tracking-wider text-[#dc2626]">
-            {offer.coverLabel} · {offer.pages} páginas
+          <p className="mb-0 text-xs font-semibold text-ink-3">
+            {offer.coverLabel}, {offer.pages} páginas
           </p>
-          <p className="mt-1 text-lg font-black leading-snug">{offer.title}</p>
+          <p className="mb-0 mt-1 text-lg font-extrabold leading-snug text-ink">{offer.title}</p>
         </div>
         {offer.sample ? (
           // Página real do PDF: o produto antes do clique.
@@ -100,11 +107,11 @@ function Contents({ offer, extra }: { offer: Offer; extra?: string }) {
             width={80}
             height={113}
             loading="lazy"
-            className="keep-white w-20 shrink-0 rotate-3 rounded-md bg-white shadow-xl ring-1 ring-black/15"
+            className="keep-white w-20 shrink-0 rotate-2 rounded-md bg-white shadow-lg ring-1 ring-black/10"
           />
         ) : null}
       </div>
-      <ul className="mt-3 space-y-2 text-sm font-semibold">
+      <ul className="mb-0 mt-3 list-none space-y-2 pl-0 text-sm text-ink-2">
         {items.map((b) => (
           <li key={b} className="flex gap-2">
             <Check />
@@ -158,22 +165,19 @@ export default function EbookOffer({ offer, variant = 'card', lead, subject, cla
   };
   const isKit = offer.title.startsWith('Kit ');
   const buyLabel = isTable ? 'Quero a minha tabela' : isKit ? 'Quero o kit agora' : 'Quero o guia agora';
+  const detailsLabel = isTable ? 'Entender melhor a tabela' : isKit ? 'Ver o que vem no kit' : 'Entender melhor o guia';
 
   const buttons = (big = true) => (
     <>
-      <a href={buyHref} rel="noopener" onClick={onBuy} className={`${GREEN} ${big ? 'py-4' : 'py-3'}`}>
-        <span className={`${big ? 'text-xl' : 'text-lg'} font-black uppercase leading-tight tracking-tight`}>{buyLabel} →</span>
-        {subject ? <span className="mt-0.5 text-xs font-bold text-white/85">antes de aplicar {subject}</span> : null}
-        <span className="mt-1 text-sm font-bold text-white/90">
-          {price} · Pix ou cartão{big ? ' · acesso na hora' : ''}
+      <a href={buyHref} rel="noopener" onClick={onBuy} className={`${BUY} ${big ? 'py-3.5' : 'py-3'}`}>
+        <span className={`${big ? 'text-lg' : 'text-base'} font-extrabold leading-tight`}>{buyLabel}</span>
+        <span className="mt-0.5 text-sm font-semibold opacity-90">
+          {price}, Pix ou cartão{big ? ', acesso na hora' : ''}
         </span>
       </a>
-      <p className="mt-3 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-center text-xs font-semibold text-slate-300">
-        <span>🔒 Compra segura pela Kiwify</span>
-        <span>🛡️ 7 dias de garantia</span>
-      </p>
-      <Link href={href} onClick={onDetails} className={`${OUTLINE} mt-3`}>
-        {isTable ? 'Entender melhor a tabela' : isKit ? 'Ver o que vem no kit' : 'Entender melhor o guia'}
+      <p className="mb-0 mt-2.5 text-center text-xs text-ink-3">Compra segura pela Kiwify, com 7 dias de garantia.</p>
+      <Link href={href} onClick={onDetails} className="btn-outline mt-3 w-full">
+        {detailsLabel}
       </Link>
     </>
   );
@@ -181,32 +185,26 @@ export default function EbookOffer({ offer, variant = 'card', lead, subject, cla
   if (variant === 'line') {
     return (
       <aside ref={ref} className={`not-prose my-6 ${PANEL} ${className}`} aria-label="Guia em PDF">
-        <div className={`flex items-start gap-3 p-3 sm:p-4 ${GLOW}`}>
+        <div className="flex items-start gap-3 p-3 sm:p-4">
           <EbookCover title={offer.title} cover={offer.cover} label={offer.coverLabel} size="xs" />
           <div className="min-w-0 flex-1">
-            <p className="text-sm leading-snug text-slate-200">
-              <strong className="block text-[15px] font-black text-white">{lead ?? offer.title}</strong>
+            <p className="mb-0 text-sm leading-snug text-ink-2">
+              <strong className="block text-[15px] font-bold text-ink">{lead ?? offer.title}</strong>
               {offer.line}
             </p>
-            {offer.launch ? (
-              <p className="mt-2 inline-flex flex-wrap items-baseline gap-x-2 rounded-md bg-[#facc15] px-2 py-1 text-xs font-black text-[#0b1220]">
-                <span>🔥 Lançamento: {price}</span>
-                <span className="text-black/55 line-through decoration-[#dc2626] decoration-2">{offer.launch.afterLabel}</span>
-              </p>
-            ) : null}
             <div className="mt-2.5 flex flex-wrap items-center gap-x-4 gap-y-2">
-              <a
-                href={buyHref}
-                rel="noopener"
-                onClick={onBuy}
-                className="inline-flex h-10 items-center rounded-lg bg-[#16a34a] px-4 text-sm font-black uppercase text-white shadow-[0_3px_0_#14532d] transition hover:bg-[#22c55e]"
-              >
-                {isTable ? 'Quero a tabela' : 'Quero o guia'} · {price}
+              <a href={buyHref} rel="noopener" onClick={onBuy} className="btn-primary !h-10 !px-4">
+                {isTable ? 'Quero a tabela' : 'Quero o guia'}, {price}
               </a>
-              <Link href={href} onClick={onDetails} className="text-xs font-bold text-slate-300 underline underline-offset-2 hover:text-white">
+              <Link href={href} onClick={onDetails} className="text-xs font-semibold text-teal-700 underline underline-offset-2 hover:text-teal">
                 Ver detalhes
               </Link>
             </div>
+            {offer.launch ? (
+              <p className="mb-0 mt-2 text-xs text-ink-3">
+                Preço de lançamento. Depois das {offer.launch.units} primeiras compras, {offer.launch.afterLabel}.
+              </p>
+            ) : null}
           </div>
         </div>
       </aside>
@@ -219,38 +217,22 @@ export default function EbookOffer({ offer, variant = 'card', lead, subject, cla
     return (
       <>
         <aside ref={ref} className={`${PANEL} ${className}`} aria-label="Guia em PDF">
-          <p className="flex items-center justify-center gap-2 bg-[#dc2626] px-4 py-2 text-center text-xs font-black uppercase tracking-[0.14em] text-white">
-            <span aria-hidden>⚠️</span> Leia antes de aplicar
-          </p>
-          <div className={`p-5 sm:p-6 ${GLOW}`}>
+          <div className="p-5 sm:p-6">
             {children}
-            <h2 className="text-[26px] font-black uppercase leading-[1.05] tracking-tight sm:text-3xl">
-              {subject ? `Com ${subject}, um` : 'Um'} erro de interpretação pode{' '}
-              <span className="text-[#facc15]">custar caro.</span>
+            <h2 className="text-xl font-extrabold leading-snug tracking-tight text-ink sm:text-2xl">
+              A conta{subject ? ` de ${subject}` : ''} está certa. O erro costuma estar na leitura do frasco.
             </h2>
-            <p className="mt-3 text-[15px] leading-relaxed text-slate-300">
-              {lead ? <strong className="text-white">{lead} </strong> : null}
-              {lead ? 'A conta está certa. Mas quantidade' : 'Quantidade'} do frasco, concentração e volume parecem a mesma
-              coisa. <strong className="text-white">Não são.</strong> Confundir esses números{subject ? ` no frasco de ${subject}` : ''} é
-              o erro mais comum:
+            <p className="mt-3 text-[15px] leading-relaxed text-ink-2">
+              {lead ? <strong className="text-ink">{lead} </strong> : null}
+              Quantidade do frasco (mg), concentração (mg/ml) e volume (ml) parecem a mesma coisa e não são. Trocar um
+              pelo outro muda a dose sem nada parecer errado.
             </p>
-            <ul className="mt-3 grid gap-1.5 text-sm font-bold sm:grid-cols-3">
-              {['Dose errada', 'Frasco desperdiçado', 'Resultado que não vem'].map((t) => (
-                <li key={t} className="flex items-center gap-2 rounded-lg bg-[#dc2626]/15 px-3 py-2 text-[#fecaca] ring-1 ring-[#dc2626]/40">
-                  <span className="text-[#f87171]" aria-hidden>✕</span>
-                  {t}
-                </li>
-              ))}
-            </ul>
             <div className="mt-5">
               <Contents offer={offer} extra="O que confirmar com um profissional antes de aplicar" />
             </div>
             <Price offer={offer} className="mt-5" />
             <div className="mt-4">{buttons()}</div>
-            {offer.anchor ? <p className="mt-4 text-center text-xs leading-relaxed text-slate-400">{offer.anchor}</p> : null}
-            <p className="mt-4 border-t border-white/15 pt-4 text-center text-base font-black uppercase tracking-tight text-[#facc15]">
-              Sua saúde não é lugar para achismo.
-            </p>
+            {offer.anchor ? <p className="mt-4 text-center text-xs leading-relaxed text-ink-3">{offer.anchor}</p> : null}
           </div>
         </aside>
         <OfferBar offer={offer} show={passed} href={buyHref} direct />
@@ -267,26 +249,24 @@ export default function EbookOffer({ offer, variant = 'card', lead, subject, cla
         className={`${variant === 'card' ? 'not-prose my-10' : ''} ${PANEL} ${className}`}
         aria-label="Guia em PDF"
       >
-        <p className="flex items-center justify-center gap-2 bg-[#facc15] px-4 py-2 text-center text-xs font-black uppercase tracking-[0.14em] text-[#0b1220]">
-          <span aria-hidden>📘</span> {kicker}
-        </p>
-        <div className={`p-5 md:p-7 ${GLOW}`}>
+        <div className="p-5 md:p-6">
           {children}
-          <div className="grid gap-5 md:grid-cols-[minmax(0,1fr)_300px] md:gap-7">
+          <div className="grid gap-5 md:grid-cols-[minmax(0,1fr)_280px] md:gap-7">
             <div className="min-w-0">
               <div className="flex items-start gap-4">
                 <div className="hidden shrink-0 min-[400px]:block">
                   <EbookCover title={offer.title} cover={offer.cover} label={offer.coverLabel} />
                 </div>
                 <div className="min-w-0">
-                  <h2 className="text-xl font-black leading-tight tracking-tight md:text-2xl">{offer.title}</h2>
-                  <p className="mt-2 text-[15px] leading-relaxed text-slate-300">
-                    {lead ? <strong className="text-white">{lead} </strong> : null}
+                  <p className="mb-0 text-xs font-semibold text-teal-700">{kicker}</p>
+                  <h2 className="mb-0 mt-1 text-xl font-extrabold leading-tight tracking-tight text-ink md:text-2xl">{offer.title}</h2>
+                  <p className="mb-0 mt-2 text-[15px] leading-relaxed text-ink-2">
+                    {lead ? <strong className="text-ink">{lead} </strong> : null}
                     {offer.hook}
                   </p>
                 </div>
               </div>
-              <ul className="mt-4 space-y-2 text-sm font-semibold text-slate-100">
+              <ul className="mb-0 mt-4 list-none space-y-2 pl-0 text-sm text-ink-2">
                 {offer.bullets.map((b) => (
                   <li key={b} className="flex gap-2">
                     <Check />
@@ -295,9 +275,7 @@ export default function EbookOffer({ offer, variant = 'card', lead, subject, cla
                 ))}
               </ul>
               {offer.anchor ? (
-                <p className="mt-4 rounded-lg border-l-4 border-[#facc15] bg-white/5 px-3 py-2 text-sm font-semibold leading-snug text-slate-200">
-                  {offer.anchor}
-                </p>
+                <p className="mb-0 mt-4 border-l-2 border-teal/50 pl-3 text-sm leading-snug text-ink-2">{offer.anchor}</p>
               ) : null}
             </div>
             <div className="min-w-0">
