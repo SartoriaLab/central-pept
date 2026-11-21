@@ -1,5 +1,5 @@
 {
-  "hook": "Você aplica sempre no mesmo ponto da barriga?",
+  "hook": "Você aplica o Mounjaro sempre no mesmo ponto?",
   "hookIcon": "pele",
   "slides": [
     {
@@ -52,7 +52,7 @@
       "title": "Sempre no mesmo",
       "accent": "ponto da barriga?",
       "tone": "vermelho",
-      "speech": "Você aplica sempre no mesmo ponto da barriga?",
+      "speech": "Você aplica o Mounjaro sempre no mesmo ponto?",
       "visual": {
         "type": "icone",
         "icon": "alvo",

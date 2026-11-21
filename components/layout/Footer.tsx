@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { TOOLS } from '@/lib/tools';
 import { getActiveEbooks } from '@/lib/ebooks';
 import FooterNewsletter from './FooterNewsletter';
+import InstagramFollow from '@/components/ui/InstagramFollow';
 
 export default function Footer() {
   const hasGuides = getActiveEbooks().length > 0;
@@ -24,6 +25,9 @@ export default function Footer() {
           <p className="text-ink-2 leading-relaxed max-w-md">
             Central brasileira de informação sobre peptídeos. Calculadoras,
             enciclopédia e blog gratuitos, sem cadastro, com fontes.
+          </p>
+          <p className="mt-2 text-ink-2">
+            Uma dúvida por dia no Instagram: <InstagramFollow via="rodape" variant="line" />
           </p>
         </div>
 

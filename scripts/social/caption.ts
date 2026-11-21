@@ -1,6 +1,5 @@
 // Legenda final: gancho + corpo (IA) + chamada da bio + aviso + hashtags (código). Puro.
 import { INSTAGRAM_HANDLE } from '@/lib/site';
-import { EXIT_COUPON } from '@/lib/ebooks';
 import { DM_KEYWORD } from '@/lib/instagram-dm';
 import type { Cta, Draft, Topic } from './types';
 
@@ -67,9 +66,11 @@ export function shareLine(share?: string): string {
  */
 export function ctaLine(cta: Cta | null): string {
   if (!cta) return `🧮 Comenta ${DM_KEYWORD} que eu te mando as calculadoras grátis no direct.`;
-  const off = EXIT_COUPON ? ` com ${EXIT_COUPON.percent}% de desconto` : '';
+  // Sem preço nem desconto na legenda: as diretrizes de recomendação do Instagram tiram da
+  // aba Explorar/Reels (não seguidores) o post que vende produto com alegação de saúde. Preço e
+  // cupom vão só no direct (lib/instagram-dm.ts).
   const more = cta.others > 0 ? ` Mais ${cta.others} ${cta.others === 1 ? 'guia' : 'guias'} e calculadoras grátis no link da bio.` : ' Calculadoras grátis no link da bio.';
-  return `📘 Comenta ${DM_KEYWORD} que eu te mando no direct o guia "${cta.title}" (${cta.priceLabel})${off}.${more}`;
+  return `📘 Comenta ${DM_KEYWORD} que eu te mando no direct o guia "${cta.title}".${more}`;
 }
 
 /** Gancho e salvar → corpo (IA) → pergunta → compartilhar → seguir → guia → aviso → hashtags. */
@@ -90,7 +91,8 @@ export function buildCaption(draft: Draft, topic: Topic, cta: Cta | null): strin
  * que mais leva a quem não segue). A palavra vai em minúscula porque em maiúscula a voz soletra.
  */
 export function ctaSpeech(cta: Cta | null, share?: string): string {
-  const what = cta ? 'o guia completo no direct, com desconto' : 'as calculadoras grátis no direct';
+  // Sem "desconto" na fala, como na legenda (diretrizes de recomendação): o cupom vai no direct.
+  const what = cta ? 'o guia completo no direct' : 'as calculadoras grátis no direct';
   // "Comenta guia" sai "comenta aqui a" na voz (conferido com transcrição): "a palavra" separa.
   return `Comenta a palavra ${DM_KEYWORD.toLowerCase()} aqui embaixo que eu te mando ${what}. E manda esse vídeo pra ${shareTarget(share)}.`;
 }

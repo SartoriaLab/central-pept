@@ -34,4 +34,6 @@ export const EVENTS = {
   installGuide: 'Instalar Guia',
   // Site aberto pelo ícone da tela inicial (uma vez por sessão): mede quem volta pelo app.
   pwaOpen: 'PWA Aberta',
+  // Clique para seguir o @dosecerta_br (props { via: rodape | post | calculadora }).
+  instagramFollow: 'Seguir Instagram',
 } as const;

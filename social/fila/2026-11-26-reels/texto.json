@@ -1,5 +1,5 @@
 {
-  "hook": "Retatrutida é melhor que a tirzepatida? Calma com esse print.",
+  "hook": "Retatrutida é melhor que o Mounjaro? Calma com esse print.",
   "hookIcon": "duvida",
   "slides": [
     {
@@ -46,7 +46,7 @@
       "title": "Retatrutida",
       "accent": "é melhor?",
       "tone": "vermelho",
-      "speech": "Retatrutida é melhor que a tirzepatida? Calma com esse print.",
+      "speech": "Retatrutida é melhor que o Mounjaro? Calma com esse print.",
       "visual": {
         "type": "frascos",
         "left": {

@@ -17,6 +17,7 @@ import { buildTopics } from './topics';
 import { pickTopic } from './pick';
 import { QueuedDraftSchema, SYSTEM, draftJsonSchema, userMessage, writeDraft } from './write';
 import { validateDraft } from './validate';
+import { hookScore } from './viral';
 import { buildCaption } from './caption';
 import { ctaFor, fetchActiveEbookSlugs } from './ebook-cta';
 import { reelCover, renderCarousel, renderReel } from './render';
@@ -25,7 +26,8 @@ import type { Draft, Format, HistoryEntry, Topic } from './types';
 
 const MAX_TOPICS = 3;
 /** Estilo visual atual (papel.tsx). */
-const VISUAL = 'papel-animado';
+// Mudou o visual ou a fala final (ctaSpeech) → troque, senão a publicação reaproveita a prévia antiga.
+const VISUAL = 'papel-animado-2';
 const REFRESH_BEFORE_DAYS = 15;
 /** Código de saída do --fila sem texto pronto e válido para hoje. */
 const NO_QUEUE = 3;
@@ -301,6 +303,13 @@ async function main() {
       process.exitCode = 2;
     } else {
       console.log(`OK: ${topic!.id} passou na validação.`);
+    }
+    // Nota do gancho (viral.ts): só aviso, não reprova.
+    const draft = JSON.parse(await fs.readFile(path.join(path.resolve(checkOnly), 'texto.json'), 'utf8'));
+    const hook = (draft.draft ?? draft).hook;
+    if (typeof hook === 'string') {
+      const { score, hits, tips } = hookScore(hook);
+      console.log(`Gancho ${score}/100 (${hits.join(', ') || 'sem padrão viral'})${tips.length ? `. Dica: ${tips.join('; ')}` : ''}`);
     }
     return;
   }

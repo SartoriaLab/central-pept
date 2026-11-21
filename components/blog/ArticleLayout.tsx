@@ -3,6 +3,7 @@ import { articleOgImageUrl, getRelatedArticles, tagSlug, type Article } from '@/
 import MedicalDisclaimer from '@/components/ui/MedicalDisclaimer';
 import ShareButtons from '@/components/ui/ShareButtons';
 import NewsletterSignup from '@/components/ui/NewsletterSignup';
+import InstagramFollow from '@/components/ui/InstagramFollow';
 import RelatedPosts from '@/components/blog/RelatedPosts';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import { getPeptideBySlug } from '@/lib/peptides';
@@ -218,8 +219,11 @@ export default function ArticleLayout({ article, children, inlineOffer = false }
           </p>
         </aside>
 
-        {/* Quem leu até aqui é quem mais volta: convite para receber os próximos guias. */}
+        {/* Quem leu até aqui é quem mais volta: seguir no Instagram e receber os próximos guias. */}
         <div className="mt-10 not-prose">
+          <InstagramFollow via="post" />
+        </div>
+        <div className="mt-6 not-prose">
           <NewsletterSignup
             variant="compact"
             via="post"

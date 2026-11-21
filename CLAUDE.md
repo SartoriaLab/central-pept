@@ -178,6 +178,14 @@ Feed, sitemap, busca, páginas de tag e imagem de compartilhamento saem sozinhos
    (`ensureTables` em `state.ts`, espelho de `drizzle/schema.ts`: mudou um, mude o outro). O webhook
    cria só `social_state` e `social_dms` (`ensureWebhookTables`), pois pode rodar antes do robô.
 5. Bio do perfil aponta para `/links` (noindex), com UTM `instagram/bio` (`bioUrl`).
+6. Estratégia de crescimento (dados e decisões de 21/11/2026): `docs/instagram-estrategia.md`. Resumo:
+   - Legenda sem preço e sem desconto (`ctaLine`), porque o Instagram não recomenda post que vende
+     produto de saúde a quem não segue. Preço e cupom vão só no direct.
+   - Marca (Mounjaro/Ozempic) no gancho quando o remédio é o de marca.
+   - Nota do gancho em `viral.ts` (`hookScore`, pesos do levantamento do nicho; só avisa, no `--check`).
+   - O site chama para seguir com `InstagramFollow` (rodapé, fim do post, resultado da calculadora;
+     evento `Seguir Instagram`).
+   - Métricas por post em `scripts/social/metricas.ts`, que precisa da permissão de insights no token.
 
 ## Páginas geradas a partir dos dados
 

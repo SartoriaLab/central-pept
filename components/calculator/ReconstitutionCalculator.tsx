@@ -27,6 +27,7 @@ import OfferStrip from '@/components/ebook/OfferStrip';
 import DropCheck from '@/components/brand/DropCheck';
 import { buildFrascoQuiz, QUIZ_GATE_ENABLED, QUIZ_KEY, type FrascoQuiz as Quiz, type QuizAnswer } from '@/lib/quiz-frasco';
 import InstallPrompt from '@/components/pwa/InstallPrompt';
+import InstagramFollow from '@/components/ui/InstagramFollow';
 import type { EbookOffer as Offer } from '@/lib/ebooks';
 
 type Mode = 'volume' | 'units';
@@ -1057,7 +1058,13 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug,
             </div>
           ) : null}
           {result && Number.isFinite(result.unitsPerDose) && result.unitsPerDose > 0 ? (
-            <InstallPrompt className="mt-4" />
+            <>
+              <InstallPrompt className="mt-4" />
+              {/* Página com mais visitas do site (~9 mil/mês): porta de entrada do Instagram. */}
+              <div className="mt-4 no-print">
+                <InstagramFollow via="calculadora" />
+              </div>
+            </>
           ) : null}
         </div>
       </div>

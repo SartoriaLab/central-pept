@@ -23,6 +23,7 @@ export const STORED_EVENTS: ReadonlySet<string> = new Set([
   EVENTS.installed,
   EVENTS.installGuide,
   EVENTS.pwaOpen,
+  EVENTS.instagramFollow,
 ]);
 
 export type SiteEventRow = {

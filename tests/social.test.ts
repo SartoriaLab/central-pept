@@ -25,6 +25,7 @@ import { scenesFor, sentences, splitTitle } from '@/scripts/social/scenes';
 import { beatsFor, chunkWords } from '@/scripts/social/captions';
 import { wordsFromChars } from '@/scripts/social/voice';
 import { ILLUSTRATION_KEYS } from '@/scripts/social/illustrations';
+import { hookScore } from '@/scripts/social/viral';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
 import type { Draft, HistoryEntry, Scene, Topic } from '@/scripts/social/types';
@@ -574,6 +575,9 @@ describe('comenta GUIA (direct)', () => {
     expect(speech).not.toMatch(/gotinha|falado/i);
     expect(ctaLine(cta)).toContain(`Comenta ${DM_KEYWORD}`);
     expect(ctaLine(null)).toContain('calculadoras');
+    // Preço e desconto na legenda tiram o post da recomendação: só no direct.
+    expect(ctaLine(cta)).not.toMatch(/R\$|desconto|%/);
+    expect(ctaLine(cta)).toContain(`"${tirze.title}"`);
   });
 });
 
@@ -749,4 +753,32 @@ describe('visual papel (cenas)', () => {
       }
     }
   }, 120_000);
+});
+
+describe('nota do gancho (viral.ts)', () => {
+  it('marca + pergunta curta vence molécula sem pergunta', () => {
+    const brand = hookScore('Seu Mounjaro não fez efeito no primeiro mês?');
+    const mol = hookScore('A tirzepatida tem efeito gradual ao longo das primeiras semanas de uso contínuo');
+    expect(brand.score).toBeGreaterThan(mol.score);
+    expect(brand.hits).toEqual(expect.arrayContaining(['marca', 'pergunta', 'curto']));
+    expect(mol.tips.join(' ')).toMatch(/marca/);
+    expect(mol.tips.join(' ')).toMatch(/10 palavras/);
+  });
+
+  it('cumprimento derruba a nota', () => {
+    expect(hookScore('Oi gente, hoje vou falar do Mounjaro?').score).toBeLessThan(hookScore('Mounjaro faz mal?').score);
+  });
+
+  it('fica entre 0 e 100', () => {
+    const { score } = hookScore('Mounjaro ou Ozempic? Não é erro seu, você não sabe?');
+    expect(score).toBeLessThanOrEqual(100);
+    expect(score).toBeGreaterThanOrEqual(0);
+  });
+});
+
+describe('nota do gancho: acentos', () => {
+  it('"você" e "não é" contam mesmo com acento no fim', () => {
+    expect(hookScore('Você aplica o Mounjaro sempre no mesmo ponto?').hits).toContain('fala com a pessoa');
+    expect(hookScore('Frasco não é Mounjaro.').hits).toContain('erro/não');
+  });
 });
