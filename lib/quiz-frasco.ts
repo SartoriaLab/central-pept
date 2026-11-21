@@ -59,8 +59,8 @@ export function buildFrascoQuiz(vialMg: number, waterMl: number): FrascoQuiz | n
   return { vialMg, waterMl, concentration, answerMg, options: rest };
 }
 
-/** Pergunta obrigatória antes do resultado da reconstituição. false desliga a trava no site todo. */
+/** Pergunta do frasco (opcional, abaixo do resultado) na reconstituição. false desliga no site todo. */
 export const QUIZ_GATE_ENABLED = true;
 
-/** sessionStorage: respondeu nesta visita, não trava de novo. */
+/** sessionStorage: respondeu nesta visita, não pergunta de novo. */
 export const QUIZ_KEY = 'cp:quiz-frasco';

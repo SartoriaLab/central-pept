@@ -99,8 +99,9 @@ Feed, sitemap, busca, páginas de tag e imagem de compartilhamento saem sozinhos
    Capa (`EbookCover`) tem cara de livro; a landing mostra a página de amostra atrás dela.
 5. `npm test` (`tests/ebooks.test.ts`) confere slugs, referências e uma oferta por página.
 6. Calculadora de reconstituição: oferta do guia T1 ("Você Tem Certeza de Que Entende Seu Frasco?"). No primeiro
-   cálculo da visita o resultado fica travado por uma pergunta com os números da pessoa (`lib/quiz-frasco.ts`,
-   `FrascoQuiz`; desliga em `QUIZ_GATE_ENABLED`); a resposta abre a oferta. Evento `Quiz Frasco`. Ordem da tela: número e seringa → oferta (copy com o nome do peptídeo, prop `subject`; botão verde direto no checkout, botão para a página) → detalhes do frasco.
+   cálculo da visita o número aparece na hora e o topo da oferta traz uma pergunta opcional com os números da pessoa
+   (`lib/quiz-frasco.ts`, `FrascoQuiz`; desliga em `QUIZ_GATE_ENABLED`); a resposta vira a explicação no lugar dela.
+   Não trave o resultado atrás da pergunta (testado e desfeito em 21/11/2026). Evento `Quiz Frasco`. Ordem da tela: número e seringa → oferta (copy com o nome do peptídeo, prop `subject`; botão verde direto no checkout, botão para a página) → detalhes do frasco.
    Preço de lançamento: `launch` no ebook gera a frase "R$ X nas N primeiras unidades. Depois, R$ Y". Só vale
    enquanto o aumento vai acontecer: ao subir o preço na Kiwify, apague `launch` e ponha `price: after` no mesmo dia.
    Tabela personalizada (`TAB`, R$ 9,90): é a oferta do **resultado** (`tableOffer()` → prop `tableOffer`), com o

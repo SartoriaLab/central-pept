@@ -114,7 +114,7 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug,
   const resultRef = useRef<HTMLDivElement>(null);
   // Barra fixa do celular: só enquanto o resultado está abaixo da tela.
   const [resultBelow, setResultBelow] = useState(false);
-  // Pergunta do frasco antes do resultado (uma vez por visita, só com a oferta do guia T1).
+  // Pergunta do frasco no topo da oferta, abaixo do número (uma vez por visita, só com a oferta do guia T1).
   const [quizGate, setQuizGate] = useState(false);
   const [answered, setAnswered] = useState<{ quiz: Quiz; answer: QuizAnswer } | null>(null);
   useEffect(() => {
@@ -374,7 +374,7 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug,
     () => (result && mg !== '' ? buildFrascoQuiz(Number(mg), result.waterMl) : null),
     [result, mg],
   );
-  const locked = quizGate && !answered && quiz !== null;
+  const asking = quizGate && !answered && quiz !== null;
 
   function answerQuiz(answer: QuizAnswer) {
     if (!quiz) return;
@@ -393,7 +393,7 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug,
     }, { threshold: 0.15 });
     io.observe(el);
     return () => io.disconnect();
-  }, [hasResult, locked]);
+  }, [hasResult]);
 
   // Métrica de uso: um evento por peptídeo quando o cálculo fica válido.
   // Peptídeo personalizado vai sem nome — o que o usuário digita não sai do navegador.
@@ -906,11 +906,6 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug,
                 </p>
               </div>
             </div>
-          ) : locked && quiz ? (
-            // Resultado travado até responder a pergunta do frasco (1 toque, certo ou errado).
-            <div id="calc-result" ref={resultRef}>
-              <FrascoQuiz quiz={quiz} peptideName={peptide?.name} onAnswer={answerQuiz} />
-            </div>
           ) : (
             <div id="calc-result" ref={resultRef} className="bg-surface border border-border rounded-xl shadow-lg overflow-hidden animate-slide-up">
               <div className="flex items-center justify-between gap-2.5 px-5 pt-5">
@@ -1015,7 +1010,7 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug,
               </div>
             </div>
           )}
-          {locked ? null : result && Number.isFinite(result.unitsPerDose) && result.unitsPerDose > 0 ? (
+          {result && Number.isFinite(result.unitsPerDose) && result.unitsPerDose > 0 ? (
             <EbookOffer
               variant="result"
               offer={resultOffer}
@@ -1025,12 +1020,14 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug,
             >
               {answered && (table || offer?.id === 'T1') ? (
                 <FrascoFeedback quiz={answered.quiz} answer={answered.answer} next={table ? 'tabela' : 'guia'} />
+              ) : asking && quiz ? (
+                <FrascoQuiz quiz={quiz} peptideName={peptide?.name} onAnswer={answerQuiz} />
               ) : null}
             </EbookOffer>
           ) : (
             <EbookOffer variant="line" offer={offer} className="mt-4" />
           )}
-          {!locked && result && Number.isFinite(result.unitsPerDose) && result.unitsPerDose > 0 ? (
+          {result && Number.isFinite(result.unitsPerDose) && result.unitsPerDose > 0 ? (
             // Detalhes do frasco: depois da oferta, para ela ficar colada no número.
             <div className="mt-4 bg-surface border border-border rounded-xl shadow-sm overflow-hidden [&>*:first-child]:border-t-0">
               {/* Duração do frasco */}
@@ -1059,7 +1056,7 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug,
               ) : null}
             </div>
           ) : null}
-          {!locked && result && Number.isFinite(result.unitsPerDose) && result.unitsPerDose > 0 ? (
+          {result && Number.isFinite(result.unitsPerDose) && result.unitsPerDose > 0 ? (
             <InstallPrompt className="mt-4" />
           ) : null}
         </div>
@@ -1077,18 +1074,14 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug,
           className="md:hidden no-print fixed left-4 right-4 bottom-[max(1rem,env(safe-area-inset-bottom))] z-30 flex items-center justify-between gap-3 px-4 py-3 rounded-xl bg-ink text-bg shadow-xl animate-slide-up"
           aria-label="Ir para o resultado"
         >
-          {locked ? (
-            <span className="text-sm font-bold">Seu resultado está pronto</span>
-          ) : (
-            <div className="flex items-baseline gap-1.5">
-              <span className="text-2xl font-extrabold text-teal-100 tabular-nums leading-none">
-                {fmt(result.unitsPerDose, 1)}
-              </span>
-              <span className="text-xs font-semibold text-bg/80">U na seringa</span>
-            </div>
-          )}
+          <div className="flex items-baseline gap-1.5">
+            <span className="text-2xl font-extrabold text-teal-100 tabular-nums leading-none">
+              {fmt(result.unitsPerDose, 1)}
+            </span>
+            <span className="text-xs font-semibold text-bg/80">U na seringa</span>
+          </div>
           <div className="flex items-center gap-1.5 text-xs font-semibold">
-            {locked ? 'Responder e ver' : 'Ver detalhes'}
+            Ver detalhes
             <svg viewBox="0 0 20 20" width={14} height={14} fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
               <path d="M5 8l5 5 5-5" />
             </svg>
