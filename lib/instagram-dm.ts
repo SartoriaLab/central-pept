@@ -5,7 +5,7 @@ import crypto from 'node:crypto';
 import { EXIT_COUPON, getActiveEbooks, getEbookById, type Ebook } from '@/lib/ebooks';
 import { SITE_URL } from '@/lib/site';
 
-/** Palavra que a pessoa comenta. A Gotinha fala e a legenda escreve (scripts/social/caption.ts). */
+/** Palavra que a pessoa comenta. O vídeo fala e a legenda escreve (scripts/social/caption.ts). */
 export const DM_KEYWORD = 'GUIA';
 
 /** O comentário pede o guia? "guia", "GUIA!!", "quero o guia 🙏", "Guía". Não: "guias", "guiar". */
@@ -93,10 +93,10 @@ export function toolsUrl(): string {
 
 /** Texto do direct (uma mensagem só: a API permite uma resposta privada por comentário). */
 export function dmText(e: Ebook | null): string {
-  const end = 'Qualquer dúvida, me chama aqui. Gotinha falou, tá falado! 💛';
-  if (!e) return `Oi! Aqui é a Gotinha 💧 Prometido é devido: as calculadoras grátis estão aqui:\n${toolsUrl()}\n\n${end}`;
+  const end = 'Qualquer dúvida, é só responder aqui. 💛';
+  if (!e) return `Oi! Aqui estão as calculadoras grátis que você pediu:\n${toolsUrl()}\n\n${end}`;
   const off = EXIT_COUPON ? `, com ${EXIT_COUPON.percent}% de desconto (o cupom ${EXIT_COUPON.code} já vai aplicado no link)` : '';
-  return `Oi! Aqui é a Gotinha 💧 Prometido é devido: o guia "${e.title}" está aqui${off}:\n${guideUrl(e)}\n\n${end}`;
+  return `Oi! Aqui está o guia "${e.title}" que você pediu${off}:\n${guideUrl(e)}\n\n${end}`;
 }
 
 /** Resposta pública no comentário: varia para não parecer robô repetindo (e o Instagram não barrar). */
@@ -104,7 +104,7 @@ export const PUBLIC_REPLIES = [
   'Te mandei no direct! 💧',
   'Já foi pro seu direct, amiga! 💧',
   'Corre no direct que eu te mandei 💛',
-  'Mandei no seu direct! Gotinha falou, tá falado 💧',
+  'Mandei no seu direct! 💧',
 ] as const;
 
 export function publicReply(commentId: string): string {

@@ -9,64 +9,79 @@ Se sair "REPROVADO", corrija só o que a lista aponta e rode de novo.
 
 ## PEDIDO
 
-TEMA: Tirzepatida manipulada é segura? Cuidados ao usar
+TEMA: Ozempic falso: como identificar e o que fazer
 
 FONTE:
-Título: Tirzepatida manipulada é segura? Cuidados ao usar
+Título: Ozempic falso: como identificar e o que fazer
 
-Resumo: Tirzepatida manipulada custa 60-70% menos que Mounjaro mas não é equivalente — pureza, estabilidade e dose exata variam. Farmácia confiável tem: registro ANVISA visível, fornece COA (Certificado de Análise), HPLC, farmacêutico responsável identificado e exige prescrição. Se orçamento permite, industrializado é sempre mais seguro.
+Resumo: Sinais de Ozempic falso: preço muito abaixo do mercado (<R$ 500 para 1 mg), venda em marketplaces ou redes sociais, lote da caixa não bate com lote do pen, impressão de baixa qualidade, bula em folha avulsa. Verifique sempre na consulta ANVISA (consultas.anvisa.gov.br) e compre apenas em farmácia física com nota fiscal. Em caso de suspeita, notifique via Notivisa.
 
-Tirzepatida manipulada é cerca de **60-70% mais barata** que Mounjaro industrializado e virou alternativa comum no Brasil. Mas "manipulada" não garante "equivalente". Este guia explica o que investigar antes.
+Com a explosão da demanda por **Ozempic** a partir de 2022, cresceu a falsificação. A ANVISA emitiu múltiplos alertas entre 2023 e 2025. Este guia mostra como identificar pens falsos antes de aplicar.
 
-## O que é peptídeo manipulado
+## Onde o risco é maior
 
-Farmácias de manipulação compram tirzepatida como matéria-prima de fornecedores (frequentemente chineses) e fracionam em frascos menores. Não é o mesmo produto do Mounjaro — a Lilly tem patente, e o composto manipulado é *cópia*, não genérico.
+- Marketplaces (Mercado Livre, Amazon, OLX) — ANVISA proíbe venda online
+- Redes sociais (Instagram, Telegram) — alta incidência de falsificação
+- Farmácias de procedência duvidosa, sem CNPJ claro
+- Preços muito abaixo do mercado (\< R$ 500 para Ozempic 1 mg)
 
-## Riscos potenciais
+## O que verificar na embalagem
 
-- **Pureza variável**: matérias-primas de fornecedores não farmacêuticos podem ter impurezas > 2%
-- **Estabilidade não comprovada**: sem estudos de estabilidade equivalentes à indústria
-- **Dose imprecisa**: pode haver ±20% de variação real vs rótulo
-- **Contaminação microbiana**: risco maior em farmácias sem validação adequada
+- **Caixa**: impressão de alta qualidade, cor azul consistente, sem erros de ortografia
+- **Número de lote**: deve bater com o lote impresso no pen (dentro da caixa)
+- **Fabricante**: Novo Nordisk A/S — importação exclusiva Novo Nordisk Brasil
+- **QR code ou código de barras**: deve ser escaneável e conduzir a informação oficial
+- **Bula em português**: presente e em papel, não folha avulsa impressa
 
-## Sinais de uma farmácia confiável
+## O que verificar no pen
 
-- Registro ANVISA + alvará de vigilância sanitária visíveis
-- Fornece **COA (Certificado de Análise)** do peptídeo com cada frasco
-- Mostra resultado de HPLC (pureza)
-- Tem farmacêutico responsável técnico identificado
-- Prescrição médica obrigatória — fuja se vender sem receita
+- Seletor de dose gira livremente sem travar
+- Solução cristalina, sem partículas
+- Lote impresso no corpo do pen bate com a caixa
+- Rótulo impresso de fábrica, não adesivo
 
-## Como usar com segurança
+## Como conferir com a ANVISA
 
-- Armazenar refrigerado (2-8°C) desde o recebimento
-- Reconstituir com água bacteriostática
-- Usar calculadora de reconstituição para dose exata
-- Começar em dose baixa mesmo se experiência prévia com Mounjaro
-- Acompanhamento clínico periódico (peso, glicemia, pressão)
+1. Entre em consultas.anvisa.gov.br
+2. Busque "Ozempic" — o registro válido é da Novo Nordisk Farmacêutica
+3. Compare o lote que você tem com os autorizados (alertas recentes listam lotes falsificados)
 
-## Comparativo
+## Se desconfiar
 
-- **Mounjaro**: controle FDA-grade, dose exata, pen descartável pronto
-- **Manipulada**: custo menor, qualidade variável, requer reconstituição e cálculo
+- **Não aplique.** Tire fotos da embalagem e do pen
+- Notifique a ANVISA via Notivisa (www8.anvisa.gov.br/notivisa)
+- Procure o Procon se comprou online
+- Em caso de aplicação de produto suspeito, procure pronto-socorro se aparecerem sintomas anormais
 
-Se o orçamento permite, industrializado é sempre mais seguro. Se o preço é barreira, manipulada pode ser opção *com farmácia validada* e acompanhamento médico — não como escolha "de primeira".
+## Conclusão
 
-## Leia também
+Compre em farmácia física com CNPJ visível e nota fiscal. O "desconto imperdível" no Instagram é quase sempre produto falsificado. A conta de economizar R$ 500 e tomar um produto adulterado pode ser alta.
 
-- Onde comprar tirzepatida com segurança
-- Quanto custa tirzepatida por dose
-- Como reconstituir tirzepatida 5, 10 e 15 mg
-- Mounjaro falso: como identificar
+P: Como saber se o Ozempic é original?
+R: Confira se o lote da caixa é igual ao lote impresso na caneta, se a impressão é de alta qualidade, se o fabricante é a Novo Nordisk e se a bula em português está presente. Na caneta, a solução deve ser cristalina e o rótulo impresso de fábrica, não adesivo.
+P: Como consultar o Ozempic na ANVISA?
+R: Em consultas.anvisa.gov.br, busque "Ozempic": o registro válido é da Novo Nordisk Farmacêutica. Compare também o seu lote com os alertas recentes, que listam lotes falsificados.
+P: Onde é mais comum encontrar Ozempic falso?
+R: Em marketplaces, em redes sociais como Instagram e Telegram, em farmácias sem CNPJ claro e em ofertas muito abaixo do mercado, como menos de R$ 500 pelo Ozempic 1 mg.
+P: O que fazer se desconfiar que o Ozempic é falso?
+R: Não aplique, fotografe a embalagem e a caneta e notifique a ANVISA pelo Notivisa. Se comprou online, procure o Procon; se já aplicou e surgirem sintomas anormais, vá ao pronto-socorro.
 
-P: Tirzepatida manipulada é igual ao Mounjaro?
-R: Não. A farmácia compra a tirzepatida como matéria-prima e fraciona em frascos; o composto é uma cópia, não um genérico, e pureza, estabilidade e dose exata podem variar.
-P: Quais os riscos da tirzepatida manipulada?
-R: Impurezas acima de 2% em matérias-primas de fornecedores não farmacêuticos, estabilidade sem estudos equivalentes aos da indústria, variação de até ±20% entre a dose real e o rótulo e maior risco de contaminação microbiana.
-P: Como saber se a farmácia de manipulação é confiável?
-R: Ela tem registro na ANVISA e alvará de vigilância sanitária visíveis, fornece COA e resultado de HPLC do peptídeo, tem farmacêutico responsável técnico identificado e exige receita médica.
-P: Quanto mais barata é a tirzepatida manipulada?
-R: Cerca de 60 a 70% mais barata que o Mounjaro industrializado. Mesmo assim, se o orçamento permite, o industrializado é sempre mais seguro.
+Peptídeo: Semaglutida
+Categoria: GLP-1 / Emagrecimento
+Resumo: Agonista do receptor GLP-1. Usado para controle glicêmico e perda de peso.
+Dose típica: 0.25 mg, 1x por semana (dose inicial, aumentar gradualmente)
+Faixa de dose: 0,25-2,4 mg/semana (subcutâneo, com titulação)
+Meia-vida: ~7 dias
+Frascos comuns: 3 mg, 5 mg
+Status regulatório: Aprovado FDA
+Descrição: A semaglutida é um análogo do peptídeo semelhante ao glucagon tipo 1 (GLP-1), aprovada pela FDA e comercializada como Ozempic (2017, diabetes tipo 2), Rybelsus (oral, 2019) e Wegovy (2021, obesidade). Molécula modificada do GLP-1 humano com substituições de aminoácidos e conjugação a ácido graxo C18, o que permite ligação à albumina e administração semanal.
+
+Indicada para diabetes tipo 2 em adultos e manejo crônico de peso em obesidade (IMC ≥ 30) ou sobrepeso (IMC ≥ 27) com comorbidade. Ensaios de fase 3 (SUSTAIN e STEP) demonstraram perda ponderal média de 10-15% com 2,4 mg/semana. Em 2024 a FDA também aprovou para redução de risco cardiovascular em adultos com DCV estabelecida e obesidade/sobrepeso.
+Mecanismo: Agonista seletivo do receptor GLP-1, amplamente expresso em células beta pancreáticas, neurônios do SNC (hipotálamo, tronco cerebral), TGI e miocárdio. A ativação aumenta secreção de insulina glicose-dependente, suprime glucagon, retarda esvaziamento gástrico e atua em centros de saciedade, reduzindo ingestão calórica.
+
+A modificação estrutural (ácido graxo C18 ligado ao Lys26) confere alta afinidade pela albumina sérica, reduzindo depuração renal e degradação por DPP-4 — resultando em meia-vida plasmática de ~1 semana.
+Efeitos colaterais: Náusea (>20% em Ozempic; até 44% em Wegovy); Vômito; Diarreia; Constipação; Dor abdominal; Reações no local da injeção
+Contraindicações: História pessoal ou familiar de carcinoma medular de tireoide (CMT); Síndrome de Neoplasia Endócrina Múltipla tipo 2 (NEM 2); Hipersensibilidade grave à semaglutida ou excipientes; Gestação (uso não recomendado)
 
 Peptídeo: Tirzepatida
 Categoria: GLP-1 / Emagrecimento

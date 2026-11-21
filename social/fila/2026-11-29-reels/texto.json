@@ -1,84 +1,192 @@
 {
-  "hook": "Seu Ozempic está te dando enjoo todo dia e a dose vai subir?",
-  "hookIcon": "grafico-sobe",
-  "hookPose": "pensando",
+  "hook": "Você aplica sempre no mesmo ponto da barriga?",
+  "hookIcon": "pele",
   "slides": [
     {
-      "title": "A subida da bula é obrigatória",
+      "title": "Na barriga a caneta faz mais efeito",
       "layout": "mito",
-      "body": "A titulação da bula é referência. Repetir a dose atual por mais 2 a 4 semanas é totalmente aceitável; a decisão é sua com o médico.",
-      "icon": "prancheta",
-      "pose": "explicando"
+      "body": "As bulas de Ozempic, Wegovy e Zepbound informam exposição semelhante ao remédio no abdômen, na coxa e no braço. Nenhuma elege um local melhor.",
+      "icon": "errado"
     },
     {
-      "title": "Quando não subir a dose?",
+      "title": "Três regiões nas bulas",
+      "layout": "padrao",
+      "body": "Abdômen, coxa e braço. No Mounjaro e no Zepbound, a parte de trás do braço é para quando outra pessoa aplica.",
+      "icon": "prancheta"
+    },
+    {
+      "title": "Região e ponto",
+      "layout": "lado",
+      "body": "Região: pode repetir toda semana\nPonto: troca a cada dose",
+      "icon": "alvo"
+    },
+    {
+      "title": "Por que não repetir o ponto?",
       "layout": "pergunta",
-      "body": "Se a náusea ainda é diária, você está perdendo refeições inteiras ou apareceu vômito persistente.",
-      "icon": "proibido",
-      "pose": "alerta"
+      "body": "As instruções do frasco de Zepbound citam a lipodistrofia (pele afundada ou espessada) e os caroços no local. O rodízio existe para reduzir esse risco.",
+      "icon": "alerta"
     },
     {
-      "title": "Quando o enjoo aparece",
+      "title": "Seis áreas, uma por semana",
       "layout": "padrao",
-      "body": "Nos primeiros 2 a 3 dias após cada subida, mais forte nas 12 a 24 horas após a aplicação. Tende a diminuir após 1 a 2 semanas em dose estável.",
-      "icon": "relogio",
-      "pose": "pensando"
+      "body": "Barriga, coxa e braço, lado esquerdo e direito. Siga sempre a mesma ordem: cada área só volta a ser usada depois de seis semanas.",
+      "icon": "calendario"
     },
     {
-      "title": "No prato",
-      "body": "Refeições pequenas, 5 a 6 vezes ao dia\nCarboidrato leve: arroz, batata, bolacha sem açúcar\nProteína magra: frango e peixe",
-      "layout": "passos",
-      "icon": "prato",
-      "pose": "explicando"
-    },
-    {
-      "title": "Líquidos longe das refeições",
-      "layout": "padrao",
-      "body": "Beber muito junto com a comida aumenta a saciedade precoce. Reforce a hidratação ao longo do dia, porque desidratação piora o enjoo.",
-      "icon": "gota",
-      "pose": "piscadinha"
-    },
-    {
-      "title": "Qual o melhor horário para aplicar?",
+      "title": "Posso aplicar em cima do roxo?",
       "layout": "pergunta",
-      "body": "Mantenha o mesmo dia da semana. Muita gente prefere aplicar à noite, para dormir durante o pico do enjoo.",
-      "icon": "lua",
-      "pose": "feliz"
+      "body": "Não. Pele com hematoma, dolorida, vermelha, endurecida ou com cicatriz fica de fora. Escolha outro ponto e deixe a área se recuperar.",
+      "icon": "proibido"
     },
     {
-      "title": "Hora de procurar o médico",
-      "layout": "padrao",
-      "body": "Dor abdominal forte e persistente, vômito que impede a hidratação por mais de 24 horas, febre, pele amarelada ou dor alta nas costas.",
-      "icon": "hospital",
-      "pose": "alerta"
-    },
-    {
-      "title": "Cola para guardar",
-      "body": "Enjoo diário: não suba, converse com o médico\nPrato pequeno, várias vezes\nLíquidos longe da comida\nRemédio para enjoo só com orientação médica",
+      "title": "A cola do rodízio",
       "layout": "passos",
-      "icon": "certo",
-      "pose": "apontando"
+      "body": "Troque o ponto a cada dose\nUse as seis áreas na mesma ordem\nAnote onde aplicou\nCaroço que não some: mostre ao médico",
+      "icon": "certo"
     }
   ],
-  "narration": [
+  "scenes": [
     {
-      "text": "Seu Ozempic está te dando enjoo todo dia, e a dose vai subir semana que vem?",
-      "pose": "pensando"
+      "chip": "a mania",
+      "kicker": "toda semana",
+      "title": "Sempre no mesmo",
+      "accent": "ponto da barriga?",
+      "tone": "vermelho",
+      "speech": "Você aplica sempre no mesmo ponto da barriga?",
+      "visual": { "type": "icone", "icon": "alvo", "note": "o mesmo ponto, semana após semana" }
     },
     {
-      "text": "Com náusea diária, refeição perdida ou vômito persistente, não é hora de subir. Repetir a dose por mais 2 a 4 semanas, com o médico, é aceitável.",
-      "pose": "explicando"
+      "chip": "a mania",
+      "kicker": "e tem um mito junto",
+      "title": "O local que faz",
+      "accent": "mais efeito?",
+      "tone": "vermelho",
+      "speech": "Eu sei, ali já é conhecido. E ainda tem o tal local que faz mais efeito: eu chego nele no fim.",
+      "visual": { "type": "icone", "icon": "duvida", "note": "guarda essa pergunta" }
     },
     {
-      "text": "Enquanto isso, faça refeições pequenas, evite gordura e fritura nos picos e beba os líquidos longe das refeições.",
-      "pose": "piscadinha"
+      "chip": "o que acontece",
+      "kicker": "pensa na grama",
+      "title": "Pisou no mesmo lugar",
+      "accent": "vira trilha",
+      "tone": "vermelho",
+      "speech": "Pensa na grama: pisou sempre no mesmo lugar, vira trilha. A pele que leva toda picada no mesmo ponto também sente.",
+      "visual": { "type": "icone", "icon": "pele", "note": "o mesmo ponto, toda semana" }
     },
     {
-      "text": "Vômito que impede a hidratação por mais de 24 horas pede médico. Então, enjoo todo dia e dose subindo, nunca mais.",
-      "pose": "apontando"
+      "chip": "o problema",
+      "kicker": "o nome disso",
+      "title": "Pele afundada",
+      "accent": "ou espessada",
+      "tone": "vermelho",
+      "speech": "O risco tem nome: lipodistrofia, a pele que fica afundada ou espessada, às vezes com caroço.",
+      "visual": { "type": "carimbo", "text": "LIPODISTROFIA", "note": "risco citado pelo Zepbound" },
+      "source": "instruções do frasco de Zepbound"
+    },
+    {
+      "chip": "as bulas",
+      "kicker": "o que as bulas indicam",
+      "title": "Três regiões",
+      "accent": "para escolher",
+      "tone": "azul",
+      "speech": "As bulas de tirzepatida e semaglutida indicam três regiões: abdômen, coxa e braço.",
+      "visual": {
+        "type": "lista",
+        "items": [
+          { "text": "Abdômen", "mark": "ok" },
+          { "text": "Coxa", "mark": "ok" },
+          { "text": "Braço", "mark": "ok" }
+        ]
+      },
+      "source": "bulas americanas aprovadas pela FDA"
+    },
+    {
+      "chip": "a regra",
+      "kicker": "o que todas as bulas mandam",
+      "title": "A região repete",
+      "accent": "o ponto, não",
+      "tone": "azul",
+      "speech": "E a regra de todas é a mesma: a região pode repetir, o ponto não.",
+      "visual": {
+        "type": "lista",
+        "items": [
+          { "text": "Mesma região", "mark": "ok" },
+          { "text": "Mesmo ponto", "mark": "nao" }
+        ]
+      }
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "um esquema simples",
+      "title": "Seis áreas",
+      "accent": "sempre na mesma ordem",
+      "tone": "azul",
+      "speech": "O jeito fácil é dividir em seis áreas: os dois lados da barriga, das coxas e dos braços.",
+      "visual": { "type": "numero", "value": "6 áreas", "note": "barriga, coxa e braço, dos dois lados" }
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "a conta da semana",
+      "title": "Cada área volta",
+      "accent": "depois de seis semanas",
+      "tone": "azul",
+      "speech": "Com uma aplicação por semana, cada área só volta a ser usada depois de seis semanas.",
+      "visual": { "type": "pontos", "total": 6, "marked": 1, "note": "uma área por semana, na mesma ordem" }
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "essa pele fica de fora",
+      "title": "Roxa ou dolorida?",
+      "accent": "Escolha outro ponto",
+      "tone": "vermelho",
+      "speech": "Pele roxa, dolorida, vermelha ou endurecida? Ali não, você escolhe outro ponto.",
+      "visual": {
+        "type": "lista",
+        "items": [
+          { "text": "Hematoma", "mark": "nao" },
+          { "text": "Dolorida ou vermelha", "mark": "nao" },
+          { "text": "Endurecida", "mark": "nao" }
+        ]
+      },
+      "source": "instruções do Wegovy"
+    },
+    {
+      "chip": "o médico",
+      "kicker": "quando é caso de consulta",
+      "title": "Caroço que",
+      "accent": "não some",
+      "tone": "vermelho",
+      "speech": "Caroço ou endurecimento que não some é sinal para parar de aplicar ali e mostrar ao médico.",
+      "visual": { "type": "icone", "icon": "estetoscopio", "note": "mostre a área na consulta" }
+    },
+    {
+      "chip": "o mito",
+      "kicker": "o tal local mais forte",
+      "title": "Faz mais efeito?",
+      "accent": "As bulas dizem que não",
+      "tone": "azul",
+      "speech": "E o local que faz mais efeito? Não existe: as bulas mostram exposição semelhante nos três.",
+      "visual": {
+        "type": "barras",
+        "bars": [
+          { "label": "abdômen", "value": 10, "display": "semelhante" },
+          { "label": "coxa", "value": 10, "display": "semelhante" },
+          { "label": "braço", "value": 10, "display": "semelhante" }
+        ]
+      },
+      "source": "bulas de Ozempic, Wegovy e Zepbound"
+    },
+    {
+      "chip": "pra lembrar",
+      "kicker": "da próxima vez",
+      "title": "Mesmo ponto",
+      "accent": "nunca mais",
+      "tone": "azul",
+      "speech": "Então, sempre no mesmo ponto da barriga? Nunca mais: agora ele entra no rodízio.",
+      "visual": { "type": "carimbo", "text": "RODÍZIO", "note": "região repete, ponto não" }
     }
   ],
-  "caption": "Eu sei, a gente quer seguir o calendário certinho. Mas a titulação da bula é referência, não obrigação: se a náusea do Ozempic ainda é diária, se você está perdendo refeições ou se apareceu vômito persistente, repetir a dose atual por mais 2 a 4 semanas é totalmente aceitável. A decisão é com o médico.\n\n1️⃣ Refeições pequenas, 5 a 6 vezes ao dia\n2️⃣ Evite gordura, frituras e picantes nos picos\n3️⃣ Líquidos longe das refeições e hidratação reforçada\n4️⃣ Gengibre tem evidência razoável; dimenidrinato ou outro remédio para enjoo, só conversando com o médico\n\n⚠️ Procure o médico com dor abdominal forte e persistente, vômito que impede a hidratação por mais de 24 horas, febre, pele amarelada ou dor alta nas costas.",
-  "question": "O seu enjoo aparece mais no dia da aplicação ou depois?",
-  "share": "aquela amiga que sobe a dose do Ozempic mesmo enjoando todo dia"
+  "caption": "Eu sei, todo mundo tem aquele ponto preferido da barriga. Mas as bulas de Mounjaro, Zepbound, Ozempic e Wegovy (tirzepatida e semaglutida) indicam três regiões, abdômen, coxa e braço, e informam exposição semelhante ao remédio nas três. Barriga não faz mais efeito.\n\n1️⃣ Pode repetir a região, nunca o mesmo ponto\n2️⃣ Divida em seis áreas (barriga, coxa e braço, dos dois lados) e siga sempre a mesma ordem\n3️⃣ Pule pele com hematoma, dolorida, vermelha, endurecida ou com cicatriz\n4️⃣ Anote onde aplicou: depois de algumas semanas, ninguém lembra de cabeça\n\n⚠️ Repetir o ponto aumenta o risco de lipodistrofia, a pele afundada ou espessada, com caroços. Caroço ou endurecimento que não some? Pare de aplicar ali e mostre ao médico. A bula do seu produto e quem prescreveu vêm primeiro.",
+  "question": "Qual região você mais usa: barriga, coxa ou braço?",
+  "share": "quem aplica sempre no mesmo ponto da barriga"
 }

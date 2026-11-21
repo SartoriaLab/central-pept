@@ -24,7 +24,7 @@ import { EVENTS, track, trackOnce } from '@/lib/track';
 import EbookOffer from '@/components/ebook/EbookOffer';
 import FrascoQuiz, { FrascoFeedback } from './FrascoQuiz';
 import OfferStrip from '@/components/ebook/OfferStrip';
-import Gotinha from '@/components/brand/Gotinha';
+import DropCheck from '@/components/brand/DropCheck';
 import { buildFrascoQuiz, QUIZ_GATE_ENABLED, QUIZ_KEY, type FrascoQuiz as Quiz, type QuizAnswer } from '@/lib/quiz-frasco';
 import InstallPrompt from '@/components/pwa/InstallPrompt';
 import type { EbookOffer as Offer } from '@/lib/ebooks';
@@ -889,10 +889,10 @@ export default function ReconstitutionCalculator({ peptides, initialPeptideSlug,
         <div className="md:sticky md:top-24">
           {!result ? (
             // Estado vazio curto: no celular ele fica entre os campos e o resultado, então não pode
-            // empurrar a tela. A Gotinha aponta o que falta; o exemplo preenche tudo em um toque.
+            // empurrar a tela. O exemplo preenche tudo em um toque.
             <div className="flex items-center gap-4 rounded-xl border-[1.5px] border-dashed border-border-2 bg-surface p-4 sm:p-5">
               <div className="shrink-0">
-                <Gotinha pose="explicando" size={72} id="gotinha-vazio" />
+                <DropCheck size={44} id="drop-vazio" />
               </div>
               <div className="min-w-0">
                 <p className="text-base font-semibold leading-snug text-ink">

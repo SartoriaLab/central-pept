@@ -4,10 +4,10 @@ import { describe, expect, it } from 'vitest';
 import { bioUrl } from '@/lib/promocao/utm';
 import { getEbooks } from '@/lib/ebooks';
 import { buildTopics } from '@/scripts/social/topics';
-import { COOLDOWN_DAYS, PEPTIDE_GAP_DAYS, pickTopic, topicPriority } from '@/scripts/social/pick';
-import { dateRange, formatsOn, planQueue, reservedFrom } from '@/scripts/social/queue';
+import { COOLDOWN_DAYS, PEPTIDE_GAP_DAYS, pickTopic, topicPriority, VIRAL_RANK } from '@/scripts/social/pick';
+import { dateRange, formatsOn, planQueue, reservedFrom, slotTime } from '@/scripts/social/queue';
 import { extractQuantities, validateDraft } from '@/scripts/social/validate';
-import { BORDAO_FECHAMENTO, MAX_CAPTION, MAX_HASHTAGS, SHARE_FALLBACK, buildCaption, ctaLine, ctaSpeech, shareLine } from '@/scripts/social/caption';
+import { MAX_CAPTION, MAX_HASHTAGS, SHARE_FALLBACK, buildCaption, ctaLine, ctaSpeech, shareLine } from '@/scripts/social/caption';
 import {
   DM_KEYWORD, PUBLIC_REPLIES, dmText, ebookFromCaption, fallbackEbook, guideRequests, guideUrl, publicReply, validSignature, wantsGuide,
 } from '@/lib/instagram-dm';
@@ -16,18 +16,18 @@ import crypto from 'node:crypto';
 import { ctaFor } from '@/scripts/social/ebook-cta';
 import { FB_BASE, IG_BASE, InstagramClient, tokenShape } from '@/scripts/social/instagram';
 import { cliEnv, parseCliOutput } from '@/scripts/social/write';
-import { sceneSides, toSpeech } from '@/scripts/social/render';
-import { THEMES, THEME_IDS, accentOn, mix, themeFor } from '@/scripts/social/themes';
+import { captionAt, carouselSlide, toSpeech } from '@/scripts/social/render';
+import { relabel, speechPlan } from '@/scripts/social/pronuncia';
+import { countUp, exitAt, partStart, titleLine } from '@/scripts/social/motion';
 import { layoutProblems, sides } from '@/scripts/social/layouts';
-import { nobreak } from '@/scripts/social/slides';
+import { nobreak, titleSize } from '@/scripts/social/papel';
+import { scenesFor, sentences, splitTitle } from '@/scripts/social/scenes';
 import { beatsFor, chunkWords } from '@/scripts/social/captions';
 import { wordsFromChars } from '@/scripts/social/voice';
 import { ILLUSTRATION_KEYS } from '@/scripts/social/illustrations';
-import { MOUTHS, POSES, POSE_HINTS } from '@/scripts/social/poses';
-import { BLINK, BLINK_GAP, blinkTrack, mascotTimeline, mouthTrack } from '@/scripts/social/lipsync';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
-import type { Draft, HistoryEntry, Topic } from '@/scripts/social/types';
+import type { Draft, HistoryEntry, Scene, Topic } from '@/scripts/social/types';
 
 const DAY = 86_400_000;
 const now = new Date('2026-12-01T15:00:00Z');
@@ -42,7 +42,7 @@ const draft = (over: Partial<Draft> = {}): Draft => ({
     { title: 'Dose', body: 'A dose típica é 2,5 mg por semana.' },
     { title: 'Frasco', body: 'Frascos de 5 mg e 10 mg são os mais comuns.' },
   ],
-  narration: [{ text: 'Primeira fala.' }, { text: 'Segunda fala.', pose: 'explicando' }, { text: 'Terceira fala.' }],
+  narration: [{ text: 'Primeira fala.' }, { text: 'Segunda fala.' }, { text: 'Terceira fala.' }],
   caption: 'Texto da legenda.',
   question: 'Qual frasco você usa?',
   ...over,
@@ -110,10 +110,24 @@ describe('pickTopic', () => {
 
   it('prioriza dúvida prática de GLP-1, depois GLP-1, depois o resto', () => {
     const mix = [topic('peptide:bpc-157', 'healing'), topic('peptide:tirzepatida'), topic('post:nausea-ozempic-como-lidar')];
-    expect(mix.map(topicPriority)).toEqual([0, 1, 2]);
+    expect(mix.map((t) => topicPriority(t))).toEqual([0, 1, 2]);
     expect(pickTopic(mix, [], 'carrossel', now)?.id).toBe('post:nausea-ozempic-como-lidar');
     const h: HistoryEntry[] = [{ topicId: 'post:nausea-ozempic-como-lidar', format: 'carrossel', category: 'glp-1', at: new Date(now.getTime() - DAY) }];
     expect(pickTopic(mix, h, 'carrossel', now)?.id).toBe('peptide:tirzepatida');
+  });
+
+  it('os do ranking viral saem primeiro e na ordem dele', () => {
+    const [v1, v2] = VIRAL_RANK;
+    const mix = [topic('post:nausea-ozempic-como-lidar'), topic(v2, 'gh'), topic(v1)];
+    expect(topicPriority(mix[2])).toBe(3);
+    expect(pickTopic(mix, [], 'reels', now)?.id).toBe(v1);
+    // Mesmo com a categoria da última publicação, o ranking manda.
+    const h: HistoryEntry[] = [{ topicId: 'x', format: 'reels', category: 'glp-1', at: new Date(now.getTime() - DAY) }];
+    expect(pickTopic(mix, h, 'reels', now)?.id).toBe(v1);
+    const used: HistoryEntry[] = [{ topicId: v1, format: 'reels', category: 'glp-1', at: new Date(now.getTime() - DAY) }];
+    expect(pickTopic(mix, used, 'reels', now)?.id).toBe(v2);
+    // O ranking é do Reels: o carrossel fica com a outra dúvida prática.
+    expect(pickTopic(mix, [], 'carrossel', now)?.id).toBe('post:nausea-ozempic-como-lidar');
   });
 
   it('pula temas excluídos nesta execução', () => {
@@ -135,20 +149,22 @@ describe('pickTopic', () => {
 describe('fila (planQueue)', () => {
   const list = ['a', 'b', 'c', 'd', 'e', 'f'].map((id, i) => topic(id, i % 2 ? 'healing' : 'glp-1'));
 
-  it('carrossel todo dia e Reels em dom, seg, qua e sex', () => {
+  it('Reels e carrossel todo dia, Reels no horário de pico de cada dia', () => {
     // 2026-11-20 é sexta.
-    expect(formatsOn('2026-11-20')).toEqual(['carrossel', 'reels']);
-    expect(formatsOn('2026-11-21')).toEqual(['carrossel']);
-    expect(formatsOn('2026-11-22')).toEqual(['carrossel', 'reels']);
-    expect(formatsOn('2026-11-24')).toEqual(['carrossel']);
+    expect(formatsOn('2026-11-20')).toEqual(['reels', 'carrossel']);
+    expect(formatsOn('2026-11-24')).toEqual(['reels', 'carrossel']);
+    expect(slotTime('2026-11-20', 'reels').toISOString()).toBe('2026-11-20T21:00:00.000Z'); // sexta 18h
+    expect(slotTime('2026-11-21', 'reels').toISOString()).toBe('2026-11-21T13:00:00.000Z'); // sábado 10h
+    expect(slotTime('2026-11-22', 'reels').toISOString()).toBe('2026-11-22T22:00:00.000Z'); // domingo 19h
+    expect(slotTime('2026-11-22', 'carrossel').toISOString()).toBe('2026-11-22T15:00:00.000Z');
     expect(dateRange('2026-11-30', 2)).toEqual(['2026-11-30', '2026-12-01']);
   });
 
   it('não repete tema dentro da quarentena e conta o histórico real', () => {
     const h: HistoryEntry[] = [{ topicId: 'a', format: 'carrossel', category: 'glp-1', at: new Date('2026-11-19T15:00:00Z') }];
-    const items = planQueue(list, h, '2026-11-20', 3);
+    const items = planQueue(list, h, '2026-11-20', 2);
     expect(items.map((i) => `${i.date}-${i.format}`)).toEqual([
-      '2026-11-20-carrossel', '2026-11-20-reels', '2026-11-21-carrossel', '2026-11-22-carrossel', '2026-11-22-reels',
+      '2026-11-20-reels', '2026-11-20-carrossel', '2026-11-21-reels', '2026-11-21-carrossel',
     ]);
     const ids = items.map((i) => i.topicId);
     expect(new Set(ids).size).toBe(ids.length);
@@ -158,7 +174,7 @@ describe('fila (planQueue)', () => {
   it('mantém itens existentes e não reusa o tema deles', () => {
     const existing = [{ date: '2026-11-21', format: 'carrossel' as const, topicId: 'b' }];
     const items = planQueue(list, [], '2026-11-20', 2, existing);
-    expect(items.find((i) => i.date === '2026-11-21')?.topicId).toBe('b');
+    expect(items.find((i) => i.date === '2026-11-21' && i.format === 'carrossel')?.topicId).toBe('b');
     expect(items.filter((i) => i.topicId === 'b')).toHaveLength(1);
   });
 
@@ -182,20 +198,7 @@ describe('fila (planQueue)', () => {
   });
 });
 
-describe('cenários e tipos de slide', () => {
-  it('cenário muda de um dia para o outro e o Reels sai diferente do carrossel', () => {
-    const days = dateRange('2026-11-20', 30);
-    for (let i = 1; i < days.length; i++) expect(themeFor(days[i], 'carrossel')).not.toBe(themeFor(days[i - 1], 'carrossel'));
-    for (const d of days) expect(themeFor(d, 'reels')).not.toBe(themeFor(d, 'carrossel'));
-    expect(new Set(days.map((d) => themeFor(d, 'carrossel'))).size).toBe(THEME_IDS.length);
-  });
-
-  it('cor de destaque escurece em fundo claro', () => {
-    expect(accentOn(THEMES.claro('#38bdf8'), '#38bdf8')).not.toBe('#38bdf8');
-    expect(accentOn(THEMES.noite('#38bdf8'), '#38bdf8')).toBe('#38bdf8');
-    expect(mix('#000000', '#ffffff', 0.5)).toBe('#808080');
-  });
-
+describe('tipos de slide', () => {
   it('confere a forma de cada tipo', () => {
     expect(layoutProblems(1, { layout: 'passos', title: 'Faça', body: 'Um\nDois' })).toEqual([]);
     expect(layoutProblems(1, { layout: 'passos', title: 'Faça', body: 'Um só' })).toHaveLength(1);
@@ -217,10 +220,6 @@ describe('cenários e tipos de slide', () => {
     expect(validateDraft(draft({ slides: mixed }), '').some((p) => p.includes('padrao'))).toBe(false);
   });
 
-  it('Gotinha alterna de lado nas cenas do Reels', () => {
-    expect(sceneSides(4, false)).toEqual(['left', 'right', 'center', 'left']);
-    expect(sceneSides(2, true)).toEqual(['right', 'left']);
-  });
 });
 
 describe('validateDraft', () => {
@@ -267,12 +266,6 @@ describe('validateDraft', () => {
     expect(validateDraft(draft({ narration: [{ text: 'só uma' }] }), source).length).toBeGreaterThan(0);
   });
 
-  it('barra pose fora da lista', () => {
-    expect(validateDraft(draft({ hookPose: 'voando' as never }), source).join()).toContain('voando');
-    const d = draft({ narration: [{ text: 'Um.' }, { text: 'Dois.', pose: 'dançando' as never }, { text: 'Três.' }] });
-    expect(validateDraft(d, source).join()).toContain('dançando');
-  });
-
   it('gancho curto e sem cumprimento', () => {
     expect(validateDraft(draft({ hook: 'Oi, amiga! Você dilui errado?' }), source).join()).toContain('cumprimento');
     const d = draft({ narration: [{ text: 'Olá, tudo bem com você?' }, { text: 'Dois.' }, { text: 'Três.' }] });
@@ -281,10 +274,10 @@ describe('validateDraft', () => {
     expect(validateDraft(draft({ hook: 'Oito em cada dez erram a diluição' }), source)).toEqual([]);
   });
 
-  it('barra bordão escrito pelo Claude (o código já acrescenta)', () => {
-    const d = draft({ narration: [{ text: 'Um.' }, { text: 'Senta que a Gotinha te explica tudo.' }, { text: 'Três.' }] });
+  it('barra os bordões da antiga mascote', () => {
+    const d = draft({ narration: [{ text: 'Um.' }, { text: 'Senta aí, que a Gotinha te explica.' }, { text: 'Três.' }] });
     expect(validateDraft(d, source).join()).toContain('bordão');
-    expect(validateDraft(draft({ caption: 'Gotinha falou, tá falado!' }), source).join()).toContain('bordão');
+    expect(validateDraft(draft({ caption: 'Tá falado!' }), source).join()).toContain('bordão');
   });
 });
 
@@ -296,7 +289,7 @@ describe('legenda', () => {
     const c = buildCaption(draft({ share: 'aquela amiga que também dilui no olho' }), t, cta);
     const order = [
       'Você está diluindo errado? 📌 Salva', 'Texto da legenda.', '💬 Qual frasco você usa?', '👯‍♀️ Manda pra aquela amiga que também dilui no olho.',
-      'Me segue (@dosecerta_br)', 'Kit Começo Seguro', 'Não substitui orientação médica', '#tirzepatida',
+      'Segue o @dosecerta_br', 'Kit Começo Seguro', 'Não substitui orientação médica', '#tirzepatida',
     ];
     const at = order.map((s) => c.indexOf(s));
     expect(at.every((i) => i >= 0)).toBe(true);
@@ -419,12 +412,12 @@ describe('InstagramClient', () => {
   it('direct de resposta ao comentário e resposta pública', async () => {
     const { fn, calls } = fakeFetch([{ recipient_id: 'u1', message_id: 'm1' }, { id: 'rep1' }]);
     const ig = new InstagramClient({ ...opts, fetchFn: fn });
-    await ig.privateReply('c99', 'Oi! Aqui é a Gotinha');
+    await ig.privateReply('c99', 'Oi! Aqui está o guia');
     await ig.replyComment('c99', 'Te mandei no direct!');
     expect(calls[0].url).toContain('/17841/messages');
     const body = new URLSearchParams(calls[0].body);
     expect(JSON.parse(body.get('recipient')!)).toEqual({ comment_id: 'c99' });
-    expect(JSON.parse(body.get('message')!)).toEqual({ text: 'Oi! Aqui é a Gotinha' });
+    expect(JSON.parse(body.get('message')!)).toEqual({ text: 'Oi! Aqui está o guia' });
     expect(calls[1].url).toContain('/c99/replies');
     expect(new URLSearchParams(calls[1].body).get('message')).toBe('Te mandei no direct!');
   });
@@ -551,7 +544,7 @@ describe('comenta GUIA (direct)', () => {
     const text = dmText(tirze);
     expect(text).toContain(tirze.title);
     expect(text).toContain(guideUrl(tirze));
-    expect(text).toContain('Gotinha');
+    expect(text).not.toMatch(/gotinha|falado/i);
     expect(dmText(null)).toContain('/ferramentas');
   });
 
@@ -565,9 +558,9 @@ describe('comenta GUIA (direct)', () => {
   it('vídeo e legenda pedem o comentário e o envio', () => {
     const cta = { id: 'I2', slug: tirze.slug, title: tirze.title, priceLabel: 'R$ 29,90', cover: '', others: 6 };
     const speech = ctaSpeech(cta, 'aquela amiga que come correndo');
-    expect(speech).toContain('Comenta guia');
+    expect(speech).toContain('Comenta a palavra guia');
     expect(speech).toContain('manda esse vídeo pra aquela amiga que come correndo');
-    expect(speech.endsWith(BORDAO_FECHAMENTO)).toBe(true);
+    expect(speech).not.toMatch(/gotinha|falado/i);
     expect(ctaLine(cta)).toContain(`Comenta ${DM_KEYWORD}`);
     expect(ctaLine(null)).toContain('calculadoras');
   });
@@ -622,65 +615,127 @@ describe('voz', () => {
       'Comece com 2,5 miligramas e 250 microgramas, 10 unidades, 5 por cento',
     );
   });
+
+  it('pronúncia de marca, estudo, sigla e seringa; singular abaixo de 2', () => {
+    expect(toSpeech('Parou o Mounjaro? No SURMOUNT-4, a ANVISA e o GLP-1.')).toBe(
+      'Parou o Munjáro? No Sarmáunt 4, a Anvisa e o gê éle pê um.',
+    );
+    expect(toSpeech('Na U-100, 1 unidade é 0,01 ml; 0,5 ml, 1 ml e 2 ml. Não é mg, NEM CNPJ.')).toBe(
+      'Na u 100, 1 unidade é 0,01 mililitro; 0,5 mililitro, 1 mililitro e 2 mililitros. Não é miligrama, nem CNPJ.',
+    );
+    expect(toSpeech('BPC-157 e TB-500 vs GHK-Cu: 14% e 5mg')).toBe(
+      'bê pê cê cento e cinquenta e sete e tê bê quinhentos versus gê agá cá cobre: 14 por cento e 5 miligramas',
+    );
+  });
+
+  it('legenda volta à palavra original', () => {
+    const { spoken, segments } = speechPlan('No SURMOUNT-4, 14% voltou.');
+    // A voz marca as palavras faladas; a legenda junta as de cada trecho.
+    const said = ['No', 'Sarmáunt', '4', '14', 'por', 'cento', 'voltou'].map((text, i) => ({ text, start: i, end: i + 0.5 }));
+    expect(relabel(said, spoken, segments)).toEqual([
+      { text: 'No', start: 0, end: 0.5 },
+      { text: 'SURMOUNT-4', start: 1, end: 2.5 },
+      { text: '14%', start: 3, end: 5.5 },
+      { text: 'voltou', start: 6, end: 6.5 },
+    ]);
+  });
 });
 
-describe('Gotinha', () => {
-  const w = (text: string, start: number, end: number) => ({ text, start, end });
-  const words = [w('Você', 0.3, 0.6), w('guarda', 0.62, 1.0), w('errado?', 1.4, 1.9)];
+describe('visual papel (cenas)', () => {
+  const scene = (over: Partial<Scene> = {}): Scene => ({
+    chip: 'os estudos', kicker: 'no maior estudo', title: 'Perda média', accent: 'de 2.5 mg', tone: 'azul',
+    speech: 'No estudo, a dose foi de 2.5 mg por semana.', visual: { type: 'numero', value: '2.5 mg', note: 'dose do estudo' }, ...over,
+  });
+  const withScenes = (scenes: Scene[]) => draft({ narration: undefined, scenes });
+  const source = 'Dose típica: 2.5 mg por semana. Frascos de 5 mg e 10 mg.';
 
-  it('toda pose tem dica para o Claude', () => {
-    expect(POSES.length).toBe(8);
-    for (const p of POSES) expect(POSE_HINTS[p].length, p).toBeGreaterThan(10);
+  it('divide o título em duas linhas equilibradas, sem quebrar palavra', () => {
+    expect(splitTitle('Mata a gordura da barriga?')).toEqual(['Mata a gordura', 'da barriga?']);
+    expect(splitTitle('Retatrutida')).toEqual(['Retatrutida', '']);
+    expect(titleSize('CURTO', '', 100)).toBe(100);
+    expect(titleSize('UM TÍTULO BEM MAIS COMPRIDO QUE O NORMAL', '', 100)).toBeLessThan(60);
   });
 
-  it('boca cobre a cena sem buraco, fechada nas pausas e mexendo nas palavras', () => {
-    const segs = mouthTrack(words, 2.4);
-    expect(segs[0].start).toBe(0);
-    expect(segs.at(-1)?.end).toBe(2.4);
-    segs.slice(1).forEach((s, i) => expect(s.start).toBeCloseTo(segs[i].end));
-    const at = (t: number) => segs.find((s) => t >= s.start && t < s.end)?.mouth;
-    expect(at(0.1)).toBe('fechada'); // antes da fala
-    expect(at(1.2)).toBe('fechada'); // pausa entre "guarda" e "errado?"
-    expect(at(2.2)).toBe('fechada'); // depois da fala
-    expect(at(0.31)).toBe('aberta');
-    expect(at(0.61)).not.toBe('fechada'); // 0,02 s entre palavras não fecha a boca
-    expect(new Set(segs.filter((s) => s.start >= 1.4 && s.end <= 1.9).map((s) => s.mouth)).size).toBeGreaterThan(1);
-    expect(at(1.89)).toBe('o'); // "errado?" termina em o
+  it('frases da narração antiga, juntando as muito curtas', () => {
+    expect(sentences('Primeira frase bem completa aqui. Curta. Outra frase completa que segue.')).toEqual([
+      'Primeira frase bem completa aqui. Curta.', 'Outra frase completa que segue.',
+    ]);
   });
 
-  it('piscadas determinísticas, curtas e espaçadas', () => {
-    const a = blinkTrack(20, 3);
-    expect(a).toEqual(blinkTrack(20, 3));
-    expect(a).not.toEqual(blinkTrack(20, 4));
-    expect(a.length).toBeGreaterThanOrEqual(4);
-    a.forEach((b) => expect(b.end - b.start).toBeCloseTo(BLINK));
-    a.slice(1).forEach((b, i) => {
-      const gap = b.start - a[i].end;
-      expect(gap).toBeGreaterThanOrEqual(BLINK_GAP[0]);
-      expect(gap).toBeLessThanOrEqual(BLINK_GAP[1]);
-    });
-    expect(a.at(-1)!.end).toBeLessThan(20);
+  it('texto antigo (só narration) vira uma cena por frase; o novo usa as cenas dele', () => {
+    const old = scenesFor(draft(), topic('x'));
+    expect(old.length).toBeGreaterThanOrEqual(1);
+    expect(old[0].tone).toBe('vermelho');
+    const novo = [scene(), scene({ title: 'Outra' })];
+    expect(scenesFor(withScenes(novo), topic('x'))).toBe(novo);
   });
 
-  it('linha do tempo junta boca e piscada, contígua de 0 ao fim', () => {
-    const tl = mascotTimeline(words, 6, 1);
-    expect(tl[0].start).toBe(0);
-    expect(tl.at(-1)?.end).toBe(6);
-    tl.slice(1).forEach((s, i) => expect(s.start).toBeCloseTo(tl[i].end));
-    expect(tl.some((s) => s.blink)).toBe(true);
-    expect(tl.some((s) => s.mouth === 'aberta')).toBe(true);
+  it('valida cenas: número fora da fonte, limites e forma do desenho', () => {
+    const ok = Array.from({ length: 8 }, () => scene());
+    expect(validateDraft(withScenes(ok), source)).toEqual([]);
+    expect(validateDraft(withScenes(ok.slice(0, 3)), source)).toContainEqual(expect.stringContaining('3 cenas'));
+    const fora = [...ok.slice(1), scene({ visual: { type: 'numero', value: '9 mg', note: 'x' } })];
+    expect(validateDraft(withScenes(fora), source)).toContainEqual(expect.stringContaining('9 mg'));
+    const ruim = [...ok.slice(1), scene({ visual: { type: 'linha', steps: ['a'], current: 3 } })];
+    const p = validateDraft(withScenes(ruim), source);
+    expect(p).toContainEqual(expect.stringContaining('1 etapas'));
+    expect(p).toContainEqual(expect.stringContaining('current'));
+    expect(validateDraft(draft({ narration: undefined }), source)).toContainEqual(expect.stringContaining('sem cenas'));
   });
 
-  it('toda pose e toda boca desenham sem erro', async () => {
+  it('animação: título entra, partes do desenho seguem a fala, cena sai no fim', () => {
+    expect(titleLine({ t: 0, dur: 5 }, 0)).toEqual({ y: 1, opacity: 0 });
+    expect(titleLine({ t: 1, dur: 5 }, 1)).toEqual({ y: 0, opacity: 1 });
+    expect(titleLine({ t: 0.2, dur: 5 }, 0).y).toBeLessThan(titleLine({ t: 0.2, dur: 5 }, 1).y);
+    const starts = [0, 1, 2].map((k) => partStart({ t: 0, dur: 5 }, k, 3));
+    starts.slice(1).forEach((s, i) => expect(s).toBeGreaterThan(starts[i]));
+    expect(starts[2]).toBeLessThan(5 * 0.7);
+    expect(partStart({ t: 0, dur: 5, keepIn: true }, 2, 3)).toBeLessThan(0);
+    expect(exitAt({ t: 1, dur: 5 })).toBe(0);
+    expect(exitAt({ t: 5, dur: 5 })).toBe(1);
+  });
+
+  it('número conta mantendo casas e separador', () => {
+    expect(countUp('28,3%', 1)).toBe('28,3%');
+    expect(countUp('28,3%', 0.5)).toBe('14,2%');
+    expect(countUp('2.339', 0.5)).toBe('1.170');
+    expect(countUp('365 dias', 0)).toBe('0 dias');
+    expect(countUp('Não aprovado', 0.3)).toBe('Não aprovado');
+  });
+
+  it('legenda: bloco certo e idade do bloco', () => {
+    const beats = [{ chunk: 0, active: 0, start: 0, end: 0.4 }, { chunk: 0, active: 1, start: 0.4, end: 1 }, { chunk: 1, active: 0, start: 1, end: 2 }];
+    expect(captionAt(beats, 0.5)).toEqual({ chunk: 0, active: 1, age: 0.5 });
+    expect(captionAt(beats, 1.25)?.age).toBeCloseTo(0.25);
+    expect(captionAt(beats, 3)).toBeNull();
+  });
+
+  it('slide do carrossel por tipo', () => {
+    expect(carouselSlide({ title: '28 dias', body: 'x', layout: 'numero' }, 0, 'x').visual).toEqual({ type: 'numero', value: '28 dias', note: '' });
+    expect(carouselSlide({ title: 'Faça', body: 'Um\nDois', layout: 'passos' }, 0, 'x').visual?.type).toBe('lista');
+    expect(carouselSlide({ title: 'Crença', body: 'Verdade.', layout: 'mito' }, 0, 'x').tone).toBe('vermelho');
+  });
+
+  it('todo tipo de desenho renderiza no quadro do Reels', async () => {
     const { renderPng } = await import('@/scripts/social/render');
-    const { default: Gotinha } = await import('@/scripts/social/mascot');
+    const { ReelScene, REEL } = await import('@/scripts/social/papel');
     const { createElement } = await import('react');
-    const size = { width: 120, height: 125 };
-    for (const pose of POSES) {
-      for (const mouth of MOUTHS) {
-        const el = createElement('div', { style: { display: 'flex', ...size } }, createElement(Gotinha, { pose, mouth, blink: mouth === 'meia', size: 120 }));
-        expect((await renderPng(el, size)).length, `${pose}/${mouth}`).toBeGreaterThan(500);
+    const visuals: Scene['visual'][] = [
+      { type: 'frasco', label: 'Retatrutida', liquid: 'amarelo', tag: 'sem registro', stamp: 'Não aprovado' },
+      { type: 'frascos', left: { label: 'Estudo', note: 'controlado' }, right: { label: '???', liquid: 'po', note: 'sem laudo' }, sign: '≠' },
+      { type: 'numero', value: '28,3%', note: 'perda média' },
+      { type: 'barras', bars: [{ label: 'A', value: 28.3, display: '28,3%' }, { label: 'B', value: 2, display: '2%' }] },
+      { type: 'pontos', total: 100, marked: 11, note: 'de cada 100' },
+      { type: 'linha', steps: ['fase 3', 'FDA', 'ANVISA'], current: 0, note: 'hoje' },
+      { type: 'lista', items: [{ text: 'Um', mark: 'ok' }, { text: 'Dois', mark: 'nao' }, { text: 'Três', mark: 'duvida' }] },
+      { type: 'icone', icon: 'lupa', note: 'confira' },
+      { type: 'carimbo', text: 'Mito', note: 'não é bem assim' },
+    ];
+    for (const v of visuals) {
+      for (const t of [0, 0.4, 1.2, 4.95]) {
+        const png = await renderPng(createElement(ReelScene, { scene: scene({ visual: v }), clock: { t, dur: 5 } }), REEL);
+        expect(png.length, `${v.type} t=${t}`).toBeGreaterThan(5000);
       }
     }
-  }, 60_000);
+  }, 120_000);
 });

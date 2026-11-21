@@ -11,14 +11,50 @@ const DAY = 24 * 60 * 60 * 1000;
 
 /**
  * Prioridade do tema pelo que mais engaja o público (mulheres de 30 a 55 com caneta GLP-1; pesquisa
- * de 2026 em docs/instagram-setup.md, Parte 8): 2 = dúvida prática de GLP-1 que gera busca e envio
+ * de 2026 em docs/instagram-setup.md, Parte 8): 3 = VIRAL_RANK; 2 = dúvida prática de GLP-1 que gera busca e envio
  * (enjoo, dose esquecida, guardar, unidades, efeito colateral, falsificação, parar o remédio);
  * 1 = resto de GLP-1, cagrilintida (CagriSema) e pele; 0 = demais peptídeos.
  */
 const VIRAL =
   /dose-esquecida|nausea|efeitos-colaterais|como-guardar|faz-efeito|efeito-rebote|falso|quantas-unidades|seringa|semaglutida-vs-tirzepatida$|retatrutida-no-brasil|manipulada|sem-diabetes|frasco-reconstituido|como-reconstituir-(tirzepatida|semaglutida)|agua-bacteriostatica/;
 
-export function topicPriority(t: Topic): number {
+/**
+ * Os mais virais do nicho no Instagram brasileiro (levantamento de 21/11/2026: Reels com mais
+ * visualizações de perfis de GLP-1), em ordem: saem primeiro no Reels, nesta ordem, antes do resto.
+ * "Parou a caneta, a fome volta", traços da seringa, caneta falsa, "a aplicação dura 7 dias?",
+ * dose esquecida, medo de efeito colateral, "Mounjaro 2.0"...
+ */
+export const VIRAL_RANK = [
+  'post:efeito-rebote-apos-parar-tirzepatida',
+  'post:seringa-insulina-30-50-100-unidades',
+  'post:mounjaro-falso-como-identificar',
+  'post:quanto-tempo-tirzepatida-faz-efeito',
+  'post:dose-esquecida-semaglutida-tirzepatida',
+  'post:efeitos-colaterais-tirzepatida',
+  'post:retatrutida-vs-tirzepatida-estudos',
+  'post:nausea-tirzepatida-como-lidar',
+  'post:onde-aplicar-tirzepatida-semaglutida',
+  'post:quantas-unidades-tirzepatida-semaglutida',
+  'post:semaglutida-vs-tirzepatida',
+  'post:efeito-rebote-apos-parar-semaglutida',
+  'post:ozempic-falso-como-identificar',
+  'post:retatrutida-no-brasil-anvisa',
+  // Outros peptídeos que viralizaram (GHK-Cu na pele, BPC-157 "Wolverine", BPC-157 + TB-500,
+  // retatrutida "Mounjaro 2.0"): sempre com o que falta de estudo em humanos e de registro.
+  'post:ghk-cu-para-que-serve',
+  'peptide:bpc-157',
+  'comparison:bpc-157-vs-tb-500',
+  'post:retatrutida-o-que-e',
+  'post:ghk-cu-vitamina-c-retinol-acidos',
+  'post:tb-500-para-que-serve',
+  'comparison:bpc-157-vs-ghk-cu',
+  'post:bpc-157-ciclo-duracao',
+];
+const rank = (t: Topic) => VIRAL_RANK.indexOf(t.id);
+
+/** No carrossel, os do ranking ficam abaixo das outras dúvidas práticas: são do Reels. */
+export function topicPriority(t: Topic, format: Format = 'reels'): number {
+  if (rank(t) >= 0) return format === 'reels' ? 3 : 1.5;
   if (VIRAL.test(t.id)) return 2;
   if (['glp-1', 'cosmetic'].includes(t.category) || t.id.includes('cagrilintida')) return 1;
   return 0;
@@ -34,7 +70,7 @@ export function topicPriority(t: Topic): number {
 export function pickTopic(
   topics: Topic[],
   history: HistoryEntry[],
-  _format: Format,
+  format: Format,
   now: Date,
   exclude: Set<string> = new Set(),
 ): Topic | undefined {
@@ -66,8 +102,11 @@ export function pickTopic(
   const spaced = allRested.filter((t) => topicPriority(t) > 0 || !t.peptides.some((p) => recent.has(p)));
   const rested = spaced.length > 0 ? spaced : allRested;
 
-  const top = Math.max(...rested.map(topicPriority));
-  const fresh = rested.filter((t) => topicPriority(t) === top);
+  const prio = (t: Topic) => topicPriority(t, format);
+  const top = Math.max(...rested.map(prio));
+  const fresh = rested.filter((t) => prio(t) === top);
+  // Os do ranking saem na ordem dele, sem alternar categoria.
+  if (top === 3) return [...fresh].sort((a, b) => byOldest(a, b) || rank(a) - rank(b))[0];
   const otherCategory = fresh.filter((t) => t.category !== lastCategory);
   const candidates = otherCategory.length > 0 ? otherCategory : fresh;
   // sort é estável: empates mantêm a ordem original.

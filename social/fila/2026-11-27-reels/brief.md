@@ -9,115 +9,108 @@ Se sair "REPROVADO", corrija só o que a lista aponta e rode de novo.
 
 ## PEDIDO
 
-TEMA: Como reconstituir semaglutida: passo a passo com seringa de insulina
+TEMA: Retatrutida × tirzepatida: o que os estudos mediram e por que não dá para comparar direto
 
 FONTE:
-Título: Como reconstituir semaglutida: passo a passo com seringa de insulina
+Título: Retatrutida × tirzepatida: o que os estudos mediram e por que não dá para comparar direto
 
-Resumo: Para reconstituir semaglutida 5 mg: limpe a tampa de ambos os frascos com álcool, puxe 2 ml de água bacteriostática, introduza no frasco de semaglutida escorrendo pela lateral, gire suavemente (nunca agite) até dissolver, e armazene refrigerado. Cada dose de 0,25 mg equivale a 10 unidades na seringa de insulina.
+Resumo: No SURMOUNT-1 (NEJM, 2022), a tirzepatida 15 mg levou a perda média de 20,9% em 72 semanas contando todos os participantes. No TRIUMPH-1 (comunicado da Lilly, maio de 2026), a retatrutida 12 mg levou a 25,0% em 80 semanas na mesma conta, e 28,3% entre quem seguiu o tratamento. Os estudos tiveram populações, durações e pesos iniciais diferentes e nunca colocaram as duas drogas no mesmo grupo de comparação. O estudo que compara as duas diretamente, o TRIUMPH-5, ainda não tem resultado. E só a tirzepatida é aprovada.
 
-A semaglutida (Ozempic®, Wegovy®, Rybelsus®) é hoje o agonista GLP-1 mais usado no Brasil tanto para controle glicêmico quanto para manejo de peso. Quando comprada em frasco (não pen), ela vem como pó liofilizado e precisa ser reconstituída com água bacteriostática antes do uso. Este guia explica o procedimento passo a passo.
+Quem pesquisa retatrutida quase sempre chega à mesma pergunta: ela é melhor que a tirzepatida? Os números de perda de peso da retatrutida são maiores, e é tentador colocar um ao lado do outro e tirar a conclusão. Este texto mostra o que cada estudo mediu de fato e por que essa comparação direta engana. Se você quer só a tabela das duas moléculas (mecanismo, meia-vida, status), ela está em Tirzepatida vs Retatrutida. Aqui o assunto são os estudos.
 
-a semaglutida em pen (canetas Ozempic/Wegovy) já vem pronta para uso e **não** precisa de reconstituição. Este guia trata apenas dos frascos com pó.
+a tirzepatida é aprovada (Mounjaro, Zepbound). A retatrutida é **experimental** e não tem aprovação em nenhum país. As doses citadas abaixo são as que os ensaios usaram, não orientação de uso.
 
-## O que você vai precisar
+## Os dois estudos principais
 
-- **Frasco de semaglutida** (tipicamente 3 mg ou 5 mg)
-- **Água bacteriostática** (solução 0,9% com álcool benzílico)
-- **Seringa de insulina** (100 U/ml — as mais comuns têm 50 U)
-- **Agulha extra** para aspirar a água (opcional, reduz contaminação)
-- **Álcool 70%** e algodão
+O estudo de referência da tirzepatida para obesidade é o **SURMOUNT-1**, publicado no NEJM em 2022. O da retatrutida é o **TRIUMPH-1**, com resultados divulgados pela Eli Lilly em 21 de maio de 2026. Os dois são da mesma empresa, controlados por placebo e em pessoas sem diabetes. As semelhanças param aí.
 
-## Passo 1 — Preparação
+| | SURMOUNT-1 (tirzepatida) | TRIUMPH-1 (retatrutida) |
+| --- | --- | --- |
+| Participantes | 2.539 | 2.339 |
+| População | Obesidade, ou sobrepeso com comorbidade, sem diabetes | Obesidade, ou sobrepeso com comorbidade, sem diabetes |
+| Duração | 72 semanas | 80 semanas |
+| Doses-alvo | 5, 10 e 15 mg por semana | 4, 9 e 12 mg por semana |
+| Peso médio no início | cerca de 105 kg | 112,7 kg (IMC médio 40,0) |
+| Perda média na dose mais alta, todos os participantes | 20,9% | 25,0% |
+| Perda média na dose mais alta, quem seguiu o tratamento | 22,5% | 28,3% |
+| Placebo, todos os participantes | 3,1% | 3,9% |
+| Abandono por efeito adverso na dose mais alta | 6,2% (placebo 2,6%) | 11,3% (placebo 4,9%) |
 
-1. Lave as mãos com água e sabão
-2. Limpe a tampa de borracha do frasco de semaglutida e do frasco de água bacteriostática com álcool 70%
-3. Deixe secar ao ar por 10 segundos
+Fontes: NEJM 2022 e comunicado da Lilly sobre o SURMOUNT-1; comunicado da Lilly de 21/05/2026 sobre o TRIUMPH-1. Os resultados completos do TRIUMPH-1 em revista científica podem trazer números ligeiramente diferentes dos do comunicado.
 
-## Passo 2 — Decidir a proporção
+A subida de dose também foi diferente. A tirzepatida começa em 2,5 mg e sobe 2,5 mg a cada 4 semanas, como na bula. A retatrutida, na fase 3, começou em 2 mg e subiu a cada 4 semanas na escada 2 → 4 → 6 → 9 → 12 mg.
 
-Esta é a etapa onde mais gente erra. A quantidade de água que você adiciona determina a concentração final — e portanto quantas unidades da seringa você vai precisar puxar em cada dose.
+## Duas contas para o mesmo estudo
 
-Regra geral: **use a calculadora de reconstituição** para evitar erros. Como referência, combinações comuns com frasco de 5 mg:
+Cada estudo divulga dois números de perda de peso, e misturar os dois é o erro mais comum nas comparações que circulam na internet.
 
-| Frasco | Água | Concentração | Dose 0,25 mg |
-| --- | --- | --- | --- |
-| 5 mg | 1 ml | 5 mg/ml | 5 U |
-| 5 mg | 2 ml | 2,5 mg/ml | 10 U |
-| 5 mg | 3 ml | 1,67 mg/ml | 15 U |
+- **Regime de tratamento** (em inglês, *treatment-regimen estimand*): conta todo mundo que entrou no estudo, inclusive quem parou o remédio no meio. É o número mais perto do que acontece na vida real.
+- **Estimativa de eficácia** (*efficacy estimand*): estima o que aconteceria se todos tivessem seguido o tratamento até o fim. É sempre maior.
 
-**Dica:** 10-30 U na seringa é a faixa mais fácil de medir com precisão. Se sua dose ficar abaixo de 5 U, considere adicionar mais água.
+Comparar os 28,3% da retatrutida (eficácia) com os 20,9% da tirzepatida (regime de tratamento) exagera a diferença. Na mesma conta, os pares são 25,0% contra 20,9% e 28,3% contra 22,5%.
 
-## Passo 3 — Aspirar a água
+## Por que, mesmo assim, não dá para comparar
 
-1. Introduza a seringa no frasco de água bacteriostática
-2. Aspire o volume calculado (ex.: 100 U = 1 ml)
-3. Retire as bolhas de ar batendo levemente na seringa
+Mesmo usando a mesma conta, comparar estudos diferentes (o que os pesquisadores chamam de comparação indireta ou "entre ensaios") tem limites que nenhuma tabela resolve:
 
-## Passo 4 — Adicionar ao frasco
+1. **Duração diferente.** O TRIUMPH-1 durou 8 semanas a mais, e tempo muda a média: na extensão do próprio TRIUMPH-1 até 104 semanas, o grupo que começou em 12 mg chegou a 29,9% de perda, contando todos os participantes da extensão.
+2. **Ponto de partida diferente.** Os participantes do TRIUMPH-1 começaram, em média, cerca de 8 kg mais pesados. Um grupo diferente no início pode responder de forma diferente, e a tabela não corrige isso.
+3. **Época e regras diferentes.** Os estudos foram feitos em anos diferentes, cada um com seus critérios de inclusão, centros e rotina de acompanhamento. Nada disso é idêntico entre os dois.
+4. **Placebo diferente.** O placebo do TRIUMPH-1 perdeu 3,9%; o do SURMOUNT-1, 3,1%. Isso já mostra que os grupos não se comportaram igual.
+5. **Doses não equivalentes.** 12 mg de retatrutida e 15 mg de tirzepatida são as doses mais altas de cada estudo, não doses "iguais". As moléculas agem em receptores diferentes e com potências diferentes.
 
-1. Introduza a agulha no frasco de semaglutida **pela lateral**, deixando a água escorrer pela parede interna
-2. **Não** injete diretamente sobre o pó — pode danificar o peptídeo
-3. Retire a agulha sem misturar agressivamente
+A única forma de responder à pergunta é um **estudo frente a frente**, em que as duas drogas são sorteadas entre participantes do mesmo ensaio. Esse estudo existe: o **TRIUMPH-5** (NCT06662383) compara retatrutida e tirzepatida em adultos com obesidade, em regime duplo-cego. Até novembro de 2026 ele não tinha resultado divulgado.
 
-## Passo 5 — Dissolução
+## E a fase 2?
 
-Gire o frasco suavemente entre as palmas das mãos por 30-60 segundos. **Nunca agite** — a agitação desnatura o peptídeo. Espere até que a solução fique completamente transparente. Se ficar turva após 5 minutos de espera, o frasco pode estar comprometido — descarte.
+Antes do TRIUMPH-1, o número mais citado era o da fase 2 da retatrutida (NEJM, 2023): perda média de **24,2% em 48 semanas** com 12 mg, em 338 participantes. É um estudo menor e mais curto, feito para escolher doses, e não substitui a fase 3. Comparar esses 24,2% com os 20,9% do SURMOUNT-1, que durou 72 semanas, tem todos os problemas acima e mais um: o tamanho da amostra.
 
-## Passo 6 — Armazenamento
+## Efeitos colaterais: o que os estudos mostram
 
-- **Geladeira** (2-8°C), na prateleira central — nunca no freezer nem na porta
-- Duração: **28 dias** após reconstituição (recomendação de bula)
-- Use uma etiqueta com data de reconstituição e concentração
+Nas duas moléculas, os efeitos mais comuns foram **gastrointestinais** (náusea, diarreia, vômito e prisão de ventre), concentrados na subida de dose. Duas diferenças aparecem nos dados divulgados:
 
-## Passo 7 — Aplicação
+- **Abandono por efeito adverso.** Na dose mais alta, 6,2% com tirzepatida 15 mg no SURMOUNT-1 e 11,3% com retatrutida 12 mg no TRIUMPH-1. Os placebos também diferem (2,6% e 4,9%), o que reforça o cuidado na comparação.
+- **Disestesia.** Uma sensação anormal na pele (formigamento, ardor, sensibilidade ao toque) foi relatada por 12,5% dos participantes com retatrutida 12 mg no TRIUMPH-1, contra 0,9% no placebo. Não é um efeito típico dos remédios da classe já aprovados.
 
-1. Limpe o local da injeção (abdome, coxa ou braço) com álcool 70%
-2. Puxe a dose calculada com a seringa
-3. Aplique via subcutânea em 90° (agulha curta de insulina) ou 45° (agulhas mais longas)
-4. Descarte a seringa em recipiente apropriado (nunca no lixo comum)
+A lista completa de efeitos está nas fichas da tirzepatida e da retatrutida, e o guia efeitos colaterais da tirzepatida detalha o que é esperado com o remédio aprovado.
 
-## Erros comuns a evitar
+## O que pesa de verdade na escolha hoje
 
-- **Agitar o frasco:** desnatura o peptídeo
-- **Usar água destilada em vez de bacteriostática:** sem conservante, o frasco contamina em ~24h
-- **Reutilizar agulha:** perde esterilidade e fica sem corte
-- **Armazenar em temperatura ambiente por >24h:** degrada a molécula
-- **Calcular "no olho":** erros de dose em GLP-1 podem causar náusea severa
+Na prática, a pergunta "qual é melhor" ainda não tem uma resposta que sirva para decidir. O que existe é:
 
-## Próximos passos
+- A **tirzepatida** tem bula, estudos publicados em vários cenários (SURMOUNT e SURPASS) e registro no Brasil.
+- A **retatrutida** tem resultados de fase 3 promissores, divulgados em grande parte por comunicados da empresa, e nenhuma aprovação. A ANVISA orientou a não usar produtos vendidos com esse nome; os detalhes estão em Retatrutida no Brasil: o que diz a ANVISA.
 
-Depois de ter o frasco reconstituído, o próximo cálculo importante é a **titulação** — você começa em dose baixa (0,25 mg/semana) e sobe gradualmente. Use a calculadora para ajustar cada etapa sem precisar rediluir.
+Para entender a molécula nova, veja Retatrutida: o que é. Para a comparação com a semaglutida, que também é aprovada, veja Semaglutida vs Tirzepatida e a tabela Semaglutida vs Tirzepatida vs Retatrutida. A decisão sobre qualquer tratamento é do médico, com base no seu caso.
 
-Para ver os dados completos da semaglutida — meia-vida, mecanismo, efeitos e referências da FDA — acesse a ficha técnica da semaglutida.
+P: Retatrutida é melhor que tirzepatida?
+R: Ainda não dá para dizer. Os números de perda de peso da retatrutida são maiores, mas vêm de estudos diferentes dos da tirzepatida, com população, duração e peso inicial diferentes. A resposta depende de um estudo que coloque as duas no mesmo ensaio: o TRIUMPH-5 (NCT06662383) faz isso e ainda não divulgou resultado. Além disso, só a tirzepatida tem aprovação.
+P: Quanto se perde de peso com retatrutida e com tirzepatida nos estudos?
+R: No SURMOUNT-1, a tirzepatida 15 mg levou a perda média de 20,9% em 72 semanas contando todos os participantes (22,5% entre quem seguiu o tratamento). No TRIUMPH-1, a retatrutida 12 mg levou a 25,0% em 80 semanas contando todos (28,3% entre quem seguiu). São médias de ensaio, não resultado esperado para cada pessoa.
+P: Por que existem dois números de perda de peso para o mesmo estudo?
+R: Porque há duas formas de contar. A estimativa de regime de tratamento inclui todo mundo que entrou no estudo, inclusive quem parou o remédio. A estimativa de eficácia calcula o que aconteceria se todos tivessem seguido o tratamento. O segundo número é sempre maior. Para comparar estudos, é preciso usar a mesma conta nos dois.
+P: Existe estudo comparando retatrutida e tirzepatida diretamente?
+R: Sim, o TRIUMPH-5, registrado como NCT06662383, que compara as duas em adultos com obesidade, em regime duplo-cego. Até novembro de 2026 ele não tinha resultado divulgado.
+P: A retatrutida tem mais efeitos colaterais que a tirzepatida?
+R: Nos dois estudos, os efeitos mais comuns foram gastrointestinais. O abandono por efeito adverso na dose mais alta foi de 6,2% com tirzepatida 15 mg no SURMOUNT-1 e de 11,3% com retatrutida 12 mg no TRIUMPH-1, e a retatrutida teve um efeito pouco visto na classe, a disestesia (12,5% com 12 mg). Como os estudos são diferentes, nem esses números permitem uma conclusão firme.
 
-P: Semaglutida em caneta precisa ser reconstituída?
-R: Não. As canetas Ozempic e Wegovy já vêm prontas para uso; só o frasco com pó liofilizado precisa ser reconstituído com água bacteriostática.
-P: Quanta água colocar no frasco de semaglutida 5 mg?
-R: Depende de quantas unidades você quer puxar por dose. Com 2 ml, a concentração fica em 2,5 mg/ml e a dose de 0,25 mg equivale a 10 unidades na seringa de insulina; com 1 ml, 5 unidades; com 3 ml, 15 unidades.
-P: Pode agitar o frasco para dissolver?
-R: Não. Agitar desnatura o peptídeo. Gire o frasco suavemente entre as palmas das mãos por 30 a 60 segundos e espere a solução ficar transparente; se continuar turva depois de 5 minutos, descarte.
-P: Quanto tempo dura a semaglutida reconstituída?
-R: 28 dias na geladeira (2-8°C), na prateleira central, nunca no freezer nem na porta.
-P: Posso usar água destilada em vez de bacteriostática?
-R: Não. Sem conservante, o frasco contamina em cerca de 24 horas.
-
-Peptídeo: Semaglutida
+Peptídeo: Retatrutida
 Categoria: GLP-1 / Emagrecimento
-Resumo: Agonista do receptor GLP-1. Usado para controle glicêmico e perda de peso.
-Dose típica: 0.25 mg, 1x por semana (dose inicial, aumentar gradualmente)
-Faixa de dose: 0,25-2,4 mg/semana (subcutâneo, com titulação)
-Meia-vida: ~7 dias
-Frascos comuns: 3 mg, 5 mg
-Status regulatório: Aprovado FDA
-Descrição: A semaglutida é um análogo do peptídeo semelhante ao glucagon tipo 1 (GLP-1), aprovada pela FDA e comercializada como Ozempic (2017, diabetes tipo 2), Rybelsus (oral, 2019) e Wegovy (2021, obesidade). Molécula modificada do GLP-1 humano com substituições de aminoácidos e conjugação a ácido graxo C18, o que permite ligação à albumina e administração semanal.
+Resumo: Agonista triplo GLP-1/GIP/glucagon em desenvolvimento para obesidade e diabetes tipo 2.
+Dose típica: 2 mg, 1x por semana
+Faixa de dose: Ensaios: 1, 4, 8 e 12 mg/semana (fase 2); 4, 9 e 12 mg/semana com início em 2 mg (fase 3)
+Meia-vida: ~6 dias
+Frascos comuns: 5 mg, 10 mg, 60 mg
+Status regulatório: Em desenvolvimento
+Proibido pela WADA no esporte.
+Descrição: Retatrutida (LY3437943) é um peptídeo sintético investigacional da Eli Lilly, atuando como agonista triplo dos receptores GIP, GLP-1 e glucagon. Peptídeo de 39 aminoácidos com cadeia de ácido graxo diácido C20, administração subcutânea semanal. **Importante**: NÃO está aprovada por qualquer agência (FDA, EMA, ANVISA). Em julho de 2026 a ANVISA informou que não há pedido de registro e orientou a não usar produtos vendidos como retatrutida. Os ensaios de fase 3 TRIUMPH-1, 2, 3 e 4 já tiveram resultados divulgados; outros seguem em andamento.
 
-Indicada para diabetes tipo 2 em adultos e manejo crônico de peso em obesidade (IMC ≥ 30) ou sobrepeso (IMC ≥ 27) com comorbidade. Ensaios de fase 3 (SUSTAIN e STEP) demonstraram perda ponderal média de 10-15% com 2,4 mg/semana. Em 2024 a FDA também aprovou para redução de risco cardiovascular em adultos com DCV estabelecida e obesidade/sobrepeso.
-Mecanismo: Agonista seletivo do receptor GLP-1, amplamente expresso em células beta pancreáticas, neurônios do SNC (hipotálamo, tronco cerebral), TGI e miocárdio. A ativação aumenta secreção de insulina glicose-dependente, suprime glucagon, retarda esvaziamento gástrico e atua em centros de saciedade, reduzindo ingestão calórica.
+Na fase 2 (NEJM 2023), a perda ponderal média foi de 24,2% em 48 semanas com 12 mg/semana em pessoas sem diabetes. No TRIUMPH-1 (fase 3, NEJM 2026, 80 semanas), a média com 12 mg foi de 25,0% contando todos os participantes e de 28,3% considerando quem manteve o tratamento. No TRIUMPH-4 (68 semanas, comunicado da empresa de dezembro de 2025), 23,7% e 28,7% nas mesmas duas contas.
+Mecanismo: Ativa simultaneamente receptores de GLP-1, GIP e glucagon. GLP-1 e GIP reproduzem os efeitos observados nos análogos existentes (insulina glicose-dependente, supressão de glucagon pós-prandial, retardo do esvaziamento gástrico, modulação do apetite). A hipótese dos autores dos ensaios é que o agonismo ao receptor de glucagon aumente o gasto energético e a mobilização de gordura no fígado, contribuindo para a perda ponderal adicional e para a redução de gordura hepática; isso ainda não foi demonstrado diretamente em humanos.
 
-A modificação estrutural (ácido graxo C18 ligado ao Lys26) confere alta afinidade pela albumina sérica, reduzindo depuração renal e degradação por DPP-4 — resultando em meia-vida plasmática de ~1 semana.
-Efeitos colaterais: Náusea (>20% em Ozempic; até 44% em Wegovy); Vômito; Diarreia; Constipação; Dor abdominal; Reações no local da injeção
-Contraindicações: História pessoal ou familiar de carcinoma medular de tireoide (CMT); Síndrome de Neoplasia Endócrina Múltipla tipo 2 (NEM 2); Hipersensibilidade grave à semaglutida ou excipientes; Gestação (uso não recomendado)
+Estudos farmacológicos indicam menor potência relativa a GLP-1/glucagon humanos em comparação aos ligantes nativos, com maior potência relativa ao GIP. Conjugação a ácido graxo C20 confere meia-vida compatível com dosagem semanal.
+Efeitos colaterais: Náusea (fase 2: 45% com 12 mg e até 60% com início em dose mais alta; fase 3: até ~43%); Diarreia (fase 3: até ~35%); Constipação (fase 3: até ~26%); Vômito (fase 3: até ~25%); Diminuição do apetite; Disestesia (sensações cutâneas anormais), mais frequente nas doses altas: até ~21% com 12 mg em um ensaio de fase 3
+Contraindicações: Medicamento experimental — contraindicações formais ainda não estabelecidas em bula; Exclusões dos ensaios: história pessoal/familiar de CMT ou NEM 2; História de pancreatite; Gravidez e lactação; Hipersensibilidade à formulação
 
 Peptídeo: Tirzepatida
 Categoria: GLP-1 / Emagrecimento

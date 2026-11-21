@@ -15,6 +15,11 @@ export const LAYOUT_HINTS: Record<SlideLayout, string> = {
 
 export const NUMBER_TITLE_MAX = 14;
 
+/** Selo do topo do slide, por tipo (o padrão usa o do tema). */
+export const LAYOUT_TAG: Partial<Record<SlideLayout, string>> = {
+  mito: 'mito ou verdade', passos: 'passo a passo', lado: 'lado a lado', numero: 'o número', pergunta: 'a pergunta',
+};
+
 /** Linhas não vazias do corpo (passos e lado a lado). */
 export function lines(body: string): string[] {
   return body.split('\n').map((l) => l.trim()).filter(Boolean);

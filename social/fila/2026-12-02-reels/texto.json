@@ -1,84 +1,235 @@
 {
-  "hook": "Tirzepatida manipulada é igual ao Mounjaro? Não é.",
-  "hookIcon": "balanca",
-  "hookPose": "pensando",
+  "hook": "Você confere se o lote da caixa é o mesmo da caneta?",
+  "hookIcon": "duvida",
   "slides": [
     {
-      "title": "Manipulada é genérico do Mounjaro",
-      "body": "É cópia, não genérico. A farmácia de manipulação recebe a tirzepatida como matéria-prima e fraciona em frascos. Não é o mesmo produto do Mounjaro.",
-      "icon": "frasco",
-      "pose": "explicando",
-      "layout": "mito"
+      "title": "O lote da caixa precisa bater com o da caneta?",
+      "layout": "pergunta",
+      "body": "Precisa. O número de lote impresso na caixa deve ser o mesmo impresso na caneta, que vem dentro dela. Número diferente é sinal de alerta.",
+      "icon": "lupa"
     },
     {
-      "title": "A pureza pode variar",
-      "body": "Matéria-prima de fornecedor não farmacêutico pode ter impurezas acima de 2%, e a estabilidade não tem estudos equivalentes aos da indústria.",
-      "icon": "microscopio",
-      "pose": "pensando",
-      "layout": "padrao"
+      "title": "O que olhar na caixa",
+      "layout": "padrao",
+      "body": "Impressão de alta qualidade, cor azul consistente, nenhum erro de ortografia. Fabricante Novo Nordisk A/S e bula em português, em papel.",
+      "icon": "prancheta"
     },
     {
-      "title": "Até 20%",
-      "body": "É a variação que pode haver entre o que diz o rótulo e o que está no frasco. Por isso, a mesma dose de antes não é a mesma coisa.",
-      "icon": "regua",
-      "pose": "ih",
-      "layout": "numero"
+      "title": "Caneta original e caneta suspeita",
+      "layout": "lado",
+      "body": "Original: rótulo de fábrica, solução cristalina\nSuspeita: rótulo adesivo, partículas no líquido",
+      "icon": "frasco"
     },
     {
-      "title": "Já usava Mounjaro, começo na mesma dose?",
-      "body": "Não. Mesmo com experiência prévia com Mounjaro, o cuidado é começar em dose baixa. Quem define a dose e a subida é o seu médico.",
-      "icon": "grafico-sobe",
-      "pose": "explicando",
-      "layout": "pergunta"
+      "title": "Bula numa folha avulsa é normal",
+      "layout": "mito",
+      "body": "Não é. A bula original vem em português, em papel, dentro da caixa. Folha avulsa impressa é sinal de falsificação.",
+      "icon": "errado"
     },
     {
-      "title": "Farmácia confiável tem",
-      "body": "Registro na ANVISA e alvará visíveis\nCOA do peptídeo com cada frasco\nResultado de HPLC\nFarmacêutico responsável identificado",
-      "icon": "escudo",
-      "pose": "piscadinha",
-      "layout": "passos"
+      "title": "Confira na ANVISA",
+      "layout": "padrao",
+      "body": "Em consultas.anvisa.gov.br, busque Ozempic: o registro válido é da Novo Nordisk Farmacêutica. Compare seu lote com os alertas recentes, que listam lotes falsificados.",
+      "icon": "escudo"
     },
     {
-      "title": "Entregou sem receita?",
-      "body": "Fuja. Prescrição médica é obrigatória. Farmácia que entrega sem receita está ignorando a regra mais básica.",
-      "icon": "proibido",
-      "pose": "alerta",
-      "layout": "pergunta"
+      "title": "Desconfiei. E agora?",
+      "layout": "pergunta",
+      "body": "Não aplique. Fotografe a embalagem e a caneta e notifique a ANVISA pelo Notivisa. Já aplicou e apareceu sintoma anormal? Pronto-socorro.",
+      "icon": "alerta"
     },
     {
-      "title": "Em casa, o cuidado continua",
-      "body": "Geladeira entre 2 e 8 °C desde o recebimento, reconstituição com água bacteriostática e conta certa das unidades na seringa.",
-      "icon": "geladeira",
-      "pose": "explicando",
-      "layout": "padrao"
-    },
-    {
-      "title": "Sua cola",
-      "body": "Manipulada não é Mounjaro\nExija COA e HPLC, farmacêutico identificado e receita\nComece em dose baixa e com acompanhamento médico periódico",
-      "icon": "certo",
-      "pose": "apontando",
-      "layout": "passos"
+      "title": "Cola da caixa nova",
+      "layout": "passos",
+      "body": "Lote da caixa igual ao da caneta\nRótulo de fábrica, não adesivo\nSolução cristalina, sem partículas\nDesconfiou: não aplique e notifique",
+      "icon": "certo"
     }
   ],
-  "narration": [
+  "scenes": [
     {
-      "text": "Tirzepatida manipulada é igual ao Mounjaro? Não é. E muita gente troca e já começa na mesma dose de antes.",
-      "pose": "pensando"
+      "chip": "a mania",
+      "kicker": "caixa nova na mão",
+      "title": "Abriu a caixa",
+      "accent": "e nem olhou o lote?",
+      "tone": "vermelho",
+      "speech": "Você abre a caixa do Ozempic e nem olha se o lote da caixa é o mesmo da caneta?",
+      "visual": {
+        "type": "frascos",
+        "left": { "label": "CAIXA", "note": "lote ???" },
+        "right": { "label": "CANETA", "note": "lote ???", "liquid": "claro" },
+        "sign": "vs"
+      }
     },
     {
-      "text": "A farmácia recebe a tirzepatida como matéria-prima e divide em frascos. É uma cópia, não um genérico: pureza e dose exata podem variar.",
-      "pose": "explicando"
+      "chip": "a mania",
+      "kicker": "por que isso importa",
+      "title": "A falsificação",
+      "accent": "cresceu",
+      "tone": "vermelho",
+      "speech": "Com a procura explodindo desde 2022, a falsificação do Ozempic cresceu, e a ANVISA soltou vários alertas.",
+      "visual": {
+        "type": "linha",
+        "steps": ["2022", "2023", "2025"],
+        "current": 2,
+        "note": "alertas da ANVISA entre 2023 e 2025"
+      },
+      "source": "ANVISA"
     },
     {
-      "text": "Pode haver até 20% de diferença entre a dose real e o rótulo. Por isso, mesmo quem já usou Mounjaro começa em dose baixa, com o médico.",
-      "pose": "alerta"
+      "chip": "o lote",
+      "kicker": "o primeiro teste",
+      "title": "Lote da caixa",
+      "accent": "igual ao da caneta",
+      "tone": "azul",
+      "speech": "O primeiro teste é esse: o número de lote da caixa precisa bater com o lote impresso na caneta.",
+      "visual": {
+        "type": "icone",
+        "icon": "lupa",
+        "note": "os dois números precisam ser iguais"
+      }
     },
     {
-      "text": "Farmácia confiável mostra o COA com HPLC, tem farmacêutico responsável e exige receita. Manipulada e Mounjaro: parecidos no nome, não no frasco.",
-      "pose": "apontando"
+      "chip": "a caixa",
+      "kicker": "olhe com calma",
+      "title": "Impressão",
+      "accent": "caprichada",
+      "tone": "azul",
+      "speech": "Na caixa, a impressão é de alta qualidade, o azul é o mesmo em tudo e não tem erro de ortografia.",
+      "visual": {
+        "type": "lista",
+        "items": [
+          { "text": "Impressão nítida", "mark": "ok" },
+          { "text": "Azul sem variação", "mark": "ok" },
+          { "text": "Erro de ortografia", "mark": "nao" }
+        ]
+      }
+    },
+    {
+      "chip": "a caixa",
+      "kicker": "quem fabrica",
+      "title": "Novo Nordisk",
+      "accent": "e bula em português",
+      "tone": "azul",
+      "speech": "O fabricante é a Novo Nordisk, e a bula vem em português, em papel, e não numa folha avulsa.",
+      "visual": {
+        "type": "icone",
+        "icon": "prancheta",
+        "note": "bula em papel, dentro da caixa"
+      }
+    },
+    {
+      "chip": "a caneta",
+      "kicker": "olhe o rótulo",
+      "title": "Rótulo de fábrica",
+      "accent": "não adesivo",
+      "tone": "azul",
+      "speech": "Na caneta, o rótulo é impresso de fábrica, e não um adesivo colado por cima.",
+      "visual": {
+        "type": "frasco",
+        "label": "OZEMPIC",
+        "liquid": "claro",
+        "tag": "ADESIVO?"
+      }
+    },
+    {
+      "chip": "a caneta",
+      "kicker": "olhe o líquido",
+      "title": "Solução",
+      "accent": "cristalina",
+      "tone": "azul",
+      "speech": "A solução precisa ser cristalina, sem partículas, e o seletor de dose gira sem travar.",
+      "visual": {
+        "type": "frasco",
+        "label": "SEMAGLUTIDA",
+        "liquid": "claro",
+        "tag": "SEM PARTÍCULA"
+      }
+    },
+    {
+      "chip": "a ANVISA",
+      "kicker": "a conferência oficial",
+      "title": "Consulte",
+      "accent": "o registro",
+      "tone": "azul",
+      "speech": "Dá pra conferir no site de consultas da ANVISA: o registro válido do Ozempic é da Novo Nordisk Farmacêutica.",
+      "visual": {
+        "type": "carimbo",
+        "text": "REGISTRO VÁLIDO",
+        "note": "consultas.anvisa.gov.br"
+      },
+      "source": "ANVISA"
+    },
+    {
+      "chip": "a ANVISA",
+      "kicker": "e os lotes falsos",
+      "title": "Compare com",
+      "accent": "os alertas",
+      "tone": "azul",
+      "speech": "E compare o seu lote com os alertas recentes, que listam os lotes falsificados.",
+      "visual": {
+        "type": "icone",
+        "icon": "alerta",
+        "note": "alertas listam lotes falsificados"
+      },
+      "source": "ANVISA"
+    },
+    {
+      "chip": "desconfiou",
+      "kicker": "a primeira regra",
+      "title": "Não aplique",
+      "accent": "e fotografe",
+      "tone": "vermelho",
+      "speech": "Achou algo estranho? Não aplique: fotografe a embalagem e a caneta antes de qualquer coisa.",
+      "visual": {
+        "type": "carimbo",
+        "text": "NÃO APLIQUE",
+        "note": "fotografe caixa e caneta"
+      }
+    },
+    {
+      "chip": "desconfiou",
+      "kicker": "avise quem fiscaliza",
+      "title": "Notifique",
+      "accent": "pelo Notivisa",
+      "tone": "azul",
+      "speech": "Depois, notifique a ANVISA pelo Notivisa, que é o canal oficial para esse tipo de suspeita.",
+      "visual": {
+        "type": "icone",
+        "icon": "escudo",
+        "note": "Notivisa, da ANVISA"
+      }
+    },
+    {
+      "chip": "desconfiou",
+      "kicker": "se você já aplicou",
+      "title": "Sintoma estranho?",
+      "accent": "Pronto-socorro",
+      "tone": "vermelho",
+      "speech": "E se você já aplicou e aparecer algum sintoma anormal, não espere: vá ao pronto-socorro.",
+      "visual": {
+        "type": "icone",
+        "icon": "hospital",
+        "note": "sintoma anormal depois de aplicar"
+      }
+    },
+    {
+      "chip": "pra lembrar",
+      "kicker": "caixa nova na mão?",
+      "title": "Caixa e caneta",
+      "accent": "com o mesmo lote",
+      "tone": "azul",
+      "speech": "Então, caixa nova na mão? Antes de tudo, confira se o lote da caixa e o da caneta são o mesmo.",
+      "visual": {
+        "type": "lista",
+        "items": [
+          { "text": "Lote igual na caixa e na caneta", "mark": "ok" },
+          { "text": "Rótulo de fábrica", "mark": "ok" },
+          { "text": "Solução cristalina", "mark": "ok" }
+        ]
+      }
     }
   ],
-  "caption": "Eu sei, quando a pessoa troca o Mounjaro pela tirzepatida manipulada, a tentação é começar na mesma dose de antes. Mas manipulada não é equivalente: a farmácia recebe a tirzepatida como matéria-prima e fraciona em frascos. É uma cópia, não um genérico.\n\n⚠️ Pureza, estabilidade e dose exata podem variar. Pode haver até 20% de diferença entre o rótulo e a dose real, e impurezas acima de 2% em matéria-prima de fornecedor não farmacêutico.\n\n1️⃣ Farmácia confiável: registro ANVISA e alvará visíveis, COA e HPLC do peptídeo, farmacêutico responsável identificado e receita obrigatória.\n2️⃣ Em casa: geladeira entre 2 e 8 °C, reconstituição com água bacteriostática e conta certa das unidades.\n3️⃣ Dose: o cuidado é começar em dose baixa, mesmo com experiência prévia com Mounjaro, e acompanhamento médico periódico.\n\nQuem decide a dose e a troca é o seu médico.",
-  "question": "Você já pediu o COA do seu frasco para a farmácia?",
-  "share": "quem trocou o Mounjaro pela manipulada"
+  "caption": "Eu sei, a vontade é abrir a caixa e seguir a rotina. Mas com a procura pelo Ozempic, a semaglutida, a falsificação cresceu, e a ANVISA emitiu vários alertas entre 2023 e 2025. Conferir leva um minuto.\n\n1️⃣ Lote: o número da caixa precisa ser o mesmo impresso na caneta\n2️⃣ Caixa: impressão de alta qualidade, azul consistente, sem erro de ortografia, fabricante Novo Nordisk e bula em português, em papel\n3️⃣ Caneta: rótulo impresso de fábrica (não adesivo), solução cristalina sem partículas e seletor de dose que gira sem travar\n4️⃣ ANVISA: em consultas.anvisa.gov.br, o registro válido é da Novo Nordisk Farmacêutica; compare seu lote com os alertas recentes\n\n⚠️ Desconfiou? Não aplique. Fotografe a embalagem e a caneta e notifique a ANVISA pelo Notivisa. Já aplicou e apareceu sintoma anormal? Pronto-socorro.",
+  "question": "Você já tinha conferido o lote da caixa com o da caneta?",
+  "share": "quem abre a caixa nova e já vai direto pra aplicação"
 }

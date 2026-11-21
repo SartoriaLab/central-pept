@@ -1,77 +1,241 @@
 {
-  "hook": "Está no Ozempic e largou o treino de força?",
-  "hookIcon": "musculo",
-  "hookPose": "ih",
+  "hook": "Você chama toda caneta semanal de Ozempic?",
+  "hookIcon": "balanca",
   "slides": [
     {
-      "title": "O remédio faz tudo sozinho",
-      "body": "Essa é a mania: começar a semaglutida e deixar o exercício para depois. Eu entendo, todo mundo pensa isso. Mas os estudos contam outra história.",
-      "icon": "duvida",
-      "pose": "ih",
+      "title": "Ozempic e Mounjaro são a mesma injeção",
+      "body": "Ozempic é a semaglutida: age no receptor GLP-1. Mounjaro é a tirzepatida: age no GLP-1 e também no GIP. Moléculas diferentes, alvos diferentes.",
+      "icon": "dna",
       "layout": "mito"
     },
     {
-      "title": "Até 40%",
-      "body": "Sem treino resistido, cerca de 40% da perda total pode vir de massa magra, ou seja, de músculo. E músculo faz falta no dia a dia.",
-      "icon": "alerta",
-      "pose": "alerta",
-      "layout": "numero"
-    },
-    {
-      "title": "Os estudos não testaram só o remédio",
-      "body": "No STEP-1, a semaglutida 2,4 mg por semana veio junto com aconselhamento de estilo de vida. No STEP-3, com terapia intensiva de estilo de vida.",
-      "icon": "microscopio",
-      "pose": "explicando",
+      "title": "A meia-vida também muda",
+      "body": "A semaglutida tem meia-vida de ~7 dias; a tirzepatida, de ~5 dias. As duas são semanais, cada uma com a própria escada de dose na bula.",
+      "icon": "ampulheta",
       "layout": "padrao"
     },
     {
-      "title": "Ozempic e Wegovy: mesma molécula",
-      "body": "Ozempic: semaglutida para diabetes tipo 2, até 2 mg por semana\nWegovy: semaglutida para obesidade, até 2,4 mg por semana",
-      "icon": "prancheta",
-      "pose": "pensando",
+      "title": "Peso nos estudos: média, não promessa",
+      "body": "Semaglutida 2,4 mg (STEP-1): ~14,9% em 68 semanas\nTirzepatida 15 mg (SURMOUNT-1): ~20,9% em 72 semanas",
+      "icon": "grafico-desce",
       "layout": "lado"
     },
     {
-      "title": "O estômago também sente",
-      "body": "No STEP-1, 74% dos participantes relataram náusea, diarreia ou vômito em algum momento. Mais um motivo para usar com acompanhamento.",
-      "icon": "enjoo",
-      "pose": "explicando",
-      "layout": "padrao"
-    },
-    {
-      "title": "Quem não deve usar?",
-      "body": "Quem tem histórico pessoal ou familiar de câncer medular de tireoide, NEM 2 ou pancreatite prévia: a semaglutida não é para você. Conte isso ao endocrinologista.",
-      "icon": "estetoscopio",
-      "pose": "alerta",
+      "title": "E quando compararam frente a frente?",
+      "body": "No SURMOUNT-5, que colocou as duas no mesmo estudo, a média foi de ~20,2% com tirzepatida e ~13,7% com semaglutida após 72 semanas.",
+      "icon": "microscopio",
       "layout": "pergunta"
     },
     {
-      "title": "A cola pra guardar",
-      "body": "Semaglutida é parte do tratamento, não ele inteiro\nTreino de força entra na rotina\nAlimentação junto\nDose e subida de dose com o endocrinologista",
-      "icon": "certo",
-      "pose": "apontando",
+      "title": "Náusea, em estudos diferentes",
+      "body": "Semaglutida 2,4 mg: relatada por 44%\nTirzepatida 15 mg: relatada por 31%, comparação só aproximada",
+      "icon": "enjoo",
+      "layout": "lado"
+    },
+    {
+      "title": "Quem não pode usar nenhuma das duas",
+      "body": "Quem tem histórico pessoal ou familiar de carcinoma medular de tireoide, síndrome NEM 2, e gestantes. Vale pras duas moléculas.",
+      "icon": "alerta",
+      "layout": "padrao"
+    },
+    {
+      "title": "Mesmo remédio? Não. A cola",
+      "body": "Semaglutida: só GLP-1, meia-vida de ~7 dias\nTirzepatida: GLP-1 + GIP, ~5 dias\nNúmero de estudo ajuda a conversa\nQuem escolhe com você, pelo seu histórico, é o médico",
+      "icon": "estetoscopio",
       "layout": "passos"
     }
   ],
-  "narration": [
+  "scenes": [
     {
-      "text": "Você está no Ozempic e largou o treino de força porque o remédio faz tudo? Eu sei, todo mundo pensa isso.",
-      "pose": "ih"
+      "chip": "a confusão",
+      "kicker": "todo mundo fala assim",
+      "title": "Toda caneta",
+      "accent": "é Ozempic?",
+      "tone": "vermelho",
+      "speech": "Você chama toda caneta semanal de Ozempic? Eu sei, todo mundo chama.",
+      "visual": {
+        "type": "frasco",
+        "label": "OZEMPIC?",
+        "liquid": "claro",
+        "tag": "toda caneta"
+      }
     },
     {
-      "text": "Olha só: sem treino resistido, cerca de 40% do que se perde pode ser massa magra. É músculo indo embora junto.",
-      "pose": "alerta"
+      "chip": "a confusão",
+      "kicker": "nomes diferentes, remédios diferentes",
+      "title": "Ozempic não é",
+      "accent": "Mounjaro",
+      "tone": "vermelho",
+      "speech": "Só que o Ozempic é a semaglutida, e o Mounjaro é a tirzepatida. São moléculas diferentes.",
+      "visual": {
+        "type": "frascos",
+        "left": { "label": "SEMAGLUTIDA", "note": "Ozempic, Wegovy", "liquid": "claro" },
+        "right": { "label": "TIRZEPATIDA", "note": "Mounjaro, Zepbound", "liquid": "claro" },
+        "sign": "≠"
+      }
     },
     {
-      "text": "Nos estudos, a semaglutida veio junto com mudança de estilo de vida. Ela é parte do tratamento, não o tratamento inteiro.",
-      "pose": "explicando"
+      "chip": "como agem",
+      "kicker": "o alvo de cada uma",
+      "title": "Um alvo",
+      "accent": "contra dois",
+      "tone": "azul",
+      "speech": "A semaglutida age só no receptor GLP-1. A tirzepatida age no GLP-1 e também no GIP.",
+      "visual": {
+        "type": "lista",
+        "items": [
+          { "text": "Semaglutida: GLP-1", "mark": "ok" },
+          { "text": "Tirzepatida: GLP-1 + GIP", "mark": "ok" }
+        ]
+      }
     },
     {
-      "text": "Combina com o seu endocrinologista a alimentação e o exercício. O remédio não treina por você: o treino de força volta pra rotina.",
-      "pose": "apontando"
+      "chip": "como agem",
+      "kicker": "quanto tempo ficam no corpo",
+      "title": "Meia-vida",
+      "accent": "também muda",
+      "tone": "azul",
+      "speech": "A meia-vida também é diferente: cerca de 7 dias na semaglutida e cerca de 5 dias na tirzepatida.",
+      "visual": {
+        "type": "barras",
+        "bars": [
+          { "label": "semaglutida", "value": 7, "display": "~7 dias" },
+          { "label": "tirzepatida", "value": 5, "display": "~5 dias" }
+        ]
+      }
+    },
+    {
+      "chip": "os estudos",
+      "kicker": "na dose de estudo, 2,4 mg",
+      "title": "Semaglutida",
+      "accent": "no STEP-1",
+      "tone": "azul",
+      "speech": "No estudo STEP-1, com semaglutida 2,4 mg, a perda média de peso foi de 14,9% em 68 semanas.",
+      "visual": {
+        "type": "numero",
+        "value": "14,9%",
+        "note": "perda média em 68 semanas"
+      },
+      "source": "STEP-1"
+    },
+    {
+      "chip": "os estudos",
+      "kicker": "na dose de estudo, 15 mg",
+      "title": "Tirzepatida",
+      "accent": "no SURMOUNT-1",
+      "tone": "azul",
+      "speech": "No SURMOUNT-1, com tirzepatida 15 mg, a média foi de 20,9% em 72 semanas.",
+      "visual": {
+        "type": "numero",
+        "value": "20,9%",
+        "note": "perda média em 72 semanas"
+      },
+      "source": "SURMOUNT-1"
+    },
+    {
+      "chip": "frente a frente",
+      "kicker": "as duas no mesmo estudo",
+      "title": "SURMOUNT-5",
+      "accent": "tirou a dúvida",
+      "tone": "azul",
+      "speech": "E quando colocaram as duas no mesmo estudo, o SURMOUNT-5, deu 20,2% contra 13,7% em 72 semanas.",
+      "visual": {
+        "type": "barras",
+        "bars": [
+          { "label": "tirzepatida", "value": 20.2, "display": "20,2%" },
+          { "label": "semaglutida", "value": 13.7, "display": "13,7%" }
+        ]
+      },
+      "source": "SURMOUNT-5, NEJM, 2025"
+    },
+    {
+      "chip": "o enjoo",
+      "kicker": "náusea nos estudos de referência",
+      "title": "Náusea em",
+      "accent": "44% e em 31%",
+      "tone": "vermelho",
+      "speech": "No enjoo, a náusea apareceu em 44% com semaglutida e em 31% com tirzepatida.",
+      "visual": {
+        "type": "pontos",
+        "total": 100,
+        "marked": 44,
+        "note": "44 a cada 100 com semaglutida 2,4 mg"
+      },
+      "source": "STEP-1 e SURMOUNT-1"
+    },
+    {
+      "chip": "o enjoo",
+      "kicker": "o detalhe que pouca gente lê",
+      "title": "Comparação",
+      "accent": "só aproximada",
+      "tone": "vermelho",
+      "speech": "Mas atenção: são estudos diferentes, com pessoas e escadas de dose diferentes, então essa conta é só aproximada.",
+      "visual": {
+        "type": "carimbo",
+        "text": "APROXIMADO",
+        "note": "estudos diferentes"
+      }
+    },
+    {
+      "chip": "em comum",
+      "kicker": "vale para as duas",
+      "title": "Quem não pode",
+      "accent": "usar nenhuma",
+      "tone": "vermelho",
+      "speech": "E nenhuma das duas é para quem tem histórico de carcinoma medular de tireoide, síndrome NEM 2 ou está grávida.",
+      "visual": {
+        "type": "lista",
+        "items": [
+          { "text": "Carcinoma medular de tireoide", "mark": "nao" },
+          { "text": "Síndrome NEM 2", "mark": "nao" },
+          { "text": "Gravidez", "mark": "nao" }
+        ]
+      }
+    },
+    {
+      "chip": "em comum",
+      "kicker": "a vantagem de quem chegou antes",
+      "title": "Semaglutida tem",
+      "accent": "mais anos de dados",
+      "tone": "azul",
+      "speech": "A semaglutida chegou antes e tem mais dados de longo prazo e mais estudos de segurança cardiovascular.",
+      "visual": {
+        "type": "linha",
+        "steps": ["2017", "2021", "2022", "2023"],
+        "current": 0,
+        "note": "FDA: semaglutida em 2017, tirzepatida em 2022"
+      },
+      "source": "aprovações da FDA"
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "quem decide",
+      "title": "A escolha",
+      "accent": "é com o médico",
+      "tone": "azul",
+      "speech": "Qual faz sentido pra você depende do seu histórico, e essa conversa é com o médico.",
+      "visual": {
+        "type": "icone",
+        "icon": "estetoscopio",
+        "note": "histórico, objetivos e tolerância"
+      }
+    },
+    {
+      "chip": "pra lembrar",
+      "kicker": "da próxima vez",
+      "title": "Nem toda caneta",
+      "accent": "é Ozempic",
+      "tone": "vermelho",
+      "speech": "Então, da próxima vez que alguém chamar toda caneta de Ozempic, você já sabe: não é a mesma coisa.",
+      "visual": {
+        "type": "frascos",
+        "left": { "label": "OZEMPIC", "note": "semaglutida", "liquid": "claro" },
+        "right": { "label": "MOUNJARO", "note": "tirzepatida", "liquid": "claro" },
+        "sign": "≠"
+      }
     }
   ],
-  "caption": "Eu sei, todo mundo começa a semaglutida achando que o remédio resolve tudo e deixa o treino para depois. Só que, sem treino resistido, cerca de 40% da perda total pode ser massa magra, ou seja, músculo.\n\nUsar Ozempic sem diabetes é comum, mas os estudos STEP testaram a semaglutida 2,4 mg por semana junto com aconselhamento e mudança de estilo de vida. O Ozempic é aprovado para diabetes tipo 2; para obesidade, a versão aprovada é o Wegovy, com outra dose máxima.\n\n1️⃣ Treino de força faz parte do tratamento\n2️⃣ Alimentação e acompanhamento andam junto\n3️⃣ Dose e titulação são com o endocrinologista\n\n⚠️ Efeito colateral gastrointestinal é comum: 74% dos participantes do STEP-1 relataram náusea, diarreia ou vômito em algum momento. Quem tem histórico pessoal ou familiar de câncer medular de tireoide, NEM 2 ou pancreatite prévia não deve usar.",
-  "question": "Você faz treino de força junto com a semaglutida?",
-  "share": "aquela amiga que começou o Ozempic e largou a academia"
+  "caption": "Eu sei, todo mundo chama tudo de “Ozempic”. Mas o Ozempic é a semaglutida, que age só no receptor GLP-1, e o Mounjaro é a tirzepatida, que age no GLP-1 e no GIP. São moléculas diferentes, com bula, meia-vida e escada de dose próprias.\n\n1️⃣ Meia-vida: ~7 dias na semaglutida, ~5 dias na tirzepatida. As duas são semanais.\n2️⃣ Peso nos estudos: ~14,9% em 68 semanas no STEP-1 (semaglutida 2,4 mg) e ~20,9% em 72 semanas no SURMOUNT-1 (tirzepatida 15 mg). No SURMOUNT-5, frente a frente: ~20,2% e ~13,7%.\n3️⃣ Efeito colateral: nas duas, sobretudo náusea, diarreia, vômito e constipação. Náusea em 44% e 31% nos estudos de referência, comparação só aproximada.\n\n⚠️ Nenhuma das duas é para quem tem histórico pessoal ou familiar de carcinoma medular de tireoide, síndrome NEM 2 ou está grávida. Média de estudo não é promessa individual: a escolha é com o médico.",
+  "question": "Antes deste vídeo, você achava que Ozempic e Mounjaro eram a mesma coisa?",
+  "share": "quem chama toda caneta semanal de “Ozempic”"
 }

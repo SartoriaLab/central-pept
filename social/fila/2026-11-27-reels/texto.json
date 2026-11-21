@@ -1,84 +1,303 @@
 {
-  "hook": "Sua semaglutida ficou turva depois de misturar?",
-  "hookIcon": "frasco",
-  "hookPose": "pensando",
+  "hook": "28,3% contra 20,9%? Essa conta está torta.",
+  "hookIcon": "regua",
   "slides": [
     {
-      "title": "A caneta também precisa misturar",
+      "title": "Cada estudo tem duas contas",
+      "layout": "lado",
+      "body": "Todos: conta quem entrou, inclusive quem parou o remédio\nQuem seguiu: estima o que aconteceria se todos fossem até o fim, e é sempre maior",
+      "icon": "prancheta"
+    },
+    {
+      "title": "28,3% contra 20,9% é comparação justa",
       "layout": "mito",
-      "body": "Não: Ozempic e Wegovy em caneta já vêm prontos. Só o frasco com pó liofilizado precisa de água bacteriostática.",
-      "icon": "lampada",
-      "pose": "explicando"
+      "body": "Os 28,3% da retatrutida são a conta de quem seguiu o tratamento. Os 20,9% da tirzepatida são a conta de todos. Comparar assim exagera a diferença.",
+      "icon": "errado"
     },
     {
-      "title": "Limpe antes",
-      "body": "Lave as mãos\nPasse álcool 70% na tampa de borracha dos dois frascos\nDeixe secar ao ar por alguns segundos",
-      "layout": "passos",
-      "icon": "escudo",
-      "pose": "explicando"
+      "title": "Na mesma conta, os pares são estes",
+      "layout": "lado",
+      "body": "Todos: 25,0% (retatrutida 12 mg) contra 20,9% (tirzepatida 15 mg)\nQuem seguiu: 28,3% contra 22,5%",
+      "icon": "balanca"
     },
     {
-      "title": "10 unidades",
-      "layout": "numero",
-      "body": "É onde fica a dose inicial de bula, 0,25 mg, num frasco de 5 mg com 2 ml de água (2,5 mg/ml). A água decide as unidades.",
-      "icon": "regua",
-      "pose": "pensando"
-    },
-    {
-      "title": "Pela parede, nunca no pó",
+      "title": "Mesmo assim, não dá pra cravar",
       "layout": "padrao",
-      "body": "Deixe a água escorrer pela parede interna do frasco. O jato direto sobre o pó pode danificar o peptídeo.",
-      "icon": "gota",
-      "pose": "alerta"
+      "body": "O TRIUMPH-1 durou 80 semanas; o SURMOUNT-1, 72 semanas. O peso médio no início e até o placebo foram diferentes: 3,9% contra 3,1%.",
+      "icon": "calendario"
     },
     {
-      "title": "Sacudir ajuda a dissolver",
-      "layout": "mito",
-      "body": "Sacudir desnatura o peptídeo. Gire o frasco entre as palmas das mãos por 30 a 60 segundos, com calma.",
-      "icon": "errado",
-      "pose": "ih"
+      "title": "Os efeitos foram iguais?",
+      "layout": "pergunta",
+      "body": "Não exatamente. Na dose mais alta, 11,3% pararam por efeito adverso com retatrutida e 6,2% com tirzepatida. Disestesia, sensação anormal na pele, apareceu em 12,5% com retatrutida 12 mg.",
+      "icon": "alerta"
     },
     {
-      "title": "5 minutos",
+      "title": "TRIUMPH-5",
       "layout": "numero",
-      "body": "É a espera para a solução ficar completamente transparente. Se continuar turva depois disso, o frasco pode estar comprometido: descarte.",
-      "icon": "lupa",
-      "pose": "alerta"
+      "body": "É o estudo que coloca as duas frente a frente, em regime duplo-cego. Até novembro de 2026, ainda não tinha resultado divulgado.",
+      "icon": "microscopio"
     },
     {
-      "title": "Geladeira e etiqueta",
-      "layout": "padrao",
-      "body": "Entre 2 e 8 °C, na prateleira do meio, nunca na porta nem no freezer. Dura 28 dias após a reconstituição. Etiqueta com data e concentração.",
-      "icon": "geladeira",
-      "pose": "piscadinha"
-    },
-    {
-      "title": "Sua cola",
-      "body": "Álcool nas tampas, água pela parede\nGirar sem sacudir e esperar ficar transparente\nEtiquetar e guardar\nA dose e a subida são com o médico",
+      "title": "A cola: conta torta não compara",
       "layout": "passos",
-      "icon": "certo",
-      "pose": "apontando"
+      "body": "Mesma conta nos dois lados\nEstudos diferentes não são frente a frente\nSó a tirzepatida é aprovada\nDecisão de tratamento é com o médico",
+      "icon": "certo"
     }
   ],
-  "narration": [
+  "scenes": [
     {
-      "text": "Sua semaglutida ficou turva depois de misturar? Aposto que você sacudiu o frasco pra dissolver mais rápido.",
-      "pose": "pensando"
+      "chip": "o print",
+      "kicker": "aquele que circula por aí",
+      "title": "28,3% x 20,9%?",
+      "accent": "Conta torta",
+      "tone": "vermelho",
+      "speech": "28,3% contra 20,9%: você já viu esse print? Olha, essa conta está torta.",
+      "visual": {
+        "type": "frascos",
+        "left": {
+          "label": "RETATRUTIDA",
+          "note": "28,3%",
+          "liquid": "po"
+        },
+        "right": {
+          "label": "TIRZEPATIDA",
+          "note": "20,9%",
+          "liquid": "claro"
+        },
+        "sign": "vs"
+      }
     },
     {
-      "text": "Agitar desnatura o peptídeo. O certo é escorrer a água bacteriostática pela parede e girar o frasco entre as mãos, por 30 a 60 segundos.",
-      "pose": "explicando"
+      "chip": "a conta",
+      "kicker": "o que quase ninguém sabe",
+      "title": "Todo estudo",
+      "accent": "tem duas contas",
+      "tone": "azul",
+      "speech": "Cada estudo divulga duas contas: uma com todo mundo que entrou, e outra só com quem seguiu até o fim.",
+      "visual": {
+        "type": "icone",
+        "icon": "prancheta",
+        "note": "a de quem seguiu é sempre maior"
+      }
     },
     {
-      "text": "Depois, espere a solução ficar transparente. Se continuar turva depois de 5 minutos, o frasco pode estar comprometido: descarte.",
-      "pose": "alerta"
+      "chip": "a conta",
+      "kicker": "o truque do print",
+      "title": "Pega a maior",
+      "accent": "de um lado só",
+      "tone": "vermelho",
+      "speech": "O print pega os 28,3% de quem seguiu a retatrutida e põe contra os 20,9% de todos da tirzepatida.",
+      "visual": {
+        "type": "carimbo",
+        "text": "CONTA TROCADA",
+        "note": "quem seguiu contra todos"
+      }
     },
     {
-      "text": "Anota a concentração na etiqueta e usa a dose que o médico prescreveu. Frasco sacudido e turvo, nunca mais.",
-      "pose": "apontando"
+      "chip": "a conta certa",
+      "kicker": "contando todo mundo",
+      "title": "25,0% contra",
+      "accent": "20,9%",
+      "tone": "azul",
+      "speech": "Na mesma conta, contando todo mundo, fica 25,0% contra 20,9%.",
+      "visual": {
+        "type": "barras",
+        "bars": [
+          {
+            "label": "retatrutida 12 mg",
+            "value": 25,
+            "display": "25,0%"
+          },
+          {
+            "label": "tirzepatida 15 mg",
+            "value": 20.9,
+            "display": "20,9%"
+          }
+        ]
+      },
+      "source": "TRIUMPH-1 e SURMOUNT-1"
+    },
+    {
+      "chip": "a conta certa",
+      "kicker": "só quem seguiu",
+      "title": "28,3% contra",
+      "accent": "22,5%",
+      "tone": "azul",
+      "speech": "E contando só quem seguiu o tratamento, 28,3% contra 22,5%.",
+      "visual": {
+        "type": "barras",
+        "bars": [
+          {
+            "label": "retatrutida 12 mg",
+            "value": 28.3,
+            "display": "28,3%"
+          },
+          {
+            "label": "tirzepatida 15 mg",
+            "value": 22.5,
+            "display": "22,5%"
+          }
+        ]
+      },
+      "source": "TRIUMPH-1 e SURMOUNT-1"
+    },
+    {
+      "chip": "por que não compara",
+      "kicker": "o tempo de estudo",
+      "title": "Oito semanas",
+      "accent": "a mais",
+      "tone": "vermelho",
+      "speech": "Mesmo assim, não dá pra cravar: o TRIUMPH-1 durou 80 semanas, e o SURMOUNT-1, 72 semanas.",
+      "visual": {
+        "type": "numero",
+        "value": "8 semanas",
+        "note": "a mais de duração no TRIUMPH-1"
+      }
+    },
+    {
+      "chip": "por que não compara",
+      "kicker": "o ponto de partida",
+      "title": "Grupos que",
+      "accent": "começaram diferente",
+      "tone": "vermelho",
+      "speech": "E o grupo do TRIUMPH-1 começou com peso médio maior; grupo diferente pode responder diferente.",
+      "visual": {
+        "type": "icone",
+        "icon": "balanca",
+        "note": "peso médio inicial diferente"
+      }
+    },
+    {
+      "chip": "por que não compara",
+      "kicker": "até o grupo de controle",
+      "title": "O placebo",
+      "accent": "também mudou",
+      "tone": "vermelho",
+      "speech": "Até o placebo foi diferente: perdeu 3,9% num estudo e 3,1% no outro.",
+      "visual": {
+        "type": "frascos",
+        "left": {
+          "label": "PLACEBO",
+          "note": "TRIUMPH-1: 3,9%",
+          "liquid": "claro"
+        },
+        "right": {
+          "label": "PLACEBO",
+          "note": "SURMOUNT-1: 3,1%",
+          "liquid": "claro"
+        },
+        "sign": "≠"
+      }
+    },
+    {
+      "chip": "por que não compara",
+      "kicker": "e as doses",
+      "title": "12 mg não é",
+      "accent": "igual a 15 mg",
+      "tone": "vermelho",
+      "speech": "E 12 mg de retatrutida e 15 mg de tirzepatida são só as doses mais altas de cada estudo, não doses iguais.",
+      "visual": {
+        "type": "carimbo",
+        "text": "NÃO SÃO IGUAIS",
+        "note": "moléculas e receptores diferentes"
+      }
+    },
+    {
+      "chip": "os efeitos",
+      "kicker": "quem largou, na dose mais alta",
+      "title": "11,3% contra",
+      "accent": "6,2%",
+      "tone": "vermelho",
+      "speech": "Nos efeitos, na dose mais alta, 11,3% largaram a retatrutida por efeito adverso, contra 6,2% na tirzepatida.",
+      "visual": {
+        "type": "barras",
+        "bars": [
+          {
+            "label": "retatrutida 12 mg",
+            "value": 11.3,
+            "display": "11,3%"
+          },
+          {
+            "label": "tirzepatida 15 mg",
+            "value": 6.2,
+            "display": "6,2%"
+          }
+        ]
+      },
+      "source": "TRIUMPH-1 e SURMOUNT-1"
+    },
+    {
+      "chip": "os efeitos",
+      "kicker": "um efeito pouco visto",
+      "title": "Sensação",
+      "accent": "estranha na pele",
+      "tone": "vermelho",
+      "speech": "E 12,5% relataram disestesia, uma sensação estranha na pele, com a retatrutida na dose de 12 mg.",
+      "visual": {
+        "type": "pontos",
+        "total": 100,
+        "marked": 12,
+        "note": "cerca de 12 a cada 100, com retatrutida 12 mg"
+      },
+      "source": "TRIUMPH-1, Eli Lilly"
+    },
+    {
+      "chip": "o frente a frente",
+      "kicker": "o estudo que responde",
+      "title": "TRIUMPH-5",
+      "accent": "ainda sem resultado",
+      "tone": "azul",
+      "speech": "A resposta só vem de um estudo frente a frente: o TRIUMPH-5, que ainda não divulgou resultado.",
+      "visual": {
+        "type": "linha",
+        "steps": [
+          "TRIUMPH-1",
+          "TRIUMPH-5",
+          "resultado"
+        ],
+        "current": 1,
+        "note": "sem resultado até novembro de 2026"
+      },
+      "source": "NCT06662383"
+    },
+    {
+      "chip": "hoje",
+      "kicker": "o que existe de fato",
+      "title": "Só uma delas",
+      "accent": "é aprovada",
+      "tone": "azul",
+      "speech": "E hoje só a tirzepatida é aprovada; a retatrutida segue experimental, sem aprovação em nenhum país.",
+      "visual": {
+        "type": "frascos",
+        "left": {
+          "label": "TIRZEPATIDA",
+          "note": "aprovada, com bula",
+          "liquid": "claro"
+        },
+        "right": {
+          "label": "RETATRUTIDA",
+          "note": "experimental",
+          "liquid": "po"
+        },
+        "sign": "≠"
+      }
+    },
+    {
+      "chip": "pra lembrar",
+      "kicker": "da próxima vez",
+      "title": "Viu o print?",
+      "accent": "Conta torta",
+      "tone": "vermelho",
+      "speech": "Então, viu de novo o print de 28,3% contra 20,9%? Agora você sabe: essa conta está torta.",
+      "visual": {
+        "type": "carimbo",
+        "text": "CONTA TORTA",
+        "note": "compare sempre a mesma conta"
+      }
     }
   ],
-  "caption": "Eu sei, dá vontade de sacudir o frasco pra dissolver logo. Todo mundo já fez. Mas agitar desnatura o peptídeo, e a semaglutida em pó pede calma na reconstituição.\n\n1️⃣ Lave as mãos e passe álcool 70% nas tampas dos dois frascos.\n2️⃣ Deixe a água bacteriostática escorrer pela parede, nunca direto no pó.\n3️⃣ Gire entre as palmas das mãos por 30 a 60 segundos e espere ficar transparente.\n4️⃣ Etiquete com data e concentração e guarde entre 2 e 8 °C por até 28 dias.\n\n⚠️ Continuou turva depois de 5 minutos de espera? Descarte. E água destilada no lugar da bacteriostática contamina o frasco em cerca de 24 horas.\n\nCom o frasco de 5 mg e 2 ml de água, a dose inicial de bula, 0,25 mg, fica em 10 unidades na seringa de insulina. Ajuste de dose é sempre com o médico.",
-  "question": "Você já viu a sua semaglutida ficar turva depois de misturar?",
-  "share": "aquela amiga que sacode o frasco pra dissolver logo"
+  "caption": "Eu sei, o print é tentador: 28,3% de um lado, 20,9% do outro. Mas esses dois números não usam a mesma conta. Os 28,3% da retatrutida contam só quem seguiu o tratamento; os 20,9% da tirzepatida contam todos os participantes.\n\n1️⃣ Na mesma conta: 25,0% contra 20,9% (todos) e 28,3% contra 22,5% (quem seguiu).\n2️⃣ Mesmo assim, os estudos tiveram duração, peso inicial e placebo diferentes.\n3️⃣ O estudo que compara as duas frente a frente, o TRIUMPH-5, ainda não tem resultado.\n\n⚠️ Nos efeitos, na dose mais alta, 11,3% pararam por efeito adverso com retatrutida e 6,2% com tirzepatida, e 12,5% relataram disestesia com retatrutida 12 mg. A retatrutida é experimental e não tem aprovação em nenhum país; só a tirzepatida é aprovada. As doses citadas são as dos estudos, e qualquer decisão de tratamento é com o médico.",
+  "question": "Você já tinha visto aquele print de 28,3% contra 20,9%?",
+  "share": "quem te mandou o print comparando retatrutida e tirzepatida"
 }

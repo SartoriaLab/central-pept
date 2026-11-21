@@ -9,59 +9,107 @@ Se sair "REPROVADO", corrija só o que a lista aponta e rode de novo.
 
 ## PEDIDO
 
-TEMA: Ozempic para perder peso sem diabetes: o que a ciência mostra
+TEMA: Semaglutida vs Tirzepatida: comparativo completo (2026)
 
 FONTE:
-Título: Ozempic para perder peso sem diabetes: o que a ciência mostra
+Título: Semaglutida vs Tirzepatida: comparativo completo (2026)
 
-Resumo: Semaglutida funciona para perda de peso em pessoas sem diabetes — o estudo STEP-1 mostrou perda média de ~15% com 2,4 mg/semana em 68 semanas. Ozempic (1-2 mg) é aprovado para diabetes; Wegovy (2,4 mg) para obesidade. Usar Ozempic off-label para emagrecer é comum mas deve ser acompanhado por endocrinologista. Reganho de 60-70% do peso perdido ocorre em 1 ano se descontinuado.
+Resumo: Semaglutida é agonista GLP-1 puro; tirzepatida ativa GLP-1 + GIP. Em ensaios fase 3, tirzepatida (15 mg/sem) levou a perda de peso de ~21% vs ~15% da semaglutida (2,4 mg/sem). Efeitos gastrointestinais são similares, com ligeira vantagem de tolerabilidade para tirzepatida. Ambas aprovadas pelo FDA; semaglutida tem mais dados de longo prazo.
 
-Ozempic é a marca da semaglutida aprovada pelo FDA em 2017 para diabetes tipo 2. Virou um dos medicamentos mais buscados do mundo por outro motivo: perda de peso em pessoas sem diabetes. Este artigo separa evidência clínica de marketing.
+Semaglutida e tirzepatida são os dois injetáveis mais buscados para controle de peso e diabetes tipo 2. Ambos revolucionaram o tratamento da obesidade nos últimos anos, mas funcionam de formas diferentes e têm perfis distintos de eficácia, efeitos e custo. Este comparativo consolida dados dos ensaios clínicos de fase 3 e das bulas aprovadas pelo FDA.
 
-## A diferença entre Ozempic e Wegovy
+## Resumo rápido
 
-Ambos contêm semaglutida, mas:
+|  | Semaglutida | Tirzepatida |
+| --- | --- | --- |
+| **Marcas** | Ozempic · Wegovy · Rybelsus | Mounjaro · Zepbound |
+| **Mecanismo** | Agonista GLP-1 | Agonista GLP-1 *+* GIP (dual) |
+| **Meia-vida** | ~7 dias | ~5 dias |
+| **Dose máxima** | 2,4 mg/semana | 15 mg/semana |
+| **Perda de peso (48-72 sem)** | ~15% | ~21% |
+| **Aprovação FDA** | 2017 (DM2), 2021 (obesidade) | 2022 (DM2), 2023 (obesidade) |
 
-- **Ozempic**: aprovado para diabetes tipo 2, dose máxima 2 mg/semana
-- **Wegovy**: aprovado para obesidade, dose máxima 2,4 mg/semana, titulação mais agressiva
+## Como agem no corpo
 
-Usar Ozempic off-label para emagrecer é comum no Brasil por preço e disponibilidade. Clinicamente é a *mesma molécula*, mas dose e acompanhamento diferem.
+Semaglutida é um agonista seletivo do receptor GLP-1 (glucagon-like peptide-1). Ela imita um hormônio que o intestino libera naturalmente após as refeições, estimulando a produção de insulina de forma glicose-dependente, suprimindo o glucagon, retardando o esvaziamento gástrico e atuando em centros cerebrais de saciedade.
 
-## O que dizem os estudos STEP
+Tirzepatida faz tudo isso **e mais**: ativa também o receptor GIP (polipeptídeo insulinotrópico dependente de glicose). A coativação GIP/GLP-1 parece potencializar a sensibilidade à insulina e a supressão do apetite — e é isso que explica a maior perda de peso observada nos ensaios.
 
-O programa **STEP** incluiu 5 ensaios fase 3 randomizados:
+## Eficácia em perda de peso
 
-- STEP-1 (2021): perda média de **14,9%** em 68 semanas com 2,4 mg/semana + aconselhamento vs 2,4% placebo
-- STEP-3: com terapia intensiva de estilo de vida — perda média 16%
-- STEP-5: manutenção por 2 anos mostrou sustentação do peso
+Os dados mais comparáveis vêm de ensaios fase 3 com desenho similar:
 
-## Riscos do uso sem acompanhamento
+- **STEP-1 (semaglutida 2,4 mg/semana)**: perda média de ~14,9% em 68 semanas em adultos com obesidade sem diabetes.
+- **SURMOUNT-1 (tirzepatida 15 mg/semana)**: perda média de ~20,9% em 72 semanas — o maior número já visto com medicação oral/injetável.
 
-- **Efeitos GI**: 74% dos participantes STEP-1 relataram náusea, diarreia ou vômito em algum momento
-- **Reganho pós-descontinuação**: STEP-4 mostrou recuperação de ~2/3 do peso em 1 ano
-- **Perda muscular**: ~40% da perda total pode ser massa magra sem treino resistido
-- **Contraindicações**: histórico pessoal/familiar de câncer medular de tireoide, NEM 2, pancreatite prévia
+Um estudo de comparação direta publicado em 2025 no NEJM (SURMOUNT-5) confirmou superioridade da tirzepatida sobre a semaglutida em redução de peso: ~20,2% contra ~13,7% após 72 semanas.
 
-## Custo-benefício
+## Eficácia em diabetes tipo 2
 
-Ozempic de marca custa cerca de R$ 1.250 a R$ 1.315 por caneta de 4 semanas (preço de tabela em novembro de 2026; veja preço do Ozempic). Semaglutida manipulada custa R$ 150-400/mês, mas **não tem o mesmo controle de qualidade**. Veja o artigo sobre peptídeos manipulados.
+Para HbA1c, ambas são muito efetivas, mas a tirzepatida leva vantagem:
 
-## Considerações finais
+- **Semaglutida**: redução média de ~1,5% na HbA1c
+- **Tirzepatida**: redução de ~1,8-2,4% na HbA1c (dose-dependente)
 
-Semaglutida funciona para perda de peso em pessoas sem diabetes. O que muda é o contexto: ela é *parte* de um tratamento que inclui mudança de estilo de vida, exercício resistido e acompanhamento profissional. Sem isso, o resultado de curto prazo vem com risco aumentado de rebote e efeitos adversos.
+## Efeitos colaterais
 
-Se considerar uso: **procure endocrinologista ou bariatra**, não compre em marketplace, e use a calculadora de titulação para entender o esquema de subida de dose.
+Os dois compartilham o mesmo perfil (efeitos gastrointestinais), com magnitudes ligeiramente diferentes:
 
-P: Ozempic emagrece quem não tem diabetes?
-R: Sim. No estudo STEP-1, pessoas sem diabetes perderam em média 14,9% do peso em 68 semanas com semaglutida 2,4 mg por semana e aconselhamento, contra 2,4% no placebo.
-P: Qual a diferença entre Ozempic e Wegovy?
-R: Os dois contêm semaglutida. O Ozempic é aprovado para diabetes tipo 2, com dose máxima de 2 mg por semana; o Wegovy é aprovado para obesidade, com dose máxima de 2,4 mg por semana.
-P: Quais os riscos de usar Ozempic para emagrecer sem acompanhamento?
-R: Efeitos gastrointestinais (74% dos participantes do STEP-1 tiveram náusea, diarreia ou vômito em algum momento), reganho de cerca de 2/3 do peso em um ano após parar e perda de massa magra, que pode chegar a cerca de 40% da perda total sem treino resistido.
-P: Quem não pode usar semaglutida para emagrecer?
-R: Quem tem histórico pessoal ou familiar de câncer medular de tireoide, NEM 2 ou pancreatite prévia.
-P: Quanto custa o Ozempic por mês?
-R: Em novembro de 2026, a caneta de Ozempic (cerca de 4 semanas de uso) tinha preço de tabela de R$ 1.248,66 a R$ 1.314,38 em farmácia. A semaglutida manipulada sai por R$ 150 a R$ 400, mas não tem o mesmo controle de qualidade.
+| Efeito | Semaglutida (2,4 mg) | Tirzepatida (15 mg) |
+| --- | --- | --- |
+| Náusea | 44% | 31% |
+| Diarreia | 32% | 23% |
+| Vômito | 25% | 12% |
+| Constipação | 23% | 12% |
+
+Fontes: STEP-1 (semaglutida 2,4 mg, 68 semanas) e SURMOUNT-1 (tirzepatida 15 mg, 72 semanas). Na dose de 10 mg, a náusea com tirzepatida foi de 33%.
+
+Os números vêm de estudos diferentes, com populações e escadas de dose diferentes, então a comparação é só aproximada. Uma hipótese em estudo é que o agonismo GIP reduza a náusea, mas isso ainda não foi comprovado em humanos.
+
+**Contraindicações comuns aos dois:** história pessoal ou familiar de carcinoma medular de tireoide (CMT), síndrome de NEM-2, gravidez.
+
+## Custo no Brasil (novembro/2026)
+
+Os preços variam semanalmente — use como referência aproximada:
+
+- **Ozempic 1 mg**: ~R$ 1.249 por caneta (4 doses); detalhes em preço do Ozempic
+- **Mounjaro 5 mg**: ~R$ 2.123 por caixa de 4 canetas; detalhes em preço do Mounjaro
+- **Frascos manipulados de semaglutida**: R$ 300-600 (5 mg)
+- **Frascos manipulados de tirzepatida**: R$ 500-900 (10 mg)
+
+**Nota:** peptídeos manipulados não têm garantia de qualidade equivalente aos produtos industrializados. Compre apenas de farmácias com procedência comprovada.
+
+## Qual escolher?
+
+- **Se o foco é perda máxima de peso:** tirzepatida tem vantagem consistente nos ensaios
+- **Se tolerabilidade é prioridade:** ambos são similares; tirzepatida ligeiramente melhor
+- **Se experiência de uso é prioridade:** semaglutida tem mais dados de longo prazo (7+ anos desde aprovação) e mais estudos de segurança cardiovascular
+- **Se orçamento é apertado:** semaglutida manipulada é tipicamente mais barata
+
+## Decisão é clínica
+
+Ambos são medicamentos de prescrição. A escolha deve ser feita com um médico que considere seu histórico, comorbidades (especialmente risco tiroidiano familiar, pancreatite prévia) e objetivos terapêuticos.
+
+Para começar a calcular doses no seu frasco manipulado, use a calculadora de reconstituição com os dados corretos do rótulo.
+
+## Leia também
+
+- Onde comprar tirzepatida com segurança
+- Quanto custa tirzepatida por dose
+- Como reconstituir tirzepatida 5, 10 e 15 mg
+- Mounjaro falso: como identificar
+- Tirzepatida manipulada: riscos e como escolher a farmácia
+
+P: Qual emagrece mais, semaglutida ou tirzepatida?
+R: A tirzepatida. Na comparação direta do SURMOUNT-5, publicada em 2025 no NEJM, a perda foi de cerca de 20,2% com tirzepatida contra 13,7% com semaglutida após 72 semanas.
+P: Qual a diferença entre semaglutida e tirzepatida?
+R: A semaglutida é agonista seletivo do receptor GLP-1. A tirzepatida ativa o GLP-1 e também o GIP, o que parece potencializar a sensibilidade à insulina e a supressão do apetite.
+P: Qual dá menos efeito colateral?
+R: Os dois têm o mesmo perfil gastrointestinal. Nos estudos de referência, a náusea foi de 44% com semaglutida 2,4 mg e de 31% com tirzepatida 15 mg, mas os estudos são diferentes e a comparação é só aproximada.
+P: Mounjaro é mais caro que Ozempic?
+R: Em 14/11/2026, o preço de tabela de uma grande rede era de R$ 1.248,66 pela caneta de Ozempic 1 mg (4 doses) e de R$ 2.123,49 pela caixa de 4 canetas de Mounjaro 5 mg. Os preços mudam com frequência.
+P: Quem não pode usar nenhum dos dois?
+R: Pessoas com histórico pessoal ou familiar de carcinoma medular de tireoide, com síndrome NEM 2 e gestantes.
 
 Peptídeo: Semaglutida
 Categoria: GLP-1 / Emagrecimento

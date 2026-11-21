@@ -15,16 +15,17 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { buildTopics } from './topics';
 import { pickTopic } from './pick';
-import { DraftSchema, SYSTEM, draftJsonSchema, userMessage, writeDraft } from './write';
+import { QueuedDraftSchema, SYSTEM, draftJsonSchema, userMessage, writeDraft } from './write';
 import { validateDraft } from './validate';
 import { buildCaption } from './caption';
 import { ctaFor, fetchActiveEbookSlugs } from './ebook-cta';
 import { renderCarousel, renderReel } from './render';
 import { dateRange, planQueue, queueKey, reservedFrom, type QueueItem } from './queue';
-import { themeFor } from './themes';
 import type { Draft, Format, HistoryEntry, Topic } from './types';
 
 const MAX_TOPICS = 3;
+/** Estilo visual atual (papel.tsx). */
+const VISUAL = 'papel-animado';
 const REFRESH_BEFORE_DAYS = 15;
 /** Código de saída do --fila sem texto pronto e válido para hoje. */
 const NO_QUEUE = 3;
@@ -72,7 +73,7 @@ async function checkDir(dir: string, topics: Topic[]): Promise<Checked> {
   } catch (e) {
     return { topic, problems: [`texto.json ausente ou com JSON inválido: ${(e as Error).message}`] };
   }
-  const parsed = DraftSchema.safeParse(raw);
+  const parsed = QueuedDraftSchema.safeParse(raw);
   if (!parsed.success) return { topic, problems: parsed.error.issues.map((i) => `${i.path.join('.') || 'texto'}: ${i.message}`) };
   const problems = validateDraft(parsed.data as Draft, topic.source);
   return problems.length ? { topic, problems } : { topic, draft: parsed.data as Draft, problems: [] };
@@ -101,7 +102,7 @@ ${JSON.stringify(draftJsonSchema(), null, 2)}
 function queueBriefText(topic: Topic, item: QueueItem, dir: string): string {
   const focus =
     item.format === 'reels'
-      ? 'Sai como Reels: capriche no gancho falado e nas falas (narration).'
+      ? 'Sai como Reels: capriche no gancho e nas cenas (scenes): uma frase por cena, com título e desenho.'
       : 'Sai como carrossel: capriche na capa (hook) e nos slides.';
   return `# ${item.format} de ${item.date}
 
@@ -230,16 +231,16 @@ type Rendered = { files: string[]; caption: string };
  * com o mesmo guia, reaproveita: o Reels não é renderizado (nem a voz paga) duas vezes.
  */
 async function renderTo(
-  draft: Draft, topic: Topic, format: Format, outDir: string, active: Set<string>, date: string,
+  draft: Draft, topic: Topic, format: Format, outDir: string, active: Set<string>,
 ): Promise<Rendered & { reused: boolean }> {
   const cta = ctaFor(topic, active);
   const caption = buildCaption(draft, topic, cta);
-  const theme = themeFor(date, format);
-  const record = { topic: topic.id, cta: cta?.id ?? null, theme, draft };
+  // `visual` muda quando o estilo muda: a prévia feita no estilo antigo é renderizada de novo.
+  const record = { topic: topic.id, cta: cta?.id ?? null, visual: VISUAL, draft };
   try {
     const saved = JSON.parse(await fs.readFile(path.join(outDir, 'rascunho.json'), 'utf8')) as typeof record & { files?: string[] };
     const files = (saved.files ?? []).map((f) => path.join(outDir, f));
-    const same = JSON.stringify({ topic: saved.topic, cta: saved.cta, theme: saved.theme, draft: saved.draft }) === JSON.stringify(record);
+    const same = JSON.stringify({ topic: saved.topic, cta: saved.cta, visual: saved.visual, draft: saved.draft }) === JSON.stringify(record);
     if (same && files.length && (await Promise.all(files.map((f) => fs.stat(f).then(() => true, () => false)))).every(Boolean)) {
       await fs.writeFile(path.join(outDir, 'legenda.txt'), caption);
       return { files, caption, reused: true };
@@ -249,7 +250,7 @@ async function renderTo(
   }
   await fs.mkdir(outDir, { recursive: true });
   const files =
-    format === 'carrossel' ? await renderCarousel(draft, topic, cta, outDir, { theme }) : [await renderReel(draft, topic, cta, outDir, { theme })];
+    format === 'carrossel' ? await renderCarousel(draft, topic, cta, outDir) : [await renderReel(draft, topic, cta, outDir)];
   await fs.writeFile(path.join(outDir, 'legenda.txt'), caption);
   await fs.writeFile(
     path.join(outDir, 'rascunho.json'),
@@ -278,8 +279,8 @@ async function preview(): Promise<void> {
       continue;
     }
     try {
-      const r = await renderTo(checked.draft, checked.topic, item.format, path.join(process.cwd(), 'social', 'out', key), active, item.date);
-      console.log(`${key}: ${r.reused ? 'já gerado' : 'gerado'} (${r.files.length} arquivo${r.files.length > 1 ? 's' : ''}, cenário ${themeFor(item.date, item.format)})`);
+      const r = await renderTo(checked.draft, checked.topic, item.format, path.join(process.cwd(), 'social', 'out', key), active);
+      console.log(`${key}: ${r.reused ? 'já gerado' : 'gerado'} (${r.files.length} arquivo${r.files.length > 1 ? 's' : ''})`);
       ok++;
     } catch (e) {
       console.log(`${key}: ERRO ${(e as Error).message}`);
@@ -394,7 +395,7 @@ async function main() {
   if (!chosen) throw new Error(`nenhum rascunho passou na validação (${[...tried].join(', ')})`);
 
   const { topic, draft } = chosen;
-  const { files, caption, reused } = await renderTo(draft, topic, format, outDir, active, today());
+  const { files, caption, reused } = await renderTo(draft, topic, format, outDir, active);
   console.log(`Arquivos em ${outDir}${reused ? ' (da prévia)' : ''}`);
 
   if (dry || !state) {

@@ -33,13 +33,13 @@ export function hashtagsFor(topic: Topic): string[] {
   return [...new Set([...own, ...brands, ...base])].slice(0, MAX_HASHTAGS).map((t) => `#${t}`);
 }
 
-// Tudo na voz da Gotinha, em primeira pessoa, como no vídeo.
+// Tudo na voz do perfil, em primeira pessoa, como no vídeo. Sem mascote nem bordão.
 
 /** Primeira linha (a única antes do "mais"): gancho + pedido para salvar, o sinal que mais pesa. */
 export const SAVE_ASK = '📌 Salva pra não esquecer.';
 
 /** Seguir como promessa de algo diário (motivo para voltar), não só como pedido. */
-export const FOLLOW_LINE = `💧 Me segue (@${INSTAGRAM_HANDLE}): todo dia eu, a Gotinha, explico uma dúvida de Mounjaro, Ozempic e peptídeos sem achismo.`;
+export const FOLLOW_LINE = `💧 Segue o @${INSTAGRAM_HANDLE}: todo dia uma dúvida de Mounjaro, Ozempic e peptídeos explicada sem achismo, com fonte.`;
 
 /** Sem o complemento do Claude, convite genérico para mandar o post. */
 export const SHARE_FALLBACK = 'aquela amiga que também está nessa';
@@ -85,19 +85,12 @@ export function buildCaption(draft: Draft, topic: Topic, cta: Cta | null): strin
   return `${head}${body}\n${tail}`;
 }
 
-// Bordões da Gotinha: ficam no código para saírem sempre iguais (o validador barra o Claude
-// se ele os escrever). Abertura logo depois do gancho; fechamento é a última fala do Reels.
-// O "aí" não é enfeite: sem ele a voz gratuita (edge-tts multilíngue) lê a frase em espanhol.
-// Mudou um bordão → confira o idioma do áudio antes de publicar.
-export const BORDAO_ABERTURA = 'Senta aí, que a Gotinha te explica.';
-export const BORDAO_FECHAMENTO = 'Gotinha falou, tá falado!';
-
 /**
- * Última fala do Reels: pedir o comentário (vira direct com o guia), pedir o envio do vídeo (o
- * sinal que mais leva a quem não segue) e o bordão de fechamento. A palavra vai em minúscula
- * porque em maiúscula a voz soletra.
+ * Última fala do Reels: pedir o comentário (vira direct com o guia) e o envio do vídeo (o sinal
+ * que mais leva a quem não segue). A palavra vai em minúscula porque em maiúscula a voz soletra.
  */
 export function ctaSpeech(cta: Cta | null, share?: string): string {
   const what = cta ? 'o guia completo no direct, com desconto' : 'as calculadoras grátis no direct';
-  return `Comenta ${DM_KEYWORD.toLowerCase()} aqui embaixo que eu te mando ${what}. E manda esse vídeo pra ${shareTarget(share)}. ${BORDAO_FECHAMENTO}`;
+  // "Comenta guia" sai "comenta aqui a" na voz (conferido com transcrição): "a palavra" separa.
+  return `Comenta a palavra ${DM_KEYWORD.toLowerCase()} aqui embaixo que eu te mando ${what}. E manda esse vídeo pra ${shareTarget(share)}.`;
 }

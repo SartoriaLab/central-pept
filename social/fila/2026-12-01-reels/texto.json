@@ -1,0 +1,235 @@
+{
+  "hook": "Vai parar o Ozempic e acha que o resultado fica?",
+  "hookIcon": "duvida",
+  "slides": [
+    {
+      "title": "Parei o remédio, então o plano acabou",
+      "body": "É o contrário: a fase depois de parar é a que mais pede plano. A semaglutida trata enquanto está ativa; sem ela, o corpo tende a voltar ao estado de antes.",
+      "icon": "errado",
+      "layout": "mito"
+    },
+    {
+      "title": "70%",
+      "body": "No estudo STEP-4, quem trocou a semaglutida por placebo recuperou cerca de 70% do que tinha perdido em 48 semanas. Quem continuou com o remédio manteve a perda.",
+      "icon": "grafico-sobe",
+      "layout": "numero"
+    },
+    {
+      "title": "O que muda quando eu paro?",
+      "body": "Apetite e saciedade voltam ao estado de antes do tratamento em cerca de 4 semanas. E os hábitos alimentares nem sempre mudaram por completo nesse tempo.",
+      "icon": "cerebro",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Durante e depois da caneta",
+      "body": "Durante: treino resistido e proteína preservam o músculo\nDepois: os mesmos dois continuam, sem pausa",
+      "icon": "musculo",
+      "layout": "lado"
+    },
+    {
+      "title": "Preciso acompanhar alguma coisa?",
+      "body": "Sim: uma rotina de monitoramento, com o peso conferido toda semana. Assim você leva ao médico o que está acontecendo e a conversa sobre o plano fica mais fácil.",
+      "icon": "calendario",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Continuar também é opção",
+      "body": "Dados de 2 anos ou mais (STEP-5 e SUSTAIN-6) mostraram perfil de segurança mantido, e a FDA aceita o uso crônico para obesidade. A decisão é com o médico.",
+      "icon": "estetoscopio",
+      "layout": "padrao"
+    },
+    {
+      "title": "Cola do depois",
+      "body": "Saída da dose: aos poucos, com o médico\nTreino resistido continua\nProteína em dia\nPeso conferido toda semana",
+      "icon": "certo",
+      "layout": "passos"
+    }
+  ],
+  "scenes": [
+    {
+      "chip": "a dúvida",
+      "kicker": "a pergunta mais comum",
+      "title": "Parou o Ozempic,",
+      "accent": "o resultado fica?",
+      "tone": "vermelho",
+      "speech": "Você está pensando em parar o Ozempic e acha que o resultado fica do jeitinho que está?",
+      "visual": {
+        "type": "icone",
+        "icon": "pensando",
+        "note": "e se eu parar?"
+      }
+    },
+    {
+      "chip": "a dúvida",
+      "kicker": "o que ninguém te conta",
+      "title": "O remédio trata",
+      "accent": "enquanto está ativo",
+      "tone": "azul",
+      "speech": "A semaglutida trata a obesidade enquanto está ativa, igual ao remédio de pressão com a hipertensão.",
+      "visual": {
+        "type": "carimbo",
+        "text": "TRATAMENTO ATIVO",
+        "note": "funciona enquanto está no corpo"
+      }
+    },
+    {
+      "chip": "o STEP-4",
+      "kicker": "como foi o estudo",
+      "title": "20 semanas",
+      "accent": "e um sorteio",
+      "tone": "azul",
+      "speech": "No estudo STEP-4, todo mundo usou semaglutida 2,4 mg por 20 semanas, e depois o grupo foi dividido em dois.",
+      "visual": {
+        "type": "linha",
+        "steps": ["20 semanas", "sorteio", "48 semanas"],
+        "current": 1,
+        "note": "depois do sorteio, dois caminhos"
+      },
+      "source": "STEP-4"
+    },
+    {
+      "chip": "o STEP-4",
+      "kicker": "metade continuou",
+      "title": "Quem continuou",
+      "accent": "manteve a perda",
+      "tone": "azul",
+      "speech": "Quem continuou com o remédio por mais 48 semanas manteve a perda, de cerca de 17%.",
+      "visual": {
+        "type": "numero",
+        "value": "~17%",
+        "note": "perda mantida por quem continuou"
+      },
+      "source": "STEP-4"
+    },
+    {
+      "chip": "o STEP-4",
+      "kicker": "a outra metade",
+      "title": "Trocou pelo",
+      "accent": "placebo",
+      "tone": "vermelho",
+      "speech": "Já quem trocou por placebo recuperou cerca de 70% do que tinha perdido, nas mesmas 48 semanas.",
+      "visual": {
+        "type": "pontos",
+        "total": 100,
+        "marked": 70,
+        "note": "cerca de 70% do que saiu voltou"
+      },
+      "source": "STEP-4"
+    },
+    {
+      "chip": "por quê",
+      "kicker": "o corpo volta ao de antes",
+      "title": "O apetite volta",
+      "accent": "em cerca de 4 semanas",
+      "tone": "vermelho",
+      "speech": "Isso acontece porque o apetite e a saciedade voltam ao estado de antes em cerca de 4 semanas sem o remédio.",
+      "visual": {
+        "type": "numero",
+        "value": "4 semanas",
+        "note": "para o apetite voltar ao de antes"
+      }
+    },
+    {
+      "chip": "por quê",
+      "kicker": "e não é falta de força",
+      "title": "O corpo",
+      "accent": "puxa de volta",
+      "tone": "vermelho",
+      "speech": "A adaptação do metabolismo continua, e os hábitos nem sempre mudaram no mesmo ritmo. Não é falta de força de vontade.",
+      "visual": {
+        "type": "lista",
+        "items": [
+          { "text": "Apetite e saciedade voltam", "mark": "nao" },
+          { "text": "Adaptação do metabolismo fica", "mark": "nao" },
+          { "text": "Hábitos ainda em mudança", "mark": "duvida" }
+        ]
+      }
+    },
+    {
+      "chip": "o risco",
+      "kicker": "o erro mais comum",
+      "title": "Parar de uma vez",
+      "accent": "sem plano nenhum",
+      "tone": "vermelho",
+      "speech": "Por isso, parar de uma vez, sem estratégia nenhuma, leva a um rebote bem previsível.",
+      "visual": {
+        "type": "carimbo",
+        "text": "SEM PLANO",
+        "note": "rebote previsível"
+      }
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "combinado com o médico",
+      "title": "Reduzir a dose",
+      "accent": "aos poucos",
+      "tone": "azul",
+      "speech": "O primeiro passo é combinar com o médico a redução da dose aos poucos, em vez de cortar de vez.",
+      "visual": {
+        "type": "linha",
+        "steps": ["dose atual", "redução", "consulta"],
+        "current": 1,
+        "note": "sempre com orientação médica"
+      }
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "durante e depois",
+      "title": "Treino resistido",
+      "accent": "e proteína em dia",
+      "tone": "azul",
+      "speech": "Mantenha o treino resistido e a proteína em dia, durante e depois do tratamento, para preservar o músculo.",
+      "visual": {
+        "type": "icone",
+        "icon": "musculo",
+        "note": "preserva a massa muscular"
+      }
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "pra levar à consulta",
+      "title": "Peso conferido",
+      "accent": "toda semana",
+      "tone": "azul",
+      "speech": "E confira o peso toda semana, para levar à consulta o que está acontecendo de verdade.",
+      "visual": {
+        "type": "icone",
+        "icon": "calendario",
+        "note": "um registro por semana"
+      }
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "também vale",
+      "title": "Continuar também",
+      "accent": "é opção válida",
+      "tone": "azul",
+      "speech": "E continuar por longo prazo também é uma opção clínica válida: no STEP-5, a segurança se manteve por dois anos ou mais.",
+      "visual": {
+        "type": "carimbo",
+        "text": "OPÇÃO VÁLIDA",
+        "note": "uso crônico aceito pela FDA"
+      },
+      "source": "STEP-5 e SUSTAIN-6"
+    },
+    {
+      "chip": "pra lembrar",
+      "kicker": "da próxima vez",
+      "title": "Vai parar?",
+      "accent": "Só com plano",
+      "tone": "azul",
+      "speech": "Então, vai parar o Ozempic? O resultado não fica sozinho: ele fica com plano e com o seu médico.",
+      "visual": {
+        "type": "lista",
+        "items": [
+          { "text": "Reduzir aos poucos", "mark": "ok" },
+          { "text": "Treino e proteína", "mark": "ok" },
+          { "text": "Peso toda semana", "mark": "ok" }
+        ]
+      }
+    }
+  ],
+  "caption": "Eu sei, parar o Ozempic dá aquela sensação de missão cumprida. Mas a semaglutida trata enquanto está ativa. No estudo STEP-4, quem continuou por mais 48 semanas manteve a perda; quem trocou por placebo recuperou cerca de 70% do que tinha perdido no mesmo período. Em cerca de 4 semanas sem o remédio, apetite e saciedade voltam ao estado de antes.\n\n1️⃣ A saída da dose se decide com o médico, reduzindo aos poucos\n2️⃣ Treino resistido continua, durante e depois\n3️⃣ Proteína em dia, para saciedade e músculo\n4️⃣ Peso conferido toda semana, para levar à consulta\n\n⚠️ Parar de uma vez, sem plano, é o caminho mais previsível para o efeito rebote. Continuar por longo prazo também é uma opção clínica válida: converse com o médico.",
+  "question": "Você já conversou com o médico sobre como seria parar?",
+  "share": "aquela amiga que quer parar a caneta de uma vez"
+}

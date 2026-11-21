@@ -1,84 +1,294 @@
 {
-  "hook": "Mito: existe Mounjaro em frasco no Brasil.",
-  "hookIcon": "duvida",
-  "hookPose": "ih",
+  "hook": "Um mês de Mounjaro e acha que não está funcionando?",
+  "hookIcon": "ampulheta",
   "slides": [
     {
-      "title": "Mounjaro também vem em frasco",
+      "title": "2,5 mg",
+      "layout": "numero",
+      "body": "É a dose das 4 primeiras semanas. Na bula do Zepbound, ela é dose de início, não de manutenção: serve para o corpo se acostumar.",
+      "icon": "calendario"
+    },
+    {
+      "title": "Se não emagreceu no 1º mês, não funciona",
       "layout": "mito",
-      "body": "No Brasil, a Lilly só tem a caneta KwikPen, com solução pronta. Frasco com pó é tirzepatida manipulada ou de outra origem, nunca Mounjaro.",
-      "icon": "certo",
-      "pose": "explicando"
+      "body": "A tirzepatida age desde a primeira aplicação, mas o primeiro mês é de adaptação. A dose sobe aos poucos, e cada degrau leva cerca de 4 semanas para firmar.",
+      "icon": "errado"
     },
     {
-      "title": "Na caixa, confira",
-      "body": "Mounjaro, tirzepatida e dose impressos\nFabricante Eli Lilly e registro ANVISA\nLote e validade impressos, não em adesivo\nLacre intacto e bula em português",
-      "layout": "passos",
-      "icon": "lupa",
-      "pose": "explicando"
-    },
-    {
-      "title": "Caneta solta é suspeita",
-      "layout": "padrao",
-      "body": "A apresentação nacional é caixa com 4 canetas. Caneta sem caixa ou caixa com uma só caneta merece desconfiança.",
-      "icon": "alerta",
-      "pose": "pensando"
-    },
-    {
-      "title": "Na caneta, confira",
-      "body": "Rótulo impresso de fábrica\nLote igual ao da caixa\nLíquido límpido e incolor\nSeletor que trava com clique; gira livre? Suspeito",
-      "layout": "passos",
-      "icon": "seringa",
-      "pose": "apontando"
-    },
-    {
-      "title": "Consulte o registro",
-      "layout": "padrao",
-      "body": "Em consultas.anvisa.gov.br, busque Mounjaro: o registro válido é da Eli Lilly do Brasil. Veja também se o lote aparece nos alertas de falsificação.",
-      "icon": "escudo",
-      "pose": "piscadinha"
-    },
-    {
-      "title": "Onde o risco é maior?",
+      "title": "Quando chego na dose máxima?",
       "layout": "pergunta",
-      "body": "Anúncio em rede social ou marketplace, perfil sem CNPJ nem endereço e ninguém pedindo receita. A ANVISA exige receita retida para tirzepatida.",
-      "icon": "proibido",
-      "pose": "ih"
+      "body": "Como a dose sobe 2,5 mg a cada 4 semanas ou mais, quem vai até 15 mg só chega lá na 21ª semana. E 5, 10 e 15 mg são todas doses de manutenção.",
+      "icon": "grafico-sobe"
     },
     {
-      "title": "Desconfiou? Não aplique",
+      "title": "No SURMOUNT-1, em 72 semanas",
       "layout": "padrao",
-      "body": "Fotografe a caixa, a caneta e o rótulo e notifique a ANVISA pelo Notivisa. Já aplicou e sentiu algo anormal? Pronto-socorro, levando o produto.",
-      "icon": "hospital",
-      "pose": "alerta"
+      "body": "Perda média de 15,0% com 5 mg, 19,5% com 10 mg e 20,9% com 15 mg, contra 3,1% no placebo. O peso continuou caindo por mais de um ano antes de estabilizar.",
+      "icon": "microscopio"
     },
     {
-      "title": "Sua cola",
-      "body": "Mounjaro é caneta, em caixa com 4\nLote da caixa igual ao da caneta, impresso\nRegistro na ANVISA em nome da Eli Lilly\nFrasco nunca é Mounjaro",
+      "title": "No frasco, a conta pesa",
+      "layout": "padrao",
+      "body": "Erro de dose é causa frequente de \"não fez efeito\". Confira a conta da diluição e as unidades na seringa, e também armazenamento e procedência.",
+      "icon": "seringa"
+    },
+    {
+      "title": "Cola para guardar",
       "layout": "passos",
-      "icon": "prancheta",
-      "pose": "apontando"
+      "body": "Semanas 1 a 4 são de dose inicial\nCerca de 4 semanas para cada dose firmar\nAntes de 3 meses em dose estável é cedo\nSubida de dose é com o médico",
+      "icon": "certo"
     }
   ],
-  "narration": [
+  "scenes": [
     {
-      "text": "Mito: existe Mounjaro em frasco no Brasil. Não existe, e esse é o primeiro sinal de falsificação.",
-      "pose": "ih"
+      "chip": "a dúvida",
+      "kicker": "quatro semanas depois",
+      "title": "Um mês e",
+      "accent": "nada mudou?",
+      "tone": "vermelho",
+      "speech": "Um mês de Mounjaro e você já acha que ele não está funcionando?",
+      "visual": {
+        "type": "icone",
+        "icon": "ampulheta",
+        "note": "o primeiro mês de tratamento"
+      }
     },
     {
-      "text": "Aqui, o Mounjaro é só a caneta KwikPen da Eli Lilly, em caixa com 4 canetas. Frasco é tirzepatida manipulada ou de outra origem, nunca Mounjaro.",
-      "pose": "explicando"
+      "chip": "a dose inicial",
+      "kicker": "semanas 1 a 4",
+      "title": "Isso nem é",
+      "accent": "dose de manutenção",
+      "tone": "azul",
+      "speech": "Calma: as 4 primeiras semanas são de 2,5 mg, a dose inicial, que nem é dose de manutenção.",
+      "visual": {
+        "type": "numero",
+        "value": "2,5 mg",
+        "note": "dose inicial das semanas 1 a 4"
+      },
+      "source": "bula do Zepbound"
     },
     {
-      "text": "Na caixa, o lote tem que ser igual ao da caneta e vir impresso, não em adesivo. Líquido turvo ou seletor sem clique? Não aplique.",
-      "pose": "alerta"
+      "chip": "a dose inicial",
+      "kicker": "pra que ela serve",
+      "title": "É o corpo",
+      "accent": "se acostumando",
+      "tone": "azul",
+      "speech": "Ela serve pro corpo se acostumar, e é justamente quando costumam surgir os primeiros enjoos.",
+      "visual": {
+        "type": "icone",
+        "icon": "enjoo",
+        "note": "fase dos primeiros efeitos gastrointestinais"
+      }
     },
     {
-      "text": "Desconfiou, tire fotos e notifique a ANVISA pelo Notivisa. E se aparecer Mounjaro em frasco, você já sabe: é mito.",
-      "pose": "apontando"
+      "chip": "no corpo",
+      "kicker": "depois de cada aplicação",
+      "title": "O pico vem",
+      "accent": "em até 72 horas",
+      "tone": "azul",
+      "speech": "Depois de cada aplicação, o pico no sangue vem entre 8 e 72 horas.",
+      "visual": {
+        "type": "numero",
+        "value": "72 horas",
+        "note": "pico entre 8 e 72 horas após a aplicação"
+      }
+    },
+    {
+      "chip": "no corpo",
+      "kicker": "a cada dose nova",
+      "title": "Um mês pra",
+      "accent": "firmar cada dose",
+      "tone": "azul",
+      "speech": "E a cada mudança de dose, o corpo leva cerca de 4 semanas pra chegar no novo patamar.",
+      "visual": {
+        "type": "linha",
+        "steps": [
+          "dose nova",
+          "1ª semana",
+          "4ª semana"
+        ],
+        "current": 2,
+        "note": "concentração estável em cerca de 4 semanas"
+      }
+    },
+    {
+      "chip": "a escada",
+      "kicker": "como a bula sobe",
+      "title": "Degrau por degrau,",
+      "accent": "sem pular",
+      "tone": "azul",
+      "speech": "A dose sobe 2,5 mg a cada 4 semanas ou mais, e 5 mg já é a primeira dose de manutenção.",
+      "visual": {
+        "type": "linha",
+        "steps": [
+          "2,5 mg",
+          "5 mg",
+          "10 mg",
+          "15 mg"
+        ],
+        "current": 1,
+        "note": "sobe a cada 4 semanas ou mais"
+      }
+    },
+    {
+      "chip": "a escada",
+      "kicker": "quem vai até 15 mg",
+      "title": "Só chega lá",
+      "accent": "na 21ª semana",
+      "tone": "azul",
+      "speech": "Quem vai até 15 mg só chega lá na 21ª semana, cinco meses depois de começar.",
+      "visual": {
+        "type": "numero",
+        "value": "21ª",
+        "note": "semana em que se chega aos 15 mg"
+      }
+    },
+    {
+      "chip": "a escada",
+      "kicker": "e tem mais",
+      "title": "Nem todo mundo",
+      "accent": "precisa da máxima",
+      "tone": "azul",
+      "speech": "E nem todo mundo precisa da dose máxima: 5, 10 e 15 mg são todas doses de manutenção.",
+      "visual": {
+        "type": "lista",
+        "items": [
+          {
+            "text": "5 mg: dose de manutenção",
+            "mark": "ok"
+          },
+          {
+            "text": "10 mg: dose de manutenção",
+            "mark": "ok"
+          },
+          {
+            "text": "15 mg: dose de manutenção",
+            "mark": "ok"
+          }
+        ]
+      }
+    },
+    {
+      "chip": "os estudos",
+      "kicker": "SURMOUNT-1, 72 semanas",
+      "title": "O resultado",
+      "accent": "depende da dose",
+      "tone": "azul",
+      "speech": "No SURMOUNT-1, em 72 semanas, a perda média foi de 15% com 5 mg, 19,5% com 10 mg e 20,9% com 15 mg.",
+      "visual": {
+        "type": "barras",
+        "bars": [
+          {
+            "label": "15 mg",
+            "value": 20.9,
+            "display": "20,9%"
+          },
+          {
+            "label": "10 mg",
+            "value": 19.5,
+            "display": "19,5%"
+          },
+          {
+            "label": "5 mg",
+            "value": 15,
+            "display": "15,0%"
+          },
+          {
+            "label": "placebo",
+            "value": 3.1,
+            "display": "3,1%"
+          }
+        ]
+      },
+      "source": "SURMOUNT-1"
+    },
+    {
+      "chip": "os estudos",
+      "kicker": "e não parou aí",
+      "title": "Mais de um ano",
+      "accent": "até estabilizar",
+      "tone": "azul",
+      "speech": "E no estudo, o peso continuou caindo por mais de um ano antes de estabilizar.",
+      "visual": {
+        "type": "icone",
+        "icon": "grafico-desce",
+        "note": "resultado final medido em 72 semanas"
+      },
+      "source": "SURMOUNT-1"
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "antes de concluir",
+      "title": "Menos de 3 meses?",
+      "accent": "Ainda é cedo",
+      "tone": "vermelho",
+      "speech": "Antes de 3 meses em dose estável, ainda é cedo pra dizer que não funcionou.",
+      "visual": {
+        "type": "carimbo",
+        "text": "AINDA É CEDO",
+        "note": "menos de 3 meses em dose estável"
+      }
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "usa frasco?",
+      "title": "Confere a conta",
+      "accent": "da diluição",
+      "tone": "vermelho",
+      "speech": "Usa frasco? Confere a diluição e as unidades na seringa, porque erro de dose é causa frequente.",
+      "visual": {
+        "type": "frasco",
+        "label": "TIRZEPATIDA",
+        "liquid": "po",
+        "tag": "VEJA A CONTA"
+      }
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "a tentação",
+      "title": "Subir por conta",
+      "accent": "não acelera nada",
+      "tone": "vermelho",
+      "speech": "E subir a dose por conta só aumenta o efeito colateral, sem acelerar o resultado: isso é com o médico.",
+      "visual": {
+        "type": "lista",
+        "items": [
+          {
+            "text": "Levar registro de peso e doses",
+            "mark": "ok"
+          },
+          {
+            "text": "Subir a dose por conta própria",
+            "mark": "nao"
+          },
+          {
+            "text": "Encurtar o intervalo do degrau",
+            "mark": "nao"
+          }
+        ]
+      }
+    },
+    {
+      "chip": "pra lembrar",
+      "kicker": "da próxima vez",
+      "title": "Você está só",
+      "accent": "no primeiro degrau",
+      "tone": "azul",
+      "speech": "Então, um mês de Mounjaro e acha que nada mudou? Calma, você está só no primeiro degrau.",
+      "visual": {
+        "type": "linha",
+        "steps": [
+          "2,5 mg",
+          "5 mg",
+          "10 mg",
+          "15 mg"
+        ],
+        "current": 0,
+        "note": "cada degrau com pelo menos 4 semanas"
+      }
     }
   ],
-  "caption": "Eu sei, quando aparece \"Mounjaro em frasco\" dá vontade de acreditar. Mas no Brasil a Lilly só tem a caneta KwikPen, com solução pronta. Frasco com pó é tirzepatida manipulada ou de outra origem, nunca Mounjaro.\n\n1️⃣ Na caixa: registro ANVISA, fabricante Eli Lilly, lote e validade impressos (não em adesivo), lacre intacto e bula em português.\n2️⃣ Na caneta: rótulo de fábrica, lote igual ao da caixa, líquido límpido e incolor, seletor que trava com clique.\n3️⃣ Na ANVISA: confira o registro em consultas.anvisa.gov.br e veja se o lote está em algum alerta de falsificação.\n\n⚠️ Desconfiou, não aplique. Fotografe tudo e notifique pelo Notivisa. Se já aplicou e apareceram sintomas anormais, procure o pronto-socorro levando o produto.",
-  "question": "Você já tinha visto anúncio de Mounjaro em frasco por aí?",
-  "share": "quem acha que Mounjaro também vem em frasco"
+  "caption": "Eu sei, a gente aplica e já quer ver resultado no primeiro mês. Mas as 4 primeiras semanas de tirzepatida são de 2,5 mg, a dose inicial, que serve para o corpo se acostumar e não é dose de manutenção.\n\n1️⃣ Cada dose leva cerca de 4 semanas para chegar à concentração estável\n2️⃣ A dose sobe 2,5 mg a cada 4 semanas ou mais: quem vai até 15 mg só chega lá na 21ª semana\n3️⃣ No SURMOUNT-1, em 72 semanas, a perda média foi de 15,0% com 5 mg, 19,5% com 10 mg e 20,9% com 15 mg, contra 3,1% no placebo\n\n⚠️ Parece que o Mounjaro não está funcionando? Antes de 3 meses em dose estável é cedo para concluir. Em frasco, confira a diluição e as unidades na seringa. Subir a dose por conta própria aumenta os efeitos colaterais sem acelerar o resultado: a decisão é do médico.",
+  "question": "Em qual semana você sentiu a primeira diferença?",
+  "share": "quem está no primeiro mês e já acha que o Mounjaro não funciona"
 }

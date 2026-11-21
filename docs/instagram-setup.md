@@ -169,7 +169,11 @@ Kit. Código: `app/api/instagram/webhook/route.ts` e `lib/instagram-dm.ts`.
 ## Parte 7 — Robô neste computador (sem GitHub e sem chave da Anthropic)
 
 **Sem IA (padrão desde 19/11/2026):** duas tarefas do **Agendador do Windows** (pasta `DoseCerta`):
-"Carrossel" todo dia às 12h e "Reels" às 19h30 de domingo, segunda, quarta e sexta. Cada uma roda
+"Carrossel" todo dia às 12h e "Reels" todo dia: 19h de domingo a quinta, 18h na sexta e 10h no
+sábado. Horários da pesquisa de 21/11/2026 (blogs brasileiros de gestão de Instagram concordam em
+11h–13h e 18h–21h nos dias úteis, terça a quinta como melhores dias, sexta caindo depois das 21h e
+sábado com pico de manhã; os maiores picos dos perfis de GLP-1 saíram de domingo, terça e sábado).
+Mudou um horário → mude `REELS_HOURS`/`CAROUSEL_HOUR` em `scripts/social/queue.ts`. Cada uma roda
 `scripts\social\agendado.ps1`, que publica o texto pronto da fila (Parte 8) com as imagens e o vídeo
 da prévia. Não usa o Claude nem o app. O computador precisa estar ligado com o seu usuário logado;
 se estava desligado no horário, a tarefa roda quando você entrar.
@@ -220,7 +224,7 @@ hora, como antes. `social/fila/PLANO.md` mostra o calendário; `REGRAS.md` tem a
   azulejo) giram pela data, nunca o mesmo em dois dias seguidos, e o Reels do dia sai num
   cenário diferente do carrossel. Cada slide tem um tipo (`layouts.ts`: padrão, mito × verdade,
   passo a passo, lado a lado, número em destaque, pergunta e resposta), escolhido por quem
-  escreve. No Reels a Gotinha alterna de lado e entra deslizando em cada cena.
+  escreve.
 - **Trocar um post:** edite o `texto.json` da pasta e rode o `--check`. Apagar o `texto.json` faz o dia
   ser escrito na hora.
 - O tema escrito na hora evita os temas que a fila ainda vai publicar.

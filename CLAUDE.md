@@ -116,8 +116,10 @@ Feed, sitemap, busca, páginas de tag e imagem de compartilhamento saem sozinhos
 ## Instagram @dosecerta_br (automático)
 
 1. Roda no computador do dono **sem IA**, pelo Agendador do Windows (pasta `\DoseCerta\`, criada por
-   `npm run social:agendar`): carrossel todo dia às 12h; Reels às 19h30 de domingo, segunda, quarta
-   e sexta enquanto a conta aquece. A tarefa chama `agendado.ps1`, que roda `run.ts <formato> --fila`:
+   `npm run social:agendar`): carrossel todo dia às 12h; Reels todo dia no pico de cada dia (19h de
+   domingo a quinta, 18h na sexta, 10h no sábado; `REELS_HOURS` em `queue.ts` = gatilhos do `agendar.ps1`).
+   Os temas de `VIRAL_RANK` (`pick.ts`, levantamento dos Reels mais vistos do nicho) saem primeiro, nessa
+   ordem, e o Reels escolhe antes do carrossel no mesmo dia. A tarefa chama `agendado.ps1`, que roda `run.ts <formato> --fila`:
    publica o `texto.json` pronto de `social/fila/<data>-<formato>/` (reaproveita a prévia de
    `social/out/`). Sem texto para o dia, não publica e sai com código 3 (log em `social/logs/`): a
    fila acabou, hora de o Claude gerar mais (`run.ts plano` + textos). `agendado.ps1 -ComIA` escreve
@@ -132,8 +134,11 @@ Feed, sitemap, busca, páginas de tag e imagem de compartilhamento saem sozinhos
    monta a fila (`queue.ts`, mesma escolha de tema do robô) e `--check <pasta>` só valida.
    `topicPriority` (`pick.ts`) põe primeiro as dúvidas práticas de GLP-1. `run.ts previa` gera a
    fila em `social/out/` e a publicação reaproveita (voz em cache em `social/out/_voz`).
-   Visual: cenário por data (`themes.ts`, `themeFor`) e tipo por slide (`layouts.ts`, campo `layout`
-   obrigatório; com 4+ slides, ao menos um fora de "padrao"). Fonte Inter não tem ✓/✗: não use.
+   Visual "papel" (`papel.tsx`, desde 21/11/2026, inspirado no explicador do @atlasconhecimento): fundo creme
+   quadriculado, título em duas linhas na fonte Anton (escura + destaque vermelho/azul), desenho plano no meio
+   (frasco, frascos, numero, barras, pontos, linha, lista, carimbo, icone), fonte do dado no rodapé. Carrossel:
+   tipo por slide (`layouts.ts`, campo `layout` obrigatório; com 4+ slides, ao menos um fora de "padrao") vira
+   o desenho do slide (`carouselSlide` em `render.ts`). Inter e Anton não têm ✓/✗/≠: marcas são SVG e "≠" sai em Inter.
 2. Código em `scripts/social/` (rodado com `tsx`): temas saem de posts, fichas e comparativos
    (`topics.ts`; posts de compra/preço e Melanotan II ficam fora), o Claude escreve (`write.ts`: API
    com `ANTHROPIC_API_KEY`; sem ela, `claude -p` da assinatura, com `CLAUDE_CODE_OAUTH_TOKEN` do
@@ -142,17 +147,26 @@ Feed, sitemap, busca, páginas de tag e imagem de compartilhamento saem sozinhos
    seguem `ebookFor*` (`ebook-cta.ts`).
 3. `npm run social:preview` renderiza um exemplo sem API; `npm run social:carrossel -- --dry` gera de
    verdade em `social/out/` sem publicar. Precisa de ffmpeg e `pip install edge-tts`.
-   Reels: voz com tempo por palavra em `voice.ts` (ElevenLabs com `ELEVENLABS_API_KEY` e a variável
-   `ELEVENLABS_VOICE_ID`; sem chave, edge-tts via `tts_words.py`), legenda palavra a palavra em
-   `captions.ts`, transições e música de `scripts/social/music/` (uma trilha por dia) em `render.ts`.
-   Gotinha (mascote, gota amarela do logo) é a protagonista: desenho em `mascot.tsx`, poses em `poses.ts`
-   (o Claude escolhe uma por fala e por slide), boca e piscadas em `lipsync.ts`. No Reels ela é uma camada
-   à parte, sobreposta pelo ffmpeg na posição `REEL_MASCOT` (`slides.tsx`); no carrossel é desenhada no slide.
-   Ordem fixa do Reels: gancho (mania ou erro do dia a dia, nunca cumprimento) → bordão de abertura → falas →
-   chamada do guia → bordão de fechamento. Bordões em `caption.ts` (`BORDAO_*`), nunca no texto do Claude;
-   mudou um bordão → confira se a voz gratuita não lê em espanhol. Folha de poses: `npm run social:gotinha`.
-   Reels de até ~35 s (3 a 4 falas), gancho escrito na tela no primeiro quadro, bordões na cena do gancho
-   e na da chamada final, que pede "comenta GUIA" e o envio do vídeo (`ctaSpeech`).
+   Reels: explicador de 40 a 60 s em cenas (`scenes` no texto: 8 a 12, até 170 palavras, gancho de até 10, no
+   máximo 3 números: padrões dos Reels mais vistos do nicho, regras em `write.ts`; uma frase por cena, com selo,
+   título de duas linhas, desenho e fonte; regras em `validate.ts`, `sceneProblems`). Animado quadro a
+   quadro a 30 fps (`motion.ts`, puro; quadros em RGBA cru no pipe do ffmpeg): fundo, selo e marca não cortam;
+   o título entra linha a linha de trás de uma máscara e sai subindo no respiro do fim da cena; o desenho entra
+   por partes no ritmo da fala (frasco cai com mola, lista aparece apagada e acende item a item, barras crescem,
+   número conta, carimbo bate) e flutua de leve; desenho igual ao da cena vizinha continua na tela. Legenda em
+   pílula escura que pula a cada bloco. O resvg roda com `loadSystemFonts: false` e a grade do papel é de linhas
+   soltas: sem isso o quadro custa ~250 ms em vez de ~70 ms (90 s de vídeo ≈ 3 min). Pronúncia em `pronuncia.ts`
+   (marca, estudo, sigla e unidade ganham grafia falada só no áudio; `relabel` devolve a palavra original à
+   legenda), conferida com transcrição (faster-whisper medium): mudou a voz → confira de novo. Texto antigo da fila (só `narration`) ainda vale: `scenesFor` (`scenes.ts`) monta uma
+   cena por frase. Voz com tempo por palavra em `voice.ts` (ElevenLabs com `ELEVENLABS_API_KEY` e a variável
+   `ELEVENLABS_VOICE_ID`; sem chave, edge-tts via `tts_words.py`), blocos da legenda em `captions.ts`,
+   música de `scripts/social/music/` (uma trilha por dia) em `render.ts`.
+   Sem mascote nem bordão (decisão do dono em 21/11/2026): a voz é a do perfil, em primeira pessoa; o logo
+   assina o topo de todo quadro e o protagonista na tela é o dado. O validador barra os bordões antigos
+   (`CATCHPHRASE`). Ordem fixa do Reels: gancho (nunca cumprimento) → cenas → chamada final, que pede
+   "comenta GUIA" e o envio do vídeo (`ctaSpeech`).
+   Exemplo pronto: `social/exemplos/retatrutida-reels/` (`run.ts reels --draft <pasta> --dry`).
+   Mudou o visual → troque `VISUAL` em `run.ts`, senão a publicação reaproveita a prévia antiga.
    "Comenta GUIA" → direct: webhook `app/api/instagram/webhook` (regras em `lib/instagram-dm.ts`) manda a
    página do guia do post com o cupom `EXIT_COUPON` e responde o comentário em público; o guia vem do título
    entre aspas da linha 📘 da legenda (`ctaLine`; mudou o formato dela → mude `ebookFromCaption`). Um
@@ -184,8 +198,9 @@ Feed, sitemap, busca, páginas de tag e imagem de compartilhamento saem sozinhos
 - URL, nome, host e email do site: `lib/site.ts`.
 - Cores por categoria e selos de status: `lib/category-style.ts`.
 - Exportar calendário: `lib/ics.ts`.
-- Gotinha no site: `components/brand/Gotinha.tsx` reexporta o desenho de `scripts/social/mascot.tsx`. Só em
-  estado vazio e 404 (orienta, não enfeita); duas na mesma página pedem `id` diferentes.
+- Logo (gota com check): `components/brand/DropCheck.tsx`, no site (404, estado vazio da calculadora, /links)
+  e nos quadros do Instagram; duas na mesma página pedem `id` diferentes. Não há mais mascote (a Gotinha saiu
+  em 21/11/2026, decisão do dono): não crie personagem, bordão nem frase de efeito fixa.
 - Description gerada de texto longo: `clipDescription` (`lib/meta.ts`), nunca `.slice()`.
 - Newsletter: `NewsletterSignup` (`variant="compact"` no fim dos posts e no rodapé; `via` vai na origem
   gravada, `rota#via`). O rodapé decide onde aparece em `FooterNewsletter` (`HIDDEN`). Só grava o email:

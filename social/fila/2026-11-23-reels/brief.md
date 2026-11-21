@@ -9,94 +9,93 @@ Se sair "REPROVADO", corrija só o que a lista aponta e rode de novo.
 
 ## PEDIDO
 
-TEMA: Náusea na tirzepatida (Mounjaro): como aliviar e quando procurar médico
+TEMA: Seringa de insulina de 30, 50 ou 100 unidades: qual usar e como ler
 
 FONTE:
-Título: Náusea na tirzepatida (Mounjaro): como aliviar e quando procurar médico
+Título: Seringa de insulina de 30, 50 ou 100 unidades: qual usar e como ler
 
-Resumo: Náusea atinge de 25% a 33% de quem usa tirzepatida, quase sempre leve e concentrada nos dias seguintes a cada aumento de dose. Ajuda comer porções menores e devagar, evitar gordura e álcool, manter hidratação e não subir a dose enquanto o enjoo persistir. Dor abdominal forte, vômito por mais de 24 horas ou sinais de desidratação pedem atendimento médico.
+Resumo: Escolha a menor seringa U-100 que comporte a dose inteira com folga: até 30 unidades, a de 30 U; até 50, a de 50 U; acima disso, a de 100 U. Nas de 30 e 50 U cada traço vale 1 unidade (há modelos com meia unidade); em muitas de 100 U, 2 unidades. Na U-100, 1 unidade = 0,01 ml. A U-40 tem outra escala: o mesmo número de unidades dá 2,5 vezes mais volume. A diretriz da SBD recomenda agulha fixa, que evita o espaço morto, e agulhas curtas (4 a 6 mm).
 
-Náusea é o efeito colateral mais comum da tirzepatida (Mounjaro). Na maioria dos casos é leve, aparece quando a dose sobe e melhora em dias ou poucas semanas. Saber o que fazer — e quando o enjoo deixa de ser normal — evita tanto sofrimento desnecessário quanto abandono do tratamento.
+Na farmácia, a seringa de insulina aparece em três tamanhos: 30, 50 e 100 unidades. A escolha parece detalhe, mas muda a precisão da dose, principalmente quando a dose é pequena. Este guia explica como escolher, como ler os traços sem errar e por que a escala U-100 importa. Para ver as escalas desenhadas e a tabela de mg por traço de cada tamanho, use as páginas como ler a seringa de insulina, seringa de 30 unidades, seringa de 50 unidades e seringa de 100 unidades. Aqui o foco é a decisão.
 
-## Com que frequência acontece
+este texto ensina a medir volume na seringa. A dose de qualquer medicamento é a que o médico prescreveu, e a conta de unidades depende da concentração do seu frasco. Na dúvida, confirme com o médico ou o farmacêutico antes de aplicar.
 
-No estudo SURMOUNT-1, relataram náusea 24,6% dos participantes em 5 mg, 33,3% em 10 mg e 31,0% em 15 mg, contra 9,5% no placebo. Vômito foi menos comum: 8,3%, 10,7% e 12,2%, contra 1,7%. Os episódios se concentraram no período de aumento de dose, foram em geral leves a moderados e ficaram menos frequentes depois.
+## A regra de escolha: a menor que cabe com folga
 
-## Por que a tirzepatida dá enjoo
+As três seringas U-100 têm a mesma escala de volume (1 unidade = 0,01 ml). O que muda é o comprimento total e, por isso, o espaço entre os traços. Na seringa de 30 U, os mesmos 0,3 ml ocupam o corpo inteiro; na de 100 U, ocupam menos de um terço dele. A mesma dose fica "maior" e mais fácil de ler na seringa pequena.
 
-- **Estômago mais lento:** o medicamento retarda o esvaziamento gástrico. A comida fica mais tempo no estômago e a sensação de estar cheio dura mais.
-- **Ação no cérebro:** os receptores de GLP-1 em áreas que controlam apetite e náusea também são ativados.
-- **Hábito antigo, estômago novo:** comer a mesma quantidade de antes, na mesma velocidade, é o gatilho mais comum.
+| Dose em unidades | Seringa indicada | Por quê |
+| --- | --- | --- |
+| Até 30 U | 30 U (0,3 ml) | Escala mais espaçada; alguns modelos marcam meia unidade |
+| De 30 a 50 U | 50 U (0,5 ml) | Comporta a dose com traço de 1 em 1 unidade |
+| Acima de 50 U | 100 U (1 ml) | Única que comporta; em muitos modelos o traço vale 2 unidades |
+| Acima de 100 U | Nenhuma de uma vez | Fale com quem prescreveu; com frasco reconstituído, a concentração pode ser outra |
 
-## Quando costuma aparecer
+A Sociedade Brasileira de Diabetes (SBD), na diretriz de técnicas de aplicação de insulina, recomenda as seringas de **30 U ou 50 U**, graduadas em **0,5 ou 1 unidade**, para quem usa doses baixas e precisa de ajuste mais preciso.
 
-- Nos primeiros dias após a primeira aplicação
-- Nos 2 a 3 dias seguintes a cada aumento de dose
-- Depois de refeições grandes, gordurosas ou muito rápidas
+**Pense na dose mais alta que você vai usar, não só na de hoje.** Em tratamentos com subida de dose, a seringa que serve no primeiro mês pode não servir no terceiro. Se a dose em unidades vai passar de 30 em breve, pode valer começar com a de 50 U.
 
-Como a concentração estável leva cerca de 4 semanas para ser atingida, é esperado que o desconforto diminua ao longo do mês em cada dose.
+## Por que a seringa grande atrapalha em dose pequena
 
-## O que ajuda na prática
+Imagine uma dose de 7 unidades.
 
-### Na alimentação
+- Na seringa de **30 U**, 7 unidades ocupam quase um quarto da escala, com um traço a cada unidade.
+- Na de **100 U** marcada de 2 em 2, 7 unidades ficam **entre dois traços** (6 e 8). Você precisa adivinhar o meio, e o erro de meia marca já é 1 unidade, mais de 14% da dose.
 
-- Porções menores, mais vezes ao dia
-- Comer devagar e parar ao primeiro sinal de saciedade — não "limpar o prato"
-- Preferir alimentos leves e pouco gordurosos: arroz, batata, frango, frutas, torradas
-- Evitar frituras, muito açúcar, comida muito condimentada e álcool
-- Não deitar logo depois de comer
-- Beber líquidos em pequenos goles ao longo do dia, não em grande volume junto da refeição
-- Gengibre e bebidas frias aliviam o enjoo para algumas pessoas
+Por isso, quando você usa uma calculadora de frasco reconstituído, vale escolher a quantidade de água que deixa a dose **em um número redondo de unidades** e dentro da faixa confortável da seringa. A calculadora de reconstituição mostra a seringa marcada para cada combinação de frasco, água e dose.
 
-### Na aplicação
+## Como ler os traços
 
-- Escolher o dia da semana com calma: muitos preferem aplicar na véspera de dias mais tranquilos, para atravessar em casa o período de maior desconforto.
-- Manter o mesmo dia toda semana.
-- Em frasco, conferir as unidades na seringa: aplicar mais do que o previsto é causa frequente de enjoo intenso. Use a calculadora de tirzepatida.
+1. **Confira "U-100" na embalagem e no corpo da seringa.** Se estiver escrito U-40, a escala é outra (veja abaixo).
+2. **Descubra quanto vale o menor traço.** Conte quantos traços há entre dois números. Entre 0 e 10 com 10 traços, cada um vale 1 unidade; com 5 traços, 2 unidades.
+3. **Leia pela borda de borracha do êmbolo do lado da agulha**, com a seringa na altura dos olhos.
+4. **Tire as bolhas.** Uma bolha ocupa o espaço que deveria ser líquido e reduz a dose.
 
-### Na dose
+## U-100 e U-40: a confusão que pode multiplicar a dose
 
-- Não subir a dose enquanto o enjoo da dose atual não tiver cedido. As 4 semanas por degrau são o mínimo, não uma obrigação.
-- Se os sintomas persistirem, o médico pode manter a dose por mais tempo ou voltar ao degrau anterior. Parar em uma dose intermediária é uma opção prevista em bula.
-- Medicamentos para enjoo só com orientação médica.
+A sigla diz para qual concentração de insulina a escala foi feita: **U-100** é para insulina de 100 unidades por ml, e **U-40**, para 40 unidades por ml. A diretriz da SBD lembra que as seringas de insulina têm escala adequada à insulina U-100, que é a das seringas comuns de farmácia. A U-40 ainda aparece para algumas insulinas de uso veterinário.
 
-## O que não fazer
+A diferença na prática:
 
-- Pular refeições por medo de enjoar — o estômago vazio costuma piorar a náusea
-- Pular a dose da semana por conta própria e depois retomar na mesma dose alta
-- Fracionar ou alterar a dose sem combinar com o médico
-- Deixar de beber água quando há vômito ou diarreia
+| Marca lida na seringa | Volume na U-100 | Volume na U-40 |
+| --- | --- | --- |
+| 10 unidades | 0,10 ml | 0,25 ml |
+| 20 unidades | 0,20 ml | 0,50 ml |
+| 40 unidades | 0,40 ml | 1,00 ml |
 
-## Quando procurar atendimento
+O mesmo número na escala dá **2,5 vezes mais volume** na U-40. Se a conta foi feita para U-100 (como todas as contas deste site), puxar na U-40 aplica 2,5 vezes a dose. Confira a sigla antes de comprar e antes de usar.
 
-Enjoo leve é esperado. Estes sinais não são:
+## Agulha: comprimento e espaço morto
 
-- **Dor abdominal forte e contínua**, que pode irradiar para as costas, com ou sem vômito — pode indicar pancreatite
-- **Dor no lado direito do abdome com febre ou pele amarelada** — pode indicar problema na vesícula
-- **Vômito por mais de 24 horas** ou incapacidade de manter líquidos
-- **Sinais de desidratação:** pouca urina, urina escura, tontura ao levantar
-- **Tremor, suor frio e confusão** em quem usa insulina ou sulfonilureia — pode ser hipoglicemia
+Duas recomendações da diretriz da SBD ajudam a escolher o modelo, e não só o tamanho:
 
-## Esqueci ou adiei a dose por causa do enjoo
+- **Agulha fixa.** A diretriz orienta preferir seringa com agulha fixa e evitar as de agulha removível, para evitar o **espaço morto**: o volume que fica preso no encaixe entre o corpo e a agulha e não é aplicado, o que torna a dose menos precisa.
+- **Agulha curta.** A diretriz recomenda agulhas de **4, 5 ou 6 mm** para reduzir o risco de a aplicação, que deveria ser no tecido sob a pele, acabar no músculo. A de 8 mm é indicada só para adultos, com prega na pele, e deve ser evitada em pessoas magras e crianças.
 
-Pela bula, a dose esquecida pode ser aplicada em até 4 dias (96 horas) depois do dia previsto. Passado esse prazo, pule e retome no dia habitual. Depois de várias semanas sem aplicar, converse com o médico antes de recomeçar: voltar direto à dose alta costuma trazer náusea forte.
+Sobre reutilizar: a mesma diretriz diz que a reutilização de seringas e agulhas **não é recomendada**, por aumentar o risco de lipodistrofia, uma alteração do tecido gorduroso no local das aplicações.
 
-## Veja também
+## Unidade da seringa não é dose
 
-- Efeitos colaterais da tirzepatida — a lista completa, com frequência por dose
-- Náusea no Ozempic — o equivalente para semaglutida
-- Calendário de subida de dose — para planejar cada degrau
+Um erro frequente é tratar "unidades" como se fossem mg. A unidade marcada na seringa U-100 é só **volume**: 10 unidades são 0,1 ml, seja do que for. Quantos mg há nesse volume depende da concentração do frasco:
 
-P: Mounjaro dá enjoo?
-R: É o efeito colateral mais comum. No SURMOUNT-1, a náusea atingiu 24,6% dos participantes em 5 mg, 33,3% em 10 mg e 31% em 15 mg, contra 9,5% no placebo, em geral leve a moderada e concentrada na fase de aumento de dose.
-P: Por que a tirzepatida dá náusea?
-R: Ela retarda o esvaziamento do estômago, então a comida fica mais tempo ali, e ativa receptores de GLP-1 em áreas do cérebro que controlam apetite e náusea. Comer a mesma quantidade de antes, na mesma velocidade, é o gatilho mais comum.
-P: O que ajuda a aliviar o enjoo do Mounjaro?
-R: Porções menores e mais vezes ao dia, comer devagar e parar ao primeiro sinal de saciedade, preferir alimentos leves e evitar frituras, muito açúcar e álcool. Não pule refeições: o estômago vazio costuma piorar a náusea.
-P: Esqueci a dose por causa do enjoo. E agora?
-R: Pela bula, a dose esquecida pode ser aplicada em até 4 dias (96 horas) depois do dia previsto. Passado esse prazo, pule e retome no dia habitual.
-P: Quando o enjoo exige atendimento?
-R: Com dor abdominal forte e contínua, dor no lado direito do abdome com febre ou pele amarelada, vômito por mais de 24 horas, sinais de desidratação, ou tremor, suor frio e confusão em quem usa insulina ou sulfonilureia.
+**mg na seringa = unidades ÷ 100 × concentração (mg/ml)**
+
+E o caminho inverso, o que mais se usa:
+
+**unidades = dose (mg) ÷ concentração (mg/ml) × 100**
+
+Os exemplos de tirzepatida e semaglutida, com tabelas por frasco e dose, estão em quantas unidades puxar de tirzepatida e semaglutida. Para trocar entre mg, mcg, ml e unidades, use o conversor de unidades. E se a seringa vai ser usada num frasco que você reconstituiu, o prazo desse frasco está explicado em quanto tempo dura o frasco reconstituído.
+
+P: Qual seringa de insulina usar: 30, 50 ou 100 unidades?
+R: A menor que comporte a dose inteira com alguma folga. Até 30 unidades, a de 30 U; de 30 a 50, a de 50 U; acima de 50, a de 100 U. Seringas menores têm a escala mais espaçada, o que facilita acertar o traço. A diretriz da Sociedade Brasileira de Diabetes recomenda as de 30 e 50 U para quem usa doses baixas e precisa de ajuste fino.
+P: Quanto vale cada risquinho da seringa de insulina?
+R: Nas seringas de 30 e 50 unidades, em geral 1 unidade por traço; alguns modelos de 30 U marcam meia unidade. Em muitas seringas de 100 unidades, cada traço vale 2 unidades. Na U-100, 1 unidade é 0,01 ml. Confira sempre a escala impressa na sua seringa.
+P: Qual a diferença entre seringa U-100 e U-40?
+R: A concentração para a qual a escala foi feita. Na U-100, 100 unidades = 1 ml; na U-40, 40 unidades = 1 ml. Puxar 20 unidades numa U-40 dá 0,5 ml, o mesmo volume de 50 unidades numa U-100. Contas e tabelas feitas para U-100 não servem para U-40.
+P: Seringa de insulina de 100 unidades é 1 ml?
+R: Sim, se for U-100: 100 unidades = 1 ml. A de 50 unidades tem 0,5 ml e a de 30 unidades, 0,3 ml.
+P: Posso reutilizar a seringa de insulina?
+R: A diretriz da Sociedade Brasileira de Diabetes diz que reutilizar seringas e agulhas não é prática recomendada, porque aumenta o risco de lipodistrofia (alterações no tecido sob a pele), e a agulha perde o corte e a lubrificação. Para frascos de várias doses, uma seringa nova a cada aplicação também protege o frasco de contaminação.
 
 Peptídeo: Tirzepatida
 Categoria: GLP-1 / Emagrecimento
@@ -114,3 +113,20 @@ Mecanismo: Ativa simultaneamente os receptores GIP e GLP-1, ambos da família de
 A conjugação ao ácido graxo C20 confere meia-vida de ~5 dias.
 Efeitos colaterais: Náusea; Diarreia; Vômito; Constipação; Diminuição do apetite; Dispepsia / dor abdominal
 Contraindicações: História pessoal ou familiar de carcinoma medular de tireoide (CMT); Síndrome de Neoplasia Endócrina Múltipla tipo 2 (NEM 2); Hipersensibilidade grave (anafilaxia e angioedema relatados)
+
+Peptídeo: Semaglutida
+Categoria: GLP-1 / Emagrecimento
+Resumo: Agonista do receptor GLP-1. Usado para controle glicêmico e perda de peso.
+Dose típica: 0.25 mg, 1x por semana (dose inicial, aumentar gradualmente)
+Faixa de dose: 0,25-2,4 mg/semana (subcutâneo, com titulação)
+Meia-vida: ~7 dias
+Frascos comuns: 3 mg, 5 mg
+Status regulatório: Aprovado FDA
+Descrição: A semaglutida é um análogo do peptídeo semelhante ao glucagon tipo 1 (GLP-1), aprovada pela FDA e comercializada como Ozempic (2017, diabetes tipo 2), Rybelsus (oral, 2019) e Wegovy (2021, obesidade). Molécula modificada do GLP-1 humano com substituições de aminoácidos e conjugação a ácido graxo C18, o que permite ligação à albumina e administração semanal.
+
+Indicada para diabetes tipo 2 em adultos e manejo crônico de peso em obesidade (IMC ≥ 30) ou sobrepeso (IMC ≥ 27) com comorbidade. Ensaios de fase 3 (SUSTAIN e STEP) demonstraram perda ponderal média de 10-15% com 2,4 mg/semana. Em 2024 a FDA também aprovou para redução de risco cardiovascular em adultos com DCV estabelecida e obesidade/sobrepeso.
+Mecanismo: Agonista seletivo do receptor GLP-1, amplamente expresso em células beta pancreáticas, neurônios do SNC (hipotálamo, tronco cerebral), TGI e miocárdio. A ativação aumenta secreção de insulina glicose-dependente, suprime glucagon, retarda esvaziamento gástrico e atua em centros de saciedade, reduzindo ingestão calórica.
+
+A modificação estrutural (ácido graxo C18 ligado ao Lys26) confere alta afinidade pela albumina sérica, reduzindo depuração renal e degradação por DPP-4 — resultando em meia-vida plasmática de ~1 semana.
+Efeitos colaterais: Náusea (>20% em Ozempic; até 44% em Wegovy); Vômito; Diarreia; Constipação; Dor abdominal; Reações no local da injeção
+Contraindicações: História pessoal ou familiar de carcinoma medular de tireoide (CMT); Síndrome de Neoplasia Endócrina Múltipla tipo 2 (NEM 2); Hipersensibilidade grave à semaglutida ou excipientes; Gestação (uso não recomendado)

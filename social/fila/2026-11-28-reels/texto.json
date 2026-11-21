@@ -1,0 +1,264 @@
+{
+  "hook": "Você pula o almoço pra não enjoar com o Mounjaro?",
+  "hookIcon": "prato",
+  "slides": [
+    {
+      "title": "Pular refeição protege do enjoo",
+      "layout": "mito",
+      "body": "O estômago vazio costuma piorar a náusea. O gatilho mais comum é comer a quantidade de antes, na mesma velocidade.",
+      "icon": "errado"
+    },
+    {
+      "title": "Por que a tirzepatida dá enjoo?",
+      "layout": "pergunta",
+      "body": "Ela deixa o estômago mais lento: a comida fica mais tempo ali. E também age em áreas do cérebro que controlam apetite e náusea.",
+      "icon": "cerebro"
+    },
+    {
+      "title": "2 a 3 dias",
+      "layout": "numero",
+      "body": "É quando a náusea costuma aparecer depois de cada aumento de dose. Também nos primeiros dias após a primeira aplicação e depois de refeições grandes ou rápidas.",
+      "icon": "calendario"
+    },
+    {
+      "title": "No prato",
+      "layout": "passos",
+      "body": "Porções menores, mais vezes ao dia\nComa devagar e pare no primeiro sinal de saciedade\nPrefira comida leve\nDeixe fritura e álcool de lado",
+      "icon": "salada"
+    },
+    {
+      "title": "Nos líquidos",
+      "layout": "padrao",
+      "body": "Beba em pequenos goles ao longo do dia, não um volume grande junto da refeição. Com vômito ou diarreia, não deixe de beber água.",
+      "icon": "gota"
+    },
+    {
+      "title": "Posso subir a dose com enjoo?",
+      "layout": "pergunta",
+      "body": "Não enquanto o enjoo da dose atual não ceder: as 4 semanas por degrau são o mínimo. Se persistir, o médico pode manter a dose por mais tempo.",
+      "icon": "grafico-sobe"
+    },
+    {
+      "title": "Sinais que não são normais",
+      "layout": "padrao",
+      "body": "Dor abdominal forte e contínua, vômito por mais de 24 horas, pouca urina ou urina escura, tontura ao levantar: procure atendimento.",
+      "icon": "hospital"
+    },
+    {
+      "title": "Cola anti-enjoo",
+      "layout": "passos",
+      "body": "Não pule refeição\nPrato menor, comendo devagar\nGoles ao longo do dia\nEnjoo não cedeu? Fale com o médico antes de subir a dose",
+      "icon": "certo"
+    }
+  ],
+  "scenes": [
+    {
+      "chip": "a mania",
+      "kicker": "a lógica de todo mundo",
+      "title": "Pulou o almoço",
+      "accent": "pra não enjoar?",
+      "tone": "vermelho",
+      "speech": "Você pula o almoço pra não enjoar com o Mounjaro?",
+      "visual": {
+        "type": "icone",
+        "icon": "prato",
+        "note": "o almoço que ficou pra depois"
+      }
+    },
+    {
+      "chip": "a mania",
+      "kicker": "parece lógico, mas",
+      "title": "Estômago vazio",
+      "accent": "piora o enjoo",
+      "tone": "vermelho",
+      "speech": "Eu sei, parece lógico, mas o estômago vazio costuma piorar a náusea.",
+      "visual": {
+        "type": "carimbo",
+        "text": "PIORA O ENJOO",
+        "note": "estômago vazio"
+      }
+    },
+    {
+      "chip": "por que enjoa",
+      "kicker": "o que o remédio faz",
+      "title": "Estômago",
+      "accent": "mais lento",
+      "tone": "azul",
+      "speech": "A tirzepatida deixa o estômago mais lento, então a comida fica mais tempo lá dentro.",
+      "visual": {
+        "type": "icone",
+        "icon": "relogio",
+        "note": "esvaziamento do estômago mais lento"
+      }
+    },
+    {
+      "chip": "por que enjoa",
+      "kicker": "e tem mais",
+      "title": "Age também",
+      "accent": "no cérebro",
+      "tone": "azul",
+      "speech": "E ela também age nas áreas do cérebro que controlam o apetite e a náusea.",
+      "visual": {
+        "type": "icone",
+        "icon": "cerebro",
+        "note": "receptores de GLP-1 no cérebro"
+      }
+    },
+    {
+      "chip": "por que enjoa",
+      "kicker": "o gatilho mais comum",
+      "title": "Hábito antigo,",
+      "accent": "estômago novo",
+      "tone": "vermelho",
+      "speech": "Aí o gatilho mais comum é comer a mesma quantidade de antes, na mesma pressa.",
+      "visual": {
+        "type": "lista",
+        "items": [
+          {
+            "text": "Prato do mesmo tamanho",
+            "mark": "nao"
+          },
+          {
+            "text": "Comer correndo",
+            "mark": "nao"
+          },
+          {
+            "text": "Limpar o prato",
+            "mark": "nao"
+          }
+        ]
+      }
+    },
+    {
+      "chip": "os números",
+      "kicker": "no SURMOUNT-1",
+      "title": "Náusea em",
+      "accent": "até 33,3%",
+      "tone": "azul",
+      "speech": "No estudo SURMOUNT-1, a náusea chegou a 33,3% na dose de 10 mg, contra 9,5% no placebo.",
+      "visual": {
+        "type": "numero",
+        "value": "33,3%",
+        "note": "náusea na dose de 10 mg; placebo, 9,5%"
+      },
+      "source": "SURMOUNT-1"
+    },
+    {
+      "chip": "os números",
+      "kicker": "a boa notícia",
+      "title": "Leve e",
+      "accent": "passageira",
+      "tone": "azul",
+      "speech": "A boa notícia: foi quase sempre leve a moderada e ficou menos frequente depois da subida de dose.",
+      "visual": {
+        "type": "icone",
+        "icon": "grafico-desce",
+        "note": "menos frequente com o tempo"
+      },
+      "source": "SURMOUNT-1"
+    },
+    {
+      "chip": "quando aparece",
+      "kicker": "depois de cada aumento",
+      "title": "Os dias",
+      "accent": "mais difíceis",
+      "tone": "azul",
+      "speech": "Ela costuma aparecer nos 2 a 3 dias seguintes a cada aumento de dose.",
+      "visual": {
+        "type": "linha",
+        "steps": [
+          "aumento",
+          "dia 2",
+          "dia 3",
+          "alívio"
+        ],
+        "current": 1,
+        "note": "nos 2 a 3 dias após cada aumento"
+      }
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "no lugar de pular",
+      "title": "Prato menor,",
+      "accent": "mais vezes",
+      "tone": "azul",
+      "speech": "No lugar de pular, faz porções menores, mais vezes, e para no primeiro sinal de saciedade.",
+      "visual": {
+        "type": "lista",
+        "items": [
+          {
+            "text": "Porções menores, mais vezes",
+            "mark": "ok"
+          },
+          {
+            "text": "Comer devagar",
+            "mark": "ok"
+          },
+          {
+            "text": "Parar ao sinal de saciedade",
+            "mark": "ok"
+          },
+          {
+            "text": "Fritura e álcool",
+            "mark": "nao"
+          }
+        ]
+      }
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "e a água?",
+      "title": "Goles pequenos,",
+      "accent": "o dia todo",
+      "tone": "azul",
+      "speech": "E a água vai em pequenos goles ao longo do dia, não num copão junto da refeição.",
+      "visual": {
+        "type": "icone",
+        "icon": "gota",
+        "note": "líquidos em goles ao longo do dia"
+      }
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "o enjoo não cedeu?",
+      "title": "Segura a dose",
+      "accent": "e fala com o médico",
+      "tone": "azul",
+      "speech": "Enjoo não cedeu? Fala com o médico antes de subir: as 4 semanas por degrau são o mínimo, não obrigação.",
+      "visual": {
+        "type": "numero",
+        "value": "4 semanas",
+        "note": "por degrau: o mínimo, não uma obrigação"
+      }
+    },
+    {
+      "chip": "sinal de alerta",
+      "kicker": "isso não é enjoo normal",
+      "title": "Hora de",
+      "accent": "procurar atendimento",
+      "tone": "vermelho",
+      "speech": "Dor forte na barriga que não passa, vômito por mais de 24 horas ou sinal de desidratação: procure atendimento.",
+      "visual": {
+        "type": "icone",
+        "icon": "hospital",
+        "note": "vômito por mais de 24 horas"
+      }
+    },
+    {
+      "chip": "pra lembrar",
+      "kicker": "da próxima vez",
+      "title": "Prato menor,",
+      "accent": "nunca vazio",
+      "tone": "vermelho",
+      "speech": "Então, pular o almoço pra não enjoar? Nunca mais: prato menor, comendo devagar, e o estômago agradece.",
+      "visual": {
+        "type": "carimbo",
+        "text": "MENOR, NÃO VAZIO",
+        "note": "o prato, não o estômago"
+      }
+    }
+  ],
+  "caption": "Eu sei, todo mundo já pulou uma refeição achando que assim não enjoa. Mas com a tirzepatida o estômago vazio costuma piorar a náusea. O gatilho mais comum é comer a mesma quantidade de antes, na mesma velocidade, porque o remédio deixa o estômago mais lento.\n\n1️⃣ Porções menores, mais vezes ao dia, comendo devagar\n2️⃣ Comida leve; evite frituras, muito açúcar e álcool\n3️⃣ Líquidos em pequenos goles ao longo do dia\n4️⃣ Não suba a dose enquanto o enjoo da dose atual não ceder: converse com o médico\n\nA náusea é o efeito colateral mais comum do Mounjaro, quase sempre leve, e costuma aparecer nos 2 a 3 dias seguintes a cada aumento de dose.\n\n⚠️ Dor abdominal forte e contínua, vômito por mais de 24 horas ou sinais de desidratação pedem atendimento médico.",
+  "question": "Em qual semana o enjoo apareceu para você?",
+  "share": "aquela amiga que pula o almoço pra não enjoar"
+}

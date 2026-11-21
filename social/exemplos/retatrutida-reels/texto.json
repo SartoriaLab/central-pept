@@ -1,0 +1,283 @@
+{
+  "hook": "Viu anúncio de retatrutida e achou que já é liberada?",
+  "hookIcon": "lupa",
+  "hookPose": "ih",
+  "slides": [
+    {
+      "title": "Não é aprovada em lugar nenhum",
+      "layout": "padrao",
+      "body": "Em 24/07/2026 a ANVISA avisou: a retatrutida não está aprovada em nenhum país, e o fabricante nem pediu registro. Ainda espera o fim dos estudos.",
+      "icon": "proibido",
+      "pose": "alerta"
+    },
+    {
+      "title": "28,3%",
+      "layout": "numero",
+      "body": "Foi a perda média de peso no TRIUMPH-1, na dose mais alta (12 mg por semana), em quem seguiu o tratamento por 80 semanas. Contando todos os participantes, 25,0%.",
+      "icon": "grafico-desce",
+      "pose": "explicando"
+    },
+    {
+      "title": "Estudo e anúncio são a mesma coisa?",
+      "layout": "pergunta",
+      "body": "Não. No estudo o produto é fabricado sob controle e cada pessoa tem médico. No anúncio, ninguém confere identidade, pureza, quantidade nem esterilidade.",
+      "icon": "microscopio",
+      "pose": "pensando"
+    },
+    {
+      "title": "O que a ANVISA alerta",
+      "layout": "passos",
+      "body": "Efeitos adversos ainda desconhecidos\nDose segura incerta\nRisco de contaminação\nPode não ter retatrutida nenhuma",
+      "icon": "alerta",
+      "pose": "alerta"
+    },
+    {
+      "title": "Quando pode chegar",
+      "layout": "padrao",
+      "body": "A Lilly planeja pedir aprovação à FDA no 1º trimestre de 2027. Aqui, depois do pedido, a ANVISA tem até 365 dias na via comum. Qualquer data antes disso é chute.",
+      "icon": "calendario",
+      "pose": "explicando"
+    },
+    {
+      "title": "Enquanto isso",
+      "layout": "passos",
+      "body": "Converse com um médico\nExistem remédios aprovados, com bula\nDesconfie de anúncio com urgência\nDenuncie anúncio irregular à ANVISA",
+      "icon": "estetoscopio",
+      "pose": "apontando"
+    }
+  ],
+  "scenes": [
+    {
+      "chip": "o anúncio",
+      "kicker": "no seu feed",
+      "title": "Retatrutida",
+      "accent": "já liberada?",
+      "tone": "vermelho",
+      "speech": "Tá aparecendo anúncio de retatrutida no seu feed, como se já fosse remédio liberado?",
+      "visual": {
+        "type": "frasco",
+        "label": "Retatrutida",
+        "liquid": "po",
+        "tag": "lote novo"
+      }
+    },
+    {
+      "chip": "a ANVISA",
+      "kicker": "nota de julho de 2026",
+      "title": "Não é aprovada",
+      "accent": "em lugar nenhum",
+      "tone": "vermelho",
+      "speech": "Em julho de 2026, a ANVISA avisou: a retatrutida não está aprovada em nenhum país do mundo.",
+      "visual": {
+        "type": "carimbo",
+        "text": "Não aprovada",
+        "note": "em nenhum país"
+      },
+      "source": "ANVISA, 24/07/2026"
+    },
+    {
+      "chip": "os estudos",
+      "kicker": "de onde vem a fama",
+      "title": "2.339 pessoas",
+      "accent": "por 80 semanas",
+      "tone": "azul",
+      "speech": "A fama vem do estudo TRIUMPH-1, que acompanhou 2.339 pessoas sem diabetes por 80 semanas.",
+      "visual": {
+        "type": "numero",
+        "value": "2.339",
+        "note": "participantes no TRIUMPH-1"
+      },
+      "source": "TRIUMPH-1, Eli Lilly, 2026"
+    },
+    {
+      "chip": "os estudos",
+      "kicker": "na dose mais alta, 12 mg",
+      "title": "Perda média",
+      "accent": "de até 28,3%",
+      "tone": "azul",
+      "speech": "Na dose mais alta, de 12 mg por semana, a perda média de peso foi de 28,3%, ou 25,0% contando todo mundo.",
+      "visual": {
+        "type": "barras",
+        "bars": [
+          {
+            "label": "quem seguiu o tratamento",
+            "value": 28.3,
+            "display": "28,3%"
+          },
+          {
+            "label": "todos os participantes",
+            "value": 25,
+            "display": "25,0%"
+          }
+        ]
+      },
+      "source": "TRIUMPH-1, Eli Lilly, 2026"
+    },
+    {
+      "chip": "os estudos",
+      "kicker": "o outro lado",
+      "title": "11,3% largaram",
+      "accent": "por efeito adverso",
+      "tone": "vermelho",
+      "speech": "Mas 11,3% abandonaram o estudo por efeito adverso, e 12,5% relataram uma sensação estranha na pele.",
+      "visual": {
+        "type": "pontos",
+        "total": 100,
+        "marked": 11,
+        "note": "cerca de 11 a cada 100 abandonaram"
+      },
+      "source": "TRIUMPH-1, Eli Lilly, 2026"
+    },
+    {
+      "chip": "o anúncio",
+      "kicker": "o detalhe que muda tudo",
+      "title": "O do estudo",
+      "accent": "não é o do anúncio",
+      "tone": "vermelho",
+      "speech": "Só que esse resultado é de um produto fabricado sob controle, com médico acompanhando cada pessoa.",
+      "visual": {
+        "type": "frascos",
+        "left": {
+          "label": "Estudo",
+          "note": "fabricado sob controle",
+          "liquid": "claro"
+        },
+        "right": {
+          "label": "???",
+          "note": "sem nota, sem lote",
+          "liquid": "po"
+        },
+        "sign": "≠"
+      }
+    },
+    {
+      "chip": "o anúncio",
+      "kicker": "o que ninguém confere",
+      "title": "Ninguém sabe",
+      "accent": "o que tem no frasco",
+      "tone": "vermelho",
+      "speech": "No frasco do anúncio, ninguém confere identidade, pureza, quantidade nem esterilidade.",
+      "visual": {
+        "type": "lista",
+        "items": [
+          {
+            "text": "Tem retatrutida mesmo?",
+            "mark": "duvida"
+          },
+          {
+            "text": "Na quantidade do rótulo?",
+            "mark": "duvida"
+          },
+          {
+            "text": "Estéril, sem contaminação?",
+            "mark": "duvida"
+          }
+        ]
+      }
+    },
+    {
+      "chip": "o anúncio",
+      "kicker": "o alerta da agência",
+      "title": "Pode não ter",
+      "accent": "retatrutida nenhuma",
+      "tone": "vermelho",
+      "speech": "A própria ANVISA alerta: o frasco pode não ter retatrutida nenhuma, ou ter outra substância.",
+      "visual": {
+        "type": "frasco",
+        "label": "???",
+        "liquid": "amarelo",
+        "stamp": "Sem registro"
+      },
+      "source": "ANVISA, 24/07/2026"
+    },
+    {
+      "chip": "a lei",
+      "kicker": "outubro de 2026",
+      "title": "Canetas",
+      "accent": "apreendidas",
+      "tone": "vermelho",
+      "speech": "Em outubro, a agência mandou apreender canetas de retatrutida vendidas em sites e proibiu o uso.",
+      "visual": {
+        "type": "carimbo",
+        "text": "Apreensão",
+        "note": "resolução de outubro de 2026"
+      },
+      "source": "ANVISA, outubro de 2026"
+    },
+    {
+      "chip": "quando chega",
+      "kicker": "o caminho oficial",
+      "title": "Pedido à FDA",
+      "accent": "só em 2027",
+      "tone": "azul",
+      "speech": "A Lilly planeja pedir aprovação nos Estados Unidos só no primeiro trimestre de 2027.",
+      "visual": {
+        "type": "linha",
+        "steps": [
+          "fase 3",
+          "FDA",
+          "ANVISA",
+          "farmácia"
+        ],
+        "current": 0,
+        "note": "pedido à FDA: 1º trimestre de 2027"
+      },
+      "source": "Eli Lilly, 23/07/2026"
+    },
+    {
+      "chip": "quando chega",
+      "kicker": "e no Brasil",
+      "title": "Até 365 dias",
+      "accent": "só de análise",
+      "tone": "azul",
+      "speech": "Aqui, depois que o pedido chegar, a ANVISA ainda tem até 365 dias para decidir.",
+      "visual": {
+        "type": "numero",
+        "value": "365 dias",
+        "note": "prazo da via comum, depois do pedido"
+      },
+      "source": "Lei nº 6.360/1976"
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "enquanto isso",
+      "title": "Quer tratar",
+      "accent": "a obesidade?",
+      "tone": "azul",
+      "speech": "Se o objetivo é tratar a obesidade, fala com um médico: já existem remédios aprovados, com bula.",
+      "visual": {
+        "type": "lista",
+        "items": [
+          {
+            "text": "Conversar com um médico",
+            "mark": "ok"
+          },
+          {
+            "text": "Remédio aprovado, com bula",
+            "mark": "ok"
+          },
+          {
+            "text": "Anúncio com urgência",
+            "mark": "nao"
+          }
+        ]
+      }
+    },
+    {
+      "chip": "pra lembrar",
+      "kicker": "da próxima vez",
+      "title": "Retatrutida",
+      "accent": "ainda é estudo",
+      "tone": "vermelho",
+      "speech": "Então, viu anúncio de retatrutida? Lembra: ela ainda não é remédio liberado em lugar nenhum.",
+      "visual": {
+        "type": "carimbo",
+        "text": "Em estudo",
+        "note": "aprovada em nenhum país"
+      }
+    }
+  ],
+  "caption": "Eu sei: o anúncio aparece com cara de remédio pronto. Mas a retatrutida não está aprovada em nenhum país, e em 24/07/2026 a ANVISA avisou que o fabricante nem pediu registro.\n\nOs números que circulam são do TRIUMPH-1: 2.339 pessoas por 80 semanas, perda média de 28,3% na dose mais alta (12 mg por semana), com 11,3% abandonando o estudo por efeito adverso. Isso foi com produto fabricado sob controle e médico acompanhando.\n\n⚠️ No frasco do anúncio ninguém confere identidade, pureza, quantidade nem esterilidade. A própria ANVISA alerta que pode não ter retatrutida nenhuma.\n\n1️⃣ Converse com um médico\n2️⃣ Existem remédios aprovados, com bula\n3️⃣ Desconfie de anúncio com urgência",
+  "question": "Você já viu anúncio de retatrutida no seu feed?",
+  "share": "quem te mandou print de anúncio de retatrutida"
+}

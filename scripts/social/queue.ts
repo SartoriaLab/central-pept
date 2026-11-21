@@ -4,18 +4,24 @@
 import { COOLDOWN_DAYS, pickTopic } from './pick';
 import type { Format, HistoryEntry, Topic } from './types';
 
-/** Dias com Reels (0 = domingo), iguais ao cron da tarefa dosecerta-reels. */
-export const REELS_DAYS = [0, 1, 3, 5];
+/**
+ * Horário de cada formato em Brasília por dia da semana (0 = domingo), iguais às tarefas de
+ * agendar.ps1 (mudou aqui → mude lá). Reels todo dia no pico de cada dia (pesquisa de 21/11/2026 em
+ * docs/instagram-setup.md, Parte 7): 19h no começo da noite, 18h na sexta (cai depois das 21h) e
+ * 10h no sábado (pico de manhã). Carrossel todo dia ao meio-dia.
+ */
+export const REELS_HOURS = ['19:00', '19:00', '19:00', '19:00', '19:00', '18:00', '10:00'] as const;
+export const CAROUSEL_HOUR = '12:00';
 
-/** Horário de cada formato em Brasília, iguais às tarefas agendadas. */
-const HOUR: Record<Format, string> = { carrossel: '12:00', reels: '19:30' };
+const weekday = (date: string) => new Date(`${date}T12:00:00Z`).getUTCDay();
 
 export type QueueItem = { date: string; format: Format; topicId: string };
 
 export const queueKey = (date: string, format: Format) => `${date}-${format}`;
 
 export function slotTime(date: string, format: Format): Date {
-  return new Date(`${date}T${HOUR[format]}:00-03:00`);
+  const hour = format === 'reels' ? REELS_HOURS[weekday(date)] : CAROUSEL_HOUR;
+  return new Date(`${date}T${hour}:00-03:00`);
 }
 
 /** Datas (AAAA-MM-DD) a partir de `start`, por `days` dias. */
@@ -24,9 +30,9 @@ export function dateRange(start: string, days: number): string[] {
   return Array.from({ length: days }, (_, i) => new Date(base.getTime() + i * 86_400_000).toISOString().slice(0, 10));
 }
 
-export function formatsOn(date: string): Format[] {
-  const weekday = new Date(`${date}T12:00:00Z`).getUTCDay();
-  return REELS_DAYS.includes(weekday) ? ['carrossel', 'reels'] : ['carrossel'];
+/** Os dois formatos todo dia; o Reels escolhe primeiro e fica com o tema mais viral do dia. */
+export function formatsOn(_date: string): Format[] {
+  return ['reels', 'carrossel'];
 }
 
 /**

@@ -1,0 +1,289 @@
+{
+  "hook": "Viu Mounjaro em frasco? No Brasil, isso não existe.",
+  "hookIcon": "lupa",
+  "slides": [
+    {
+      "title": "Mounjaro também vem em frasco",
+      "layout": "mito",
+      "body": "No Brasil, a Lilly só tem a caneta KwikPen, com solução pronta. Frasco com pó é tirzepatida manipulada ou de outra origem, nunca Mounjaro.",
+      "icon": "frasco"
+    },
+    {
+      "title": "Na caixa, confira",
+      "layout": "passos",
+      "body": "Mounjaro, tirzepatida e dose impressos\nFabricante Eli Lilly e registro ANVISA\nLote e validade impressos, não em adesivo\nLacre intacto e bula em português",
+      "icon": "prancheta"
+    },
+    {
+      "title": "4 canetas",
+      "layout": "numero",
+      "body": "É a apresentação nacional: caixa com 4 canetas. Caneta solta, sem caixa, ou caixa com uma só caneta merece desconfiança.",
+      "icon": "alerta"
+    },
+    {
+      "title": "Na caneta, confira",
+      "layout": "passos",
+      "body": "Rótulo impresso de fábrica\nLote igual ao da caixa\nLíquido límpido e incolor\nSeletor que trava com clique",
+      "icon": "seringa"
+    },
+    {
+      "title": "Onde o risco é maior?",
+      "layout": "pergunta",
+      "body": "Marketplace, rede social, Telegram e perfil sem CNPJ nem endereço. E ninguém pedindo receita: a ANVISA exige receita retida para tirzepatida.",
+      "icon": "proibido"
+    },
+    {
+      "title": "Consulte o registro",
+      "layout": "padrao",
+      "body": "Em consultas.anvisa.gov.br, busque Mounjaro: o registro válido é da Eli Lilly do Brasil. Veja também se o lote aparece nos alertas de falsificação.",
+      "icon": "escudo"
+    },
+    {
+      "title": "Desconfiou? Não aplique",
+      "layout": "padrao",
+      "body": "Fotografe a caixa, a caneta e o rótulo e notifique a ANVISA pelo Notivisa. Já aplicou e sentiu algo anormal? Pronto-socorro, levando o produto.",
+      "icon": "hospital"
+    },
+    {
+      "title": "Sua cola",
+      "layout": "passos",
+      "body": "Mounjaro é caneta, em caixa com 4\nLote da caixa igual ao da caneta\nRegistro na ANVISA em nome da Eli Lilly\nFrasco nunca é Mounjaro",
+      "icon": "certo"
+    }
+  ],
+  "scenes": [
+    {
+      "chip": "o anúncio",
+      "kicker": "apareceu no seu feed",
+      "title": "Mounjaro",
+      "accent": "em frasco?",
+      "tone": "vermelho",
+      "speech": "Apareceu Mounjaro em frasco no seu feed? Olha, isso não existe no Brasil.",
+      "visual": {
+        "type": "frasco",
+        "label": "MOUNJARO",
+        "liquid": "po",
+        "stamp": "NÃO EXISTE"
+      }
+    },
+    {
+      "chip": "o original",
+      "kicker": "o que a Lilly tem aqui",
+      "title": "Só existe",
+      "accent": "a caneta KwikPen",
+      "tone": "azul",
+      "speech": "Aqui, o Mounjaro da Eli Lilly é só a caneta KwikPen, com a solução pronta.",
+      "visual": {
+        "type": "icone",
+        "icon": "seringa",
+        "note": "caneta KwikPen, solução pronta"
+      }
+    },
+    {
+      "chip": "o original",
+      "kicker": "então o que é o frasco?",
+      "title": "Frasco nunca",
+      "accent": "é Mounjaro",
+      "tone": "vermelho",
+      "speech": "Frasco com pó é tirzepatida manipulada ou de outra origem, nunca Mounjaro.",
+      "visual": {
+        "type": "frascos",
+        "left": {
+          "label": "MOUNJARO",
+          "note": "só caneta, no Brasil",
+          "liquid": "claro"
+        },
+        "right": {
+          "label": "FRASCO",
+          "note": "manipulada ou outra origem",
+          "liquid": "po"
+        },
+        "sign": "≠"
+      }
+    },
+    {
+      "chip": "a caixa",
+      "kicker": "a apresentação nacional",
+      "title": "Caixa com",
+      "accent": "quatro canetas",
+      "tone": "azul",
+      "speech": "A caixa nacional vem com 4 canetas; caneta solta, ou caixa com uma só, já é suspeita.",
+      "visual": {
+        "type": "numero",
+        "value": "4 canetas",
+        "note": "por caixa, na apresentação nacional"
+      }
+    },
+    {
+      "chip": "a caixa",
+      "kicker": "vira a caixa e confere",
+      "title": "Tudo impresso,",
+      "accent": "nada de adesivo",
+      "tone": "azul",
+      "speech": "Na caixa, procure Eli Lilly, o registro ANVISA, e lote e validade impressos, nunca em adesivo.",
+      "visual": {
+        "type": "lista",
+        "items": [
+          {
+            "text": "Fabricante Eli Lilly",
+            "mark": "ok"
+          },
+          {
+            "text": "Registro ANVISA impresso",
+            "mark": "ok"
+          },
+          {
+            "text": "Lote em etiqueta adesiva",
+            "mark": "nao"
+          },
+          {
+            "text": "Lacre com sinal de recolagem",
+            "mark": "nao"
+          }
+        ]
+      }
+    },
+    {
+      "chip": "a caneta",
+      "kicker": "o detalhe que entrega",
+      "title": "O lote tem",
+      "accent": "que ser o mesmo",
+      "tone": "vermelho",
+      "speech": "O detalhe que mais entrega: o lote da caixa precisa ser igual ao lote impresso na caneta.",
+      "visual": {
+        "type": "carimbo",
+        "text": "LOTE TEM QUE BATER",
+        "note": "caixa e caneta, mesmo número"
+      }
+    },
+    {
+      "chip": "a caneta",
+      "kicker": "olha o líquido",
+      "title": "Turvo ou",
+      "accent": "com partícula?",
+      "tone": "vermelho",
+      "speech": "O líquido é límpido e incolor; se estiver turvo ou com partícula, desconfia.",
+      "visual": {
+        "type": "frasco",
+        "label": "???",
+        "liquid": "amarelo",
+        "tag": "TURVO"
+      }
+    },
+    {
+      "chip": "a caneta",
+      "kicker": "gira o seletor",
+      "title": "Sem clique?",
+      "accent": "Suspeito",
+      "tone": "vermelho",
+      "speech": "E o seletor da caneta trava com clique; se ele gira solto, sem clique, é suspeito.",
+      "visual": {
+        "type": "icone",
+        "icon": "alerta",
+        "note": "seletor que gira livre é suspeito"
+      }
+    },
+    {
+      "chip": "onde mora o risco",
+      "kicker": "alerta da Lilly e da ANVISA",
+      "title": "Onde circula",
+      "accent": "a caneta falsa",
+      "tone": "vermelho",
+      "speech": "Os alertas apontam marketplace, rede social e perfil sem CNPJ nem endereço, que some depois.",
+      "visual": {
+        "type": "lista",
+        "items": [
+          {
+            "text": "Marketplace",
+            "mark": "nao"
+          },
+          {
+            "text": "Rede social e Telegram",
+            "mark": "nao"
+          },
+          {
+            "text": "Perfil sem CNPJ nem endereço",
+            "mark": "nao"
+          }
+        ]
+      }
+    },
+    {
+      "chip": "onde mora o risco",
+      "kicker": "ninguém pediu receita?",
+      "title": "Receita retida",
+      "accent": "é obrigatória",
+      "tone": "azul",
+      "speech": "E se ninguém pediu receita, já tem regra sendo ignorada: a ANVISA exige receita retida para tirzepatida.",
+      "visual": {
+        "type": "carimbo",
+        "text": "RECEITA RETIDA",
+        "note": "exigida pela ANVISA"
+      },
+      "source": "ANVISA, RDC 973/2025"
+    },
+    {
+      "chip": "como conferir",
+      "kicker": "no site da ANVISA",
+      "title": "Confere o registro",
+      "accent": "e os alertas",
+      "tone": "azul",
+      "speech": "No site de consultas da ANVISA, o registro válido é da Eli Lilly do Brasil, e o lote não pode estar nos alertas.",
+      "visual": {
+        "type": "linha",
+        "steps": [
+          "buscar",
+          "registro",
+          "dose",
+          "alertas"
+        ],
+        "current": 3,
+        "note": "consultas.anvisa.gov.br"
+      },
+      "source": "ANVISA"
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "desconfiou?",
+      "title": "Não aplique",
+      "accent": "e notifique",
+      "tone": "vermelho",
+      "speech": "Desconfiou? Não aplique: fotografa a caixa, a caneta e o rótulo e notifica a ANVISA pelo Notivisa.",
+      "visual": {
+        "type": "carimbo",
+        "text": "NÃO APLIQUE",
+        "note": "notifique pelo Notivisa"
+      }
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "já aplicou?",
+      "title": "Sentiu algo",
+      "accent": "estranho?",
+      "tone": "vermelho",
+      "speech": "Se você já aplicou e sentiu algo fora do normal, vai ao pronto-socorro levando o produto junto.",
+      "visual": {
+        "type": "icone",
+        "icon": "hospital",
+        "note": "leve a caixa e a caneta"
+      }
+    },
+    {
+      "chip": "pra lembrar",
+      "kicker": "da próxima vez",
+      "title": "Mounjaro em frasco",
+      "accent": "não existe aqui",
+      "tone": "vermelho",
+      "speech": "Então, viu Mounjaro em frasco por aí? Agora você sabe: no Brasil, isso não existe.",
+      "visual": {
+        "type": "frasco",
+        "label": "MOUNJARO",
+        "liquid": "po",
+        "stamp": "NÃO EXISTE"
+      }
+    }
+  ],
+  "caption": "Eu sei, quando aparece \"Mounjaro em frasco\" dá vontade de acreditar. Mas no Brasil a Lilly só tem a caneta KwikPen, com solução pronta, em caixa com 4 canetas. Frasco com pó é tirzepatida manipulada ou de outra origem, nunca Mounjaro.\n\n1️⃣ Na caixa: registro ANVISA, fabricante Eli Lilly, lote e validade impressos (não em adesivo), lacre intacto e bula em português.\n2️⃣ Na caneta: rótulo de fábrica, lote igual ao da caixa, líquido límpido e incolor, seletor que trava com clique.\n3️⃣ Na ANVISA: confira o registro em consultas.anvisa.gov.br e veja se o lote está em algum alerta de falsificação.\n\n⚠️ Desconfiou, não aplique. Fotografe tudo e notifique pelo Notivisa. Se já aplicou e apareceram sintomas anormais, procure o pronto-socorro levando o produto.",
+  "question": "Você já tinha visto anúncio de Mounjaro em frasco por aí?",
+  "share": "quem acha que Mounjaro também vem em frasco"
+}
