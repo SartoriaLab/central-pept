@@ -273,7 +273,9 @@ export default function EbookOffer({ offer, variant = 'card', lead, subject, cla
         </p>
         <div className={`p-5 md:p-7 ${GLOW}`}>
           {children}
-          <div className="grid gap-5 md:grid-cols-[minmax(0,1fr)_300px] md:gap-7">
+          {/* No resultado o painel fica na coluna da calculadora (~600 px no desktop): duas colunas
+              espremem o texto. Uma coluna sempre; o card (post, página larga) divide no md. */}
+          <div className={variant === 'result' ? 'grid gap-5' : 'grid gap-5 md:grid-cols-[minmax(0,1fr)_300px] md:gap-7'}>
             <div className="min-w-0">
               <div className="flex items-start gap-4">
                 <div className="hidden shrink-0 min-[400px]:block">
