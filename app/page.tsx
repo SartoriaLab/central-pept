@@ -52,10 +52,12 @@ export default function HomePage() {
       {/* ═══ HERO ═══ */}
       <section className="relative overflow-hidden bg-gradient-mesh">
         <div className="absolute inset-0 bg-gradient-hero pointer-events-none" />
-        <div className="relative max-w-6xl mx-auto px-4 md:px-6 pt-12 md:pt-20 pb-16 md:pb-24">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-            {/* Texto */}
-            <div className="text-center lg:text-left">
+        <div className="relative max-w-6xl mx-auto px-4 md:px-6 pt-6 md:pt-12 lg:pt-20 pb-16 md:pb-24">
+          {/* No celular a ordem é título → calculadora → texto: quem chega quer a conta, não a apresentação.
+              No desktop o título e o texto dividem a coluna da esquerda e a calculadora ocupa a direita. */}
+          <div className="grid lg:grid-cols-2 gap-6 lg:gap-x-16 lg:gap-y-0">
+            {/* Título */}
+            <div className="text-center lg:text-left lg:col-start-1 lg:row-start-1 lg:self-end">
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface border border-teal-100 text-teal-700 text-xs font-semibold uppercase tracking-wider shadow-sm">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
@@ -63,20 +65,31 @@ export default function HomePage() {
                 </span>
                 Gratuito · Sem cadastro
               </span>
-              <h1 className="mt-6 text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-ink leading-[1.05]">
+              <h1 className="mt-4 lg:mt-6 text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-ink leading-[1.05]">
                 Peptídeos,<br />
                 <span className="bg-gradient-to-r from-teal-600 to-teal-400 bg-clip-text text-transparent">
                   cálculo sem erro.
                 </span>
               </h1>
-              <p className="mt-5 text-lg md:text-xl text-ink-2 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+            </div>
+
+            {/* Calculadora de verdade */}
+            <div className="relative lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:self-center">
+              <div className="absolute -inset-6 bg-gradient-teal opacity-10 blur-3xl rounded-full" aria-hidden />
+              <HeroCalc peptides={heroPeptides} initialSlug="tirzepatida" offer={calcOffer} />
+            </div>
+
+            {/* Texto */}
+            <div className="text-center lg:text-left lg:col-start-1 lg:row-start-2 lg:self-start">
+              <p className="lg:mt-5 text-lg md:text-xl text-ink-2 max-w-xl mx-auto lg:mx-0 leading-relaxed">
                 A <strong className="text-ink">Central Peptídeos</strong> reúne calculadora de
                 reconstituição em tempo real, enciclopédia com
                 {' '}<strong className="text-ink">{peptides.length} peptídeos</strong>{' '}
                 catalogados e status regulatório claro. Tudo aberto, em português.
               </p>
-              <div className="mt-8 flex flex-wrap justify-center lg:justify-start gap-3">
-                <Link href="/ferramentas/reconstituicao" className="btn-teal">
+              <div className="mt-6 lg:mt-8 flex flex-wrap justify-center lg:justify-start gap-3">
+                {/* No celular a calculadora já está logo acima, com o próprio botão. */}
+                <Link href="/ferramentas/reconstituicao" className="btn-teal max-lg:hidden">
                   Abrir calculadora
                   <svg viewBox="0 0 20 20" width={16} height={16} fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M4 10h12M10 4l6 6-6 6" /></svg>
                 </Link>
@@ -84,12 +97,6 @@ export default function HomePage() {
                   Ver enciclopédia
                 </Link>
               </div>
-            </div>
-
-            {/* Calculadora de verdade */}
-            <div className="relative">
-              <div className="absolute -inset-6 bg-gradient-teal opacity-10 blur-3xl rounded-full" aria-hidden />
-              <HeroCalc peptides={heroPeptides} initialSlug="tirzepatida" offer={calcOffer} />
             </div>
           </div>
 

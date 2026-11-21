@@ -162,10 +162,12 @@ html:not(.dark) .focus\:bg-teal:focus {
     @apply text-ink-2 leading-relaxed;
     font-size: 17px;
   }
-  .prose-article h2 {
+  /* Só os títulos do texto: dentro de .not-prose (oferta, rótulos do fim do post, cards) o título
+     segue as classes do próprio componente. Sem isso o título da oferta ficava escuro no painel escuro. */
+  .prose-article h2:not(.not-prose *) {
     @apply text-2xl font-extrabold text-ink tracking-tight mt-10 mb-4;
   }
-  .prose-article h3 {
+  .prose-article h3:not(.not-prose *) {
     @apply text-xl font-bold text-ink tracking-tight mt-8 mb-3;
   }
   .prose-article p {

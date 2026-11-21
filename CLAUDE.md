@@ -199,6 +199,8 @@ Feed, sitemap, busca, páginas de tag e imagem de compartilhamento saem sozinhos
 - Tailwind só gera classes escritas por extenso no código (nada de `bg-${cor}`).
 - Modo escuro usa tokens CSS em `app/globals.css`; prefira `text-ink`, `bg-surface` etc.
   a cores fixas.
+- Dentro de `.prose-article` (posts), o estilo de título (h2/h3) e de link do texto não vale em
+  `.not-prose`: componente ali (oferta, rótulos do fim do post, cards) precisa trazer as próprias classes.
 - `lib/articles.ts` lê arquivos (`fs`): não importe em componentes client.
   A busca global carrega `/busca.json`.
 - Cabeçalhos de segurança e reescrita de `/favicon.ico` e `/apple-touch-icon*.png` ficam em

@@ -21,8 +21,10 @@ type Props = {
   inlineOffer?: boolean;
 };
 
-const formatDate = (d: string) =>
-  new Date(d.includes('T') ? d : `${d}T12:00:00-03:00`).toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' });
+const toDate = (d: string) => new Date(d.includes('T') ? d : `${d}T12:00:00-03:00`);
+const formatDate = (d: string) => toDate(d).toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' });
+/** "20/11/2026": cabe numa linha do cabeçalho no celular. */
+const formatShortDate = (d: string) => toDate(d).toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric' });
 
 export default function ArticleLayout({ article, children, inlineOffer = false }: Props) {
   const citedPeptides = (article.relatedPeptides ?? [])
@@ -72,6 +74,7 @@ export default function ArticleLayout({ article, children, inlineOffer = false }
     }),
   };
 
+  const updated = article.updatedAt && article.updatedAt !== article.publishedAt ? article.updatedAt : null;
   const related = getRelatedArticles(article);
   const offer = offerFor(ebookForPost(article.slug, article.relatedPeptides));
   // Post sobre um peptídeo só: o nome dele entra na copy da oferta.
@@ -100,53 +103,42 @@ export default function ArticleLayout({ article, children, inlineOffer = false }
 
       {/* Hero */}
       <header className={`bg-gradient-to-br ${article.coverColor || 'from-teal-500/20 to-teal-500/0'} border-b border-border`}>
-        <div className="max-w-3xl mx-auto px-4 md:px-6 pt-8 pb-10 md:pt-12 md:pb-14">
-          <div className="mb-5">
+        <div className="max-w-3xl mx-auto px-4 md:px-6 pt-5 pb-7 md:pt-12 md:pb-14">
+          {/* Cabeçalho enxuto: o texto precisa começar na primeira tela do celular.
+              A trilha não repete o título e os temas ficam no fim do artigo. */}
+          <div className="mb-3 md:mb-5">
             <Breadcrumb
               items={[{ label: 'Blog', href: '/blog' }, { label: article.title }]}
               siteUrl={SITE}
+              hideCurrent
             />
-          </div>
-
-          <div className="flex flex-wrap items-center gap-2 mb-4">
-            {article.tags.slice(0, 3).map((tag) => {
-              const slug = tagSlug(tag);
-              return (
-                <Link
-                  key={tag}
-                  href={`/blog/tag/${slug}`}
-                  className="text-xs font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full bg-surface/70 backdrop-blur text-ink-2 border border-border hover:border-teal hover:text-teal-700 transition-colors"
-                >
-                  #{tag}
-                </Link>
-              );
-            })}
           </div>
 
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-ink leading-[1.1]">
             {article.title}
           </h1>
-          <p className="mt-4 text-lg text-ink-2 leading-relaxed">{article.excerpt}</p>
+          <p className="mt-3 md:mt-4 text-base md:text-lg text-ink-2 leading-relaxed">{article.excerpt}</p>
           {article.draft && (
             <div className="mt-5 p-3 rounded-lg bg-amber-50 border border-amber-200 text-sm text-amber-900">
               <strong>Rascunho em revisão.</strong> Este artigo ainda não passou por revisão editorial final — informações podem ser ajustadas. Use como referência, não como guia definitivo.
             </div>
           )}
-          <div className="mt-5 flex flex-wrap items-center gap-3 text-sm text-ink-3">
-            <time dateTime={article.publishedAt}>Publicado em {formatDate(article.publishedAt)}</time>
-            {article.updatedAt && article.updatedAt !== article.publishedAt && (
-              <>
-                <span>·</span>
-                <time dateTime={article.updatedAt}>Atualizado em {formatDate(article.updatedAt)}</time>
-              </>
+          <div className="mt-4 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-ink-3">
+            {/* Uma data só: a da última revisão, se houver (a de publicação fica no title e no JSON-LD). */}
+            {updated ? (
+              <time dateTime={updated} title={`Publicado em ${formatDate(article.publishedAt)}`}>
+                Atualizado em {formatShortDate(updated)}
+              </time>
+            ) : (
+              <time dateTime={article.publishedAt}>{formatShortDate(article.publishedAt)}</time>
             )}
-            <span>·</span>
+            <span aria-hidden>·</span>
             <span>{article.readMinutes} min de leitura</span>
+            {/* No celular a autoria desce para a própria linha (sem ponto sobrando no fim da primeira). */}
             {article.author && (
               <>
-                <span>·</span>
-                <span>
-                  por{' '}
+                <span aria-hidden className="max-sm:hidden">·</span>
+                <span className="max-sm:basis-full">
                   {article.author.url ? (
                     <a href={article.author.url} target="_blank" rel="noreferrer noopener" className="text-teal-700 hover:underline font-semibold">
                       {article.author.name}
@@ -160,17 +152,16 @@ export default function ArticleLayout({ article, children, inlineOffer = false }
             )}
             {!article.author && (
               <>
-                <span>·</span>
-                <span>
-                  por{' '}
+                <span aria-hidden className="max-sm:hidden">·</span>
+                <span className="max-sm:basis-full">
                   <Link href="/sobre" className="text-teal-700 hover:underline font-semibold">Equipe Central Peptídeos</Link>
                 </span>
               </>
             )}
             {article.reviewedBy && (
               <>
-                <span>·</span>
-                <span>
+                <span aria-hidden className="max-sm:hidden">·</span>
+                <span className="max-sm:basis-full">
                   Revisado por{' '}
                   <span className="font-semibold">{article.reviewedBy.name}</span>
                   {article.reviewedBy.credentials && <span className="text-ink-3">, {article.reviewedBy.credentials}</span>}
@@ -182,7 +173,7 @@ export default function ArticleLayout({ article, children, inlineOffer = false }
       </header>
 
       {/* Corpo */}
-      <article className="max-w-3xl mx-auto px-4 md:px-6 py-10 md:py-12 prose-article">
+      <article className="max-w-3xl mx-auto px-4 md:px-6 pt-6 pb-10 md:py-12 prose-article">
         {article.tldr && (
           <aside className="not-prose mb-8 p-5 rounded-xl bg-teal-50 border-l-4 border-teal" aria-label="Resumo">
             <div className="flex items-center gap-2 mb-1.5">
@@ -263,6 +254,24 @@ export default function ArticleLayout({ article, children, inlineOffer = false }
               {getBrandsByPeptide(article.relatedPeptides[0]).map((b) => (
                 <Link key={b.slug} href={`/medicamentos/${b.slug}`} className="chip-lg">
                   {b.name}
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Temas: saíram do cabeçalho para o texto começar antes; aqui levam a mais leitura. */}
+        {article.tags.length > 0 && (
+          <section className="mt-8 not-prose" aria-labelledby="temas">
+            <h2 id="temas" className="text-sm font-bold uppercase tracking-wider text-ink-3 mb-3">Temas deste artigo</h2>
+            <div className="flex flex-wrap gap-2">
+              {article.tags.slice(0, 3).map((tag) => (
+                <Link
+                  key={tag}
+                  href={`/blog/tag/${tagSlug(tag)}`}
+                  className="text-xs font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full bg-surface text-ink-2 border border-border hover:border-teal hover:text-teal-700 transition-colors"
+                >
+                  #{tag}
                 </Link>
               ))}
             </div>
