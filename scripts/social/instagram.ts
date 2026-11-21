@@ -112,9 +112,11 @@ export class InstagramClient {
     return this.publish(carousel);
   }
 
-  /** Reels a partir de um MP4 público. Devolve o id do post. */
-  async publishReel(videoUrl: string, caption: string): Promise<string> {
-    const id = await this.container({ media_type: 'REELS', video_url: videoUrl, caption, share_to_feed: 'true' });
+  /** Reels a partir de um MP4 público, com a capa (JPEG público) quando houver. Devolve o id do post. */
+  async publishReel(videoUrl: string, caption: string, coverUrl?: string): Promise<string> {
+    const params: Record<string, string> = { media_type: 'REELS', video_url: videoUrl, caption, share_to_feed: 'true' };
+    if (coverUrl) params.cover_url = coverUrl;
+    const id = await this.container(params);
     await this.waitFinished(id);
     return this.publish(id);
   }

@@ -1,0 +1,221 @@
+{
+  "hook": "Parou a caneta e a fome voltou com tudo?",
+  "hookIcon": "cerebro",
+  "slides": [
+    {
+      "title": "Não é falta de força de vontade",
+      "layout": "mito",
+      "body": "Parar a tirzepatida costuma trazer de volta boa parte do peso. Não é falha de quem usa: é o esperado quando se interrompe o tratamento de uma condição crônica.",
+      "icon": "escudo"
+    },
+    {
+      "title": "14%",
+      "layout": "numero",
+      "body": "No SURMOUNT-4, quem trocou a tirzepatida por placebo, sem saber, recuperou em média 14% do peso em um ano.",
+      "icon": "grafico-sobe"
+    },
+    {
+      "title": "Mas não voltou à estaca zero",
+      "layout": "padrao",
+      "body": "Um ano depois de parar, esse grupo ainda estava 9,9% abaixo do peso inicial.",
+      "icon": "balanca"
+    },
+    {
+      "title": "Por que a fome volta?",
+      "layout": "pergunta",
+      "body": "O efeito sobre o apetite depende do remédio no corpo. Ele sai devagar, como a maré baixando, em cerca de um mês. E o corpo ainda reduz o gasto de energia e aumenta os hormônios da fome.",
+      "icon": "ampulheta"
+    },
+    {
+      "title": "Dá pra voltar direto na dose antiga",
+      "layout": "mito",
+      "body": "Depois de várias semanas sem aplicar, a tolerância se perde. Recomeçar na dose alta aumenta muito o risco de náusea e vômito intensos. O médico costuma reiniciar mais baixo.",
+      "icon": "alerta"
+    },
+    {
+      "title": "Cola da saída planejada",
+      "layout": "passos",
+      "body": "Converse com o médico antes de parar\nPergunte sobre manutenção ou redução aos poucos\nTreino de força e proteína suficiente\nPausou? O recomeço é com o médico",
+      "icon": "estetoscopio"
+    }
+  ],
+  "scenes": [
+    {
+      "chip": "a fome voltou",
+      "kicker": "depois da última dose",
+      "title": "Parou a caneta",
+      "accent": "e a fome voltou?",
+      "tone": "vermelho",
+      "speech": "Parou a caneta e a fome voltou com tudo?",
+      "visual": {
+        "type": "frasco",
+        "label": "TIRZEPATIDA",
+        "liquid": "claro",
+        "tag": "última dose"
+      }
+    },
+    {
+      "chip": "a fome voltou",
+      "kicker": "antes de se culpar",
+      "title": "Não é falta de",
+      "accent": "força de vontade",
+      "tone": "azul",
+      "speech": "Calma: não é falta de força de vontade, e eu vou te mostrar por quê.",
+      "visual": {
+        "type": "carimbo",
+        "text": "NÃO É FALHA SUA",
+        "note": "obesidade é condição crônica"
+      }
+    },
+    {
+      "chip": "o estudo",
+      "kicker": "feito pra medir isso",
+      "title": "Metade parou",
+      "accent": "sem saber",
+      "tone": "azul",
+      "speech": "Teve um estudo feito só pra medir o que acontece quando a pessoa para.",
+      "visual": {
+        "type": "frascos",
+        "left": {
+          "label": "TIRZEPATIDA",
+          "note": "continuou o remédio",
+          "liquid": "claro"
+        },
+        "right": {
+          "label": "PLACEBO",
+          "note": "parou sem saber",
+          "liquid": "claro"
+        },
+        "sign": "vs"
+      },
+      "source": "SURMOUNT-4"
+    },
+    {
+      "chip": "o estudo",
+      "kicker": "um ano depois de parar",
+      "title": "Quem parou",
+      "accent": "recuperou 14%",
+      "tone": "vermelho",
+      "speech": "Quem trocou o remédio por placebo, sem saber, recuperou em média 14% do peso em um ano.",
+      "visual": {
+        "type": "numero",
+        "value": "14%",
+        "note": "do peso recuperado em um ano, em média"
+      },
+      "source": "SURMOUNT-4"
+    },
+    {
+      "chip": "o estudo",
+      "kicker": "o lado bom",
+      "title": "Não voltou",
+      "accent": "à estaca zero",
+      "tone": "azul",
+      "speech": "Mas não voltou à estaca zero: ainda terminou 9,9% abaixo do peso inicial.",
+      "visual": {
+        "type": "numero",
+        "value": "9,9%",
+        "note": "abaixo do peso inicial, um ano depois"
+      },
+      "source": "SURMOUNT-4"
+    },
+    {
+      "chip": "por que volta",
+      "kicker": "o remédio vai saindo",
+      "title": "Sai do corpo",
+      "accent": "como a maré baixando",
+      "tone": "azul",
+      "speech": "A tirzepatida segura a fome enquanto está no corpo, e ela sai devagar, como a maré baixando.",
+      "visual": {
+        "type": "linha",
+        "steps": [
+          "última dose",
+          "semanas",
+          "um mês",
+          "fome volta"
+        ],
+        "current": 2,
+        "note": "o efeito some junto com o remédio"
+      }
+    },
+    {
+      "chip": "por que volta",
+      "kicker": "cerca de um mês depois",
+      "title": "A fome volta",
+      "accent": "ao padrão de antes",
+      "tone": "vermelho",
+      "speech": "Em cerca de um mês ela sai do organismo, e a fome volta ao padrão de antes.",
+      "visual": {
+        "type": "icone",
+        "icon": "cerebro",
+        "note": "o apetite depende do remédio presente"
+      }
+    },
+    {
+      "chip": "por que volta",
+      "kicker": "e tem mais",
+      "title": "O corpo defende",
+      "accent": "o peso antigo",
+      "tone": "vermelho",
+      "speech": "E o corpo ainda defende o peso antigo: gasta menos energia e aumenta os hormônios da fome.",
+      "visual": {
+        "type": "icone",
+        "icon": "fogo",
+        "note": "o gasto de energia cai"
+      }
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "antes de parar",
+      "title": "A saída se",
+      "accent": "planeja com o médico",
+      "tone": "azul",
+      "speech": "Por isso a saída se planeja com o médico: dose de manutenção ou redução aos poucos.",
+      "visual": {
+        "type": "lista",
+        "items": [
+          {
+            "text": "Planejar a saída com o médico",
+            "mark": "ok"
+          },
+          {
+            "text": "Manutenção ou redução aos poucos",
+            "mark": "ok"
+          },
+          {
+            "text": "Parar de uma vez por conta",
+            "mark": "nao"
+          }
+        ]
+      }
+    },
+    {
+      "chip": "o risco",
+      "kicker": "pausou por semanas?",
+      "title": "Voltar na dose",
+      "accent": "alta de uma vez",
+      "tone": "vermelho",
+      "speech": "E se você pausou por semanas, voltar direto na dose alta pode trazer náusea e vômito intensos.",
+      "visual": {
+        "type": "icone",
+        "icon": "vomito",
+        "note": "a tolerância se perde na pausa"
+      }
+    },
+    {
+      "chip": "pra lembrar",
+      "kicker": "da próxima vez",
+      "title": "A fome voltou?",
+      "accent": "É a maré baixando",
+      "tone": "azul",
+      "speech": "Então, a fome voltou depois de parar a caneta? Não é fraqueza, é a maré do remédio baixando.",
+      "visual": {
+        "type": "carimbo",
+        "text": "NÃO É FRAQUEZA",
+        "note": "é o remédio saindo do corpo"
+      }
+    }
+  ],
+  "caption": "Eu sei, dá vontade de parar o Mounjaro de uma vez. Só que o efeito da tirzepatida sobre o apetite depende do remédio no corpo: ele sai devagar, em cerca de um mês, e a fome volta ao padrão de antes. Não é falta de força de vontade.\n\nNo estudo SURMOUNT-4, quem trocou a tirzepatida por placebo recuperou em média 14% do peso em um ano. Ainda assim, terminou 9,9% abaixo do peso inicial.\n\n⚠️ Depois de semanas sem aplicar, voltar direto na dose alta aumenta muito o risco de náusea e vômito intensos. E com diabetes tipo 2, a glicose volta a subir: nunca interrompa sem orientação médica.\n\n1️⃣ Planeje a saída com o médico: dose de manutenção ou redução aos poucos\n2️⃣ Treino de força e proteína suficiente\n3️⃣ Pausou? O recomeço é com o médico, por uma dose mais baixa",
+  "question": "Quanto tempo depois de pausar você sentiu a fome voltar?",
+  "share": "aquela amiga que quer parar o Mounjaro de uma vez"
+}

@@ -1,295 +1,237 @@
 {
-  "hook": "Você puxa dose pequena na seringa de 100 unidades?",
-  "hookIcon": "seringa",
+  "hook": "Te ofereceram Mounjaro em frasco? Olha isso antes.",
+  "hookIcon": "lupa",
   "slides": [
     {
-      "title": "Mesma escala, tamanhos diferentes",
-      "layout": "padrao",
-      "body": "Nas seringas U-100, 1 unidade é sempre 0,01 ml. O que muda é o comprimento: na de 30 U, a mesma dose fica maior e mais fácil de ler.",
-      "icon": "regua"
+      "title": "Mounjaro também existe em frasco",
+      "layout": "mito",
+      "body": "No Brasil, não. A Lilly comercializa aqui só a caneta KwikPen. Frasco é sempre tirzepatida manipulada ou importada, nunca Mounjaro.",
+      "icon": "errado"
     },
     {
-      "title": "Mais de 14%",
+      "title": "A caixa é um documento: tudo precisa bater",
+      "layout": "passos",
+      "body": "Mounjaro + tirzepatida + dose impressos\nRegistro ANVISA impresso\nLote e validade impressos, não em adesivo\nLacre intacto e bula em português",
+      "icon": "prancheta"
+    },
+    {
+      "title": "4 canetas",
       "layout": "numero",
-      "body": "Na seringa de 100, o traço pode valer 2: uma dose de 7 unidades fica entre os traços 6 e 8. Errar meia marca já é 1 unidade, mais de 14% da dose.",
+      "body": "A apresentação nacional é caixa com 4 canetas. Caneta solta, sem caixa, ou caixa de 1 unidade é suspeita.",
       "icon": "alerta"
     },
     {
-      "title": "Qual seringa eu uso?",
+      "title": "Original x suspeita",
+      "layout": "lado",
+      "body": "Original: líquido límpido e incolor, lote igual ao da caixa\nSuspeita: líquido turvo, rótulo adesivo, seletor girando solto",
+      "icon": "balanca"
+    },
+    {
+      "title": "Como conferir na ANVISA?",
       "layout": "pergunta",
-      "body": "A menor que comporte a dose inteira com folga: até 30 unidades, a de 30 U; até 50, a de 50 U; acima disso, a de 100 U.",
-      "icon": "alvo"
-    },
-    {
-      "title": "30 unidades",
-      "layout": "numero",
-      "body": "Pense na dose mais alta: se a dose prescrita vai subir e passar de 30 unidades em breve, pode valer começar já com a de 50 U.",
-      "icon": "grafico-sobe"
-    },
-    {
-      "title": "Como ler os traços",
-      "layout": "passos",
-      "body": "Confira U-100 na embalagem\nConte quantos traços há entre dois números\nLeia pela borda de borracha do êmbolo\nTire as bolhas",
+      "body": "Em consultas.anvisa.gov.br, busque \"Mounjaro\": o registro válido é da Eli Lilly do Brasil. Compare registro, apresentação e dose com a sua caixa e veja se o lote está nos alertas.",
       "icon": "lupa"
     },
     {
-      "title": "U-40 é a mesma coisa",
-      "layout": "mito",
-      "body": "Não é. Na U-40, o mesmo número de unidades dá 2,5 vezes mais volume. Conta feita para U-100 e puxada na U-40 aplica 2,5 vezes a dose.",
-      "icon": "proibido"
-    },
-    {
-      "title": "4 a 6 mm",
-      "layout": "numero",
-      "body": "É a agulha curta que a diretriz da SBD recomenda, de preferência fixa, que evita o espaço morto. Reutilizar seringa não é recomendado.",
-      "icon": "escudo"
-    },
-    {
-      "title": "Sua cola",
+      "title": "Desconfiou? Faça isso",
       "layout": "passos",
-      "body": "Até 30 U: seringa de 30\nDe 30 a 50 U: de 50\nAcima de 50 U: de 100\nUnidade é volume, não mg. Dúvida? Médico ou farmacêutico",
-      "icon": "certo"
+      "body": "Não aplique\nFotografe caixa, caneta e rótulo\nNotifique a ANVISA pelo Notivisa\nAplicou e sentiu algo? Pronto-socorro com o produto",
+      "icon": "hospital"
     }
   ],
   "scenes": [
     {
-      "chip": "a seringa",
-      "kicker": "aquela que estava em casa",
-      "title": "Dose pequena",
-      "accent": "na seringa de 100?",
+      "chip": "o alerta",
+      "kicker": "chegou uma oferta",
+      "title": "Mounjaro",
+      "accent": "em frasco?",
       "tone": "vermelho",
-      "speech": "Você puxa dose pequena na seringa de 100 unidades e fica adivinhando o tracinho?",
+      "speech": "Te ofereceram Mounjaro em frasco? Olha isso antes.",
       "visual": {
-        "type": "icone",
-        "icon": "seringa",
-        "note": "seringa de 100 unidades"
+        "type": "frasco",
+        "label": "MOUNJARO?",
+        "liquid": "po",
+        "tag": "em frasco"
       }
     },
     {
-      "chip": "o tracinho",
-      "kicker": "olha a escala dela",
-      "title": "Cada traço vale",
-      "accent": "duas unidades",
+      "chip": "o alerta",
+      "kicker": "fica até o fim",
+      "title": "Um sinal entrega",
+      "accent": "na hora",
       "tone": "vermelho",
-      "speech": "Em muitas seringas de 100, cada traço vale 2 unidades, e não uma.",
-      "visual": {
-        "type": "numero",
-        "value": "2",
-        "note": "unidades por traço em muitas seringas de 100"
-      }
-    },
-    {
-      "chip": "o tracinho",
-      "kicker": "uma dose de 7 unidades",
-      "title": "Fica no meio",
-      "accent": "entre o 6 e o 8",
-      "tone": "vermelho",
-      "speech": "Aí uma dose de 7 unidades cai bem no meio, entre o traço 6 e o traço 8.",
-      "visual": {
-        "type": "linha",
-        "steps": [
-          "traço 6",
-          "7 unidades",
-          "traço 8"
-        ],
-        "current": 1,
-        "note": "você precisa adivinhar o meio"
-      }
-    },
-    {
-      "chip": "o tracinho",
-      "kicker": "errou meia marca",
-      "title": "Mais de 14%",
-      "accent": "da sua dose",
-      "tone": "vermelho",
-      "speech": "E errar meia marca já é 1 unidade, mais de 14% da sua dose.",
-      "visual": {
-        "type": "numero",
-        "value": "14%",
-        "note": "erro de meia marca numa dose de 7 unidades"
-      }
-    },
-    {
-      "chip": "a escala",
-      "kicker": "todas são U-100",
-      "title": "Mesma unidade,",
-      "accent": "tamanho diferente",
-      "tone": "azul",
-      "speech": "Nas U-100, 1 unidade é sempre 0,01 ml; o que muda é o tamanho: 0,3 ml, 0,5 ml e 1 ml.",
-      "visual": {
-        "type": "barras",
-        "bars": [
-          {
-            "label": "seringa de 30 U",
-            "value": 0.3,
-            "display": "0,3 ml"
-          },
-          {
-            "label": "seringa de 50 U",
-            "value": 0.5,
-            "display": "0,5 ml"
-          },
-          {
-            "label": "seringa de 100 U",
-            "value": 1,
-            "display": "1 ml"
-          }
-        ]
-      }
-    },
-    {
-      "chip": "a escala",
-      "kicker": "por isso",
-      "title": "Na seringa menor",
-      "accent": "a dose fica maior",
-      "tone": "azul",
-      "speech": "Na seringa menor, a mesma dose ocupa mais espaço e fica muito mais fácil de ler.",
+      "speech": "Tem um sinal que entrega a falsificação na hora, e eu deixo ele pro final.",
       "visual": {
         "type": "icone",
         "icon": "lupa",
-        "note": "escala mais espaçada, traço mais fácil"
+        "note": "o mais forte fica pro fim"
       }
     },
     {
-      "chip": "a regra",
-      "kicker": "pra escolher",
-      "title": "A menor que",
-      "accent": "cabe a dose inteira",
+      "chip": "o original",
+      "kicker": "no Brasil",
+      "title": "Só a caneta",
+      "accent": "KwikPen",
       "tone": "azul",
-      "speech": "A regra é usar a menor seringa que comporte a dose inteira, com folga.",
-      "visual": {
-        "type": "carimbo",
-        "text": "A MENOR QUE CABE",
-        "note": "sempre com alguma folga"
-      }
-    },
-    {
-      "chip": "a regra",
-      "kicker": "na prática",
-      "title": "30, 50 ou 100",
-      "accent": "conforme a dose",
-      "tone": "azul",
-      "speech": "Até 30 unidades, a de 30; de 30 a 50, a de 50; acima disso, a de 100.",
-      "visual": {
-        "type": "lista",
-        "items": [
-          {
-            "text": "Até 30 U: seringa de 30",
-            "mark": "ok"
-          },
-          {
-            "text": "De 30 a 50 U: seringa de 50",
-            "mark": "ok"
-          },
-          {
-            "text": "Acima de 50 U: seringa de 100",
-            "mark": "ok"
-          }
-        ]
-      },
-      "source": "Diretriz da SBD"
-    },
-    {
-      "chip": "a regra",
-      "kicker": "a dica que ninguém dá",
-      "title": "Pense na dose",
-      "accent": "mais alta",
-      "tone": "azul",
-      "speech": "E pense na dose mais alta que você vai usar, não só na de hoje: se vai passar de 30 unidades, a de 50 já resolve.",
+      "speech": "No Brasil, o Mounjaro original é a caneta KwikPen, da Eli Lilly, vendida em farmácia com receita.",
       "visual": {
         "type": "icone",
-        "icon": "grafico-sobe",
-        "note": "a dose em unidades pode subir"
-      }
+        "icon": "seringa",
+        "note": "caneta multidose da Eli Lilly"
+      },
+      "source": "Registro ANVISA, Eli Lilly do Brasil"
     },
     {
-      "chip": "o perigo",
-      "kicker": "o erro que multiplica a dose",
-      "title": "U-100 não é",
-      "accent": "U-40",
-      "tone": "vermelho",
-      "speech": "Agora o erro sério: confundir a seringa U-100 com a U-40, que tem outra escala.",
-      "visual": {
-        "type": "frascos",
-        "left": {
-          "label": "U-100",
-          "note": "20 unidades = 0,20 ml",
-          "liquid": "claro"
-        },
-        "right": {
-          "label": "U-40",
-          "note": "20 unidades = 0,50 ml",
-          "liquid": "claro"
-        },
-        "sign": "≠"
-      }
-    },
-    {
-      "chip": "o perigo",
-      "kicker": "conta feita para U-100",
-      "title": "2,5 vezes",
-      "accent": "a dose",
-      "tone": "vermelho",
-      "speech": "Na U-40, o mesmo número de unidades dá 2,5 vezes mais volume, ou seja, 2,5 vezes a dose.",
-      "visual": {
-        "type": "numero",
-        "value": "2,5 vezes",
-        "note": "mais volume na U-40, com o mesmo número"
-      }
-    },
-    {
-      "chip": "o que fazer",
-      "kicker": "antes de puxar",
-      "title": "Confira a sigla",
-      "accent": "e o traço",
+      "chip": "o original",
+      "kicker": "pensa assim",
+      "title": "A caixa é",
+      "accent": "um documento",
       "tone": "azul",
-      "speech": "Antes de puxar, confira U-100 na caixa e na seringa, veja quanto vale cada traço e tire as bolhas.",
+      "speech": "Pensa na caixa como um documento: tudo nela precisa bater.",
+      "visual": {
+        "type": "icone",
+        "icon": "prancheta",
+        "note": "nome, dose, registro, lote"
+      }
+    },
+    {
+      "chip": "os sinais",
+      "kicker": "primeiro sinal",
+      "title": "Lote em",
+      "accent": "adesivo",
+      "tone": "vermelho",
+      "speech": "Primeiro sinal: lote e validade num adesivo, em vez de impressos na caixa.",
       "visual": {
         "type": "lista",
         "items": [
           {
-            "text": "U-100 na caixa e na seringa",
+            "text": "Lote impresso na caixa",
             "mark": "ok"
           },
           {
-            "text": "Quanto vale o menor traço",
-            "mark": "ok"
-          },
-          {
-            "text": "Bolha dentro da seringa",
+            "text": "Lote colado em adesivo",
             "mark": "nao"
           }
         ]
       }
     },
     {
-      "chip": "o que fazer",
-      "kicker": "e lembra",
-      "title": "Unidade é volume,",
-      "accent": "não é mg",
-      "tone": "azul",
-      "speech": "E lembra: unidade na seringa é volume, não mg; a conta depende do seu frasco e da dose que o médico prescreveu.",
+      "chip": "os sinais",
+      "kicker": "segundo sinal",
+      "title": "Caneta solta,",
+      "accent": "sem caixa",
+      "tone": "vermelho",
+      "speech": "Segundo: caneta solta, sem caixa. A apresentação nacional vem com 4 canetas.",
+      "visual": {
+        "type": "numero",
+        "value": "4 canetas",
+        "note": "na caixa da apresentação nacional"
+      }
+    },
+    {
+      "chip": "os sinais",
+      "kicker": "terceiro sinal",
+      "title": "Líquido turvo",
+      "accent": "ou com partículas",
+      "tone": "vermelho",
+      "speech": "Terceiro: líquido turvo ou com partículas. O certo é límpido e incolor.",
+      "visual": {
+        "type": "frascos",
+        "left": {
+          "label": "ORIGINAL",
+          "note": "límpido e incolor",
+          "liquid": "claro"
+        },
+        "right": {
+          "label": "SUSPEITO",
+          "note": "turvo, com partículas",
+          "liquid": "amarelo"
+        },
+        "sign": "≠"
+      }
+    },
+    {
+      "chip": "o sinal final",
+      "kicker": "o que entrega na hora",
+      "title": "Mounjaro em frasco",
+      "accent": "não existe aqui",
+      "tone": "vermelho",
+      "speech": "E o sinal que entrega na hora: a Lilly não tem Mounjaro em frasco no Brasil.",
       "visual": {
         "type": "carimbo",
-        "text": "VOLUME, NÃO MG",
-        "note": "10 unidades são 0,1 ml"
+        "text": "NÃO EXISTE",
+        "note": "Mounjaro em frasco no Brasil"
+      }
+    },
+    {
+      "chip": "o sinal final",
+      "kicker": "então o que é?",
+      "title": "Frasco é",
+      "accent": "outra coisa",
+      "tone": "azul",
+      "speech": "Se vem em frasco, é tirzepatida manipulada ou importada, nunca Mounjaro. A conferência é outra.",
+      "visual": {
+        "type": "frasco",
+        "label": "TIRZEPATIDA",
+        "liquid": "po",
+        "tag": "não é Mounjaro"
+      }
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "desconfiou?",
+      "title": "Não aplique",
+      "accent": "e notifique",
+      "tone": "azul",
+      "speech": "Desconfiou? Não aplique, fotografe a caixa e a caneta e notifique a ANVISA pelo Notivisa.",
+      "visual": {
+        "type": "lista",
+        "items": [
+          {
+            "text": "Não aplicar",
+            "mark": "ok"
+          },
+          {
+            "text": "Fotografar caixa e caneta",
+            "mark": "ok"
+          },
+          {
+            "text": "Notificar pelo Notivisa",
+            "mark": "ok"
+          }
+        ]
+      },
+      "source": "ANVISA, Notivisa"
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "já aplicou?",
+      "title": "Sintoma estranho?",
+      "accent": "Pronto-socorro",
+      "tone": "vermelho",
+      "speech": "Já aplicou e sentiu algo estranho? Procure o pronto-socorro levando o produto.",
+      "visual": {
+        "type": "icone",
+        "icon": "hospital",
+        "note": "leve a caixa e a caneta"
       }
     },
     {
       "chip": "pra lembrar",
-      "kicker": "da próxima vez",
-      "title": "Tracinho",
-      "accent": "no chute, não",
+      "kicker": "da próxima oferta",
+      "title": "Mounjaro",
+      "accent": "não vem em frasco",
       "tone": "vermelho",
-      "speech": "Então, dose pequena na seringa de 100, adivinhando o tracinho? Nunca mais.",
+      "speech": "Então, se te oferecerem Mounjaro em frasco, você já sabe: Mounjaro não vem em frasco.",
       "visual": {
-        "type": "icone",
-        "icon": "alvo",
-        "note": "a menor seringa que cabe a dose"
+        "type": "frasco",
+        "label": "MOUNJARO?",
+        "liquid": "po",
+        "stamp": "NÃO É MOUNJARO"
       }
     }
   ],
-  "caption": "Eu sei, todo mundo usa a seringa que tem na gaveta. Mas o tamanho muda a precisão: as seringas U-100 têm a mesma escala (1 unidade = 0,01 ml), só que na de 30 U a dose fica mais espaçada e fácil de ler. Na de 100 U, muitas vezes cada traço vale 2 unidades, e uma dose de 7 unidades fica entre o 6 e o 8.\n\n1️⃣ Até 30 unidades: seringa de 30 U.\n2️⃣ De 30 a 50 unidades: seringa de 50 U.\n3️⃣ Acima de 50 unidades: seringa de 100 U.\n\n⚠️ Confira U-100 na embalagem e na seringa. Na U-40, o mesmo número de unidades dá 2,5 vezes mais volume.\n\nUnidade na seringa é volume, não mg. Quantos mg há em cada traço depende da concentração do seu frasco, e a dose é a que o médico prescreveu. Na dúvida, confirme com o médico ou o farmacêutico.",
-  "question": "Qual seringa você usa hoje: a de 30, a de 50 ou a de 100?",
-  "share": "quem usa a seringa de 100 pra qualquer dose"
+  "caption": "Eu sei, quando aparece uma oferta boa demais a gente fica tentada. Mas no Brasil o Mounjaro original é só a caneta KwikPen, da Eli Lilly, em farmácia e com receita. A ANVISA e a própria Lilly já emitiram alertas sobre canetas falsas de tirzepatida em marketplaces e redes sociais.\n\n⚠️ Mounjaro em frasco não existe aqui. Frasco é sempre tirzepatida manipulada ou importada, e aí a conferência é outra: certificado de análise (COA) com o lote batendo com o rótulo.\n\n1️⃣ Na caixa: registro ANVISA, lote e validade impressos (não em adesivo), lacre intacto, caixa com 4 canetas\n2️⃣ Na caneta: lote igual ao da caixa, líquido límpido e incolor, seletor que trava\n3️⃣ Desconfiou? Não aplique, fotografe tudo e notifique pelo Notivisa. Aplicou e sentiu algo? Pronto-socorro levando o produto.",
+  "question": "Você já conferiu o lote da caixa com o da caneta?",
+  "share": "aquela amiga que recebeu oferta de Mounjaro em frasco"
 }

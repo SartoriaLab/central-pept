@@ -9,107 +9,55 @@ Se sair "REPROVADO", corrija só o que a lista aponta e rode de novo.
 
 ## PEDIDO
 
-TEMA: Semaglutida vs Tirzepatida: comparativo completo (2026)
+TEMA: Efeito rebote após parar semaglutida: o que esperar
 
 FONTE:
-Título: Semaglutida vs Tirzepatida: comparativo completo (2026)
+Título: Efeito rebote após parar semaglutida: o que esperar
 
-Resumo: Semaglutida é agonista GLP-1 puro; tirzepatida ativa GLP-1 + GIP. Em ensaios fase 3, tirzepatida (15 mg/sem) levou a perda de peso de ~21% vs ~15% da semaglutida (2,4 mg/sem). Efeitos gastrointestinais são similares, com ligeira vantagem de tolerabilidade para tirzepatida. Ambas aprovadas pelo FDA; semaglutida tem mais dados de longo prazo.
+Resumo: O estudo STEP-4 mostrou que pacientes que trocaram semaglutida por placebo recuperaram ~70% do peso perdido em 48 semanas, enquanto quem continuou manteve a perda. Semaglutida não "cura" obesidade — trata enquanto ativa. Para minimizar rebote: reduzir dose gradualmente, manter treino resistido, aumentar proteína e monitorar peso semanalmente.
 
-Semaglutida e tirzepatida são os dois injetáveis mais buscados para controle de peso e diabetes tipo 2. Ambos revolucionaram o tratamento da obesidade nos últimos anos, mas funcionam de formas diferentes e têm perfis distintos de eficácia, efeitos e custo. Este comparativo consolida dados dos ensaios clínicos de fase 3 e das bulas aprovadas pelo FDA.
+"E se eu parar o Ozempic?" é a pergunta mais comum depois da primeira perda de peso. A pesquisa mostra que sem continuidade ou estratégia de manutenção, o reganho é quase inevitável.
 
-## Resumo rápido
+## O estudo STEP-4
 
-|  | Semaglutida | Tirzepatida |
-| --- | --- | --- |
-| **Marcas** | Ozempic · Wegovy · Rybelsus | Mounjaro · Zepbound |
-| **Mecanismo** | Agonista GLP-1 | Agonista GLP-1 *+* GIP (dual) |
-| **Meia-vida** | ~7 dias | ~5 dias |
-| **Dose máxima** | 2,4 mg/semana | 15 mg/semana |
-| **Perda de peso (48-72 sem)** | ~15% | ~21% |
-| **Aprovação FDA** | 2017 (DM2), 2021 (obesidade) | 2022 (DM2), 2023 (obesidade) |
+Participantes receberam semaglutida 2,4 mg por 20 semanas. Depois foram randomizados:
 
-## Como agem no corpo
+- **Grupo A**: continuou com semaglutida por mais 48 semanas → manteve perda de ~17%
+- **Grupo B**: trocou para placebo → recuperou ~7 dos 10 kg perdidos (70% de rebote) em 48 semanas
 
-Semaglutida é um agonista seletivo do receptor GLP-1 (glucagon-like peptide-1). Ela imita um hormônio que o intestino libera naturalmente após as refeições, estimulando a produção de insulina de forma glicose-dependente, suprimindo o glucagon, retardando o esvaziamento gástrico e atuando em centros cerebrais de saciedade.
+Conclusão: semaglutida **não "cura"** obesidade — ela trata enquanto estiver ativa, como anti-hipertensivo para hipertensão.
 
-Tirzepatida faz tudo isso **e mais**: ativa também o receptor GIP (polipeptídeo insulinotrópico dependente de glicose). A coativação GIP/GLP-1 parece potencializar a sensibilidade à insulina e a supressão do apetite — e é isso que explica a maior perda de peso observada nos ensaios.
+## Por que acontece o rebote
 
-## Eficácia em perda de peso
+1. Apetite e saciedade voltam ao estado pré-tratamento em ~4 semanas após descontinuação
+2. Adaptação metabólica (metabolismo reduzido por menor massa) persiste
+3. Hábitos alimentares não foram totalmente remodelados
+4. Set point de peso corporal é geneticamente determinado e resistente
 
-Os dados mais comparáveis vêm de ensaios fase 3 com desenho similar:
+## Estratégias para minimizar
 
-- **STEP-1 (semaglutida 2,4 mg/semana)**: perda média de ~14,9% em 68 semanas em adultos com obesidade sem diabetes.
-- **SURMOUNT-1 (tirzepatida 15 mg/semana)**: perda média de ~20,9% em 72 semanas — o maior número já visto com medicação oral/injetável.
+- **Reduzir dose gradualmente** (sob orientação médica), não parar abruptamente
+- **Treino resistido** consistente durante e após — preserva massa muscular
+- **Aumentar proteína** (1,6 g/kg de peso) para saciedade e manutenção muscular
+- **Rotina de monitoramento** (balança semanal, fotos mensais)
+- **Retomar em caso de rebote** significativo (>5% do peso mínimo atingido)
 
-Um estudo de comparação direta publicado em 2025 no NEJM (SURMOUNT-5) confirmou superioridade da tirzepatida sobre a semaglutida em redução de peso: ~20,2% contra ~13,7% após 72 semanas.
+## Uso de longo prazo é seguro?
 
-## Eficácia em diabetes tipo 2
+Dados de 2+ anos (STEP-5) e uso em diabetes (SUSTAIN-6, 2+ anos) mostram perfil de segurança mantido. Uso crônico é considerado aceitável pela FDA para obesidade — é tratada como condição crônica, não aguda.
 
-Para HbA1c, ambas são muito efetivas, mas a tirzepatida leva vantagem:
+## Considerações finais
 
-- **Semaglutida**: redução média de ~1,5% na HbA1c
-- **Tirzepatida**: redução de ~1,8-2,4% na HbA1c (dose-dependente)
+Parar semaglutida sem estratégia de substituição leva a rebote previsível. Continuar indefinidamente é opção clínica válida. Decisão deve ser tomada com médico considerando resposta ao medicamento, efeitos adversos tolerados, custo de longo prazo e alternativas (cirurgia bariátrica, mudança de estilo de vida, outros medicamentos).
 
-## Efeitos colaterais
-
-Os dois compartilham o mesmo perfil (efeitos gastrointestinais), com magnitudes ligeiramente diferentes:
-
-| Efeito | Semaglutida (2,4 mg) | Tirzepatida (15 mg) |
-| --- | --- | --- |
-| Náusea | 44% | 31% |
-| Diarreia | 32% | 23% |
-| Vômito | 25% | 12% |
-| Constipação | 23% | 12% |
-
-Fontes: STEP-1 (semaglutida 2,4 mg, 68 semanas) e SURMOUNT-1 (tirzepatida 15 mg, 72 semanas). Na dose de 10 mg, a náusea com tirzepatida foi de 33%.
-
-Os números vêm de estudos diferentes, com populações e escadas de dose diferentes, então a comparação é só aproximada. Uma hipótese em estudo é que o agonismo GIP reduza a náusea, mas isso ainda não foi comprovado em humanos.
-
-**Contraindicações comuns aos dois:** história pessoal ou familiar de carcinoma medular de tireoide (CMT), síndrome de NEM-2, gravidez.
-
-## Custo no Brasil (novembro/2026)
-
-Os preços variam semanalmente — use como referência aproximada:
-
-- **Ozempic 1 mg**: ~R$ 1.249 por caneta (4 doses); detalhes em preço do Ozempic
-- **Mounjaro 5 mg**: ~R$ 2.123 por caixa de 4 canetas; detalhes em preço do Mounjaro
-- **Frascos manipulados de semaglutida**: R$ 300-600 (5 mg)
-- **Frascos manipulados de tirzepatida**: R$ 500-900 (10 mg)
-
-**Nota:** peptídeos manipulados não têm garantia de qualidade equivalente aos produtos industrializados. Compre apenas de farmácias com procedência comprovada.
-
-## Qual escolher?
-
-- **Se o foco é perda máxima de peso:** tirzepatida tem vantagem consistente nos ensaios
-- **Se tolerabilidade é prioridade:** ambos são similares; tirzepatida ligeiramente melhor
-- **Se experiência de uso é prioridade:** semaglutida tem mais dados de longo prazo (7+ anos desde aprovação) e mais estudos de segurança cardiovascular
-- **Se orçamento é apertado:** semaglutida manipulada é tipicamente mais barata
-
-## Decisão é clínica
-
-Ambos são medicamentos de prescrição. A escolha deve ser feita com um médico que considere seu histórico, comorbidades (especialmente risco tiroidiano familiar, pancreatite prévia) e objetivos terapêuticos.
-
-Para começar a calcular doses no seu frasco manipulado, use a calculadora de reconstituição com os dados corretos do rótulo.
-
-## Leia também
-
-- Onde comprar tirzepatida com segurança
-- Quanto custa tirzepatida por dose
-- Como reconstituir tirzepatida 5, 10 e 15 mg
-- Mounjaro falso: como identificar
-- Tirzepatida manipulada: riscos e como escolher a farmácia
-
-P: Qual emagrece mais, semaglutida ou tirzepatida?
-R: A tirzepatida. Na comparação direta do SURMOUNT-5, publicada em 2025 no NEJM, a perda foi de cerca de 20,2% com tirzepatida contra 13,7% com semaglutida após 72 semanas.
-P: Qual a diferença entre semaglutida e tirzepatida?
-R: A semaglutida é agonista seletivo do receptor GLP-1. A tirzepatida ativa o GLP-1 e também o GIP, o que parece potencializar a sensibilidade à insulina e a supressão do apetite.
-P: Qual dá menos efeito colateral?
-R: Os dois têm o mesmo perfil gastrointestinal. Nos estudos de referência, a náusea foi de 44% com semaglutida 2,4 mg e de 31% com tirzepatida 15 mg, mas os estudos são diferentes e a comparação é só aproximada.
-P: Mounjaro é mais caro que Ozempic?
-R: Em 14/11/2026, o preço de tabela de uma grande rede era de R$ 1.248,66 pela caneta de Ozempic 1 mg (4 doses) e de R$ 2.123,49 pela caixa de 4 canetas de Mounjaro 5 mg. Os preços mudam com frequência.
-P: Quem não pode usar nenhum dos dois?
-R: Pessoas com histórico pessoal ou familiar de carcinoma medular de tireoide, com síndrome NEM 2 e gestantes.
+P: Quem para o Ozempic volta a engordar?
+R: Na maioria dos casos, sim. No estudo STEP-4, quem trocou a semaglutida por placebo recuperou cerca de 7 dos 10 kg perdidos (70%) em 48 semanas, enquanto quem continuou manteve a perda.
+P: Por que o peso volta depois de parar a semaglutida?
+R: Apetite e saciedade voltam ao estado anterior em cerca de 4 semanas, a adaptação metabólica persiste e os hábitos alimentares nem sempre foram remodelados. A semaglutida trata a obesidade enquanto está ativa, mas não a cura.
+P: Como evitar o efeito rebote?
+R: Reduzir a dose aos poucos, com orientação médica, em vez de parar de uma vez; manter treino resistido; aumentar a proteína; e acompanhar o peso toda semana.
+P: Usar semaglutida por muito tempo é seguro?
+R: Dados de 2 anos ou mais (STEP-5 e SUSTAIN-6) mostraram perfil de segurança mantido, e a FDA considera aceitável o uso crônico para obesidade, tratada como condição crônica.
 
 Peptídeo: Semaglutida
 Categoria: GLP-1 / Emagrecimento

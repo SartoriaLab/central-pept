@@ -1,235 +1,257 @@
 {
-  "hook": "Vai parar o Ozempic e acha que o resultado fica?",
+  "hook": "Três sinais de Ozempic falso. O último ninguém confere.",
   "hookIcon": "duvida",
   "slides": [
     {
-      "title": "Parei o remédio, então o plano acabou",
-      "body": "É o contrário: a fase depois de parar é a que mais pede plano. A semaglutida trata enquanto está ativa; sem ela, o corpo tende a voltar ao estado de antes.",
-      "icon": "errado",
-      "layout": "mito"
+      "title": "O lote da caixa precisa bater com o da caneta?",
+      "layout": "pergunta",
+      "body": "Precisa. O número de lote impresso na caixa deve ser o mesmo impresso na caneta, que vem dentro dela. Número diferente é sinal de alerta.",
+      "icon": "lupa"
     },
     {
-      "title": "70%",
-      "body": "No estudo STEP-4, quem trocou a semaglutida por placebo recuperou cerca de 70% do que tinha perdido em 48 semanas. Quem continuou com o remédio manteve a perda.",
-      "icon": "grafico-sobe",
-      "layout": "numero"
+      "title": "O que olhar na caixa",
+      "layout": "padrao",
+      "body": "Impressão de alta qualidade, cor azul consistente, nenhum erro de ortografia. Fabricante Novo Nordisk A/S e bula em português, em papel.",
+      "icon": "prancheta"
     },
     {
-      "title": "O que muda quando eu paro?",
-      "body": "Apetite e saciedade voltam ao estado de antes do tratamento em cerca de 4 semanas. E os hábitos alimentares nem sempre mudaram por completo nesse tempo.",
-      "icon": "cerebro",
-      "layout": "pergunta"
+      "title": "Caneta original e caneta suspeita",
+      "layout": "lado",
+      "body": "Original: rótulo de fábrica, solução cristalina\nSuspeita: rótulo adesivo, partículas no líquido",
+      "icon": "frasco"
     },
     {
-      "title": "Durante e depois da caneta",
-      "body": "Durante: treino resistido e proteína preservam o músculo\nDepois: os mesmos dois continuam, sem pausa",
-      "icon": "musculo",
-      "layout": "lado"
+      "title": "Bula numa folha avulsa é normal",
+      "layout": "mito",
+      "body": "Não é. A bula original vem em português, em papel, dentro da caixa. Folha avulsa impressa é sinal de falsificação.",
+      "icon": "errado"
     },
     {
-      "title": "Preciso acompanhar alguma coisa?",
-      "body": "Sim: uma rotina de monitoramento, com o peso conferido toda semana. Assim você leva ao médico o que está acontecendo e a conversa sobre o plano fica mais fácil.",
-      "icon": "calendario",
-      "layout": "pergunta"
+      "title": "Confira na ANVISA",
+      "layout": "padrao",
+      "body": "Em consultas.anvisa.gov.br, busque Ozempic: o registro válido é da Novo Nordisk Farmacêutica. Compare seu lote com os alertas recentes, que listam lotes falsificados.",
+      "icon": "escudo"
     },
     {
-      "title": "Continuar também é opção",
-      "body": "Dados de 2 anos ou mais (STEP-5 e SUSTAIN-6) mostraram perfil de segurança mantido, e a FDA aceita o uso crônico para obesidade. A decisão é com o médico.",
-      "icon": "estetoscopio",
-      "layout": "padrao"
+      "title": "Desconfiei. E agora?",
+      "layout": "pergunta",
+      "body": "Não aplique. Fotografe a embalagem e a caneta e notifique a ANVISA pelo Notivisa. Já aplicou e apareceu sintoma anormal? Pronto-socorro.",
+      "icon": "alerta"
     },
     {
-      "title": "Cola do depois",
-      "body": "Saída da dose: aos poucos, com o médico\nTreino resistido continua\nProteína em dia\nPeso conferido toda semana",
-      "icon": "certo",
-      "layout": "passos"
+      "title": "Cola da caixa nova",
+      "layout": "passos",
+      "body": "Lote da caixa igual ao da caneta\nRótulo de fábrica, não adesivo\nSolução cristalina, sem partículas\nDesconfiou: não aplique e notifique",
+      "icon": "certo"
     }
   ],
   "scenes": [
     {
-      "chip": "a dúvida",
-      "kicker": "a pergunta mais comum",
-      "title": "Parou o Ozempic,",
-      "accent": "o resultado fica?",
+      "chip": "os sinais",
+      "kicker": "guarda o terceiro",
+      "title": "Três sinais",
+      "accent": "de Ozempic falso",
       "tone": "vermelho",
-      "speech": "Você está pensando em parar o Ozempic e acha que o resultado fica do jeitinho que está?",
-      "visual": {
-        "type": "icone",
-        "icon": "pensando",
-        "note": "e se eu parar?"
-      }
-    },
-    {
-      "chip": "a dúvida",
-      "kicker": "o que ninguém te conta",
-      "title": "O remédio trata",
-      "accent": "enquanto está ativo",
-      "tone": "azul",
-      "speech": "A semaglutida trata a obesidade enquanto está ativa, igual ao remédio de pressão com a hipertensão.",
-      "visual": {
-        "type": "carimbo",
-        "text": "TRATAMENTO ATIVO",
-        "note": "funciona enquanto está no corpo"
-      }
-    },
-    {
-      "chip": "o STEP-4",
-      "kicker": "como foi o estudo",
-      "title": "20 semanas",
-      "accent": "e um sorteio",
-      "tone": "azul",
-      "speech": "No estudo STEP-4, todo mundo usou semaglutida 2,4 mg por 20 semanas, e depois o grupo foi dividido em dois.",
-      "visual": {
-        "type": "linha",
-        "steps": ["20 semanas", "sorteio", "48 semanas"],
-        "current": 1,
-        "note": "depois do sorteio, dois caminhos"
-      },
-      "source": "STEP-4"
-    },
-    {
-      "chip": "o STEP-4",
-      "kicker": "metade continuou",
-      "title": "Quem continuou",
-      "accent": "manteve a perda",
-      "tone": "azul",
-      "speech": "Quem continuou com o remédio por mais 48 semanas manteve a perda, de cerca de 17%.",
-      "visual": {
-        "type": "numero",
-        "value": "~17%",
-        "note": "perda mantida por quem continuou"
-      },
-      "source": "STEP-4"
-    },
-    {
-      "chip": "o STEP-4",
-      "kicker": "a outra metade",
-      "title": "Trocou pelo",
-      "accent": "placebo",
-      "tone": "vermelho",
-      "speech": "Já quem trocou por placebo recuperou cerca de 70% do que tinha perdido, nas mesmas 48 semanas.",
-      "visual": {
-        "type": "pontos",
-        "total": 100,
-        "marked": 70,
-        "note": "cerca de 70% do que saiu voltou"
-      },
-      "source": "STEP-4"
-    },
-    {
-      "chip": "por quê",
-      "kicker": "o corpo volta ao de antes",
-      "title": "O apetite volta",
-      "accent": "em cerca de 4 semanas",
-      "tone": "vermelho",
-      "speech": "Isso acontece porque o apetite e a saciedade voltam ao estado de antes em cerca de 4 semanas sem o remédio.",
-      "visual": {
-        "type": "numero",
-        "value": "4 semanas",
-        "note": "para o apetite voltar ao de antes"
-      }
-    },
-    {
-      "chip": "por quê",
-      "kicker": "e não é falta de força",
-      "title": "O corpo",
-      "accent": "puxa de volta",
-      "tone": "vermelho",
-      "speech": "A adaptação do metabolismo continua, e os hábitos nem sempre mudaram no mesmo ritmo. Não é falta de força de vontade.",
+      "speech": "Três sinais de Ozempic falso. O último ninguém confere.",
       "visual": {
         "type": "lista",
         "items": [
-          { "text": "Apetite e saciedade voltam", "mark": "nao" },
-          { "text": "Adaptação do metabolismo fica", "mark": "nao" },
-          { "text": "Hábitos ainda em mudança", "mark": "duvida" }
+          {
+            "text": "A caixa",
+            "mark": "duvida"
+          },
+          {
+            "text": "A caneta",
+            "mark": "duvida"
+          },
+          {
+            "text": "???",
+            "mark": "duvida"
+          }
         ]
       }
     },
     {
-      "chip": "o risco",
-      "kicker": "o erro mais comum",
-      "title": "Parar de uma vez",
-      "accent": "sem plano nenhum",
+      "chip": "por que importa",
+      "kicker": "o que a ANVISA viu",
+      "title": "A falsificação",
+      "accent": "cresceu",
       "tone": "vermelho",
-      "speech": "Por isso, parar de uma vez, sem estratégia nenhuma, leva a um rebote bem previsível.",
-      "visual": {
-        "type": "carimbo",
-        "text": "SEM PLANO",
-        "note": "rebote previsível"
-      }
-    },
-    {
-      "chip": "o que fazer",
-      "kicker": "combinado com o médico",
-      "title": "Reduzir a dose",
-      "accent": "aos poucos",
-      "tone": "azul",
-      "speech": "O primeiro passo é combinar com o médico a redução da dose aos poucos, em vez de cortar de vez.",
-      "visual": {
-        "type": "linha",
-        "steps": ["dose atual", "redução", "consulta"],
-        "current": 1,
-        "note": "sempre com orientação médica"
-      }
-    },
-    {
-      "chip": "o que fazer",
-      "kicker": "durante e depois",
-      "title": "Treino resistido",
-      "accent": "e proteína em dia",
-      "tone": "azul",
-      "speech": "Mantenha o treino resistido e a proteína em dia, durante e depois do tratamento, para preservar o músculo.",
+      "speech": "Desde que a procura explodiu, a falsificação cresceu, e a ANVISA soltou vários alertas.",
       "visual": {
         "type": "icone",
-        "icon": "musculo",
-        "note": "preserva a massa muscular"
-      }
-    },
-    {
-      "chip": "o que fazer",
-      "kicker": "pra levar à consulta",
-      "title": "Peso conferido",
-      "accent": "toda semana",
-      "tone": "azul",
-      "speech": "E confira o peso toda semana, para levar à consulta o que está acontecendo de verdade.",
-      "visual": {
-        "type": "icone",
-        "icon": "calendario",
-        "note": "um registro por semana"
-      }
-    },
-    {
-      "chip": "o que fazer",
-      "kicker": "também vale",
-      "title": "Continuar também",
-      "accent": "é opção válida",
-      "tone": "azul",
-      "speech": "E continuar por longo prazo também é uma opção clínica válida: no STEP-5, a segurança se manteve por dois anos ou mais.",
-      "visual": {
-        "type": "carimbo",
-        "text": "OPÇÃO VÁLIDA",
-        "note": "uso crônico aceito pela FDA"
+        "icon": "alerta",
+        "note": "alertas da ANVISA sobre canetas falsas"
       },
-      "source": "STEP-5 e SUSTAIN-6"
+      "source": "ANVISA"
     },
     {
-      "chip": "pra lembrar",
-      "kicker": "da próxima vez",
-      "title": "Vai parar?",
-      "accent": "Só com plano",
-      "tone": "azul",
-      "speech": "Então, vai parar o Ozempic? O resultado não fica sozinho: ele fica com plano e com o seu médico.",
+      "chip": "sinal 1",
+      "kicker": "a caixa",
+      "title": "Impressão ruim",
+      "accent": "é sinal",
+      "tone": "vermelho",
+      "speech": "Sinal um, a caixa: impressão ruim, cor que varia ou erro de ortografia.",
       "visual": {
         "type": "lista",
         "items": [
-          { "text": "Reduzir aos poucos", "mark": "ok" },
-          { "text": "Treino e proteína", "mark": "ok" },
-          { "text": "Peso toda semana", "mark": "ok" }
+          {
+            "text": "Impressão borrada",
+            "mark": "nao"
+          },
+          {
+            "text": "Azul que varia",
+            "mark": "nao"
+          },
+          {
+            "text": "Erro de ortografia",
+            "mark": "nao"
+          }
+        ]
+      }
+    },
+    {
+      "chip": "sinal 1",
+      "kicker": "a bula",
+      "title": "Bula em papel",
+      "accent": "não folha avulsa",
+      "tone": "azul",
+      "speech": "E a bula vem em português, em papel, nunca numa folha avulsa impressa.",
+      "visual": {
+        "type": "icone",
+        "icon": "prancheta",
+        "note": "bula em português, dentro da caixa"
+      }
+    },
+    {
+      "chip": "sinal 2",
+      "kicker": "a caneta",
+      "title": "Rótulo de fábrica",
+      "accent": "não adesivo",
+      "tone": "vermelho",
+      "speech": "Sinal dois, a caneta: o rótulo é impresso de fábrica, não um adesivo colado por cima.",
+      "visual": {
+        "type": "frasco",
+        "label": "OZEMPIC",
+        "liquid": "claro",
+        "tag": "ADESIVO?"
+      }
+    },
+    {
+      "chip": "sinal 2",
+      "kicker": "olhe o líquido",
+      "title": "Solução",
+      "accent": "cristalina",
+      "tone": "azul",
+      "speech": "E o líquido é cristalino, sem partículas.",
+      "visual": {
+        "type": "frasco",
+        "label": "SEMAGLUTIDA",
+        "liquid": "claro",
+        "tag": "SEM PARTÍCULA"
+      }
+    },
+    {
+      "chip": "sinal 3",
+      "kicker": "o que quase ninguém olha",
+      "title": "O número",
+      "accent": "de lote",
+      "tone": "vermelho",
+      "speech": "Agora o terceiro, o que quase ninguém olha: o número de lote.",
+      "visual": {
+        "type": "icone",
+        "icon": "lupa",
+        "note": "o número que quase ninguém confere"
+      }
+    },
+    {
+      "chip": "sinal 3",
+      "kicker": "pensa no aeroporto",
+      "title": "A etiqueta",
+      "accent": "da mala",
+      "tone": "azul",
+      "speech": "Pensa na etiqueta da mala no aeroporto: o número tem que bater com o do seu bilhete.",
+      "visual": {
+        "type": "icone",
+        "icon": "alvo",
+        "note": "os dois números precisam bater"
+      }
+    },
+    {
+      "chip": "sinal 3",
+      "kicker": "caixa e caneta",
+      "title": "Lote da caixa",
+      "accent": "igual ao da caneta",
+      "tone": "azul",
+      "speech": "No Ozempic é igual: o lote da caixa precisa ser o mesmo impresso na caneta.",
+      "visual": {
+        "type": "frascos",
+        "left": {
+          "label": "CAIXA",
+          "note": "lote da caixa"
+        },
+        "right": {
+          "label": "CANETA",
+          "note": "mesmo lote",
+          "liquid": "claro"
+        },
+        "sign": "vs"
+      }
+    },
+    {
+      "chip": "a ANVISA",
+      "kicker": "a conferência oficial",
+      "title": "Compare com",
+      "accent": "os alertas",
+      "tone": "azul",
+      "speech": "No site de consultas da ANVISA, dá pra comparar o seu lote com os alertas de lotes falsos.",
+      "visual": {
+        "type": "carimbo",
+        "text": "CONFIRA O LOTE",
+        "note": "consultas.anvisa.gov.br"
+      },
+      "source": "ANVISA"
+    },
+    {
+      "chip": "desconfiou",
+      "kicker": "a primeira regra",
+      "title": "Não aplique",
+      "accent": "e avise a ANVISA",
+      "tone": "vermelho",
+      "speech": "Desconfiou? Não aplique, fotografe tudo e avise a ANVISA pelo Notivisa. Já aplicou e passou mal? Pronto-socorro.",
+      "visual": {
+        "type": "carimbo",
+        "text": "NÃO APLIQUE",
+        "note": "fotografe e notifique pelo Notivisa"
+      }
+    },
+    {
+      "chip": "pra lembrar",
+      "kicker": "o sinal que ninguém confere",
+      "title": "Lote da caixa",
+      "accent": "igual ao da caneta",
+      "tone": "azul",
+      "speech": "Então, o sinal que ninguém confere? Lote da caixa igual ao da caneta. Agora você confere.",
+      "visual": {
+        "type": "lista",
+        "items": [
+          {
+            "text": "A caixa",
+            "mark": "ok"
+          },
+          {
+            "text": "A caneta",
+            "mark": "ok"
+          },
+          {
+            "text": "O lote",
+            "mark": "ok"
+          }
         ]
       }
     }
   ],
-  "caption": "Eu sei, parar o Ozempic dá aquela sensação de missão cumprida. Mas a semaglutida trata enquanto está ativa. No estudo STEP-4, quem continuou por mais 48 semanas manteve a perda; quem trocou por placebo recuperou cerca de 70% do que tinha perdido no mesmo período. Em cerca de 4 semanas sem o remédio, apetite e saciedade voltam ao estado de antes.\n\n1️⃣ A saída da dose se decide com o médico, reduzindo aos poucos\n2️⃣ Treino resistido continua, durante e depois\n3️⃣ Proteína em dia, para saciedade e músculo\n4️⃣ Peso conferido toda semana, para levar à consulta\n\n⚠️ Parar de uma vez, sem plano, é o caminho mais previsível para o efeito rebote. Continuar por longo prazo também é uma opção clínica válida: converse com o médico.",
-  "question": "Você já conversou com o médico sobre como seria parar?",
-  "share": "aquela amiga que quer parar a caneta de uma vez"
+  "caption": "Eu sei, a vontade é abrir a caixa e seguir a rotina. Mas com a procura pelo Ozempic, a semaglutida, a falsificação cresceu, e a ANVISA emitiu vários alertas entre 2023 e 2025. Conferir leva um minuto.\n\n1️⃣ Lote: o número da caixa precisa ser o mesmo impresso na caneta\n2️⃣ Caixa: impressão de alta qualidade, azul consistente, sem erro de ortografia, fabricante Novo Nordisk e bula em português, em papel\n3️⃣ Caneta: rótulo impresso de fábrica (não adesivo), solução cristalina sem partículas e seletor de dose que gira sem travar\n4️⃣ ANVISA: em consultas.anvisa.gov.br, o registro válido é da Novo Nordisk Farmacêutica; compare seu lote com os alertas recentes\n\n⚠️ Desconfiou? Não aplique. Fotografe a embalagem e a caneta e notifique a ANVISA pelo Notivisa. Já aplicou e apareceu sintoma anormal? Pronto-socorro.",
+  "question": "Você já tinha conferido o lote da caixa com o da caneta?",
+  "share": "quem abre a caixa nova e já vai direto pra aplicação"
 }

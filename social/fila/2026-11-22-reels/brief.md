@@ -9,64 +9,93 @@ Se sair "REPROVADO", corrija só o que a lista aponta e rode de novo.
 
 ## PEDIDO
 
-TEMA: Efeito rebote após parar tirzepatida (Mounjaro): o que esperar
+TEMA: Seringa de insulina de 30, 50 ou 100 unidades: qual usar e como ler
 
 FONTE:
-Título: Efeito rebote após parar tirzepatida (Mounjaro): o que esperar
+Título: Seringa de insulina de 30, 50 ou 100 unidades: qual usar e como ler
 
-Resumo: No estudo SURMOUNT-4, quem trocou a tirzepatida por placebo depois de 36 semanas recuperou em média 14% do peso em um ano, enquanto quem continuou perdeu mais 5,5%. Ainda assim, quem parou terminou 9,9% abaixo do peso inicial. O peso volta porque o efeito sobre o apetite depende da presença do medicamento; a saída deve ser planejada com o médico.
+Resumo: Escolha a menor seringa U-100 que comporte a dose inteira com folga: até 30 unidades, a de 30 U; até 50, a de 50 U; acima disso, a de 100 U. Nas de 30 e 50 U cada traço vale 1 unidade (há modelos com meia unidade); em muitas de 100 U, 2 unidades. Na U-100, 1 unidade = 0,01 ml. A U-40 tem outra escala: o mesmo número de unidades dá 2,5 vezes mais volume. A diretriz da SBD recomenda agulha fixa, que evita o espaço morto, e agulhas curtas (4 a 6 mm).
 
-Parar a tirzepatida costuma trazer de volta boa parte do peso perdido. Isso não é falha de quem usa: é o que se espera quando o tratamento de uma condição crônica é interrompido. Existe um estudo desenhado exatamente para medir esse efeito.
+Na farmácia, a seringa de insulina aparece em três tamanhos: 30, 50 e 100 unidades. A escolha parece detalhe, mas muda a precisão da dose, principalmente quando a dose é pequena. Este guia explica como escolher, como ler os traços sem errar e por que a escala U-100 importa. Para ver as escalas desenhadas e a tabela de mg por traço de cada tamanho, use as páginas como ler a seringa de insulina, seringa de 30 unidades, seringa de 50 unidades e seringa de 100 unidades. Aqui o foco é a decisão.
 
-## O que o estudo SURMOUNT-4 mostrou
+este texto ensina a medir volume na seringa. A dose de qualquer medicamento é a que o médico prescreveu, e a conta de unidades depende da concentração do seu frasco. Na dúvida, confirme com o médico ou o farmacêutico antes de aplicar.
 
-Todos os participantes — adultos com obesidade ou sobrepeso, sem diabetes — usaram tirzepatida por 36 semanas, na dose máxima tolerada (10 ou 15 mg). Nesse período perderam em média **20,9%** do peso. Então 670 pessoas foram sorteadas: metade continuou o medicamento, metade passou a receber placebo, sem saber. Um ano depois (semana 88):
+## A regra de escolha: a menor que cabe com folga
 
-|  | Continuou tirzepatida | Passou para placebo |
+As três seringas U-100 têm a mesma escala de volume (1 unidade = 0,01 ml). O que muda é o comprimento total e, por isso, o espaço entre os traços. Na seringa de 30 U, os mesmos 0,3 ml ocupam o corpo inteiro; na de 100 U, ocupam menos de um terço dele. A mesma dose fica "maior" e mais fácil de ler na seringa pequena.
+
+| Dose em unidades | Seringa indicada | Por quê |
 | --- | --- | --- |
-| Variação de peso nas 52 semanas seguintes | −5,5% | +14,0% |
-| Perda total desde o início (88 semanas) | 25,3% | 9,9% |
-| Mantiveram ao menos 80% do peso perdido | 89,5% | 16,6% |
+| Até 30 U | 30 U (0,3 ml) | Escala mais espaçada; alguns modelos marcam meia unidade |
+| De 30 a 50 U | 50 U (0,5 ml) | Comporta a dose com traço de 1 em 1 unidade |
+| Acima de 50 U | 100 U (1 ml) | Única que comporta; em muitos modelos o traço vale 2 unidades |
+| Acima de 100 U | Nenhuma de uma vez | Fale com quem prescreveu; com frasco reconstituído, a concentração pode ser outra |
 
-Dois recados saem daí. Quem parou não voltou à estaca zero — um ano depois ainda estava quase 10% abaixo do peso inicial. Mas recuperou mais da metade do que tinha perdido, mesmo mantendo a orientação de dieta e exercício do estudo.
+A Sociedade Brasileira de Diabetes (SBD), na diretriz de técnicas de aplicação de insulina, recomenda as seringas de **30 U ou 50 U**, graduadas em **0,5 ou 1 unidade**, para quem usa doses baixas e precisa de ajuste mais preciso.
 
-## Por que o peso volta
+**Pense na dose mais alta que você vai usar, não só na de hoje.** Em tratamentos com subida de dose, a seringa que serve no primeiro mês pode não servir no terceiro. Se a dose em unidades vai passar de 30 em breve, pode valer começar com a de 50 U.
 
-- **O efeito depende da presença do medicamento.** A tirzepatida aumenta a saciedade e reduz o apetite enquanto circula. Com meia-vida de cerca de 5 dias, ela sai do organismo em aproximadamente um mês — e a fome volta ao padrão anterior.
-- **O corpo defende o peso antigo.** Depois de emagrecer, o gasto de energia cai e os hormônios da fome sobem. Essa adaptação acontece com qualquer método de perda de peso.
-- **Obesidade é condição crônica.** Assim como pressão e colesterol voltam a subir quando o remédio é suspenso, o peso tende a voltar.
+## Por que a seringa grande atrapalha em dose pequena
 
-O mesmo foi visto com a semaglutida: na extensão do estudo STEP 1, um ano depois de parar os participantes tinham recuperado cerca de dois terços do peso perdido. Veja efeito rebote após parar semaglutida.
+Imagine uma dose de 7 unidades.
 
-## O que mais volta além do peso
+- Na seringa de **30 U**, 7 unidades ocupam quase um quarto da escala, com um traço a cada unidade.
+- Na de **100 U** marcada de 2 em 2, 7 unidades ficam **entre dois traços** (6 e 8). Você precisa adivinhar o meio, e o erro de meia marca já é 1 unidade, mais de 14% da dose.
 
-No SURMOUNT-4, as melhoras de circunferência abdominal, pressão arterial, glicemia e lipídios também recuaram no grupo que passou para placebo, acompanhando o ganho de peso. Em quem tem diabetes tipo 2, a glicose volta a subir após a suspensão — nunca interrompa sem orientação médica.
+Por isso, quando você usa uma calculadora de frasco reconstituído, vale escolher a quantidade de água que deixa a dose **em um número redondo de unidades** e dentro da faixa confortável da seringa. A calculadora de reconstituição mostra a seringa marcada para cada combinação de frasco, água e dose.
 
-## O que ajuda a manter o resultado
+## Como ler os traços
 
-- **Planejar a saída com o médico.** Em vez de parar de uma vez, discute-se manter uma dose de manutenção menor (a bula prevê 5, 10 ou 15 mg) ou reduzir aos poucos. Não há ainda um protocolo de retirada validado em estudo grande.
-- **Treino de força e proteína suficiente.** Parte do peso perdido é massa magra; preservá-la ajuda a manter o gasto de energia.
-- **Hábitos construídos durante o tratamento.** O período com menos fome é a janela para consolidar rotina de alimentação, sono e atividade física.
-- **Acompanhar o peso.** Pesar-se regularmente permite agir cedo, quando o ganho ainda é pequeno.
+1. **Confira "U-100" na embalagem e no corpo da seringa.** Se estiver escrito U-40, a escala é outra (veja abaixo).
+2. **Descubra quanto vale o menor traço.** Conte quantos traços há entre dois números. Entre 0 e 10 com 10 traços, cada um vale 1 unidade; com 5 traços, 2 unidades.
+3. **Leia pela borda de borracha do êmbolo do lado da agulha**, com a seringa na altura dos olhos.
+4. **Tire as bolhas.** Uma bolha ocupa o espaço que deveria ser líquido e reduz a dose.
 
-## Se for retomar depois de uma pausa
+## U-100 e U-40: a confusão que pode multiplicar a dose
 
-Depois de várias semanas sem aplicar, a tolerância aos efeitos gastrointestinais se perde. Recomeçar direto na dose alta aumenta muito o risco de náusea e vômito intensos — o médico normalmente reinicia por uma dose mais baixa e refaz a subida. A calculadora de subida de dose ajuda a remontar o calendário.
+A sigla diz para qual concentração de insulina a escala foi feita: **U-100** é para insulina de 100 unidades por ml, e **U-40**, para 40 unidades por ml. A diretriz da SBD lembra que as seringas de insulina têm escala adequada à insulina U-100, que é a das seringas comuns de farmácia. A U-40 ainda aparece para algumas insulinas de uso veterinário.
 
-## Custo: a razão mais comum para parar
+A diferença na prática:
 
-Muita gente interrompe por causa do preço, não por escolha clínica. Antes de parar, vale conhecer o custo real de cada dose com a calculadora de custo e conversar com o médico sobre dose de manutenção — veja também quanto custa a tirzepatida no Brasil.
+| Marca lida na seringa | Volume na U-100 | Volume na U-40 |
+| --- | --- | --- |
+| 10 unidades | 0,10 ml | 0,25 ml |
+| 20 unidades | 0,20 ml | 0,50 ml |
+| 40 unidades | 0,40 ml | 1,00 ml |
 
-P: Quem para o Mounjaro recupera o peso?
-R: Boa parte dele. No SURMOUNT-4, quem passou para placebo depois de 36 semanas recuperou em média 14% do peso em um ano, mas ainda terminou 9,9% abaixo do peso inicial.
-P: Por que o peso volta depois de parar a tirzepatida?
-R: O efeito sobre o apetite depende da presença do medicamento: com meia-vida de cerca de 5 dias, ele sai do organismo em aproximadamente um mês e a fome volta ao padrão anterior. Depois de emagrecer, o corpo também reduz o gasto de energia e aumenta os hormônios da fome.
-P: Dá para reduzir a dose em vez de parar?
-R: É uma das opções a discutir com o médico: manter uma dose de manutenção menor (a bula prevê 5, 10 ou 15 mg) ou reduzir aos poucos. Ainda não há protocolo de retirada validado em estudo grande.
-P: Posso voltar direto na dose que eu usava?
-R: Depois de várias semanas sem aplicar, não. A tolerância aos efeitos gastrointestinais se perde, e recomeçar na dose alta aumenta muito o risco de náusea e vômito intensos; o médico normalmente reinicia por uma dose mais baixa.
-P: Além do peso, o que mais volta?
-R: No SURMOUNT-4, as melhoras de circunferência abdominal, pressão arterial, glicemia e lipídios também recuaram em quem parou. Em diabetes tipo 2, a glicose volta a subir, por isso nunca interrompa sem orientação médica.
+O mesmo número na escala dá **2,5 vezes mais volume** na U-40. Se a conta foi feita para U-100 (como todas as contas deste site), puxar na U-40 aplica 2,5 vezes a dose. Confira a sigla antes de comprar e antes de usar.
+
+## Agulha: comprimento e espaço morto
+
+Duas recomendações da diretriz da SBD ajudam a escolher o modelo, e não só o tamanho:
+
+- **Agulha fixa.** A diretriz orienta preferir seringa com agulha fixa e evitar as de agulha removível, para evitar o **espaço morto**: o volume que fica preso no encaixe entre o corpo e a agulha e não é aplicado, o que torna a dose menos precisa.
+- **Agulha curta.** A diretriz recomenda agulhas de **4, 5 ou 6 mm** para reduzir o risco de a aplicação, que deveria ser no tecido sob a pele, acabar no músculo. A de 8 mm é indicada só para adultos, com prega na pele, e deve ser evitada em pessoas magras e crianças.
+
+Sobre reutilizar: a mesma diretriz diz que a reutilização de seringas e agulhas **não é recomendada**, por aumentar o risco de lipodistrofia, uma alteração do tecido gorduroso no local das aplicações.
+
+## Unidade da seringa não é dose
+
+Um erro frequente é tratar "unidades" como se fossem mg. A unidade marcada na seringa U-100 é só **volume**: 10 unidades são 0,1 ml, seja do que for. Quantos mg há nesse volume depende da concentração do frasco:
+
+**mg na seringa = unidades ÷ 100 × concentração (mg/ml)**
+
+E o caminho inverso, o que mais se usa:
+
+**unidades = dose (mg) ÷ concentração (mg/ml) × 100**
+
+Os exemplos de tirzepatida e semaglutida, com tabelas por frasco e dose, estão em quantas unidades puxar de tirzepatida e semaglutida. Para trocar entre mg, mcg, ml e unidades, use o conversor de unidades. E se a seringa vai ser usada num frasco que você reconstituiu, o prazo desse frasco está explicado em quanto tempo dura o frasco reconstituído.
+
+P: Qual seringa de insulina usar: 30, 50 ou 100 unidades?
+R: A menor que comporte a dose inteira com alguma folga. Até 30 unidades, a de 30 U; de 30 a 50, a de 50 U; acima de 50, a de 100 U. Seringas menores têm a escala mais espaçada, o que facilita acertar o traço. A diretriz da Sociedade Brasileira de Diabetes recomenda as de 30 e 50 U para quem usa doses baixas e precisa de ajuste fino.
+P: Quanto vale cada risquinho da seringa de insulina?
+R: Nas seringas de 30 e 50 unidades, em geral 1 unidade por traço; alguns modelos de 30 U marcam meia unidade. Em muitas seringas de 100 unidades, cada traço vale 2 unidades. Na U-100, 1 unidade é 0,01 ml. Confira sempre a escala impressa na sua seringa.
+P: Qual a diferença entre seringa U-100 e U-40?
+R: A concentração para a qual a escala foi feita. Na U-100, 100 unidades = 1 ml; na U-40, 40 unidades = 1 ml. Puxar 20 unidades numa U-40 dá 0,5 ml, o mesmo volume de 50 unidades numa U-100. Contas e tabelas feitas para U-100 não servem para U-40.
+P: Seringa de insulina de 100 unidades é 1 ml?
+R: Sim, se for U-100: 100 unidades = 1 ml. A de 50 unidades tem 0,5 ml e a de 30 unidades, 0,3 ml.
+P: Posso reutilizar a seringa de insulina?
+R: A diretriz da Sociedade Brasileira de Diabetes diz que reutilizar seringas e agulhas não é prática recomendada, porque aumenta o risco de lipodistrofia (alterações no tecido sob a pele), e a agulha perde o corte e a lubrificação. Para frascos de várias doses, uma seringa nova a cada aplicação também protege o frasco de contaminação.
 
 Peptídeo: Tirzepatida
 Categoria: GLP-1 / Emagrecimento

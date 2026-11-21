@@ -1,298 +1,263 @@
 {
-  "hook": "Todo mundo que usa Mounjaro vive enjoada? Não é bem assim.",
-  "hookIcon": "enjoo",
+  "hook": "Retatrutida é melhor que a tirzepatida? Calma com esse print.",
+  "hookIcon": "duvida",
   "slides": [
     {
-      "title": "Todo mundo que usa Mounjaro passa mal",
+      "title": "A retatrutida já provou que é melhor",
       "layout": "mito",
-      "body": "No SURMOUNT-1, com 2.539 adultos por 72 semanas, a náusea apareceu em 24,6% a 33,3%, conforme a dose. A maioria não teve, e os efeitos foram quase sempre leves a moderados.",
+      "body": "Ainda não. Os números vêm de estudos diferentes, que nunca colocaram as duas no mesmo ensaio. E só a tirzepatida é aprovada; a retatrutida é experimental.",
       "icon": "errado"
     },
     {
-      "title": "Náusea: remédio x placebo",
+      "title": "O print compara contas diferentes",
       "layout": "lado",
-      "body": "Tirzepatida: 24,6% a 33,3%, conforme a dose\nPlacebo: 9,5%",
+      "body": "Retatrutida 28,3%: só quem seguiu o tratamento\nTirzepatida 20,9%: todos, inclusive quem parou",
       "icon": "balanca"
     },
     {
-      "title": "7,1%",
+      "title": "25,0%",
       "layout": "numero",
-      "body": "Foi a maior taxa de quem parou por efeito adverso no SURMOUNT-1 (dose de 10 mg). Com 5 mg, 4,3%; com 15 mg, 6,2%; no placebo, 2,6%.",
-      "icon": "grafico-desce"
+      "body": "É a perda média da retatrutida 12 mg no TRIUMPH-1 contando todos os participantes. Na mesma conta, a tirzepatida 15 mg teve 20,9% no SURMOUNT-1.",
+      "icon": "microscopio"
     },
     {
-      "title": "Quando os efeitos aparecem?",
-      "layout": "pergunta",
-      "body": "Quase sempre na fase de subida de dose. Dose maior não quer dizer efeito proporcionalmente maior: a náusea foi parecida em 10 e 15 mg, porque o corpo se adapta.",
-      "icon": "calendario"
-    },
-    {
-      "title": "Raro, mas importante",
+      "title": "Duas corridas, dois percursos",
       "layout": "padrao",
-      "body": "Pancreatite e problema de vesícula são raros. Dor abdominal intensa que não passa, ou que vai para as costas, pede avaliação médica imediata.",
-      "icon": "hospital"
+      "body": "Os estudos tiveram durações, pesos iniciais, placebos e épocas diferentes. Nenhuma tabela corrige isso: é como comparar o tempo de corridas com percursos diferentes.",
+      "icon": "regua"
     },
     {
-      "title": "E a pílula anticoncepcional?",
+      "title": "Então como saber qual é melhor?",
       "layout": "pergunta",
-      "body": "Pode ser menos absorvida. A bula orienta método não oral ou de barreira junto por 4 semanas após o início e após cada aumento de dose.",
-      "icon": "comprimido"
+      "body": "Com um estudo frente a frente, que sorteia as duas no mesmo ensaio. Ele existe, o TRIUMPH-5, e até novembro de 2026 não tinha resultado divulgado.",
+      "icon": "lupa"
     },
     {
-      "title": "Pra aliviar os efeitos",
+      "title": "Cola pra não cair no print",
       "layout": "passos",
-      "body": "Pelo menos 4 semanas em cada dose\nRefeições menores, comendo devagar\nMenos gordura, fritura e álcool\nÁgua, proteína e fibras",
+      "body": "Veja se os números usam a mesma conta\nLembre que são estudos diferentes\nSó a tirzepatida tem aprovação\nDecisão de tratamento é com o médico",
       "icon": "certo"
     }
   ],
   "scenes": [
     {
-      "chip": "o mito",
-      "kicker": "o que todo mundo fala",
-      "title": "Mounjaro é",
-      "accent": "enjoo o tempo todo?",
+      "chip": "o print",
+      "kicker": "a comparação que circula",
+      "title": "Retatrutida",
+      "accent": "é melhor?",
       "tone": "vermelho",
-      "speech": "Você acha que todo mundo que usa Mounjaro vive enjoada? Não é bem assim.",
+      "speech": "Retatrutida é melhor que a tirzepatida? Calma com esse print.",
       "visual": {
-        "type": "icone",
-        "icon": "enjoo",
-        "note": "a fama da tirzepatida"
+        "type": "frascos",
+        "left": {
+          "label": "RETATRUTIDA",
+          "liquid": "po"
+        },
+        "right": {
+          "label": "TIRZEPATIDA",
+          "liquid": "claro"
+        },
+        "sign": "vs"
       }
     },
     {
-      "chip": "os números",
-      "kicker": "o maior estudo de obesidade",
-      "title": "2.539 adultos",
-      "accent": "por 72 semanas",
-      "tone": "azul",
-      "speech": "O estudo SURMOUNT-1 acompanhou 2.539 adultos por 72 semanas e contou cada efeito colateral.",
+      "chip": "o print",
+      "kicker": "a virada",
+      "title": "O erro não é",
+      "accent": "o número, é a conta",
+      "tone": "vermelho",
+      "speech": "O erro não é o número, é a conta que está por trás dele.",
       "visual": {
-        "type": "numero",
-        "value": "2.539",
-        "note": "adultos no SURMOUNT-1, por 72 semanas"
-      },
-      "source": "SURMOUNT-1"
+        "type": "icone",
+        "icon": "lupa",
+        "note": "cada estudo divulga duas contas"
+      }
     },
     {
-      "chip": "os números",
-      "kicker": "o efeito mais comum",
-      "title": "Náusea em",
-      "accent": "até 33,3%",
-      "tone": "azul",
-      "speech": "A náusea apareceu em 24,6% a 33,3% das pessoas, conforme a dose; no placebo, em 9,5%.",
+      "chip": "os estudos",
+      "kicker": "o que o print mostra",
+      "title": "28,3% contra",
+      "accent": "20,9%",
+      "tone": "vermelho",
+      "speech": "O print que circula põe 28,3% da retatrutida contra 20,9% da tirzepatida.",
       "visual": {
         "type": "barras",
         "bars": [
           {
-            "label": "10 mg",
-            "value": 33.3,
-            "display": "33,3%"
+            "label": "retatrutida 12 mg",
+            "value": 28.3,
+            "display": "28,3%"
           },
           {
-            "label": "15 mg",
-            "value": 31,
-            "display": "31,0%"
-          },
-          {
-            "label": "5 mg",
-            "value": 24.6,
-            "display": "24,6%"
-          },
-          {
-            "label": "placebo",
-            "value": 9.5,
-            "display": "9,5%"
+            "label": "tirzepatida 15 mg",
+            "value": 20.9,
+            "display": "20,9%"
           }
         ]
       },
-      "source": "SURMOUNT-1"
+      "source": "TRIUMPH-1 e SURMOUNT-1"
     },
     {
-      "chip": "os números",
-      "kicker": "vira a conta ao contrário",
-      "title": "A maioria",
-      "accent": "não teve náusea",
+      "chip": "os estudos",
+      "kicker": "a primeira conta",
+      "title": "Só quem seguiu",
+      "accent": "até o fim",
       "tone": "azul",
-      "speech": "Ou seja: a maioria não teve náusea nenhuma, nem na dose mais alta.",
+      "speech": "Só que o 28,3% conta apenas quem seguiu o tratamento até o fim.",
       "visual": {
-        "type": "pontos",
-        "total": 100,
-        "marked": 33,
-        "note": "no máximo 33 a cada 100 tiveram náusea"
+        "type": "numero",
+        "value": "28,3%",
+        "note": "estimativa de quem seguiu o tratamento"
       },
-      "source": "SURMOUNT-1"
+      "source": "TRIUMPH-1, comunicado da Lilly"
     },
     {
-      "chip": "os números",
-      "kicker": "o resto da lista",
-      "title": "Intestino",
-      "accent": "também sente",
+      "chip": "os estudos",
+      "kicker": "a outra conta",
+      "title": "Todo mundo,",
+      "accent": "até quem parou",
       "tone": "azul",
-      "speech": "Depois vêm diarreia, em até 23,0%, constipação, em até 17,1%, e vômito, em até 12,2%.",
+      "speech": "E o 20,9% conta todo mundo que entrou, inclusive quem parou no meio.",
+      "visual": {
+        "type": "numero",
+        "value": "20,9%",
+        "note": "todos os participantes, inclusive quem parou"
+      },
+      "source": "SURMOUNT-1, NEJM 2022"
+    },
+    {
+      "chip": "os estudos",
+      "kicker": "na mesma conta",
+      "title": "A diferença",
+      "accent": "encolhe",
+      "tone": "azul",
+      "speech": "Na mesma conta, todo mundo contra todo mundo, fica 25,0% contra 20,9%.",
       "visual": {
         "type": "barras",
         "bars": [
           {
-            "label": "diarreia",
-            "value": 23,
-            "display": "até 23,0%"
+            "label": "retatrutida 12 mg",
+            "value": 25,
+            "display": "25,0%"
           },
           {
-            "label": "constipação",
-            "value": 17.1,
-            "display": "até 17,1%"
-          },
-          {
-            "label": "vômito",
-            "value": 12.2,
-            "display": "até 12,2%"
+            "label": "tirzepatida 15 mg",
+            "value": 20.9,
+            "display": "20,9%"
           }
         ]
       },
-      "source": "SURMOUNT-1"
+      "source": "TRIUMPH-1 e SURMOUNT-1"
     },
     {
-      "chip": "o padrão",
-      "kicker": "quando aparece",
-      "title": "Leve e na",
-      "accent": "subida de dose",
-      "tone": "azul",
-      "speech": "E quase sempre foi leve a moderado, aparecendo na fase de subida de dose.",
-      "visual": {
-        "type": "linha",
-        "steps": [
-          "subida",
-          "adaptação",
-          "dose estável"
-        ],
-        "current": 0,
-        "note": "a maioria dos efeitos aparece na subida"
-      }
-    },
-    {
-      "chip": "o padrão",
-      "kicker": "quem desistiu",
-      "title": "No máximo",
-      "accent": "7,1% pararam",
-      "tone": "azul",
-      "speech": "Tanto que, no máximo, 7,1% pararam o tratamento por efeito adverso; no placebo, 2,6%.",
-      "visual": {
-        "type": "numero",
-        "value": "7,1%",
-        "note": "pararam por efeito adverso, na dose de 10 mg"
-      },
-      "source": "SURMOUNT-1"
-    },
-    {
-      "chip": "o que é raro",
-      "kicker": "agora, o que importa",
-      "title": "Raro,",
-      "accent": "mas sério",
+      "chip": "por que não dá",
+      "kicker": "pensa assim",
+      "title": "Duas corridas,",
+      "accent": "percursos diferentes",
       "tone": "vermelho",
-      "speech": "Agora, o raro que importa: pancreatite e problema de vesícula.",
-      "visual": {
-        "type": "carimbo",
-        "text": "RARO, MAS SÉRIO",
-        "note": "pancreatite e vesícula"
-      }
-    },
-    {
-      "chip": "o que é raro",
-      "kicker": "o sinal",
-      "title": "Dor forte",
-      "accent": "que não passa",
-      "tone": "vermelho",
-      "speech": "Dor forte na barriga que não passa, ou que vai pras costas, pede avaliação médica na hora.",
+      "speech": "E mesmo assim não dá pra cravar: é como comparar duas corridas com percursos diferentes.",
       "visual": {
         "type": "icone",
-        "icon": "hospital",
-        "note": "pode ser pancreatite"
+        "icon": "balanca",
+        "note": "comparação entre estudos diferentes"
       }
     },
     {
-      "chip": "ninguém te conta",
-      "kicker": "tá na bula",
-      "title": "E a pílula",
-      "accent": "anticoncepcional?",
+      "chip": "por que não dá",
+      "kicker": "o que muda entre eles",
+      "title": "Tempo e ponto",
+      "accent": "de partida",
       "tone": "vermelho",
-      "speech": "E o que quase ninguém te conta: a tirzepatida pode reduzir a absorção da pílula anticoncepcional.",
-      "visual": {
-        "type": "icone",
-        "icon": "comprimido",
-        "note": "a pílula pode ser menos absorvida"
-      }
-    },
-    {
-      "chip": "ninguém te conta",
-      "kicker": "o que a bula orienta",
-      "title": "Método extra",
-      "accent": "por 4 semanas",
-      "tone": "azul",
-      "speech": "A bula orienta método não oral, ou de barreira junto, por 4 semanas após o início e após cada aumento.",
-      "visual": {
-        "type": "numero",
-        "value": "4 semanas",
-        "note": "após o início e após cada aumento de dose"
-      },
-      "source": "bula da tirzepatida"
-    },
-    {
-      "chip": "quem não deve",
-      "kicker": "no seu histórico ou da família",
-      "title": "Tireoide",
-      "accent": "entra na conversa",
-      "tone": "vermelho",
-      "speech": "E com histórico, seu ou da família, de carcinoma medular de tireoide ou NEM 2, ela é contraindicada.",
-      "visual": {
-        "type": "carimbo",
-        "text": "CONTRAINDICADA",
-        "note": "carcinoma medular de tireoide ou NEM 2"
-      }
-    },
-    {
-      "chip": "o que fazer",
-      "kicker": "pra aliviar",
-      "title": "Devagar com",
-      "accent": "a dose e o prato",
-      "tone": "azul",
-      "speech": "Pra aliviar: pelo menos 4 semanas em cada dose, refeição menor e devagar, e muita água.",
+      "speech": "Um estudo durou mais tempo e começou com participantes mais pesados.",
       "visual": {
         "type": "lista",
         "items": [
           {
-            "text": "4 semanas em cada dose",
-            "mark": "ok"
+            "text": "Duração diferente",
+            "mark": "duvida"
           },
           {
-            "text": "Refeições menores, devagar",
-            "mark": "ok"
+            "text": "Peso inicial diferente",
+            "mark": "duvida"
           },
           {
-            "text": "Fritura e álcool pós-aplicação",
-            "mark": "nao"
-          },
-          {
-            "text": "Boa hidratação",
-            "mark": "ok"
+            "text": "Placebo diferente",
+            "mark": "duvida"
           }
         ]
       }
     },
     {
+      "chip": "a resposta",
+      "kicker": "o estudo frente a frente",
+      "title": "TRIUMPH-5",
+      "accent": "ainda sem resultado",
+      "tone": "azul",
+      "speech": "A resposta de verdade vem de um estudo frente a frente, o TRIUMPH-5, que ainda não tem resultado.",
+      "visual": {
+        "type": "linha",
+        "steps": [
+          "começou",
+          "em andamento",
+          "resultado"
+        ],
+        "current": 1,
+        "note": "sem resultado divulgado até novembro"
+      },
+      "source": "TRIUMPH-5"
+    },
+    {
+      "chip": "a resposta",
+      "kicker": "o que pesa mais hoje",
+      "title": "Só uma é",
+      "accent": "aprovada",
+      "tone": "vermelho",
+      "speech": "E o detalhe que pesa mais: só a tirzepatida é aprovada; a retatrutida é experimental.",
+      "visual": {
+        "type": "frascos",
+        "left": {
+          "label": "TIRZEPATIDA",
+          "note": "aprovada",
+          "liquid": "claro"
+        },
+        "right": {
+          "label": "RETATRUTIDA",
+          "note": "experimental",
+          "liquid": "po"
+        },
+        "sign": "≠"
+      }
+    },
+    {
+      "chip": "a ANVISA",
+      "kicker": "o que a ANVISA disse",
+      "title": "Não use produto",
+      "accent": "com esse nome",
+      "tone": "vermelho",
+      "speech": "A ANVISA orientou a não usar produtos vendidos com o nome retatrutida.",
+      "visual": {
+        "type": "frasco",
+        "label": "RETATRUTIDA",
+        "liquid": "po",
+        "stamp": "NÃO APROVADA"
+      },
+      "source": "ANVISA"
+    },
+    {
       "chip": "pra lembrar",
       "kicker": "da próxima vez",
-      "title": "Enjoo o tempo todo?",
-      "accent": "Isso é mito",
-      "tone": "vermelho",
-      "speech": "Então, Mounjaro é enjoo o tempo todo? Não: a maioria não enjoa, e o que aparece costuma ser leve e passar.",
+      "title": "Viu o print?",
+      "accent": "Confere a conta",
+      "tone": "azul",
+      "speech": "Então, retatrutida é melhor? Antes de acreditar no print, você confere a conta.",
       "visual": {
         "type": "carimbo",
-        "text": "MITO",
-        "note": "a maioria não teve náusea"
+        "text": "CONFERE A CONTA",
+        "note": "mesma conta, mesmo estudo, só assim"
       }
     }
   ],
-  "caption": "Eu sei, todo mundo conhece alguém que diz que o Mounjaro é enjoo o tempo todo. Mas no SURMOUNT-1, com 2.539 adultos por 72 semanas, a náusea da tirzepatida apareceu em 24,6% a 33,3% das pessoas, conforme a dose (9,5% no placebo). Diarreia chegou a 23,0%, constipação a 17,1% e vômito a 12,2%, quase sempre leves a moderados e na fase de subida de dose. No máximo 7,1% pararam por efeito adverso.\n\n⚠️ Raro, mas sério: pancreatite e problema de vesícula. Dor abdominal forte que não passa pede avaliação médica imediata. Com histórico de carcinoma medular de tireoide ou NEM 2, a tirzepatida é contraindicada.\n\n💊 A pílula anticoncepcional pode ser menos absorvida: a bula orienta método não oral ou de barreira por 4 semanas após o início e após cada aumento de dose.\n\n1️⃣ Pelo menos 4 semanas em cada dose\n2️⃣ Refeições menores, comendo devagar\n3️⃣ Menos gordura, fritura e álcool, e boa hidratação",
-  "question": "Qual efeito colateral apareceu primeiro para você?",
-  "share": "a amiga que acha que Mounjaro é enjoo o tempo todo"
+  "caption": "Eu sei, todo mundo já viu aquele print com a retatrutida ganhando de lavada. Mas o 28,3% da retatrutida (TRIUMPH-1) conta só quem seguiu o tratamento, e o 20,9% da tirzepatida (SURMOUNT-1) conta todos os participantes, inclusive quem parou. Na mesma conta, fica 25,0% contra 20,9%.\n\nMesmo assim, não dá para cravar: os estudos tiveram durações, pesos iniciais e placebos diferentes. A resposta depende de um estudo frente a frente, o TRIUMPH-5, que até novembro de 2026 não tinha resultado divulgado.\n\n⚠️ Só a tirzepatida é aprovada. A retatrutida é experimental, sem aprovação em nenhum país, e a ANVISA orientou a não usar produtos vendidos com esse nome. As doses citadas são as dos estudos, não orientação de uso: decisão de tratamento é com o médico.",
+  "question": "Você já tinha visto esse print comparando as duas?",
+  "share": "aquela amiga que mandou o print da retatrutida no grupo"
 }

@@ -109,7 +109,7 @@ describe('pickTopic', () => {
   });
 
   it('prioriza dúvida prática de GLP-1, depois GLP-1, depois o resto', () => {
-    const mix = [topic('peptide:bpc-157', 'healing'), topic('peptide:tirzepatida'), topic('post:nausea-ozempic-como-lidar')];
+    const mix = [topic('peptide:kpv', 'healing'), topic('peptide:tirzepatida'), topic('post:nausea-ozempic-como-lidar')];
     expect(mix.map((t) => topicPriority(t))).toEqual([0, 1, 2]);
     expect(pickTopic(mix, [], 'carrossel', now)?.id).toBe('post:nausea-ozempic-como-lidar');
     const h: HistoryEntry[] = [{ topicId: 'post:nausea-ozempic-como-lidar', format: 'carrossel', category: 'glp-1', at: new Date(now.getTime() - DAY) }];
@@ -249,6 +249,9 @@ describe('validateDraft', () => {
     expect(validateDraft(draft({ caption: 'Compre já com frete grátis' }), source).length).toBeGreaterThan(0);
     expect(validateDraft(draft({ caption: 'Perca 10 kg em um mês' }), source).length).toBeGreaterThan(0);
     expect(validateDraft(draft({ caption: 'Resultado garantido' }), source).length).toBeGreaterThan(0);
+    expect(validateDraft(draft({ caption: 'Para secar 5 kg' }), source).join()).toContain('perda de peso');
+    // "boca seca" no fim da linha seguida de item numerado não é promessa.
+    expect(validateDraft(draft({ caption: 'Boca muito seca\n3 sinais de alerta' }), source).join()).not.toContain('perda de peso');
   });
 
   it('barra ilustração fora da lista', () => {
@@ -386,7 +389,15 @@ describe('InstagramClient', () => {
     const ig = new InstagramClient({ ...opts, fetchFn: fn });
     expect(await ig.publishReel('https://x/r.mp4', 'legenda')).toBe('post2');
     expect(calls[0].body).toContain('media_type=REELS');
+    expect(calls[0].body).not.toContain('cover_url');
     expect(calls).toHaveLength(5);
+  });
+
+  it('reels manda a capa no cover_url', async () => {
+    const { fn, calls } = fakeFetch([{ id: 'r1' }, { status_code: 'FINISHED' }, { id: 'post3' }]);
+    const ig = new InstagramClient({ ...opts, fetchFn: fn });
+    expect(await ig.publishReel('https://x/r.mp4', 'legenda', 'https://x/capa.jpg')).toBe('post3');
+    expect(calls[0].body).toContain('cover_url=https%3A%2F%2Fx%2Fcapa.jpg');
   });
 
   it('container com ERROR não publica', async () => {

@@ -1,221 +1,230 @@
 {
-  "hook": "Parou a caneta e a fome voltou com tudo?",
-  "hookIcon": "cerebro",
+  "hook": "Você puxa dose pequena na seringa de 100 unidades?",
+  "hookIcon": "seringa",
   "slides": [
     {
-      "title": "Não é falta de força de vontade",
+      "title": "Qualquer seringa serve, é tudo igual",
       "layout": "mito",
-      "body": "Parar a tirzepatida costuma trazer de volta boa parte do peso. Não é falha de quem usa: é o esperado quando se interrompe o tratamento de uma condição crônica.",
-      "icon": "escudo"
+      "body": "As três seringas U-100 têm a mesma escala de volume. O que muda é o espaço entre os traços, e isso muda a precisão, principalmente em dose pequena.",
+      "icon": "errado"
+    },
+    {
+      "title": "Uma régua de um metro pra medir um centímetro",
+      "layout": "padrao",
+      "body": "Na seringa de 30 U, os mesmos 0,3 ml ocupam o corpo inteiro. Na de 100 U, ocupam menos de um terço dele. A mesma dose fica maior e mais fácil de ler na pequena.",
+      "icon": "regua"
+    },
+    {
+      "title": "Dose de 7 unidades",
+      "layout": "lado",
+      "body": "Seringa de 30 U: um traço a cada unidade\nSeringa de 100 U: fica entre os traços 6 e 8",
+      "icon": "balanca"
     },
     {
       "title": "14%",
       "layout": "numero",
-      "body": "No SURMOUNT-4, quem trocou a tirzepatida por placebo, sem saber, recuperou em média 14% do peso em um ano.",
-      "icon": "grafico-sobe"
-    },
-    {
-      "title": "Mas não voltou à estaca zero",
-      "layout": "padrao",
-      "body": "Um ano depois de parar, esse grupo ainda estava 9,9% abaixo do peso inicial.",
-      "icon": "balanca"
-    },
-    {
-      "title": "Por que a fome volta?",
-      "layout": "pergunta",
-      "body": "O efeito sobre o apetite depende do remédio no corpo. Ele sai devagar, como a maré baixando, em cerca de um mês. E o corpo ainda reduz o gasto de energia e aumenta os hormônios da fome.",
-      "icon": "ampulheta"
-    },
-    {
-      "title": "Dá pra voltar direto na dose antiga",
-      "layout": "mito",
-      "body": "Depois de várias semanas sem aplicar, a tolerância se perde. Recomeçar na dose alta aumenta muito o risco de náusea e vômito intensos. O médico costuma reiniciar mais baixo.",
+      "body": "Na de 100 marcada de 2 em 2, errar meia marca já é 1 unidade: mais de 14% de uma dose de 7 unidades.",
       "icon": "alerta"
     },
     {
-      "title": "Cola da saída planejada",
+      "title": "E a seringa U-40?",
+      "layout": "pergunta",
+      "body": "É outra escala. O mesmo número de unidades dá 2,5 vezes mais volume. Conta feita para U-100 não serve para U-40: confira a sigla antes de usar.",
+      "icon": "lupa"
+    },
+    {
+      "title": "Cola da seringa certa",
       "layout": "passos",
-      "body": "Converse com o médico antes de parar\nPergunte sobre manutenção ou redução aos poucos\nTreino de força e proteína suficiente\nPausou? O recomeço é com o médico",
-      "icon": "estetoscopio"
+      "body": "Até 30 U: a de 30 U\nDe 30 a 50 U: a de 50 U\nAcima de 50 U: a de 100 U\nPense na dose mais alta, não só na de hoje",
+      "icon": "certo"
     }
   ],
   "scenes": [
     {
-      "chip": "a fome voltou",
-      "kicker": "depois da última dose",
-      "title": "Parou a caneta",
-      "accent": "e a fome voltou?",
+      "chip": "a seringa",
+      "kicker": "na hora de puxar a dose",
+      "title": "Dose pequena",
+      "accent": "na seringa de 100?",
       "tone": "vermelho",
-      "speech": "Parou a caneta e a fome voltou com tudo?",
+      "speech": "Você puxa dose pequena na seringa de 100 unidades?",
       "visual": {
-        "type": "frasco",
-        "label": "TIRZEPATIDA",
-        "liquid": "claro",
-        "tag": "última dose"
+        "type": "icone",
+        "icon": "seringa",
+        "note": "a seringa grande da farmácia"
       }
     },
     {
-      "chip": "a fome voltou",
-      "kicker": "antes de se culpar",
-      "title": "Não é falta de",
-      "accent": "força de vontade",
-      "tone": "azul",
-      "speech": "Calma: não é falta de força de vontade, e eu vou te mostrar por quê.",
+      "chip": "a seringa",
+      "kicker": "parece bobagem",
+      "title": "Não é só",
+      "accent": "um detalhe",
+      "tone": "vermelho",
+      "speech": "Parece detalhe, mas o tamanho da seringa muda o quanto a sua dose sai certa.",
       "visual": {
         "type": "carimbo",
-        "text": "NÃO É FALHA SUA",
-        "note": "obesidade é condição crônica"
+        "text": "NÃO É DETALHE",
+        "note": "muda a precisão da dose"
       }
     },
     {
-      "chip": "o estudo",
-      "kicker": "feito pra medir isso",
-      "title": "Metade parou",
-      "accent": "sem saber",
+      "chip": "a régua",
+      "kicker": "pensa assim",
+      "title": "Régua de um metro",
+      "accent": "pra um centímetro",
       "tone": "azul",
-      "speech": "Teve um estudo feito só pra medir o que acontece quando a pessoa para.",
-      "visual": {
-        "type": "frascos",
-        "left": {
-          "label": "TIRZEPATIDA",
-          "note": "continuou o remédio",
-          "liquid": "claro"
-        },
-        "right": {
-          "label": "PLACEBO",
-          "note": "parou sem saber",
-          "liquid": "claro"
-        },
-        "sign": "vs"
-      },
-      "source": "SURMOUNT-4"
-    },
-    {
-      "chip": "o estudo",
-      "kicker": "um ano depois de parar",
-      "title": "Quem parou",
-      "accent": "recuperou 14%",
-      "tone": "vermelho",
-      "speech": "Quem trocou o remédio por placebo, sem saber, recuperou em média 14% do peso em um ano.",
-      "visual": {
-        "type": "numero",
-        "value": "14%",
-        "note": "do peso recuperado em um ano, em média"
-      },
-      "source": "SURMOUNT-4"
-    },
-    {
-      "chip": "o estudo",
-      "kicker": "o lado bom",
-      "title": "Não voltou",
-      "accent": "à estaca zero",
-      "tone": "azul",
-      "speech": "Mas não voltou à estaca zero: ainda terminou 9,9% abaixo do peso inicial.",
-      "visual": {
-        "type": "numero",
-        "value": "9,9%",
-        "note": "abaixo do peso inicial, um ano depois"
-      },
-      "source": "SURMOUNT-4"
-    },
-    {
-      "chip": "por que volta",
-      "kicker": "o remédio vai saindo",
-      "title": "Sai do corpo",
-      "accent": "como a maré baixando",
-      "tone": "azul",
-      "speech": "A tirzepatida segura a fome enquanto está no corpo, e ela sai devagar, como a maré baixando.",
-      "visual": {
-        "type": "linha",
-        "steps": [
-          "última dose",
-          "semanas",
-          "um mês",
-          "fome volta"
-        ],
-        "current": 2,
-        "note": "o efeito some junto com o remédio"
-      }
-    },
-    {
-      "chip": "por que volta",
-      "kicker": "cerca de um mês depois",
-      "title": "A fome volta",
-      "accent": "ao padrão de antes",
-      "tone": "vermelho",
-      "speech": "Em cerca de um mês ela sai do organismo, e a fome volta ao padrão de antes.",
+      "speech": "Medir dose pequena na seringa de 100 é usar uma régua de um metro pra medir um centímetro.",
       "visual": {
         "type": "icone",
-        "icon": "cerebro",
-        "note": "o apetite depende do remédio presente"
+        "icon": "regua",
+        "note": "a escala grande engole a dose pequena"
       }
     },
     {
-      "chip": "por que volta",
-      "kicker": "e tem mais",
-      "title": "O corpo defende",
-      "accent": "o peso antigo",
-      "tone": "vermelho",
-      "speech": "E o corpo ainda defende o peso antigo: gasta menos energia e aumenta os hormônios da fome.",
-      "visual": {
-        "type": "icone",
-        "icon": "fogo",
-        "note": "o gasto de energia cai"
-      }
-    },
-    {
-      "chip": "o que fazer",
-      "kicker": "antes de parar",
-      "title": "A saída se",
-      "accent": "planeja com o médico",
+      "chip": "a régua",
+      "kicker": "todas são U-100",
+      "title": "A escala é igual",
+      "accent": "o espaço, não",
       "tone": "azul",
-      "speech": "Por isso a saída se planeja com o médico: dose de manutenção ou redução aos poucos.",
+      "speech": "Todas são U-100: a escala de volume é a mesma, o que muda é o espaço entre os traços.",
       "visual": {
         "type": "lista",
         "items": [
           {
-            "text": "Planejar a saída com o médico",
+            "text": "Mesma escala de volume",
             "mark": "ok"
           },
           {
-            "text": "Manutenção ou redução aos poucos",
-            "mark": "ok"
-          },
-          {
-            "text": "Parar de uma vez por conta",
-            "mark": "nao"
+            "text": "Espaço entre os traços muda",
+            "mark": "duvida"
           }
         ]
+      },
+      "source": "Diretriz da SBD"
+    },
+    {
+      "chip": "o exemplo",
+      "kicker": "uma dose pequena",
+      "title": "Imagine",
+      "accent": "7 unidades",
+      "tone": "azul",
+      "speech": "Pensa numa dose de 7 unidades.",
+      "visual": {
+        "type": "numero",
+        "value": "7 U",
+        "note": "uma dose pequena de exemplo"
       }
     },
     {
-      "chip": "o risco",
-      "kicker": "pausou por semanas?",
-      "title": "Voltar na dose",
-      "accent": "alta de uma vez",
-      "tone": "vermelho",
-      "speech": "E se você pausou por semanas, voltar direto na dose alta pode trazer náusea e vômito intensos.",
+      "chip": "o exemplo",
+      "kicker": "na seringa de 30 U",
+      "title": "Um traço",
+      "accent": "por unidade",
+      "tone": "azul",
+      "speech": "Na de 30, ela ocupa quase um quarto da escala, com um traço a cada unidade.",
       "visual": {
         "type": "icone",
-        "icon": "vomito",
-        "note": "a tolerância se perde na pausa"
+        "icon": "certo",
+        "note": "escala espaçada, fácil de ler"
+      }
+    },
+    {
+      "chip": "o exemplo",
+      "kicker": "na seringa de 100 U",
+      "title": "Fica entre",
+      "accent": "dois traços",
+      "tone": "vermelho",
+      "speech": "Na de 100 marcada de 2 em 2, ela fica entre dois traços, e você tem que adivinhar.",
+      "visual": {
+        "type": "icone",
+        "icon": "duvida",
+        "note": "o traço vale 2 unidades"
+      }
+    },
+    {
+      "chip": "o exemplo",
+      "kicker": "meia marca de erro",
+      "title": "Mais de 14%",
+      "accent": "da dose",
+      "tone": "vermelho",
+      "speech": "E errar meia marca ali já é uma unidade inteira, mais de 14% da dose.",
+      "visual": {
+        "type": "numero",
+        "value": "14%",
+        "note": "da dose de 7 unidades em meia marca"
+      }
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "a regra de escolha",
+      "title": "A menor que cabe",
+      "accent": "com folga",
+      "tone": "azul",
+      "speech": "A regra: a menor seringa que comporta a dose inteira, com folga.",
+      "visual": {
+        "type": "lista",
+        "items": [
+          {
+            "text": "Até 30 U: a de 30 U",
+            "mark": "ok"
+          },
+          {
+            "text": "Até 50 U: a de 50 U",
+            "mark": "ok"
+          },
+          {
+            "text": "Acima de 50 U: a de 100 U",
+            "mark": "ok"
+          }
+        ]
+      },
+      "source": "Diretriz da SBD"
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "dose que sobe",
+      "title": "Pense na dose",
+      "accent": "mais alta",
+      "tone": "azul",
+      "speech": "E pense na dose mais alta que você vai usar, não só na de hoje.",
+      "visual": {
+        "type": "linha",
+        "steps": [
+          "dose de hoje",
+          "subida",
+          "dose alta"
+        ],
+        "current": 2,
+        "note": "a seringa precisa caber a maior"
+      }
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "na dúvida",
+      "title": "Confirme antes",
+      "accent": "de aplicar",
+      "tone": "azul",
+      "speech": "Na dúvida sobre as unidades, confirme com o médico ou o farmacêutico.",
+      "visual": {
+        "type": "icone",
+        "icon": "estetoscopio",
+        "note": "a dose é a que o médico prescreveu"
       }
     },
     {
       "chip": "pra lembrar",
       "kicker": "da próxima vez",
-      "title": "A fome voltou?",
-      "accent": "É a maré baixando",
-      "tone": "azul",
-      "speech": "Então, a fome voltou depois de parar a caneta? Não é fraqueza, é a maré do remédio baixando.",
+      "title": "Seringa de 100",
+      "accent": "pra dose pequena? Não",
+      "tone": "vermelho",
+      "speech": "Então, dose pequena na seringa de 100 nunca mais: régua pequena pra medida pequena.",
       "visual": {
         "type": "carimbo",
-        "text": "NÃO É FRAQUEZA",
-        "note": "é o remédio saindo do corpo"
+        "text": "A MENOR QUE CABE",
+        "note": "a escala mais espaçada acerta mais"
       }
     }
   ],
-  "caption": "Eu sei, dá vontade de parar o Mounjaro de uma vez. Só que o efeito da tirzepatida sobre o apetite depende do remédio no corpo: ele sai devagar, em cerca de um mês, e a fome volta ao padrão de antes. Não é falta de força de vontade.\n\nNo estudo SURMOUNT-4, quem trocou a tirzepatida por placebo recuperou em média 14% do peso em um ano. Ainda assim, terminou 9,9% abaixo do peso inicial.\n\n⚠️ Depois de semanas sem aplicar, voltar direto na dose alta aumenta muito o risco de náusea e vômito intensos. E com diabetes tipo 2, a glicose volta a subir: nunca interrompa sem orientação médica.\n\n1️⃣ Planeje a saída com o médico: dose de manutenção ou redução aos poucos\n2️⃣ Treino de força e proteína suficiente\n3️⃣ Pausou? O recomeço é com o médico, por uma dose mais baixa",
-  "question": "Quanto tempo depois de pausar você sentiu a fome voltar?",
-  "share": "aquela amiga que quer parar o Mounjaro de uma vez"
+  "caption": "Eu sei, na farmácia a gente pega a seringa que tiver. Mas as seringas de insulina U-100 de 30, 50 e 100 unidades têm a mesma escala de volume: o que muda é o espaço entre os traços. Dose pequena na seringa de 100 é medir um centímetro com uma régua de um metro.\n\nNuma dose de 7 unidades, a seringa de 30 U tem um traço a cada unidade. Na de 100 U marcada de 2 em 2, a dose fica entre dois traços e errar meia marca já é mais de 14% da dose.\n\n⚠️ Seringa U-40 é outra escala: o mesmo número de unidades dá 2,5 vezes mais volume. Confira a sigla antes de usar.\n\n1️⃣ Até 30 U: a seringa de 30 U\n2️⃣ De 30 a 50 U: a de 50 U\n3️⃣ Acima de 50 U: a de 100 U\n\nA dose é a que o médico prescreveu; na dúvida sobre as unidades, confirme com ele ou com o farmacêutico.",
+  "question": "Qual seringa você usa hoje: a de 30, a de 50 ou a de 100 unidades?",
+  "share": "aquela amiga que puxa dose pequena na seringa de 100"
 }

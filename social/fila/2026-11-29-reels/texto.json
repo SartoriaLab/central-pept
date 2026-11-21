@@ -1,192 +1,273 @@
 {
-  "hook": "Você aplica sempre no mesmo ponto da barriga?",
-  "hookIcon": "pele",
+  "hook": "Ozempic e Mounjaro são a mesma coisa? Não.",
+  "hookIcon": "balanca",
   "slides": [
     {
-      "title": "Na barriga a caneta faz mais efeito",
-      "layout": "mito",
-      "body": "As bulas de Ozempic, Wegovy e Zepbound informam exposição semelhante ao remédio no abdômen, na coxa e no braço. Nenhuma elege um local melhor.",
-      "icon": "errado"
+      "title": "Ozempic e Mounjaro são a mesma injeção",
+      "body": "Ozempic é a semaglutida: age no receptor GLP-1. Mounjaro é a tirzepatida: age no GLP-1 e também no GIP. Moléculas diferentes, alvos diferentes.",
+      "icon": "dna",
+      "layout": "mito"
     },
     {
-      "title": "Três regiões nas bulas",
-      "layout": "padrao",
-      "body": "Abdômen, coxa e braço. No Mounjaro e no Zepbound, a parte de trás do braço é para quando outra pessoa aplica.",
-      "icon": "prancheta"
+      "title": "A meia-vida também muda",
+      "body": "A semaglutida tem meia-vida de ~7 dias; a tirzepatida, de ~5 dias. As duas são semanais, cada uma com a própria escada de dose na bula.",
+      "icon": "ampulheta",
+      "layout": "padrao"
     },
     {
-      "title": "Região e ponto",
-      "layout": "lado",
-      "body": "Região: pode repetir toda semana\nPonto: troca a cada dose",
-      "icon": "alvo"
+      "title": "Peso nos estudos: média, não promessa",
+      "body": "Semaglutida 2,4 mg (STEP-1): ~14,9% em 68 semanas\nTirzepatida 15 mg (SURMOUNT-1): ~20,9% em 72 semanas",
+      "icon": "grafico-desce",
+      "layout": "lado"
     },
     {
-      "title": "Por que não repetir o ponto?",
-      "layout": "pergunta",
-      "body": "As instruções do frasco de Zepbound citam a lipodistrofia (pele afundada ou espessada) e os caroços no local. O rodízio existe para reduzir esse risco.",
-      "icon": "alerta"
+      "title": "E quando compararam frente a frente?",
+      "body": "No SURMOUNT-5, que colocou as duas no mesmo estudo, a média foi de ~20,2% com tirzepatida e ~13,7% com semaglutida após 72 semanas.",
+      "icon": "microscopio",
+      "layout": "pergunta"
     },
     {
-      "title": "Seis áreas, uma por semana",
-      "layout": "padrao",
-      "body": "Barriga, coxa e braço, lado esquerdo e direito. Siga sempre a mesma ordem: cada área só volta a ser usada depois de seis semanas.",
-      "icon": "calendario"
+      "title": "Náusea, em estudos diferentes",
+      "body": "Semaglutida 2,4 mg: relatada por 44%\nTirzepatida 15 mg: relatada por 31%, comparação só aproximada",
+      "icon": "enjoo",
+      "layout": "lado"
     },
     {
-      "title": "Posso aplicar em cima do roxo?",
-      "layout": "pergunta",
-      "body": "Não. Pele com hematoma, dolorida, vermelha, endurecida ou com cicatriz fica de fora. Escolha outro ponto e deixe a área se recuperar.",
-      "icon": "proibido"
+      "title": "Quem não pode usar nenhuma das duas",
+      "body": "Quem tem histórico pessoal ou familiar de carcinoma medular de tireoide, síndrome NEM 2, e gestantes. Vale pras duas moléculas.",
+      "icon": "alerta",
+      "layout": "padrao"
     },
     {
-      "title": "A cola do rodízio",
-      "layout": "passos",
-      "body": "Troque o ponto a cada dose\nUse as seis áreas na mesma ordem\nAnote onde aplicou\nCaroço que não some: mostre ao médico",
-      "icon": "certo"
+      "title": "Mesmo remédio? Não. A cola",
+      "body": "Semaglutida: só GLP-1, meia-vida de ~7 dias\nTirzepatida: GLP-1 + GIP, ~5 dias\nNúmero de estudo ajuda a conversa\nQuem escolhe com você, pelo seu histórico, é o médico",
+      "icon": "estetoscopio",
+      "layout": "passos"
     }
   ],
   "scenes": [
     {
-      "chip": "a mania",
-      "kicker": "toda semana",
-      "title": "Sempre no mesmo",
-      "accent": "ponto da barriga?",
+      "chip": "a confusão",
+      "kicker": "todo mundo fala assim",
+      "title": "Ozempic e Mounjaro",
+      "accent": "são a mesma coisa?",
       "tone": "vermelho",
-      "speech": "Você aplica sempre no mesmo ponto da barriga?",
-      "visual": { "type": "icone", "icon": "alvo", "note": "o mesmo ponto, semana após semana" }
+      "speech": "Ozempic e Mounjaro são a mesma coisa? Não.",
+      "visual": {
+        "type": "frascos",
+        "left": {
+          "label": "OZEMPIC",
+          "note": "?",
+          "liquid": "claro"
+        },
+        "right": {
+          "label": "MOUNJARO",
+          "note": "?",
+          "liquid": "claro"
+        },
+        "sign": "vs"
+      }
     },
     {
-      "chip": "a mania",
-      "kicker": "e tem um mito junto",
-      "title": "O local que faz",
-      "accent": "mais efeito?",
+      "chip": "a confusão",
+      "kicker": "e tem um estudo nisso",
+      "title": "Toda caneta",
+      "accent": "vira Ozempic",
       "tone": "vermelho",
-      "speech": "Eu sei, ali já é conhecido. E ainda tem o tal local que faz mais efeito: eu chego nele no fim.",
-      "visual": { "type": "icone", "icon": "duvida", "note": "guarda essa pergunta" }
+      "speech": "Eu sei, todo mundo chama toda caneta de Ozempic. E um estudo tira essa dúvida.",
+      "visual": {
+        "type": "frasco",
+        "label": "OZEMPIC?",
+        "liquid": "claro",
+        "tag": "toda caneta"
+      }
     },
     {
-      "chip": "o que acontece",
-      "kicker": "pensa na grama",
-      "title": "Pisou no mesmo lugar",
-      "accent": "vira trilha",
-      "tone": "vermelho",
-      "speech": "Pensa na grama: pisou sempre no mesmo lugar, vira trilha. A pele que leva toda picada no mesmo ponto também sente.",
-      "visual": { "type": "icone", "icon": "pele", "note": "o mesmo ponto, toda semana" }
-    },
-    {
-      "chip": "o problema",
-      "kicker": "o nome disso",
-      "title": "Pele afundada",
-      "accent": "ou espessada",
-      "tone": "vermelho",
-      "speech": "O risco tem nome: lipodistrofia, a pele que fica afundada ou espessada, às vezes com caroço.",
-      "visual": { "type": "carimbo", "text": "LIPODISTROFIA", "note": "risco citado pelo Zepbound" },
-      "source": "instruções do frasco de Zepbound"
-    },
-    {
-      "chip": "as bulas",
-      "kicker": "o que as bulas indicam",
-      "title": "Três regiões",
-      "accent": "para escolher",
+      "chip": "os nomes",
+      "kicker": "nome de marca, nome do remédio",
+      "title": "Moléculas",
+      "accent": "diferentes",
       "tone": "azul",
-      "speech": "As bulas de tirzepatida e semaglutida indicam três regiões: abdômen, coxa e braço.",
+      "speech": "O Ozempic é a semaglutida. O Mounjaro é a tirzepatida. São moléculas diferentes.",
+      "visual": {
+        "type": "frascos",
+        "left": {
+          "label": "SEMAGLUTIDA",
+          "note": "Ozempic, Wegovy",
+          "liquid": "claro"
+        },
+        "right": {
+          "label": "TIRZEPATIDA",
+          "note": "Mounjaro, Zepbound",
+          "liquid": "claro"
+        },
+        "sign": "≠"
+      }
+    },
+    {
+      "chip": "como agem",
+      "kicker": "pensa numa chave",
+      "title": "Uma chave",
+      "accent": "uma porta",
+      "tone": "azul",
+      "speech": "Pensa numa chave: a semaglutida abre uma porta só, a do receptor GLP-1.",
+      "visual": {
+        "type": "icone",
+        "icon": "cerebro",
+        "note": "semaglutida: só GLP-1"
+      }
+    },
+    {
+      "chip": "como agem",
+      "kicker": "a outra tem duas",
+      "title": "Duas chaves",
+      "accent": "duas portas",
+      "tone": "azul",
+      "speech": "A tirzepatida tem duas chaves: abre o GLP-1 e também o GIP.",
       "visual": {
         "type": "lista",
         "items": [
-          { "text": "Abdômen", "mark": "ok" },
-          { "text": "Coxa", "mark": "ok" },
-          { "text": "Braço", "mark": "ok" }
-        ]
-      },
-      "source": "bulas americanas aprovadas pela FDA"
-    },
-    {
-      "chip": "a regra",
-      "kicker": "o que todas as bulas mandam",
-      "title": "A região repete",
-      "accent": "o ponto, não",
-      "tone": "azul",
-      "speech": "E a regra de todas é a mesma: a região pode repetir, o ponto não.",
-      "visual": {
-        "type": "lista",
-        "items": [
-          { "text": "Mesma região", "mark": "ok" },
-          { "text": "Mesmo ponto", "mark": "nao" }
+          {
+            "text": "Semaglutida: GLP-1",
+            "mark": "ok"
+          },
+          {
+            "text": "Tirzepatida: GLP-1 + GIP",
+            "mark": "ok"
+          }
         ]
       }
     },
     {
-      "chip": "o que fazer",
-      "kicker": "um esquema simples",
-      "title": "Seis áreas",
-      "accent": "sempre na mesma ordem",
-      "tone": "azul",
-      "speech": "O jeito fácil é dividir em seis áreas: os dois lados da barriga, das coxas e dos braços.",
-      "visual": { "type": "numero", "value": "6 áreas", "note": "barriga, coxa e braço, dos dois lados" }
-    },
-    {
-      "chip": "o que fazer",
-      "kicker": "a conta da semana",
-      "title": "Cada área volta",
-      "accent": "depois de seis semanas",
-      "tone": "azul",
-      "speech": "Com uma aplicação por semana, cada área só volta a ser usada depois de seis semanas.",
-      "visual": { "type": "pontos", "total": 6, "marked": 1, "note": "uma área por semana, na mesma ordem" }
-    },
-    {
-      "chip": "o que fazer",
-      "kicker": "essa pele fica de fora",
-      "title": "Roxa ou dolorida?",
-      "accent": "Escolha outro ponto",
+      "chip": "o enjoo",
+      "kicker": "o que as duas têm em comum",
+      "title": "Mesmo perfil",
+      "accent": "de efeito colateral",
       "tone": "vermelho",
-      "speech": "Pele roxa, dolorida, vermelha ou endurecida? Ali não, você escolhe outro ponto.",
+      "speech": "No efeito colateral, as duas se parecem: náusea, diarreia, vômito e constipação.",
       "visual": {
-        "type": "lista",
-        "items": [
-          { "text": "Hematoma", "mark": "nao" },
-          { "text": "Dolorida ou vermelha", "mark": "nao" },
-          { "text": "Endurecida", "mark": "nao" }
-        ]
-      },
-      "source": "instruções do Wegovy"
+        "type": "icone",
+        "icon": "enjoo",
+        "note": "perfil gastrointestinal nas duas"
+      }
     },
     {
-      "chip": "o médico",
-      "kicker": "quando é caso de consulta",
-      "title": "Caroço que",
-      "accent": "não some",
-      "tone": "vermelho",
-      "speech": "Caroço ou endurecimento que não some é sinal para parar de aplicar ali e mostrar ao médico.",
-      "visual": { "type": "icone", "icon": "estetoscopio", "note": "mostre a área na consulta" }
-    },
-    {
-      "chip": "o mito",
-      "kicker": "o tal local mais forte",
-      "title": "Faz mais efeito?",
-      "accent": "As bulas dizem que não",
+      "chip": "frente a frente",
+      "kicker": "as duas no mesmo estudo",
+      "title": "SURMOUNT-5",
+      "accent": "lado a lado",
       "tone": "azul",
-      "speech": "E o local que faz mais efeito? Não existe: as bulas mostram exposição semelhante nos três.",
+      "speech": "Agora o estudo: o SURMOUNT-5 colocou as duas lado a lado, por 72 semanas.",
+      "visual": {
+        "type": "linha",
+        "steps": [
+          "início",
+          "72 semanas"
+        ],
+        "current": 1,
+        "note": "tirzepatida e semaglutida no mesmo estudo"
+      },
+      "source": "SURMOUNT-5, NEJM, 2025"
+    },
+    {
+      "chip": "frente a frente",
+      "kicker": "perda média de peso",
+      "title": "Uma diferença",
+      "accent": "que apareceu",
+      "tone": "azul",
+      "speech": "A perda média foi de 20,2% com tirzepatida, contra 13,7% com semaglutida.",
       "visual": {
         "type": "barras",
         "bars": [
-          { "label": "abdômen", "value": 10, "display": "semelhante" },
-          { "label": "coxa", "value": 10, "display": "semelhante" },
-          { "label": "braço", "value": 10, "display": "semelhante" }
+          {
+            "label": "tirzepatida",
+            "value": 20.2,
+            "display": "20,2%"
+          },
+          {
+            "label": "semaglutida",
+            "value": 13.7,
+            "display": "13,7%"
+          }
         ]
       },
-      "source": "bulas de Ozempic, Wegovy e Zepbound"
+      "source": "SURMOUNT-5, NEJM, 2025"
+    },
+    {
+      "chip": "frente a frente",
+      "kicker": "antes de sair contando",
+      "title": "Média de estudo",
+      "accent": "não é promessa",
+      "tone": "vermelho",
+      "speech": "Mas calma: isso é média de estudo, não é promessa para ninguém.",
+      "visual": {
+        "type": "carimbo",
+        "text": "MÉDIA",
+        "note": "não é resultado individual"
+      }
+    },
+    {
+      "chip": "em comum",
+      "kicker": "a vantagem de quem chegou antes",
+      "title": "Semaglutida tem",
+      "accent": "mais anos de dados",
+      "tone": "azul",
+      "speech": "E a semaglutida tem a seu favor mais anos de dados de longo prazo.",
+      "visual": {
+        "type": "icone",
+        "icon": "livros",
+        "note": "mais estudos de longo prazo"
+      }
+    },
+    {
+      "chip": "em comum",
+      "kicker": "vale para as duas",
+      "title": "Quem não pode",
+      "accent": "usar nenhuma",
+      "tone": "vermelho",
+      "speech": "Nenhuma das duas é para quem tem histórico de carcinoma medular de tireoide, síndrome NEM 2 ou está grávida.",
+      "visual": {
+        "type": "lista",
+        "items": [
+          {
+            "text": "Carcinoma medular de tireoide",
+            "mark": "nao"
+          },
+          {
+            "text": "Síndrome NEM 2",
+            "mark": "nao"
+          },
+          {
+            "text": "Gravidez",
+            "mark": "nao"
+          }
+        ]
+      }
     },
     {
       "chip": "pra lembrar",
       "kicker": "da próxima vez",
-      "title": "Mesmo ponto",
-      "accent": "nunca mais",
-      "tone": "azul",
-      "speech": "Então, sempre no mesmo ponto da barriga? Nunca mais: agora ele entra no rodízio.",
-      "visual": { "type": "carimbo", "text": "RODÍZIO", "note": "região repete, ponto não" }
+      "title": "Mesma coisa?",
+      "accent": "Não é",
+      "tone": "vermelho",
+      "speech": "Então, Ozempic e Mounjaro são a mesma coisa? Não. E qual faz sentido pra você, quem vê é o médico.",
+      "visual": {
+        "type": "frascos",
+        "left": {
+          "label": "OZEMPIC",
+          "note": "semaglutida",
+          "liquid": "claro"
+        },
+        "right": {
+          "label": "MOUNJARO",
+          "note": "tirzepatida",
+          "liquid": "claro"
+        },
+        "sign": "≠"
+      }
     }
   ],
-  "caption": "Eu sei, todo mundo tem aquele ponto preferido da barriga. Mas as bulas de Mounjaro, Zepbound, Ozempic e Wegovy (tirzepatida e semaglutida) indicam três regiões, abdômen, coxa e braço, e informam exposição semelhante ao remédio nas três. Barriga não faz mais efeito.\n\n1️⃣ Pode repetir a região, nunca o mesmo ponto\n2️⃣ Divida em seis áreas (barriga, coxa e braço, dos dois lados) e siga sempre a mesma ordem\n3️⃣ Pule pele com hematoma, dolorida, vermelha, endurecida ou com cicatriz\n4️⃣ Anote onde aplicou: depois de algumas semanas, ninguém lembra de cabeça\n\n⚠️ Repetir o ponto aumenta o risco de lipodistrofia, a pele afundada ou espessada, com caroços. Caroço ou endurecimento que não some? Pare de aplicar ali e mostre ao médico. A bula do seu produto e quem prescreveu vêm primeiro.",
-  "question": "Qual região você mais usa: barriga, coxa ou braço?",
-  "share": "quem aplica sempre no mesmo ponto da barriga"
+  "caption": "Eu sei, todo mundo chama tudo de “Ozempic”. Mas o Ozempic é a semaglutida, que age só no receptor GLP-1, e o Mounjaro é a tirzepatida, que age no GLP-1 e no GIP. São moléculas diferentes, com bula, meia-vida e escada de dose próprias.\n\n1️⃣ Meia-vida: ~7 dias na semaglutida, ~5 dias na tirzepatida. As duas são semanais.\n2️⃣ Peso nos estudos: ~14,9% em 68 semanas no STEP-1 (semaglutida 2,4 mg) e ~20,9% em 72 semanas no SURMOUNT-1 (tirzepatida 15 mg). No SURMOUNT-5, frente a frente: ~20,2% e ~13,7%.\n3️⃣ Efeito colateral: nas duas, sobretudo náusea, diarreia, vômito e constipação. Náusea em 44% e 31% nos estudos de referência, comparação só aproximada.\n\n⚠️ Nenhuma das duas é para quem tem histórico pessoal ou familiar de carcinoma medular de tireoide, síndrome NEM 2 ou está grávida. Média de estudo não é promessa individual: a escolha é com o médico.",
+  "question": "Antes deste vídeo, você achava que Ozempic e Mounjaro eram a mesma coisa?",
+  "share": "quem chama toda caneta semanal de “Ozempic”"
 }

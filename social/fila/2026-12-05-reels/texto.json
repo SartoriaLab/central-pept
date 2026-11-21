@@ -1,0 +1,172 @@
+{
+  "hook": "BPC-157 e GHK-Cu servem pra mesma coisa?",
+  "hookIcon": "balanca",
+  "slides": [
+    {
+      "title": "Os dois são peptídeo de regeneração?",
+      "layout": "pergunta",
+      "body": "Parecem primos, mas não são a mesma coisa. Cada um foi estudado para um alvo diferente, e só um deles tem uma forma permitida.",
+      "icon": "duvida"
+    },
+    {
+      "title": "Cada um no seu alvo",
+      "layout": "lado",
+      "body": "BPC-157: tendão, ligamento, músculo e intestino, em animais\nGHK-Cu: colágeno e elastina da pele, com cobre",
+      "icon": "alvo"
+    },
+    {
+      "title": "Peptídeo famoso tem muita prova",
+      "layout": "mito",
+      "body": "No BPC-157, boa parte dos dados vem de modelos animais. No GHK-Cu, os estudos em pessoas existem, mas são pequenos.",
+      "icon": "microscopio"
+    },
+    {
+      "title": "A diferença que importa",
+      "layout": "padrao",
+      "body": "O GHK-Cu tópico é ingrediente cosmético permitido, considerado seguro pelo painel CIR (2018) em concentração baixa. O injetável e o BPC-157 não têm aprovação para uso humano.",
+      "icon": "pele"
+    },
+    {
+      "title": "E no esporte",
+      "layout": "padrao",
+      "body": "O BPC-157 é proibido pela WADA desde 2022. Gestantes, lactantes e quem tem câncer ativo precisam de cautela com os dois.",
+      "icon": "proibido"
+    },
+    {
+      "title": "Leve pra consulta",
+      "layout": "passos",
+      "body": "Existe forma aprovada disso pra mim?\nO que tem estudo em gente?\nFrasco \"só pesquisa\" não é tratamento",
+      "icon": "estetoscopio"
+    }
+  ],
+  "scenes": [
+    {
+      "chip": "a dúvida",
+      "kicker": "os dois mais falados",
+      "title": "Servem pra",
+      "accent": "mesma coisa?",
+      "tone": "vermelho",
+      "speech": "BPC-157 e GHK-Cu servem pra mesma coisa?",
+      "visual": {
+        "type": "frascos",
+        "left": { "label": "BPC-157", "liquid": "po" },
+        "right": { "label": "GHK-Cu", "liquid": "po" },
+        "sign": "vs"
+      }
+    },
+    {
+      "chip": "a dúvida",
+      "kicker": "guarda essa",
+      "title": "Uma pergunta",
+      "accent": "separa os dois",
+      "tone": "vermelho",
+      "speech": "Parecem primos, mas uma pergunta separa os dois, e ela fica pro final.",
+      "visual": { "type": "icone", "icon": "pensando" }
+    },
+    {
+      "chip": "o BPC-157",
+      "kicker": "o alvo dele",
+      "title": "Tendão",
+      "accent": "e intestino",
+      "tone": "azul",
+      "speech": "O BPC-157 foi estudado em animais para reparo de tendão, ligamento, músculo e intestino.",
+      "visual": { "type": "icone", "icon": "osso", "note": "estudado em modelos animais" }
+    },
+    {
+      "chip": "o GHK-Cu",
+      "kicker": "o alvo dele",
+      "title": "Colágeno",
+      "accent": "e elastina",
+      "tone": "azul",
+      "speech": "O GHK-Cu é um peptídeo com cobre, estudado para colágeno e elastina da pele.",
+      "visual": { "type": "icone", "icon": "brilho", "note": "peptídeo que carrega cobre" }
+    },
+    {
+      "chip": "os estudos",
+      "kicker": "o que se sabe em gente",
+      "title": "Pouca prova",
+      "accent": "nos dois",
+      "tone": "vermelho",
+      "speech": "Os dois têm pouca prova em gente: no BPC-157, quase tudo vem de animal.",
+      "visual": { "type": "carimbo", "text": "EM ANIMAIS", "note": "BPC-157: maior parte dos dados" }
+    },
+    {
+      "chip": "os estudos",
+      "kicker": "no GHK-Cu",
+      "title": "Estudos",
+      "accent": "pequenos",
+      "tone": "vermelho",
+      "speech": "No GHK-Cu, os estudos em pessoas existem, mas são pequenos.",
+      "visual": { "type": "icone", "icon": "microscopio", "note": "poucos voluntários" }
+    },
+    {
+      "chip": "a diferença",
+      "kicker": "agora sim",
+      "title": "GHK-Cu em creme",
+      "accent": "é permitido",
+      "tone": "azul",
+      "speech": "Agora a diferença: o GHK-Cu em creme é ingrediente cosmético permitido.",
+      "visual": { "type": "frasco", "label": "SÉRUM", "liquid": "claro", "tag": "COSMÉTICO" }
+    },
+    {
+      "chip": "a diferença",
+      "kicker": "o painel de segurança",
+      "title": "Seguro em",
+      "accent": "concentração baixa",
+      "tone": "azul",
+      "speech": "Um painel de segurança, o CIR, considerou ele seguro em concentração baixa.",
+      "visual": { "type": "numero", "value": "2018", "note": "painel CIR: seguro em concentração baixa" },
+      "source": "painel CIR, 2018"
+    },
+    {
+      "chip": "a diferença",
+      "kicker": "o resto",
+      "title": "Sem aprovação",
+      "accent": "pra uso humano",
+      "tone": "vermelho",
+      "speech": "Já o GHK-Cu injetável e o BPC-157 não têm aprovação para uso humano.",
+      "visual": {
+        "type": "frascos",
+        "left": { "label": "GHK-Cu", "note": "injetável: só pesquisa", "liquid": "po" },
+        "right": { "label": "BPC-157", "note": "só pesquisa", "liquid": "po" },
+        "sign": "+"
+      }
+    },
+    {
+      "chip": "as regras",
+      "kicker": "no esporte",
+      "title": "BPC-157",
+      "accent": "proibido pela WADA",
+      "tone": "vermelho",
+      "speech": "E o BPC-157 ainda é proibido pela WADA no esporte desde 2022.",
+      "visual": { "type": "icone", "icon": "proibido", "note": "Lista Proibida da WADA" },
+      "source": "WADA, desde 2022"
+    },
+    {
+      "chip": "a pergunta",
+      "kicker": "leva pra consulta",
+      "title": "Existe forma",
+      "accent": "aprovada pra mim?",
+      "tone": "azul",
+      "speech": "A pergunta pro seu médico é: existe forma aprovada disso pra mim?",
+      "visual": { "type": "icone", "icon": "estetoscopio" }
+    },
+    {
+      "chip": "pra lembrar",
+      "kicker": "da próxima vez",
+      "title": "Mesma coisa?",
+      "accent": "Não",
+      "tone": "vermelho",
+      "speech": "Então, mesma coisa? Não: um tem creme permitido, o outro só tem pesquisa.",
+      "visual": {
+        "type": "frascos",
+        "left": { "label": "BPC-157", "note": "só pesquisa", "liquid": "po" },
+        "right": { "label": "SÉRUM", "note": "GHK-Cu cosmético", "liquid": "claro" },
+        "sign": "≠"
+      }
+    }
+  ],
+  "caption": "Eu sei, os dois aparecem juntos como \"peptídeos de regeneração\" e parece tudo a mesma coisa. Não é. O BPC-157 foi estudado em modelos animais para reparo de tendão, ligamento, músculo e intestino. O GHK-Cu é um peptídeo que carrega cobre, estudado para colágeno e elastina da pele.\n\nOs dois têm pouca prova em gente: no BPC-157, boa parte dos dados é de animais; no GHK-Cu, os estudos em pessoas são pequenos.\n\n⚠️ A diferença que importa: o GHK-Cu tópico é ingrediente cosmético permitido, considerado seguro pelo painel CIR (2018) em concentração baixa. Já o GHK-Cu injetável e o BPC-157 não têm aprovação para uso humano, e o BPC-157 é proibido pela WADA desde 2022.\n\n1️⃣ Pergunte se existe forma aprovada para o seu caso\n2️⃣ Separe o que tem estudo em gente do que é laboratório\n3️⃣ Gravidez, amamentação ou câncer: converse com o médico antes de tudo",
+  "question": "Qual dos dois você já tinha visto no seu feed?",
+  "share": "aquela amiga que acha que todo peptídeo serve pra tudo"
+}

@@ -9,82 +9,96 @@ Se sair "REPROVADO", corrija só o que a lista aponta e rode de novo.
 
 ## PEDIDO
 
-TEMA: Quanto tempo a tirzepatida (Mounjaro) leva para fazer efeito?
+TEMA: Tirzepatida (Mounjaro) faz mal? Efeitos colaterais documentados
 
 FONTE:
-Título: Quanto tempo a tirzepatida (Mounjaro) leva para fazer efeito?
+Título: Tirzepatida (Mounjaro) faz mal? Efeitos colaterais documentados
 
-Resumo: A tirzepatida age desde a primeira aplicação, mas as 4 primeiras semanas são de dose inicial (2,5 mg), que não é dose de manutenção para perda de peso. A concentração estável leva cerca de 4 semanas em cada dose, e a dose máxima só é alcançada na 21ª semana. Nos estudos, a perda de peso continuou por mais de um ano: 15% a 20,9% em 72 semanas, conforme a dose.
+Resumo: Os efeitos mais comuns da tirzepatida são gastrointestinais: no estudo SURMOUNT-1, náusea atingiu 25-33% dos participantes, diarreia 19-23%, constipação 12-17% e vômito 8-12%, quase sempre leves e na fase de subida de dose. Menos de 8% pararam o tratamento por efeito adverso. Riscos raros incluem pancreatite e problemas de vesícula; é contraindicada em histórico de carcinoma medular de tireoide ou NEM 2.
 
-A tirzepatida começa a agir depois da primeira aplicação, mas o resultado que as pessoas procuram — glicemia controlada, quilos a menos — leva meses. O motivo é simples: o tratamento começa por uma dose baixa e sobe aos poucos.
+A tirzepatida — princípio ativo do Mounjaro e do Zepbound — tem um perfil de efeitos adversos bem mapeado nos programas SURPASS (diabetes) e SURMOUNT (obesidade). A maior parte é gastrointestinal, aparece nas semanas de aumento de dose e diminui com o tempo. Este artigo reúne os números dos estudos e os alertas da bula.
 
-## O que acontece no corpo após a aplicação
+## Efeitos gastrointestinais: frequência por dose
 
-- **Pico no sangue:** entre 8 e 72 horas depois da injeção.
-- **Meia-vida:** cerca de 5 dias — por isso a aplicação é semanal.
-- **Concentração estável:** atingida após cerca de 4 semanas de aplicações semanais na mesma dose.
+No SURMOUNT-1, estudo de 72 semanas com 2.539 adultos com obesidade ou sobrepeso sem diabetes, estes foram os efeitos mais relatados:
 
-Na prática: cada vez que a dose muda, o organismo leva em torno de um mês para chegar ao novo patamar. É por isso que a bula pede pelo menos 4 semanas em cada degrau.
+| Efeito | 5 mg | 10 mg | 15 mg | Placebo |
+| --- | --- | --- | --- | --- |
+| Náusea | 24,6% | 33,3% | 31,0% | 9,5% |
+| Diarreia | 18,7% | 21,2% | 23,0% | 7,3% |
+| Constipação | 16,8% | 17,1% | 11,7% | 5,8% |
+| Vômito | 8,3% | 10,7% | 12,2% | 1,7% |
 
-## Linha do tempo
+Três pontos ajudam a ler essa tabela:
 
-### Semanas 1 a 4 — 2,5 mg (dose inicial)
+- **A maioria foi leve a moderada** e ocorreu durante a fase de subida de dose.
+- **Poucos abandonaram o tratamento por isso**: a interrupção por evento adverso foi de 4,3% (5 mg), 7,1% (10 mg) e 6,2% (15 mg), contra 2,6% no placebo.
+- **Dose maior não significa efeito proporcionalmente maior**: a náusea foi parecida em 10 e 15 mg, porque o corpo se adapta ao longo da titulação.
 
-A dose inicial serve para o corpo se acostumar. Na bula do Zepbound, 2,5 mg é dose de início, não aprovada como manutenção; no diabetes, ela já reduz a glicose. Muita gente percebe menos fome e saciedade mais rápida já nos primeiros dias. Também é quando surgem os primeiros efeitos gastrointestinais. Alguma perda de peso pode aparecer, mas não é o objetivo desta fase.
+## Outros efeitos comuns
 
-### Semanas 5 a 8 — 5 mg (primeira dose de manutenção)
+- Dispepsia (má digestão), dor abdominal, eructação, flatulência e refluxo
+- Diminuição do apetite — é parte do efeito esperado, mas pode levar a ingestão insuficiente
+- Reações no local da injeção (vermelhidão, coceira)
+- Fadiga e tontura
+- Queda de cabelo: relatada por cerca de 5% dos participantes, contra cerca de 1% no placebo — associada à perda de peso rápida e geralmente temporária
+- Aumento discreto da frequência cardíaca
 
-É a menor dose de manutenção prevista em bula. A glicemia de jejum cai de forma mais consistente e a perda de peso passa a ser regular.
+## Riscos raros, mas importantes
 
-### Semanas 9 a 20 — subida até 10 ou 15 mg
+- **Pancreatite aguda** — dor abdominal intensa e persistente, que pode irradiar para as costas, com ou sem vômito. Exige interrupção e avaliação médica imediata.
+- **Doença da vesícula biliar** — cálculos e colecistite, risco ligado também à perda de peso rápida. Sinais: dor no lado direito do abdome, febre, pele amarelada.
+- **Hipoglicemia** — principalmente quando combinada com insulina ou sulfonilureias; a dose desses medicamentos pode precisar de ajuste.
+- **Lesão renal aguda por desidratação** — consequência de vômito e diarreia prolongados. Hidratação é parte do tratamento.
+- **Reações de hipersensibilidade** — incluindo anafilaxia e angioedema, raras.
+- **Retinopatia diabética** — quem já tem retinopatia deve ser acompanhado, porque a queda rápida da glicose pode piorá-la temporariamente.
+- **Aspiração em anestesia** — como o esvaziamento do estômago fica mais lento, avise a equipe sobre o uso antes de cirurgias ou exames com sedação.
 
-Se for preciso mais efeito, a dose sobe 2,5 mg a cada 4 semanas ou mais. Quem vai até 15 mg só chega lá na 21ª semana — cinco meses depois de começar. Nem todos precisam da dose máxima: 5, 10 e 15 mg são todas doses de manutenção.
+## O alerta sobre tireoide
 
-### Meses 6 a 18 — resultado pleno
+A bula traz um alerta em destaque: em ratos, a tirzepatida causou tumores de células C da tireoide. Não se sabe se o mesmo ocorre em humanos. Por precaução, o medicamento é **contraindicado** para quem tem histórico pessoal ou familiar de carcinoma medular de tireoide ou síndrome de Neoplasia Endócrina Múltipla tipo 2 (NEM 2). Nódulo no pescoço, rouquidão persistente ou dificuldade para engolir devem ser relatados ao médico.
 
-Nos estudos de obesidade, o peso continuou caindo por mais de um ano antes de estabilizar. O resultado final só é medido depois de 72 semanas.
+## Quem não deve usar ou precisa de cautela
 
-## O que os estudos mediram
+- Histórico pessoal ou familiar de carcinoma medular de tireoide ou NEM 2 (contraindicação)
+- Alergia grave à tirzepatida ou a componentes da fórmula (contraindicação)
+- Gravidez e amamentação — o uso não é recomendado
+- Histórico de pancreatite
+- Gastroparesia ou doença gastrointestinal grave
+- **Anticoncepcional oral**: a tirzepatida pode reduzir a absorção da pílula. A bula orienta usar método não oral ou adicionar método de barreira por 4 semanas após o início e após cada aumento de dose.
 
-No SURMOUNT-1 (obesidade ou sobrepeso sem diabetes, 72 semanas, com dieta e exercício):
+## Como reduzir os efeitos
 
-- Perda média de peso: **15,0%** (5 mg), **19,5%** (10 mg) e **20,9%** (15 mg), contra 3,1% no placebo
-- Perderam 5% ou mais do peso: 85%, 89% e 91% dos participantes, contra 35%
-- Perderam 20% ou mais: 50% (10 mg) e 57% (15 mg), contra 3%
+- Respeitar a titulação: pelo menos 4 semanas em cada dose. Veja o calendário na calculadora de subida de dose.
+- Refeições menores, comer devagar e parar ao primeiro sinal de saciedade
+- Reduzir gordura, frituras e álcool, sobretudo nos dias seguintes à aplicação
+- Manter boa hidratação e ingestão adequada de proteína e fibras
+- Se os sintomas não cederem, o médico pode manter a dose atual por mais tempo ou voltar um degrau
 
-No SURPASS-2 (diabetes tipo 2, 40 semanas), a hemoglobina glicada caiu de 2,01 a 2,30 pontos percentuais, conforme a dose. Como a HbA1c reflete a média de glicose dos últimos 2 a 3 meses, o exame só mostra o efeito completo depois desse intervalo em dose estável.
+Para o manejo específico do enjoo, veja náusea na tirzepatida: como lidar.
 
-## Por que cada pessoa responde em um ritmo
+## Quando procurar atendimento
 
-- **Dose atual** — quem ainda está em 2,5 ou 5 mg não deve se comparar com resultados de 15 mg
-- **Diabetes** — pessoas com diabetes tipo 2 costumam perder menos peso que pessoas sem diabetes
-- **Alimentação e atividade física** — os estudos incluíram orientação de dieta e exercício
-- **Regularidade** — doses puladas quebram a concentração estável
-- **Peso inicial, sono, outros medicamentos** e variação individual
+- Dor abdominal forte que não passa
+- Vômito persistente ou incapacidade de manter líquidos
+- Sinais de desidratação: pouca urina, tontura ao levantar, boca muito seca
+- Inchaço de rosto, lábios ou garganta, ou dificuldade para respirar
+- Pele ou olhos amarelados, febre com dor no lado direito do abdome
 
-## E se parecer que não está funcionando?
+## Tirzepatida em frasco: um risco a mais
 
-- Confira há quanto tempo você está em dose de manutenção. Antes de 3 meses em dose estável é cedo para concluir.
-- Em frasco, confirme a conta de diluição e as unidades na seringa — erro de dose é causa frequente de "não fez efeito". Use a calculadora de tirzepatida.
-- Verifique armazenamento e procedência: produto mal conservado ou falsificado perde efeito. Veja como identificar Mounjaro falso.
-- Leve o registro de peso e doses à consulta; a decisão de subir a dose é do médico.
+Os dados acima vêm do medicamento industrializado. Em frasco manipulado ou liofilizado entram outros riscos — erro de diluição, dose errada na seringa e produto sem procedência. Confira a conta na calculadora de tirzepatida e leia tirzepatida manipulada é segura?.
 
-Não aumente a dose por conta própria nem encurte o intervalo entre degraus: isso aumenta os efeitos colaterais sem acelerar o resultado.
-
-## Planeje as datas
-
-A calculadora de subida de dose monta o calendário semana a semana a partir da data da primeira aplicação, e a tabela de doses para imprimir traz a escada completa com espaço para registrar cada aplicação.
-
-P: Em quanto tempo o Mounjaro começa a fazer efeito?
-R: Ele age desde a primeira aplicação, e muita gente sente menos fome já nos primeiros dias. Mas as 4 primeiras semanas são de dose inicial (2,5 mg), que não é dose de manutenção para perda de peso.
-P: Quanto peso se perde com tirzepatida?
-R: No SURMOUNT-1, a perda média em 72 semanas foi de 15% com 5 mg, 19,5% com 10 mg e 20,9% com 15 mg, contra 3,1% no placebo. O peso continuou caindo por mais de um ano antes de estabilizar.
-P: Quando se chega à dose máxima de tirzepatida?
-R: Como a dose sobe 2,5 mg a cada 4 semanas ou mais, quem vai até 15 mg só chega lá na 21ª semana. Nem todos precisam da dose máxima: 5, 10 e 15 mg são todas doses de manutenção.
-P: O Mounjaro não está funcionando. O que fazer?
-R: Veja há quanto tempo você está em dose de manutenção: antes de 3 meses em dose estável é cedo para concluir. Em frasco, confira a diluição e as unidades na seringa, verifique armazenamento e procedência e leve o registro de peso e doses ao médico.
-P: Posso subir a dose para acelerar o resultado?
-R: Não por conta própria. Aumentar a dose ou encurtar o intervalo entre degraus aumenta os efeitos colaterais sem acelerar o resultado; a decisão de subir é do médico.
+P: Quais os efeitos colaterais mais comuns do Mounjaro?
+R: Os gastrointestinais. No SURMOUNT-1, conforme a dose, a náusea atingiu de 24,6% a 33,3% dos participantes, a diarreia de 18,7% a 23%, a constipação de 11,7% a 17,1% e o vômito de 8,3% a 12,2%. A maioria foi leve a moderada e ocorreu na fase de subida de dose.
+P: Tirzepatida faz cair cabelo?
+R: Cerca de 5% dos participantes relataram queda de cabelo, contra cerca de 1% no placebo. Ela está associada à perda de peso rápida e costuma ser temporária.
+P: Quem não pode usar tirzepatida?
+R: É contraindicada para quem tem histórico pessoal ou familiar de carcinoma medular de tireoide ou NEM 2, ou alergia grave à tirzepatida ou a componentes da fórmula. Na gravidez e na amamentação o uso não é recomendado.
+P: Tirzepatida corta o efeito do anticoncepcional?
+R: Ela pode reduzir a absorção da pílula. A bula orienta usar método não oral ou acrescentar método de barreira por 4 semanas após o início e após cada aumento de dose.
+P: Quando procurar atendimento?
+R: Com dor abdominal forte que não passa, vômito persistente ou incapacidade de manter líquidos, sinais de desidratação, inchaço de rosto, lábios ou garganta, dificuldade para respirar, ou pele e olhos amarelados.
 
 Peptídeo: Tirzepatida
 Categoria: GLP-1 / Emagrecimento

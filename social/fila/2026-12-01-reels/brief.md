@@ -9,55 +9,62 @@ Se sair "REPROVADO", corrija só o que a lista aponta e rode de novo.
 
 ## PEDIDO
 
-TEMA: Efeito rebote após parar semaglutida: o que esperar
+TEMA: Ozempic falso: como identificar e o que fazer
 
 FONTE:
-Título: Efeito rebote após parar semaglutida: o que esperar
+Título: Ozempic falso: como identificar e o que fazer
 
-Resumo: O estudo STEP-4 mostrou que pacientes que trocaram semaglutida por placebo recuperaram ~70% do peso perdido em 48 semanas, enquanto quem continuou manteve a perda. Semaglutida não "cura" obesidade — trata enquanto ativa. Para minimizar rebote: reduzir dose gradualmente, manter treino resistido, aumentar proteína e monitorar peso semanalmente.
+Resumo: Sinais de Ozempic falso: preço muito abaixo do mercado (<R$ 500 para 1 mg), venda em marketplaces ou redes sociais, lote da caixa não bate com lote do pen, impressão de baixa qualidade, bula em folha avulsa. Verifique sempre na consulta ANVISA (consultas.anvisa.gov.br) e compre apenas em farmácia física com nota fiscal. Em caso de suspeita, notifique via Notivisa.
 
-"E se eu parar o Ozempic?" é a pergunta mais comum depois da primeira perda de peso. A pesquisa mostra que sem continuidade ou estratégia de manutenção, o reganho é quase inevitável.
+Com a explosão da demanda por **Ozempic** a partir de 2022, cresceu a falsificação. A ANVISA emitiu múltiplos alertas entre 2023 e 2025. Este guia mostra como identificar pens falsos antes de aplicar.
 
-## O estudo STEP-4
+## Onde o risco é maior
 
-Participantes receberam semaglutida 2,4 mg por 20 semanas. Depois foram randomizados:
+- Marketplaces (Mercado Livre, Amazon, OLX) — ANVISA proíbe venda online
+- Redes sociais (Instagram, Telegram) — alta incidência de falsificação
+- Farmácias de procedência duvidosa, sem CNPJ claro
+- Preços muito abaixo do mercado (\< R$ 500 para Ozempic 1 mg)
 
-- **Grupo A**: continuou com semaglutida por mais 48 semanas → manteve perda de ~17%
-- **Grupo B**: trocou para placebo → recuperou ~7 dos 10 kg perdidos (70% de rebote) em 48 semanas
+## O que verificar na embalagem
 
-Conclusão: semaglutida **não "cura"** obesidade — ela trata enquanto estiver ativa, como anti-hipertensivo para hipertensão.
+- **Caixa**: impressão de alta qualidade, cor azul consistente, sem erros de ortografia
+- **Número de lote**: deve bater com o lote impresso no pen (dentro da caixa)
+- **Fabricante**: Novo Nordisk A/S — importação exclusiva Novo Nordisk Brasil
+- **QR code ou código de barras**: deve ser escaneável e conduzir a informação oficial
+- **Bula em português**: presente e em papel, não folha avulsa impressa
 
-## Por que acontece o rebote
+## O que verificar no pen
 
-1. Apetite e saciedade voltam ao estado pré-tratamento em ~4 semanas após descontinuação
-2. Adaptação metabólica (metabolismo reduzido por menor massa) persiste
-3. Hábitos alimentares não foram totalmente remodelados
-4. Set point de peso corporal é geneticamente determinado e resistente
+- Seletor de dose gira livremente sem travar
+- Solução cristalina, sem partículas
+- Lote impresso no corpo do pen bate com a caixa
+- Rótulo impresso de fábrica, não adesivo
 
-## Estratégias para minimizar
+## Como conferir com a ANVISA
 
-- **Reduzir dose gradualmente** (sob orientação médica), não parar abruptamente
-- **Treino resistido** consistente durante e após — preserva massa muscular
-- **Aumentar proteína** (1,6 g/kg de peso) para saciedade e manutenção muscular
-- **Rotina de monitoramento** (balança semanal, fotos mensais)
-- **Retomar em caso de rebote** significativo (>5% do peso mínimo atingido)
+1. Entre em consultas.anvisa.gov.br
+2. Busque "Ozempic" — o registro válido é da Novo Nordisk Farmacêutica
+3. Compare o lote que você tem com os autorizados (alertas recentes listam lotes falsificados)
 
-## Uso de longo prazo é seguro?
+## Se desconfiar
 
-Dados de 2+ anos (STEP-5) e uso em diabetes (SUSTAIN-6, 2+ anos) mostram perfil de segurança mantido. Uso crônico é considerado aceitável pela FDA para obesidade — é tratada como condição crônica, não aguda.
+- **Não aplique.** Tire fotos da embalagem e do pen
+- Notifique a ANVISA via Notivisa (www8.anvisa.gov.br/notivisa)
+- Procure o Procon se comprou online
+- Em caso de aplicação de produto suspeito, procure pronto-socorro se aparecerem sintomas anormais
 
-## Considerações finais
+## Conclusão
 
-Parar semaglutida sem estratégia de substituição leva a rebote previsível. Continuar indefinidamente é opção clínica válida. Decisão deve ser tomada com médico considerando resposta ao medicamento, efeitos adversos tolerados, custo de longo prazo e alternativas (cirurgia bariátrica, mudança de estilo de vida, outros medicamentos).
+Compre em farmácia física com CNPJ visível e nota fiscal. O "desconto imperdível" no Instagram é quase sempre produto falsificado. A conta de economizar R$ 500 e tomar um produto adulterado pode ser alta.
 
-P: Quem para o Ozempic volta a engordar?
-R: Na maioria dos casos, sim. No estudo STEP-4, quem trocou a semaglutida por placebo recuperou cerca de 7 dos 10 kg perdidos (70%) em 48 semanas, enquanto quem continuou manteve a perda.
-P: Por que o peso volta depois de parar a semaglutida?
-R: Apetite e saciedade voltam ao estado anterior em cerca de 4 semanas, a adaptação metabólica persiste e os hábitos alimentares nem sempre foram remodelados. A semaglutida trata a obesidade enquanto está ativa, mas não a cura.
-P: Como evitar o efeito rebote?
-R: Reduzir a dose aos poucos, com orientação médica, em vez de parar de uma vez; manter treino resistido; aumentar a proteína; e acompanhar o peso toda semana.
-P: Usar semaglutida por muito tempo é seguro?
-R: Dados de 2 anos ou mais (STEP-5 e SUSTAIN-6) mostraram perfil de segurança mantido, e a FDA considera aceitável o uso crônico para obesidade, tratada como condição crônica.
+P: Como saber se o Ozempic é original?
+R: Confira se o lote da caixa é igual ao lote impresso na caneta, se a impressão é de alta qualidade, se o fabricante é a Novo Nordisk e se a bula em português está presente. Na caneta, a solução deve ser cristalina e o rótulo impresso de fábrica, não adesivo.
+P: Como consultar o Ozempic na ANVISA?
+R: Em consultas.anvisa.gov.br, busque "Ozempic": o registro válido é da Novo Nordisk Farmacêutica. Compare também o seu lote com os alertas recentes, que listam lotes falsificados.
+P: Onde é mais comum encontrar Ozempic falso?
+R: Em marketplaces, em redes sociais como Instagram e Telegram, em farmácias sem CNPJ claro e em ofertas muito abaixo do mercado, como menos de R$ 500 pelo Ozempic 1 mg.
+P: O que fazer se desconfiar que o Ozempic é falso?
+R: Não aplique, fotografe a embalagem e a caneta e notifique a ANVISA pelo Notivisa. Se comprou online, procure o Procon; se já aplicou e surgirem sintomas anormais, vá ao pronto-socorro.
 
 Peptídeo: Semaglutida
 Categoria: GLP-1 / Emagrecimento

@@ -1,235 +1,173 @@
 {
-  "hook": "Você confere se o lote da caixa é o mesmo da caneta?",
-  "hookIcon": "duvida",
+  "hook": "O GHK-Cu do seu sérum é o mesmo do frasco?",
+  "hookIcon": "pele",
   "slides": [
     {
-      "title": "O lote da caixa precisa bater com o da caneta?",
+      "title": "Sérum e frasco são a mesma coisa?",
       "layout": "pergunta",
-      "body": "Precisa. O número de lote impresso na caixa deve ser o mesmo impresso na caneta, que vem dentro dela. Número diferente é sinal de alerta.",
-      "icon": "lupa"
+      "body": "A molécula é a mesma: o GHK-Cu, um peptídeo que carrega cobre e já existe no corpo. A situação dos dois é que é completamente diferente.",
+      "icon": "duvida"
     },
     {
-      "title": "O que olhar na caixa",
+      "title": "O que ele faz no laboratório",
       "layout": "padrao",
-      "body": "Impressão de alta qualidade, cor azul consistente, nenhum erro de ortografia. Fabricante Novo Nordisk A/S e bula em português, em papel.",
-      "icon": "prancheta"
+      "body": "Estimula colágeno e elastina, que dão firmeza à pele. Em células, alterou a atividade de cerca de 4.000 genes. Isso é laboratório, não resultado em gente.",
+      "icon": "microscopio"
     },
     {
-      "title": "Caneta original e caneta suspeita",
-      "layout": "lado",
-      "body": "Original: rótulo de fábrica, solução cristalina\nSuspeita: rótulo adesivo, partículas no líquido",
-      "icon": "frasco"
-    },
-    {
-      "title": "Bula numa folha avulsa é normal",
+      "title": "Funciona igual em todo mundo",
       "layout": "mito",
-      "body": "Não é. A bula original vem em português, em papel, dentro da caixa. Folha avulsa impressa é sinal de falsificação.",
+      "body": "Os estudos em pessoas são pequenos. No maior deles, de fase 3 com 511 pacientes com úlcera de pé diabético, o GHK-Cu não superou o placebo.",
       "icon": "errado"
     },
     {
-      "title": "Confira na ANVISA",
-      "layout": "padrao",
-      "body": "Em consultas.anvisa.gov.br, busque Ozempic: o registro válido é da Novo Nordisk Farmacêutica. Compare seu lote com os alertas recentes, que listam lotes falsificados.",
-      "icon": "escudo"
+      "title": "Tópico x injetável",
+      "layout": "lado",
+      "body": "Sérum: ingrediente cosmético permitido, seguro em concentração baixa\nInjetável: sem aprovação da ANVISA nem da FDA para uso humano",
+      "icon": "balanca"
     },
     {
-      "title": "Desconfiei. E agora?",
-      "layout": "pergunta",
-      "body": "Não aplique. Fotografe a embalagem e a caneta e notifique a ANVISA pelo Notivisa. Já aplicou e apareceu sintoma anormal? Pronto-socorro.",
+      "title": "Quem não deve usar",
+      "layout": "padrao",
+      "body": "Quem tem alergia a cobre ou doença de Wilson, além de gestantes e lactantes, por falta de dados. No tópico, o relato mais comum é irritação local leve.",
       "icon": "alerta"
     },
     {
-      "title": "Cola da caixa nova",
+      "title": "A pergunta pro seu médico",
       "layout": "passos",
-      "body": "Lote da caixa igual ao da caneta\nRótulo de fábrica, não adesivo\nSolução cristalina, sem partículas\nDesconfiou: não aplique e notifique",
-      "icon": "certo"
+      "body": "Isso é cosmético ou é pesquisa?\nTem registro e rótulo de verdade?\nFrasco \"só para pesquisa\" não é tratamento",
+      "icon": "estetoscopio"
     }
   ],
   "scenes": [
     {
-      "chip": "a mania",
-      "kicker": "caixa nova na mão",
-      "title": "Abriu a caixa",
-      "accent": "e nem olhou o lote?",
+      "chip": "o sérum",
+      "kicker": "a dúvida do momento",
+      "title": "Sérum e frasco",
+      "accent": "são iguais?",
       "tone": "vermelho",
-      "speech": "Você abre a caixa do Ozempic e nem olha se o lote da caixa é o mesmo da caneta?",
+      "speech": "O GHK-Cu do seu sérum é o mesmo do frasco?",
       "visual": {
         "type": "frascos",
-        "left": { "label": "CAIXA", "note": "lote ???" },
-        "right": { "label": "CANETA", "note": "lote ???", "liquid": "claro" },
+        "left": { "label": "SÉRUM", "note": "creme, cosmético", "liquid": "claro" },
+        "right": { "label": "GHK-Cu", "note": "frasco injetável", "liquid": "po" },
         "sign": "vs"
       }
     },
     {
-      "chip": "a mania",
-      "kicker": "por que isso importa",
-      "title": "A falsificação",
-      "accent": "cresceu",
-      "tone": "vermelho",
-      "speech": "Com a procura explodindo desde 2022, a falsificação do Ozempic cresceu, e a ANVISA soltou vários alertas.",
-      "visual": {
-        "type": "linha",
-        "steps": ["2022", "2023", "2025"],
-        "current": 2,
-        "note": "alertas da ANVISA entre 2023 e 2025"
-      },
-      "source": "ANVISA"
+      "chip": "a molécula",
+      "kicker": "o que ele é",
+      "title": "Peptídeo",
+      "accent": "que carrega cobre",
+      "tone": "azul",
+      "speech": "A molécula é a mesma: um peptídeo que carrega cobre e já existe no seu corpo.",
+      "visual": { "type": "icone", "icon": "dna", "note": "existe naturalmente no corpo" }
     },
     {
-      "chip": "o lote",
-      "kicker": "o primeiro teste",
-      "title": "Lote da caixa",
-      "accent": "igual ao da caneta",
+      "chip": "a molécula",
+      "kicker": "guarda essa",
+      "title": "Uma pergunta",
+      "accent": "separa os dois",
       "tone": "azul",
-      "speech": "O primeiro teste é esse: o número de lote da caixa precisa bater com o lote impresso na caneta.",
-      "visual": {
-        "type": "icone",
-        "icon": "lupa",
-        "note": "os dois números precisam ser iguais"
-      }
+      "speech": "Mas uma pergunta só separa os dois, e eu te conto qual é no final.",
+      "visual": { "type": "icone", "icon": "pensando" }
     },
     {
-      "chip": "a caixa",
-      "kicker": "olhe com calma",
-      "title": "Impressão",
-      "accent": "caprichada",
+      "chip": "o laboratório",
+      "kicker": "de onde vem a fama",
+      "title": "Mais colágeno",
+      "accent": "e elastina",
       "tone": "azul",
-      "speech": "Na caixa, a impressão é de alta qualidade, o azul é o mesmo em tudo e não tem erro de ortografia.",
+      "speech": "No laboratório, ele estimula colágeno e elastina, o que dá firmeza à pele.",
       "visual": {
         "type": "lista",
         "items": [
-          { "text": "Impressão nítida", "mark": "ok" },
-          { "text": "Azul sem variação", "mark": "ok" },
-          { "text": "Erro de ortografia", "mark": "nao" }
+          { "text": "Colágeno", "mark": "ok" },
+          { "text": "Elastina", "mark": "ok" },
+          { "text": "Firmeza da pele", "mark": "ok" }
         ]
       }
     },
     {
-      "chip": "a caixa",
-      "kicker": "quem fabrica",
-      "title": "Novo Nordisk",
-      "accent": "e bula em português",
+      "chip": "o laboratório",
+      "kicker": "o número que circula",
+      "title": "Mexeu em",
+      "accent": "4.000 genes",
       "tone": "azul",
-      "speech": "O fabricante é a Novo Nordisk, e a bula vem em português, em papel, e não numa folha avulsa.",
-      "visual": {
-        "type": "icone",
-        "icon": "prancheta",
-        "note": "bula em papel, dentro da caixa"
-      }
+      "speech": "Em células, mexeu com cerca de 4.000 genes, mas isso é laboratório, não gente.",
+      "visual": { "type": "numero", "value": "4.000", "note": "genes alterados em células tumorais" },
+      "source": "Connectivity Map"
     },
     {
-      "chip": "a caneta",
-      "kicker": "olhe o rótulo",
-      "title": "Rótulo de fábrica",
-      "accent": "não adesivo",
-      "tone": "azul",
-      "speech": "Na caneta, o rótulo é impresso de fábrica, e não um adesivo colado por cima.",
-      "visual": {
-        "type": "frasco",
-        "label": "OZEMPIC",
-        "liquid": "claro",
-        "tag": "ADESIVO?"
-      }
-    },
-    {
-      "chip": "a caneta",
-      "kicker": "olhe o líquido",
-      "title": "Solução",
-      "accent": "cristalina",
-      "tone": "azul",
-      "speech": "A solução precisa ser cristalina, sem partículas, e o seletor de dose gira sem travar.",
-      "visual": {
-        "type": "frasco",
-        "label": "SEMAGLUTIDA",
-        "liquid": "claro",
-        "tag": "SEM PARTÍCULA"
-      }
-    },
-    {
-      "chip": "a ANVISA",
-      "kicker": "a conferência oficial",
-      "title": "Consulte",
-      "accent": "o registro",
-      "tone": "azul",
-      "speech": "Dá pra conferir no site de consultas da ANVISA: o registro válido do Ozempic é da Novo Nordisk Farmacêutica.",
-      "visual": {
-        "type": "carimbo",
-        "text": "REGISTRO VÁLIDO",
-        "note": "consultas.anvisa.gov.br"
-      },
-      "source": "ANVISA"
-    },
-    {
-      "chip": "a ANVISA",
-      "kicker": "e os lotes falsos",
-      "title": "Compare com",
-      "accent": "os alertas",
-      "tone": "azul",
-      "speech": "E compare o seu lote com os alertas recentes, que listam os lotes falsificados.",
-      "visual": {
-        "type": "icone",
-        "icon": "alerta",
-        "note": "alertas listam lotes falsificados"
-      },
-      "source": "ANVISA"
-    },
-    {
-      "chip": "desconfiou",
-      "kicker": "a primeira regra",
-      "title": "Não aplique",
-      "accent": "e fotografe",
+      "chip": "em pessoas",
+      "kicker": "no maior estudo",
+      "title": "511 pacientes",
+      "accent": "igual ao placebo",
       "tone": "vermelho",
-      "speech": "Achou algo estranho? Não aplique: fotografe a embalagem e a caneta antes de qualquer coisa.",
-      "visual": {
-        "type": "carimbo",
-        "text": "NÃO APLIQUE",
-        "note": "fotografe caixa e caneta"
-      }
+      "speech": "Em pessoas, os estudos são pequenos, e o maior, com 511 pacientes, não superou o placebo.",
+      "visual": { "type": "carimbo", "text": "IGUAL AO PLACEBO", "note": "fase 3, úlcera de pé diabético" },
+      "source": "ensaio de fase 3"
     },
     {
-      "chip": "desconfiou",
-      "kicker": "avise quem fiscaliza",
-      "title": "Notifique",
-      "accent": "pelo Notivisa",
+      "chip": "o sérum",
+      "kicker": "no creme",
+      "title": "Cosmético",
+      "accent": "permitido",
       "tone": "azul",
-      "speech": "Depois, notifique a ANVISA pelo Notivisa, que é o canal oficial para esse tipo de suspeita.",
-      "visual": {
-        "type": "icone",
-        "icon": "escudo",
-        "note": "Notivisa, da ANVISA"
-      }
+      "speech": "No sérum, ele é ingrediente cosmético permitido, considerado seguro em concentração baixa.",
+      "visual": { "type": "frasco", "label": "SÉRUM", "liquid": "claro", "tag": "COSMÉTICO" },
+      "source": "painel CIR, 2018"
     },
     {
-      "chip": "desconfiou",
-      "kicker": "se você já aplicou",
-      "title": "Sintoma estranho?",
-      "accent": "Pronto-socorro",
+      "chip": "o frasco",
+      "kicker": "na forma injetável",
+      "title": "Sem aprovação",
+      "accent": "pra uso humano",
       "tone": "vermelho",
-      "speech": "E se você já aplicou e aparecer algum sintoma anormal, não espere: vá ao pronto-socorro.",
+      "speech": "Já o injetável não tem aprovação da ANVISA nem da FDA para uso humano.",
+      "visual": { "type": "carimbo", "text": "NÃO APROVADO", "note": "GHK-Cu injetável" },
+      "source": "alerta da ANVISA, julho de 2026"
+    },
+    {
+      "chip": "o frasco",
+      "kicker": "o que vem no rótulo",
+      "title": "Só para",
+      "accent": "pesquisa",
+      "tone": "vermelho",
+      "speech": "E o frasco vem rotulado só para pesquisa, sem garantia de pureza nem de esterilidade.",
+      "visual": { "type": "frasco", "label": "GHK-Cu", "liquid": "po", "stamp": "SÓ PESQUISA" }
+    },
+    {
+      "chip": "a pergunta",
+      "kicker": "leva pra consulta",
+      "title": "Cosmético",
+      "accent": "ou pesquisa?",
+      "tone": "azul",
+      "speech": "A pergunta é: isso é cosmético ou é pesquisa? Leva ela pro seu médico.",
       "visual": {
-        "type": "icone",
-        "icon": "hospital",
-        "note": "sintoma anormal depois de aplicar"
+        "type": "lista",
+        "items": [
+          { "text": "Cosmético com rótulo", "mark": "ok" },
+          { "text": "Frasco só para pesquisa", "mark": "nao" }
+        ]
       }
     },
     {
       "chip": "pra lembrar",
-      "kicker": "caixa nova na mão?",
-      "title": "Caixa e caneta",
-      "accent": "com o mesmo lote",
-      "tone": "azul",
-      "speech": "Então, caixa nova na mão? Antes de tudo, confira se o lote da caixa e o da caneta são o mesmo.",
+      "kicker": "da próxima vez",
+      "title": "Mesmo nome",
+      "accent": "mundos diferentes",
+      "tone": "vermelho",
+      "speech": "Então, o GHK-Cu do sérum e o do frasco não são a mesma coisa.",
       "visual": {
-        "type": "lista",
-        "items": [
-          { "text": "Lote igual na caixa e na caneta", "mark": "ok" },
-          { "text": "Rótulo de fábrica", "mark": "ok" },
-          { "text": "Solução cristalina", "mark": "ok" }
-        ]
+        "type": "frascos",
+        "left": { "label": "SÉRUM", "note": "cosmético permitido", "liquid": "claro" },
+        "right": { "label": "GHK-Cu", "note": "só pesquisa", "liquid": "po" },
+        "sign": "≠"
       }
     }
   ],
-  "caption": "Eu sei, a vontade é abrir a caixa e seguir a rotina. Mas com a procura pelo Ozempic, a semaglutida, a falsificação cresceu, e a ANVISA emitiu vários alertas entre 2023 e 2025. Conferir leva um minuto.\n\n1️⃣ Lote: o número da caixa precisa ser o mesmo impresso na caneta\n2️⃣ Caixa: impressão de alta qualidade, azul consistente, sem erro de ortografia, fabricante Novo Nordisk e bula em português, em papel\n3️⃣ Caneta: rótulo impresso de fábrica (não adesivo), solução cristalina sem partículas e seletor de dose que gira sem travar\n4️⃣ ANVISA: em consultas.anvisa.gov.br, o registro válido é da Novo Nordisk Farmacêutica; compare seu lote com os alertas recentes\n\n⚠️ Desconfiou? Não aplique. Fotografe a embalagem e a caneta e notifique a ANVISA pelo Notivisa. Já aplicou e apareceu sintoma anormal? Pronto-socorro.",
-  "question": "Você já tinha conferido o lote da caixa com o da caneta?",
-  "share": "quem abre a caixa nova e já vai direto pra aplicação"
+  "caption": "Eu sei, o nome é o mesmo e dá pra confundir. O GHK-Cu é um peptídeo que carrega cobre e já existe no corpo. No laboratório, estimula colágeno e elastina; em células, alterou a atividade de cerca de 4.000 genes. Isso é laboratório, não resultado em pessoas.\n\nEm gente, os estudos são pequenos. No maior deles, de fase 3 com 511 pacientes com úlcera de pé diabético, o GHK-Cu não superou o placebo.\n\n⚠️ No sérum e no creme, o GHK-Cu é ingrediente cosmético permitido, considerado seguro em concentração baixa. A forma injetável não tem aprovação da ANVISA nem da FDA para uso humano, e os frascos vêm rotulados \"apenas para pesquisa\", sem garantia de pureza ou esterilidade. Alergia a cobre e doença de Wilson são contraindicações.\n\n1️⃣ Pergunte: isso é cosmético ou é pesquisa?\n2️⃣ Confira se tem registro e rótulo de verdade\n3️⃣ Converse com seu médico ou dermatologista antes de qualquer frasco",
+  "question": "Você já usou algum sérum com peptídeo de cobre?",
+  "share": "aquela amiga que acha que o GHK-Cu do frasco é igual ao do sérum"
 }

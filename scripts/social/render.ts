@@ -204,6 +204,18 @@ async function pickMusic(): Promise<string | null> {
 }
 
 /**
+ * Capa do Reels em JPEG (capa.jpg, a partir da capa.png do render): a API do Instagram só aceita
+ * JPEG no cover_url. Sem ela, o Instagram usa um quadro qualquer do vídeo. Devolve o caminho ou null.
+ */
+export async function reelCover(outDir: string): Promise<string | null> {
+  const png = path.join(outDir, 'capa.png');
+  const jpg = path.join(outDir, 'capa.jpg');
+  if (!(await fs.stat(png).then(() => true, () => false))) return null;
+  await ffmpeg(['-i', png, '-q:v', '2', jpg]);
+  return jpg;
+}
+
+/**
  * Reels explicador: uma cena por frase, animada quadro a quadro (motion.ts): título entra linha
  * a linha e sai subindo, desenho entra por partes no ritmo da fala e flutua, legenda em pílula
  * que pula a cada bloco. Fundo, selo e marca não cortam; desenho igual ao da cena vizinha
@@ -214,6 +226,7 @@ export async function renderReel(draft: Draft, topic: Topic, cta: Cta | null, ou
   const scenes = scenesFor(draft, topic);
   if (scenes.length === 0) throw new Error('rascunho sem cenas nem falas para o Reels');
   await fs.writeFile(path.join(outDir, 'capa.png'), await renderPng(createElement(ReelScene, { scene: scenes[0] }), REEL));
+  await reelCover(outDir);
 
   const parts: Part[] = [
     ...scenes.map((scene): Part => ({

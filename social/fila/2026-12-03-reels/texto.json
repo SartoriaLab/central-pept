@@ -1,0 +1,160 @@
+{
+  "hook": "O BPC-157 é mesmo o tal efeito Wolverine?",
+  "hookIcon": "osso",
+  "slides": [
+    {
+      "title": "BPC-157 é o peptídeo Wolverine?",
+      "layout": "pergunta",
+      "body": "A fama cresceu bem mais rápido que a prova. O que existe é potencial de reparo visto principalmente em animais de laboratório.",
+      "icon": "duvida"
+    },
+    {
+      "title": "O que ele é",
+      "layout": "padrao",
+      "body": "Um fragmento de 15 aminoácidos de uma proteína do suco gástrico humano. Foi estudado em modelos animais para reparo de tendão, ligamento, músculo e intestino.",
+      "icon": "dna"
+    },
+    {
+      "title": "Se funcionou no rato, funciona em mim",
+      "layout": "mito",
+      "body": "Boa parte dos dados vem de modelos animais. Em humanos, a segurança é pouco conhecida e as interações com outros remédios não estão bem caracterizadas.",
+      "icon": "microscopio"
+    },
+    {
+      "title": "Sem aprovação",
+      "layout": "padrao",
+      "body": "O BPC-157 não tem aprovação da FDA para uso humano: o status é apenas pesquisa. E a WADA proíbe o uso no esporte desde 2022.",
+      "icon": "proibido"
+    },
+    {
+      "title": "Quem precisa de cautela",
+      "layout": "padrao",
+      "body": "Gestantes e lactantes (não há estudos), quem tem câncer ativo e quem usa anticoagulante sem acompanhamento.",
+      "icon": "alerta"
+    },
+    {
+      "title": "Antes de acreditar no vídeo",
+      "layout": "passos",
+      "body": "Relato de uma pessoa não é estudo\nDado em animal não é prova em gente\nDor que não passa é caso de médico",
+      "icon": "estetoscopio"
+    }
+  ],
+  "scenes": [
+    {
+      "chip": "a fama",
+      "kicker": "o que circula no feed",
+      "title": "Efeito",
+      "accent": "Wolverine?",
+      "tone": "vermelho",
+      "speech": "O BPC-157 é mesmo o tal efeito Wolverine?",
+      "visual": { "type": "frasco", "label": "BPC-157", "liquid": "po", "tag": "WOLVERINE?" }
+    },
+    {
+      "chip": "a fama",
+      "kicker": "guarda essa",
+      "title": "A fama correu",
+      "accent": "mais que a prova",
+      "tone": "vermelho",
+      "speech": "A fama dele correu bem mais rápido que a prova, e eu te mostro onde ela para.",
+      "visual": { "type": "icone", "icon": "grafico-sobe", "note": "fama x evidência" }
+    },
+    {
+      "chip": "o que ele é",
+      "kicker": "a origem",
+      "title": "Pedaço de",
+      "accent": "proteína do estômago",
+      "tone": "azul",
+      "speech": "Ele é um pedaço de 15 aminoácidos de uma proteína do suco do estômago.",
+      "visual": { "type": "numero", "value": "15", "note": "aminoácidos, de proteína do suco gástrico" }
+    },
+    {
+      "chip": "os estudos",
+      "kicker": "o que foi testado",
+      "title": "Reparo de",
+      "accent": "tendão e músculo",
+      "tone": "azul",
+      "speech": "Nos estudos, ele mostrou potencial de acelerar o reparo de tendão, músculo e intestino.",
+      "visual": {
+        "type": "lista",
+        "items": [
+          { "text": "Tendão e ligamento", "mark": "duvida" },
+          { "text": "Músculo", "mark": "duvida" },
+          { "text": "Mucosa do intestino", "mark": "duvida" }
+        ]
+      }
+    },
+    {
+      "chip": "os estudos",
+      "kicker": "o detalhe que muda tudo",
+      "title": "Quase tudo",
+      "accent": "em animais",
+      "tone": "vermelho",
+      "speech": "Só que quase tudo isso foi visto em animal de laboratório, não em gente.",
+      "visual": { "type": "carimbo", "text": "EM ANIMAIS", "note": "a maior parte dos dados" }
+    },
+    {
+      "chip": "os estudos",
+      "kicker": "pensa assim",
+      "title": "É o trailer,",
+      "accent": "não o filme",
+      "tone": "azul",
+      "speech": "É como trailer de filme: as cenas bonitas foram gravadas com rato, não com você.",
+      "visual": { "type": "icone", "icon": "microscopio", "note": "modelo animal não é paciente" }
+    },
+    {
+      "chip": "em humanos",
+      "kicker": "o que ninguém sabe",
+      "title": "Segurança",
+      "accent": "pouco conhecida",
+      "tone": "vermelho",
+      "speech": "Em humanos, a segurança é pouco conhecida, e as interações com remédios também.",
+      "visual": {
+        "type": "lista",
+        "items": [
+          { "text": "Segurança em gente", "mark": "duvida" },
+          { "text": "Interação com remédios", "mark": "duvida" }
+        ]
+      }
+    },
+    {
+      "chip": "as regras",
+      "kicker": "o status oficial",
+      "title": "Sem aprovação",
+      "accent": "da FDA",
+      "tone": "vermelho",
+      "speech": "Ele não tem aprovação da FDA para uso humano: o status é apenas pesquisa.",
+      "visual": { "type": "carimbo", "text": "SÓ PESQUISA", "note": "sem aprovação para uso humano" }
+    },
+    {
+      "chip": "as regras",
+      "kicker": "no esporte",
+      "title": "Proibido",
+      "accent": "pela WADA",
+      "tone": "vermelho",
+      "speech": "E a WADA proíbe o BPC-157 no esporte desde 2022.",
+      "visual": { "type": "icone", "icon": "proibido", "note": "Lista Proibida da WADA" },
+      "source": "WADA, desde 2022"
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "antes de qualquer frasco",
+      "title": "Dor que fica",
+      "accent": "é caso de médico",
+      "tone": "azul",
+      "speech": "Dor que não passa é assunto de médico, que procura a causa antes de qualquer frasco.",
+      "visual": { "type": "icone", "icon": "estetoscopio", "note": "procurar a causa da dor" }
+    },
+    {
+      "chip": "pra lembrar",
+      "kicker": "da próxima vez",
+      "title": "Wolverine",
+      "accent": "só no laboratório",
+      "tone": "vermelho",
+      "speech": "Então, efeito Wolverine? Por enquanto, é Wolverine de laboratório, não de gente.",
+      "visual": { "type": "frasco", "label": "BPC-157", "liquid": "po", "stamp": "EM ESTUDO" }
+    }
+  ],
+  "caption": "Eu sei, o vídeo de quem melhorou da dor convence. Mas a fama do BPC-157 correu bem mais rápido que a prova. Ele é um fragmento de 15 aminoácidos de uma proteína do suco gástrico, estudado em modelos animais pelo potencial de acelerar o reparo de tendão, ligamento, músculo e intestino.\n\nBoa parte dos dados vem de animais. Em humanos, a segurança é pouco conhecida e as interações com outros remédios não estão bem caracterizadas.\n\n⚠️ O BPC-157 não tem aprovação da FDA para uso humano (status: apenas pesquisa) e é proibido pela WADA no esporte desde 2022. Gestantes, lactantes, quem tem câncer ativo ou usa anticoagulante precisam de cautela redobrada.\n\n1️⃣ Relato de uma pessoa não é estudo\n2️⃣ Dado em animal não é prova em gente\n3️⃣ Dor que não passa é caso de médico, que procura a causa",
+  "question": "Você já tinha ouvido falar do BPC-157 como efeito Wolverine?",
+  "share": "quem te mandou vídeo do BPC-157 dizendo que é milagre"
+}

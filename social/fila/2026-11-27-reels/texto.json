@@ -1,303 +1,229 @@
 {
-  "hook": "28,3% contra 20,9%? Essa conta está torta.",
-  "hookIcon": "regua",
+  "hook": "Seu Mounjaro está te dando enjoo? Olha o seu prato.",
+  "hookIcon": "enjoo",
   "slides": [
     {
-      "title": "Cada estudo tem duas contas",
-      "layout": "lado",
-      "body": "Todos: conta quem entrou, inclusive quem parou o remédio\nQuem seguiu: estima o que aconteceria se todos fossem até o fim, e é sempre maior",
-      "icon": "prancheta"
-    },
-    {
-      "title": "28,3% contra 20,9% é comparação justa",
+      "title": "O enjoo é só culpa do remédio",
       "layout": "mito",
-      "body": "Os 28,3% da retatrutida são a conta de quem seguiu o tratamento. Os 20,9% da tirzepatida são a conta de todos. Comparar assim exagera a diferença.",
+      "body": "A tirzepatida deixa o estômago mais lento. Comer a mesma quantidade de antes, na mesma velocidade, é o gatilho mais comum da náusea.",
       "icon": "errado"
     },
     {
-      "title": "Na mesma conta, os pares são estes",
-      "layout": "lado",
-      "body": "Todos: 25,0% (retatrutida 12 mg) contra 20,9% (tirzepatida 15 mg)\nQuem seguiu: 28,3% contra 22,5%",
-      "icon": "balanca"
+      "title": "33,3%",
+      "layout": "numero",
+      "body": "No SURMOUNT-1, até 33,3% dos participantes relataram náusea, quase sempre leve e concentrada na subida de dose. Você não está sozinha.",
+      "icon": "enjoo"
     },
     {
-      "title": "Mesmo assim, não dá pra cravar",
-      "layout": "padrao",
-      "body": "O TRIUMPH-1 durou 80 semanas; o SURMOUNT-1, 72 semanas. O peso médio no início e até o placebo foram diferentes: 3,9% contra 3,1%.",
+      "title": "Quando o enjoo costuma aparecer?",
+      "layout": "pergunta",
+      "body": "Nos primeiros dias após a primeira aplicação, nos 2 a 3 dias seguintes a cada aumento de dose e depois de refeições grandes, gordurosas ou muito rápidas.",
       "icon": "calendario"
     },
     {
-      "title": "Os efeitos foram iguais?",
-      "layout": "pergunta",
-      "body": "Não exatamente. Na dose mais alta, 11,3% pararam por efeito adverso com retatrutida e 6,2% com tirzepatida. Disestesia, sensação anormal na pele, apareceu em 12,5% com retatrutida 12 mg.",
+      "title": "No prato, o que ajuda",
+      "layout": "passos",
+      "body": "Porções menores, mais vezes ao dia\nComer devagar e parar no primeiro sinal de saciedade\nMenos fritura, açúcar e álcool\nÁgua em pequenos goles ao longo do dia",
+      "icon": "prato"
+    },
+    {
+      "title": "Pular refeição pra não enjoar",
+      "layout": "mito",
+      "body": "O estômago vazio costuma piorar a náusea. E pular a dose por conta e depois voltar na mesma dose alta também atrapalha.",
       "icon": "alerta"
     },
     {
-      "title": "TRIUMPH-5",
-      "layout": "numero",
-      "body": "É o estudo que coloca as duas frente a frente, em regime duplo-cego. Até novembro de 2026, ainda não tinha resultado divulgado.",
-      "icon": "microscopio"
-    },
-    {
-      "title": "A cola: conta torta não compara",
+      "title": "Hora de procurar atendimento",
       "layout": "passos",
-      "body": "Mesma conta nos dois lados\nEstudos diferentes não são frente a frente\nSó a tirzepatida é aprovada\nDecisão de tratamento é com o médico",
-      "icon": "certo"
+      "body": "Dor abdominal forte e contínua\nVômito por mais de 24 horas\nPouca urina, urina escura, tontura ao levantar\nDor do lado direito com febre ou pele amarelada",
+      "icon": "hospital"
     }
   ],
   "scenes": [
     {
-      "chip": "o print",
-      "kicker": "aquele que circula por aí",
-      "title": "28,3% x 20,9%?",
-      "accent": "Conta torta",
+      "chip": "o enjoo",
+      "kicker": "depois da aplicação",
+      "title": "Enjoo com",
+      "accent": "o Mounjaro?",
       "tone": "vermelho",
-      "speech": "28,3% contra 20,9%: você já viu esse print? Olha, essa conta está torta.",
-      "visual": {
-        "type": "frascos",
-        "left": {
-          "label": "RETATRUTIDA",
-          "note": "28,3%",
-          "liquid": "po"
-        },
-        "right": {
-          "label": "TIRZEPATIDA",
-          "note": "20,9%",
-          "liquid": "claro"
-        },
-        "sign": "vs"
-      }
-    },
-    {
-      "chip": "a conta",
-      "kicker": "o que quase ninguém sabe",
-      "title": "Todo estudo",
-      "accent": "tem duas contas",
-      "tone": "azul",
-      "speech": "Cada estudo divulga duas contas: uma com todo mundo que entrou, e outra só com quem seguiu até o fim.",
+      "speech": "Seu Mounjaro está te dando enjoo? Olha o seu prato.",
       "visual": {
         "type": "icone",
-        "icon": "prancheta",
-        "note": "a de quem seguiu é sempre maior"
+        "icon": "enjoo",
+        "note": "o efeito colateral mais comum"
       }
     },
     {
-      "chip": "a conta",
-      "kicker": "o truque do print",
-      "title": "Pega a maior",
-      "accent": "de um lado só",
+      "chip": "o enjoo",
+      "kicker": "fica até o fim",
+      "title": "O gatilho",
+      "accent": "que ninguém percebe",
       "tone": "vermelho",
-      "speech": "O print pega os 28,3% de quem seguiu a retatrutida e põe contra os 20,9% de todos da tirzepatida.",
+      "speech": "Você não está sozinha, e o gatilho mais comum quase ninguém percebe.",
       "visual": {
-        "type": "carimbo",
-        "text": "CONTA TROCADA",
-        "note": "quem seguiu contra todos"
+        "type": "icone",
+        "icon": "pensando",
+        "note": "o gatilho vem daqui a pouco"
       }
     },
     {
-      "chip": "a conta certa",
-      "kicker": "contando todo mundo",
-      "title": "25,0% contra",
-      "accent": "20,9%",
+      "chip": "o estudo",
+      "kicker": "no maior estudo",
+      "title": "Até um terço",
+      "accent": "sentiu náusea",
       "tone": "azul",
-      "speech": "Na mesma conta, contando todo mundo, fica 25,0% contra 20,9%.",
-      "visual": {
-        "type": "barras",
-        "bars": [
-          {
-            "label": "retatrutida 12 mg",
-            "value": 25,
-            "display": "25,0%"
-          },
-          {
-            "label": "tirzepatida 15 mg",
-            "value": 20.9,
-            "display": "20,9%"
-          }
-        ]
-      },
-      "source": "TRIUMPH-1 e SURMOUNT-1"
-    },
-    {
-      "chip": "a conta certa",
-      "kicker": "só quem seguiu",
-      "title": "28,3% contra",
-      "accent": "22,5%",
-      "tone": "azul",
-      "speech": "E contando só quem seguiu o tratamento, 28,3% contra 22,5%.",
-      "visual": {
-        "type": "barras",
-        "bars": [
-          {
-            "label": "retatrutida 12 mg",
-            "value": 28.3,
-            "display": "28,3%"
-          },
-          {
-            "label": "tirzepatida 15 mg",
-            "value": 22.5,
-            "display": "22,5%"
-          }
-        ]
-      },
-      "source": "TRIUMPH-1 e SURMOUNT-1"
-    },
-    {
-      "chip": "por que não compara",
-      "kicker": "o tempo de estudo",
-      "title": "Oito semanas",
-      "accent": "a mais",
-      "tone": "vermelho",
-      "speech": "Mesmo assim, não dá pra cravar: o TRIUMPH-1 durou 80 semanas, e o SURMOUNT-1, 72 semanas.",
+      "speech": "No maior estudo, até 33,3% das pessoas tiveram náusea.",
       "visual": {
         "type": "numero",
-        "value": "8 semanas",
-        "note": "a mais de duração no TRIUMPH-1"
-      }
+        "value": "33,3%",
+        "note": "relataram náusea na dose de 10 mg"
+      },
+      "source": "SURMOUNT-1"
     },
     {
-      "chip": "por que não compara",
-      "kicker": "o ponto de partida",
-      "title": "Grupos que",
-      "accent": "começaram diferente",
-      "tone": "vermelho",
-      "speech": "E o grupo do TRIUMPH-1 começou com peso médio maior; grupo diferente pode responder diferente.",
+      "chip": "por que enjoa",
+      "kicker": "o que o remédio faz",
+      "title": "Estômago",
+      "accent": "mais lento",
+      "tone": "azul",
+      "speech": "O remédio deixa o estômago mais lento: a comida fica mais tempo lá dentro.",
       "visual": {
         "type": "icone",
-        "icon": "balanca",
-        "note": "peso médio inicial diferente"
+        "icon": "ampulheta",
+        "note": "o esvaziamento do estômago demora mais"
       }
     },
     {
-      "chip": "por que não compara",
-      "kicker": "até o grupo de controle",
-      "title": "O placebo",
-      "accent": "também mudou",
+      "chip": "por que enjoa",
+      "kicker": "pensa assim",
+      "title": "Rua mais lenta,",
+      "accent": "mesmo tanto de carro",
       "tone": "vermelho",
-      "speech": "Até o placebo foi diferente: perdeu 3,9% num estudo e 3,1% no outro.",
-      "visual": {
-        "type": "frascos",
-        "left": {
-          "label": "PLACEBO",
-          "note": "TRIUMPH-1: 3,9%",
-          "liquid": "claro"
-        },
-        "right": {
-          "label": "PLACEBO",
-          "note": "SURMOUNT-1: 3,1%",
-          "liquid": "claro"
-        },
-        "sign": "≠"
-      }
-    },
-    {
-      "chip": "por que não compara",
-      "kicker": "e as doses",
-      "title": "12 mg não é",
-      "accent": "igual a 15 mg",
-      "tone": "vermelho",
-      "speech": "E 12 mg de retatrutida e 15 mg de tirzepatida são só as doses mais altas de cada estudo, não doses iguais.",
+      "speech": "É como uma rua que ficou mais lenta: se manda o mesmo tanto de carro, engarrafa.",
       "visual": {
         "type": "carimbo",
-        "text": "NÃO SÃO IGUAIS",
-        "note": "moléculas e receptores diferentes"
+        "text": "ENGARRAFOU",
+        "note": "mesma comida, estômago mais lento"
       }
     },
     {
-      "chip": "os efeitos",
-      "kicker": "quem largou, na dose mais alta",
-      "title": "11,3% contra",
-      "accent": "6,2%",
+      "chip": "o gatilho",
+      "kicker": "o que quase ninguém percebe",
+      "title": "O prato",
+      "accent": "de antes",
       "tone": "vermelho",
-      "speech": "Nos efeitos, na dose mais alta, 11,3% largaram a retatrutida por efeito adverso, contra 6,2% na tirzepatida.",
+      "speech": "E o gatilho mais comum é esse: comer a mesma quantidade de antes, na mesma velocidade.",
       "visual": {
-        "type": "barras",
-        "bars": [
+        "type": "lista",
+        "items": [
           {
-            "label": "retatrutida 12 mg",
-            "value": 11.3,
-            "display": "11,3%"
+            "text": "Mesmo tamanho de prato de antes",
+            "mark": "nao"
           },
           {
-            "label": "tirzepatida 15 mg",
-            "value": 6.2,
-            "display": "6,2%"
+            "text": "Mesma pressa pra comer",
+            "mark": "nao"
           }
         ]
-      },
-      "source": "TRIUMPH-1 e SURMOUNT-1"
+      }
     },
     {
-      "chip": "os efeitos",
-      "kicker": "um efeito pouco visto",
-      "title": "Sensação",
-      "accent": "estranha na pele",
-      "tone": "vermelho",
-      "speech": "E 12,5% relataram disestesia, uma sensação estranha na pele, com a retatrutida na dose de 12 mg.",
-      "visual": {
-        "type": "pontos",
-        "total": 100,
-        "marked": 12,
-        "note": "cerca de 12 a cada 100, com retatrutida 12 mg"
-      },
-      "source": "TRIUMPH-1, Eli Lilly"
-    },
-    {
-      "chip": "o frente a frente",
-      "kicker": "o estudo que responde",
-      "title": "TRIUMPH-5",
-      "accent": "ainda sem resultado",
+      "chip": "o gatilho",
+      "kicker": "quando costuma vir",
+      "title": "Depois de",
+      "accent": "subir a dose",
       "tone": "azul",
-      "speech": "A resposta só vem de um estudo frente a frente: o TRIUMPH-5, que ainda não divulgou resultado.",
+      "speech": "O enjoo costuma vir nos 2 a 3 dias depois de cada aumento de dose.",
       "visual": {
         "type": "linha",
         "steps": [
-          "TRIUMPH-1",
-          "TRIUMPH-5",
-          "resultado"
+          "aumento",
+          "2 a 3 dias",
+          "melhora"
         ],
         "current": 1,
-        "note": "sem resultado até novembro de 2026"
-      },
-      "source": "NCT06662383"
+        "note": "e diminui ao longo do mês"
+      }
     },
     {
-      "chip": "hoje",
-      "kicker": "o que existe de fato",
-      "title": "Só uma delas",
-      "accent": "é aprovada",
+      "chip": "o que fazer",
+      "kicker": "no prato",
+      "title": "Menos no prato,",
+      "accent": "mais devagar",
       "tone": "azul",
-      "speech": "E hoje só a tirzepatida é aprovada; a retatrutida segue experimental, sem aprovação em nenhum país.",
+      "speech": "O que ajuda: porções menores, comer devagar e parar no primeiro sinal de saciedade.",
       "visual": {
-        "type": "frascos",
-        "left": {
-          "label": "TIRZEPATIDA",
-          "note": "aprovada, com bula",
-          "liquid": "claro"
-        },
-        "right": {
-          "label": "RETATRUTIDA",
-          "note": "experimental",
-          "liquid": "po"
-        },
-        "sign": "≠"
+        "type": "lista",
+        "items": [
+          {
+            "text": "Porções menores, mais vezes",
+            "mark": "ok"
+          },
+          {
+            "text": "Comer devagar",
+            "mark": "ok"
+          },
+          {
+            "text": "Parar no primeiro sinal de saciedade",
+            "mark": "ok"
+          }
+        ]
+      }
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "e no copo",
+      "title": "Água aos goles,",
+      "accent": "sem fritura",
+      "tone": "azul",
+      "speech": "E menos fritura e álcool, com água em pequenos goles ao longo do dia.",
+      "visual": {
+        "type": "icone",
+        "icon": "gota",
+        "note": "pequenos goles, não um copão na refeição"
+      }
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "e na dose",
+      "title": "Não cedeu?",
+      "accent": "Fala com o médico",
+      "tone": "azul",
+      "speech": "O enjoo não cedeu? Não suba a dose: o médico pode manter ou voltar um degrau.",
+      "visual": {
+        "type": "icone",
+        "icon": "estetoscopio",
+        "note": "manter a dose ou voltar um degrau"
+      }
+    },
+    {
+      "chip": "quando procurar",
+      "kicker": "isso não é normal",
+      "title": "Vômito que dura",
+      "accent": "ou dor forte",
+      "tone": "vermelho",
+      "speech": "Mas vômito por mais de 24 horas ou dor forte na barriga pedem atendimento.",
+      "visual": {
+        "type": "icone",
+        "icon": "hospital",
+        "note": "também com sinais de desidratação"
       }
     },
     {
       "chip": "pra lembrar",
-      "kicker": "da próxima vez",
-      "title": "Viu o print?",
-      "accent": "Conta torta",
-      "tone": "vermelho",
-      "speech": "Então, viu de novo o print de 28,3% contra 20,9%? Agora você sabe: essa conta está torta.",
+      "kicker": "da próxima refeição",
+      "title": "Antes de culpar",
+      "accent": "a caneta, o prato",
+      "tone": "azul",
+      "speech": "Então, enjoou com o Mounjaro? Antes de culpar a caneta, olha o seu prato.",
       "visual": {
-        "type": "carimbo",
-        "text": "CONTA TORTA",
-        "note": "compare sempre a mesma conta"
+        "type": "icone",
+        "icon": "prato",
+        "note": "porção menor, mais devagar"
       }
     }
   ],
-  "caption": "Eu sei, o print é tentador: 28,3% de um lado, 20,9% do outro. Mas esses dois números não usam a mesma conta. Os 28,3% da retatrutida contam só quem seguiu o tratamento; os 20,9% da tirzepatida contam todos os participantes.\n\n1️⃣ Na mesma conta: 25,0% contra 20,9% (todos) e 28,3% contra 22,5% (quem seguiu).\n2️⃣ Mesmo assim, os estudos tiveram duração, peso inicial e placebo diferentes.\n3️⃣ O estudo que compara as duas frente a frente, o TRIUMPH-5, ainda não tem resultado.\n\n⚠️ Nos efeitos, na dose mais alta, 11,3% pararam por efeito adverso com retatrutida e 6,2% com tirzepatida, e 12,5% relataram disestesia com retatrutida 12 mg. A retatrutida é experimental e não tem aprovação em nenhum país; só a tirzepatida é aprovada. As doses citadas são as dos estudos, e qualquer decisão de tratamento é com o médico.",
-  "question": "Você já tinha visto aquele print de 28,3% contra 20,9%?",
-  "share": "quem te mandou o print comparando retatrutida e tirzepatida"
+  "caption": "Eu sei, todo mundo come o prato de sempre e depois culpa o Mounjaro pelo enjoo. A tirzepatida deixa o estômago mais lento: a comida fica mais tempo lá dentro, e comer a mesma quantidade de antes, na mesma velocidade, é o gatilho mais comum da náusea. No SURMOUNT-1, até 33,3% dos participantes relataram náusea, quase sempre leve e nos 2 a 3 dias seguintes a cada aumento de dose.\n\n1️⃣ Porções menores, mais vezes ao dia, comendo devagar\n2️⃣ Menos fritura, açúcar e álcool; água em pequenos goles ao longo do dia\n3️⃣ Enjoo não cedeu? Não suba a dose: o médico pode manter ou voltar um degrau\n\n⚠️ Pular refeição piora a náusea. E vômito por mais de 24 horas, dor abdominal forte e contínua ou sinais de desidratação (pouca urina, tontura ao levantar) pedem atendimento médico.",
+  "question": "Em qual semana o enjoo apareceu para você?",
+  "share": "aquela amiga que come correndo e culpa o Mounjaro pelo enjoo"
 }

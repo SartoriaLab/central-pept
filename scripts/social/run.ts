@@ -19,7 +19,7 @@ import { QueuedDraftSchema, SYSTEM, draftJsonSchema, userMessage, writeDraft } f
 import { validateDraft } from './validate';
 import { buildCaption } from './caption';
 import { ctaFor, fetchActiveEbookSlugs } from './ebook-cta';
-import { renderCarousel, renderReel } from './render';
+import { reelCover, renderCarousel, renderReel } from './render';
 import { dateRange, planQueue, queueKey, reservedFrom, type QueueItem } from './queue';
 import type { Draft, Format, HistoryEntry, Topic } from './types';
 
@@ -431,10 +431,12 @@ async function main() {
     if (!userId) throw new Error('IG_USER_ID não definido');
     const ig = new InstagramClient({ userId, token });
 
-    const urls = await upload(files, `${today()}-${format}`);
+    // Reels vai com a capa (capa.jpg, título da 1ª cena): sem ela o Instagram usa um quadro qualquer.
+    const cover = format === 'reels' ? await reelCover(outDir) : null;
+    const urls = await upload(cover ? [...files, cover] : files, `${today()}-${format}`);
     let mediaId: string;
     try {
-      mediaId = format === 'carrossel' ? await ig.publishCarousel(urls, caption) : await ig.publishReel(urls[0], caption);
+      mediaId = format === 'carrossel' ? await ig.publishCarousel(urls, caption) : await ig.publishReel(urls[0], caption, cover ? urls.at(-1) : undefined);
     } finally {
       await remove(urls).catch((e) => console.warn(`Blob não removido: ${(e as Error).message}`));
     }

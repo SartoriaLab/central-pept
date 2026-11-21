@@ -1,289 +1,213 @@
 {
-  "hook": "Viu Mounjaro em frasco? No Brasil, isso não existe.",
-  "hookIcon": "lupa",
+  "hook": "Seu Mounjaro não fez efeito no primeiro mês?",
+  "hookIcon": "calendario",
   "slides": [
     {
-      "title": "Mounjaro também vem em frasco",
+      "title": "Se não mudou no primeiro mês, não funciona",
       "layout": "mito",
-      "body": "No Brasil, a Lilly só tem a caneta KwikPen, com solução pronta. Frasco com pó é tirzepatida manipulada ou de outra origem, nunca Mounjaro.",
-      "icon": "frasco"
+      "body": "A tirzepatida age desde a primeira aplicação, mas as 4 primeiras semanas são de 2,5 mg: dose de início, não de manutenção para perda de peso.",
+      "icon": "errado"
     },
     {
-      "title": "Na caixa, confira",
-      "layout": "passos",
-      "body": "Mounjaro, tirzepatida e dose impressos\nFabricante Eli Lilly e registro ANVISA\nLote e validade impressos, não em adesivo\nLacre intacto e bula em português",
-      "icon": "prancheta"
-    },
-    {
-      "title": "4 canetas",
+      "title": "4 semanas",
       "layout": "numero",
-      "body": "É a apresentação nacional: caixa com 4 canetas. Caneta solta, sem caixa, ou caixa com uma só caneta merece desconfiança.",
+      "body": "É o tempo para a concentração no sangue ficar estável em cada dose. Por isso a bula pede pelo menos 4 semanas em cada degrau.",
+      "icon": "ampulheta"
+    },
+    {
+      "title": "Uma escada, não um interruptor",
+      "layout": "padrao",
+      "body": "Se for preciso mais efeito, a dose sobe 2,5 mg a cada 4 semanas ou mais. Quem vai até 15 mg só chega lá na 21ª semana, e nem todo mundo precisa da dose máxima.",
+      "icon": "grafico-sobe"
+    },
+    {
+      "title": "Dá pra acelerar subindo antes?",
+      "layout": "pergunta",
+      "body": "Não. Subir a dose por conta própria ou encurtar o intervalo entre degraus aumenta os efeitos colaterais sem acelerar o resultado. A decisão de subir é do médico.",
       "icon": "alerta"
     },
     {
-      "title": "Na caneta, confira",
+      "title": "Parece que não está funcionando?",
       "layout": "passos",
-      "body": "Rótulo impresso de fábrica\nLote igual ao da caixa\nLíquido límpido e incolor\nSeletor que trava com clique",
-      "icon": "seringa"
-    },
-    {
-      "title": "Onde o risco é maior?",
-      "layout": "pergunta",
-      "body": "Marketplace, rede social, Telegram e perfil sem CNPJ nem endereço. E ninguém pedindo receita: a ANVISA exige receita retida para tirzepatida.",
-      "icon": "proibido"
-    },
-    {
-      "title": "Consulte o registro",
-      "layout": "padrao",
-      "body": "Em consultas.anvisa.gov.br, busque Mounjaro: o registro válido é da Eli Lilly do Brasil. Veja também se o lote aparece nos alertas de falsificação.",
-      "icon": "escudo"
-    },
-    {
-      "title": "Desconfiou? Não aplique",
-      "layout": "padrao",
-      "body": "Fotografe a caixa, a caneta e o rótulo e notifique a ANVISA pelo Notivisa. Já aplicou e sentiu algo anormal? Pronto-socorro, levando o produto.",
-      "icon": "hospital"
-    },
-    {
-      "title": "Sua cola",
-      "layout": "passos",
-      "body": "Mounjaro é caneta, em caixa com 4\nLote da caixa igual ao da caneta\nRegistro na ANVISA em nome da Eli Lilly\nFrasco nunca é Mounjaro",
-      "icon": "certo"
+      "body": "Veja há quanto tempo está em dose de manutenção\nAntes de 3 meses em dose estável é cedo\nEm frasco, confira a conta e as unidades\nLeve o registro de peso e doses ao médico",
+      "icon": "estetoscopio"
     }
   ],
   "scenes": [
     {
-      "chip": "o anúncio",
-      "kicker": "apareceu no seu feed",
-      "title": "Mounjaro",
-      "accent": "em frasco?",
+      "chip": "o primeiro mês",
+      "kicker": "a dúvida de todo mundo",
+      "title": "Não fez efeito",
+      "accent": "no primeiro mês?",
       "tone": "vermelho",
-      "speech": "Apareceu Mounjaro em frasco no seu feed? Olha, isso não existe no Brasil.",
-      "visual": {
-        "type": "frasco",
-        "label": "MOUNJARO",
-        "liquid": "po",
-        "stamp": "NÃO EXISTE"
-      }
-    },
-    {
-      "chip": "o original",
-      "kicker": "o que a Lilly tem aqui",
-      "title": "Só existe",
-      "accent": "a caneta KwikPen",
-      "tone": "azul",
-      "speech": "Aqui, o Mounjaro da Eli Lilly é só a caneta KwikPen, com a solução pronta.",
+      "speech": "Seu Mounjaro não fez efeito no primeiro mês?",
       "visual": {
         "type": "icone",
-        "icon": "seringa",
-        "note": "caneta KwikPen, solução pronta"
+        "icon": "calendario",
+        "note": "as primeiras semanas de caneta"
       }
     },
     {
-      "chip": "o original",
-      "kicker": "então o que é o frasco?",
-      "title": "Frasco nunca",
-      "accent": "é Mounjaro",
-      "tone": "vermelho",
-      "speech": "Frasco com pó é tirzepatida manipulada ou de outra origem, nunca Mounjaro.",
-      "visual": {
-        "type": "frascos",
-        "left": {
-          "label": "MOUNJARO",
-          "note": "só caneta, no Brasil",
-          "liquid": "claro"
-        },
-        "right": {
-          "label": "FRASCO",
-          "note": "manipulada ou outra origem",
-          "liquid": "po"
-        },
-        "sign": "≠"
-      }
-    },
-    {
-      "chip": "a caixa",
-      "kicker": "a apresentação nacional",
-      "title": "Caixa com",
-      "accent": "quatro canetas",
+      "chip": "o primeiro mês",
+      "kicker": "antes de desanimar",
+      "title": "Tem explicação",
+      "accent": "e um erro comum",
       "tone": "azul",
-      "speech": "A caixa nacional vem com 4 canetas; caneta solta, ou caixa com uma só, já é suspeita.",
+      "speech": "Calma, isso tem explicação, e o erro mais comum eu conto no final.",
+      "visual": {
+        "type": "icone",
+        "icon": "pensando",
+        "note": "o erro mais comum fica pro fim"
+      }
+    },
+    {
+      "chip": "o primeiro mês",
+      "kicker": "desde a primeira aplicação",
+      "title": "Ele já age",
+      "accent": "desde o começo",
+      "tone": "azul",
+      "speech": "Ele age desde a primeira aplicação: muita gente sente menos fome já nos primeiros dias.",
+      "visual": {
+        "type": "icone",
+        "icon": "cerebro",
+        "note": "menos fome, saciedade mais rápida"
+      }
+    },
+    {
+      "chip": "a dose inicial",
+      "kicker": "o que a bula diz",
+      "title": "O primeiro mês",
+      "accent": "é dose de início",
+      "tone": "azul",
+      "speech": "Mas as 4 primeiras semanas são de 2,5 mg, a dose de início.",
       "visual": {
         "type": "numero",
-        "value": "4 canetas",
-        "note": "por caixa, na apresentação nacional"
-      }
-    },
-    {
-      "chip": "a caixa",
-      "kicker": "vira a caixa e confere",
-      "title": "Tudo impresso,",
-      "accent": "nada de adesivo",
-      "tone": "azul",
-      "speech": "Na caixa, procure Eli Lilly, o registro ANVISA, e lote e validade impressos, nunca em adesivo.",
-      "visual": {
-        "type": "lista",
-        "items": [
-          {
-            "text": "Fabricante Eli Lilly",
-            "mark": "ok"
-          },
-          {
-            "text": "Registro ANVISA impresso",
-            "mark": "ok"
-          },
-          {
-            "text": "Lote em etiqueta adesiva",
-            "mark": "nao"
-          },
-          {
-            "text": "Lacre com sinal de recolagem",
-            "mark": "nao"
-          }
-        ]
-      }
-    },
-    {
-      "chip": "a caneta",
-      "kicker": "o detalhe que entrega",
-      "title": "O lote tem",
-      "accent": "que ser o mesmo",
-      "tone": "vermelho",
-      "speech": "O detalhe que mais entrega: o lote da caixa precisa ser igual ao lote impresso na caneta.",
-      "visual": {
-        "type": "carimbo",
-        "text": "LOTE TEM QUE BATER",
-        "note": "caixa e caneta, mesmo número"
-      }
-    },
-    {
-      "chip": "a caneta",
-      "kicker": "olha o líquido",
-      "title": "Turvo ou",
-      "accent": "com partícula?",
-      "tone": "vermelho",
-      "speech": "O líquido é límpido e incolor; se estiver turvo ou com partícula, desconfia.",
-      "visual": {
-        "type": "frasco",
-        "label": "???",
-        "liquid": "amarelo",
-        "tag": "TURVO"
-      }
-    },
-    {
-      "chip": "a caneta",
-      "kicker": "gira o seletor",
-      "title": "Sem clique?",
-      "accent": "Suspeito",
-      "tone": "vermelho",
-      "speech": "E o seletor da caneta trava com clique; se ele gira solto, sem clique, é suspeito.",
-      "visual": {
-        "type": "icone",
-        "icon": "alerta",
-        "note": "seletor que gira livre é suspeito"
-      }
-    },
-    {
-      "chip": "onde mora o risco",
-      "kicker": "alerta da Lilly e da ANVISA",
-      "title": "Onde circula",
-      "accent": "a caneta falsa",
-      "tone": "vermelho",
-      "speech": "Os alertas apontam marketplace, rede social e perfil sem CNPJ nem endereço, que some depois.",
-      "visual": {
-        "type": "lista",
-        "items": [
-          {
-            "text": "Marketplace",
-            "mark": "nao"
-          },
-          {
-            "text": "Rede social e Telegram",
-            "mark": "nao"
-          },
-          {
-            "text": "Perfil sem CNPJ nem endereço",
-            "mark": "nao"
-          }
-        ]
-      }
-    },
-    {
-      "chip": "onde mora o risco",
-      "kicker": "ninguém pediu receita?",
-      "title": "Receita retida",
-      "accent": "é obrigatória",
-      "tone": "azul",
-      "speech": "E se ninguém pediu receita, já tem regra sendo ignorada: a ANVISA exige receita retida para tirzepatida.",
-      "visual": {
-        "type": "carimbo",
-        "text": "RECEITA RETIDA",
-        "note": "exigida pela ANVISA"
+        "value": "2,5 mg",
+        "note": "dose inicial das 4 primeiras semanas"
       },
-      "source": "ANVISA, RDC 973/2025"
+      "source": "Bula do Zepbound"
     },
     {
-      "chip": "como conferir",
-      "kicker": "no site da ANVISA",
-      "title": "Confere o registro",
-      "accent": "e os alertas",
+      "chip": "a dose inicial",
+      "kicker": "pra que ela serve",
+      "title": "Não é dose",
+      "accent": "de manutenção",
+      "tone": "vermelho",
+      "speech": "Ela serve pro corpo se acostumar, não é dose de manutenção pra perda de peso.",
+      "visual": {
+        "type": "carimbo",
+        "text": "DOSE DE INÍCIO",
+        "note": "o corpo se acostumando"
+      },
+      "source": "Bula do Zepbound"
+    },
+    {
+      "chip": "a escada",
+      "kicker": "pensa assim",
+      "title": "Cada degrau",
+      "accent": "leva um mês",
       "tone": "azul",
-      "speech": "No site de consultas da ANVISA, o registro válido é da Eli Lilly do Brasil, e o lote não pode estar nos alertas.",
+      "speech": "Pensa numa escada: cada degrau leva cerca de um mês pra firmar o pé.",
       "visual": {
         "type": "linha",
         "steps": [
-          "buscar",
-          "registro",
-          "dose",
-          "alertas"
+          "início",
+          "degrau",
+          "degrau",
+          "estável"
         ],
-        "current": 3,
-        "note": "consultas.anvisa.gov.br"
-      },
-      "source": "ANVISA"
+        "current": 0,
+        "note": "a dose sobe aos poucos"
+      }
     },
     {
-      "chip": "o que fazer",
-      "kicker": "desconfiou?",
-      "title": "Não aplique",
-      "accent": "e notifique",
-      "tone": "vermelho",
-      "speech": "Desconfiou? Não aplique: fotografa a caixa, a caneta e o rótulo e notifica a ANVISA pelo Notivisa.",
+      "chip": "a escada",
+      "kicker": "no sangue",
+      "title": "A concentração",
+      "accent": "precisa estabilizar",
+      "tone": "azul",
+      "speech": "É o tempo pra concentração no sangue ficar estável em cada dose.",
       "visual": {
-        "type": "carimbo",
-        "text": "NÃO APLIQUE",
-        "note": "notifique pelo Notivisa"
+        "type": "icone",
+        "icon": "ampulheta",
+        "note": "cerca de 4 semanas por dose"
+      }
+    },
+    {
+      "chip": "a escada",
+      "kicker": "quem vai até o topo",
+      "title": "Dose máxima",
+      "accent": "só na 21ª semana",
+      "tone": "azul",
+      "speech": "Quem vai até a dose máxima só chega lá na 21ª semana.",
+      "visual": {
+        "type": "numero",
+        "value": "21ª sem.",
+        "note": "quando se chega à dose máxima"
+      }
+    },
+    {
+      "chip": "o erro",
+      "kicker": "o que quase todo mundo faz",
+      "title": "Subir por conta",
+      "accent": "pra acelerar",
+      "tone": "vermelho",
+      "speech": "E o erro mais comum: subir a dose por conta própria pra acelerar.",
+      "visual": {
+        "type": "lista",
+        "items": [
+          {
+            "text": "Subir a dose por conta",
+            "mark": "nao"
+          },
+          {
+            "text": "Encurtar o tempo do degrau",
+            "mark": "nao"
+          }
+        ]
+      }
+    },
+    {
+      "chip": "o erro",
+      "kicker": "o que acontece",
+      "title": "Mais enjoo,",
+      "accent": "mesmo resultado",
+      "tone": "vermelho",
+      "speech": "Isso só aumenta os efeitos colaterais, sem acelerar o resultado.",
+      "visual": {
+        "type": "icone",
+        "icon": "enjoo",
+        "note": "efeito colateral sobe, ritmo não"
       }
     },
     {
       "chip": "o que fazer",
-      "kicker": "já aplicou?",
-      "title": "Sentiu algo",
-      "accent": "estranho?",
-      "tone": "vermelho",
-      "speech": "Se você já aplicou e sentiu algo fora do normal, vai ao pronto-socorro levando o produto junto.",
+      "kicker": "antes de concluir",
+      "title": "Leve o registro",
+      "accent": "ao médico",
+      "tone": "azul",
+      "speech": "Antes de três meses em dose estável ainda é cedo: leve seu registro de doses ao médico.",
       "visual": {
         "type": "icone",
-        "icon": "hospital",
-        "note": "leve a caixa e a caneta"
+        "icon": "estetoscopio",
+        "note": "a decisão de subir é do médico"
       }
     },
     {
       "chip": "pra lembrar",
       "kicker": "da próxima vez",
-      "title": "Mounjaro em frasco",
-      "accent": "não existe aqui",
-      "tone": "vermelho",
-      "speech": "Então, viu Mounjaro em frasco por aí? Agora você sabe: no Brasil, isso não existe.",
+      "title": "Primeiro mês?",
+      "accent": "Primeiro degrau",
+      "tone": "azul",
+      "speech": "Então, primeiro mês sem efeito? Você ainda está no primeiro degrau da escada.",
       "visual": {
-        "type": "frasco",
-        "label": "MOUNJARO",
-        "liquid": "po",
-        "stamp": "NÃO EXISTE"
+        "type": "carimbo",
+        "text": "PRIMEIRO DEGRAU",
+        "note": "a escada ainda está começando"
       }
     }
   ],
-  "caption": "Eu sei, quando aparece \"Mounjaro em frasco\" dá vontade de acreditar. Mas no Brasil a Lilly só tem a caneta KwikPen, com solução pronta, em caixa com 4 canetas. Frasco com pó é tirzepatida manipulada ou de outra origem, nunca Mounjaro.\n\n1️⃣ Na caixa: registro ANVISA, fabricante Eli Lilly, lote e validade impressos (não em adesivo), lacre intacto e bula em português.\n2️⃣ Na caneta: rótulo de fábrica, lote igual ao da caixa, líquido límpido e incolor, seletor que trava com clique.\n3️⃣ Na ANVISA: confira o registro em consultas.anvisa.gov.br e veja se o lote está em algum alerta de falsificação.\n\n⚠️ Desconfiou, não aplique. Fotografe tudo e notifique pelo Notivisa. Se já aplicou e apareceram sintomas anormais, procure o pronto-socorro levando o produto.",
-  "question": "Você já tinha visto anúncio de Mounjaro em frasco por aí?",
-  "share": "quem acha que Mounjaro também vem em frasco"
+  "caption": "Eu sei, a gente começa o Mounjaro esperando ver diferença logo. A tirzepatida age desde a primeira aplicação, e muita gente sente menos fome nos primeiros dias. Mas as 4 primeiras semanas são de 2,5 mg, dose de início para o corpo se acostumar, não dose de manutenção para perda de peso.\n\nA concentração no sangue leva cerca de 4 semanas para ficar estável em cada dose. É uma escada: quem vai até a dose máxima só chega lá na 21ª semana, e nem todo mundo precisa dela.\n\n⚠️ Subir a dose por conta própria ou encurtar o intervalo entre degraus aumenta os efeitos colaterais sem acelerar o resultado.\n\n1️⃣ Confira há quanto tempo está em dose de manutenção\n2️⃣ Antes de 3 meses em dose estável é cedo para concluir\n3️⃣ Leve o registro de peso e doses ao médico: a decisão de subir é dele",
+  "question": "Em qual degrau da escada você está agora?",
+  "share": "aquela amiga que acha que o Mounjaro dela não está funcionando"
 }

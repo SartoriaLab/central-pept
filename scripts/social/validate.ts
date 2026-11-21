@@ -38,7 +38,8 @@ export const BANNED: { re: RegExp; why: string }[] = [
   { re: /\b(frete|pix|whatsapp|direct|dm)\b/i, why: 'canal de venda' },
   { re: /\bcura(r)?\b/i, why: 'promete cura' },
   { re: /\bgarantid[oa]s?\b/i, why: 'promete resultado' },
-  { re: /\b(perca|perder|emagre[çc]a|secar?)\s+(at[ée]\s+)?\d+/i, why: 'promete perda de peso em número' },
+  // Só na mesma linha e só o verbo: "boca seca" no fim de uma linha + "3️⃣" na seguinte não é promessa.
+  { re: /\b(perca|perder|emagre[çc]a|secar)[ \t]+(at[ée][ \t]+)?\d+/i, why: 'promete perda de peso em número' },
   { re: /sem efeitos? colaterais?/i, why: 'nega efeito colateral' },
   { re: /\b(seringa|agulha)s?\s+(entrando|na pele|no braço|na barriga)/i, why: 'descreve aplicação' },
 ];
