@@ -1,0 +1,57 @@
+{
+  "hook": "Você usa água destilada na tirzepatida? Não use.",
+  "hookIcon": "gota",
+  "slides": [
+    {
+      "title": "Água estéril é tudo igual?",
+      "layout": "pergunta",
+      "body": "Não. A bacteriostática é água estéril com 0,9% de álcool benzílico, um conservante que segura as bactérias toda vez que a agulha entra no frasco.",
+      "icon": "duvida"
+    },
+    {
+      "title": "Destilada serve, é tudo água estéril",
+      "layout": "mito",
+      "body": "Só enquanto o frasco está lacrado. Perfurou, a água sem conservante fica exposta às bactérias do ambiente e contamina em poucas horas.",
+      "icon": "microscopio"
+    },
+    {
+      "title": "Qual água para qual uso",
+      "layout": "lado",
+      "body": "Bacteriostática: frasco de várias doses, guardado por semanas\nPara injeção, sem conservante: só dose única, usada na hora",
+      "icon": "balanca"
+    },
+    {
+      "title": "28 dias",
+      "layout": "numero",
+      "body": "Prazo do frasco reconstituído na geladeira, de 2 a 8 °C, contado da primeira perfuração. É a regra do CDC: controla a contaminação, não garante a potência.",
+      "icon": "calendario"
+    },
+    {
+      "title": "Nunca vai para o frasco",
+      "layout": "padrao",
+      "body": "Água da torneira, filtrada, mineral ou fervida. Nenhuma é estéril, e mesmo fervida pode ter partículas e endotoxinas que não devem ser injetadas.",
+      "icon": "proibido"
+    },
+    {
+      "title": "E se a solução ficar turva?",
+      "layout": "pergunta",
+      "body": "Descarte. Solução cristalina é o único estado aceitável. E nada de congelar: depois de reconstituído, o gelo quebra a estrutura do peptídeo.",
+      "icon": "lupa"
+    },
+    {
+      "title": "Cola do diluente",
+      "layout": "passos",
+      "body": "Mais de uma dose no frasco? Só bacteriostática\nÁlcool 70% na tampa antes de cada perfuração\nEtiqueta com a data da primeira perfuração\nPassou de 28 dias, descarte",
+      "icon": "certo"
+    }
+  ],
+  "narration": [
+    { "text": "Você usa água destilada na tirzepatida? Não use. Eu sei, parece tudo água estéril." },
+    { "text": "Só que, sem conservante, o frasco perfurado contamina em poucas horas. A bacteriostática tem álcool benzílico, que segura as bactérias." },
+    { "text": "Frasco de várias doses pede bacteriostática, tampa limpa com álcool e etiqueta com a data da primeira perfuração." },
+    { "text": "Então, da próxima vez que for diluir, a água destilada fica no armário." }
+  ],
+  "caption": "Eu sei, todo mundo já pensou: água estéril é água estéril. Mas a destilada (ou a para injeção sem conservante) só é estéril enquanto o frasco está lacrado. Na primeira perfuração, ela fica exposta às bactérias do ambiente e, sem conservante, contamina em poucas horas.\n\nA água bacteriostática é água estéril com 0,9% de álcool benzílico. Esse conservante inibe o crescimento de bactérias e deixa perfurar o mesmo frasco várias vezes. Por isso ela é o diluente padrão de peptídeos de várias doses, como tirzepatida e semaglutida em pó.\n\n1️⃣ Mais de uma dose do mesmo frasco, ou guardar por mais de 24 horas: bacteriostática.\n2️⃣ Álcool 70% na tampa antes de cada perfuração.\n3️⃣ Geladeira, de 2 a 8 °C, por até 28 dias depois da primeira perfuração.\n\n⚠️ Água da torneira, filtrada, mineral ou fervida nunca. E solução turva vai para o descarte.",
+  "question": "Qual água você usou na última vez que diluiu um frasco?",
+  "share": "aquela amiga que ia diluir o frasco com água destilada"
+}

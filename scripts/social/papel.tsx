@@ -50,12 +50,14 @@ export function nobreak(text: string): string {
 /** Tamanho do título pelo comprimento da linha mais longa (Anton é estreita, mas tem limite). */
 export function titleSize(a: string, b: string, max: number): number {
   const n = Math.max(a.length, b.length);
-  if (n <= 14) return max;
-  if (n <= 18) return Math.round(max * 0.84);
-  if (n <= 24) return Math.round(max * 0.7);
-  if (n <= 32) return Math.round(max * 0.58);
-  return Math.round(max * 0.48);
+  // Anton em caixa alta ocupa ~0,44 em por letra; 0,47 dá folga para acento e M/W. Sem esse teto, a
+  // capa (max 150) quebrava a linha de cima, que invadia a de baixo (altura da linha é fixa).
+  const fit = Math.floor(TITLE_WIDTH / (0.47 * Math.max(n, 1)));
+  const byLength = n <= 14 ? max : n <= 18 ? max * 0.84 : n <= 24 ? max * 0.7 : n <= 32 ? max * 0.58 : max * 0.48;
+  return Math.min(Math.round(byLength), fit);
 }
+/** Largura útil do título: 1080 menos as margens de 70 (carrossel e Reels). */
+const TITLE_WIDTH = 940;
 
 /** Fundo creme com a grade fina do caderno (linhas soltas: o gradiente repetido pesa no resvg). */
 const GRID = 54;

@@ -1,0 +1,57 @@
+{
+  "hook": "Você calcula a semaglutida no olho? Não faça.",
+  "hookIcon": "regua",
+  "slides": [
+    {
+      "title": "Caneta e frasco são a mesma coisa",
+      "layout": "mito",
+      "body": "Não são. A caneta de Ozempic ou Wegovy já vem pronta e não se dilui. Só o frasco com pó de semaglutida precisa ser reconstituído.",
+      "icon": "frasco"
+    },
+    {
+      "title": "Quanta água vai no frasco?",
+      "layout": "pergunta",
+      "body": "É a etapa em que mais gente erra. A água define a concentração e, por isso, quantas unidades você puxa em cada dose.",
+      "icon": "duvida"
+    },
+    {
+      "title": "Frasco de 5 mg, dose de 0,25 mg",
+      "layout": "lado",
+      "body": "Com 1 ml: 5 mg/ml, e a dose dá 5 U\nCom 2 ml: 2,5 mg/ml, e a dose dá 10 U",
+      "icon": "balanca"
+    },
+    {
+      "title": "Água pela parede, nunca no pó",
+      "layout": "padrao",
+      "body": "Entre com a agulha pela lateral e deixe a água escorrer pela parede interna do frasco. Jato direto sobre o pó pode danificar o peptídeo.",
+      "icon": "gota"
+    },
+    {
+      "title": "Agitar dissolve mais rápido",
+      "layout": "mito",
+      "body": "Gire entre as palmas das mãos e espere a solução ficar transparente. Agitar desnatura o peptídeo. Ficou turva depois de 5 minutos? Descarte.",
+      "icon": "alerta"
+    },
+    {
+      "title": "28 dias",
+      "layout": "numero",
+      "body": "Duração do frasco depois de reconstituído, na geladeira de 2 a 8 °C, na prateleira central. Nunca no freezer nem na porta.",
+      "icon": "geladeira"
+    },
+    {
+      "title": "Cola da reconstituição",
+      "layout": "passos",
+      "body": "Álcool 70% nas duas tampas\nÁgua bacteriostática, nunca destilada\nGire, não agite e etiquete o frasco\nDose e titulação: com o médico",
+      "icon": "certo"
+    }
+  ],
+  "narration": [
+    { "text": "Você calcula a semaglutida no olho? Não faça. Eu sei, parece só um pouquinho de água." },
+    { "text": "Só que a água muda tudo: no frasco de 5 mg, a mesma dose dá 5 ou 10 unidades, conforme o que você colocou." },
+    { "text": "Água bacteriostática pela parede, gire sem agitar e etiquete com data e concentração. Dose e titulação, com o médico." },
+    { "text": "Então, conta no olho nunca mais: anota no frasco e confere." }
+  ],
+  "caption": "Eu sei, depois de algumas vezes a gente acha que já sabe de cor. Mas no frasco de semaglutida em pó a quantidade de água define a concentração, e a concentração define quantas unidades você puxa. Errar essa conta pode trazer náusea forte.\n\nA caneta de Ozempic ou Wegovy já vem pronta e não se dilui. Este cuidado vale só para o frasco com pó.\n\n1️⃣ Álcool 70% nas tampas dos dois frascos.\n2️⃣ Água bacteriostática escorrendo pela parede, nunca em jato sobre o pó.\n3️⃣ Gire suavemente, sem agitar, até a solução ficar transparente.\n4️⃣ Etiqueta com data e concentração e geladeira, de 2 a 8 °C, por até 28 dias.\n\n⚠️ No frasco de 5 mg com 2 ml de água, a dose de 0,25 mg dá 10 unidades. Com 1 ml, dá 5. A dose e a titulação são definidas com o médico.",
+  "question": "Você costuma usar 1 ml ou 2 ml de água no frasco?",
+  "share": "aquela amiga que faz a conta da seringa de cabeça"
+}

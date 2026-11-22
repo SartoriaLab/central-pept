@@ -1,0 +1,57 @@
+{
+  "hook": "Primeira semana de Ozempic e você acha que não funcionou?",
+  "hookIcon": "ampulheta",
+  "slides": [
+    {
+      "title": "2 a 3 dias",
+      "layout": "numero",
+      "body": "É quando a saciedade já costuma ser perceptível depois da primeira dose. A redução de apetite fica mais consistente entre a 2ª e a 4ª semana.",
+      "icon": "calendario"
+    },
+    {
+      "title": "Por que não vem tudo de uma vez?",
+      "layout": "pergunta",
+      "body": "A semaglutida tem meia-vida de cerca de 7 dias. O nível no sangue só se estabiliza depois de 4 a 5 semanas de aplicação semanal.",
+      "icon": "relogio"
+    },
+    {
+      "title": "Não sentiu nada, é hora de subir",
+      "layout": "mito",
+      "body": "A titulação é gradual de propósito: cada subida pode trazer a náusea de volta por um tempo. Quem decide a subida é o médico, pelo esquema da bula.",
+      "icon": "grafico-sobe"
+    },
+    {
+      "title": "No exame, demora mais",
+      "layout": "padrao",
+      "body": "Em quem tem diabetes, a queda da hemoglobina glicada (HbA1c) aparece nos exames a partir de 8 a 12 semanas.",
+      "icon": "prancheta"
+    },
+    {
+      "title": "E o enjoo do começo?",
+      "layout": "pergunta",
+      "body": "Pode aparecer nos primeiros dias, principalmente logo depois da dose, e tende a diminuir à medida que o corpo se adapta.",
+      "icon": "enjoo"
+    },
+    {
+      "title": "O remédio não trabalha sozinho",
+      "layout": "padrao",
+      "body": "A ação nos centros de apetite do cérebro leva tempo para mudar hábitos, e o resultado depende também da alimentação, não só da medicação.",
+      "icon": "cerebro"
+    },
+    {
+      "title": "Cola do começo",
+      "layout": "passos",
+      "body": "Saciedade: nos primeiros dias\nApetite mais estável: nas primeiras semanas\nGlicada no exame: depois de alguns meses\nSubida de dose: só com o médico",
+      "icon": "certo"
+    }
+  ],
+  "narration": [
+    { "text": "Primeira semana de Ozempic e você acha que não funcionou? Eu sei, a ansiedade bate." },
+    { "text": "A saciedade costuma aparecer em poucos dias, mas a semaglutida leva semanas para estabilizar no sangue." },
+    { "text": "Por isso a subida é gradual e decidida com o médico. Não sentir tudo na primeira semana é o esperado." },
+    { "text": "Então, primeira semana não é veredito: é só o começo." }
+  ],
+  "caption": "Eu sei, a gente começa o Ozempic esperando sentir tudo na primeira semana, e aí vem a dúvida se está funcionando. Mas a semaglutida age em vários sistemas, cada um no seu tempo.\n\nA saciedade costuma ser perceptível 2 a 3 dias depois da primeira dose. A redução de apetite fica mais consistente entre a 2ª e a 4ª semana. Como a meia-vida é de cerca de 7 dias, o nível no sangue só se estabiliza depois de 4 a 5 semanas.\n\n1️⃣ Primeiros dias: saciedade e, às vezes, náusea logo depois da dose.\n2️⃣ Primeiras semanas: apetite mais estável e enjoo diminuindo.\n3️⃣ A partir de 8 a 12 semanas: queda da HbA1c nos exames, em quem tem diabetes.\n\n⚠️ Não sentir muito no começo não é motivo para subir a dose por conta própria. A titulação é gradual para o corpo tolerar, e quem decide cada etapa é o médico.",
+  "question": "Em quantos dias você sentiu a saciedade chegar?",
+  "share": "aquela amiga que quer sentir tudo já na primeira semana"
+}

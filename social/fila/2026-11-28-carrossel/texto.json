@@ -1,0 +1,57 @@
+{
+  "hook": "Você está usando Ozempic sem acompanhamento médico?",
+  "hookIcon": "estetoscopio",
+  "slides": [
+    {
+      "title": "Ozempic e Wegovy: a mesma molécula",
+      "layout": "lado",
+      "body": "Ozempic: aprovado para diabetes tipo 2, até 2 mg por semana\nWegovy: aprovado para obesidade, até 2,4 mg por semana",
+      "icon": "balanca"
+    },
+    {
+      "title": "Funciona em quem não tem diabetes?",
+      "layout": "pergunta",
+      "body": "No estudo STEP-1, sim: perda média de 14,9% do peso em 68 semanas com 2,4 mg por semana e aconselhamento, contra 2,4% no placebo.",
+      "icon": "microscopio"
+    },
+    {
+      "title": "74%",
+      "layout": "numero",
+      "body": "Dos participantes do STEP-1 tiveram náusea, diarreia ou vômito em algum momento. Por isso a subida de dose pede acompanhamento.",
+      "icon": "enjoo"
+    },
+    {
+      "title": "Parou, o resultado fica",
+      "layout": "mito",
+      "body": "O STEP-4 mostrou a volta de cerca de 2/3 do peso perdido em um ano depois de parar. Parar também é uma decisão para planejar com o médico.",
+      "icon": "grafico-sobe"
+    },
+    {
+      "title": "O músculo também entra na conta",
+      "layout": "padrao",
+      "body": "Sem treino resistido, cerca de 40% do que se perde pode ser massa magra. Por isso o exercício de força faz parte do tratamento.",
+      "icon": "musculo"
+    },
+    {
+      "title": "Quem não pode usar?",
+      "layout": "pergunta",
+      "body": "Quem tem histórico pessoal ou familiar de câncer medular de tireoide, NEM 2 ou já teve pancreatite.",
+      "icon": "alerta"
+    },
+    {
+      "title": "Antes de começar",
+      "layout": "passos",
+      "body": "Consulta com endocrinologista\nSubida de dose acompanhada\nTreino de força junto\nPlano para quando parar",
+      "icon": "certo"
+    }
+  ],
+  "narration": [
+    { "text": "Você está usando Ozempic sem acompanhamento médico? Eu sei, muita gente começa assim." },
+    { "text": "A semaglutida funciona em quem não tem diabetes, mas os estudos mostram enjoo frequente, perda de músculo sem treino e reganho ao parar." },
+    { "text": "Por isso o remédio é parte do tratamento: médico, treino de força e plano para quando parar." },
+    { "text": "Então, Ozempic sem acompanhamento? Começa pela consulta." }
+  ],
+  "caption": "Eu sei, muita gente começa o Ozempic por indicação de alguém e deixa a consulta para depois. A semaglutida funciona para quem não tem diabetes: no estudo STEP-1, a perda média foi de 14,9% do peso em 68 semanas com 2,4 mg por semana e aconselhamento, contra 2,4% no placebo. Mas o mesmo estudo mostra por que acompanhar faz diferença.\n\nOzempic e Wegovy têm a mesma molécula. O Ozempic é aprovado para diabetes tipo 2 (até 2 mg por semana); o Wegovy, para obesidade (até 2,4 mg por semana).\n\n⚠️ Os riscos de usar sozinha:\n1️⃣ Efeitos gastrointestinais: 74% dos participantes do STEP-1 tiveram náusea, diarreia ou vômito em algum momento.\n2️⃣ Massa magra: sem treino resistido, cerca de 40% do que se perde pode ser músculo.\n3️⃣ Reganho: o STEP-4 mostrou a volta de cerca de 2/3 do peso em um ano depois de parar.\n\nQuem tem histórico de câncer medular de tireoide, NEM 2 ou pancreatite não usa. Endocrinologista primeiro.",
+  "question": "Você começou a semaglutida com acompanhamento desde o início?",
+  "share": "aquela amiga que começou o Ozempic por conta própria"
+}

@@ -1,0 +1,57 @@
+{
+  "hook": "Você nunca anota quanta água pôs na tirzepatida?",
+  "hookIcon": "lupa",
+  "slides": [
+    {
+      "title": "Quantas unidades são 5 mg?",
+      "layout": "pergunta",
+      "body": "Depende da água que você colocou. Frasco de 10 mg com 2 ml: 100 unidades. O mesmo frasco com 1 ml: 50 unidades. Sem saber a água, não existe resposta.",
+      "icon": "duvida"
+    },
+    {
+      "title": "50 unidades são 50 mg",
+      "layout": "mito",
+      "body": "Não são. Unidade é volume na seringa de insulina: 50 unidades são 0,5 ml da solução que você preparou. Quantos mg tem ali depende da concentração.",
+      "icon": "seringa"
+    },
+    {
+      "title": "Mesma dose, água diferente",
+      "layout": "lado",
+      "body": "Com 1 ml: 10 mg/ml, e 2,5 mg = 25 U\nCom 2 ml: 5 mg/ml, e 2,5 mg = 50 U",
+      "icon": "balanca"
+    },
+    {
+      "title": "A conta por trás de toda tabela",
+      "layout": "padrao",
+      "body": "Unidades = dose (mg) × água (ml) × 100 ÷ mg do frasco. Vale para a seringa de insulina de 100 U/ml. Mudou a água, mudou o número que você puxa.",
+      "icon": "regua"
+    },
+    {
+      "title": "28 dias",
+      "layout": "numero",
+      "body": "É quanto o frasco reconstituído dura na geladeira, entre 2 e 8 °C, longe da porta e da luz. Frasco grande em dose baixa pode vencer antes de acabar.",
+      "icon": "geladeira"
+    },
+    {
+      "title": "Chacoalhar ajuda o pó a dissolver",
+      "layout": "mito",
+      "body": "Gire suavemente entre as mãos. Agitar deixa a solução turva e faz espuma que atrapalha a medida. Ficou turvo ou com partícula? Não use.",
+      "icon": "frasco"
+    },
+    {
+      "title": "Antes de guardar o frasco",
+      "layout": "passos",
+      "body": "Água bacteriostática, nunca destilada ou soro\nÁgua escorrendo pela parede, sem jato no pó\nEtiqueta com data e concentração\nDose e subida de dose: só com o médico",
+      "icon": "certo"
+    }
+  ],
+  "narration": [
+    { "text": "Você nunca anota quanta água pôs na tirzepatida? Eu sei, todo mundo acha que vai lembrar." },
+    { "text": "Só que a dose depende da água: no mesmo frasco de 10 mg, 5 mg pode ser 50 ou 100 unidades." },
+    { "text": "Gire sem agitar, use água bacteriostática e etiquete com data e concentração. Dose, só com o médico." },
+    { "text": "Então, diluiu? Anota na hora, e a semana que vem agradece." }
+  ],
+  "caption": "Eu sei, na hora de diluir a gente acha que vai lembrar. Na semana seguinte, ninguém lembra se foi 1 ou 2 ml. E na tirzepatida em pó isso muda tudo: a dose depende de quanta água entrou no frasco e de quantas unidades você puxa na seringa.\n\nA conta, para seringa de insulina de 100 U/ml: unidades = dose (mg) × água (ml) × 100 ÷ mg do frasco. Frasco de 10 mg com 2 ml de água dá 5 mg/ml; com 1 ml, 10 mg/ml.\n\n1️⃣ Use água bacteriostática, escorrendo pela parede do frasco.\n2️⃣ Gire, não agite. A solução tem que ficar límpida.\n3️⃣ Etiquete com data e concentração, ex.: \"10 mg / 2 ml = 5 mg/ml\".\n4️⃣ Geladeira, entre 2 e 8 °C, por até 28 dias.\n\n⚠️ 50 unidades não são 50 mg: são 0,5 ml da solução. A dose e o escalonamento são definidos com o médico.",
+  "question": "Você anota a concentração no frasco ou guarda de cabeça?",
+  "share": "quem acabou de trocar a caneta pelo frasco de tirzepatida"
+}

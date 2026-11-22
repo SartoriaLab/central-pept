@@ -669,6 +669,10 @@ describe('visual papel (cenas)', () => {
     expect(splitTitle('Retatrutida')).toEqual(['Retatrutida', '']);
     expect(titleSize('CURTO', '', 100)).toBe(100);
     expect(titleSize('UM TÍTULO BEM MAIS COMPRIDO QUE O NORMAL', '', 100)).toBeLessThan(60);
+    // Capa (max 150): a linha de 22 letras cabe nos 940 px sem quebrar.
+    expect(titleSize('VOCÊ GUARDA O OZEMPIC', 'NA PORTA DA GELADEIRA?', 150) * 0.44 * 22).toBeLessThanOrEqual(940);
+    // Slides e Reels mantêm o tamanho de antes.
+    expect(titleSize('MESMA DOSE, ÁGUA DIFERENTE', '', 100)).toBe(58);
   });
 
   it('frases da narração antiga, juntando as muito curtas', () => {

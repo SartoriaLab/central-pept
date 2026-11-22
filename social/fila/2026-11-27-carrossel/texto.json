@@ -1,0 +1,57 @@
+{
+  "hook": "Enjoo todo dia e você vai subir o Ozempic?",
+  "hookIcon": "enjoo",
+  "slides": [
+    {
+      "title": "Quando o enjoo aparece?",
+      "layout": "pergunta",
+      "body": "Nos primeiros 2 a 3 dias depois de cada subida de dose, mais forte nas 12 a 24 horas após a aplicação. Tende a diminuir com a dose estável.",
+      "icon": "relogio"
+    },
+    {
+      "title": "Enjoou, é só aguentar e subir na data",
+      "layout": "mito",
+      "body": "A titulação da bula é referência, não obrigação. Com náusea diária, refeição perdida ou vômito persistente, repetir a etapa por mais 2 a 4 semanas é aceitável. Decida com o médico.",
+      "icon": "calendario"
+    },
+    {
+      "title": "O prato dos dias de pico",
+      "layout": "passos",
+      "body": "Refeições pequenas, 5 a 6 vezes ao dia\nCarboidrato leve: arroz, batata, bolacha sem açúcar\nProteína magra, como frango e peixe\nLíquidos longe das refeições",
+      "icon": "prato"
+    },
+    {
+      "title": "Fora do prato nos picos",
+      "layout": "padrao",
+      "body": "Gordura, fritura e comida apimentada pioram o enjoo nos dias de pico. E desidratação também piora: água ao longo do dia.",
+      "icon": "proibido"
+    },
+    {
+      "title": "Gengibre ou remédio?",
+      "layout": "lado",
+      "body": "Gengibre: chá ou bala, com evidência razoável\nRemédio para enjoo: só conversando com o médico",
+      "icon": "balanca"
+    },
+    {
+      "title": "Quando é caso de médico",
+      "layout": "padrao",
+      "body": "Dor abdominal forte e persistente, vômito que impede de se hidratar por mais de 24h, febre, pele amarelada ou dor alta nas costas.",
+      "icon": "hospital"
+    },
+    {
+      "title": "Cola do enjoo",
+      "layout": "passos",
+      "body": "Coma pouco, mais vezes\nBeba água longe das refeições\nEnjoo diário? Fale com o médico antes de subir\nDor forte que não passa: atendimento",
+      "icon": "certo"
+    }
+  ],
+  "narration": [
+    { "text": "Enjoo todo dia e você vai subir o Ozempic? Eu sei, a data da próxima dose chega e dá vontade de seguir." },
+    { "text": "Só que a titulação da bula é referência, não obrigação. Repetir a etapa com o médico é aceitável." },
+    { "text": "Enquanto isso, refeição pequena, menos gordura e água longe do prato. Dor forte que não passa é caso de atendimento." },
+    { "text": "Então, enjoo todo dia? Primeiro o médico, depois a subida." }
+  ],
+  "caption": "Eu sei, a data da próxima subida chega e dá vontade de seguir o calendário à risca, mesmo enjoando. Mas a náusea é o efeito mais comum da semaglutida e costuma aparecer nos primeiros dias depois de cada subida de dose. Subir de novo no meio disso só empilha enjoo.\n\nA titulação da bula é referência, não obrigação. Com náusea diária, refeição perdida ou vômito persistente, repetir a etapa atual por mais 2 a 4 semanas é aceitável. Essa decisão é com o médico.\n\n1️⃣ Refeições pequenas, 5 a 6 vezes ao dia.\n2️⃣ Carboidrato leve e proteína magra; menos gordura, fritura e picante nos picos.\n3️⃣ Líquidos longe das refeições e hidratação ao longo do dia.\n4️⃣ Gengibre ajuda; remédio para enjoo, só conversando com o médico.\n\n⚠️ Dor abdominal forte e persistente, vômito que impede de se hidratar por mais de 24h, febre ou pele amarelada: procure atendimento.",
+  "question": "O que mais te ajudou no enjoo: gengibre, prato menor ou outra coisa?",
+  "share": "aquela amiga que sobe a dose mesmo enjoando todo dia"
+}

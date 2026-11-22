@@ -1,0 +1,57 @@
+{
+  "hook": "Você guarda o Ozempic na porta da geladeira?",
+  "hookIcon": "geladeira",
+  "slides": [
+    {
+      "title": "Porta da geladeira é o lugar mais prático",
+      "layout": "mito",
+      "body": "Prático, mas a temperatura oscila toda vez que alguém abre. Antes do primeiro uso, o lugar é a prateleira central, de 2 a 8 °C, dentro da caixa original.",
+      "icon": "alerta"
+    },
+    {
+      "title": "42 dias",
+      "layout": "numero",
+      "body": "É o prazo da caneta depois do primeiro uso, pelas bulas brasileiras de Ozempic e Wegovy: 6 semanas, abaixo de 30 °C ou na geladeira.",
+      "icon": "calendario"
+    },
+    {
+      "title": "Bula daqui x bula de lá",
+      "layout": "lado",
+      "body": "Brasil: até 42 dias depois de aberta\nEUA: 56 dias, número que circula mas não vale aqui",
+      "icon": "balanca"
+    },
+    {
+      "title": "Congelou? É só descongelar",
+      "layout": "mito",
+      "body": "Não é. A semaglutida perde potência de forma irreversível quando congela. Ficou congelada, descarte, mesmo depois de descongelar.",
+      "icon": "gelo"
+    },
+    {
+      "title": "Vai viajar com a caneta?",
+      "layout": "pergunta",
+      "body": "Bolsa térmica com gelox, por até 8 horas. No avião, bagagem de mão: a despachada pode congelar. Leve a receita impressa e não deixe no carro quente.",
+      "icon": "relogio"
+    },
+    {
+      "title": "Sinais de que estragou",
+      "layout": "padrao",
+      "body": "Turva, com partículas, amarelada ou marrom, congelou ou passou do prazo da bula. Em qualquer caso, descarte, mesmo com produto sobrando.",
+      "icon": "lupa"
+    },
+    {
+      "title": "Cola da caneta",
+      "layout": "passos",
+      "body": "Fechada: prateleira central, de 2 a 8 °C\nAberta: abaixo de 30 °C ou na geladeira\nAnote na caneta a data do primeiro uso\nUsada vai no coletor de perfurocortante",
+      "icon": "certo"
+    }
+  ],
+  "narration": [
+    { "text": "Você guarda o Ozempic na porta da geladeira? Eu sei, é o lugar mais à mão." },
+    { "text": "Só que ali a temperatura oscila. Fechada, a caneta vai na prateleira do meio, na caixa, e nunca congela." },
+    { "text": "Depois de aberta, a bula brasileira dá 6 semanas, abaixo de 30 graus ou na geladeira. Anote a data do primeiro uso." },
+    { "text": "Então, porta da geladeira é para o leite, não para a caneta." }
+  ],
+  "caption": "Eu sei, a porta da geladeira é o lugar mais prático. Mas é justamente ali que a temperatura mais oscila, e o Ozempic fechado precisa de 2 a 8 °C estáveis.\n\nAntes de abrir: prateleira central, na caixa original, longe da luz. Nunca congele: a semaglutida perde potência de forma irreversível, e caneta que congelou vai para o descarte mesmo depois de descongelar.\n\n1️⃣ Depois do primeiro uso, a caneta pode ficar abaixo de 30 °C ou na geladeira.\n2️⃣ O prazo pós-abertura, pelas bulas brasileiras de Ozempic e Wegovy, é de 6 semanas (42 dias).\n3️⃣ Anote na caneta a data do primeiro uso.\n\n⚠️ Os 56 dias que circulam por aí são da bula americana do Ozempic e não valem para a caneta vendida no Brasil. Em viagem: bolsa térmica com gelox e bagagem de mão.",
+  "question": "Onde fica a sua caneta hoje: porta, prateleira ou gaveta?",
+  "share": "quem guarda a caneta na porta da geladeira"
+}
