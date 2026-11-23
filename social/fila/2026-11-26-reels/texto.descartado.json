@@ -1,0 +1,263 @@
+{
+  "hook": "Retatrutida é melhor que o Mounjaro? Calma com esse print.",
+  "hookIcon": "duvida",
+  "slides": [
+    {
+      "title": "A retatrutida já provou que é melhor",
+      "layout": "mito",
+      "body": "Ainda não. Os números vêm de estudos diferentes, que nunca colocaram as duas no mesmo ensaio. E só a tirzepatida é aprovada; a retatrutida é experimental.",
+      "icon": "errado"
+    },
+    {
+      "title": "O print compara contas diferentes",
+      "layout": "lado",
+      "body": "Retatrutida 28,3%: só quem seguiu o tratamento\nTirzepatida 20,9%: todos, inclusive quem parou",
+      "icon": "balanca"
+    },
+    {
+      "title": "25,0%",
+      "layout": "numero",
+      "body": "É a perda média da retatrutida 12 mg no TRIUMPH-1 contando todos os participantes. Na mesma conta, a tirzepatida 15 mg teve 20,9% no SURMOUNT-1.",
+      "icon": "microscopio"
+    },
+    {
+      "title": "Duas corridas, dois percursos",
+      "layout": "padrao",
+      "body": "Os estudos tiveram durações, pesos iniciais, placebos e épocas diferentes. Nenhuma tabela corrige isso: é como comparar o tempo de corridas com percursos diferentes.",
+      "icon": "regua"
+    },
+    {
+      "title": "Então como saber qual é melhor?",
+      "layout": "pergunta",
+      "body": "Com um estudo frente a frente, que sorteia as duas no mesmo ensaio. Ele existe, o TRIUMPH-5, e até novembro de 2026 não tinha resultado divulgado.",
+      "icon": "lupa"
+    },
+    {
+      "title": "Cola pra não cair no print",
+      "layout": "passos",
+      "body": "Veja se os números usam a mesma conta\nLembre que são estudos diferentes\nSó a tirzepatida tem aprovação\nDecisão de tratamento é com o médico",
+      "icon": "certo"
+    }
+  ],
+  "scenes": [
+    {
+      "chip": "o print",
+      "kicker": "a comparação que circula",
+      "title": "Retatrutida",
+      "accent": "é melhor?",
+      "tone": "vermelho",
+      "speech": "Retatrutida é melhor que o Mounjaro? Calma com esse print.",
+      "visual": {
+        "type": "frascos",
+        "left": {
+          "label": "RETATRUTIDA",
+          "liquid": "po"
+        },
+        "right": {
+          "label": "TIRZEPATIDA",
+          "liquid": "claro"
+        },
+        "sign": "vs"
+      }
+    },
+    {
+      "chip": "o print",
+      "kicker": "a virada",
+      "title": "O erro não é",
+      "accent": "o número, é a conta",
+      "tone": "vermelho",
+      "speech": "O erro não é o número, é a conta que está por trás dele.",
+      "visual": {
+        "type": "icone",
+        "icon": "lupa",
+        "note": "cada estudo divulga duas contas"
+      }
+    },
+    {
+      "chip": "os estudos",
+      "kicker": "o que o print mostra",
+      "title": "28,3% contra",
+      "accent": "20,9%",
+      "tone": "vermelho",
+      "speech": "O print que circula põe 28,3% da retatrutida contra 20,9% da tirzepatida.",
+      "visual": {
+        "type": "barras",
+        "bars": [
+          {
+            "label": "retatrutida 12 mg",
+            "value": 28.3,
+            "display": "28,3%"
+          },
+          {
+            "label": "tirzepatida 15 mg",
+            "value": 20.9,
+            "display": "20,9%"
+          }
+        ]
+      },
+      "source": "TRIUMPH-1 e SURMOUNT-1"
+    },
+    {
+      "chip": "os estudos",
+      "kicker": "a primeira conta",
+      "title": "Só quem seguiu",
+      "accent": "até o fim",
+      "tone": "azul",
+      "speech": "Só que o 28,3% conta apenas quem seguiu o tratamento até o fim.",
+      "visual": {
+        "type": "numero",
+        "value": "28,3%",
+        "note": "estimativa de quem seguiu o tratamento"
+      },
+      "source": "TRIUMPH-1, comunicado da Lilly"
+    },
+    {
+      "chip": "os estudos",
+      "kicker": "a outra conta",
+      "title": "Todo mundo,",
+      "accent": "até quem parou",
+      "tone": "azul",
+      "speech": "E o 20,9% conta todo mundo que entrou, inclusive quem parou no meio.",
+      "visual": {
+        "type": "numero",
+        "value": "20,9%",
+        "note": "todos os participantes, inclusive quem parou"
+      },
+      "source": "SURMOUNT-1, NEJM 2022"
+    },
+    {
+      "chip": "os estudos",
+      "kicker": "na mesma conta",
+      "title": "A diferença",
+      "accent": "encolhe",
+      "tone": "azul",
+      "speech": "Na mesma conta, todo mundo contra todo mundo, fica 25,0% contra 20,9%.",
+      "visual": {
+        "type": "barras",
+        "bars": [
+          {
+            "label": "retatrutida 12 mg",
+            "value": 25,
+            "display": "25,0%"
+          },
+          {
+            "label": "tirzepatida 15 mg",
+            "value": 20.9,
+            "display": "20,9%"
+          }
+        ]
+      },
+      "source": "TRIUMPH-1 e SURMOUNT-1"
+    },
+    {
+      "chip": "por que não dá",
+      "kicker": "pensa assim",
+      "title": "Duas corridas,",
+      "accent": "percursos diferentes",
+      "tone": "vermelho",
+      "speech": "E mesmo assim não dá pra cravar: é como comparar duas corridas com percursos diferentes.",
+      "visual": {
+        "type": "icone",
+        "icon": "balanca",
+        "note": "comparação entre estudos diferentes"
+      }
+    },
+    {
+      "chip": "por que não dá",
+      "kicker": "o que muda entre eles",
+      "title": "Tempo e ponto",
+      "accent": "de partida",
+      "tone": "vermelho",
+      "speech": "Um estudo durou mais tempo e começou com participantes mais pesados.",
+      "visual": {
+        "type": "lista",
+        "items": [
+          {
+            "text": "Duração diferente",
+            "mark": "duvida"
+          },
+          {
+            "text": "Peso inicial diferente",
+            "mark": "duvida"
+          },
+          {
+            "text": "Placebo diferente",
+            "mark": "duvida"
+          }
+        ]
+      }
+    },
+    {
+      "chip": "a resposta",
+      "kicker": "o estudo frente a frente",
+      "title": "TRIUMPH-5",
+      "accent": "ainda sem resultado",
+      "tone": "azul",
+      "speech": "A resposta de verdade vem de um estudo frente a frente, o TRIUMPH-5, que ainda não tem resultado.",
+      "visual": {
+        "type": "linha",
+        "steps": [
+          "começou",
+          "em andamento",
+          "resultado"
+        ],
+        "current": 1,
+        "note": "sem resultado divulgado até novembro"
+      },
+      "source": "TRIUMPH-5"
+    },
+    {
+      "chip": "a resposta",
+      "kicker": "o que pesa mais hoje",
+      "title": "Só uma é",
+      "accent": "aprovada",
+      "tone": "vermelho",
+      "speech": "E o detalhe que pesa mais: só a tirzepatida é aprovada; a retatrutida é experimental.",
+      "visual": {
+        "type": "frascos",
+        "left": {
+          "label": "TIRZEPATIDA",
+          "note": "aprovada",
+          "liquid": "claro"
+        },
+        "right": {
+          "label": "RETATRUTIDA",
+          "note": "experimental",
+          "liquid": "po"
+        },
+        "sign": "≠"
+      }
+    },
+    {
+      "chip": "a ANVISA",
+      "kicker": "o que a ANVISA disse",
+      "title": "Não use produto",
+      "accent": "com esse nome",
+      "tone": "vermelho",
+      "speech": "A ANVISA orientou a não usar produtos vendidos com o nome retatrutida.",
+      "visual": {
+        "type": "frasco",
+        "label": "RETATRUTIDA",
+        "liquid": "po",
+        "stamp": "NÃO APROVADA"
+      },
+      "source": "ANVISA"
+    },
+    {
+      "chip": "pra lembrar",
+      "kicker": "da próxima vez",
+      "title": "Viu o print?",
+      "accent": "Confere a conta",
+      "tone": "azul",
+      "speech": "Então, retatrutida é melhor? Antes de acreditar no print, você confere a conta.",
+      "visual": {
+        "type": "carimbo",
+        "text": "CONFERE A CONTA",
+        "note": "mesma conta, mesmo estudo, só assim"
+      }
+    }
+  ],
+  "caption": "Eu sei, todo mundo já viu aquele print com a retatrutida ganhando de lavada. Mas o 28,3% da retatrutida (TRIUMPH-1) conta só quem seguiu o tratamento, e o 20,9% da tirzepatida (SURMOUNT-1) conta todos os participantes, inclusive quem parou. Na mesma conta, fica 25,0% contra 20,9%.\n\nMesmo assim, não dá para cravar: os estudos tiveram durações, pesos iniciais e placebos diferentes. A resposta depende de um estudo frente a frente, o TRIUMPH-5, que até novembro de 2026 não tinha resultado divulgado.\n\n⚠️ Só a tirzepatida é aprovada. A retatrutida é experimental, sem aprovação em nenhum país, e a ANVISA orientou a não usar produtos vendidos com esse nome. As doses citadas são as dos estudos, não orientação de uso: decisão de tratamento é com o médico.",
+  "question": "Você já tinha visto esse print comparando as duas?",
+  "share": "aquela amiga que mandou o print da retatrutida no grupo"
+}

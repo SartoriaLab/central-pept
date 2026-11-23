@@ -1,0 +1,51 @@
+{
+  "hook": "Última dose do frasco sempre vem curta? Não é azar.",
+  "hookIcon": "seringa",
+  "slides": [
+    {
+      "title": "Por que o frasco rende menos que a conta?",
+      "layout": "pergunta",
+      "body": "Em seringa de agulha removível, parte do líquido fica presa no encaixe entre o corpo e a agulha. Sai do frasco e não é aplicada: é o volume morto.",
+      "icon": "duvida"
+    },
+    {
+      "title": "Se puxei até a marca, a dose está certa",
+      "layout": "mito",
+      "body": "Nem sempre. Bolha de ar ocupa o lugar do líquido, e a dose aplicada fica menor que a lida na escala, sem nenhum aviso.",
+      "icon": "errado"
+    },
+    {
+      "title": "Agulha removível x agulha fixa",
+      "layout": "lado",
+      "body": "Removível: líquido preso no encaixe, frasco rende menos\nFixa: sem esse espaço morto, mais precisão, como recomenda a SBD",
+      "icon": "balanca"
+    },
+    {
+      "title": "Bolha fora, dose no lugar",
+      "layout": "passos",
+      "body": "Puxe um pouco além da marca\nAgulha para cima, bata de leve na seringa\nEmpurre o êmbolo até a marca",
+      "icon": "seringa"
+    },
+    {
+      "title": "Não adivinhe a diferença",
+      "layout": "padrao",
+      "body": "Não planeje o frasco contando com a última gota. Se a última dose não completar, não invente a diferença: confirme com o médico ou o farmacêutico.",
+      "icon": "alerta"
+    },
+    {
+      "title": "Cola da seringa",
+      "layout": "passos",
+      "body": "Prefira seringa de insulina com agulha fixa\nTire as bolhas antes de ler a marca\nNão conte com a última gota do frasco\nDose é a que o médico prescreveu",
+      "icon": "certo"
+    }
+  ],
+  "narration": [
+    { "text": "A última dose do frasco sempre vem curta? Não é azar, e eu sei que irrita." },
+    { "text": "Na seringa de agulha removível, um pouco de líquido fica preso no encaixe e nunca é aplicado." },
+    { "text": "E bolha de ar ocupa o lugar do remédio. Prefira agulha fixa e tire as bolhas antes de ler a marca." },
+    { "text": "Então, última dose curta? Não é azar: é volume morto. Planeje o frasco sem contar com a última gota." }
+  ],
+  "caption": "Eu sei, irrita chegar no fim do frasco e a última dose não completar. Não é azar: em seringa de agulha removível, uma parte do líquido fica presa no encaixe entre o corpo e a agulha. Sai do frasco e não é aplicada. E bolha de ar na seringa faz a dose aplicada ficar menor que a lida na escala.\n\n1️⃣ Prefira seringa de insulina com agulha fixa, como recomenda a diretriz da Sociedade Brasileira de Diabetes\n2️⃣ Puxe um pouco além da marca, bata de leve com a agulha para cima e empurre o êmbolo até a marca\n3️⃣ Não planeje o frasco contando com a última gota\n\n⚠️ Se a última dose não completar, não adivinhe a diferença. A dose é a que o médico prescreveu; na dúvida sobre a conta, confirme com o médico ou o farmacêutico.",
+  "question": "Sua seringa de insulina tem agulha fixa ou removível?",
+  "share": "aquela amiga que prepara o próprio frasco e sempre fica sem a última dose"
+}

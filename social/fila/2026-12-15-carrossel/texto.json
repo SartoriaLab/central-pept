@@ -1,0 +1,51 @@
+{
+  "hook": "Esqueceu o Ozempic na segunda e lembrou só no domingo?",
+  "hookIcon": "calendario",
+  "slides": [
+    {
+      "title": "Lembrei, então aplico na hora",
+      "layout": "mito",
+      "body": "Depende de quantos dias passaram. Pela bula brasileira do Ozempic, o prazo é de até 5 dias da data prevista.",
+      "icon": "errado"
+    },
+    {
+      "title": "Segunda até sábado",
+      "layout": "lado",
+      "body": "Lembrou até sábado: aplique e volte à segunda\nLembrou no domingo: já são 6 dias, pule",
+      "icon": "calendario"
+    },
+    {
+      "title": "96 horas",
+      "layout": "numero",
+      "body": "É o prazo do Mounjaro: 4 dias. Aplicação na segunda às 8 h? Até sexta às 8 h ainda dá. Depois disso, pule e espere a segunda.",
+      "icon": "relogio"
+    },
+    {
+      "title": "E o Rybelsus, que é diário?",
+      "layout": "pergunta",
+      "body": "A bula manda pular o comprimido esquecido e tomar só um na manhã seguinte. Nunca dois no mesmo dia.",
+      "icon": "comprimido"
+    },
+    {
+      "title": "Frasco não tem essa regra",
+      "layout": "padrao",
+      "body": "Produto manipulado ou em frasco liofilizado não tem bula aprovada, então não existe regra oficial de dose esquecida. A orientação vem de quem prescreveu.",
+      "icon": "frasco"
+    },
+    {
+      "title": "Pra esquecer menos",
+      "layout": "passos",
+      "body": "Dia fixo e horário que combine com a rotina\nAnote cada aplicação\nAlarme semanal no celular",
+      "icon": "certo"
+    }
+  ],
+  "narration": [
+    { "text": "Esqueceu o Ozempic na segunda e lembrou só no domingo? Acontece com quase todo mundo." },
+    { "text": "Pela bula, até 5 dias dá para aplicar. No domingo já são 6: pule e aplique na segunda." },
+    { "text": "No Mounjaro o prazo é menor: 4 dias, ou 96 horas, contados da hora prevista." },
+    { "text": "Então, lembrou no domingo? Conte os dias antes de pegar a caneta." }
+  ],
+  "caption": "Eu sei, a semana corre e a caneta fica para depois. A boa notícia é que a bula traz uma regra clara, e o que decide tudo é contar os dias.\n\n1️⃣ Ozempic: aplicação na segunda, lembrou até sábado, aplique e volte à segunda. Lembrou no domingo, já são 6 dias: pule e aplique na segunda.\n2️⃣ Mounjaro: o prazo é de 4 dias (96 horas). Segunda às 8 h vale até sexta às 8 h.\n3️⃣ Rybelsus: pule o comprimido esquecido e tome só um na manhã seguinte.\n\n⚠️ Em nenhum caso a bula manda dobrar a dose. Frasco manipulado não tem bula aprovada: a orientação vem de quem prescreveu.",
+  "question": "Qual é o seu dia fixo de aplicação?",
+  "share": "aquela amiga que sempre lembra da caneta só no domingo"
+}

@@ -9,97 +9,127 @@ Se sair "REPROVADO", corrija só o que a lista aponta e rode de novo.
 
 ## PEDIDO
 
-TEMA: GHK-Cu com vitamina C, ácidos e retinol: pode usar junto?
+TEMA: Quantas unidades puxar de tirzepatida e semaglutida em cada dose
 
 FONTE:
-Título: GHK-Cu com vitamina C, ácidos e retinol: pode usar junto?
+Título: Quantas unidades puxar de tirzepatida e semaglutida em cada dose
 
-Resumo: Não há estudo em pele mostrando que vitamina C, ácidos ou retinol "anulam" o GHK-Cu. O que existe é química em solução: em pH neutro, o complexo de cobre do GHK se mostrou estável diante do ascorbato (Hureau e colaboradores, 2011). O cuidado vem de outro ponto: sérum de vitamina C pura e ácidos esfoliantes são muito ácidos, e o cobre se liga ao GHK de forma dependente do pH. Retinol e ácidos ainda somam irritação. Como precaução, use GHK-Cu num horário e vitamina C ou ácidos no outro, e introduza um ativo de cada vez.
+Resumo: Unidades na seringa U-100 = dose (mg) ÷ concentração (mg/ml) × 100, e concentração = mg do frasco ÷ ml de água. Exemplo: frasco de 10 mg com 2 ml de água fica com 5 mg/ml, e 2,5 mg de tirzepatida são 50 unidades. Frasco de 5 mg de semaglutida com 2 ml fica com 2,5 mg/ml, e 0,25 mg são 10 unidades. As tabelas abaixo cobrem as doses das bulas. A dose é a que o médico prescreveu; a conta só traduz essa dose em volume.
 
-O GHK-Cu, o peptídeo de cobre dos séruns anti-idade, costuma vir com uma regra repetida em blogs e embalagens: "nunca use com vitamina C". Às vezes a lista cresce para retinol e ácidos. A regra tem um fundo de química, mas a forma como circula, de que a vitamina C "anula" o peptídeo, vai além do que os estudos mostram. Este texto separa o que foi medido do que é só precaução e sugere uma rotina que respeita as duas coisas.
+Quando a tirzepatida ou a semaglutida vêm em frasco com pó para reconstituir, a prescrição diz a dose em **mg**, mas a seringa de insulina mede em **unidades**. A ponte entre as duas é uma conta simples, e errar essa conta é o erro mais perigoso de quem prepara o próprio frasco. Este texto explica a fórmula, traz tabelas para os frascos e volumes de água mais comuns e aponta para as páginas de cada dose.
 
+as tabelas traduzem uma dose em volume; não dizem qual dose usar. A dose, o momento de subir e o tempo em cada etapa são decisões do médico que prescreveu. As canetas aprovadas (Mounjaro, Ozempic, Wegovy) vêm prontas e não precisam desta conta. Sobre os riscos de frascos de origem não regulada, veja tirzepatida manipulada.
 
-só do GHK-Cu **tópico**, em cosméticos. A forma injetável não tem aprovação para uso humano e não é assunto deste artigo; veja o guia do GHK-Cu. Pele sensível, gestação ou tratamento dermatológico em andamento pedem orientação do dermatologista.
+## A fórmula
 
+Tudo depende de duas contas, para seringa de insulina **U-100** (100 unidades = 1 ml):
 
-## O que se sabe de fato: química em solução
+1. **Concentração (mg/ml) = mg do frasco ÷ ml de água**
+2. **Unidades = dose (mg) ÷ concentração (mg/ml) × 100**
 
-Os estudos sobre GHK-Cu e vitamina C são de **química em laboratório**, com soluções em tubos de ensaio, não com cremes na pele.
+As duas juntas viram uma só, a mesma usada nas calculadoras do site: **unidades = dose (mg) × água (ml) × 100 ÷ mg do frasco.**
 
-- **Ascorbato em pH neutro.** Um grupo de química bioinorgânica (Hureau e colaboradores, 2011) mediu a oxidação do ascorbato, a forma da vitamina C no organismo, na presença do complexo de cobre do GHK e de oxigênio, além de medir o comportamento elétrico do complexo. O resultado: o cobre ligado ao GHK se mostrou **estável sob potenciais redox moderados**, ou seja, não foi facilmente reduzido pelo ascorbato nas condições do teste.
-- **Confirmação posterior.** Em 2021, outro grupo (Ufnalska e colaboradores, *Inorganic Chemistry*) partiu justamente desse dado: o complexo é "inerte" diante dos níveis fisiológicos de ascorbato. Para estudar a liberação do cobre, eles usaram a glutationa, um redutor mais forte, em pH 7,4 e 37 °C.
+Exemplo com tirzepatida: frasco de **10 mg** com **2 ml** de água bacteriostática fica com 10 ÷ 2 = **5 mg/ml**. A dose de 2,5 mg dá 2,5 ÷ 5 × 100 = **50 unidades** (0,5 ml).
 
-Isso é o oposto do que a regra popular sugere. Nas condições medidas, a vitamina C **não desmontou** o complexo de cobre do GHK. O limite do dado é que essas condições são de pH neutro, parecidas com as do sangue, e não com as de um sérum de vitamina C.
+Exemplo com semaglutida: frasco de **5 mg** com **2 ml** fica com **2,5 mg/ml**. A dose de 0,25 mg dá 0,25 ÷ 2,5 × 100 = **10 unidades** (0,1 ml).
 
-## Onde a precaução faz sentido: o pH
+O volume de água não muda a quantidade de remédio no frasco; muda só a concentração e, portanto, quantas unidades cada dose ocupa.
 
-O ponto que justifica cuidado não é a vitamina C em si, mas a **acidez** dos produtos.
+## Tabela: tirzepatida
 
-- **Vitamina C pura é formulada ácida.** O estudo clássico de absorção do ácido L-ascórbico na pele (Pinnell e colaboradores, 2001) mostrou que ele só é bem absorvido quando a fórmula tem **pH abaixo de 3,5**. Por isso os séruns de vitamina C pura costumam ser bastante ácidos.
-- **A ligação do cobre depende do pH.** Os estudos de química de coordenação do GHK descrevem formas diferentes do complexo conforme o pH, e as constantes de ligação são medidas e relatadas para pH próximo do neutro (Bossak-Ahmad e colaboradores, 2020; Ufnalska e colaboradores, 2021). Em meio mais ácido, os prótons competem com o cobre pelos mesmos pontos de ligação.
+As doses são as da bula do Mounjaro (FDA): começo em 2,5 mg por semana, com subidas de 2,5 mg a cada 4 semanas ou mais, até no máximo 15 mg. Valores em unidades na seringa U-100.
 
-Juntando os dois dados, é razoável supor que um meio muito ácido possa enfraquecer o complexo. Mas **ninguém mediu** o que acontece quando um sérum de vitamina C e um de GHK-Cu se encontram na pele, em que proporção, por quanto tempo e com que efeito no resultado. É uma precaução baseada em química, não uma interação comprovada.
+| Dose | 10 mg + 2 ml (5 mg/ml) | 10 mg + 1 ml (10 mg/ml) | 15 mg + 1 ml (15 mg/ml) |
+| --- | --- | --- | --- |
+| 2,5 mg | 50 U | 25 U | 16,7 U |
+| 5 mg | 100 U | 50 U | 33,3 U |
+| 7,5 mg | passa de 100 U | 75 U | 50 U |
+| 10 mg | passa de 100 U | 100 U | 66,7 U |
+| 12,5 mg | frasco menor que a dose | frasco menor que a dose | 83,3 U |
+| 15 mg | frasco menor que a dose | frasco menor que a dose | 100 U |
 
-## Ácidos esfoliantes e retinol
+Cada dose da primeira coluna leva à página dela, com todas as combinações de frasco e água e quantas semanas o frasco rende.
 
-Para os outros ativos, a lógica é parecida, com uma camada a mais: irritação.
+## Tabela: semaglutida
 
-| Ativo | Há estudo de interação com GHK-Cu? | Motivo para separar |
-| --- | --- | --- |
-| Vitamina C pura (ácido L-ascórbico) | Só química em solução, em pH neutro | Fórmula muito ácida |
-| Derivados de vitamina C (ascorbil fosfato, por exemplo) | Não encontramos | Costumam ter pH mais alto; o cuidado de pH pesa menos |
-| Ácidos esfoliantes (glicólico, lático, salicílico) | Não encontramos | Fórmula ácida e irritação somada |
-| Retinol e outros retinoides | Não encontramos | Irritação somada, principalmente no começo |
-| Niacinamida, ácido hialurônico | Não encontramos | Sem o problema de pH; pouca tendência a irritar |
+As doses são as das bulas do Ozempic (0,25 → 0,5 → 1 → 2 mg por semana) e do Wegovy (0,25 → 0,5 → 1 → 1,7 → 2,4 mg por semana), sempre com 4 semanas ou mais em cada etapa.
 
-O retinol não é ácido como a vitamina C, mas é um dos ativos que mais irritam no início do uso. Somar vários ativos na mesma noite aumenta a chance de vermelhidão e torna impossível saber qual deles foi o responsável. O GHK-Cu também tem seus relatos de irritação local e de dermatite em quem é sensível ao cobre, como está na ficha do GHK-Cu.
+| Dose | 3 mg + 1 ml (3 mg/ml) | 5 mg + 2 ml (2,5 mg/ml) | 5 mg + 1 ml (5 mg/ml) |
+| --- | --- | --- | --- |
+| 0,25 mg | 8,3 U | 10 U | 5 U |
+| 0,5 mg | 16,7 U | 20 U | 10 U |
+| 1 mg | 33,3 U | 40 U | 20 U |
+| 1,7 mg | 56,7 U | 68 U | 34 U |
+| 2 mg | 66,7 U | 80 U | 40 U |
+| 2,4 mg | 80 U | 96 U | 48 U |
 
-## Rotina sugerida: separar por horário
+## Como escolher frasco e água
 
-Como precaução, a forma mais simples é **não sobrepor** os ativos ácidos e o GHK-Cu:
+A tabela mostra que a mesma dose pode cair em números bem diferentes. Três critérios ajudam:
 
-| Horário | Opção A | Opção B |
-| --- | --- | --- |
-| Manhã | Vitamina C + protetor solar | GHK-Cu + protetor solar |
-| Noite | GHK-Cu (e, em outras noites, retinol ou ácido) | Retinol ou ácido, em noites alternadas |
+- **Número fácil de medir.** 50 unidades é fácil; 16,7 unidades obriga a estimar entre traços. Se a combinação dá número quebrado, outra quantidade de água costuma resolver.
+- **Cabe na seringa.** Tudo que passa de 100 U não cabe numa seringa de 1 ml de uma vez. Doses pequenas, abaixo de 30 U, ficam mais precisas na seringa de 30 U. O guia seringa de 30, 50 ou 100 unidades explica a escolha.
+- **Cabe no prazo.** O frasco reconstituído tem referência de até 28 dias na geladeira. Com uma aplicação por semana, só 4 doses cabem nesse período: um frasco de 15 mg na dose de 2,5 mg teria 6 doses, e 2 venceriam. Os detalhes estão em quanto tempo dura o frasco reconstituído.
 
-Algumas regras práticas:
+**A concentração vale para o frasco inteiro.** Se a etapa seguinte da subida de dose pede outra combinação, isso é um frasco novo, preparado do zero. Não acrescente água a um frasco já reconstituído.
 
-- **Um ativo novo de cada vez.** Espere algumas semanas antes de acrescentar o próximo; assim, se a pele reagir, você sabe o motivo.
-- **Retinol e ácidos em noites diferentes**, principalmente no começo.
-- **Protetor solar todos os dias**, com qualquer um desses ativos.
-- **Irritou, simplifique.** Suspenda o último ativo que entrou e, se a irritação continuar, procure um dermatologista.
+## Erros que mudam a dose
 
-## O que fica de fora por falta de dado
+- **Confundir unidades com mg.** 50 unidades não são 50 mg; são 0,5 ml da solução que você preparou.
+- **Esquecer a quantidade de água.** Sem a concentração anotada na etiqueta, não há como saber quantas unidades puxar na semana seguinte.
+- **Usar seringa U-40.** A escala é outra: o mesmo número de unidades dá 2,5 vezes mais volume. Todas as contas aqui são para U-100.
+- **Usar a tabela de outro produto.** Tirzepatida e semaglutida têm doses muito diferentes; 2,5 mg de uma não equivale a 2,5 mg da outra.
+- **Pular etapas.** A subida gradual das bulas existe para reduzir náusea e vômito. Mudar de dose é decisão do médico.
 
-Não encontramos estudo que medisse, em pessoas, se usar GHK-Cu e vitamina C juntos reduz o efeito de algum dos dois. Também não há estudo de interação do GHK-Cu com retinol, ácidos ou niacinamida. Se aparecer um, este texto será atualizado. Até lá, a rotina separada por horário é uma precaução de baixo custo, e não uma prova de que a combinação faça mal.
+## Ferramentas
 
-Para entender o que o GHK-Cu faz e o que os estudos em pele mostraram, leia GHK-Cu: benefícios para pele e cabelo. Outros peptídeos de uso cosmético estão na enciclopédia de peptídeos.
+- Calculadora de reconstituição: qualquer frasco, água e dose, com a seringa marcada. Há versões prontas para tirzepatida e semaglutida.
+- Tabela de doses GLP-1: todas as etapas da subida de dose para imprimir.
+- Subida de dose: calendário com a data de cada etapa.
 
-P: Vitamina C anula o GHK-Cu?
-R: Não há estudo mostrando isso na pele. Em laboratório, em solução de pH neutro, o complexo de cobre do GHK se mostrou estável diante do ascorbato, a forma da vitamina C no sangue. A dúvida real é outra: séruns de vitamina C pura costumam ser muito ácidos, e a ligação do cobre ao GHK depende do pH. Ninguém mediu o que acontece quando os dois produtos se encontram na pele, por isso separar por horário é precaução, não regra comprovada.
-P: Posso usar GHK-Cu e retinol juntos?
-R: Não há estudo de interação química entre os dois. O cuidado é com irritação: retinoides costumam causar vermelhidão e descamação no início, e somar ativos dificulta saber qual deles irritou. Se usar os dois, uma opção é deixar o retinol para a noite e o GHK-Cu para a manhã, ou alternar noites, e introduzir um de cada vez.
-P: Posso usar GHK-Cu com ácido glicólico ou salicílico?
-R: Como precaução, não na mesma aplicação. Esfoliantes com ácido glicólico, lático ou salicílico são formulados em pH ácido e já irritam por si só. Use em horários ou dias diferentes do GHK-Cu.
-P: Qual a ordem certa: GHK-Cu antes ou depois da vitamina C?
-R: Não existe ordem testada em estudo. A sugestão mais simples, como precaução, é não sobrepor: vitamina C de manhã, com protetor solar, e GHK-Cu à noite, ou o contrário, mantendo cada um no seu horário.
-P: Niacinamida e ácido hialurônico podem ser usados com GHK-Cu?
-R: Não encontramos estudo de interação. São ativos usados em pH próximo do neutro e com baixa tendência a irritar, por isso costumam ser combinados sem a preocupação de pH que existe com vitamina C pura e ácidos. Se notar irritação, suspenda e simplifique a rotina.
+O passo a passo do preparo está em como reconstituir tirzepatida e como reconstituir semaglutida.
 
-Peptídeo: GHK-Cu
-Categoria: Cosmético
-Resumo: Peptídeo de cobre. Promove regeneração tecidual e tem propriedades anti-envelhecimento.
-Dose típica: 1 mg, 1x por dia
-Faixa de dose: Tópico: concentração ideal não caracterizada (fornecedores sugerem 0,05-1%). Injetável: não estabelecido para uso humano
-Meia-vida: Não caracterizada em humanos (uso injetável)
-Frascos comuns: 50 mg, 100 mg
-Status regulatório: Apenas pesquisa
-Descrição: GHK-Cu é o complexo de cobre do tripeptídeo glicil-L-histidil-L-lisina (GHK), isolado pela primeira vez do plasma humano em 1973 por Loren Pickart. Segundo as revisões do próprio descobridor, sem confirmação independente localizada, os níveis plasmáticos de GHK declinam com a idade (de ~200 ng/mL aos 20 anos para ~80 ng/mL aos 60), motivando pesquisa sobre ações regenerativas cutâneas, cicatrizantes e moduladoras da expressão gênica.
+P: Quantas unidades são 2,5 mg de tirzepatida?
+R: Depende da concentração do frasco. Com frasco de 10 mg e 2 ml de água (5 mg/ml), 2,5 mg são 50 unidades na seringa U-100. Com 10 mg e 1 ml (10 mg/ml), 25 unidades. Com 15 mg e 1 ml (15 mg/ml), cerca de 16,7 unidades. Sem saber quanta água foi usada, não há resposta certa.
+P: Quantas unidades são 0,25 mg de semaglutida?
+R: Com frasco de 5 mg e 2 ml de água (2,5 mg/ml), 10 unidades. Com 5 mg e 1 ml (5 mg/ml), 5 unidades. Com 3 mg e 1 ml (3 mg/ml), cerca de 8,3 unidades. A conta é sempre dose ÷ concentração × 100.
+P: Quantas unidades tem 1 ml na seringa de insulina?
+R: Na seringa U-100, 100 unidades. Cada unidade é 0,01 ml, então 10 unidades são 0,1 ml e 50 unidades, 0,5 ml.
+P: Por que a mesma dose dá unidades diferentes em frascos diferentes?
+R: Porque a unidade da seringa mede volume, não quantidade de remédio. Mais água deixa a solução mais diluída, e a mesma dose ocupa mais unidades. Menos água concentra a solução, e a dose ocupa menos unidades. A quantidade de remédio aplicada é a mesma se a conta estiver certa.
+P: Caneta Mounjaro, Ozempic ou Wegovy precisa dessa conta?
+R: Não. As canetas desses medicamentos vêm com a solução pronta e a dose é escolhida na própria caneta, sem contar unidades. A conta de unidades só existe quando o medicamento vem em frasco com pó para reconstituir.
 
-Importante distinguir aplicações: o GHK-Cu é **ingrediente cosmético amplamente utilizado e permitido** em formulações tópicas (anti-envelhecimento, pós-procedimentos, cuidados capilares), considerado seguro pelo painel CIR (2018) nas concentrações baixas de uso; os estudos em pessoas são pequenos. Já a forma **injetável** (SC/IM), popular em biohacking, **não possui aprovação regulatória** para uso humano — permanece no domínio da pesquisa, e os produtos injetáveis comercializados são rotulados "apenas para pesquisa", frequentemente de fornecedores não farmacêuticos sem garantia de pureza ou esterilidade.
-Mecanismo: GHK apresenta altíssima afinidade pelo cobre(II), formando complexo estável que atua como transportador fisiológico de cobre. O cobre é cofator essencial para enzimas da cicatrização (lisil oxidase, superóxido dismutase) e síntese de matriz extracelular. O complexo GHK-Cu estimula síntese de colágeno, elastina, glicosaminoglicanos e proteoglicanos por fibroblastos dérmicos.
+Peptídeo: Tirzepatida
+Categoria: GLP-1 / Emagrecimento
+Resumo: Agonista duplo GIP/GLP-1 (Mounjaro, Zepbound). Usado para controle glicêmico e perda de peso.
+Dose típica: 2.5 mg, 1x por semana
+Faixa de dose: 2,5-15 mg/semana (subcutâneo, titulação a cada ≥4 semanas)
+Meia-vida: ~5 dias
+Frascos comuns: 5 mg, 10 mg, 15 mg, 20 mg, 60 mg
+Status regulatório: Aprovado FDA
+Descrição: A tirzepatida é um agonista dual dos receptores de GIP e GLP-1, aprovada pela FDA em 2022 como Mounjaro (diabetes tipo 2) e em 2023 como Zepbound (obesidade). Peptídeo sintético de 39 aminoácidos ligado a ácido graxo diácido C20, com ligação à albumina e administração subcutânea semanal.
 
-Em dados de laboratório do Connectivity Map (três testes em linhagens de células tumorais), o GHK alterou a atividade de cerca de 4.000 genes ligados a remodelamento tecidual, resposta antioxidante, sinalização anti-inflamatória e reparo de DNA; não é resultado clínico. Em pessoas, a evidência é limitada: em úlceras de pé diabético, um estudo de 1994 foi positivo, mas o ensaio de fase 3 (511 pacientes) não superou o placebo; depois de laser de CO2, um estudo com 13 pacientes não encontrou diferença nas medidas objetivas.
-Efeitos colaterais: Tópico: irritação local e eritema transitório são relatados; a frequência não é caracterizada em estudos; Possível dermatite de contato em sensibilizados ao cobre; Injetável (uso experimental): dados humanos muito limitados; reações no local; preocupação com esterilidade de produtos de mercado cinza; Teórico: risco de acúmulo de cobre em uso crônico sem monitorização
-Contraindicações: Alergia conhecida ao cobre; Doença de Wilson ou outros distúrbios do metabolismo do cobre; Gestação e lactação (ausência de dados, no tópico e no injetável); Uso injetável fora de protocolos de pesquisa não é recomendado
+Os programas SURPASS (diabetes) e SURMOUNT (obesidade) demonstraram perda ponderal média de até ~20,9% com 15 mg/semana em 72 semanas (SURMOUNT-1), superior aos agonistas GLP-1 puros em comparações diretas. Indicada para adultos com DM2 e adultos com obesidade/sobrepeso com comorbidade.
+Mecanismo: Ativa simultaneamente os receptores GIP e GLP-1, ambos da família de receptores acoplados à proteína G classe B. Ativação do GLP-1: insulina glicose-dependente, supressão de glucagon, retardo do esvaziamento gástrico, saciedade central. A coativação de GIP contribui para sensibilidade à insulina e metabolismo lipídico, embora a sinergia exata ainda esteja sob investigação.
+
+A conjugação ao ácido graxo C20 confere meia-vida de ~5 dias.
+Efeitos colaterais: Náusea; Diarreia; Vômito; Constipação; Diminuição do apetite; Dispepsia / dor abdominal
+Contraindicações: História pessoal ou familiar de carcinoma medular de tireoide (CMT); Síndrome de Neoplasia Endócrina Múltipla tipo 2 (NEM 2); Hipersensibilidade grave (anafilaxia e angioedema relatados)
+
+Peptídeo: Semaglutida
+Categoria: GLP-1 / Emagrecimento
+Resumo: Agonista do receptor GLP-1. Usado para controle glicêmico e perda de peso.
+Dose típica: 0.25 mg, 1x por semana (dose inicial, aumentar gradualmente)
+Faixa de dose: 0,25-2,4 mg/semana (subcutâneo, com titulação)
+Meia-vida: ~7 dias
+Frascos comuns: 3 mg, 5 mg
+Status regulatório: Aprovado FDA
+Descrição: A semaglutida é um análogo do peptídeo semelhante ao glucagon tipo 1 (GLP-1), aprovada pela FDA e comercializada como Ozempic (2017, diabetes tipo 2), Rybelsus (oral, 2019) e Wegovy (2021, obesidade). Molécula modificada do GLP-1 humano com substituições de aminoácidos e conjugação a ácido graxo C18, o que permite ligação à albumina e administração semanal.
+
+Indicada para diabetes tipo 2 em adultos e manejo crônico de peso em obesidade (IMC ≥ 30) ou sobrepeso (IMC ≥ 27) com comorbidade. Ensaios de fase 3 (SUSTAIN e STEP) demonstraram perda ponderal média de 10-15% com 2,4 mg/semana. Em 2024 a FDA também aprovou para redução de risco cardiovascular em adultos com DCV estabelecida e obesidade/sobrepeso.
+Mecanismo: Agonista seletivo do receptor GLP-1, amplamente expresso em células beta pancreáticas, neurônios do SNC (hipotálamo, tronco cerebral), TGI e miocárdio. A ativação aumenta secreção de insulina glicose-dependente, suprime glucagon, retarda esvaziamento gástrico e atua em centros de saciedade, reduzindo ingestão calórica.
+
+A modificação estrutural (ácido graxo C18 ligado ao Lys26) confere alta afinidade pela albumina sérica, reduzindo depuração renal e degradação por DPP-4 — resultando em meia-vida plasmática de ~1 semana.
+Efeitos colaterais: Náusea (>20% em Ozempic; até 44% em Wegovy); Vômito; Diarreia; Constipação; Dor abdominal; Reações no local da injeção
+Contraindicações: História pessoal ou familiar de carcinoma medular de tireoide (CMT); Síndrome de Neoplasia Endócrina Múltipla tipo 2 (NEM 2); Hipersensibilidade grave à semaglutida ou excipientes; Gestação (uso não recomendado)

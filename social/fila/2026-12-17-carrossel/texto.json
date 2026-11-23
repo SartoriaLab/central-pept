@@ -1,0 +1,51 @@
+{
+  "hook": "Seu Mounjaro veio sem receita retida? Isso não é sorte.",
+  "hookIcon": "prancheta",
+  "slides": [
+    {
+      "title": "Receita é só burocracia",
+      "layout": "mito",
+      "body": "Desde 23 de junho de 2025 a ANVISA exige receita em duas vias para tirzepatida, com a original retida pela farmácia (RDC 973/2025).",
+      "icon": "errado"
+    },
+    {
+      "title": "Por que isso é um sinal?",
+      "layout": "pergunta",
+      "body": "Quem entrega o Mounjaro sem receita já ignora uma regra. É um aviso de que outras, como origem e conservação, também podem estar sendo ignoradas.",
+      "icon": "alerta"
+    },
+    {
+      "title": "Farmácia x rede social",
+      "layout": "lado",
+      "body": "Farmácia: receita retida e nota fiscal\nRede social: perfil sem CNPJ que some",
+      "icon": "balanca"
+    },
+    {
+      "title": "4 canetas",
+      "layout": "numero",
+      "body": "A apresentação nacional do Mounjaro é a caixa com 4 canetas. Caneta solta, sem caixa, ou caixa com 1 unidade é suspeita.",
+      "icon": "lupa"
+    },
+    {
+      "title": "Frasco nunca é Mounjaro",
+      "layout": "padrao",
+      "body": "A Lilly comercializa no Brasil só a caneta KwikPen. Qualquer \"Mounjaro em frasco\" é outro produto com o nome errado.",
+      "icon": "frasco"
+    },
+    {
+      "title": "Desconfiou? Faça assim",
+      "layout": "passos",
+      "body": "Não aplique e fotografe caixa e caneta\nNotifique a ANVISA pelo Notivisa\nJá aplicou e sentiu algo? Pronto-socorro",
+      "icon": "certo"
+    }
+  ],
+  "narration": [
+    { "text": "Seu Mounjaro veio sem receita retida? Eu sei, parece que você deu sorte." },
+    { "text": "Desde 2025 a ANVISA exige receita em duas vias, com a original retida na farmácia." },
+    { "text": "Quem pula essa regra pode estar pulando outras: origem, lote, conservação." },
+    { "text": "Então, sem receita retida não é sorte: é o primeiro sinal de alerta." }
+  ],
+  "caption": "Eu sei, quando alguém consegue o Mounjaro sem pedir receita parece que deu sorte. Mas desde 23 de junho de 2025 a ANVISA exige receita em duas vias, com a original retida pela farmácia (RDC 973/2025), para tirzepatida, semaglutida e os outros agonistas de GLP-1.\n\nQuem ignora essa regra é um sinal de que outras também podem estar sendo ignoradas.\n\n1️⃣ Mounjaro original no Brasil é a caneta KwikPen da Eli Lilly, em caixa com 4 canetas.\n2️⃣ Lote da caixa igual ao lote da caneta, rótulo impresso de fábrica, líquido límpido e incolor.\n3️⃣ Frasco nunca é Mounjaro.\n\n⚠️ Desconfiou? Não aplique, fotografe tudo e notifique a ANVISA pelo Notivisa. Se já aplicou e há sintomas anormais, procure o pronto-socorro levando o produto.",
+  "question": "Na sua farmácia, a receita do Mounjaro ficou retida?",
+  "share": "aquela amiga que acha que conseguir sem receita foi sorte"
+}

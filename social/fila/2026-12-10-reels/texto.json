@@ -1,0 +1,194 @@
+{
+  "hook": "Ozempic: o erro não é o local. É a pressa.",
+  "hookIcon": "relogio",
+  "slides": [
+    {
+      "title": "O contador zerou, acabou",
+      "layout": "mito",
+      "body": "Ainda não. As instruções do Ozempic mandam, depois que o contador marcar 0, contar devagar até 6 com o botão pressionado.",
+      "icon": "errado"
+    },
+    {
+      "title": "Por que esperar?",
+      "layout": "pergunta",
+      "body": "Porque tirar a caneta antes pode deixar parte da dose de fora. O número zerado não quer dizer que todo o remédio já saiu.",
+      "icon": "duvida"
+    },
+    {
+      "title": "Cada caneta, seu tempo",
+      "layout": "lado",
+      "body": "Ozempic: contar devagar até 6 depois do 0\nWegovy: segurar até a barra amarela parar",
+      "icon": "balanca"
+    },
+    {
+      "title": "Local importa menos do que parece",
+      "layout": "padrao",
+      "body": "As bulas informam exposição semelhante ao remédio no abdômen, na coxa e no braço. O que muda o resultado da dose é a caneta ficar o tempo certo.",
+      "icon": "alvo"
+    },
+    {
+      "title": "Cola da caneta",
+      "layout": "passos",
+      "body": "Confira o líquido antes\nContador no 0: conte devagar até 6\nTroque o ponto a cada dose\nDúvida na técnica: peça ao profissional",
+      "icon": "certo"
+    }
+  ],
+  "scenes": [
+    {
+      "chip": "a pressa",
+      "kicker": "na hora da caneta",
+      "title": "Não é o local,",
+      "accent": "é a pressa",
+      "tone": "vermelho",
+      "speech": "Ozempic: o erro não é o local. É a pressa.",
+      "visual": {
+        "type": "icone",
+        "icon": "relogio",
+        "note": "segundos que fazem diferença"
+      }
+    },
+    {
+      "chip": "a pressa",
+      "kicker": "todo mundo se preocupa",
+      "title": "Barriga, coxa",
+      "accent": "ou braço?",
+      "tone": "azul",
+      "speech": "Todo mundo se preocupa se é barriga, coxa ou braço.",
+      "visual": {
+        "type": "lista",
+        "items": [
+          { "text": "Abdômen", "mark": "ok" },
+          { "text": "Coxa", "mark": "ok" },
+          { "text": "Braço", "mark": "ok" }
+        ]
+      }
+    },
+    {
+      "chip": "o local",
+      "kicker": "o que as bulas dizem",
+      "title": "Exposição",
+      "accent": "semelhante",
+      "tone": "azul",
+      "speech": "Só que as bulas dizem que o remédio chega de forma semelhante nos três locais.",
+      "visual": {
+        "type": "carimbo",
+        "text": "TANTO FAZ O LOCAL",
+        "note": "nenhuma bula elege um local melhor"
+      },
+      "source": "Bula do Ozempic (FDA)"
+    },
+    {
+      "chip": "a pressa",
+      "kicker": "fica até o fim",
+      "title": "O que pesa",
+      "accent": "é outra coisa",
+      "tone": "vermelho",
+      "speech": "O que pode deixar dose de fora é outra coisa, e acontece em poucos segundos.",
+      "visual": {
+        "type": "icone",
+        "icon": "pensando",
+        "note": "o detalhe vem já já"
+      }
+    },
+    {
+      "chip": "o contador",
+      "kicker": "quando o número zera",
+      "title": "Zerou não é",
+      "accent": "acabou",
+      "tone": "vermelho",
+      "speech": "É tirar a caneta assim que o contador marca zero.",
+      "visual": {
+        "type": "numero",
+        "value": "0",
+        "note": "o contador zerado ainda não é o fim"
+      }
+    },
+    {
+      "chip": "o contador",
+      "kicker": "o que as instruções mandam",
+      "title": "Conte devagar",
+      "accent": "até 6",
+      "tone": "azul",
+      "speech": "As instruções do Ozempic mandam contar devagar até seis, ainda com o botão pressionado.",
+      "visual": {
+        "type": "linha",
+        "steps": [
+          "contador 0",
+          "conta até 6",
+          "aí sim tira"
+        ],
+        "current": 1,
+        "note": "botão pressionado o tempo todo"
+      },
+      "source": "Instruções de uso do Ozempic"
+    },
+    {
+      "chip": "o contador",
+      "kicker": "pensa assim",
+      "title": "Como a última",
+      "accent": "gota do copo",
+      "tone": "azul",
+      "speech": "É como virar o copo e tirar da boca antes da última gota descer.",
+      "visual": {
+        "type": "icone",
+        "icon": "gota",
+        "note": "o finalzinho ainda está saindo"
+      }
+    },
+    {
+      "chip": "o risco",
+      "kicker": "se tirar antes",
+      "title": "Parte da dose",
+      "accent": "fica de fora",
+      "tone": "vermelho",
+      "speech": "Tirar antes pode deixar parte da dose de fora, e você nem percebe.",
+      "visual": {
+        "type": "carimbo",
+        "text": "DOSE INCOMPLETA",
+        "note": "sem aviso nenhum"
+      }
+    },
+    {
+      "chip": "e o Wegovy",
+      "kicker": "outra caneta, outra regra",
+      "title": "Barra amarela",
+      "accent": "parada",
+      "tone": "azul",
+      "speech": "No Wegovy, a regra é outra: segurar até a barra amarela parar de se mover.",
+      "visual": {
+        "type": "icone",
+        "icon": "lupa",
+        "note": "cada caneta tem seu tempo"
+      }
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "na dúvida",
+      "title": "Técnica se",
+      "accent": "aprende com alguém",
+      "tone": "azul",
+      "speech": "A primeira aplicação deve ser ensinada por um profissional de saúde: peça para ele conferir a sua.",
+      "visual": {
+        "type": "icone",
+        "icon": "estetoscopio",
+        "note": "a bula da sua caixa vem primeiro"
+      }
+    },
+    {
+      "chip": "pra lembrar",
+      "kicker": "na próxima caneta",
+      "title": "Não é o local,",
+      "accent": "conta até 6",
+      "tone": "vermelho",
+      "speech": "Então, o erro do Ozempic não é o local: é a pressa. Zerou? Conta até seis.",
+      "visual": {
+        "type": "carimbo",
+        "text": "CONTA ATÉ 6",
+        "note": "depois do contador no zero"
+      }
+    }
+  ],
+  "caption": "Eu sei, a gente passa semanas pensando se aplica na barriga, na coxa ou no braço. Mas as bulas informam exposição semelhante ao remédio nos três locais. O que pode deixar dose de fora é a pressa: tirar a caneta de Ozempic assim que o contador marca 0.\n\n1️⃣ As instruções do Ozempic mandam contar devagar até 6 com o botão pressionado, depois do 0\n2️⃣ No Wegovy, a regra é segurar até a barra amarela parar de se mover\n3️⃣ Troque o ponto a cada dose: pode repetir a região, não o mesmo ponto\n\n⚠️ Tirar a caneta antes pode deixar parte da dose de fora. A bula brasileira do seu produto e a orientação de quem prescreveu vêm primeiro, e a primeira aplicação deve ser ensinada por um profissional de saúde.",
+  "question": "Você conta até 6 ou tira a caneta assim que zera?",
+  "share": "aquela amiga que tira a caneta de Ozempic assim que o contador zera"
+}

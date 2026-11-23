@@ -12,6 +12,17 @@ const EXCLUDED = new Set(NO_EBOOK_PEPTIDES);
 /** Posts de compra e preço: a Meta pune conteúdo que facilita venda de medicamento. */
 const COMMERCE_POST = /comprar|preco/;
 
+/**
+ * Fora até a conta voltar às recomendações (23/11/2026): posts de emagrecimento, rebote/reganho e
+ * manipulado, e todo tema com peptídeo sem aprovação (pesquisa, experimental). A regra do Instagram
+ * tira de recomendação remédio com alegação de emagrecimento e produto regulado.
+ */
+const RISKY_POST = /rebote|reganho|emagre|perder-peso|perda-de-peso|manipulad|sem-diabetes/;
+const RISKY_TITLE = /peso|emagre|gordura/i;
+/** Só os GLP-1 aprovados que o público usa; posts sem peptídeo (seringa, frasco, água) seguem. */
+const SAFE_PEPTIDES = new Set(['semaglutida', 'tirzepatida', 'liraglutida']);
+const unapproved = (slugs: string[]) => slugs.some((s) => !SAFE_PEPTIDES.has(s));
+
 /** MDX → texto: tira componentes e marcação de link, mantém o conteúdo. */
 export function mdxToText(body: string): string {
   return body
@@ -50,9 +61,9 @@ export function buildTopics(): Topic[] {
   const topics: Topic[] = [];
 
   for (const a of getArticles()) {
-    if (a.draft || COMMERCE_POST.test(a.slug)) continue;
+    if (a.draft || COMMERCE_POST.test(a.slug) || RISKY_POST.test(a.slug) || RISKY_TITLE.test(a.title)) continue;
     const peptides = a.relatedPeptides ?? [];
-    if (peptides.some((s) => EXCLUDED.has(s))) continue;
+    if (peptides.some((s) => EXCLUDED.has(s)) || unapproved(peptides)) continue;
     const body = mdxToText(getArticleBody(a.slug) ?? '');
     const faq = (a.faq ?? []).map((f) => `P: ${f.q}\nR: ${f.a}`).join('\n');
     const facts = peptides.map((s) => getPeptideBySlug(s)).filter((p): p is Peptide => !!p).map(peptideFacts);
@@ -69,7 +80,7 @@ export function buildTopics(): Topic[] {
   }
 
   for (const p of getPeptides()) {
-    if (EXCLUDED.has(p.slug)) continue;
+    if (EXCLUDED.has(p.slug) || unapproved([p.slug])) continue;
     topics.push({
       id: `peptide:${p.slug}`,
       kind: 'peptide',
@@ -83,7 +94,7 @@ export function buildTopics(): Topic[] {
   }
 
   for (const c of COMPARISONS) {
-    if (c.peptideSlugs.some((s) => EXCLUDED.has(s))) continue;
+    if (c.peptideSlugs.some((s) => EXCLUDED.has(s)) || unapproved(c.peptideSlugs)) continue;
     const facts = c.peptideSlugs.map((s) => getPeptideBySlug(s)).filter((p): p is Peptide => !!p);
     if (facts.length < 2) continue;
     topics.push({

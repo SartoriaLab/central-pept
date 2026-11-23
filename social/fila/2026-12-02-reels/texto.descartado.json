@@ -1,0 +1,173 @@
+{
+  "hook": "O GHK-Cu do seu sérum é o mesmo do frasco?",
+  "hookIcon": "pele",
+  "slides": [
+    {
+      "title": "Sérum e frasco são a mesma coisa?",
+      "layout": "pergunta",
+      "body": "A molécula é a mesma: o GHK-Cu, um peptídeo que carrega cobre e já existe no corpo. A situação dos dois é que é completamente diferente.",
+      "icon": "duvida"
+    },
+    {
+      "title": "O que ele faz no laboratório",
+      "layout": "padrao",
+      "body": "Estimula colágeno e elastina, que dão firmeza à pele. Em células, alterou a atividade de cerca de 4.000 genes. Isso é laboratório, não resultado em gente.",
+      "icon": "microscopio"
+    },
+    {
+      "title": "Funciona igual em todo mundo",
+      "layout": "mito",
+      "body": "Os estudos em pessoas são pequenos. No maior deles, de fase 3 com 511 pacientes com úlcera de pé diabético, o GHK-Cu não superou o placebo.",
+      "icon": "errado"
+    },
+    {
+      "title": "Tópico x injetável",
+      "layout": "lado",
+      "body": "Sérum: ingrediente cosmético permitido, seguro em concentração baixa\nInjetável: sem aprovação da ANVISA nem da FDA para uso humano",
+      "icon": "balanca"
+    },
+    {
+      "title": "Quem não deve usar",
+      "layout": "padrao",
+      "body": "Quem tem alergia a cobre ou doença de Wilson, além de gestantes e lactantes, por falta de dados. No tópico, o relato mais comum é irritação local leve.",
+      "icon": "alerta"
+    },
+    {
+      "title": "A pergunta pro seu médico",
+      "layout": "passos",
+      "body": "Isso é cosmético ou é pesquisa?\nTem registro e rótulo de verdade?\nFrasco \"só para pesquisa\" não é tratamento",
+      "icon": "estetoscopio"
+    }
+  ],
+  "scenes": [
+    {
+      "chip": "o sérum",
+      "kicker": "a dúvida do momento",
+      "title": "Sérum e frasco",
+      "accent": "são iguais?",
+      "tone": "vermelho",
+      "speech": "O GHK-Cu do seu sérum é o mesmo do frasco?",
+      "visual": {
+        "type": "frascos",
+        "left": { "label": "SÉRUM", "note": "creme, cosmético", "liquid": "claro" },
+        "right": { "label": "GHK-Cu", "note": "frasco injetável", "liquid": "po" },
+        "sign": "vs"
+      }
+    },
+    {
+      "chip": "a molécula",
+      "kicker": "o que ele é",
+      "title": "Peptídeo",
+      "accent": "que carrega cobre",
+      "tone": "azul",
+      "speech": "A molécula é a mesma: um peptídeo que carrega cobre e já existe no seu corpo.",
+      "visual": { "type": "icone", "icon": "dna", "note": "existe naturalmente no corpo" }
+    },
+    {
+      "chip": "a molécula",
+      "kicker": "guarda essa",
+      "title": "Uma pergunta",
+      "accent": "separa os dois",
+      "tone": "azul",
+      "speech": "Mas uma pergunta só separa os dois, e eu te conto qual é no final.",
+      "visual": { "type": "icone", "icon": "pensando" }
+    },
+    {
+      "chip": "o laboratório",
+      "kicker": "de onde vem a fama",
+      "title": "Mais colágeno",
+      "accent": "e elastina",
+      "tone": "azul",
+      "speech": "No laboratório, ele estimula colágeno e elastina, o que dá firmeza à pele.",
+      "visual": {
+        "type": "lista",
+        "items": [
+          { "text": "Colágeno", "mark": "ok" },
+          { "text": "Elastina", "mark": "ok" },
+          { "text": "Firmeza da pele", "mark": "ok" }
+        ]
+      }
+    },
+    {
+      "chip": "o laboratório",
+      "kicker": "o número que circula",
+      "title": "Mexeu em",
+      "accent": "4.000 genes",
+      "tone": "azul",
+      "speech": "Em células, mexeu com cerca de 4.000 genes, mas isso é laboratório, não gente.",
+      "visual": { "type": "numero", "value": "4.000", "note": "genes alterados em células tumorais" },
+      "source": "Connectivity Map"
+    },
+    {
+      "chip": "em pessoas",
+      "kicker": "no maior estudo",
+      "title": "511 pacientes",
+      "accent": "igual ao placebo",
+      "tone": "vermelho",
+      "speech": "Em pessoas, os estudos são pequenos, e o maior, com 511 pacientes, não superou o placebo.",
+      "visual": { "type": "carimbo", "text": "IGUAL AO PLACEBO", "note": "fase 3, úlcera de pé diabético" },
+      "source": "ensaio de fase 3"
+    },
+    {
+      "chip": "o sérum",
+      "kicker": "no creme",
+      "title": "Cosmético",
+      "accent": "permitido",
+      "tone": "azul",
+      "speech": "No sérum, ele é ingrediente cosmético permitido, considerado seguro em concentração baixa.",
+      "visual": { "type": "frasco", "label": "SÉRUM", "liquid": "claro", "tag": "COSMÉTICO" },
+      "source": "painel CIR, 2018"
+    },
+    {
+      "chip": "o frasco",
+      "kicker": "na forma injetável",
+      "title": "Sem aprovação",
+      "accent": "pra uso humano",
+      "tone": "vermelho",
+      "speech": "Já o injetável não tem aprovação da ANVISA nem da FDA para uso humano.",
+      "visual": { "type": "carimbo", "text": "NÃO APROVADO", "note": "GHK-Cu injetável" },
+      "source": "alerta da ANVISA, julho de 2026"
+    },
+    {
+      "chip": "o frasco",
+      "kicker": "o que vem no rótulo",
+      "title": "Só para",
+      "accent": "pesquisa",
+      "tone": "vermelho",
+      "speech": "E o frasco vem rotulado só para pesquisa, sem garantia de pureza nem de esterilidade.",
+      "visual": { "type": "frasco", "label": "GHK-Cu", "liquid": "po", "stamp": "SÓ PESQUISA" }
+    },
+    {
+      "chip": "a pergunta",
+      "kicker": "leva pra consulta",
+      "title": "Cosmético",
+      "accent": "ou pesquisa?",
+      "tone": "azul",
+      "speech": "A pergunta é: isso é cosmético ou é pesquisa? Leva ela pro seu médico.",
+      "visual": {
+        "type": "lista",
+        "items": [
+          { "text": "Cosmético com rótulo", "mark": "ok" },
+          { "text": "Frasco só para pesquisa", "mark": "nao" }
+        ]
+      }
+    },
+    {
+      "chip": "pra lembrar",
+      "kicker": "da próxima vez",
+      "title": "Mesmo nome",
+      "accent": "mundos diferentes",
+      "tone": "vermelho",
+      "speech": "Então, o GHK-Cu do sérum e o do frasco não são a mesma coisa.",
+      "visual": {
+        "type": "frascos",
+        "left": { "label": "SÉRUM", "note": "cosmético permitido", "liquid": "claro" },
+        "right": { "label": "GHK-Cu", "note": "só pesquisa", "liquid": "po" },
+        "sign": "≠"
+      }
+    }
+  ],
+  "caption": "Eu sei, o nome é o mesmo e dá pra confundir. O GHK-Cu é um peptídeo que carrega cobre e já existe no corpo. No laboratório, estimula colágeno e elastina; em células, alterou a atividade de cerca de 4.000 genes. Isso é laboratório, não resultado em pessoas.\n\nEm gente, os estudos são pequenos. No maior deles, de fase 3 com 511 pacientes com úlcera de pé diabético, o GHK-Cu não superou o placebo.\n\n⚠️ No sérum e no creme, o GHK-Cu é ingrediente cosmético permitido, considerado seguro em concentração baixa. A forma injetável não tem aprovação da ANVISA nem da FDA para uso humano, e os frascos vêm rotulados \"apenas para pesquisa\", sem garantia de pureza ou esterilidade. Alergia a cobre e doença de Wilson são contraindicações.\n\n1️⃣ Pergunte: isso é cosmético ou é pesquisa?\n2️⃣ Confira se tem registro e rótulo de verdade\n3️⃣ Converse com seu médico ou dermatologista antes de qualquer frasco",
+  "question": "Você já usou algum sérum com peptídeo de cobre?",
+  "share": "aquela amiga que acha que o GHK-Cu do frasco é igual ao do sérum"
+}

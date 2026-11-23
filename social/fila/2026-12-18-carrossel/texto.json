@@ -1,0 +1,51 @@
+{
+  "hook": "Seu Ozempic vai na mala despachada? Erro comum de viagem.",
+  "hookIcon": "relogio",
+  "slides": [
+    {
+      "title": "Mala despachada protege mais a caneta",
+      "layout": "mito",
+      "body": "É o contrário: no porão do avião a bagagem despachada pode congelar. E semaglutida que congelou vai para o descarte, mesmo depois de descongelar.",
+      "icon": "gelo"
+    },
+    {
+      "title": "Bagagem de mão x despachada",
+      "layout": "lado",
+      "body": "De mão: a caneta fica com você\nDespachada: risco de congelar no voo",
+      "icon": "balanca"
+    },
+    {
+      "title": "8 horas",
+      "layout": "numero",
+      "body": "É o tempo de referência da bolsa térmica com gelox. A caneta ainda fechada precisa voltar para a geladeira, de 2 a 8 °C.",
+      "icon": "ampulheta"
+    },
+    {
+      "title": "E no carro, enquanto passeia?",
+      "layout": "pergunta",
+      "body": "Evite deixar a caneta no carro em dia quente. Acima de 30 °C a molécula degrada e a caneta deve ser descartada.",
+      "icon": "termometro"
+    },
+    {
+      "title": "Leve a receita impressa",
+      "layout": "padrao",
+      "body": "Receita médica impressa ajuda na fiscalização do aeroporto e da alfândega. Deixe junto da caneta na bagagem de mão.",
+      "icon": "prancheta"
+    },
+    {
+      "title": "Cola da viagem",
+      "layout": "passos",
+      "body": "Bolsa térmica com gelox, por até 8 horas\nCaneta na bagagem de mão\nReceita impressa junto\nNada de carro quente",
+      "icon": "certo"
+    }
+  ],
+  "narration": [
+    { "text": "Seu Ozempic vai na mala despachada? Eu sei, parece o lugar mais seguro." },
+    { "text": "Mas no porão do avião a bagagem pode congelar, e semaglutida que congelou vai para o descarte." },
+    { "text": "Bolsa térmica com gelox, bagagem de mão, receita impressa e nada de carro quente." },
+    { "text": "Então, na próxima viagem, o Ozempic vai com você, não com a mala." }
+  ],
+  "caption": "Eu sei, despachar a caneta parece o jeito de não esquecer nada. Só que a bagagem despachada pode congelar no voo, e a semaglutida perde potência de forma irreversível quando congela: descarte mesmo depois de descongelar.\n\n1️⃣ Bolsa térmica com gelox, por até 8 horas.\n2️⃣ Ozempic ou Wegovy na bagagem de mão, com a receita médica impressa.\n3️⃣ Caneta fechada volta para a geladeira (2 a 8 °C), na prateleira central.\n\n⚠️ Não deixe a caneta no carro em dia quente: acima de 30 °C a molécula degrada. Depois de aberta, vale o prazo da bula brasileira: até 6 semanas, abaixo de 30 °C ou na geladeira.",
+  "question": "Na última viagem, sua caneta foi na mão ou na mala?",
+  "share": "aquela amiga que vai viajar no fim do ano com o Ozempic"
+}

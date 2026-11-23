@@ -1,0 +1,131 @@
+{
+  "hook": "Fez a glicada no primeiro mês de Ozempic?",
+  "hookIcon": "microscopio",
+  "slides": [
+    {
+      "title": "Um mês de Ozempic e a glicada não mudou",
+      "layout": "mito",
+      "body": "Não quer dizer que não funcionou. A queda da HbA1c fica detectável nos exames a partir de 8 a 12 semanas.",
+      "icon": "errado"
+    },
+    {
+      "title": "4 a 5 semanas",
+      "layout": "numero",
+      "body": "É quanto a semaglutida leva para chegar ao estado estacionário, o nível estável no sangue. Antes disso, o corpo ainda está acumulando o remédio.",
+      "icon": "ampulheta"
+    },
+    {
+      "title": "Por que demora tanto?",
+      "layout": "pergunta",
+      "body": "A meia-vida é de cerca de 7 dias e a dose sobe aos poucos, para o corpo tolerar os efeitos gastrointestinais.",
+      "icon": "calendario"
+    },
+    {
+      "title": "Tempos diferentes",
+      "layout": "lado",
+      "body": "Saciedade: perceptível em 2 a 3 dias\nGlicada no exame: a partir de 8 a 12 semanas",
+      "icon": "relogio"
+    },
+    {
+      "title": "Antes de se frustrar com o exame",
+      "layout": "passos",
+      "body": "Combine com o médico quando repetir a glicada\nNão mude a dose por causa de um exame cedo\nLeve as datas das aplicações na consulta",
+      "icon": "estetoscopio"
+    }
+  ],
+  "scenes": [
+    {
+      "chip": "o exame",
+      "kicker": "no primeiro mês",
+      "title": "Glicada no",
+      "accent": "primeiro mês?",
+      "tone": "vermelho",
+      "speech": "Fez a glicada no primeiro mês de Ozempic?",
+      "visual": { "type": "icone", "icon": "microscopio", "note": "a hemoglobina glicada, a HbA1c" }
+    },
+    {
+      "chip": "o exame",
+      "kicker": "a frustração",
+      "title": "O número",
+      "accent": "quase não mexeu",
+      "tone": "vermelho",
+      "speech": "E o número quase não mexeu, e você achou que o remédio não está funcionando.",
+      "visual": { "type": "carimbo", "text": "CEDO DEMAIS", "note": "o exame veio antes da hora" }
+    },
+    {
+      "chip": "o exame",
+      "kicker": "fica até o fim",
+      "title": "O motivo",
+      "accent": "está no calendário",
+      "tone": "azul",
+      "speech": "Calma, o motivo não está no remédio, está no calendário, e eu te mostro qual.",
+      "visual": { "type": "icone", "icon": "calendario", "note": "a resposta vem no fim" }
+    },
+    {
+      "chip": "o corpo",
+      "kicker": "o que acontece",
+      "title": "O remédio",
+      "accent": "vai acumulando",
+      "tone": "azul",
+      "speech": "A semaglutida fica cerca de uma semana no corpo, e cada dose soma com a anterior.",
+      "visual": { "type": "icone", "icon": "ampulheta", "note": "meia-vida de cerca de 7 dias" }
+    },
+    {
+      "chip": "o corpo",
+      "kicker": "pensa assim",
+      "title": "Como encher",
+      "accent": "uma caixa de água",
+      "tone": "azul",
+      "speech": "É como encher uma caixa de água com um balde por semana: demora até chegar no nível.",
+      "visual": { "type": "icone", "icon": "gota", "note": "um balde por semana" }
+    },
+    {
+      "chip": "o corpo",
+      "kicker": "o nível estável",
+      "title": "Só depois de",
+      "accent": "4 a 5 semanas",
+      "tone": "azul",
+      "speech": "Esse nível estável só chega depois de 4 a 5 semanas de aplicação.",
+      "visual": { "type": "numero", "value": "4-5 sem", "note": "até o estado estacionário" }
+    },
+    {
+      "chip": "a glicada",
+      "kicker": "e o exame",
+      "title": "A glicada aparece",
+      "accent": "bem depois",
+      "tone": "azul",
+      "speech": "E a queda da glicada só fica detectável no exame a partir de 8 a 12 semanas.",
+      "visual": { "type": "linha", "steps": ["dose 1", "nível", "glicada"], "current": 2, "note": "a glicada vem por último" }
+    },
+    {
+      "chip": "a glicada",
+      "kicker": "o que não fazer",
+      "title": "Não mude a dose",
+      "accent": "por um exame cedo",
+      "tone": "vermelho",
+      "speech": "Então, não mexa na dose por conta por causa de um exame feito cedo demais.",
+      "visual": { "type": "lista", "items": [ { "text": "Mexer na dose por conta", "mark": "nao" }, { "text": "Desistir no primeiro mês", "mark": "nao" } ] }
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "na consulta",
+      "title": "Combine a data",
+      "accent": "com o médico",
+      "tone": "azul",
+      "speech": "O melhor é combinar com o médico quando repetir o exame e levar as datas das aplicações.",
+      "visual": { "type": "icone", "icon": "estetoscopio", "note": "ele decide o momento do exame" }
+    },
+    {
+      "chip": "pra lembrar",
+      "kicker": "antes do próximo exame",
+      "title": "Glicada no mês 1?",
+      "accent": "Ainda não é hora",
+      "tone": "azul",
+      "speech": "Então, glicada no primeiro mês de Ozempic ainda não conta a história toda.",
+      "visual": { "type": "carimbo", "text": "ESPERE", "note": "o nível ainda está subindo" }
+    }
+  ],
+  "caption": "Eu sei, a ansiedade bate e a gente quer ver o resultado no exame logo. Mas a semaglutida tem meia-vida de cerca de 7 dias: cada dose soma com a anterior, e o nível estável no sangue só chega depois de 4 a 5 semanas.\n\n1️⃣ A saciedade costuma ser perceptível em 2 a 3 dias.\n2️⃣ A queda da HbA1c fica detectável nos exames a partir de 8 a 12 semanas.\n3️⃣ Quando repetir a glicada é combinado com o médico.\n\n⚠️ Exame cedo não é motivo para mexer na dose por conta. A subida segue a bula e a orientação médica.",
+  "question": "Com quantas semanas de Ozempic você fez a primeira glicada?",
+  "share": "aquela amiga que fez a glicada no primeiro mês e se frustrou"
+}

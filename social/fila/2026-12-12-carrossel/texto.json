@@ -1,0 +1,51 @@
+{
+  "hook": "Antes do Mounjaro, alguém perguntou da tireoide da sua família?",
+  "hookIcon": "prancheta",
+  "slides": [
+    {
+      "title": "Se eu não tenho nada, posso usar",
+      "layout": "mito",
+      "body": "A bula olha também para a família. História pessoal ou familiar de carcinoma medular de tireoide é contraindicação da tirzepatida.",
+      "icon": "alerta"
+    },
+    {
+      "title": "Quem não pode usar?",
+      "layout": "pergunta",
+      "body": "Quem tem história pessoal ou familiar de carcinoma medular de tireoide, quem tem síndrome NEM 2 e quem já teve alergia grave à tirzepatida.",
+      "icon": "proibido"
+    },
+    {
+      "title": "Alergia grave entra na lista",
+      "layout": "padrao",
+      "body": "A ficha registra que anafilaxia e angioedema foram relatados. Inchaço no rosto ou falta de ar depois da aplicação é caso de atendimento.",
+      "icon": "hospital"
+    },
+    {
+      "title": "Mesma molécula, dois nomes",
+      "layout": "lado",
+      "body": "Mounjaro: aprovado pela FDA em 2022, diabetes tipo 2\nZepbound: aprovado pela FDA em 2023, obesidade",
+      "icon": "balanca"
+    },
+    {
+      "title": "2,5 mg",
+      "layout": "numero",
+      "body": "É a dose típica de início, uma vez por semana. A subida acontece a cada 4 semanas ou mais, sempre com o médico.",
+      "icon": "alvo"
+    },
+    {
+      "title": "Leve para a consulta",
+      "layout": "passos",
+      "body": "Casos de câncer de tireoide na família\nSe alguém tem NEM 2\nAlergias que você já teve a remédio",
+      "icon": "estetoscopio"
+    }
+  ],
+  "narration": [
+    { "text": "Antes do Mounjaro, alguém perguntou da tireoide da sua família? Quase ninguém lembra disso." },
+    { "text": "A bula da tirzepatida contraindica o uso com história pessoal ou familiar de carcinoma medular de tireoide." },
+    { "text": "Síndrome NEM 2 e alergia grave à tirzepatida também entram na lista." },
+    { "text": "Então, leve a história da família para a consulta antes da primeira caneta." }
+  ],
+  "caption": "Eu sei, na consulta a gente fala de dose e esquece de falar da família. Só que a tirzepatida, do Mounjaro e do Zepbound, tem contraindicações que dependem da história de quem veio antes de você.\n\n1️⃣ História pessoal ou familiar de carcinoma medular de tireoide.\n2️⃣ Síndrome de Neoplasia Endócrina Múltipla tipo 2 (NEM 2).\n3️⃣ Hipersensibilidade grave: anafilaxia e angioedema foram relatados.\n\n⚠️ Inchaço no rosto, na garganta ou falta de ar depois da aplicação pedem atendimento na hora. A dose de início descrita é 2,5 mg por semana, e a subida é com o médico.",
+  "question": "Seu médico perguntou da tireoide da sua família antes de começar?",
+  "share": "quem vai começar o Mounjaro e nunca falou da família na consulta"
+}

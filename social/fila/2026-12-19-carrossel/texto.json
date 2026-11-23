@@ -1,0 +1,51 @@
+{
+  "hook": "Semaglutida em 5 unidades? Erro comum na água.",
+  "hookIcon": "seringa",
+  "slides": [
+    {
+      "title": "Menos água deixa a dose mais precisa",
+      "layout": "mito",
+      "body": "É o contrário: com pouca água, a dose fica em poucas unidades, difíceis de medir. Abaixo de 5 U, considere adicionar mais água.",
+      "icon": "errado"
+    },
+    {
+      "title": "10-30 U",
+      "layout": "numero",
+      "body": "É a faixa da seringa mais fácil de medir com precisão. A água que você coloca decide onde a sua dose cai.",
+      "icon": "alvo"
+    },
+    {
+      "title": "Frasco de 5 mg, dose de 0,25 mg",
+      "layout": "lado",
+      "body": "Com 1 ml: a dose fica em 5 U\nCom 2 ml: a mesma dose fica em 10 U",
+      "icon": "balanca"
+    },
+    {
+      "title": "A dose muda com mais água?",
+      "layout": "pergunta",
+      "body": "Não: os mg do frasco são os mesmos. Muda a concentração e, com ela, quantas unidades você puxa. Por isso a etiqueta é obrigatória.",
+      "icon": "pensando"
+    },
+    {
+      "title": "Etiqueta no frasco",
+      "layout": "padrao",
+      "body": "Escreva a data da reconstituição e a concentração. Na semana seguinte, é ela que diz quantas unidades puxar.",
+      "icon": "prancheta"
+    },
+    {
+      "title": "Cola da proporção",
+      "layout": "passos",
+      "body": "Escolha a água pela dose, não no olho\nDose entre 10 e 30 U na seringa\nEtiqueta com data e concentração\nDúvida na conta? Médico ou farmacêutico",
+      "icon": "certo"
+    }
+  ],
+  "narration": [
+    { "text": "Semaglutida em 5 unidades? Eu sei, parece que pouca água deixa tudo mais exato." },
+    { "text": "No frasco de 5 mg com 1 ml, 0,25 mg ficam em 5 U. Com 2 ml, a mesma dose vira 10 U." },
+    { "text": "A faixa mais fácil de medir é de 10 a 30 U. E a concentração vai na etiqueta." },
+    { "text": "Então, se a dose cabe em 5 unidades, o ajuste é na água, não no olho." }
+  ],
+  "caption": "Eu sei, parece que pouca água deixa a semaglutida mais exata. Mas com pouca água a dose cai em poucas unidades, e erro de um traço vira uma fatia grande da dose.\n\nNo frasco de 5 mg, a dose de 0,25 mg fica em 5 U com 1 ml de água bacteriostática, em 10 U com 2 ml e em 15 U com 3 ml. Os mg são os mesmos: muda a concentração.\n\n1️⃣ A faixa mais fácil de medir com precisão é de 10 a 30 U na seringa de insulina.\n2️⃣ Abaixo de 5 U, considere adicionar mais água.\n3️⃣ Etiquete o frasco com a data e a concentração.\n\n⚠️ A dose é a que o médico prescreveu. Na dúvida da conta, confirme com o médico ou o farmacêutico antes de aplicar.",
+  "question": "Quanta água você coloca no frasco de semaglutida?",
+  "share": "aquela amiga que põe pouca água pra dose ficar pequena"
+}

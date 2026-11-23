@@ -1,57 +1,51 @@
 {
-  "hook": "Seu ciclo de BPC-157 tem base em estudo? Não.",
-  "hookIcon": "calendario",
+  "hook": "O lote da caixa bate com o da caneta Mounjaro?",
+  "hookIcon": "lupa",
   "slides": [
     {
-      "title": "Precisa fazer pausa?",
-      "layout": "pergunta",
-      "body": "Não há dados clínicos robustos que definam pausas obrigatórias. Os ciclos citados no meio informal são práticas sem base em estudo controlado.",
-      "icon": "duvida"
-    },
-    {
-      "title": "4 semanas on, 2 off é a regra",
+      "title": "Se veio na caixa, é original",
       "layout": "mito",
-      "body": "É só um padrão informal, repetido de fórum em fórum. Não saiu de estudo controlado, e cada grupo tem a sua versão do ciclo.",
+      "body": "A caixa pode ser falsa também. O teste mais simples é comparar: o lote impresso na caixa precisa ser igual ao lote impresso na caneta.",
       "icon": "errado"
     },
     {
-      "title": "12 semanas",
-      "layout": "numero",
-      "body": "Depois disso, não há dados sistemáticos de segurança em humanos. E os relatos de boa tolerância que existem são anedóticos.",
-      "icon": "ampulheta"
-    },
-    {
-      "title": "Sem aprovação em lugar nenhum",
-      "layout": "padrao",
-      "body": "O BPC-157 não é aprovado para uso humano em nenhuma jurisdição, e a WADA o proíbe no esporte desde 2022. A maior parte da evidência vem de animais.",
-      "icon": "proibido"
-    },
-    {
-      "title": "Quem deve evitar?",
+      "title": "Onde olhar o lote?",
       "layout": "pergunta",
-      "body": "Quem tem câncer ativo ou histórico recente: o efeito pró-angiogênico é teoricamente problemático em tumor. Também gestantes, lactantes e quem usa anticoagulante sem acompanhamento.",
-      "icon": "alerta"
+      "body": "Na caixa, lote e validade vêm impressos em relevo ou tinta, nunca em adesivo. Na caneta, o rótulo é impresso de fábrica, com o mesmo lote.",
+      "icon": "prancheta"
     },
     {
-      "title": "Mercado cinza, frasco incerto",
+      "title": "Caneta original x suspeita",
+      "layout": "lado",
+      "body": "Original: seletor trava com clique nas posições\nSuspeita: seletor gira livre, sem clique",
+      "icon": "balanca"
+    },
+    {
+      "title": "4 doses",
+      "layout": "numero",
+      "body": "A KwikPen é uma caneta multidose com seletor que trava em 4 doses. Tampa e cores precisam combinar com a dose impressa na caixa.",
+      "icon": "seringa"
+    },
+    {
+      "title": "Olhe o líquido contra a luz",
       "layout": "padrao",
-      "body": "A contaminação é frequente no mercado cinza. O Certificado de Análise (COA) é o mínimo para saber o que tem no frasco.",
-      "icon": "lupa"
+      "body": "O original é límpido e incolor, sem partículas nem turvação. Líquido turvo é sinal de alerta, mesmo com caixa bonita.",
+      "icon": "gota"
     },
     {
-      "title": "Quando procurar o médico",
+      "title": "Desconfiou? Faça assim",
       "layout": "passos",
-      "body": "Dor, febre ou vermelhidão onde aplicou\nPalpitação ou falta de ar\nNáusea que não passa\nAntes de começar, se tem doença ou usa remédio",
-      "icon": "estetoscopio"
+      "body": "Não aplique e fotografe caixa, caneta e rótulo\nConfira o registro e os alertas na ANVISA\nNotifique pelo Notivisa\nSe já aplicou e há sintomas, pronto-socorro com o produto",
+      "icon": "hospital"
     }
   ],
   "narration": [
-    { "text": "Seu ciclo de BPC-157 tem base em estudo? Não. Eu sei, o fórum faz parecer regra." },
-    { "text": "Não há dados clínicos que definam pausas, e a segurança em humanos não foi estudada de forma sistemática." },
-    { "text": "Ele não é aprovado para uso humano, e quem tem câncer ativo ou histórico recente deve evitar." },
-    { "text": "Então, ciclo de fórum não é estudo: na dúvida, médico antes de começar." }
+    { "text": "O lote da caixa bate com o da sua caneta Mounjaro? Eu sei, quase ninguém confere." },
+    { "text": "A caixa pode ser falsa também. O lote impresso nela precisa ser igual ao da caneta, nunca em adesivo." },
+    { "text": "Na caneta: seletor que trava com clique, líquido límpido e incolor. Gira solto ou está turvo? Não aplique." },
+    { "text": "Então, antes da primeira dose, compara os dois lotes." }
   ],
-  "caption": "Eu sei, no fórum o ciclo de BPC-157 parece regra: tantas semanas usando, tantas de pausa. Mas não há dados clínicos robustos que definam pausas obrigatórias. Os ciclos que circulam são práticas informais, sem base em estudo controlado.\n\nO que se sabe:\n1️⃣ O BPC-157 não é aprovado para uso humano em nenhuma jurisdição e é proibido pela WADA no esporte.\n2️⃣ A maior parte da evidência vem de modelos animais.\n3️⃣ Não há dados sistemáticos de segurança em humanos além de 12 semanas; os relatos de boa tolerância são anedóticos.\n\n⚠️ Quem tem câncer ativo ou histórico recente deve evitar, pela preocupação teórica com angiogênese. Gestantes, lactantes e quem usa anticoagulante também estão na lista. Dor, febre ou vermelhidão onde aplicou, palpitação, falta de ar ou náusea persistente: procure o médico.",
-  "question": "Você já viu alguém ensinar ciclo de BPC-157 como se fosse regra?",
-  "share": "quem segue ciclo de BPC-157 tirado de fórum"
+  "caption": "Eu sei, quase ninguém confere o lote. Mas a caixa também pode ser falsificada, e o teste mais simples do Mounjaro original é comparar: o lote impresso na caixa precisa ser igual ao lote impresso no rótulo da caneta.\n\n1️⃣ Lote e validade impressos em relevo ou tinta, nunca em adesivo.\n2️⃣ A KwikPen tem seletor que trava com clique; girando livre é suspeito.\n3️⃣ Líquido límpido e incolor, sem partículas nem turvação.\n\n⚠️ Desconfiou? Não aplique. Fotografe caixa, caneta e rótulo, confira o registro e os alertas de lote na ANVISA e notifique pelo Notivisa. Se já aplicou e tem sintomas anormais, procure o pronto-socorro levando o produto.",
+  "question": "Você já comparou o lote da caixa com o da caneta?",
+  "share": "aquela amiga que nunca olha o lote da caneta"
 }

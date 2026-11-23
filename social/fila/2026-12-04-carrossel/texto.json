@@ -1,57 +1,51 @@
 {
-  "hook": "Você acha que TB-500 é comprovado? Não é.",
-  "hookIcon": "osso",
+  "hook": "Seu frasco de tirzepatida vence antes de acabar? Erro comum.",
+  "hookIcon": "calendario",
   "slides": [
     {
-      "title": "O que é o TB-500",
-      "layout": "padrao",
-      "body": "Um fragmento sintético da Timosina Beta-4, proteína do próprio corpo ligada à reparação de tecidos. É divulgado como \"peptídeo de recuperação\" para tendão e músculo.",
-      "icon": "dna"
-    },
-    {
-      "title": "Está comprovado para lesões",
+      "title": "Frasco maior sempre rende mais",
       "layout": "mito",
-      "body": "A maior parte dos dados vem de animais e de estudos in vitro. Os poucos ensaios em pessoas usaram Tβ4 recombinante, não o TB-500 do mercado cinza.",
-      "icon": "microscopio"
+      "body": "Rende mais doses no papel. Mas, depois de reconstituído, o frasco dura 28 dias na geladeira. O que sobra depois disso vai para o descarte.",
+      "icon": "errado"
     },
     {
-      "title": "É liberado no Brasil?",
+      "title": "28 dias",
+      "layout": "numero",
+      "body": "É o prazo do frasco reconstituído, entre 2 e 8 °C, longe da luz. Depois dele, a perda de potência e o risco de contaminação deixam de ser previsíveis.",
+      "icon": "geladeira"
+    },
+    {
+      "title": "Quantas doses de 2,5 mg cabem no frasco?",
       "layout": "pergunta",
-      "body": "Não. Não tem registro na ANVISA e não é aprovado para uso humano em nenhum país. É classificado como substância de pesquisa.",
-      "icon": "proibido"
-    },
-    {
-      "title": "TB-500 junto com BPC-157",
-      "layout": "lado",
-      "body": "Na teoria: somar mecanismos de reparo\nNos estudos: nenhum ensaio clínico da combinação",
-      "icon": "balanca"
-    },
-    {
-      "title": "E o que tem no frasco?",
-      "layout": "padrao",
-      "body": "Sem controle regulatório, pureza e quantidade podem não bater com o rótulo, e há relatos de contaminação. Em produto injetável, isso pesa.",
+      "body": "O de 10 mg rende 4, o de 15 mg rende 6 e o de 60 mg rende 24. Com aplicação semanal, só o de 10 mg fecha a conta em 4 semanas.",
       "icon": "frasco"
     },
     {
-      "title": "E para quem treina e compete?",
-      "layout": "pergunta",
-      "body": "O TB-500 é proibido pela WADA dentro e fora de competição. Para atleta testado, a proibição é absoluta e há risco de sanção.",
-      "icon": "musculo"
+      "title": "Frasco de 15 mg na dose de 2,5 mg",
+      "layout": "lado",
+      "body": "Rendimento: 6 semanas de aplicação\nPrazo: vence antes de acabar",
+      "icon": "balanca"
     },
     {
-      "title": "Antes de pensar em TB-500",
+      "title": "E o frasco de 60 mg?",
+      "layout": "padrao",
+      "body": "Com aplicação semanal, só na dose de 15 mg ele acaba em 4 semanas. Em qualquer dose menor, parte do frasco passa do prazo.",
+      "icon": "alerta"
+    },
+    {
+      "title": "Cola do frasco",
       "layout": "passos",
-      "body": "Sem aprovação, com evidência quase toda animal\nProibido pela WADA\nGestação, lactação ou histórico de câncer: desaconselhado\nLesão que preocupa: converse com o médico",
+      "body": "Etiquete com a data da reconstituição\nConfira quantas doses o frasco rende na sua dose\nPassou de 28 dias, descarte o que sobrou\nDose e frasco, sempre com o médico",
       "icon": "certo"
     }
   ],
   "narration": [
-    { "text": "Você acha que TB-500 é comprovado? Não é. Eu sei, na academia todo mundo fala dele." },
-    { "text": "Quase toda a evidência vem de animais e de laboratório, e ele não tem aprovação para uso humano em nenhum país." },
-    { "text": "A combinação com BPC-157 também não tem estudo clínico, e o TB-500 é proibido no esporte." },
-    { "text": "Então, antes de acreditar no papo da academia, lembre: comprovado ele não é." }
+    { "text": "Seu frasco de tirzepatida vence antes de acabar? Eu sei, a gente pensa que o maior rende mais." },
+    { "text": "Só que, depois de reconstituído, o frasco dura 28 dias na geladeira, entre 2 e 8 graus." },
+    { "text": "Na dose de 2,5 mg, o de 15 mg renderia 6 semanas: vence antes. O de 10 mg fecha certinho em 4 semanas." },
+    { "text": "Então, anota a data no frasco e confere se ele acaba antes do prazo." }
   ],
-  "caption": "Eu sei, na academia ou no fórum o TB-500 aparece como o \"peptídeo de recuperação\" que acelera tendão, ligamento e músculo. Mas a realidade é mais sóbria. Ele é um fragmento sintético da Timosina Beta-4, sem aprovação para uso humano em nenhum país, e a maior parte da evidência vem de animais e de estudos in vitro.\n\n1️⃣ Os poucos ensaios em pessoas usaram Tβ4 recombinante, não o TB-500 do mercado cinza.\n2️⃣ A combinação com BPC-157 é popular, mas nenhum estudo clínico avaliou a segurança ou a eficácia dos dois juntos.\n3️⃣ Não tem registro na ANVISA e é proibido pela WADA, dentro e fora de competição.\n\n⚠️ Sem controle regulatório, o frasco pode não ter o que diz o rótulo, em pureza ou quantidade. Gestantes, lactantes e quem tem histórico de câncer estão entre os casos em que o uso é especialmente desaconselhado. Lesão que preocupa é conversa com o médico.",
-  "question": "Alguém já te indicou TB-500 para alguma lesão?",
-  "share": "aquele amigo da academia que jura que TB-500 é comprovado"
+  "caption": "Eu sei, todo mundo acha que o frasco maior rende mais. Rende doses no papel, mas a tirzepatida reconstituída dura 28 dias na geladeira, entre 2 e 8 °C. O que passa disso perde a previsibilidade de potência e de contaminação.\n\n1️⃣ Na dose de 2,5 mg, o frasco de 10 mg rende 4 doses e fecha a conta em 4 semanas.\n2️⃣ O de 15 mg renderia 6 semanas: vence antes de acabar.\n3️⃣ O de 60 mg, com aplicação semanal, só acaba em 4 semanas na dose de 15 mg.\n\n⚠️ Etiquete o frasco com a data e a concentração. Dose e escolha do frasco são decisões com o médico.",
+  "question": "Você anota no frasco a data em que reconstituiu?",
+  "share": "aquela amiga que acha que frasco maior sempre rende mais"
 }

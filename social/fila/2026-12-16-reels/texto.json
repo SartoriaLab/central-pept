@@ -1,0 +1,143 @@
+{
+  "hook": "Seu frasco de tirzepatida: o erro não é a dose.",
+  "hookIcon": "frasco",
+  "slides": [
+    {
+      "title": "Frasco novo, mesmas unidades de sempre",
+      "layout": "mito",
+      "body": "As unidades dependem do frasco e da água. Trocou o tamanho do frasco, a mesma dose pode pedir outro número na seringa.",
+      "icon": "errado"
+    },
+    {
+      "title": "Mesma dose, frasco diferente",
+      "layout": "lado",
+      "body": "10 mg com 2 ml: 2,5 mg são 50 unidades\n20 mg com 2 ml: 2,5 mg são 25 unidades",
+      "icon": "balanca"
+    },
+    {
+      "title": "A conta por trás",
+      "layout": "padrao",
+      "body": "Unidades = dose (mg) × água (ml) × 100 ÷ mg do frasco. Sem saber quanta água foi usada, não existe resposta.",
+      "icon": "regua"
+    },
+    {
+      "title": "Antes da primeira dose do frasco novo",
+      "layout": "passos",
+      "body": "Etiquete com data e concentração\nRefaça a conta das unidades\nNa dúvida, confirme com o médico",
+      "icon": "certo"
+    }
+  ],
+  "scenes": [
+    {
+      "chip": "o frasco novo",
+      "kicker": "na troca de frasco",
+      "title": "O erro não",
+      "accent": "é a dose",
+      "tone": "vermelho",
+      "speech": "Seu frasco de tirzepatida: o erro não é a dose.",
+      "visual": { "type": "frasco", "label": "TIRZEPATIDA", "liquid": "po" }
+    },
+    {
+      "chip": "o frasco novo",
+      "kicker": "o que acontece",
+      "title": "É repetir",
+      "accent": "as mesmas unidades",
+      "tone": "vermelho",
+      "speech": "É puxar na seringa as mesmas unidades de sempre, como se nada tivesse mudado.",
+      "visual": { "type": "carimbo", "text": "PILOTO AUTOMÁTICO", "note": "mesmo número, frasco diferente" }
+    },
+    {
+      "chip": "a conta",
+      "kicker": "a mesma dose de 2,5 mg",
+      "title": "Dois frascos,",
+      "accent": "dois números",
+      "tone": "azul",
+      "speech": "Olha só: no frasco de 10 mg com 2 ml de água, 2,5 mg são 50 unidades.",
+      "visual": {
+        "type": "frascos",
+        "left": { "label": "10 MG", "note": "com 2 ml de água", "liquid": "claro" },
+        "right": { "label": "20 MG", "note": "com 2 ml de água", "liquid": "claro" },
+        "sign": "≠"
+      }
+    },
+    {
+      "chip": "a conta",
+      "kicker": "mesma água, frasco maior",
+      "title": "A metade",
+      "accent": "das unidades",
+      "tone": "azul",
+      "speech": "No frasco de 20 mg com a mesma água, a mesma dose vira 25 unidades.",
+      "visual": {
+        "type": "barras",
+        "bars": [
+          { "label": "frasco de 20 mg", "value": 25, "display": "25 U" },
+          { "label": "frasco de 10 mg", "value": 50, "display": "50 U" }
+        ]
+      }
+    },
+    {
+      "chip": "por que muda",
+      "kicker": "pensa assim",
+      "title": "Suco mais",
+      "accent": "concentrado",
+      "tone": "azul",
+      "speech": "É como suco concentrado: mais pó na mesma água, um gole menor já tem a mesma quantidade.",
+      "visual": { "type": "icone", "icon": "gota", "note": "mais mg por ml, menos unidades" }
+    },
+    {
+      "chip": "o risco",
+      "kicker": "se repetir as 50",
+      "title": "O dobro",
+      "accent": "sem perceber",
+      "tone": "vermelho",
+      "speech": "Repetir o número antigo no frasco mais forte é aplicar o dobro da dose sem perceber.",
+      "visual": { "type": "icone", "icon": "alerta", "note": "erro de conta, não de dose prescrita" }
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "no dia da diluição",
+      "title": "Etiqueta",
+      "accent": "no frasco",
+      "tone": "azul",
+      "speech": "Por isso, etiquete o frasco com a data e a concentração, tipo dez mg em dois ml.",
+      "visual": {
+        "type": "lista",
+        "items": [
+          { "text": "Data da diluição", "mark": "ok" },
+          { "text": "Concentração em mg/ml", "mark": "ok" },
+          { "text": "Unidades \"de cabeça\"", "mark": "nao" }
+        ]
+      }
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "a cada frasco novo",
+      "title": "Refaça",
+      "accent": "a conta",
+      "tone": "azul",
+      "speech": "E a cada frasco novo, refaça a conta: dose vezes água vezes cem, dividido pelos mg do frasco.",
+      "visual": { "type": "icone", "icon": "regua", "note": "dose × água × 100 ÷ mg do frasco" }
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "quem decide a dose",
+      "title": "Dúvida na conta?",
+      "accent": "Fale com o médico",
+      "tone": "azul",
+      "speech": "A dose é sempre a que o médico prescreveu; ficou na dúvida da conta, confirme com ele.",
+      "visual": { "type": "icone", "icon": "estetoscopio", "note": "dose prescrita, conta conferida" }
+    },
+    {
+      "chip": "pra lembrar",
+      "kicker": "frasco novo",
+      "title": "O número",
+      "accent": "muda com o frasco",
+      "tone": "azul",
+      "speech": "Então, no frasco novo de tirzepatida, o erro não é a dose: é o número que você não refez.",
+      "visual": { "type": "frasco", "label": "NOVO", "liquid": "claro", "tag": "REFAÇA A CONTA" }
+    }
+  ],
+  "caption": "Eu sei, quando chega o frasco novo de tirzepatida a gente puxa as mesmas unidades de sempre. Só que as unidades dependem do tamanho do frasco e da água que você colocou.\n\nNa mesma dose de 2,5 mg: frasco de 10 mg com 2 ml de água dá 50 unidades; frasco de 20 mg com 2 ml dá 25 unidades. A conta é unidades = dose (mg) × água (ml) × 100 ÷ mg do frasco.\n\n1️⃣ Etiquete o frasco com a data e a concentração.\n2️⃣ A cada frasco novo, refaça a conta das unidades na seringa.\n3️⃣ A dose é a que o médico prescreveu; na dúvida da conta, confirme com ele.\n\n⚠️ Repetir o número antigo num frasco mais concentrado aplica uma dose diferente da prescrita.",
+  "question": "Você já trocou de tamanho de frasco no meio do tratamento?",
+  "share": "aquela amiga que puxa as mesmas unidades em qualquer frasco"
+}

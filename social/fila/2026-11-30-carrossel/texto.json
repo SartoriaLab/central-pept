@@ -1,57 +1,22 @@
 {
-  "hook": "Você nunca pediu o laudo da tirzepatida manipulada?",
-  "hookIcon": "escudo",
+  "hook": "Você aplica o Saxenda uma vez por semana?",
+  "hookIcon": "calendario",
   "slides": [
-    {
-      "title": "Manipulada é o genérico do Mounjaro",
-      "layout": "mito",
-      "body": "Não é. A farmácia recebe a tirzepatida como matéria-prima e fraciona em frascos. É uma cópia, não um genérico, e não passa pelos mesmos controles da indústria.",
-      "icon": "frasco"
-    },
-    {
-      "title": "O que pode variar no frasco",
-      "layout": "padrao",
-      "body": "Pureza, estabilidade e esterilidade. Matéria-prima de fornecedor não farmacêutico pode ter impurezas acima de 2%, e não há estudos de estabilidade como os da indústria.",
-      "icon": "lupa"
-    },
-    {
-      "title": "±20%",
-      "layout": "numero",
-      "body": "É a variação que pode haver entre a dose real e a do rótulo. Por isso começar em dose baixa vale até para quem já usou Mounjaro.",
-      "icon": "regua"
-    },
-    {
-      "title": "Sinais de farmácia confiável",
-      "layout": "passos",
-      "body": "Registro na ANVISA e alvará visíveis\nCertificado de Análise (COA) com o frasco\nResultado de HPLC, o teste de pureza\nFarmacêutico responsável e receita obrigatória",
-      "icon": "prancheta"
-    },
-    {
-      "title": "E se não pedirem receita?",
-      "layout": "pergunta",
-      "body": "Sinal de alerta: farmácia confiável exige prescrição médica. E sem médico, ninguém acompanha peso, glicemia e pressão durante o uso.",
-      "icon": "alerta"
-    },
-    {
-      "title": "Caneta x frasco manipulado",
-      "layout": "lado",
-      "body": "Mounjaro: dose exata, caneta pronta para usar\nManipulada: qualidade variável, pede reconstituição e cálculo",
-      "icon": "balanca"
-    },
-    {
-      "title": "Se for usar a manipulada",
-      "layout": "passos",
-      "body": "Geladeira, de 2 a 8 °C, desde que chega\nReconstitua com água bacteriostática\nComece em dose baixa, com o médico\nAcompanhamento clínico periódico",
-      "icon": "certo"
-    }
+    {"title": "Todo GLP-1 é semanal", "layout": "mito", "body": "A liraglutida (Saxenda e Victoza) é de aplicação diária. Ela sai do corpo bem mais rápido que a semaglutida e a tirzepatida.", "icon": "errado"},
+    {"title": "13h", "layout": "numero", "body": "É a meia-vida aproximada da liraglutida. Por isso a dose é uma vez por dia.", "icon": "relogio"},
+    {"title": "Victoza x Saxenda", "layout": "lado", "body": "Victoza: diabetes tipo 2, de 0,6 mg a 1,8 mg por dia\nSaxenda: outra indicação de bula, até 3 mg por dia", "icon": "balanca"},
+    {"title": "Por onde começa a dose?", "layout": "pergunta", "body": "Pela bula, em 0,6 mg uma vez por dia, com aumento gradual semanal. O próximo degrau é decisão do médico.", "icon": "alvo"},
+    {"title": "Efeitos mais comuns", "layout": "padrao", "body": "Náusea, diarreia, prisão de ventre e vômito, em geral passageiros. Também pode aumentar a frequência cardíaca.", "icon": "enjoo"},
+    {"title": "Procure o médico se tiver", "layout": "passos", "body": "Dor abdominal forte e contínua\nHistórico de pancreatite\nCâncer medular de tireoide na família", "icon": "hospital"},
+    {"title": "Cola da liraglutida", "layout": "passos", "body": "Aplicação diária, não semanal\nComeça na dose de bula, sobe aos poucos\nAjuste de dose só com o médico", "icon": "certo"}
   ],
   "narration": [
-    { "text": "Você nunca pediu o laudo da tirzepatida manipulada? Eu sei, a gente confia na farmácia." },
-    { "text": "Só que manipulada é cópia, não genérico: pureza e dose podem variar, e o laudo é o que mostra o que tem no frasco." },
-    { "text": "Farmácia confiável mostra registro, certificado de análise e farmacêutico, e exige receita. Comece em dose baixa, com o médico." },
-    { "text": "Então, da próxima vez, o laudo vem junto com o frasco." }
+    {"text": "Você aplica o Saxenda uma vez por semana? Eu sei, quase todo GLP-1 famoso é semanal."},
+    {"text": "A liraglutida sai do corpo rápido, com meia-vida de cerca de 13h. Por isso a aplicação é diária."},
+    {"text": "Pela bula, começa em 0,6 mg por dia e sobe aos poucos, sempre com o médico."},
+    {"text": "Então, Saxenda e Victoza são de todo dia, não de toda semana."}
   ],
-  "caption": "Eu sei, a gente confia na farmácia e nem pensa em pedir papel nenhum. Mas tirzepatida manipulada não é o genérico do Mounjaro: a farmácia recebe a molécula como matéria-prima e fraciona. Pureza, estabilidade e dose exata podem variar, e a dose real pode ficar até ±20% diferente do rótulo.\n\nO que uma farmácia confiável mostra:\n1️⃣ Registro na ANVISA e alvará da vigilância sanitária visíveis.\n2️⃣ Certificado de Análise (COA) do peptídeo com cada frasco.\n3️⃣ Resultado de HPLC, o teste de pureza.\n4️⃣ Farmacêutico responsável identificado e receita obrigatória.\n\n⚠️ Não pediram receita? Sinal de alerta.\n\nSe for usar: geladeira de 2 a 8 °C desde que chega, reconstituição com água bacteriostática, dose baixa no começo (mesmo para quem já usou Mounjaro) e acompanhamento clínico de peso, glicemia e pressão.",
-  "question": "A sua farmácia já te mostrou o certificado de análise do frasco?",
-  "share": "quem usa tirzepatida manipulada e nunca viu o laudo"
+  "caption": "Eu sei, com Ozempic e Mounjaro sendo semanais, parece que todo GLP-1 é assim. A liraglutida (Victoza e Saxenda) é diferente: a meia-vida é de cerca de 13h, então a aplicação é uma vez por dia.\n\n1️⃣ Pela bula, a dose começa em 0,6 mg por dia, com aumento gradual semanal.\n2️⃣ Victoza (diabetes tipo 2) vai de 0,6 mg a 1,8 mg por dia; Saxenda chega a 3 mg por dia.\n3️⃣ Ajuste de dose é sempre com o médico.\n\n⚠️ Náusea, diarreia, prisão de ventre e vômito são os efeitos mais comuns, em geral passageiros. Pancreatite e pedra na vesícula são raras, mas descritas: dor abdominal forte pede atendimento.",
+  "question": "Você aplica a liraglutida de manhã ou à noite?",
+  "share": "aquela amiga que acha que o Saxenda é semanal"
 }

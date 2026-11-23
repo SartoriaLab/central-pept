@@ -1,0 +1,100 @@
+<h2>Bônus 2: planilha de custo por mg</h2>
+
+<p>Use esta planilha para comparar até três ofertas na sua dose. Ela faz as contas dos capítulos 3 e 4 em sequência. Se preferir, a <a href="https://centralpeptideos.com.br/ferramentas/custo-glp1">calculadora de custo do GLP-1</a> e a de <a href="https://centralpeptideos.com.br/ferramentas/duracao-frasco">duração do frasco</a> fazem o mesmo na tela.</p>
+
+<blockquote>
+<p>Só preencha a planilha para ofertas que passaram nas checagens 1 a 11. Preço não compensa falha de procedência. Todos os valores do exemplo são <strong>hipotéticos</strong>.</p>
+</blockquote>
+
+<h3>As linhas e as fórmulas</h3>
+
+<pre>
+Linha  O que é                        Como obter
+A      Preço pago (R$)                Da oferta
+B      mg na embalagem                Frasco: rótulo. Caneta: doses × mg por dose
+C      Dose por aplicação (mg)        Da receita
+D      Doses que cabem                Parte inteira de (B ÷ C)
+E      Doses aproveitadas             Frasco semanal: menor entre D e 4
+                                      Caneta: D
+F      Sobra perdida (mg)             B − (E × C)
+G      Perda pela validade (%)        F ÷ B × 100
+H      Custo por mg (R$)              A ÷ B
+I      Custo por mg usado (R$)        A ÷ (E × C)
+J      Custo real por dose (R$)       A ÷ E
+K      Custo por mês (R$)             J × 4,33
+L      Custo por ano (R$)             J × 52
+</pre>
+
+<p>Compare as ofertas pela linha <strong>I</strong> (custo por mg que você de fato usa) e decida pela linha <strong>K</strong> (o que sai do seu bolso por mês). A linha H, sozinha, engana quando há sobra.</p>
+
+<p>O "4" da linha E vem do prazo de 28 dias do frasco reconstituído em dose semanal (capítulo 4). Se a bula ou quem forneceu indicar outro prazo, ajuste: o número de doses aproveitadas é o de aplicações que cabem dentro do prazo, contando a do dia da reconstituição.</p>
+
+<h3>Exemplo preenchido (hipotético)</h3>
+
+<p>Dose de 2,5 mg por semana. Três ofertas hipotéticas: frasco de 10 mg por R$ 600, frasco de 15 mg por R$ 800 e caixa com 4 canetas de 2,5 mg por R$ 1.000.</p>
+
+<pre>
+Linha                       Frasco 10 mg   Frasco 15 mg   Caneta 4×2,5
+A  Preço (R$)               600,00         800,00         1.000,00
+B  mg na embalagem          10             15             10
+C  Dose (mg)                2,5            2,5            2,5
+D  Doses que cabem          4              6              4
+E  Doses aproveitadas       4              4              4
+F  Sobra perdida (mg)       0              5              0
+G  Perda (%)                0%             33%            0%
+H  Custo por mg             60,00          53,33          100,00
+I  Custo por mg usado       60,00          80,00          100,00
+J  Custo real por dose      150,00         200,00         250,00
+K  Custo por mês            650,00         866,67         1.083,33
+L  Custo por ano            7.800,00       10.400,00      13.000,00
+</pre>
+
+<p><strong>Como ler:</strong> pela linha H, o frasco de 15 mg parece o mais barato. Pela linha I, ele perde para o de 10 mg, porque um terço do conteúdo vence antes de ser usado. A caneta tem o maior custo por mg nesta dose baixa, mas é produto industrializado, sem reconstituição. Em dose alta, com preço igual por caixa, a conta da caneta muda bastante (capítulo 3, exemplo 3). Custo é uma parte da decisão. Garantia é outra (capítulo 1).</p>
+
+<p>Contas conferidas, coluna do frasco de 15 mg: H = 800 ÷ 15 = 53,33. I = 800 ÷ (4 × 2,5) = 800 ÷ 10 = 80. J = 800 ÷ 4 = 200. K = 200 × 52 ÷ 12 = 866,67. L = 200 × 52 = 10.400.</p>
+
+<p><em>Nota sobre o mês:</em> 4,33 é o arredondamento de 52 ÷ 12. Para conferir os centavos, multiplique por 52 e divida por 12, como na tabela.</p>
+
+<h3>Planilha em branco</h3>
+
+<pre>
+Dose por aplicação: ______ mg     Frequência: semanal
+Prazo depois de aberto: ______ dias
+
+Linha                       Oferta 1       Oferta 2       Oferta 3
+                            __________     __________     __________
+A  Preço (R$)               __________     __________     __________
+B  mg na embalagem          __________     __________     __________
+C  Dose (mg)                __________     __________     __________
+D  Doses que cabem          __________     __________     __________
+E  Doses aproveitadas       __________     __________     __________
+F  Sobra perdida (mg)       __________     __________     __________
+G  Perda (%)                __________     __________     __________
+H  Custo por mg             __________     __________     __________
+I  Custo por mg usado       __________     __________     __________
+J  Custo real por dose      __________     __________     __________
+K  Custo por mês            __________     __________     __________
+L  Custo por ano            __________     __________     __________
+
+Fora da conta (some à parte por mês):
+Seringas ________  Água bacteriostática ________
+Consulta/exames ________  Frete ________
+
+Total mensal da oferta escolhida: R$ ____________
+</pre>
+
+<h3>Planilha do ciclo (quantos frascos comprar)</h3>
+
+<pre>
+Trecho   Dose (mg)   Semanas   Doses aproveitadas   Frascos          Custo
+                               por frasco (E)       (semanas ÷ E,
+                                                    para cima)
+1        ______      ______    ______               ______           R$ ______
+2        ______      ______    ______               ______           R$ ______
+3        ______      ______    ______               ______           R$ ______
+                                                    Total: ______    R$ ______
+</pre>
+
+<p><strong>Exemplo hipotético do ciclo:</strong> frasco de 10 mg por R$ 600. Trecho 1: 2,5 mg por 4 semanas, E = 4, 4 ÷ 4 = 1 frasco, R$ 600. Trecho 2: 5 mg por 4 semanas, E = 2, 4 ÷ 2 = 2 frascos, R$ 1.200. Total: 3 frascos, R$ 1.800 em 8 semanas.</p>
+
+<p style="font-size:12px">Valores hipotéticos, apenas para ilustrar a conta. A dose é definida pelo seu médico. Material educativo da Central Peptídeos, revisão de novembro de 2026.</p>

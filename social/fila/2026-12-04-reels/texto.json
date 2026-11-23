@@ -1,249 +1,203 @@
 {
-  "hook": "BPC-157 com TB-500: você sabe o que está misturando?",
-  "hookIcon": "pensando",
+  "hook": "Duas letras na seringa mudam a dose da tirzepatida.",
+  "hookIcon": "lupa",
   "slides": [
     {
-      "title": "Dois nomes, duas moléculas",
-      "layout": "lado",
-      "body": "BPC-157: pedaço de 15 aminoácidos de proteína do suco gástrico\nTB-500: fragmento sintético da timosina beta-4",
-      "icon": "balanca"
-    },
-    {
-      "title": "Se todo mundo junta, é porque funciona",
+      "title": "Seringa de insulina é tudo igual",
       "layout": "mito",
-      "body": "Os dois foram estudados em reparo de tecido, mas a maior parte dos dados vem de animais e de células. Somar dois pontos de interrogação não dá uma resposta.",
+      "body": "Não é. A sigla diz para qual concentração a escala foi feita: U-100 para 100 unidades por ml, U-40 para 40 unidades por ml.",
       "icon": "errado"
     },
     {
-      "title": "O detalhe do TB-500",
-      "layout": "padrao",
-      "body": "Os poucos testes de segurança em humanos usaram a timosina beta-4 recombinante, não o fragmento TB-500. Ele em si não foi caracterizado em gente.",
-      "icon": "microscopio"
+      "title": "2,5 vezes",
+      "layout": "numero",
+      "body": "Na U-40, o mesmo número na escala dá 2,5 vezes mais volume. Conta feita para U-100 puxada na U-40 aplica 2,5 vezes a dose.",
+      "icon": "alerta"
     },
     {
-      "title": "Sem aprovação",
-      "layout": "padrao",
-      "body": "O BPC-157 não tem aprovação da FDA para uso humano. O TB-500 não tem aprovação em nenhum lugar. Os dois estão na lista proibida da WADA.",
-      "icon": "proibido"
+      "title": "Mesmas 20 unidades",
+      "layout": "lado",
+      "body": "Na U-100: 0,20 ml\nNa U-40: 0,50 ml",
+      "icon": "balanca"
     },
     {
-      "title": "O risco do frasco",
-      "layout": "padrao",
-      "body": "Produto do mercado cinza costuma ter problema de pureza, contaminação e rótulo impreciso. Você não sabe o que nem quanto tem ali.",
-      "icon": "lupa"
+      "title": "Onde aparece a U-40?",
+      "layout": "pergunta",
+      "body": "Em algumas insulinas de uso veterinário. A seringa comum de farmácia é U-100, e é para ela que as contas e tabelas de unidades são feitas.",
+      "icon": "duvida"
     },
     {
-      "title": "Antes de misturar qualquer coisa",
+      "title": "Antes de puxar a dose",
       "layout": "passos",
-      "body": "Lembre que os dados são de animal\nCâncer, gravidez ou amamentação: fora\nLeve a dúvida pro seu médico",
-      "icon": "estetoscopio"
+      "body": "Procure U-100 na embalagem e no corpo da seringa\nVeja quanto vale o menor traço\nLeia pela borda do êmbolo, na altura dos olhos\nTire as bolhas",
+      "icon": "certo"
     }
   ],
   "scenes": [
     {
-      "chip": "a dupla",
-      "kicker": "a mistura mais repetida",
-      "title": "BPC-157",
-      "accent": "com TB-500",
+      "chip": "a seringa",
+      "kicker": "antes de puxar a dose",
+      "title": "Duas letras",
+      "accent": "na sua seringa",
       "tone": "vermelho",
-      "speech": "BPC-157 com TB-500: você sabe o que está misturando?",
-      "visual": {
-        "type": "frascos",
-        "left": {
-          "label": "BPC-157",
-          "liquid": "po"
-        },
-        "right": {
-          "label": "TB-500",
-          "liquid": "po"
-        },
-        "sign": "+"
-      }
-    },
-    {
-      "chip": "a dupla",
-      "kicker": "guarda essa",
-      "title": "Tem um detalhe",
-      "accent": "que ninguém conta",
-      "tone": "vermelho",
-      "speech": "É a dupla mais repetida, e tem um detalhe que quase ninguém sabe.",
+      "speech": "Duas letras na seringa mudam a dose da tirzepatida.",
       "visual": {
         "type": "icone",
-        "icon": "lupa"
+        "icon": "lupa",
+        "note": "a sigla impressa no corpo da seringa"
       }
     },
     {
-      "chip": "quem é quem",
-      "kicker": "o primeiro",
-      "title": "BPC-157",
-      "accent": "vem do estômago",
-      "tone": "azul",
-      "speech": "O BPC-157 é um pedaço de proteína do suco gástrico, com 15 aminoácidos.",
+      "chip": "a seringa",
+      "kicker": "fica até o fim",
+      "title": "Duas letras",
+      "accent": "mudam a dose",
+      "tone": "vermelho",
+      "speech": "Eu sei, parece detalhe, mas a sigla U-100 ou U-40 pode mudar a sua dose sem você perceber.",
       "visual": {
-        "type": "numero",
-        "value": "15",
-        "note": "aminoácidos no BPC-157"
+        "type": "icone",
+        "icon": "pensando",
+        "note": "o porquê vem já já"
       }
     },
     {
-      "chip": "quem é quem",
-      "kicker": "o segundo",
-      "title": "TB-500",
-      "accent": "é outro bicho",
+      "chip": "a sigla",
+      "kicker": "o que ela quer dizer",
+      "title": "A escala é feita",
+      "accent": "para uma concentração",
       "tone": "azul",
-      "speech": "O TB-500 é um fragmento sintético da timosina beta-4, uma proteína do próprio corpo.",
+      "speech": "A sigla diz para qual concentração a escala foi feita: U-100 ou U-40.",
       "visual": {
         "type": "frascos",
         "left": {
-          "label": "BPC-157",
-          "note": "do suco gástrico",
-          "liquid": "po"
+          "label": "U-100",
+          "note": "100 unidades por ml",
+          "liquid": "claro"
         },
         "right": {
-          "label": "TB-500",
-          "note": "da timosina beta-4",
-          "liquid": "po"
+          "label": "U-40",
+          "note": "40 unidades por ml",
+          "liquid": "claro"
         },
         "sign": "≠"
       }
     },
     {
-      "chip": "os estudos",
-      "kicker": "de onde vem a fama",
-      "title": "Quase tudo",
-      "accent": "em animal e célula",
+      "chip": "a sigla",
+      "kicker": "pensa assim",
+      "title": "Régua em polegada,",
+      "accent": "conta em centímetro",
       "tone": "vermelho",
-      "speech": "Os dois aparecem em estudos de reparo de tecido, mas quase tudo em animal e em célula.",
+      "speech": "É como medir com uma régua de polegada uma conta feita em centímetro: o número bate, o tamanho não.",
       "visual": {
-        "type": "carimbo",
-        "text": "EM ANIMAIS",
-        "note": "a maior parte dos dados"
+        "type": "icone",
+        "icon": "regua",
+        "note": "mesmo número, medida diferente"
       }
     },
     {
-      "chip": "os estudos",
-      "kicker": "o detalhe",
-      "title": "Testaram",
-      "accent": "outra molécula",
-      "tone": "vermelho",
-      "speech": "O detalhe: os poucos testes em humanos usaram a proteína inteira, não o fragmento TB-500.",
+      "chip": "a diferença",
+      "kicker": "as mesmas 20 unidades",
+      "title": "Volume na seringa",
+      "accent": "não é o mesmo",
+      "tone": "azul",
+      "speech": "Puxar 20 unidades na U-40 dá 0,5 ml, o volume de 50 unidades na U-100.",
       "visual": {
-        "type": "lista",
-        "items": [
+        "type": "barras",
+        "bars": [
           {
-            "text": "Timosina beta-4 inteira",
-            "mark": "ok"
+            "label": "U-40",
+            "value": 50,
+            "display": "0,50 ml"
           },
           {
-            "text": "Fragmento TB-500",
-            "mark": "nao"
+            "label": "U-100",
+            "value": 20,
+            "display": "0,20 ml"
           }
         ]
-      }
+      },
+      "source": "Diretriz da SBD"
     },
     {
-      "chip": "a mistura",
-      "kicker": "pensa assim",
-      "title": "Dois mapas",
-      "accent": "incompletos",
-      "tone": "azul",
-      "speech": "Juntar os dois é como somar dois mapas incompletos: o caminho não aparece.",
-      "visual": {
-        "type": "icone",
-        "icon": "pensando",
-        "note": "pouco dado + pouco dado"
-      }
-    },
-    {
-      "chip": "as regras",
-      "kicker": "o status oficial",
-      "title": "Nenhum dos dois",
-      "accent": "é aprovado",
+      "chip": "o risco",
+      "kicker": "o que acontece na prática",
+      "title": "A dose vai",
+      "accent": "2,5 vezes maior",
       "tone": "vermelho",
-      "speech": "Nenhum dos dois tem aprovação para uso humano, e o TB-500 não tem em lugar nenhum.",
+      "speech": "Ou seja, a conta feita para U-100 puxada na U-40 aplica 2,5 vezes a dose.",
+      "visual": {
+        "type": "numero",
+        "value": "2,5x",
+        "note": "mais volume na seringa U-40"
+      }
+    },
+    {
+      "chip": "o risco",
+      "kicker": "onde ela aparece",
+      "title": "A U-40 ainda",
+      "accent": "está por aí",
+      "tone": "vermelho",
+      "speech": "A U-40 ainda aparece para algumas insulinas de uso veterinário, então não dá pra presumir.",
       "visual": {
         "type": "carimbo",
-        "text": "SEM APROVAÇÃO",
-        "note": "status: apenas pesquisa"
-      }
-    },
-    {
-      "chip": "as regras",
-      "kicker": "no esporte",
-      "title": "Os dois",
-      "accent": "proibidos pela WADA",
-      "tone": "vermelho",
-      "speech": "E os dois estão na lista proibida da WADA, o TB-500 até fora de competição.",
-      "visual": {
-        "type": "icone",
-        "icon": "proibido",
-        "note": "Lista Proibida da WADA"
-      },
-      "source": "WADA, seção S2"
-    },
-    {
-      "chip": "o frasco",
-      "kicker": "o que vem dentro",
-      "title": "Rótulo",
-      "accent": "que não confere",
-      "tone": "vermelho",
-      "speech": "E o frasco do mercado cinza costuma ter pureza duvidosa e rótulo impreciso.",
-      "visual": {
-        "type": "frasco",
-        "label": "TB-500",
-        "liquid": "amarelo",
-        "stamp": "RÓTULO IMPRECISO"
+        "text": "CONFIRA",
+        "note": "a sigla antes de usar"
       }
     },
     {
       "chip": "o que fazer",
-      "kicker": "fale com o médico",
-      "title": "Cautela",
-      "accent": "em dobro",
+      "kicker": "antes de puxar",
+      "title": "Procure U-100",
+      "accent": "em dois lugares",
       "tone": "azul",
-      "speech": "Tem câncer, está grávida ou amamentando? Aí a cautela é dobrada, e a conversa é com o médico.",
+      "speech": "O que fazer: procure U-100 na embalagem e também no corpo da seringa.",
       "visual": {
         "type": "lista",
         "items": [
           {
-            "text": "Câncer ativo ou histórico",
-            "mark": "nao"
-          },
-          {
-            "text": "Gravidez e amamentação",
-            "mark": "nao"
-          },
-          {
-            "text": "Conversar com o médico",
+            "text": "U-100 na embalagem",
             "mark": "ok"
+          },
+          {
+            "text": "U-100 no corpo da seringa",
+            "mark": "ok"
+          },
+          {
+            "text": "Escrito U-40? Não use a conta",
+            "mark": "nao"
           }
         ]
+      }
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "na dúvida",
+      "title": "Pergunte ao",
+      "accent": "médico ou farmacêutico",
+      "tone": "azul",
+      "speech": "Ficou na dúvida? Confirme com o médico ou o farmacêutico antes de aplicar.",
+      "visual": {
+        "type": "icone",
+        "icon": "estetoscopio",
+        "note": "a dose é a que o médico prescreveu"
       }
     },
     {
       "chip": "pra lembrar",
       "kicker": "da próxima vez",
-      "title": "Não é fórmula",
-      "accent": "são duas dúvidas",
-      "tone": "vermelho",
-      "speech": "Então, BPC-157 com TB-500 não é fórmula: são duas perguntas ainda sem resposta.",
+      "title": "Duas letras,",
+      "accent": "um segundo pra olhar",
+      "tone": "azul",
+      "speech": "Então, antes de puxar a dose, confere: a sua seringa é U-100?",
       "visual": {
-        "type": "frascos",
-        "left": {
-          "label": "BPC-157",
-          "note": "pouco dado em gente",
-          "liquid": "po"
-        },
-        "right": {
-          "label": "TB-500",
-          "note": "pouco dado em gente",
-          "liquid": "po"
-        },
-        "sign": "+"
+        "type": "icone",
+        "icon": "seringa",
+        "note": "U-100 na embalagem e no corpo"
       }
     }
   ],
-  "caption": "Eu sei, a dupla BPC-157 com TB-500 aparece em todo canto como se fosse receita pronta. Mas são duas moléculas diferentes: o BPC-157 é um pedaço de 15 aminoácidos de uma proteína do suco gástrico, e o TB-500 é um fragmento sintético da timosina beta-4.\n\nOs dois foram estudados em reparo de tecido, mas a maior parte dos dados vem de animais e de células. E o detalhe: os poucos testes de segurança em humanos usaram a timosina beta-4 recombinante, não o fragmento TB-500.\n\n⚠️ Nenhum dos dois tem aprovação para uso humano, os dois estão na lista proibida da WADA, e produtos do mercado cinza costumam ter contaminação e rótulo impreciso.\n\n1️⃣ Dado em animal não é prova em gente\n2️⃣ Câncer ativo ou histórico, gravidez e amamentação: contraindicados\n3️⃣ Qualquer dúvida sobre lesão ou recuperação, leve ao seu médico",
-  "question": "Você já viu alguém indicar BPC-157 com TB-500 juntos?",
-  "share": "aquele amigo da academia que fala da dupla BPC-157 e TB-500"
+  "caption": "Eu sei, quase ninguém olha a sigla da seringa. Mas ela diz para qual concentração a escala foi feita: U-100 é para 100 unidades por ml, U-40 para 40 unidades por ml. Toda conta de unidades de tirzepatida e semaglutida é feita para a U-100, a seringa comum de farmácia.\n\n1️⃣ Procure U-100 na embalagem e no corpo da seringa.\n2️⃣ Veja quanto vale o menor traço antes de puxar.\n3️⃣ Na dúvida, confirme com o médico ou o farmacêutico antes de aplicar.\n\n⚠️ Na U-40, o mesmo número na escala dá 2,5 vezes mais volume: 20 unidades viram 0,5 ml. A conta feita para U-100 puxada na U-40 aplica 2,5 vezes a dose.",
+  "question": "Você já tinha reparado na sigla impressa na sua seringa?",
+  "share": "quem nunca olhou a sigla da seringa antes de puxar a dose"
 }

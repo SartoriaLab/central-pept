@@ -1,0 +1,131 @@
+{
+  "hook": "O efeito do Saxenda que ninguém comenta não é enjoo.",
+  "hookIcon": "coracao",
+  "slides": [
+    {
+      "title": "Do Saxenda, só se fala do enjoo",
+      "layout": "mito",
+      "body": "Náusea é o mais comum, mas a bula da liraglutida lista também aumento da frequência cardíaca, e raros casos de pancreatite e pedra na vesícula.",
+      "icon": "errado"
+    },
+    {
+      "title": "Coração mais acelerado?",
+      "layout": "pergunta",
+      "body": "Aumento da frequência cardíaca está entre os efeitos descritos da liraglutida. Percebeu o coração acelerado em repouso? Conte ao médico.",
+      "icon": "coracao"
+    },
+    {
+      "title": "Raros, mas descritos",
+      "layout": "lado",
+      "body": "Pancreatite: dor forte na barriga que não passa\nColelitíase: pedra na vesícula, dor do lado direito",
+      "icon": "alerta"
+    },
+    {
+      "title": "Quem não pode usar",
+      "layout": "passos",
+      "body": "Histórico pessoal ou familiar de câncer medular de tireoide ou NEM2\nHistórico de pancreatite\nGestação",
+      "icon": "proibido"
+    },
+    {
+      "title": "3 mg",
+      "layout": "numero",
+      "body": "É a dose diária do Saxenda na bula. A Victoza, a mesma liraglutida, vai até 1,8 mg por dia no diabetes. Ajuste é sempre com o médico.",
+      "icon": "alvo"
+    }
+  ],
+  "scenes": [
+    {
+      "chip": "o efeito",
+      "kicker": "liraglutida",
+      "title": "Não é",
+      "accent": "só o enjoo",
+      "tone": "vermelho",
+      "speech": "O efeito do Saxenda que ninguém comenta não é enjoo.",
+      "visual": { "type": "icone", "icon": "pensando", "note": "o que quase ninguém olha na bula" }
+    },
+    {
+      "chip": "o efeito",
+      "kicker": "o mais falado",
+      "title": "O enjoo é",
+      "accent": "o mais comum",
+      "tone": "azul",
+      "speech": "Calma, o enjoo é mesmo o mais comum, e costuma ser passageiro.",
+      "visual": { "type": "icone", "icon": "enjoo", "note": "náusea, diarreia, vômito" }
+    },
+    {
+      "chip": "o efeito",
+      "kicker": "fica até o fim",
+      "title": "Mas a bula",
+      "accent": "fala de mais três",
+      "tone": "vermelho",
+      "speech": "Mas a bula da liraglutida fala de mais três, e o último quase ninguém associa ao remédio.",
+      "visual": { "type": "lista", "items": [ { "text": "Coração acelerado", "mark": "duvida" }, { "text": "Pancreatite", "mark": "duvida" }, { "text": "Pedra na vesícula", "mark": "duvida" } ] }
+    },
+    {
+      "chip": "o coração",
+      "kicker": "o primeiro",
+      "title": "Coração",
+      "accent": "mais acelerado",
+      "tone": "vermelho",
+      "speech": "O primeiro é o aumento da frequência cardíaca, o coração batendo mais rápido.",
+      "visual": { "type": "icone", "icon": "coracao", "note": "aumento da frequência cardíaca" }
+    },
+    {
+      "chip": "o coração",
+      "kicker": "pensa assim",
+      "title": "Como um motor",
+      "accent": "em marcha lenta alta",
+      "tone": "azul",
+      "speech": "É como um carro parado com o motor um pouco mais acelerado: vale contar ao médico.",
+      "visual": { "type": "carimbo", "text": "CONTE AO MÉDICO", "note": "coração acelerado em repouso" }
+    },
+    {
+      "chip": "a barriga",
+      "kicker": "o segundo",
+      "title": "Pancreatite,",
+      "accent": "rara mas descrita",
+      "tone": "vermelho",
+      "speech": "O segundo é a pancreatite, rara, mas descrita: dor forte na barriga que não passa.",
+      "visual": { "type": "icone", "icon": "hospital", "note": "dor forte e contínua pede atendimento" }
+    },
+    {
+      "chip": "a barriga",
+      "kicker": "o terceiro",
+      "title": "Pedra",
+      "accent": "na vesícula",
+      "tone": "vermelho",
+      "speech": "E o terceiro, que quase ninguém liga ao remédio, é a pedra na vesícula.",
+      "visual": { "type": "icone", "icon": "alerta", "note": "colelitíase, rara" }
+    },
+    {
+      "chip": "quem não pode",
+      "kicker": "na bula",
+      "title": "Já teve",
+      "accent": "pancreatite?",
+      "tone": "vermelho",
+      "speech": "Por isso, quem já teve pancreatite não deve usar a liraglutida, segundo a bula.",
+      "visual": { "type": "frasco", "label": "LIRAGLUTIDA", "liquid": "claro", "stamp": "CONTRAINDICADO" }
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "na consulta",
+      "title": "Conte tudo",
+      "accent": "antes de começar",
+      "tone": "azul",
+      "speech": "O que ajuda é contar ao médico seu histórico de pancreatite, vesícula e tireoide antes de começar.",
+      "visual": { "type": "lista", "items": [ { "text": "Pancreatite antes", "mark": "ok" }, { "text": "Problema de vesícula", "mark": "ok" }, { "text": "Tireoide na família", "mark": "ok" } ] }
+    },
+    {
+      "chip": "pra lembrar",
+      "kicker": "da próxima dose",
+      "title": "Do Saxenda,",
+      "accent": "não é só o enjoo",
+      "tone": "azul",
+      "speech": "Então, no Saxenda, o enjoo é o mais falado, mas não é o único que merece atenção.",
+      "visual": { "type": "icone", "icon": "prancheta", "note": "a bula inteira, não só o enjoo" }
+    }
+  ],
+  "caption": "Eu sei, quando o assunto é Saxenda, todo mundo só fala do enjoo. E ele é mesmo o mais comum, em geral passageiro. Mas a bula da liraglutida descreve mais três efeitos que merecem atenção.\n\n1️⃣ Aumento da frequência cardíaca: percebeu o coração acelerado em repouso, conte ao médico.\n2️⃣ Pancreatite, rara mas descrita: dor forte e contínua na barriga pede atendimento.\n3️⃣ Colelitíase, a pedra na vesícula, também rara.\n\n⚠️ Histórico de pancreatite é contraindicação da liraglutida, assim como histórico pessoal ou familiar de carcinoma medular de tireoide ou NEM2 e gestação. Conte tudo ao médico antes de começar.",
+  "question": "Alguém te falou desses efeitos quando você começou o Saxenda?",
+  "share": "aquela amiga que usa Saxenda e acha que o único efeito é o enjoo"
+}

@@ -1,0 +1,238 @@
+{
+  "hook": "Parou o Ozempic e a fome voltou?",
+  "hookIcon": "duvida",
+  "slides": [
+    {
+      "title": "Parei o remédio, então o plano acabou",
+      "body": "É o contrário: a fase depois de parar é a que mais pede plano. A semaglutida trata enquanto está ativa; sem ela, o corpo tende a voltar ao estado de antes.",
+      "icon": "errado",
+      "layout": "mito"
+    },
+    {
+      "title": "70%",
+      "body": "No estudo STEP-4, quem trocou a semaglutida por placebo recuperou cerca de 70% do que tinha perdido em 48 semanas. Quem continuou com o remédio manteve a perda.",
+      "icon": "grafico-sobe",
+      "layout": "numero"
+    },
+    {
+      "title": "O que muda quando eu paro?",
+      "body": "Apetite e saciedade voltam ao estado de antes do tratamento em cerca de 4 semanas. E os hábitos alimentares nem sempre mudaram por completo nesse tempo.",
+      "icon": "cerebro",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Durante e depois da caneta",
+      "body": "Durante: treino resistido e proteína preservam o músculo\nDepois: os mesmos dois continuam, sem pausa",
+      "icon": "musculo",
+      "layout": "lado"
+    },
+    {
+      "title": "Preciso acompanhar alguma coisa?",
+      "body": "Sim: uma rotina de monitoramento, com o peso conferido toda semana. Assim você leva ao médico o que está acontecendo e a conversa sobre o plano fica mais fácil.",
+      "icon": "calendario",
+      "layout": "pergunta"
+    },
+    {
+      "title": "Continuar também é opção",
+      "body": "Dados de 2 anos ou mais (STEP-5 e SUSTAIN-6) mostraram perfil de segurança mantido, e a FDA aceita o uso crônico para obesidade. A decisão é com o médico.",
+      "icon": "estetoscopio",
+      "layout": "padrao"
+    },
+    {
+      "title": "Cola do depois",
+      "body": "Saída da dose: aos poucos, com o médico\nTreino resistido continua\nProteína em dia\nPeso conferido toda semana",
+      "icon": "certo",
+      "layout": "passos"
+    }
+  ],
+  "scenes": [
+    {
+      "chip": "a dúvida",
+      "kicker": "a pergunta mais comum",
+      "title": "Parou o Ozempic",
+      "accent": "e a fome voltou?",
+      "tone": "vermelho",
+      "speech": "Parou o Ozempic e a fome voltou?",
+      "visual": {
+        "type": "icone",
+        "icon": "cerebro",
+        "note": "e se eu parar?"
+      }
+    },
+    {
+      "chip": "a dúvida",
+      "kicker": "antes de se culpar",
+      "title": "Não é falta de",
+      "accent": "força de vontade",
+      "tone": "vermelho",
+      "speech": "Calma, isso não é falta de força de vontade. E um estudo mostra por quê.",
+      "visual": {
+        "type": "carimbo",
+        "text": "NÃO É FRAQUEZA",
+        "note": "o estudo explica"
+      }
+    },
+    {
+      "chip": "como funciona",
+      "kicker": "pensa num guarda-chuva",
+      "title": "Guarda-chuva",
+      "accent": "aberto",
+      "tone": "azul",
+      "speech": "Pensa num guarda-chuva: a semaglutida segura a fome enquanto está aberta.",
+      "visual": {
+        "type": "icone",
+        "icon": "escudo",
+        "note": "o remédio age enquanto está ativo"
+      }
+    },
+    {
+      "chip": "como funciona",
+      "kicker": "fechou o guarda-chuva",
+      "title": "A chuva",
+      "accent": "não tinha parado",
+      "tone": "vermelho",
+      "speech": "Fechou o guarda-chuva, a chuva continua: o apetite volta ao de antes em cerca de 4 semanas.",
+      "visual": {
+        "type": "numero",
+        "value": "4 semanas",
+        "note": "para o apetite voltar ao de antes"
+      }
+    },
+    {
+      "chip": "o STEP-4",
+      "kicker": "como foi o estudo",
+      "title": "Dois caminhos",
+      "accent": "no mesmo estudo",
+      "tone": "azul",
+      "speech": "No estudo STEP-4, um grupo continuou com a semaglutida e o outro trocou por placebo.",
+      "visual": {
+        "type": "frascos",
+        "left": {
+          "label": "SEMAGLUTIDA",
+          "note": "continuou",
+          "liquid": "claro"
+        },
+        "right": {
+          "label": "PLACEBO",
+          "note": "trocou",
+          "liquid": "claro"
+        },
+        "sign": "vs"
+      },
+      "source": "STEP-4"
+    },
+    {
+      "chip": "o STEP-4",
+      "kicker": "quem continuou",
+      "title": "Manteve",
+      "accent": "a perda",
+      "tone": "azul",
+      "speech": "Quem continuou manteve a perda por mais 48 semanas.",
+      "visual": {
+        "type": "linha",
+        "steps": [
+          "sorteio",
+          "48 semanas"
+        ],
+        "current": 1,
+        "note": "quem seguiu com o remédio"
+      },
+      "source": "STEP-4"
+    },
+    {
+      "chip": "o STEP-4",
+      "kicker": "quem trocou por placebo",
+      "title": "Recuperou cerca",
+      "accent": "de 70% do perdido",
+      "tone": "vermelho",
+      "speech": "Já quem trocou por placebo recuperou cerca de 70% do que tinha perdido.",
+      "visual": {
+        "type": "pontos",
+        "total": 100,
+        "marked": 70,
+        "note": "cerca de 70% do que saiu voltou"
+      },
+      "source": "STEP-4"
+    },
+    {
+      "chip": "o que isso quer dizer",
+      "kicker": "igual remédio de pressão",
+      "title": "Trata enquanto",
+      "accent": "está ativo",
+      "tone": "azul",
+      "speech": "Ou seja, o remédio trata enquanto está ativo, como o remédio de pressão faz com a hipertensão.",
+      "visual": {
+        "type": "icone",
+        "icon": "coracao",
+        "note": "tratamento contínuo enquanto ativo"
+      }
+    },
+    {
+      "chip": "o risco",
+      "kicker": "o erro mais comum",
+      "title": "Parar de uma vez",
+      "accent": "sem plano",
+      "tone": "vermelho",
+      "speech": "Por isso, parar de uma vez, sem plano, é o caminho mais previsível para o rebote.",
+      "visual": {
+        "type": "carimbo",
+        "text": "SEM PLANO",
+        "note": "rebote previsível"
+      }
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "combinado com o médico",
+      "title": "O que ajuda",
+      "accent": "de verdade",
+      "tone": "azul",
+      "speech": "O que ajuda: reduzir a dose aos poucos com o médico, treino resistido e proteína em dia.",
+      "visual": {
+        "type": "lista",
+        "items": [
+          {
+            "text": "Reduzir aos poucos, com o médico",
+            "mark": "ok"
+          },
+          {
+            "text": "Treino resistido",
+            "mark": "ok"
+          },
+          {
+            "text": "Proteína em dia",
+            "mark": "ok"
+          }
+        ]
+      }
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "também vale",
+      "title": "Continuar também",
+      "accent": "é opção válida",
+      "tone": "azul",
+      "speech": "E continuar por longo prazo também é uma opção clínica válida, conversada na consulta.",
+      "visual": {
+        "type": "icone",
+        "icon": "estetoscopio",
+        "note": "decisão junto com o médico"
+      }
+    },
+    {
+      "chip": "pra lembrar",
+      "kicker": "da próxima vez",
+      "title": "Não é fraqueza",
+      "accent": "é o guarda-chuva",
+      "tone": "azul",
+      "speech": "Então, parou e a fome voltou? Não é fraqueza, é o guarda-chuva fechado. E isso tem plano.",
+      "visual": {
+        "type": "carimbo",
+        "text": "COM PLANO",
+        "note": "sempre junto com o médico"
+      }
+    }
+  ],
+  "caption": "Eu sei, parar o Ozempic dá aquela sensação de missão cumprida. Mas a semaglutida trata enquanto está ativa. No estudo STEP-4, quem continuou por mais 48 semanas manteve a perda; quem trocou por placebo recuperou cerca de 70% do que tinha perdido no mesmo período. Em cerca de 4 semanas sem o remédio, apetite e saciedade voltam ao estado de antes.\n\n1️⃣ A saída da dose se decide com o médico, reduzindo aos poucos\n2️⃣ Treino resistido continua, durante e depois\n3️⃣ Proteína em dia, para saciedade e músculo\n4️⃣ Peso conferido toda semana, para levar à consulta\n\n⚠️ Parar de uma vez, sem plano, é o caminho mais previsível para o efeito rebote. Continuar por longo prazo também é uma opção clínica válida: converse com o médico.",
+  "question": "Você já conversou com o médico sobre como seria parar?",
+  "share": "aquela amiga que quer parar a caneta de uma vez"
+}

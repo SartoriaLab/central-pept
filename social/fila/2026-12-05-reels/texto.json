@@ -1,172 +1,152 @@
 {
-  "hook": "BPC-157 e GHK-Cu servem pra mesma coisa?",
-  "hookIcon": "balanca",
+  "hook": "Você ferve água pra diluir a tirzepatida? Não faça.",
+  "hookIcon": "gota",
   "slides": [
     {
-      "title": "Os dois são peptídeo de regeneração?",
-      "layout": "pergunta",
-      "body": "Parecem primos, mas não são a mesma coisa. Cada um foi estudado para um alvo diferente, e só um deles tem uma forma permitida.",
-      "icon": "duvida"
-    },
-    {
-      "title": "Cada um no seu alvo",
-      "layout": "lado",
-      "body": "BPC-157: tendão, ligamento, músculo e intestino, em animais\nGHK-Cu: colágeno e elastina da pele, com cobre",
-      "icon": "alvo"
-    },
-    {
-      "title": "Peptídeo famoso tem muita prova",
+      "title": "Água fervida fica estéril",
       "layout": "mito",
-      "body": "No BPC-157, boa parte dos dados vem de modelos animais. No GHK-Cu, os estudos em pessoas existem, mas são pequenos.",
+      "body": "Não fica. Mesmo fervida, a água da torneira, filtrada ou mineral pode ter partículas e endotoxinas que não devem ser injetadas.",
+      "icon": "errado"
+    },
+    {
+      "title": "0,9%",
+      "layout": "numero",
+      "body": "É o álcool benzílico da água bacteriostática: um conservante que inibe as bactérias a cada vez que a agulha entra no frasco.",
       "icon": "microscopio"
     },
     {
-      "title": "A diferença que importa",
-      "layout": "padrao",
-      "body": "O GHK-Cu tópico é ingrediente cosmético permitido, considerado seguro pelo painel CIR (2018) em concentração baixa. O injetável e o BPC-157 não têm aprovação para uso humano.",
-      "icon": "pele"
+      "title": "Fervida x bacteriostática",
+      "layout": "lado",
+      "body": "Fervida: não é estéril, nunca vai no frasco\nBacteriostática: estéril e com conservante",
+      "icon": "balanca"
     },
     {
-      "title": "E no esporte",
-      "layout": "padrao",
-      "body": "O BPC-157 é proibido pela WADA desde 2022. Gestantes, lactantes e quem tem câncer ativo precisam de cautela com os dois.",
-      "icon": "proibido"
+      "title": "E o frasco de água depois de aberto?",
+      "layout": "pergunta",
+      "body": "Use em até 28 dias e passe álcool 70% na tampa antes de cada nova perfuração. Ficou turva, descarte.",
+      "icon": "frasco"
     },
     {
-      "title": "Leve pra consulta",
+      "title": "Cola do diluente",
       "layout": "passos",
-      "body": "Existe forma aprovada disso pra mim?\nO que tem estudo em gente?\nFrasco \"só pesquisa\" não é tratamento",
-      "icon": "estetoscopio"
+      "body": "Torneira, filtrada, mineral ou fervida: nunca\nVárias doses: água bacteriostática\nÁlcool 70% na tampa a cada perfuração\nDúvida sobre o diluente: pergunte ao médico",
+      "icon": "certo"
     }
   ],
   "scenes": [
     {
-      "chip": "a dúvida",
-      "kicker": "os dois mais falados",
-      "title": "Servem pra",
-      "accent": "mesma coisa?",
+      "chip": "a água",
+      "kicker": "na hora de reconstituir",
+      "title": "Ferver resolve?",
+      "accent": "Não resolve",
       "tone": "vermelho",
-      "speech": "BPC-157 e GHK-Cu servem pra mesma coisa?",
+      "speech": "Você ferve água pra diluir a tirzepatida? Não faça.",
+      "visual": { "type": "icone", "icon": "fogo", "note": "a panela não deixa a água estéril" }
+    },
+    {
+      "chip": "a água",
+      "kicker": "fica até o fim",
+      "title": "O problema não é",
+      "accent": "só a bactéria",
+      "tone": "vermelho",
+      "speech": "Eu sei, parece caprichado, mas o problema da água fervida não é só bactéria.",
+      "visual": { "type": "icone", "icon": "pensando", "note": "o que fica na água vem já já" }
+    },
+    {
+      "chip": "o que fica",
+      "kicker": "o que o fogo não tira",
+      "title": "Partículas e",
+      "accent": "endotoxinas",
+      "tone": "vermelho",
+      "speech": "Mesmo fervida, a água pode ter partículas e endotoxinas que não devem ser injetadas.",
       "visual": {
-        "type": "frascos",
-        "left": { "label": "BPC-157", "liquid": "po" },
-        "right": { "label": "GHK-Cu", "liquid": "po" },
-        "sign": "vs"
+        "type": "lista",
+        "items": [
+          { "text": "Água da torneira", "mark": "nao" },
+          { "text": "Filtrada ou mineral", "mark": "nao" },
+          { "text": "Fervida", "mark": "nao" }
+        ]
       }
     },
     {
-      "chip": "a dúvida",
-      "kicker": "guarda essa",
-      "title": "Uma pergunta",
-      "accent": "separa os dois",
+      "chip": "o que fica",
+      "kicker": "pensa assim",
+      "title": "Lavar a camisa",
+      "accent": "não tira a graxa",
       "tone": "vermelho",
-      "speech": "Parecem primos, mas uma pergunta separa os dois, e ela fica pro final.",
-      "visual": { "type": "icone", "icon": "pensando" }
+      "speech": "É como lavar uma camisa manchada de graxa: ela sai quentinha, mas a mancha continua lá.",
+      "visual": { "type": "carimbo", "text": "NÃO É ESTÉRIL", "note": "ferver não transforma a água" }
     },
     {
-      "chip": "o BPC-157",
-      "kicker": "o alvo dele",
-      "title": "Tendão",
-      "accent": "e intestino",
+      "chip": "a certa",
+      "kicker": "o diluente padrão",
+      "title": "Água estéril",
+      "accent": "com conservante",
       "tone": "azul",
-      "speech": "O BPC-157 foi estudado em animais para reparo de tendão, ligamento, músculo e intestino.",
-      "visual": { "type": "icone", "icon": "osso", "note": "estudado em modelos animais" }
+      "speech": "O diluente padrão é a água bacteriostática: estéril, com 0,9% de álcool benzílico.",
+      "visual": { "type": "numero", "value": "0,9%", "note": "de álcool benzílico como conservante" }
     },
     {
-      "chip": "o GHK-Cu",
-      "kicker": "o alvo dele",
-      "title": "Colágeno",
-      "accent": "e elastina",
+      "chip": "a certa",
+      "kicker": "o que o conservante faz",
+      "title": "Segura as bactérias",
+      "accent": "a cada agulhada",
       "tone": "azul",
-      "speech": "O GHK-Cu é um peptídeo com cobre, estudado para colágeno e elastina da pele.",
-      "visual": { "type": "icone", "icon": "brilho", "note": "peptídeo que carrega cobre" }
-    },
-    {
-      "chip": "os estudos",
-      "kicker": "o que se sabe em gente",
-      "title": "Pouca prova",
-      "accent": "nos dois",
-      "tone": "vermelho",
-      "speech": "Os dois têm pouca prova em gente: no BPC-157, quase tudo vem de animal.",
-      "visual": { "type": "carimbo", "text": "EM ANIMAIS", "note": "BPC-157: maior parte dos dados" }
-    },
-    {
-      "chip": "os estudos",
-      "kicker": "no GHK-Cu",
-      "title": "Estudos",
-      "accent": "pequenos",
-      "tone": "vermelho",
-      "speech": "No GHK-Cu, os estudos em pessoas existem, mas são pequenos.",
-      "visual": { "type": "icone", "icon": "microscopio", "note": "poucos voluntários" }
-    },
-    {
-      "chip": "a diferença",
-      "kicker": "agora sim",
-      "title": "GHK-Cu em creme",
-      "accent": "é permitido",
-      "tone": "azul",
-      "speech": "Agora a diferença: o GHK-Cu em creme é ingrediente cosmético permitido.",
-      "visual": { "type": "frasco", "label": "SÉRUM", "liquid": "claro", "tag": "COSMÉTICO" }
-    },
-    {
-      "chip": "a diferença",
-      "kicker": "o painel de segurança",
-      "title": "Seguro em",
-      "accent": "concentração baixa",
-      "tone": "azul",
-      "speech": "Um painel de segurança, o CIR, considerou ele seguro em concentração baixa.",
-      "visual": { "type": "numero", "value": "2018", "note": "painel CIR: seguro em concentração baixa" },
-      "source": "painel CIR, 2018"
-    },
-    {
-      "chip": "a diferença",
-      "kicker": "o resto",
-      "title": "Sem aprovação",
-      "accent": "pra uso humano",
-      "tone": "vermelho",
-      "speech": "Já o GHK-Cu injetável e o BPC-157 não têm aprovação para uso humano.",
+      "speech": "Esse conservante inibe as bactérias toda vez que a agulha entra no frasco.",
       "visual": {
         "type": "frascos",
-        "left": { "label": "GHK-Cu", "note": "injetável: só pesquisa", "liquid": "po" },
-        "right": { "label": "BPC-157", "note": "só pesquisa", "liquid": "po" },
-        "sign": "+"
+        "left": { "label": "FERVIDA", "note": "sem conservante", "liquid": "claro" },
+        "right": { "label": "BACTERIOST.", "note": "com álcool benzílico", "liquid": "claro" },
+        "sign": "≠"
       }
     },
     {
-      "chip": "as regras",
-      "kicker": "no esporte",
-      "title": "BPC-157",
-      "accent": "proibido pela WADA",
-      "tone": "vermelho",
-      "speech": "E o BPC-157 ainda é proibido pela WADA no esporte desde 2022.",
-      "visual": { "type": "icone", "icon": "proibido", "note": "Lista Proibida da WADA" },
-      "source": "WADA, desde 2022"
+      "chip": "o frasco de água",
+      "kicker": "depois de aberto",
+      "title": "Prazo do frasco",
+      "accent": "de água aberto",
+      "tone": "azul",
+      "speech": "E o próprio frasco de água, depois da primeira perfuração, vale por 28 dias.",
+      "visual": { "type": "linha", "steps": ["aberto", "uso", "28 dias"], "current": 0, "note": "contados da primeira perfuração" }
     },
     {
-      "chip": "a pergunta",
-      "kicker": "leva pra consulta",
-      "title": "Existe forma",
-      "accent": "aprovada pra mim?",
+      "chip": "o que fazer",
+      "kicker": "a cada perfuração",
+      "title": "Álcool na tampa",
+      "accent": "toda vez",
       "tone": "azul",
-      "speech": "A pergunta pro seu médico é: existe forma aprovada disso pra mim?",
-      "visual": { "type": "icone", "icon": "estetoscopio" }
+      "speech": "Antes de cada nova perfuração, passe álcool 70% na tampa de borracha.",
+      "visual": { "type": "icone", "icon": "escudo", "note": "tampa limpa antes de cada uso" }
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "sinal de alerta",
+      "title": "Ficou turva?",
+      "accent": "Descarte",
+      "tone": "vermelho",
+      "speech": "Se a água ou a solução ficar turva, descarte: só a cristalina é aceitável.",
+      "visual": { "type": "frasco", "label": "TURVA", "liquid": "amarelo", "stamp": "DESCARTE" }
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "na dúvida",
+      "title": "Dúvida no diluente?",
+      "accent": "Fala com o médico",
+      "tone": "azul",
+      "speech": "Não sabe qual diluente o seu peptídeo aceita? Confirme com o médico antes de preparar.",
+      "visual": { "type": "icone", "icon": "estetoscopio", "note": "o diluente certo para o seu frasco" }
     },
     {
       "chip": "pra lembrar",
       "kicker": "da próxima vez",
-      "title": "Mesma coisa?",
-      "accent": "Não",
-      "tone": "vermelho",
-      "speech": "Então, mesma coisa? Não: um tem creme permitido, o outro só tem pesquisa.",
-      "visual": {
-        "type": "frascos",
-        "left": { "label": "BPC-157", "note": "só pesquisa", "liquid": "po" },
-        "right": { "label": "SÉRUM", "note": "GHK-Cu cosmético", "liquid": "claro" },
-        "sign": "≠"
-      }
+      "title": "Panela no fogão,",
+      "accent": "frasco longe dela",
+      "tone": "azul",
+      "speech": "Então, água fervida fica pro café, não pro frasco da tirzepatida.",
+      "visual": { "type": "icone", "icon": "gota", "note": "só água bacteriostática no frasco" }
     }
   ],
-  "caption": "Eu sei, os dois aparecem juntos como \"peptídeos de regeneração\" e parece tudo a mesma coisa. Não é. O BPC-157 foi estudado em modelos animais para reparo de tendão, ligamento, músculo e intestino. O GHK-Cu é um peptídeo que carrega cobre, estudado para colágeno e elastina da pele.\n\nOs dois têm pouca prova em gente: no BPC-157, boa parte dos dados é de animais; no GHK-Cu, os estudos em pessoas são pequenos.\n\n⚠️ A diferença que importa: o GHK-Cu tópico é ingrediente cosmético permitido, considerado seguro pelo painel CIR (2018) em concentração baixa. Já o GHK-Cu injetável e o BPC-157 não têm aprovação para uso humano, e o BPC-157 é proibido pela WADA desde 2022.\n\n1️⃣ Pergunte se existe forma aprovada para o seu caso\n2️⃣ Separe o que tem estudo em gente do que é laboratório\n3️⃣ Gravidez, amamentação ou câncer: converse com o médico antes de tudo",
-  "question": "Qual dos dois você já tinha visto no seu feed?",
-  "share": "aquela amiga que acha que todo peptídeo serve pra tudo"
+  "caption": "Eu sei, ferver a água parece capricho a mais. Mas ferver não deixa a água estéril: torneira, filtrada, mineral ou fervida podem ter partículas e endotoxinas que não devem ser injetadas. Nenhuma delas vai no frasco da tirzepatida.\n\n1️⃣ O diluente padrão é a água bacteriostática: estéril, com 0,9% de álcool benzílico como conservante.\n2️⃣ O frasco de água aberto vale por 28 dias depois da primeira perfuração.\n3️⃣ Passe álcool 70% na tampa antes de cada nova perfuração.\n\n⚠️ Água ou solução turva vai para o descarte. Dúvida sobre qual diluente o seu peptídeo aceita: confirme com o médico.",
+  "question": "Você anota a data em que abriu o frasco de água?",
+  "share": "aquela amiga que acha que ferver a água resolve"
 }

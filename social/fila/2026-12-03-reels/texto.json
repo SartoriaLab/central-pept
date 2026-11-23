@@ -1,160 +1,140 @@
 {
-  "hook": "O BPC-157 é mesmo o tal efeito Wolverine?",
-  "hookIcon": "osso",
+  "hook": "Esqueceu o Ozempic? Você não precisa dobrar a dose.",
+  "hookIcon": "relogio",
   "slides": [
     {
-      "title": "BPC-157 é o peptídeo Wolverine?",
-      "layout": "pergunta",
-      "body": "A fama cresceu bem mais rápido que a prova. O que existe é potencial de reparo visto principalmente em animais de laboratório.",
-      "icon": "duvida"
-    },
-    {
-      "title": "O que ele é",
-      "layout": "padrao",
-      "body": "Um fragmento de 15 aminoácidos de uma proteína do suco gástrico humano. Foi estudado em modelos animais para reparo de tendão, ligamento, músculo e intestino.",
-      "icon": "dna"
-    },
-    {
-      "title": "Se funcionou no rato, funciona em mim",
+      "title": "Esqueci, então aplico duas de uma vez",
       "layout": "mito",
-      "body": "Boa parte dos dados vem de modelos animais. Em humanos, a segurança é pouco conhecida e as interações com outros remédios não estão bem caracterizadas.",
-      "icon": "microscopio"
+      "body": "Nenhuma bula manda isso. Ozempic, Wegovy e Mounjaro dizem o mesmo: não faça dose extra e não aumente a dose para compensar.",
+      "icon": "errado"
     },
     {
-      "title": "Sem aprovação",
+      "title": "5 dias",
+      "layout": "numero",
+      "body": "Ozempic e Wegovy, pelas bulas brasileiras: até 5 dias da data prevista, aplique assim que lembrar. Passou disso, pule e siga no dia de sempre.",
+      "icon": "calendario"
+    },
+    {
+      "title": "Mounjaro tem prazo menor",
+      "layout": "lado",
+      "body": "Ozempic e Wegovy: até 5 dias depois da data prevista\nMounjaro: até 4 dias (96 horas) depois da data prevista",
+      "icon": "balanca"
+    },
+    {
+      "title": "Posso mudar o dia da aplicação?",
+      "layout": "pergunta",
+      "body": "Pelas bulas, sim, desde que tenham passado pelo menos 3 dias (72 horas) desde a última injeção. Depois, uma vez por semana no novo dia.",
+      "icon": "relogio"
+    },
+    {
+      "title": "Esqueceu várias doses?",
       "layout": "padrao",
-      "body": "O BPC-157 não tem aprovação da FDA para uso humano: o status é apenas pesquisa. E a WADA proíbe o uso no esporte desde 2022.",
-      "icon": "proibido"
-    },
-    {
-      "title": "Quem precisa de cautela",
-      "layout": "padrao",
-      "body": "Gestantes e lactantes (não há estudos), quem tem câncer ativo e quem usa anticoagulante sem acompanhamento.",
-      "icon": "alerta"
-    },
-    {
-      "title": "Antes de acreditar no vídeo",
-      "layout": "passos",
-      "body": "Relato de uma pessoa não é estudo\nDado em animal não é prova em gente\nDor que não passa é caso de médico",
+      "body": "Aqui a bula não resolve sozinha. Voltar direto na dose alta pode trazer náusea e vômito intensos. O médico decide se retoma ou recomeça um degrau abaixo.",
       "icon": "estetoscopio"
+    },
+    {
+      "title": "Cola da dose esquecida",
+      "layout": "passos",
+      "body": "Conte os dias desde a data prevista\nDentro do prazo da bula, aplique e volte ao dia de sempre\nFora do prazo, pule\nNunca dobre",
+      "icon": "certo"
     }
   ],
   "scenes": [
     {
-      "chip": "a fama",
-      "kicker": "o que circula no feed",
-      "title": "Efeito",
-      "accent": "Wolverine?",
+      "chip": "a dose esquecida",
+      "kicker": "aconteceu com você?",
+      "title": "Esqueceu",
+      "accent": "o Ozempic?",
       "tone": "vermelho",
-      "speech": "O BPC-157 é mesmo o tal efeito Wolverine?",
-      "visual": { "type": "frasco", "label": "BPC-157", "liquid": "po", "tag": "WOLVERINE?" }
+      "speech": "Esqueceu o Ozempic? Você não precisa dobrar a dose.",
+      "visual": { "type": "icone", "icon": "relogio", "note": "a injeção semanal que passou" }
     },
     {
-      "chip": "a fama",
-      "kicker": "guarda essa",
-      "title": "A fama correu",
-      "accent": "mais que a prova",
+      "chip": "a dose esquecida",
+      "kicker": "fica até o fim",
+      "title": "O prazo muda",
+      "accent": "de uma marca pra outra",
       "tone": "vermelho",
-      "speech": "A fama dele correu bem mais rápido que a prova, e eu te mostro onde ela para.",
-      "visual": { "type": "icone", "icon": "grafico-sobe", "note": "fama x evidência" }
+      "speech": "Eu sei, acontece com quase todo mundo, e o prazo muda de uma marca para a outra.",
+      "visual": { "type": "frascos", "left": { "label": "OZEMPIC", "liquid": "claro" }, "right": { "label": "MOUNJARO", "liquid": "claro" }, "sign": "≠" }
     },
     {
-      "chip": "o que ele é",
-      "kicker": "a origem",
-      "title": "Pedaço de",
-      "accent": "proteína do estômago",
+      "chip": "a bula",
+      "kicker": "o que as bulas dizem",
+      "title": "Dose dobrada",
+      "accent": "nunca",
+      "tone": "vermelho",
+      "speech": "Primeiro: nenhuma bula manda fazer dose extra ou aumentar a dose para compensar.",
+      "visual": { "type": "carimbo", "text": "NÃO DOBRE", "note": "Ozempic, Wegovy e Mounjaro" },
+      "source": "bulas brasileiras, ANVISA"
+    },
+    {
+      "chip": "a bula",
+      "kicker": "por que não dobrar",
+      "title": "Dose dobrada,",
+      "accent": "mais náusea",
+      "tone": "vermelho",
+      "speech": "A dose dobrada sobe de uma vez a quantidade no sangue, e com ela vêm náusea e vômito.",
+      "visual": { "type": "icone", "icon": "vomito", "note": "os efeitos mais comuns da classe" }
+    },
+    {
+      "chip": "o prazo",
+      "kicker": "Ozempic e Wegovy",
+      "title": "Até 5 dias",
+      "accent": "depois da data",
       "tone": "azul",
-      "speech": "Ele é um pedaço de 15 aminoácidos de uma proteína do suco do estômago.",
-      "visual": { "type": "numero", "value": "15", "note": "aminoácidos, de proteína do suco gástrico" }
+      "speech": "No Ozempic e no Wegovy, se passaram até 5 dias da data prevista, você aplica assim que lembrar.",
+      "visual": { "type": "numero", "value": "5 dias", "note": "prazo de Ozempic e Wegovy" },
+      "source": "bulas brasileiras, ANVISA"
     },
     {
-      "chip": "os estudos",
-      "kicker": "o que foi testado",
-      "title": "Reparo de",
-      "accent": "tendão e músculo",
+      "chip": "o prazo",
+      "kicker": "Mounjaro",
+      "title": "No Mounjaro,",
+      "accent": "um dia a menos",
       "tone": "azul",
-      "speech": "Nos estudos, ele mostrou potencial de acelerar o reparo de tendão, músculo e intestino.",
-      "visual": {
-        "type": "lista",
-        "items": [
-          { "text": "Tendão e ligamento", "mark": "duvida" },
-          { "text": "Músculo", "mark": "duvida" },
-          { "text": "Mucosa do intestino", "mark": "duvida" }
-        ]
-      }
+      "speech": "No Mounjaro o prazo é um dia menor: até 4 dias depois da data prevista.",
+      "visual": { "type": "barras", "bars": [ { "label": "Ozempic e Wegovy", "value": 5, "display": "5 dias" }, { "label": "Mounjaro", "value": 4, "display": "4 dias" } ] },
+      "source": "bula do Mounjaro"
     },
     {
-      "chip": "os estudos",
-      "kicker": "o detalhe que muda tudo",
-      "title": "Quase tudo",
-      "accent": "em animais",
-      "tone": "vermelho",
-      "speech": "Só que quase tudo isso foi visto em animal de laboratório, não em gente.",
-      "visual": { "type": "carimbo", "text": "EM ANIMAIS", "note": "a maior parte dos dados" }
-    },
-    {
-      "chip": "os estudos",
-      "kicker": "pensa assim",
-      "title": "É o trailer,",
-      "accent": "não o filme",
+      "chip": "o prazo",
+      "kicker": "passou do prazo",
+      "title": "Pule e siga",
+      "accent": "no dia de sempre",
       "tone": "azul",
-      "speech": "É como trailer de filme: as cenas bonitas foram gravadas com rato, não com você.",
-      "visual": { "type": "icone", "icon": "microscopio", "note": "modelo animal não é paciente" }
+      "speech": "Passou do prazo? Você pula essa dose e aplica a próxima no dia de sempre.",
+      "visual": { "type": "linha", "steps": [ "esqueceu", "passou", "pula", "dia fixo" ], "current": 2 }
     },
     {
-      "chip": "em humanos",
-      "kicker": "o que ninguém sabe",
-      "title": "Segurança",
-      "accent": "pouco conhecida",
-      "tone": "vermelho",
-      "speech": "Em humanos, a segurança é pouco conhecida, e as interações com remédios também.",
-      "visual": {
-        "type": "lista",
-        "items": [
-          { "text": "Segurança em gente", "mark": "duvida" },
-          { "text": "Interação com remédios", "mark": "duvida" }
-        ]
-      }
-    },
-    {
-      "chip": "as regras",
-      "kicker": "o status oficial",
-      "title": "Sem aprovação",
-      "accent": "da FDA",
-      "tone": "vermelho",
-      "speech": "Ele não tem aprovação da FDA para uso humano: o status é apenas pesquisa.",
-      "visual": { "type": "carimbo", "text": "SÓ PESQUISA", "note": "sem aprovação para uso humano" }
-    },
-    {
-      "chip": "as regras",
-      "kicker": "no esporte",
-      "title": "Proibido",
-      "accent": "pela WADA",
-      "tone": "vermelho",
-      "speech": "E a WADA proíbe o BPC-157 no esporte desde 2022.",
-      "visual": { "type": "icone", "icon": "proibido", "note": "Lista Proibida da WADA" },
-      "source": "WADA, desde 2022"
-    },
-    {
-      "chip": "o que fazer",
-      "kicker": "antes de qualquer frasco",
-      "title": "Dor que fica",
-      "accent": "é caso de médico",
+      "chip": "o dia",
+      "kicker": "quer mudar o dia?",
+      "title": "Pelo menos",
+      "accent": "3 dias de intervalo",
       "tone": "azul",
-      "speech": "Dor que não passa é assunto de médico, que procura a causa antes de qualquer frasco.",
-      "visual": { "type": "icone", "icon": "estetoscopio", "note": "procurar a causa da dor" }
+      "speech": "E dá para mudar o dia da semana, desde que tenham passado pelo menos 3 dias desde a última.",
+      "visual": { "type": "icone", "icon": "calendario", "note": "depois, uma vez por semana no novo dia" }
+    },
+    {
+      "chip": "quando procurar",
+      "kicker": "várias doses esquecidas",
+      "title": "Várias semanas?",
+      "accent": "Fala com o médico",
+      "tone": "vermelho",
+      "speech": "Ficou duas semanas ou mais sem aplicar? Aí não volte na dose alta por conta: fale com o médico.",
+      "visual": { "type": "lista", "items": [ { "text": "Voltar direto na dose alta", "mark": "nao" }, { "text": "Conversar com o médico", "mark": "ok" } ] }
     },
     {
       "chip": "pra lembrar",
       "kicker": "da próxima vez",
-      "title": "Wolverine",
-      "accent": "só no laboratório",
-      "tone": "vermelho",
-      "speech": "Então, efeito Wolverine? Por enquanto, é Wolverine de laboratório, não de gente.",
-      "visual": { "type": "frasco", "label": "BPC-157", "liquid": "po", "stamp": "EM ESTUDO" }
+      "title": "Conte os dias,",
+      "accent": "não dobre",
+      "tone": "azul",
+      "speech": "Então, esqueceu o Ozempic? Conte os dias, confira o prazo e nunca dobre a dose.",
+      "visual": { "type": "icone", "icon": "certo", "note": "prazo da bula, sem dose dobrada" }
     }
   ],
-  "caption": "Eu sei, o vídeo de quem melhorou da dor convence. Mas a fama do BPC-157 correu bem mais rápido que a prova. Ele é um fragmento de 15 aminoácidos de uma proteína do suco gástrico, estudado em modelos animais pelo potencial de acelerar o reparo de tendão, ligamento, músculo e intestino.\n\nBoa parte dos dados vem de animais. Em humanos, a segurança é pouco conhecida e as interações com outros remédios não estão bem caracterizadas.\n\n⚠️ O BPC-157 não tem aprovação da FDA para uso humano (status: apenas pesquisa) e é proibido pela WADA no esporte desde 2022. Gestantes, lactantes, quem tem câncer ativo ou usa anticoagulante precisam de cautela redobrada.\n\n1️⃣ Relato de uma pessoa não é estudo\n2️⃣ Dado em animal não é prova em gente\n3️⃣ Dor que não passa é caso de médico, que procura a causa",
-  "question": "Você já tinha ouvido falar do BPC-157 como efeito Wolverine?",
-  "share": "quem te mandou vídeo do BPC-157 dizendo que é milagre"
+  "caption": "Eu sei, esquecer a injeção semanal acontece com quase todo mundo: viagem, rotina diferente, a caneta ficou na outra casa. As bulas trazem uma regra clara, e o que muda de uma marca para outra é o prazo.\n\n1️⃣ Ozempic e Wegovy: até 5 dias da data prevista, aplique assim que lembrar. Passou disso, pule e siga no dia de sempre.\n2️⃣ Mounjaro: até 4 dias (96 horas). Depois disso, pule e aplique a próxima no dia habitual.\n3️⃣ Para mudar o dia da semana, as bulas pedem pelo menos 3 dias desde a última injeção.\n\n⚠️ Nenhuma bula manda dobrar a dose: dose extra aumenta o risco de náusea, vômito e diarreia. Esqueceu várias doses seguidas? Fale com o médico antes de retomar.",
+  "question": "Qual é o seu dia fixo de aplicação?",
+  "share": "aquela amiga que sempre esquece o dia da caneta"
 }

@@ -1,238 +1,207 @@
 {
-  "hook": "Parou o Ozempic e a fome voltou?",
-  "hookIcon": "duvida",
+  "hook": "A dose de Mounjaro da sua amiga não é sua.",
+  "hookIcon": "grafico-sobe",
   "slides": [
     {
-      "title": "Parei o remédio, então o plano acabou",
-      "body": "É o contrário: a fase depois de parar é a que mais pede plano. A semaglutida trata enquanto está ativa; sem ela, o corpo tende a voltar ao estado de antes.",
-      "icon": "errado",
-      "layout": "mito"
+      "title": "Se a amiga subiu, eu subo também",
+      "layout": "mito",
+      "body": "Cada corpo responde de um jeito. Na bula, a subida de dose tem intervalo mínimo, e quem decide o próximo degrau é o médico.",
+      "icon": "errado"
     },
     {
-      "title": "70%",
-      "body": "No estudo STEP-4, quem trocou a semaglutida por placebo recuperou cerca de 70% do que tinha perdido em 48 semanas. Quem continuou com o remédio manteve a perda.",
-      "icon": "grafico-sobe",
-      "layout": "numero"
+      "title": "4 semanas",
+      "layout": "numero",
+      "body": "É o intervalo mínimo entre um aumento e outro descrito para a tirzepatida, começando em 2,5 mg uma vez por semana.",
+      "icon": "calendario"
     },
     {
-      "title": "O que muda quando eu paro?",
-      "body": "Apetite e saciedade voltam ao estado de antes do tratamento em cerca de 4 semanas. E os hábitos alimentares nem sempre mudaram por completo nesse tempo.",
-      "icon": "cerebro",
-      "layout": "pergunta"
+      "title": "Por que a pressa atrapalha?",
+      "layout": "pergunta",
+      "body": "Náusea, vômito e diarreia são os efeitos mais comuns. Subir rápido dá menos tempo para o corpo se acostumar.",
+      "icon": "enjoo"
     },
     {
-      "title": "Durante e depois da caneta",
-      "body": "Durante: treino resistido e proteína preservam o músculo\nDepois: os mesmos dois continuam, sem pausa",
-      "icon": "musculo",
-      "layout": "lado"
+      "title": "Uma vez por semana, no mesmo dia",
+      "layout": "padrao",
+      "body": "A meia-vida da tirzepatida é de cerca de 5 dias. Por isso a aplicação é semanal, sempre no mesmo dia.",
+      "icon": "ampulheta"
     },
     {
-      "title": "Preciso acompanhar alguma coisa?",
-      "body": "Sim: uma rotina de monitoramento, com o peso conferido toda semana. Assim você leva ao médico o que está acontecendo e a conversa sobre o plano fica mais fácil.",
-      "icon": "calendario",
-      "layout": "pergunta"
+      "title": "Conte ao médico antes",
+      "layout": "passos",
+      "body": "Câncer medular de tireoide na família\nSíndrome NEM 2\nAlergia grave a remédio",
+      "icon": "estetoscopio"
     },
     {
-      "title": "Continuar também é opção",
-      "body": "Dados de 2 anos ou mais (STEP-5 e SUSTAIN-6) mostraram perfil de segurança mantido, e a FDA aceita o uso crônico para obesidade. A decisão é com o médico.",
-      "icon": "estetoscopio",
-      "layout": "padrao"
+      "title": "Uma dose fixa serve pra todo mundo",
+      "layout": "mito",
+      "body": "A dose de bula é o ponto de partida. O ajuste depende de como você responde, e é decidido na consulta.",
+      "icon": "alvo"
     },
     {
-      "title": "Cola do depois",
-      "body": "Saída da dose: aos poucos, com o médico\nTreino resistido continua\nProteína em dia\nPeso conferido toda semana",
-      "icon": "certo",
-      "layout": "passos"
+      "title": "Cola da dose",
+      "layout": "passos",
+      "body": "Comece pela dose de bula\nRespeite o intervalo entre aumentos\nEnjoo forte: fale com o médico antes de subir",
+      "icon": "certo"
     }
   ],
   "scenes": [
     {
-      "chip": "a dúvida",
-      "kicker": "a pergunta mais comum",
-      "title": "Parou o Ozempic",
-      "accent": "e a fome voltou?",
+      "chip": "a dose",
+      "kicker": "a mania da vez",
+      "title": "A dose da amiga",
+      "accent": "não é a sua",
       "tone": "vermelho",
-      "speech": "Parou o Ozempic e a fome voltou?",
+      "speech": "A dose de Mounjaro da sua amiga não é sua.",
       "visual": {
         "type": "icone",
-        "icon": "cerebro",
-        "note": "e se eu parar?"
+        "icon": "grafico-sobe",
+        "note": "a dose da amiga não é a sua"
       }
     },
     {
-      "chip": "a dúvida",
-      "kicker": "antes de se culpar",
-      "title": "Não é falta de",
-      "accent": "força de vontade",
+      "chip": "a dose",
+      "kicker": "fica até o fim",
+      "title": "A bula tem",
+      "accent": "um relógio",
       "tone": "vermelho",
-      "speech": "Calma, isso não é falta de força de vontade. E um estudo mostra por quê.",
-      "visual": {
-        "type": "carimbo",
-        "text": "NÃO É FRAQUEZA",
-        "note": "o estudo explica"
-      }
-    },
-    {
-      "chip": "como funciona",
-      "kicker": "pensa num guarda-chuva",
-      "title": "Guarda-chuva",
-      "accent": "aberto",
-      "tone": "azul",
-      "speech": "Pensa num guarda-chuva: a semaglutida segura a fome enquanto está aberta.",
+      "speech": "Eu sei, dá vontade de subir junto, mas a bula tem um relógio que quase ninguém olha.",
       "visual": {
         "type": "icone",
-        "icon": "escudo",
-        "note": "o remédio age enquanto está ativo"
+        "icon": "relogio",
+        "note": "o relógio vem já já"
       }
     },
     {
-      "chip": "como funciona",
-      "kicker": "fechou o guarda-chuva",
-      "title": "A chuva",
-      "accent": "não tinha parado",
-      "tone": "vermelho",
-      "speech": "Fechou o guarda-chuva, a chuva continua: o apetite volta ao de antes em cerca de 4 semanas.",
-      "visual": {
-        "type": "numero",
-        "value": "4 semanas",
-        "note": "para o apetite voltar ao de antes"
-      }
-    },
-    {
-      "chip": "o STEP-4",
-      "kicker": "como foi o estudo",
-      "title": "Dois caminhos",
-      "accent": "no mesmo estudo",
+      "chip": "o remédio",
+      "kicker": "o que é o Mounjaro",
+      "title": "Tirzepatida,",
+      "accent": "dois receptores",
       "tone": "azul",
-      "speech": "No estudo STEP-4, um grupo continuou com a semaglutida e o outro trocou por placebo.",
+      "speech": "O Mounjaro é a tirzepatida, que age em dois receptores, o GIP e o GLP-1.",
       "visual": {
         "type": "frascos",
         "left": {
-          "label": "SEMAGLUTIDA",
-          "note": "continuou",
+          "label": "GIP",
           "liquid": "claro"
         },
         "right": {
-          "label": "PLACEBO",
-          "note": "trocou",
+          "label": "GLP-1",
           "liquid": "claro"
         },
-        "sign": "vs"
-      },
-      "source": "STEP-4"
+        "sign": "+"
+      }
     },
     {
-      "chip": "o STEP-4",
-      "kicker": "quem continuou",
-      "title": "Manteve",
-      "accent": "a perda",
+      "chip": "a bula",
+      "kicker": "onde começa",
+      "title": "A primeira dose",
+      "accent": "é a menor",
       "tone": "azul",
-      "speech": "Quem continuou manteve a perda por mais 48 semanas.",
+      "speech": "Na bula, tudo começa em 2,5 mg, uma vez por semana.",
+      "visual": {
+        "type": "numero",
+        "value": "2,5 mg",
+        "note": "dose inicial, uma vez por semana"
+      }
+    },
+    {
+      "chip": "a bula",
+      "kicker": "o relógio da bula",
+      "title": "Cada degrau",
+      "accent": "tem espera",
+      "tone": "azul",
+      "speech": "E entre um aumento e outro, a bula descreve pelo menos 4 semanas.",
       "visual": {
         "type": "linha",
         "steps": [
-          "sorteio",
-          "48 semanas"
+          "dose atual",
+          "4 semanas",
+          "consulta"
         ],
         "current": 1,
-        "note": "quem seguiu com o remédio"
-      },
-      "source": "STEP-4"
-    },
-    {
-      "chip": "o STEP-4",
-      "kicker": "quem trocou por placebo",
-      "title": "Recuperou cerca",
-      "accent": "de 70% do perdido",
-      "tone": "vermelho",
-      "speech": "Já quem trocou por placebo recuperou cerca de 70% do que tinha perdido.",
-      "visual": {
-        "type": "pontos",
-        "total": 100,
-        "marked": 70,
-        "note": "cerca de 70% do que saiu voltou"
-      },
-      "source": "STEP-4"
-    },
-    {
-      "chip": "o que isso quer dizer",
-      "kicker": "igual remédio de pressão",
-      "title": "Trata enquanto",
-      "accent": "está ativo",
-      "tone": "azul",
-      "speech": "Ou seja, o remédio trata enquanto está ativo, como o remédio de pressão faz com a hipertensão.",
-      "visual": {
-        "type": "icone",
-        "icon": "coracao",
-        "note": "tratamento contínuo enquanto ativo"
+        "note": "subir antes disso não está na bula"
       }
     },
     {
-      "chip": "o risco",
-      "kicker": "o erro mais comum",
-      "title": "Parar de uma vez",
-      "accent": "sem plano",
+      "chip": "por que esperar",
+      "kicker": "pensa assim",
+      "title": "Escada,",
+      "accent": "não elevador",
       "tone": "vermelho",
-      "speech": "Por isso, parar de uma vez, sem plano, é o caminho mais previsível para o rebote.",
+      "speech": "É escada, não elevador: pular degrau aumenta o tombo do estômago.",
       "visual": {
         "type": "carimbo",
-        "text": "SEM PLANO",
-        "note": "rebote previsível"
+        "text": "SEM PRESSA",
+        "note": "um degrau de cada vez"
       }
     },
     {
-      "chip": "o que fazer",
-      "kicker": "combinado com o médico",
-      "title": "O que ajuda",
-      "accent": "de verdade",
-      "tone": "azul",
-      "speech": "O que ajuda: reduzir a dose aos poucos com o médico, treino resistido e proteína em dia.",
+      "chip": "por que esperar",
+      "kicker": "os efeitos mais comuns",
+      "title": "Enjoo, vômito,",
+      "accent": "diarreia",
+      "tone": "vermelho",
+      "speech": "Náusea, vômito e diarreia são os efeitos mais comuns, e subir rápido não ajuda.",
       "visual": {
         "type": "lista",
         "items": [
           {
-            "text": "Reduzir aos poucos, com o médico",
-            "mark": "ok"
+            "text": "Náusea",
+            "mark": "nao"
           },
           {
-            "text": "Treino resistido",
-            "mark": "ok"
+            "text": "Vômito",
+            "mark": "nao"
           },
           {
-            "text": "Proteína em dia",
-            "mark": "ok"
+            "text": "Diarreia",
+            "mark": "nao"
           }
         ]
       }
     },
     {
-      "chip": "o que fazer",
-      "kicker": "também vale",
-      "title": "Continuar também",
-      "accent": "é opção válida",
+      "chip": "a semana",
+      "kicker": "quanto tempo fica no corpo",
+      "title": "Meia-vida de",
+      "accent": "cerca de 5 dias",
       "tone": "azul",
-      "speech": "E continuar por longo prazo também é uma opção clínica válida, conversada na consulta.",
+      "speech": "A meia-vida é de cerca de 5 dias, por isso a aplicação é semanal e no mesmo dia.",
+      "visual": {
+        "type": "icone",
+        "icon": "ampulheta",
+        "note": "sai do corpo como a maré que baixa"
+      }
+    },
+    {
+      "chip": "quando falar",
+      "kicker": "antes de começar",
+      "title": "Tireoide na",
+      "accent": "família? Avise",
+      "tone": "vermelho",
+      "speech": "Câncer medular de tireoide na família ou alergia grave? Isso você conta para o médico antes.",
       "visual": {
         "type": "icone",
         "icon": "estetoscopio",
-        "note": "decisão junto com o médico"
+        "note": "contraindicações da bula"
       }
     },
     {
       "chip": "pra lembrar",
       "kicker": "da próxima vez",
-      "title": "Não é fraqueza",
-      "accent": "é o guarda-chuva",
+      "title": "Sua dose,",
+      "accent": "seu médico",
       "tone": "azul",
-      "speech": "Então, parou e a fome voltou? Não é fraqueza, é o guarda-chuva fechado. E isso tem plano.",
+      "speech": "Então, a amiga subiu a dose do Mounjaro? A sua é com o seu médico, no tempo da bula.",
       "visual": {
-        "type": "carimbo",
-        "text": "COM PLANO",
-        "note": "sempre junto com o médico"
+        "type": "icone",
+        "icon": "alvo",
+        "note": "dose certa é a sua"
       }
     }
   ],
-  "caption": "Eu sei, parar o Ozempic dá aquela sensação de missão cumprida. Mas a semaglutida trata enquanto está ativa. No estudo STEP-4, quem continuou por mais 48 semanas manteve a perda; quem trocou por placebo recuperou cerca de 70% do que tinha perdido no mesmo período. Em cerca de 4 semanas sem o remédio, apetite e saciedade voltam ao estado de antes.\n\n1️⃣ A saída da dose se decide com o médico, reduzindo aos poucos\n2️⃣ Treino resistido continua, durante e depois\n3️⃣ Proteína em dia, para saciedade e músculo\n4️⃣ Peso conferido toda semana, para levar à consulta\n\n⚠️ Parar de uma vez, sem plano, é o caminho mais previsível para o efeito rebote. Continuar por longo prazo também é uma opção clínica válida: converse com o médico.",
-  "question": "Você já conversou com o médico sobre como seria parar?",
-  "share": "aquela amiga que quer parar a caneta de uma vez"
+  "caption": "Eu sei, quando a amiga conta que subiu a dose, dá vontade de subir junto. Mas o Mounjaro, a tirzepatida, tem um ritmo descrito na bula: começa em 2,5 mg uma vez por semana, e cada aumento vem depois de pelo menos 4 semanas, com o médico avaliando.\n\n1️⃣ A dose de partida é a de bula; o próximo degrau é decisão do médico.\n2️⃣ A meia-vida é de cerca de 5 dias: aplicação semanal, sempre no mesmo dia.\n3️⃣ Náusea, vômito e diarreia são os efeitos colaterais mais comuns; subir rápido dá menos tempo ao corpo.\n\n⚠️ Histórico pessoal ou familiar de câncer medular de tireoide, síndrome NEM 2 ou alergia grave são contraindicações da bula. Conte ao médico antes de começar.",
+  "question": "Em quantas semanas você costuma ficar em cada dose?",
+  "share": "aquela amiga que sobe a dose junto com o grupo"
 }

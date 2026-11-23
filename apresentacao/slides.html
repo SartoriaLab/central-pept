@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Plano de Conversão</title>
+<style>
+  :root {
+    --teal: #0d9488; --teal-d: #0f766e; --teal-l: #ccfbf1; --ink: #0f172a; --ink-2: #334155; --ink-3: #64748b;
+    --bg: #f8fafc; --green: #22c55e; --green-d: #15803d; --red: #dc2626; --amber: #d97706;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1920px; height: 1080px; overflow: hidden; background: var(--bg); font-family: "Segoe UI", system-ui, sans-serif; color: var(--ink); }
+  .slide { display: none; width: 1920px; height: 1080px; padding: 110px 140px; position: relative; }
+  .slide.on { display: flex; flex-direction: column; }
+  .tag { font-size: 30px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--teal); margin-bottom: 28px; }
+  h1 { font-size: 92px; line-height: 1.05; font-weight: 800; letter-spacing: -2px; }
+  h2 { font-size: 72px; line-height: 1.1; font-weight: 800; letter-spacing: -1.5px; margin-bottom: 48px; }
+  p.lead { font-size: 40px; line-height: 1.4; color: var(--ink-2); max-width: 1500px; }
+  .foot { position: absolute; bottom: 56px; left: 140px; right: 140px; display: flex; justify-content: space-between; font-size: 24px; color: var(--ink-3); }
+  .dark { background: linear-gradient(135deg, #0f766e 0%, #0d9488 55%, #14b8a6 100%); color: #fff; }
+  .dark .tag { color: var(--teal-l); }
+  .dark p.lead { color: #e6fffb; }
+  .dark .foot { color: #b2f5ea; }
+  ul.points { list-style: none; display: flex; flex-direction: column; gap: 30px; }
+  ul.points li { font-size: 40px; line-height: 1.35; display: flex; gap: 28px; align-items: flex-start; color: var(--ink-2); }
+  ul.points li b { color: var(--ink); }
+  .num { flex-shrink: 0; width: 64px; height: 64px; border-radius: 50%; background: var(--teal); color: #fff; font-weight: 800; font-size: 32px; display: flex; align-items: center; justify-content: center; }
+  .x { background: var(--red); }
+  .row { display: flex; gap: 70px; align-items: center; flex: 1; }
+  .col { flex: 1; }
+  .label { font-size: 28px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 22px; }
+  .label.bad { color: var(--red); } .label.good { color: var(--green-d); }
+  /* card do site (réplica) */
+  .card { border: 3px solid var(--green); border-radius: 28px; background: linear-gradient(90deg, #f0fdf4, #f0fdfa); padding: 34px 38px; display: flex; gap: 26px; align-items: center; }
+  .wa { flex-shrink: 0; width: 76px; height: 76px; border-radius: 50%; background: var(--green); display: flex; align-items: center; justify-content: center; }
+  .wa svg { width: 44px; height: 44px; }
+  .card .t { font-size: 34px; font-weight: 800; color: #166534; }
+  .card .b { font-size: 25px; color: #15803d; margin-top: 4px; line-height: 1.35; }
+  .btn { display: inline-block; background: var(--green); color: #fff; font-weight: 800; font-size: 26px; padding: 18px 30px; border-radius: 16px; white-space: nowrap; }
+  .chips { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
+  .chip { font-size: 21px; font-weight: 600; background: #fff; border: 2px solid #bbf7d0; color: #166534; padding: 7px 16px; border-radius: 999px; }
+  .price { font-size: 26px; font-weight: 800; color: var(--ink); margin-top: 12px; }
+  .note { font-size: 28px; color: var(--ink-3); margin-top: 26px; line-height: 1.4; }
+  /* form */
+  .panel { background: #fff; border-radius: 28px; box-shadow: 0 20px 60px rgba(15,23,42,.12); padding: 44px; }
+  .field { margin-bottom: 22px; }
+  .field .fl { font-size: 23px; font-weight: 700; color: var(--ink-2); margin-bottom: 8px; }
+  .field .fv { font-size: 26px; border: 2px solid #e2e8f0; border-radius: 14px; padding: 14px 18px; color: var(--ink); background: #f8fafc; }
+  .opts { display: flex; gap: 12px; }
+  .opt { font-size: 24px; border: 2px solid #e2e8f0; border-radius: 14px; padding: 12px 20px; color: var(--ink-2); }
+  .opt.sel { border-color: var(--teal); background: var(--teal-l); color: var(--teal-d); font-weight: 700; }
+  /* whatsapp bubble */
+  .chat { background: #efeae2; border-radius: 28px; padding: 40px; }
+  .bubble { background: #d9fdd3; border-radius: 18px 18px 4px 18px; padding: 26px 30px; font-size: 27px; line-height: 1.5; color: #111b21; box-shadow: 0 2px 4px rgba(0,0,0,.08); }
+  .bubble.gray { background: #fff; border-radius: 18px 18px 18px 4px; }
+  .bubble .tm { font-size: 19px; color: #667781; text-align: right; margin-top: 8px; }
+  /* calculadora */
+  .res { background: #fff; border-radius: 28px; box-shadow: 0 20px 60px rgba(15,23,42,.12); overflow: hidden; }
+  .res .hd { background: var(--teal); color: #fff; font-size: 26px; font-weight: 700; padding: 22px 36px; }
+  .res .bd { padding: 32px 36px; }
+  .kv { display: flex; justify-content: space-between; font-size: 28px; padding: 14px 0; border-bottom: 2px solid #f1f5f9; }
+  .kv b { color: var(--teal-d); }
+  .hl { margin-top: 26px; background: #fffbeb; border: 2px solid #fcd34d; border-radius: 18px; padding: 22px 26px; font-size: 27px; line-height: 1.4; color: #78350f; }
+  /* grid */
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 34px; }
+  .box { background: #fff; border-radius: 24px; padding: 36px 40px; box-shadow: 0 10px 40px rgba(15,23,42,.08); }
+  .box h3 { font-size: 36px; font-weight: 800; margin-bottom: 12px; }
+  .box p { font-size: 28px; line-height: 1.4; color: var(--ink-2); }
+  .box.yes { border-left: 10px solid var(--green); } .box.no { border-left: 10px solid #cbd5e1; }
+  .big { font-size: 140px; font-weight: 900; letter-spacing: -4px; line-height: 1; }
+  .steps { display: flex; gap: 30px; }
+  .step { flex: 1; background: rgba(255,255,255,.12); border: 2px solid rgba(255,255,255,.3); border-radius: 26px; padding: 40px; }
+  .step .big { font-size: 96px; }
+  .step h3 { font-size: 38px; margin: 14px 0 12px; }
+  .step p { font-size: 28px; line-height: 1.4; color: #e6fffb; }
+  .code { font-family: Consolas, monospace; background: var(--ink); color: #5eead4; padding: 4px 14px; border-radius: 10px; }
+</style>
+</head>
+<body>
+<svg style="display:none"><symbol id="wa" viewBox="0 0 24 24"><path fill="#fff" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></symbol></svg>
+
+<!-- 1 -->
+<section class="slide dark">
+  <div class="tag">Central Peptídeos × Canada Pept</div>
+  <h1 style="margin-top:120px">Plano para transformar<br>contatos em vendas</h1>
+  <p class="lead" style="margin-top:44px">O que muda no site — e no atendimento — nos próximos 30 dias.</p>
+  <div class="foot"><span>Juliano Anselmo</span><span>Novembro 2026</span></div>
+</section>
+
+<!-- 2 -->
+<section class="slide">
+  <div class="tag">Diagnóstico</div>
+  <h2>Vocês têm razão: o contato chega frio.</h2>
+  <ul class="points">
+    <li><span class="num x">1</span><span><b>Ninguém sabe quem é o fornecedor.</b> O card diz só “Fornecedor Oficial” — sem marca, sem rosto.</span></li>
+    <li><span class="num x">2</span><span><b>Nenhuma informação antes de chamar.</b> Sem preço, sem prazo, sem forma de pagamento.</span></li>
+    <li><span class="num x">3</span><span><b>Curioso e comprador chegam iguais.</b> O card aparece até em artigos só informativos.</span></li>
+    <li><span class="num x">4</span><span><b>Nada é medido.</b> Não dá para saber qual venda veio do site.</span></li>
+  </ul>
+</section>
+
+<!-- 3 -->
+<section class="slide">
+  <div class="tag">Melhoria 1 · Marca e confiança</div>
+  <h2>O visitante precisa saber com quem vai falar</h2>
+  <div class="row">
+    <div class="col">
+      <div class="label bad">Hoje</div>
+      <div class="card">
+        <div class="wa"><svg><use href="#wa"/></svg></div>
+        <div style="flex:1"><div class="t">Fornecedor Oficial</div><div class="b">Peptídeos com procedência. Fale direto no WhatsApp.</div></div>
+        <span class="btn">Falar no WhatsApp</span>
+      </div>
+      <p class="note">Genérico. Parece qualquer número de WhatsApp.</p>
+    </div>
+    <div class="col">
+      <div class="label good">Proposta</div>
+      <div class="card" style="align-items:flex-start">
+        <div class="wa"><svg><use href="#wa"/></svg></div>
+        <div style="flex:1">
+          <div class="t">Canada Pept · Tirzepatida</div>
+          <div class="b">Atendimento humano · responde em até 10 min</div>
+          <div class="chips"><span class="chip">✓ Laudo por lote</span><span class="chip">✓ Envio refrigerado</span><span class="chip">✓ Pix ou cartão</span></div>
+          <div class="price">A partir de R$ XXX</div>
+        </div>
+      </div>
+      <p class="note">Marca, prova e preço antes do clique.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 4 -->
+<section class="slide">
+  <div class="tag">Melhoria 2 · Página da Canada no site</div>
+  <h2>Uma vitrine que responde as dúvidas antes do WhatsApp</h2>
+  <div class="grid">
+    <div class="box yes"><h3>Produtos e faixa de preço</h3><p>Catálogo com o que vocês vendem e “a partir de”.</p></div>
+    <div class="box yes"><h3>Como comprar</h3><p>Pedido → pagamento → envio → prazo. Em 4 passos.</p></div>
+    <div class="box yes"><h3>Prova de qualidade</h3><p>Laudos, fotos reais, embalagem, depoimentos.</p></div>
+    <div class="box yes"><h3>Perguntas frequentes</h3><p>Frete, armazenamento, troca, nota.</p></div>
+  </div>
+  <p class="note">O visitante chega no WhatsApp já decidido — não para perguntar o básico.</p>
+</section>
+
+<!-- 5 -->
+<section class="slide">
+  <div class="tag">Melhoria 3 · Pedido qualificado</div>
+  <h2>4 perguntas rápidas antes do WhatsApp</h2>
+  <div class="row">
+    <div class="col panel">
+      <div class="field"><div class="fl">Qual produto?</div><div class="fv">Tirzepatida 15 mg</div></div>
+      <div class="field"><div class="fl">Quantos frascos?</div><div class="opts"><span class="opt">1</span><span class="opt sel">2–3</span><span class="opt">4+</span></div></div>
+      <div class="field"><div class="fl">Quando pretende comprar?</div><div class="opts"><span class="opt sel">Esta semana</span><span class="opt">Este mês</span><span class="opt">Pesquisando</span></div></div>
+      <div class="field" style="margin:0"><div class="fl">Cidade / CEP</div><div class="fv">Campinas – SP</div></div>
+    </div>
+    <div class="col">
+      <div class="chat">
+        <div class="bubble">Olá! Vim da Central Peptídeos.<br>Quero <b>2–3 frascos de Tirzepatida 15 mg</b>, para <b>esta semana</b>.<br>Entrega em <b>Campinas – SP</b>.<br>Cupom: <b>CENTRAL10</b> · Pedido <b>#CP-4821</b><div class="tm">10:42 ✓✓</div></div>
+      </div>
+      <p class="note">O vendedor recebe o pedido pronto para orçar — e já sabe quem é curioso.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 6 -->
+<section class="slide">
+  <div class="tag">Melhoria 4 · Calculadora que vira orçamento</div>
+  <h2>O momento de maior intenção é o resultado do cálculo</h2>
+  <div class="row">
+    <div class="col res">
+      <div class="hd">Seu protocolo · Tirzepatida</div>
+      <div class="bd">
+        <div class="kv"><span>Dose semanal</span><b>5 mg</b></div>
+        <div class="kv"><span>Duração</span><b>8 semanas</b></div>
+        <div class="kv"><span>Total necessário</span><b>40 mg</b></div>
+        <div class="hl">Você vai precisar de <b>3 frascos de 15 mg</b>.<br>Peça o orçamento do seu protocolo →</div>
+      </div>
+    </div>
+    <div class="col">
+      <ul class="points">
+        <li><span class="num">✓</span><span>A pessoa <b>acabou de planejar</b> o tratamento.</span></li>
+        <li><span class="num">✓</span><span>O site <b>calcula a quantidade</b> que ela precisa comprar.</span></li>
+        <li><span class="num">✓</span><span>A mensagem leva <b>produto e quantidade</b> prontos.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 7 -->
+<section class="slide">
+  <div class="tag">Melhoria 5 · Card no lugar certo</div>
+  <h2>Menos contatos curiosos, mais compradores</h2>
+  <div class="grid">
+    <div class="box yes"><h3>Mantém e reforça</h3><p>“Onde comprar”, “preço”, página do produto, resultado das calculadoras, reconstituição.</p></div>
+    <div class="box no"><h3>Retira ou reduz</h3><p>Glossário, efeitos colaterais, riscos, artigos só informativos.</p></div>
+  </div>
+  <p class="note" style="font-size:34px; margin-top:50px">Quem lê “efeitos colaterais” está pesquisando. Quem lê “onde comprar” está comprando.</p>
+</section>
+
+<!-- 8 -->
+<section class="slide">
+  <div class="tag">Melhoria 6 · Medir de verdade</div>
+  <h2>Cada contato com código e cupom exclusivo</h2>
+  <ul class="points">
+    <li><span class="num">1</span><span>Toda mensagem chega com um código: <span class="code">#CP-4821</span></span></li>
+    <li><span class="num">2</span><span>Cupom do site com prazo: <span class="code">CENTRAL10</span> — 10% na 1ª compra, válido por 7 dias.</span></li>
+    <li><span class="num">3</span><span>Vocês sabem <b>exatamente</b> quais vendas vieram do site — e eu sei qual página funciona.</span></li>
+  </ul>
+</section>
+
+<!-- 9 -->
+<section class="slide">
+  <div class="tag">Do lado do atendimento</div>
+  <h2>4 ajustes que fecham mais vendas</h2>
+  <div class="grid">
+    <div class="box yes"><h3>⏱ Resposta em até 10 min</h3><p>Lead que espera esfria. Resposta automática com catálogo fora do horário.</p></div>
+    <div class="box yes"><h3>💬 Roteiro de atendimento</h3><p>Confirma pedido → preço com frete → laudo → link de pagamento.</p></div>
+    <div class="box yes"><h3>🔁 Follow-up 24h e 72h</h3><p>Boa parte das vendas fecha no 2º ou 3º contato.</p></div>
+    <div class="box yes"><h3>📋 Retorno semanal</h3><p>Lista de códigos: fechou ou não, e o motivo.</p></div>
+  </div>
+</section>
+
+<!-- 10 -->
+<section class="slide dark">
+  <div class="tag">Proposta</div>
+  <h2 style="color:#fff">30 dias de teste, sem risco para vocês</h2>
+  <div class="steps">
+    <div class="step"><div class="big">1</div><h3>Eu implemento</h3><p>Card com marca, vitrine, pedido qualificado, calculadora-orçamento e cupom.</p></div>
+    <div class="step"><div class="big">2</div><h3>Metas combinadas</h3><p>Número de pedidos qualificados e de vendas com o cupom.</p></div>
+    <div class="step"><div class="big">3</div><h3>Comissão por venda</h3><p>Sem valor fixo: vocês só pagam pelo que vender com o cupom do site.</p></div>
+  </div>
+  <div class="foot"><span>Se não vender, não custa nada.</span><span>Central Peptídeos</span></div>
+</section>
+
+<script>
+  const n = parseInt(location.hash.slice(1) || '1', 10);
+  const s = document.querySelectorAll('.slide');
+  (s[n - 1] || s[0]).classList.add('on');
+</script>
+</body>
+</html>

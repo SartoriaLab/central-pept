@@ -1,0 +1,57 @@
+{
+  "hook": "Seu ciclo de BPC-157 tem base em estudo? Não.",
+  "hookIcon": "calendario",
+  "slides": [
+    {
+      "title": "Precisa fazer pausa?",
+      "layout": "pergunta",
+      "body": "Não há dados clínicos robustos que definam pausas obrigatórias. Os ciclos citados no meio informal são práticas sem base em estudo controlado.",
+      "icon": "duvida"
+    },
+    {
+      "title": "4 semanas on, 2 off é a regra",
+      "layout": "mito",
+      "body": "É só um padrão informal, repetido de fórum em fórum. Não saiu de estudo controlado, e cada grupo tem a sua versão do ciclo.",
+      "icon": "errado"
+    },
+    {
+      "title": "12 semanas",
+      "layout": "numero",
+      "body": "Depois disso, não há dados sistemáticos de segurança em humanos. E os relatos de boa tolerância que existem são anedóticos.",
+      "icon": "ampulheta"
+    },
+    {
+      "title": "Sem aprovação em lugar nenhum",
+      "layout": "padrao",
+      "body": "O BPC-157 não é aprovado para uso humano em nenhuma jurisdição, e a WADA o proíbe no esporte desde 2022. A maior parte da evidência vem de animais.",
+      "icon": "proibido"
+    },
+    {
+      "title": "Quem deve evitar?",
+      "layout": "pergunta",
+      "body": "Quem tem câncer ativo ou histórico recente: o efeito pró-angiogênico é teoricamente problemático em tumor. Também gestantes, lactantes e quem usa anticoagulante sem acompanhamento.",
+      "icon": "alerta"
+    },
+    {
+      "title": "Mercado cinza, frasco incerto",
+      "layout": "padrao",
+      "body": "A contaminação é frequente no mercado cinza. O Certificado de Análise (COA) é o mínimo para saber o que tem no frasco.",
+      "icon": "lupa"
+    },
+    {
+      "title": "Quando procurar o médico",
+      "layout": "passos",
+      "body": "Dor, febre ou vermelhidão onde aplicou\nPalpitação ou falta de ar\nNáusea que não passa\nAntes de começar, se tem doença ou usa remédio",
+      "icon": "estetoscopio"
+    }
+  ],
+  "narration": [
+    { "text": "Seu ciclo de BPC-157 tem base em estudo? Não. Eu sei, o fórum faz parecer regra." },
+    { "text": "Não há dados clínicos que definam pausas, e a segurança em humanos não foi estudada de forma sistemática." },
+    { "text": "Ele não é aprovado para uso humano, e quem tem câncer ativo ou histórico recente deve evitar." },
+    { "text": "Então, ciclo de fórum não é estudo: na dúvida, médico antes de começar." }
+  ],
+  "caption": "Eu sei, no fórum o ciclo de BPC-157 parece regra: tantas semanas usando, tantas de pausa. Mas não há dados clínicos robustos que definam pausas obrigatórias. Os ciclos que circulam são práticas informais, sem base em estudo controlado.\n\nO que se sabe:\n1️⃣ O BPC-157 não é aprovado para uso humano em nenhuma jurisdição e é proibido pela WADA no esporte.\n2️⃣ A maior parte da evidência vem de modelos animais.\n3️⃣ Não há dados sistemáticos de segurança em humanos além de 12 semanas; os relatos de boa tolerância são anedóticos.\n\n⚠️ Quem tem câncer ativo ou histórico recente deve evitar, pela preocupação teórica com angiogênese. Gestantes, lactantes e quem usa anticoagulante também estão na lista. Dor, febre ou vermelhidão onde aplicou, palpitação, falta de ar ou náusea persistente: procure o médico.",
+  "question": "Você já viu alguém ensinar ciclo de BPC-157 como se fosse regra?",
+  "share": "quem segue ciclo de BPC-157 tirado de fórum"
+}

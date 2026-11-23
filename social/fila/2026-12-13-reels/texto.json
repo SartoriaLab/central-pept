@@ -1,0 +1,131 @@
+{
+  "hook": "Rybelsus é o Ozempic em comprimido?",
+  "hookIcon": "comprimido",
+  "slides": [
+    {
+      "title": "Cada marca é um remédio diferente",
+      "layout": "mito",
+      "body": "Ozempic, Wegovy e Rybelsus são a mesma molécula: semaglutida. Mounjaro e Zepbound são outra: tirzepatida.",
+      "icon": "errado"
+    },
+    {
+      "title": "Rybelsus é semaglutida?",
+      "layout": "pergunta",
+      "body": "Sim. É a semaglutida em comprimido, aprovada pela FDA em 2019. Ozempic e Wegovy são a mesma molécula em caneta semanal.",
+      "icon": "comprimido"
+    },
+    {
+      "title": "Duas famílias",
+      "layout": "lado",
+      "body": "Semaglutida: Ozempic, Wegovy e Rybelsus\nTirzepatida: Mounjaro e Zepbound",
+      "icon": "balanca"
+    },
+    {
+      "title": "A diferença está no receptor",
+      "layout": "padrao",
+      "body": "A semaglutida ativa só o receptor GLP-1. A tirzepatida ativa o GLP-1 e o GIP. Por isso a dose de uma não vale para a outra.",
+      "icon": "cerebro"
+    },
+    {
+      "title": "Antes de trocar de marca",
+      "layout": "passos",
+      "body": "Descubra qual é a molécula da sua\nCada marca segue a própria bula\nTroca é decisão do médico",
+      "icon": "certo"
+    }
+  ],
+  "scenes": [
+    {
+      "chip": "as marcas",
+      "kicker": "a dúvida",
+      "title": "Rybelsus é o Ozempic",
+      "accent": "em comprimido?",
+      "tone": "vermelho",
+      "speech": "Será que o Rybelsus é o Ozempic em comprimido?",
+      "visual": { "type": "icone", "icon": "comprimido", "note": "comprimido ou caneta?" }
+    },
+    {
+      "chip": "as marcas",
+      "kicker": "a resposta curta",
+      "title": "É a mesma",
+      "accent": "molécula",
+      "tone": "azul",
+      "speech": "É, sim: os dois são semaglutida, só muda a forma de usar.",
+      "visual": { "type": "frascos", "left": { "label": "OZEMPIC", "note": "caneta semanal", "liquid": "claro" }, "right": { "label": "RYBELSUS", "note": "comprimido diário" }, "sign": "+" }
+    },
+    {
+      "chip": "as marcas",
+      "kicker": "fica até o fim",
+      "title": "Cinco nomes,",
+      "accent": "só duas moléculas",
+      "tone": "vermelho",
+      "speech": "E tem mais: são cinco nomes na farmácia e só duas moléculas, e a confusão está na quinta.",
+      "visual": { "type": "carimbo", "text": "5 NOMES", "note": "e só duas moléculas" }
+    },
+    {
+      "chip": "semaglutida",
+      "kicker": "família 1",
+      "title": "Ozempic, Wegovy",
+      "accent": "e Rybelsus",
+      "tone": "azul",
+      "speech": "A semaglutida está no Ozempic, no Wegovy e no Rybelsus.",
+      "visual": { "type": "lista", "items": [ { "text": "Ozempic", "mark": "ok" }, { "text": "Wegovy", "mark": "ok" }, { "text": "Rybelsus", "mark": "ok" } ] }
+    },
+    {
+      "chip": "tirzepatida",
+      "kicker": "família 2",
+      "title": "Mounjaro",
+      "accent": "e Zepbound",
+      "tone": "azul",
+      "speech": "A tirzepatida está no Mounjaro e no Zepbound, e o Zepbound é o que mais confunde.",
+      "visual": { "type": "frascos", "left": { "label": "MOUNJARO", "note": "FDA, 2022", "liquid": "claro" }, "right": { "label": "ZEPBOUND", "note": "FDA, 2023", "liquid": "claro" }, "sign": "+" }
+    },
+    {
+      "chip": "a diferença",
+      "kicker": "pensa assim",
+      "title": "Mesma receita,",
+      "accent": "embalagens diferentes",
+      "tone": "azul",
+      "speech": "É como o mesmo bolo vendido em embalagens diferentes: a receita é que define o que você come.",
+      "visual": { "type": "icone", "icon": "prato", "note": "a molécula é a receita" }
+    },
+    {
+      "chip": "a diferença",
+      "kicker": "entre as famílias",
+      "title": "Um receptor",
+      "accent": "ou dois",
+      "tone": "azul",
+      "speech": "Entre as famílias, a semaglutida ativa só o GLP-1, e a tirzepatida ativa GLP-1 e GIP.",
+      "visual": { "type": "lista", "items": [ { "text": "Semaglutida: GLP-1", "mark": "ok" }, { "text": "Tirzepatida: GLP-1 e GIP", "mark": "ok" } ] }
+    },
+    {
+      "chip": "o risco",
+      "kicker": "o erro comum",
+      "title": "A dose de uma",
+      "accent": "não vale na outra",
+      "tone": "vermelho",
+      "speech": "Por isso a dose de uma família não serve para a outra, mesmo com nome parecido.",
+      "visual": { "type": "carimbo", "text": "NÃO TROQUE", "note": "sem falar com o médico" }
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "antes de trocar",
+      "title": "Confira a molécula",
+      "accent": "na caixa",
+      "tone": "azul",
+      "speech": "Antes de trocar de marca, confira a molécula na caixa e converse com o médico.",
+      "visual": { "type": "icone", "icon": "lupa", "note": "o nome da molécula vem na embalagem" }
+    },
+    {
+      "chip": "pra lembrar",
+      "kicker": "a resposta",
+      "title": "Rybelsus e Ozempic:",
+      "accent": "a mesma semaglutida",
+      "tone": "azul",
+      "speech": "Então, sim, o Rybelsus é a semaglutida do Ozempic, só que em comprimido.",
+      "visual": { "type": "icone", "icon": "comprimido", "note": "mesma molécula, outra forma" }
+    }
+  ],
+  "caption": "Eu sei, com tanto nome na farmácia, é fácil achar que cada marca é um remédio diferente. Mas são cinco nomes e só duas moléculas.\n\n1️⃣ Semaglutida: Ozempic e Wegovy (caneta semanal) e Rybelsus (comprimido). Ativa o receptor GLP-1.\n2️⃣ Tirzepatida: Mounjaro e Zepbound. Ativa GLP-1 e GIP.\n3️⃣ Antes de trocar de marca, confira a molécula na caixa.\n\n⚠️ A dose de uma família não vale para a outra. Troca de remédio ou de dose é decisão do médico, seguindo a bula de cada marca.",
+  "question": "Você sabia que Rybelsus e Ozempic são a mesma molécula?",
+  "share": "aquela amiga que acha que cada marca é um remédio diferente"
+}

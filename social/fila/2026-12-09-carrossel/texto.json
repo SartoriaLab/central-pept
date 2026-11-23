@@ -1,0 +1,51 @@
+{
+  "hook": "Você aplica o Mounjaro na véspera do dia mais corrido?",
+  "hookIcon": "calendario",
+  "slides": [
+    {
+      "title": "Qualquer dia serve, é só lembrar",
+      "layout": "mito",
+      "body": "Serve para a bula, mas não para o seu enjoo. Muita gente prefere aplicar na véspera de dias mais tranquilos, para atravessar em casa o período de maior desconforto.",
+      "icon": "errado"
+    },
+    {
+      "title": "2 a 3 dias",
+      "layout": "numero",
+      "body": "É a janela em que a náusea costuma aparecer depois de cada aumento de dose. Melhor que ela caia num fim de semana do que na reunião de segunda.",
+      "icon": "relogio"
+    },
+    {
+      "title": "Dia corrido x dia tranquilo",
+      "layout": "lado",
+      "body": "Corrido: comida rápida, pressa e enjoo na hora errada\nTranquilo: refeição com calma e o pior em casa",
+      "icon": "balanca"
+    },
+    {
+      "title": "Posso trocar de dia toda semana?",
+      "layout": "pergunta",
+      "body": "A orientação é manter o mesmo dia toda semana. Escolha uma vez, com calma, e deixe fixo. Mudança de dia é conversa com o médico.",
+      "icon": "duvida"
+    },
+    {
+      "title": "Nos dias de pico, sem deitar",
+      "layout": "padrao",
+      "body": "Depois de comer, nada de deitar logo. E líquidos em pequenos goles ao longo do dia, não em grande volume junto da refeição.",
+      "icon": "sono"
+    },
+    {
+      "title": "Cola do dia da caneta",
+      "layout": "passos",
+      "body": "Escolha a véspera de um dia tranquilo\nMantenha o mesmo dia toda semana\nNão suba a dose com o enjoo ainda ativo\nVômito por mais de 24 horas: atendimento",
+      "icon": "certo"
+    }
+  ],
+  "narration": [
+    { "text": "Você aplica o Mounjaro na véspera do dia mais corrido da semana? Eu sei, foi o dia que deu." },
+    { "text": "Só que a náusea costuma vir nos 2 a 3 dias depois de cada aumento de dose, e pega você no meio da correria." },
+    { "text": "Muita gente prefere aplicar na véspera de dias tranquilos e manter esse dia fixo toda semana." },
+    { "text": "Então, véspera do dia corrido? Troque pela véspera do dia calmo, com o médico sabendo." }
+  ],
+  "caption": "Eu sei, a gente escolhe o dia da caneta pelo que sobrou na agenda. Mas a náusea da tirzepatida (Mounjaro) costuma aparecer nos 2 a 3 dias seguintes a cada aumento de dose, e o dia corrido vem com comida rápida e pressa, o gatilho mais comum do enjoo.\n\n1️⃣ Muita gente prefere aplicar na véspera de dias mais tranquilos, para atravessar em casa o período de maior desconforto\n2️⃣ Mantenha o mesmo dia toda semana\n3️⃣ Nos dias de pico, não deite logo depois de comer e beba líquidos em pequenos goles\n\n⚠️ Não suba a dose enquanto o enjoo da dose atual não tiver cedido. Dor abdominal forte, vômito por mais de 24 horas ou sinais de desidratação pedem atendimento médico.",
+  "question": "Qual é o dia da sua caneta?",
+  "share": "aquela amiga que aplica o Mounjaro no domingo e enjoa na segunda"
+}

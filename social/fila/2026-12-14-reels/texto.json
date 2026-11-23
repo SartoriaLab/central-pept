@@ -1,0 +1,131 @@
+{
+  "hook": "O Mounjaro não é um Saxenda mais forte.",
+  "hookIcon": "dna",
+  "slides": [
+    {
+      "title": "Mounjaro é um Saxenda turbinado",
+      "layout": "mito",
+      "body": "Não é. A liraglutida ativa só o receptor GLP-1. A tirzepatida ativa GLP-1 e GIP, dois receptores ao mesmo tempo.",
+      "icon": "errado"
+    },
+    {
+      "title": "97%",
+      "layout": "numero",
+      "body": "É a homologia da liraglutida com o GLP-1 que o corpo produz. A tirzepatida é um peptídeo sintético de 39 aminoácidos, desenhado para agir em dois receptores.",
+      "icon": "dna"
+    },
+    {
+      "title": "O ritmo de cada uma",
+      "layout": "lado",
+      "body": "Liraglutida: meia-vida de ~13h, todo dia\nTirzepatida: meia-vida de ~5 dias, uma vez por semana",
+      "icon": "relogio"
+    },
+    {
+      "title": "Dá pra converter a dose?",
+      "layout": "pergunta",
+      "body": "Não. São moléculas diferentes, com escalas de dose diferentes na bula. Troca de uma para outra é decisão do médico.",
+      "icon": "alerta"
+    },
+    {
+      "title": "Antes de trocar",
+      "layout": "passos",
+      "body": "Saiba qual molécula você usa\nNão converta dose por conta\nCombine a troca com o médico",
+      "icon": "certo"
+    }
+  ],
+  "scenes": [
+    {
+      "chip": "a confusão",
+      "kicker": "liraglutida e tirzepatida",
+      "title": "Não é um Saxenda",
+      "accent": "mais forte",
+      "tone": "vermelho",
+      "speech": "O Mounjaro não é um Saxenda mais forte.",
+      "visual": { "type": "frascos", "left": { "label": "SAXENDA", "note": "liraglutida", "liquid": "claro" }, "right": { "label": "MOUNJARO", "note": "tirzepatida", "liquid": "claro" }, "sign": "≠" }
+    },
+    {
+      "chip": "a confusão",
+      "kicker": "o que se ouve",
+      "title": "Versão",
+      "accent": "turbinada?",
+      "tone": "vermelho",
+      "speech": "Muita gente acha que é a mesma coisa, só que turbinada, e eu entendo o porquê.",
+      "visual": { "type": "carimbo", "text": "MITO", "note": "não é versão turbinada" }
+    },
+    {
+      "chip": "a confusão",
+      "kicker": "fica até o fim",
+      "title": "A diferença",
+      "accent": "está na fechadura",
+      "tone": "azul",
+      "speech": "A diferença está em quantas fechaduras cada um abre, e é isso que muda tudo.",
+      "visual": { "type": "icone", "icon": "lupa", "note": "a resposta vem já já" }
+    },
+    {
+      "chip": "a liraglutida",
+      "kicker": "o Saxenda",
+      "title": "Quase igual",
+      "accent": "ao hormônio",
+      "tone": "azul",
+      "speech": "A liraglutida tem 97% de homologia com o GLP-1 que o seu corpo produz.",
+      "visual": { "type": "numero", "value": "97%", "note": "de homologia com o GLP-1 natural" }
+    },
+    {
+      "chip": "a liraglutida",
+      "kicker": "uma chave",
+      "title": "Abre",
+      "accent": "uma fechadura",
+      "tone": "azul",
+      "speech": "Ela é uma chave que abre uma fechadura só, o receptor GLP-1.",
+      "visual": { "type": "lista", "items": [ { "text": "Receptor GLP-1", "mark": "ok" }, { "text": "Receptor GIP", "mark": "nao" } ] }
+    },
+    {
+      "chip": "a tirzepatida",
+      "kicker": "o Mounjaro",
+      "title": "Abre",
+      "accent": "duas fechaduras",
+      "tone": "azul",
+      "speech": "Já a tirzepatida é outra chave: abre o GLP-1 e também o GIP, ao mesmo tempo.",
+      "visual": { "type": "lista", "items": [ { "text": "Receptor GLP-1", "mark": "ok" }, { "text": "Receptor GIP", "mark": "ok" } ] }
+    },
+    {
+      "chip": "o ritmo",
+      "kicker": "quanto fica no corpo",
+      "title": "Uma é diária,",
+      "accent": "a outra semanal",
+      "tone": "azul",
+      "speech": "E o ritmo muda: a liraglutida sai do corpo em cerca de 13 horas e é diária; a tirzepatida, semanal.",
+      "visual": { "type": "barras", "bars": [ { "label": "Tirzepatida", "value": 120, "display": "~5 dias" }, { "label": "Liraglutida", "value": 13, "display": "~13h" } ] }
+    },
+    {
+      "chip": "o risco",
+      "kicker": "o erro comum",
+      "title": "Converter a dose",
+      "accent": "por conta",
+      "tone": "vermelho",
+      "speech": "Por isso não existe converter a dose de um para o outro por conta própria.",
+      "visual": { "type": "carimbo", "text": "NÃO CONVERTA", "note": "cada um tem a sua escala na bula" }
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "na consulta",
+      "title": "Troca é",
+      "accent": "com o médico",
+      "tone": "azul",
+      "speech": "Pensando em trocar? Leve a dúvida ao médico, que monta a dose de início do novo remédio.",
+      "visual": { "type": "icone", "icon": "estetoscopio", "note": "a troca começa pela bula do novo" }
+    },
+    {
+      "chip": "pra lembrar",
+      "kicker": "uma chave ou duas",
+      "title": "Não é mais forte,",
+      "accent": "é outra chave",
+      "tone": "azul",
+      "speech": "Então, o Mounjaro não é um Saxenda mais forte: é outra chave, para outras fechaduras.",
+      "visual": { "type": "frascos", "left": { "label": "SAXENDA", "note": "uma fechadura", "liquid": "claro" }, "right": { "label": "MOUNJARO", "note": "duas fechaduras", "liquid": "claro" }, "sign": "≠" }
+    }
+  ],
+  "caption": "Eu sei, parece que o Mounjaro é só um Saxenda mais potente. Mas são moléculas diferentes, que agem de jeitos diferentes.\n\n1️⃣ Liraglutida (Saxenda, Victoza): 97% de homologia com o GLP-1 natural, ativa só o receptor GLP-1, meia-vida de ~13h, aplicação diária.\n2️⃣ Tirzepatida (Mounjaro, Zepbound): ativa GLP-1 e GIP ao mesmo tempo, meia-vida de ~5 dias, aplicação semanal.\n3️⃣ Cada uma tem a sua própria escala de dose na bula.\n\n⚠️ Não existe converter a dose de uma para a outra por conta própria. Troca de remédio é decisão do médico.",
+  "question": "Você também achava que o Mounjaro era um Saxenda mais forte?",
+  "share": "aquela amiga que acha que Mounjaro é Saxenda turbinado"
+}

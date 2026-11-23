@@ -1,6 +1,6 @@
 # reels de 2026-11-26
 
-Regras e schema: `social/fila/REGRAS.md`. Sai como Reels: capriche no gancho falado e nas falas (narration).
+Regras e schema: `social/fila/REGRAS.md`. Sai como Reels: capriche no gancho e nas cenas (scenes): uma frase por cena, com título e desenho.
 Salve o texto em `social/fila/2026-11-26-reels/texto.json` e confira com:
 
     "C:/Users/julia/AppData/Roaming/nvm/v20.14.0/node.exe" node_modules/tsx/dist/cli.mjs scripts/social/run.ts --check social/fila/2026-11-26-reels
@@ -9,108 +9,119 @@ Se sair "REPROVADO", corrija só o que a lista aponta e rode de novo.
 
 ## PEDIDO
 
-TEMA: Retatrutida × tirzepatida: o que os estudos mediram e por que não dá para comparar direto
+TEMA: 10 erros ao reconstituir peptídeos e como evitar cada um
 
 FONTE:
-Título: Retatrutida × tirzepatida: o que os estudos mediram e por que não dá para comparar direto
+Título: 10 erros ao reconstituir peptídeos e como evitar cada um
 
-Resumo: No SURMOUNT-1 (NEJM, 2022), a tirzepatida 15 mg levou a perda média de 20,9% em 72 semanas contando todos os participantes. No TRIUMPH-1 (comunicado da Lilly, maio de 2026), a retatrutida 12 mg levou a 25,0% em 80 semanas na mesma conta, e 28,3% entre quem seguiu o tratamento. Os estudos tiveram populações, durações e pesos iniciais diferentes e nunca colocaram as duas drogas no mesmo grupo de comparação. O estudo que compara as duas diretamente, o TRIUMPH-5, ainda não tem resultado. E só a tirzepatida é aprovada.
+Resumo: Os erros que mais mudam a dose são de conta: tratar as unidades da seringa como mg ou como ml e usar seringa U-40 com conta feita para U-100. Na seringa U-100, 1 unidade é 0,01 ml; quantos mg há nesse volume depende da concentração do frasco. No preparo: água bacteriostática, escorrida pela parede do frasco, girando sem agitar. Na conservação: geladeira entre 2 e 8 °C e descarte em até 28 dias. A etiqueta com data e concentração evita boa parte deles.
 
-Quem pesquisa retatrutida quase sempre chega à mesma pergunta: ela é melhor que a tirzepatida? Os números de perda de peso da retatrutida são maiores, e é tentador colocar um ao lado do outro e tirar a conclusão. Este texto mostra o que cada estudo mediu de fato e por que essa comparação direta engana. Se você quer só a tabela das duas moléculas (mecanismo, meia-vida, status), ela está em Tirzepatida vs Retatrutida. Aqui o assunto são os estudos.
+Quem prepara o próprio frasco faz o trabalho que, na caneta pronta, a fábrica já fez: diluir, calcular e medir. Cada etapa tem um erro típico. Alguns só desperdiçam produto; outros multiplicam a dose por 2,5, por 10 ou por 20 sem dar nenhum sinal. Esta lista reúne os dez mais comuns, com o que acontece em cada um e como evitar.
 
-a tirzepatida é aprovada (Mounjaro, Zepbound). A retatrutida é **experimental** e não tem aprovação em nenhum país. As doses citadas abaixo são as que os ensaios usaram, não orientação de uso.
+este texto trata de preparo e de medida. A dose é a que o médico prescreveu, e canetas prontas não passam por nada disto. Na dúvida sobre a conta, confirme com o médico ou o farmacêutico antes de aplicar.
 
-## Os dois estudos principais
+## Erros de conta
 
-O estudo de referência da tirzepatida para obesidade é o **SURMOUNT-1**, publicado no NEJM em 2022. O da retatrutida é o **TRIUMPH-1**, com resultados divulgados pela Eli Lilly em 21 de maio de 2026. Os dois são da mesma empresa, controlados por placebo e em pessoas sem diabetes. As semelhanças param aí.
+Todos os exemplos usam um frasco de **10 mg com 2 ml de água**, que fica com **5 mg/ml**, e seringa de insulina **U-100**.
 
-| | SURMOUNT-1 (tirzepatida) | TRIUMPH-1 (retatrutida) |
-| --- | --- | --- |
-| Participantes | 2.539 | 2.339 |
-| População | Obesidade, ou sobrepeso com comorbidade, sem diabetes | Obesidade, ou sobrepeso com comorbidade, sem diabetes |
-| Duração | 72 semanas | 80 semanas |
-| Doses-alvo | 5, 10 e 15 mg por semana | 4, 9 e 12 mg por semana |
-| Peso médio no início | cerca de 105 kg | 112,7 kg (IMC médio 40,0) |
-| Perda média na dose mais alta, todos os participantes | 20,9% | 25,0% |
-| Perda média na dose mais alta, quem seguiu o tratamento | 22,5% | 28,3% |
-| Placebo, todos os participantes | 3,1% | 3,9% |
-| Abandono por efeito adverso na dose mais alta | 6,2% (placebo 2,6%) | 11,3% (placebo 4,9%) |
+### 1. Confundir mg com unidades
 
-Fontes: NEJM 2022 e comunicado da Lilly sobre o SURMOUNT-1; comunicado da Lilly de 21/05/2026 sobre o TRIUMPH-1. Os resultados completos do TRIUMPH-1 em revista científica podem trazer números ligeiramente diferentes dos do comunicado.
+**O que acontece:** a unidade da seringa mede volume, não remédio. Nesse frasco, 2,5 mg são 2,5 ÷ 5 × 100 = **50 unidades**. Quem puxa "2,5 unidades" aplica 0,125 mg, 20 vezes menos. E quem repete "50 unidades" num frasco de 10 mg/ml aplica 5 mg, o dobro.
 
-A subida de dose também foi diferente. A tirzepatida começa em 2,5 mg e sobe 2,5 mg a cada 4 semanas, como na bula. A retatrutida, na fase 3, começou em 2 mg e subiu a cada 4 semanas na escada 2 → 4 → 6 → 9 → 12 mg.
+**Como evitar:** faça sempre as duas contas, concentração = mg do frasco ÷ ml de água e unidades = dose ÷ concentração × 100, ou use a calculadora de reconstituição, que desenha a seringa marcada. As tabelas por dose estão em quantas unidades puxar.
 
-## Duas contas para o mesmo estudo
+### 2. Confundir ml com unidades
 
-Cada estudo divulga dois números de perda de peso, e misturar os dois é o erro mais comum nas comparações que circulam na internet.
+**O que acontece:** na U-100, 1 ml são 100 unidades, e não 1 nem 10.
 
-- **Regime de tratamento** (em inglês, *treatment-regimen estimand*): conta todo mundo que entrou no estudo, inclusive quem parou o remédio no meio. É o número mais perto do que acontece na vida real.
-- **Estimativa de eficácia** (*efficacy estimand*): estima o que aconteceria se todos tivessem seguido o tratamento até o fim. É sempre maior.
+| Volume | Unidades na U-100 |
+| --- | --- |
+| 0,05 ml | 5 U |
+| 0,1 ml | 10 U |
+| 0,25 ml | 25 U |
+| 0,5 ml | 50 U |
+| 1 ml | 100 U |
 
-Comparar os 28,3% da retatrutida (eficácia) com os 20,9% da tirzepatida (regime de tratamento) exagera a diferença. Na mesma conta, os pares são 25,0% contra 20,9% e 28,3% contra 22,5%.
+O erro pesa mais na hora de colocar a água. Dois ml são 200 unidades, duas seringas de insulina cheias. Quem coloca "20 unidades" achando que são 2 ml põe só 0,2 ml: o frasco fica com 50 mg/ml em vez de 5, e cada dose sai **10 vezes maior**.
 
-## Por que, mesmo assim, não dá para comparar
+**Como evitar:** transfira a água com seringa de 3 ml, graduada em ml, e deixe a seringa de insulina só para a dose. O conversor de unidades troca ml, unidades, mg e mcg.
 
-Mesmo usando a mesma conta, comparar estudos diferentes (o que os pesquisadores chamam de comparação indireta ou "entre ensaios") tem limites que nenhuma tabela resolve:
+### 3. Usar seringa U-40 com conta de U-100
 
-1. **Duração diferente.** O TRIUMPH-1 durou 8 semanas a mais, e tempo muda a média: na extensão do próprio TRIUMPH-1 até 104 semanas, o grupo que começou em 12 mg chegou a 29,9% de perda, contando todos os participantes da extensão.
-2. **Ponto de partida diferente.** Os participantes do TRIUMPH-1 começaram, em média, cerca de 8 kg mais pesados. Um grupo diferente no início pode responder de forma diferente, e a tabela não corrige isso.
-3. **Época e regras diferentes.** Os estudos foram feitos em anos diferentes, cada um com seus critérios de inclusão, centros e rotina de acompanhamento. Nada disso é idêntico entre os dois.
-4. **Placebo diferente.** O placebo do TRIUMPH-1 perdeu 3,9%; o do SURMOUNT-1, 3,1%. Isso já mostra que os grupos não se comportaram igual.
-5. **Doses não equivalentes.** 12 mg de retatrutida e 15 mg de tirzepatida são as doses mais altas de cada estudo, não doses "iguais". As moléculas agem em receptores diferentes e com potências diferentes.
+**O que acontece:** na U-40, 40 unidades ocupam 1 ml. A marca de 20 unidades corresponde a 0,5 ml, o mesmo volume de 50 unidades na U-100. Com a conta feita para U-100, a dose sai **2,5 vezes maior**.
 
-A única forma de responder à pergunta é um **estudo frente a frente**, em que as duas drogas são sorteadas entre participantes do mesmo ensaio. Esse estudo existe: o **TRIUMPH-5** (NCT06662383) compara retatrutida e tirzepatida em adultos com obesidade, em regime duplo-cego. Até novembro de 2026 ele não tinha resultado divulgado.
+**Como evitar:** confira "U-100" na embalagem e no corpo da seringa antes de comprar e antes de usar. O guia seringa de 30, 50 ou 100 unidades mostra a diferença.
 
-## E a fase 2?
+## Erros no preparo
 
-Antes do TRIUMPH-1, o número mais citado era o da fase 2 da retatrutida (NEJM, 2023): perda média de **24,2% em 48 semanas** com 12 mg, em 338 participantes. É um estudo menor e mais curto, feito para escolher doses, e não substitui a fase 3. Comparar esses 24,2% com os 20,9% do SURMOUNT-1, que durou 72 semanas, tem todos os problemas acima e mais um: o tamanho da amostra.
+### 4. Jato de água direto no pó
 
-## Efeitos colaterais: o que os estudos mostram
+**O que acontece:** o jato forte faz espuma. Bulas de medicamentos liofilizados, como a do Zomacton (somatropina), orientam apontar o diluente para a parede do frasco justamente para evitar a espuma, que atrapalha ver se o pó dissolveu e dificulta a medida.
 
-Nas duas moléculas, os efeitos mais comuns foram **gastrointestinais** (náusea, diarreia, vômito e prisão de ventre), concentrados na subida de dose. Duas diferenças aparecem nos dados divulgados:
+**Como evitar:** aponte a agulha para a parede de vidro e empurre o êmbolo devagar, deixando a água escorrer até o pó.
 
-- **Abandono por efeito adverso.** Na dose mais alta, 6,2% com tirzepatida 15 mg no SURMOUNT-1 e 11,3% com retatrutida 12 mg no TRIUMPH-1. Os placebos também diferem (2,6% e 4,9%), o que reforça o cuidado na comparação.
-- **Disestesia.** Uma sensação anormal na pele (formigamento, ardor, sensibilidade ao toque) foi relatada por 12,5% dos participantes com retatrutida 12 mg no TRIUMPH-1, contra 0,9% no placebo. Não é um efeito típico dos remédios da classe já aprovados.
+### 5. Agitar o frasco
 
-A lista completa de efeitos está nas fichas da tirzepatida e da retatrutida, e o guia efeitos colaterais da tirzepatida detalha o que é esperado com o remédio aprovado.
+**O que acontece:** a mesma bula avisa que agitar ou misturar com força deixa a solução turva. A da tesamorelina (Egrifta WR) manda girar o frasco, não agitar, e esperar a espuma assentar até a solução ficar límpida.
 
-## O que pesa de verdade na escolha hoje
+**Como evitar:** gire o frasco com suavidade e deixe descansar. Solução que continua turva ou com partículas não deve ser usada.
 
-Na prática, a pergunta "qual é melhor" ainda não tem uma resposta que sirva para decidir. O que existe é:
+### 6. Usar a água errada
 
-- A **tirzepatida** tem bula, estudos publicados em vários cenários (SURMOUNT e SURPASS) e registro no Brasil.
-- A **retatrutida** tem resultados de fase 3 promissores, divulgados em grande parte por comunicados da empresa, e nenhuma aprovação. A ANVISA orientou a não usar produtos vendidos com esse nome; os detalhes estão em Retatrutida no Brasil: o que diz a ANVISA.
+**O que acontece:** a água bacteriostática tem álcool benzílico como conservante (0,9% ou 1,1%, conforme a apresentação, na bula americana) e vem em frasco de várias doses. Água estéril sem conservante não tem o que segure o crescimento de bactérias entre uma perfuração e outra, e o frasco preparado com ela deve ser tratado como de dose única: usado uma vez e descartado. Água de torneira, filtrada ou mineral não é estéril.
 
-Para entender a molécula nova, veja Retatrutida: o que é. Para a comparação com a semaglutida, que também é aprovada, veja Semaglutida vs Tirzepatida e a tabela Semaglutida vs Tirzepatida vs Retatrutida. A decisão sobre qualquer tratamento é do médico, com base no seu caso.
+**Como evitar:** para várias doses do mesmo frasco, use água bacteriostática. Sem conservante, o frasco é de uso único. A bula da água bacteriostática avisa que ela não deve ser usada em recém-nascidos. Detalhes no guia da água bacteriostática.
 
-P: Retatrutida é melhor que tirzepatida?
-R: Ainda não dá para dizer. Os números de perda de peso da retatrutida são maiores, mas vêm de estudos diferentes dos da tirzepatida, com população, duração e peso inicial diferentes. A resposta depende de um estudo que coloque as duas no mesmo ensaio: o TRIUMPH-5 (NCT06662383) faz isso e ainda não divulgou resultado. Além disso, só a tirzepatida tem aprovação.
-P: Quanto se perde de peso com retatrutida e com tirzepatida nos estudos?
-R: No SURMOUNT-1, a tirzepatida 15 mg levou a perda média de 20,9% em 72 semanas contando todos os participantes (22,5% entre quem seguiu o tratamento). No TRIUMPH-1, a retatrutida 12 mg levou a 25,0% em 80 semanas contando todos (28,3% entre quem seguiu). São médias de ensaio, não resultado esperado para cada pessoa.
-P: Por que existem dois números de perda de peso para o mesmo estudo?
-R: Porque há duas formas de contar. A estimativa de regime de tratamento inclui todo mundo que entrou no estudo, inclusive quem parou o remédio. A estimativa de eficácia calcula o que aconteceria se todos tivessem seguido o tratamento. O segundo número é sempre maior. Para comparar estudos, é preciso usar a mesma conta nos dois.
-P: Existe estudo comparando retatrutida e tirzepatida diretamente?
-R: Sim, o TRIUMPH-5, registrado como NCT06662383, que compara as duas em adultos com obesidade, em regime duplo-cego. Até novembro de 2026 ele não tinha resultado divulgado.
-P: A retatrutida tem mais efeitos colaterais que a tirzepatida?
-R: Nos dois estudos, os efeitos mais comuns foram gastrointestinais. O abandono por efeito adverso na dose mais alta foi de 6,2% com tirzepatida 15 mg no SURMOUNT-1 e de 11,3% com retatrutida 12 mg no TRIUMPH-1, e a retatrutida teve um efeito pouco visto na classe, a disestesia (12,5% com 12 mg). Como os estudos são diferentes, nem esses números permitem uma conclusão firme.
+## Erros na medida
 
-Peptídeo: Retatrutida
-Categoria: GLP-1 / Emagrecimento
-Resumo: Agonista triplo GLP-1/GIP/glucagon em desenvolvimento para obesidade e diabetes tipo 2.
-Dose típica: 2 mg, 1x por semana
-Faixa de dose: Ensaios: 1, 4, 8 e 12 mg/semana (fase 2); 4, 9 e 12 mg/semana com início em 2 mg (fase 3)
-Meia-vida: ~6 dias
-Frascos comuns: 5 mg, 10 mg, 60 mg
-Status regulatório: Em desenvolvimento
-Proibido pela WADA no esporte.
-Descrição: Retatrutida (LY3437943) é um peptídeo sintético investigacional da Eli Lilly, atuando como agonista triplo dos receptores GIP, GLP-1 e glucagon. Peptídeo de 39 aminoácidos com cadeia de ácido graxo diácido C20, administração subcutânea semanal. **Importante**: NÃO está aprovada por qualquer agência (FDA, EMA, ANVISA). Em julho de 2026 a ANVISA informou que não há pedido de registro e orientou a não usar produtos vendidos como retatrutida. Os ensaios de fase 3 TRIUMPH-1, 2, 3 e 4 já tiveram resultados divulgados; outros seguem em andamento.
+### 7. Esquecer o volume morto da seringa
 
-Na fase 2 (NEJM 2023), a perda ponderal média foi de 24,2% em 48 semanas com 12 mg/semana em pessoas sem diabetes. No TRIUMPH-1 (fase 3, NEJM 2026, 80 semanas), a média com 12 mg foi de 25,0% contando todos os participantes e de 28,3% considerando quem manteve o tratamento. No TRIUMPH-4 (68 semanas, comunicado da empresa de dezembro de 2025), 23,7% e 28,7% nas mesmas duas contas.
-Mecanismo: Ativa simultaneamente receptores de GLP-1, GIP e glucagon. GLP-1 e GIP reproduzem os efeitos observados nos análogos existentes (insulina glicose-dependente, supressão de glucagon pós-prandial, retardo do esvaziamento gástrico, modulação do apetite). A hipótese dos autores dos ensaios é que o agonismo ao receptor de glucagon aumente o gasto energético e a mobilização de gordura no fígado, contribuindo para a perda ponderal adicional e para a redução de gordura hepática; isso ainda não foi demonstrado diretamente em humanos.
+**O que acontece:** em seringas de agulha removível, uma parte do líquido fica presa no encaixe entre o corpo e a agulha: sai do frasco e não é aplicada. A diretriz da Sociedade Brasileira de Diabetes recomenda seringa de agulha fixa para evitar esse espaço morto e ganhar precisão. Na prática, o frasco pode render menos do que a conta diz, e a última dose vem curta.
 
-Estudos farmacológicos indicam menor potência relativa a GLP-1/glucagon humanos em comparação aos ligantes nativos, com maior potência relativa ao GIP. Conjugação a ácido graxo C20 confere meia-vida compatível com dosagem semanal.
-Efeitos colaterais: Náusea (fase 2: 45% com 12 mg e até 60% com início em dose mais alta; fase 3: até ~43%); Diarreia (fase 3: até ~35%); Constipação (fase 3: até ~26%); Vômito (fase 3: até ~25%); Diminuição do apetite; Disestesia (sensações cutâneas anormais), mais frequente nas doses altas: até ~21% com 12 mg em um ensaio de fase 3
-Contraindicações: Medicamento experimental — contraindicações formais ainda não estabelecidas em bula; Exclusões dos ensaios: história pessoal/familiar de CMT ou NEM 2; História de pancreatite; Gravidez e lactação; Hipersensibilidade à formulação
+**Como evitar:** prefira seringa de insulina com agulha fixa e não planeje o frasco contando com a última gota. Se a última dose não completar, não adivinhe a diferença.
+
+### 8. Deixar bolhas de ar na seringa
+
+**O que acontece:** a bolha ocupa o lugar do líquido, e a dose aplicada fica menor que a lida na escala.
+
+**Como evitar:** puxe um pouco além da marca, bata de leve na seringa com a agulha para cima, para as bolhas subirem, e empurre o êmbolo até a marca. É o passo descrito nas instruções do frasco de Zepbound; a diretriz da SBD também manda eliminar as bolhas. As páginas de como ler a seringa mostram onde fazer a leitura.
+
+## Erros na conservação
+
+### 9. Guardar fora da geladeira
+
+**O que acontece:** a referência de 28 dias pressupõe geladeira entre 2 e 8 °C. Não encontramos dado publicado que permita dar um prazo seguro em temperatura ambiente para peptídeos reconstituídos em geral. Congelar também é erro: bulas como as de Mounjaro e Ozempic mandam não usar o produto que congelou.
+
+**Como evitar:** prateleira do meio, longe da porta e do congelador, protegido da luz. Produto com bula segue a bula, que pode ter regra própria.
+
+### 10. Usar depois de 28 dias
+
+**O que acontece:** o CDC orienta datar o frasco de várias doses na primeira perfuração e descartá-lo em até 28 dias, salvo prazo diferente do fabricante. É uma regra de esterilidade: depois disso, nem a ausência de contaminação nem a quantidade de peptídeo ativo estão garantidas, e não dá para conferir olhando.
+
+**Como evitar:** escreva na etiqueta a data do preparo e a data-limite, e escolha o tamanho do frasco pelo número de doses que cabem no prazo. A calculadora de duração do frasco faz essa conta, e a origem da regra está em quanto tempo dura o frasco reconstituído.
+
+## A etiqueta que evita a maioria dos erros
+
+Escreva no frasco, na hora do preparo:
+
+- **mg do frasco e ml de água**, com a concentração: "10 mg / 2 ml = 5 mg/ml"
+- **Unidades da sua dose** nessa concentração
+- **Data do preparo e data-limite** (preparo + 28 dias)
+
+Com isso anotado, os erros 1, 2 e 10 quase desaparecem. O passo a passo completo está em como reconstituir tirzepatida e como reconstituir semaglutida.
+
+P: Qual é o erro mais perigoso ao reconstituir um peptídeo?
+R: Os de conta, porque multiplicam a dose sem dar sinal: tratar as unidades da seringa como se fossem mg ou ml e usar seringa U-40 com uma conta feita para U-100. A unidade da seringa mede volume; os mg dependem da concentração do frasco.
+P: 50 unidades na seringa são quantos mg?
+R: Depende da concentração. Na seringa U-100, 50 unidades são 0,5 ml. Num frasco com 5 mg/ml, isso dá 2,5 mg; com 10 mg/ml, 5 mg; com 20 mg/ml, 10 mg. Sem saber os mg do frasco e os ml de água, não há resposta.
+P: Agitei o frasco sem querer. Estragou?
+R: As bulas de medicamentos em pó mandam girar o frasco, não agitar; a do Zomacton avisa que agitar deixa a solução turva. Deixe o frasco em repouso. Se a solução não ficar límpida e sem partículas, descarte. Não há como medir em casa quanto do peptídeo se perdeu.
+P: Coloquei mais água do que devia. O que fazer?
+R: Os mg do frasco não mudam; muda a concentração. Refaça a conta com o volume que realmente entrou (concentração = mg do frasco ÷ ml de água) e corrija a etiqueta. Se você não sabe quanto colocou, não há como saber a dose: o mais seguro é descartar.
+P: Posso usar água destilada ou soro fisiológico no lugar da água bacteriostática?
+R: Sem conservante, o frasco passa a ser de uso único: usa-se uma vez e descarta-se o resto. Para várias doses do mesmo frasco, o diluente é a água bacteriostática. Água de torneira, filtrada ou mineral não são estéreis e nunca devem ser injetadas.
+P: O frasco ficou fora da geladeira. Posso usar?
+R: O prazo de 28 dias pressupõe geladeira entre 2 e 8 °C. Não encontramos dado publicado que permita dar um prazo seguro em temperatura ambiente para peptídeos reconstituídos em geral. Se o frasco ficou muito tempo fora, no calor, ou congelou, o mais seguro é descartar.
 
 Peptídeo: Tirzepatida
 Categoria: GLP-1 / Emagrecimento
@@ -128,3 +139,20 @@ Mecanismo: Ativa simultaneamente os receptores GIP e GLP-1, ambos da família de
 A conjugação ao ácido graxo C20 confere meia-vida de ~5 dias.
 Efeitos colaterais: Náusea; Diarreia; Vômito; Constipação; Diminuição do apetite; Dispepsia / dor abdominal
 Contraindicações: História pessoal ou familiar de carcinoma medular de tireoide (CMT); Síndrome de Neoplasia Endócrina Múltipla tipo 2 (NEM 2); Hipersensibilidade grave (anafilaxia e angioedema relatados)
+
+Peptídeo: Semaglutida
+Categoria: GLP-1 / Emagrecimento
+Resumo: Agonista do receptor GLP-1. Usado para controle glicêmico e perda de peso.
+Dose típica: 0.25 mg, 1x por semana (dose inicial, aumentar gradualmente)
+Faixa de dose: 0,25-2,4 mg/semana (subcutâneo, com titulação)
+Meia-vida: ~7 dias
+Frascos comuns: 3 mg, 5 mg
+Status regulatório: Aprovado FDA
+Descrição: A semaglutida é um análogo do peptídeo semelhante ao glucagon tipo 1 (GLP-1), aprovada pela FDA e comercializada como Ozempic (2017, diabetes tipo 2), Rybelsus (oral, 2019) e Wegovy (2021, obesidade). Molécula modificada do GLP-1 humano com substituições de aminoácidos e conjugação a ácido graxo C18, o que permite ligação à albumina e administração semanal.
+
+Indicada para diabetes tipo 2 em adultos e manejo crônico de peso em obesidade (IMC ≥ 30) ou sobrepeso (IMC ≥ 27) com comorbidade. Ensaios de fase 3 (SUSTAIN e STEP) demonstraram perda ponderal média de 10-15% com 2,4 mg/semana. Em 2024 a FDA também aprovou para redução de risco cardiovascular em adultos com DCV estabelecida e obesidade/sobrepeso.
+Mecanismo: Agonista seletivo do receptor GLP-1, amplamente expresso em células beta pancreáticas, neurônios do SNC (hipotálamo, tronco cerebral), TGI e miocárdio. A ativação aumenta secreção de insulina glicose-dependente, suprime glucagon, retarda esvaziamento gástrico e atua em centros de saciedade, reduzindo ingestão calórica.
+
+A modificação estrutural (ácido graxo C18 ligado ao Lys26) confere alta afinidade pela albumina sérica, reduzindo depuração renal e degradação por DPP-4 — resultando em meia-vida plasmática de ~1 semana.
+Efeitos colaterais: Náusea (>20% em Ozempic; até 44% em Wegovy); Vômito; Diarreia; Constipação; Dor abdominal; Reações no local da injeção
+Contraindicações: História pessoal ou familiar de carcinoma medular de tireoide (CMT); Síndrome de Neoplasia Endócrina Múltipla tipo 2 (NEM 2); Hipersensibilidade grave à semaglutida ou excipientes; Gestação (uso não recomendado)

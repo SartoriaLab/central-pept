@@ -1,0 +1,138 @@
+{
+  "hook": "Seu frasco parece bom depois de 28 dias? Erro comum.",
+  "hookIcon": "calendario",
+  "slides": [
+    {
+      "title": "Se parece límpido, ainda está bom",
+      "layout": "mito",
+      "body": "Depois do prazo, a solução pode continuar parecendo certa e mesmo assim estar contaminada ou com menos peptídeo ativo.",
+      "icon": "errado"
+    },
+    {
+      "title": "28 dias",
+      "layout": "numero",
+      "body": "É o prazo na geladeira, de 2 a 8 °C, contado da primeira perfuração. É a regra do CDC para frascos de várias doses com conservante.",
+      "icon": "calendario"
+    },
+    {
+      "title": "O que o prazo garante?",
+      "layout": "pergunta",
+      "body": "Ele controla a contaminação, não garante a potência. Por isso não dá pra esticar só porque o líquido parece igual.",
+      "icon": "pensando"
+    },
+    {
+      "title": "Cola do frasco aberto",
+      "layout": "passos",
+      "body": "Anote a data da primeira perfuração\nÁlcool 70% na tampa antes de cada uso\nPassou de 28 dias? Descarte",
+      "icon": "certo"
+    }
+  ],
+  "scenes": [
+    {
+      "chip": "o prazo",
+      "kicker": "frasco reconstituído",
+      "title": "Parece bom",
+      "accent": "depois do prazo?",
+      "tone": "vermelho",
+      "speech": "Seu frasco parece bom depois de 28 dias? Erro comum.",
+      "visual": { "type": "frasco", "label": "DIA 29", "liquid": "claro", "tag": "PARECE OK" }
+    },
+    {
+      "chip": "o prazo",
+      "kicker": "eu sei",
+      "title": "Límpido não",
+      "accent": "quer dizer seguro",
+      "tone": "vermelho",
+      "speech": "Eu sei, se está transparente a gente acha que dá pra usar mais uma semana.",
+      "visual": { "type": "icone", "icon": "lupa", "note": "o olho não vê bactéria" }
+    },
+    {
+      "chip": "o diluente",
+      "kicker": "o que segura o frasco",
+      "title": "Água com",
+      "accent": "conservante",
+      "tone": "azul",
+      "speech": "A água bacteriostática tem 0,9% de álcool benzílico, que inibe as bactérias a cada perfuração.",
+      "visual": { "type": "numero", "value": "0,9%", "note": "de álcool benzílico na água bacteriostática" }
+    },
+    {
+      "chip": "o diluente",
+      "kicker": "pensa assim",
+      "title": "Um guarda-chuva,",
+      "accent": "não uma armadura",
+      "tone": "azul",
+      "speech": "Só que esse conservante é um guarda-chuva, não uma armadura: protege por um tempo, não pra sempre.",
+      "visual": { "type": "icone", "icon": "escudo", "note": "inibe, não esteriliza pra sempre" }
+    },
+    {
+      "chip": "a regra",
+      "kicker": "de onde vem o prazo",
+      "title": "28 dias",
+      "accent": "na geladeira",
+      "tone": "azul",
+      "speech": "Por isso a referência é de 28 dias na geladeira, contados da primeira perfuração.",
+      "visual": { "type": "linha", "steps": ["perfuração", "uso", "dia 28", "descarte"], "current": 2, "note": "de 2 a 8 °C" },
+      "source": "CDC, frascos de várias doses"
+    },
+    {
+      "chip": "a regra",
+      "kicker": "o detalhe que ninguém conta",
+      "title": "Controla bactéria,",
+      "accent": "não a potência",
+      "tone": "vermelho",
+      "speech": "E olha o detalhe: o prazo controla a contaminação, mas não garante a potência do peptídeo.",
+      "visual": { "type": "carimbo", "text": "NÃO É POTÊNCIA", "note": "o prazo é de contaminação" }
+    },
+    {
+      "chip": "o risco",
+      "kicker": "depois do prazo",
+      "title": "Contaminado",
+      "accent": "e com cara de novo",
+      "tone": "vermelho",
+      "speech": "Depois disso, a solução pode parecer certa e estar contaminada ou com menos peptídeo ativo.",
+      "visual": {
+        "type": "frascos",
+        "left": { "label": "DIA 1", "note": "dentro do prazo", "liquid": "claro" },
+        "right": { "label": "DIA 35", "note": "mesma cara, outro risco", "liquid": "claro" },
+        "sign": "≠"
+      }
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "no dia da diluição",
+      "title": "Data escrita",
+      "accent": "no frasco",
+      "tone": "azul",
+      "speech": "O que ajuda: anotar no frasco a data da primeira perfuração e passar álcool 70% na tampa antes de cada uso.",
+      "visual": {
+        "type": "lista",
+        "items": [
+          { "text": "Data da primeira perfuração", "mark": "ok" },
+          { "text": "Álcool na tampa a cada uso", "mark": "ok" },
+          { "text": "Contar o prazo de cabeça", "mark": "nao" }
+        ]
+      }
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "turvou ou congelou",
+      "title": "Na dúvida,",
+      "accent": "descarte",
+      "tone": "azul",
+      "speech": "Ficou turvo ou congelou? Descarte, e qualquer dúvida sobre o seu frasco você leva ao médico.",
+      "visual": { "type": "icone", "icon": "estetoscopio", "note": "dúvida sobre o frasco é com o médico" }
+    },
+    {
+      "chip": "pra lembrar",
+      "kicker": "frasco aberto",
+      "title": "Parecer bom",
+      "accent": "não é prazo",
+      "tone": "azul",
+      "speech": "Então, seu frasco parece bom depois de 28 dias? Parecer não é prazo: é hora de descartar.",
+      "visual": { "type": "icone", "icon": "calendario", "note": "a data manda, não a aparência" }
+    }
+  ],
+  "caption": "Eu sei, quando o frasco reconstituído continua transparente, dá vontade de usar mais uma semana. Mas a aparência não diz nada sobre bactéria nem sobre a potência do peptídeo.\n\nA água bacteriostática tem 0,9% de álcool benzílico, um conservante que inibe as bactérias a cada perfuração. Mesmo assim, a referência é de até 28 dias na geladeira (2 a 8 °C), contados da primeira perfuração: é a regra do CDC para frascos de várias doses com conservante.\n\n1️⃣ Anote no frasco a data da primeira perfuração.\n2️⃣ Passe álcool 70% na tampa antes de cada nova perfuração.\n3️⃣ Passou de 28 dias, turvou ou congelou? Descarte.\n\n⚠️ O prazo controla a contaminação, não garante a potência. Depois dele, a solução pode parecer certa e estar contaminada ou com menos peptídeo ativo.",
+  "question": "Você anota no frasco o dia da primeira perfuração?",
+  "share": "aquela amiga que estica o frasco porque ainda está transparente"
+}

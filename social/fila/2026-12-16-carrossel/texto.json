@@ -1,0 +1,51 @@
+{
+  "hook": "Cada risquinho da sua seringa vale 1? Erro comum.",
+  "hookIcon": "regua",
+  "slides": [
+    {
+      "title": "Todo traço da seringa vale 1 unidade",
+      "layout": "mito",
+      "body": "Nas de 30 e 50 unidades, em geral sim, e há modelos de 30 com meia unidade. Mas em muitas seringas de 100 unidades, cada traço vale 2.",
+      "icon": "errado"
+    },
+    {
+      "title": "Como descobrir quanto vale o traço?",
+      "layout": "pergunta",
+      "body": "Conte os traços entre dois números. Entre 0 e 10 com 10 traços, cada um vale 1 unidade; com 5 traços, vale 2.",
+      "icon": "lupa"
+    },
+    {
+      "title": "0,01 ml",
+      "layout": "numero",
+      "body": "É quanto vale 1 unidade na seringa U-100. Unidade é volume, não é mg: quantos mg cabem ali depende da concentração do seu frasco.",
+      "icon": "gota"
+    },
+    {
+      "title": "Onde o olho erra",
+      "layout": "padrao",
+      "body": "Leia pela borda de borracha do êmbolo do lado da agulha, com a seringa na altura dos olhos. E tire as bolhas: bolha ocupa o lugar do líquido.",
+      "icon": "alerta"
+    },
+    {
+      "title": "Agulha fixa ou removível",
+      "layout": "lado",
+      "body": "Fixa: o que a diretriz da SBD prefere\nRemovível: deixa espaço morto no encaixe",
+      "icon": "balanca"
+    },
+    {
+      "title": "Cola antes de puxar a dose",
+      "layout": "passos",
+      "body": "Confira U-100 na embalagem e na seringa\nConte quanto vale o menor traço\nLeia pela borda do êmbolo, sem bolhas\nDúvida na conta? Médico ou farmacêutico",
+      "icon": "certo"
+    }
+  ],
+  "narration": [
+    { "text": "Cada risquinho da sua seringa vale 1? Eu sei, a gente acha que é sempre 1." },
+    { "text": "Nas de 30 e 50 unidades costuma ser 1. Em muitas de 100, cada traço vale 2 unidades." },
+    { "text": "Conte os traços entre dois números, leia pela borda do êmbolo e tire as bolhas." },
+    { "text": "Então, antes de puxar, descubra quanto vale o seu risquinho." }
+  ],
+  "caption": "Eu sei, todo mundo olha a seringa e conta um traço como uma unidade. Só que isso depende do tamanho: nas de 30 e 50 unidades, em geral cada traço vale 1 (há modelos de 30 com meia unidade); em muitas seringas de 100 unidades, cada traço vale 2.\n\n1️⃣ Confira \"U-100\" na embalagem e no corpo da seringa.\n2️⃣ Conte quantos traços há entre dois números para saber quanto vale o menor traço.\n3️⃣ Leia pela borda de borracha do êmbolo do lado da agulha, na altura dos olhos, e tire as bolhas.\n\n⚠️ Unidade da seringa não é mg: na U-100, 1 unidade é 0,01 ml, e quantos mg isso representa depende da concentração do frasco. A dose é a que o médico prescreveu; na dúvida da conta, confirme com o médico ou o farmacêutico.",
+  "question": "A sua seringa é de 30, 50 ou 100 unidades?",
+  "share": "aquela amiga que conta todo risquinho como 1 unidade"
+}

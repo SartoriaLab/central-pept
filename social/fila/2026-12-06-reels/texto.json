@@ -1,0 +1,189 @@
+{
+  "hook": "O erro de quem viaja com Ozempic: despachar a caneta.",
+  "hookIcon": "gelo",
+  "slides": [
+    {
+      "title": "Na mala despachada a caneta fica protegida",
+      "layout": "mito",
+      "body": "Não fica. A bagagem despachada pode congelar, e a semaglutida que congela perde potência de forma irreversível.",
+      "icon": "errado"
+    },
+    {
+      "title": "8 horas",
+      "layout": "numero",
+      "body": "É o tempo que a fonte dá para a bolsa térmica com gelox segurar a caneta de Ozempic ou Wegovy no trajeto.",
+      "icon": "relogio"
+    },
+    {
+      "title": "Mão x despachada",
+      "layout": "lado",
+      "body": "Bagagem de mão: a caneta viaja com você, na bolsa térmica\nDespachada: pode congelar, e aí é descarte",
+      "icon": "balanca"
+    },
+    {
+      "title": "Descongelou, dá pra usar?",
+      "layout": "pergunta",
+      "body": "Não. Caneta que ficou congelada vai para o descarte mesmo depois de descongelar, ainda que pareça normal.",
+      "icon": "duvida"
+    },
+    {
+      "title": "Cola da viagem",
+      "layout": "passos",
+      "body": "Bolsa térmica com gelox\nCaneta na bagagem de mão\nReceita médica impressa\nNada de caneta no carro em dia quente",
+      "icon": "certo"
+    }
+  ],
+  "scenes": [
+    {
+      "chip": "a viagem",
+      "kicker": "no aeroporto",
+      "title": "Despachar",
+      "accent": "a caneta",
+      "tone": "vermelho",
+      "speech": "O erro de quem viaja com Ozempic: despachar a caneta.",
+      "visual": {
+        "type": "icone",
+        "icon": "alerta",
+        "note": "o erro que acontece antes do embarque"
+      }
+    },
+    {
+      "chip": "a viagem",
+      "kicker": "fica até o fim",
+      "title": "E tem um",
+      "accent": "segundo vilão",
+      "tone": "azul",
+      "speech": "E tem um segundo vilão da viagem que eu conto no final.",
+      "visual": {
+        "type": "icone",
+        "icon": "pensando",
+        "note": "o segundo vilão vem no fim"
+      }
+    },
+    {
+      "chip": "o problema",
+      "kicker": "o que a fonte diz",
+      "title": "Mala despachada",
+      "accent": "pode congelar",
+      "tone": "vermelho",
+      "speech": "A bagagem despachada pode congelar, e você nem fica sabendo.",
+      "visual": {
+        "type": "icone",
+        "icon": "gelo",
+        "note": "a caneta longe dos seus olhos"
+      }
+    },
+    {
+      "chip": "o problema",
+      "kicker": "na molécula",
+      "title": "Congelou,",
+      "accent": "perdeu potência",
+      "tone": "vermelho",
+      "speech": "E a semaglutida que congela perde potência de um jeito que não tem volta.",
+      "visual": {
+        "type": "carimbo",
+        "text": "SEM VOLTA",
+        "note": "perda de potência irreversível"
+      }
+    },
+    {
+      "chip": "o problema",
+      "kicker": "pensa assim",
+      "title": "Como ovo",
+      "accent": "que cozinhou",
+      "tone": "azul",
+      "speech": "É como um ovo que cozinhou: esfriar depois não deixa ele cru de novo.",
+      "visual": {
+        "type": "icone",
+        "icon": "lampada",
+        "note": "descongelar não desfaz o estrago"
+      }
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "no avião",
+      "title": "Caneta vai",
+      "accent": "na bagagem de mão",
+      "tone": "azul",
+      "speech": "Então a caneta vai com você, na bagagem de mão.",
+      "visual": {
+        "type": "lista",
+        "items": [
+          { "text": "Bagagem de mão", "mark": "ok" },
+          { "text": "Mala despachada", "mark": "nao" }
+        ]
+      }
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "no trajeto",
+      "title": "Bolsa térmica",
+      "accent": "com gelox",
+      "tone": "azul",
+      "speech": "Numa bolsa térmica com gelox, que segura por até 8 horas.",
+      "visual": {
+        "type": "numero",
+        "value": "8 horas",
+        "note": "bolsa térmica com gelox"
+      }
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "na bolsa",
+      "title": "Receita",
+      "accent": "impressa",
+      "tone": "azul",
+      "speech": "E leve a receita médica impressa, que ajuda na hora da revista.",
+      "visual": {
+        "type": "icone",
+        "icon": "prancheta",
+        "note": "receita médica em papel"
+      }
+    },
+    {
+      "chip": "o segundo vilão",
+      "kicker": "chegando no destino",
+      "title": "O carro",
+      "accent": "no sol",
+      "tone": "vermelho",
+      "speech": "O segundo vilão é o carro parado no sol, acima de 30 graus.",
+      "visual": {
+        "type": "numero",
+        "value": "30 °C",
+        "note": "calor acima disso também degrada"
+      }
+    },
+    {
+      "chip": "quando descartar",
+      "kicker": "na dúvida",
+      "title": "Turva ou",
+      "accent": "congelou? Descarte",
+      "tone": "vermelho",
+      "speech": "Ficou turva, mudou de cor ou congelou? A bula manda descartar, mesmo com produto sobrando.",
+      "visual": {
+        "type": "lista",
+        "items": [
+          { "text": "Solução turva ou com partículas", "mark": "nao" },
+          { "text": "Cor amarelada ou marrom", "mark": "nao" },
+          { "text": "Ficou congelada", "mark": "nao" }
+        ]
+      }
+    },
+    {
+      "chip": "pra lembrar",
+      "kicker": "na próxima viagem",
+      "title": "Ozempic viaja",
+      "accent": "com você",
+      "tone": "azul",
+      "speech": "Então, Ozempic não vai na mala despachada: ele viaja do seu lado.",
+      "visual": {
+        "type": "carimbo",
+        "text": "BAGAGEM DE MÃO",
+        "note": "longe do porão e do carro quente"
+      }
+    }
+  ],
+  "caption": "Eu sei, na correria do aeroporto dá vontade de jogar tudo na mala. Mas a bagagem despachada pode congelar, e a semaglutida que congela perde potência de forma irreversível: caneta de Ozempic ou Wegovy que congelou vai para o descarte, mesmo depois de descongelar.\n\n1️⃣ Caneta na bagagem de mão, dentro de bolsa térmica com gelox (até 8 horas)\n2️⃣ Receita médica impressa junto\n3️⃣ No destino, nada de deixar a caneta no carro em dia quente\n\n⚠️ Solução turva, com partículas, com cor alterada ou que ficou congelada: descarte, mesmo com produto sobrando. Na dúvida sobre a sua caneta, confira a bula da caixa e fale com o médico ou o farmacêutico.",
+  "question": "Na última viagem, a sua caneta foi na mão ou na mala?",
+  "share": "aquela amiga que vai viajar de avião com o Ozempic"
+}

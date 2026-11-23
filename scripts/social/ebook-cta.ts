@@ -22,7 +22,19 @@ function preferred(topic: Topic): Ebook | undefined {
   return ebookForPeptide(topic.slug);
 }
 
+/**
+ * Guia pago citado no post (slide final, fala e linha 📘). Desligado em 23/11/2026: um Reels foi
+ * sinalizado e a conta saiu das recomendações; a regra do Instagram tira de recomendação post que
+ * vende produto com alegação de saúde. Sem guia, o post chama para as calculadoras grátis.
+ */
+export const GUIDE_IN_POSTS = false;
+
 export function ctaFor(topic: Topic, activeSlugs: Set<string>): Cta | null {
+  return GUIDE_IN_POSTS ? guideFor(topic, activeSlugs) : null;
+}
+
+/** Guia que o post citaria (mesma regra do site), com a chave ligada ou não. */
+export function guideFor(topic: Topic, activeSlugs: Set<string>): Cta | null {
   const active = getEbooks().filter((e) => activeSlugs.has(e.slug) && isGuide(e));
   if (active.length === 0) return null;
   const isActive = (e?: Ebook): e is Ebook => !!e && active.some((a) => a.id === e.id);

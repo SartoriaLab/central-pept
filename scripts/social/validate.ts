@@ -40,6 +40,12 @@ export const BANNED: { re: RegExp; why: string }[] = [
   { re: /\bgarantid[oa]s?\b/i, why: 'promete resultado' },
   // Só na mesma linha e só o verbo: "boca seca" no fim de uma linha + "3️⃣" na seguinte não é promessa.
   { re: /\b(perca|perder|emagre[çc]a|secar)[ \t]+(at[ée][ \t]+)?\d+/i, why: 'promete perda de peso em número' },
+  // Enquadramento de peso (23/11/2026: Reels sobre reganho sinalizado, conta fora das recomendações).
+  { re: /(?<!\p{L})emagre[cç]/iu, why: 'fala em emagrecer' },
+  { re: /(?<!\p{L})(perd(a|er|eu|eram|endo)|perdid[oa]s?|redu[çc][ãa]o|queda)\s+(\p{L}+\s+)?(de\s+|do\s+)?peso(?!\p{L})|peso\s+perdido/iu, why: 'fala em perda de peso' },
+  { re: /(?<!\p{L})reganh|(recuper\p{L}*|volta\p{L}*|ganh\p{L}*)\s+(de\s+|do\s+|o\s+)?peso(?!\p{L})/iu, why: 'fala em reganho de peso' },
+  { re: /(?<!\p{L})quilos?(?!\p{L})|%\s+do\s+peso/iu, why: 'fala em quilos ou % do peso' },
+  { re: /antes\s+e\s+depois/i, why: 'antes e depois' },
   { re: /sem efeitos? colaterais?/i, why: 'nega efeito colateral' },
   { re: /\b(seringa|agulha)s?\s+(entrando|na pele|no braço|na barriga)/i, why: 'descreve aplicação' },
 ];

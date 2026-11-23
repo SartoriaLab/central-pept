@@ -35,7 +35,7 @@
     {
       "title": "Outros raros que valem saber",
       "layout": "padrao",
-      "body": "Cálculo na vesícula, ligado à perda rápida de peso, e reações alérgicas, incluindo anafilaxia. Sentiu algo diferente? Conte ao médico.",
+      "body": "Cálculo na vesícula e reações alérgicas, incluindo anafilaxia. São raros, mas existem. Sentiu algo diferente? Conte ao médico.",
       "icon": "alerta"
     },
     {
@@ -46,10 +46,18 @@
     }
   ],
   "narration": [
-    { "text": "Você acha que todo mal-estar do Ozempic é normal? Eu sei, todo mundo fala que enjoo faz parte." },
-    { "text": "A náusea é mesmo o efeito mais comum e costuma aparecer nas subidas de dose. Mas dor abdominal forte que não passa é outra história." },
-    { "text": "Refeição menor, menos gordura e mais água ajudam no enjoo. Dor forte e persistente pede atendimento." },
-    { "text": "Então, nem todo mal-estar é normal: saber a diferença é o que importa." }
+    {
+      "text": "Você acha que todo mal-estar do Ozempic é normal? Eu sei, todo mundo fala que enjoo faz parte."
+    },
+    {
+      "text": "A náusea é mesmo o efeito mais comum e costuma aparecer nas subidas de dose. Mas dor abdominal forte que não passa é outra história."
+    },
+    {
+      "text": "Refeição menor, menos gordura e mais água ajudam no enjoo. Dor forte e persistente pede atendimento."
+    },
+    {
+      "text": "Então, nem todo mal-estar é normal: saber a diferença é o que importa."
+    }
   ],
   "caption": "Eu sei, todo mundo repete que enjoo com Ozempic faz parte. E faz: na semaglutida, os efeitos mais comuns são do estômago, como náusea, diarreia, vômito e constipação. A náusea costuma ser passageira, com picos nas subidas de dose.\n\nPor isso a titulação vai devagar, com 4 semanas ou mais por etapa, como o médico orienta.\n\n1️⃣ Refeições menores e mais frequentes.\n2️⃣ Menos gordura e fritura nos dias de enjoo.\n3️⃣ Hidratação reforçada.\n4️⃣ Gengibre ou remédio para enjoo, conforme orientação médica.\n\n⚠️ Dor abdominal forte e persistente é o sinal de alerta da pancreatite, um efeito raro (cerca de 0,3%, contra 0,2% no placebo). Nesse caso, procure atendimento. E quem tem histórico pessoal ou familiar de carcinoma medular de tireoide, NEM 2 ou está gestante não usa semaglutida.",
   "question": "Em qual semana o enjoo apareceu para você?",

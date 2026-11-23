@@ -1,0 +1,57 @@
+{
+  "hook": "Vitamina C anula seu GHK-Cu? Não é bem assim.",
+  "hookIcon": "brilho",
+  "slides": [
+    {
+      "title": "Vitamina C anula o GHK-Cu",
+      "layout": "mito",
+      "body": "Não há estudo em pele mostrando isso. Em laboratório, em pH neutro, o complexo de cobre do GHK se mostrou estável diante do ascorbato, a forma da vitamina C no sangue.",
+      "icon": "microscopio"
+    },
+    {
+      "title": "Então de onde vem o cuidado?",
+      "layout": "pergunta",
+      "body": "Do pH. Sérum de vitamina C pura costuma ser bem ácido, com pH abaixo de 3,5, e a ligação do cobre ao GHK depende do pH.",
+      "icon": "regua"
+    },
+    {
+      "title": "O que ninguém mediu ainda",
+      "layout": "padrao",
+      "body": "O que acontece quando os dois séruns se encontram na pele, em que proporção e com que efeito. Separar é precaução baseada em química, não interação comprovada.",
+      "icon": "lupa"
+    },
+    {
+      "title": "Rotina separada por horário",
+      "layout": "lado",
+      "body": "Manhã: vitamina C e protetor solar\nNoite: GHK-Cu, e retinol ou ácido em outras noites",
+      "icon": "relogio"
+    },
+    {
+      "title": "Niacinamida também precisa ficar longe",
+      "layout": "mito",
+      "body": "Não há estudo de interação, mas niacinamida e ácido hialurônico ficam perto do pH neutro e irritam pouco. Costumam ser combinados sem essa preocupação.",
+      "icon": "gota"
+    },
+    {
+      "title": "Retinol e ácidos pedem outro cuidado",
+      "layout": "padrao",
+      "body": "Também não há estudo de interação com o GHK-Cu. O problema é a irritação somada: vários ativos na mesma noite deixam a pele vermelha e não dá para saber qual foi.",
+      "icon": "alerta"
+    },
+    {
+      "title": "Cola da rotina",
+      "layout": "passos",
+      "body": "GHK-Cu num horário, vitamina C ou ácido no outro\nUm ativo novo de cada vez\nProtetor solar todo dia\nIrritou? Tire o último que entrou",
+      "icon": "certo"
+    }
+  ],
+  "narration": [
+    { "text": "Vitamina C anula seu GHK-Cu? Não é bem assim. Eu sei, essa regra está em todo lugar." },
+    { "text": "Em laboratório, em pH neutro, o cobre do GHK ficou estável com a vitamina C. O cuidado real é a acidez do sérum." },
+    { "text": "Como precaução, use cada um num horário e coloque um ativo novo de cada vez. Irritou, simplifique e procure o dermatologista." },
+    { "text": "Então, vitamina C e GHK-Cu podem morar na mesma rotina, só em horários diferentes." }
+  ],
+  "caption": "Eu sei, todo mundo já leu \"nunca use GHK-Cu com vitamina C\". A regra tem um fundo de química, mas vai além do que os estudos mostram. Não há estudo em pele mostrando que a vitamina C anula o GHK-Cu. Em laboratório, em pH neutro, o complexo de cobre do GHK se mostrou estável diante do ascorbato.\n\nO cuidado vem do pH: sérum de vitamina C pura costuma ser bem ácido, e a ligação do cobre ao GHK depende do pH. Ninguém mediu o que acontece quando os dois se encontram na pele, então separar é precaução, não regra comprovada.\n\n1️⃣ GHK-Cu num horário, vitamina C ou ácidos no outro.\n2️⃣ Retinol e ácidos em noites diferentes, principalmente no começo.\n3️⃣ Um ativo novo de cada vez e protetor solar todo dia.\n\n⚠️ Irritou? Suspenda o último ativo que entrou e, se continuar, procure um dermatologista. Tudo aqui é sobre o GHK-Cu tópico, de cosmético: a forma injetável não tem aprovação para uso humano.",
+  "question": "Você usa vitamina C de manhã ou à noite?",
+  "share": "aquela amiga que tem medo de misturar os séruns"
+}

@@ -1,0 +1,51 @@
+{
+  "hook": "15 mg de Mounjaro é mais remédio que 2,4 mg de Wegovy?",
+  "hookIcon": "balanca",
+  "slides": [
+    {
+      "title": "Número maior na caneta é remédio mais forte",
+      "layout": "mito",
+      "body": "Não é assim. Tirzepatida e semaglutida são moléculas diferentes, cada uma com a sua escala de dose. O miligrama de uma não se compara com o da outra.",
+      "icon": "errado"
+    },
+    {
+      "title": "Cada uma na sua régua",
+      "layout": "lado",
+      "body": "Semaglutida: dose máxima de 2,4 mg/semana\nTirzepatida: dose máxima de 15 mg/semana",
+      "icon": "regua"
+    },
+    {
+      "title": "Então o que muda de verdade?",
+      "layout": "pergunta",
+      "body": "O jeito de agir. A semaglutida ativa só o receptor GLP-1. A tirzepatida ativa o GLP-1 e também o GIP, um segundo hormônio do intestino.",
+      "icon": "cerebro"
+    },
+    {
+      "title": "~5 dias",
+      "layout": "numero",
+      "body": "É a meia-vida da tirzepatida. A da semaglutida é de cerca de 7 dias. As duas ficam tempo suficiente no corpo para uma aplicação por semana.",
+      "icon": "ampulheta"
+    },
+    {
+      "title": "Os efeitos são da mesma família",
+      "layout": "padrao",
+      "body": "Náusea, diarreia, vômito e constipação aparecem com as duas. Os números vêm de estudos diferentes, então a comparação é só aproximada.",
+      "icon": "enjoo"
+    },
+    {
+      "title": "Antes de comparar canetas",
+      "layout": "passos",
+      "body": "Compare a molécula, não o número em mg\nCada dose segue a bula da sua marca\nTroca de uma para outra é decisão do médico",
+      "icon": "certo"
+    }
+  ],
+  "narration": [
+    { "text": "15 mg de Mounjaro é mais remédio que 2,4 mg de Wegovy? Eu também já pensei isso." },
+    { "text": "Não dá pra comparar assim: são moléculas diferentes, cada uma com a sua escala de dose." },
+    { "text": "O que muda é o jeito de agir: a tirzepatida ativa GLP-1 e GIP, a semaglutida só o GLP-1." },
+    { "text": "Então, na hora de comparar caneta, olha a molécula, não o número em mg." }
+  ],
+  "caption": "Eu sei, a gente olha 15 mg de um lado e 2,4 mg do outro e pensa que o Mounjaro é \"mais forte\". Só que tirzepatida e semaglutida são moléculas diferentes, e cada uma tem a sua própria escala de dose de bula.\n\n1️⃣ Semaglutida (Ozempic, Wegovy): agonista só do GLP-1, dose máxima de 2,4 mg/semana, meia-vida de cerca de 7 dias.\n2️⃣ Tirzepatida (Mounjaro, Zepbound): ativa GLP-1 e GIP, dose máxima de 15 mg/semana, meia-vida de cerca de 5 dias.\n3️⃣ Os efeitos colaterais são da mesma família: náusea, diarreia, vômito e constipação.\n\n⚠️ O miligrama de uma não vale para a outra. Trocar de remédio ou de dose é conversa com o médico.",
+  "question": "Você já achou que a dose maior em mg era o remédio mais forte?",
+  "share": "aquela amiga que compara caneta pelo número de mg"
+}

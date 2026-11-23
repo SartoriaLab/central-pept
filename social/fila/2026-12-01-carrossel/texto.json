@@ -21,10 +21,10 @@
       "icon": "ampulheta"
     },
     {
-      "title": "E nos estudos, qual perdeu mais peso?",
+      "title": "As duas são semanais?",
       "layout": "pergunta",
-      "body": "Em comparações diretas, a tirzepatida teve perda média maior. No SURMOUNT-1, chegou a cerca de 20,9% com 15 mg por semana em 72 semanas.",
-      "icon": "grafico-desce"
+      "body": "São. As duas são aplicadas uma vez por semana, cada uma com a própria escada de dose na bula. Mudar de uma para a outra é decisão do médico.",
+      "icon": "calendario"
     },
     {
       "title": "O efeito colateral é parecido",
@@ -41,17 +41,25 @@
     {
       "title": "Cola da comparação",
       "layout": "passos",
-      "body": "Mesma família, alvos diferentes\nDose de uma não vira dose da outra\nAs duas são aplicadas uma vez por semana\nEscolha e troca: com o médico",
+      "body": "Mesma família, alvos diferentes\nDose de uma não vira dose da outra\nMesmos cuidados e contraindicações\nEscolha e troca: com o médico",
       "icon": "certo"
     }
   ],
   "narration": [
-    { "text": "Ozempic e Mounjaro são a mesma coisa? Não. Eu sei, todo mundo chama os dois de caneta de emagrecer." },
-    { "text": "O Ozempic é semaglutida e ativa só o GLP-1. O Mounjaro é tirzepatida e ativa GLP-1 e GIP." },
-    { "text": "As doses não se convertem de um para o outro, e trocar de remédio é decisão do médico." },
-    { "text": "Então, da próxima vez que alguém disser que é tudo igual, você já sabe: não é." }
+    {
+      "text": "Ozempic e Mounjaro são a mesma coisa? Não. Eu sei, todo mundo chama os dois de \"a caneta\"."
+    },
+    {
+      "text": "O Ozempic é semaglutida e ativa só o GLP-1. O Mounjaro é tirzepatida e ativa GLP-1 e GIP."
+    },
+    {
+      "text": "As doses não se convertem de um para o outro, e trocar de remédio é decisão do médico."
+    },
+    {
+      "text": "Então, da próxima vez que alguém disser que é tudo igual, você já sabe: não é."
+    }
   ],
-  "caption": "Eu sei, na conversa todo mundo chama Ozempic e Mounjaro de \"a caneta\". Mas são moléculas diferentes. O Ozempic é semaglutida, que ativa só o receptor GLP-1. O Mounjaro é tirzepatida, um agonista duplo que ativa GLP-1 e GIP.\n\n1️⃣ Doses: a semaglutida começa em 0,25 mg por semana; a tirzepatida, em 2,5 mg. Uma não vira a outra por conta.\n2️⃣ Meia-vida: cerca de 7 dias na semaglutida e cerca de 5 dias na tirzepatida. As duas são semanais.\n3️⃣ Estudos: em comparações diretas, a tirzepatida teve perda média maior (cerca de 20,9% com 15 mg por semana em 72 semanas no SURMOUNT-1).\n\n⚠️ Efeitos colaterais parecidos, principalmente do estômago, e as mesmas contraindicações: histórico pessoal ou familiar de carcinoma medular de tireoide ou NEM 2. Escolher ou trocar de remédio é decisão do médico.",
+  "caption": "Eu sei, na conversa todo mundo chama Ozempic e Mounjaro de \"a caneta\". Mas são moléculas diferentes. O Ozempic é semaglutida, que ativa só o receptor GLP-1. O Mounjaro é tirzepatida, um agonista duplo que ativa GLP-1 e GIP.\n\n1️⃣ Doses: a semaglutida começa em 0,25 mg por semana; a tirzepatida, em 2,5 mg. Uma não vira a outra por conta.\n2️⃣ Meia-vida: cerca de 7 dias na semaglutida e cerca de 5 dias na tirzepatida. As duas são semanais.\n\n⚠️ Efeitos colaterais parecidos, principalmente do estômago, e as mesmas contraindicações: histórico pessoal ou familiar de carcinoma medular de tireoide ou NEM 2. Escolher ou trocar de remédio é decisão do médico.",
   "question": "Você usa ou já usou qual das duas: semaglutida ou tirzepatida?",
   "share": "aquela amiga que acha que Ozempic e Mounjaro são iguais"
 }

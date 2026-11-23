@@ -1,11 +1,11 @@
 {
-  "hook": "Seu Mounjaro não fez efeito no primeiro mês?",
+  "hook": "O primeiro mês de Mounjaro é só o primeiro degrau.",
   "hookIcon": "calendario",
   "slides": [
     {
       "title": "Se não mudou no primeiro mês, não funciona",
       "layout": "mito",
-      "body": "A tirzepatida age desde a primeira aplicação, mas as 4 primeiras semanas são de 2,5 mg: dose de início, não de manutenção para perda de peso.",
+      "body": "A tirzepatida age desde a primeira aplicação, mas as 4 primeiras semanas são de 2,5 mg: dose de início, não a dose de manutenção.",
       "icon": "errado"
     },
     {
@@ -29,7 +29,7 @@
     {
       "title": "Parece que não está funcionando?",
       "layout": "passos",
-      "body": "Veja há quanto tempo está em dose de manutenção\nAntes de 3 meses em dose estável é cedo\nEm frasco, confira a conta e as unidades\nLeve o registro de peso e doses ao médico",
+      "body": "Veja há quanto tempo está em dose de manutenção\nAntes de 3 meses em dose estável é cedo\nEm frasco, confira a conta e as unidades\nLeve o registro das doses e dos sintomas ao médico",
       "icon": "estetoscopio"
     }
   ],
@@ -37,10 +37,10 @@
     {
       "chip": "o primeiro mês",
       "kicker": "a dúvida de todo mundo",
-      "title": "Não fez efeito",
-      "accent": "no primeiro mês?",
+      "title": "Primeiro mês",
+      "accent": "é só o começo",
       "tone": "vermelho",
-      "speech": "Seu Mounjaro não fez efeito no primeiro mês?",
+      "speech": "O primeiro mês de Mounjaro é só o primeiro degrau.",
       "visual": {
         "type": "icone",
         "icon": "calendario",
@@ -53,7 +53,7 @@
       "title": "Tem explicação",
       "accent": "e um erro comum",
       "tone": "azul",
-      "speech": "Calma, isso tem explicação, e o erro mais comum eu conto no final.",
+      "speech": "Se parece que não fez efeito, tem explicação, e o erro mais comum eu conto no final.",
       "visual": {
         "type": "icone",
         "icon": "pensando",
@@ -93,7 +93,7 @@
       "title": "Não é dose",
       "accent": "de manutenção",
       "tone": "vermelho",
-      "speech": "Ela serve pro corpo se acostumar, não é dose de manutenção pra perda de peso.",
+      "speech": "Ela serve pro corpo se acostumar, não é a dose de manutenção.",
       "visual": {
         "type": "carimbo",
         "text": "DOSE DE INÍCIO",
@@ -207,7 +207,7 @@
       }
     }
   ],
-  "caption": "Eu sei, a gente começa o Mounjaro esperando ver diferença logo. A tirzepatida age desde a primeira aplicação, e muita gente sente menos fome nos primeiros dias. Mas as 4 primeiras semanas são de 2,5 mg, dose de início para o corpo se acostumar, não dose de manutenção para perda de peso.\n\nA concentração no sangue leva cerca de 4 semanas para ficar estável em cada dose. É uma escada: quem vai até a dose máxima só chega lá na 21ª semana, e nem todo mundo precisa dela.\n\n⚠️ Subir a dose por conta própria ou encurtar o intervalo entre degraus aumenta os efeitos colaterais sem acelerar o resultado.\n\n1️⃣ Confira há quanto tempo está em dose de manutenção\n2️⃣ Antes de 3 meses em dose estável é cedo para concluir\n3️⃣ Leve o registro de peso e doses ao médico: a decisão de subir é dele",
+  "caption": "Eu sei, a gente começa o Mounjaro esperando ver diferença logo. A tirzepatida age desde a primeira aplicação, e muita gente sente menos fome nos primeiros dias. Mas as 4 primeiras semanas são de 2,5 mg, dose de início para o corpo se acostumar, não a dose de manutenção.\n\nA concentração no sangue leva cerca de 4 semanas para ficar estável em cada dose. É uma escada: quem vai até a dose máxima só chega lá na 21ª semana, e nem todo mundo precisa dela.\n\n⚠️ Subir a dose por conta própria ou encurtar o intervalo entre degraus aumenta os efeitos colaterais sem acelerar o resultado.\n\n1️⃣ Confira há quanto tempo está em dose de manutenção\n2️⃣ Antes de 3 meses em dose estável é cedo para concluir\n3️⃣ Leve o registro das doses e dos sintomas ao médico: a decisão de subir é dele",
   "question": "Em qual degrau da escada você está agora?",
   "share": "aquela amiga que acha que o Mounjaro dela não está funcionando"
 }

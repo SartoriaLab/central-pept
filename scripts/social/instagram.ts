@@ -21,6 +21,9 @@ export function tokenShape(token: string): string {
 }
 
 type Sleep = (ms: number) => Promise<void>;
+/** Tentativas por chamada repetível e espera base entre elas (10 s, 20 s, 30 s...). */
+const RETRIES = 4;
+const RETRY_MS = 10_000;
 const realSleep: Sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 /** App da Meta "Dose Certa Publicador" (não é segredo; a chave secreta vem de IG_APP_SECRET). */
@@ -63,18 +66,40 @@ export class InstagramClient {
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: qs.toString(),
           });
-    const json = (await res.json()) as T & { error?: { message?: string; code?: number } };
+    const json = (await res.json().catch(() => ({}))) as T & { error?: { message?: string; code?: number; is_transient?: boolean } };
     if (!res.ok || json.error) {
       const code = json.error?.code;
       // 190 = token inválido: o formato (nunca o valor) diz se é token errado ou host errado.
       const shape = code === 190 ? `; ${tokenShape(this.opts.token)}, host ${base}` : '';
-      throw new Error(`Instagram ${path}: ${json.error?.message ?? res.status} (código ${code ?? '?'})${shape}`);
+      const err = new Error(`Instagram ${path}: ${json.error?.message ?? res.status} (código ${code ?? '?'})${shape}`);
+      // -2/1/2 = timeout ou falha passageira da Meta (vista no carrossel de 22/11); 5xx idem.
+      (err as Error & { transient?: boolean }).transient =
+        json.error?.is_transient === true || [-2, -1, 1, 2].includes(code ?? 0) || res.status >= 500;
+      throw err;
     }
     return json;
   }
 
+  /**
+   * `call` que tenta de novo erro passageiro: conexão caída (fetch failed/ECONNRESET, como em 21/11)
+   * ou timeout da Meta. Só para chamadas sem efeito duplicado (criar container, ler status):
+   * media_publish não passa por aqui, para não sair post repetido.
+   */
+  private async retrying<T>(method: 'GET' | 'POST', path: string, params: Record<string, string>): Promise<T> {
+    for (let attempt = 1; ; attempt++) {
+      try {
+        return await this.call<T>(method, path, params);
+      } catch (e) {
+        const transient = e instanceof TypeError || (e as { transient?: boolean }).transient === true;
+        if (!transient || attempt >= RETRIES) throw e;
+        console.warn(`Instagram ${path}: ${(e as Error).message}; tentando de novo (${attempt}/${RETRIES - 1})`);
+        await this.sleep(RETRY_MS * attempt);
+      }
+    }
+  }
+
   private async container(params: Record<string, string>): Promise<string> {
-    const { id } = await this.call<{ id: string }>('POST', `/${this.opts.userId}/media`, params);
+    const { id } = await this.retrying<{ id: string }>('POST', `/${this.opts.userId}/media`, params);
     return id;
   }
 
@@ -82,7 +107,7 @@ export class InstagramClient {
   async waitFinished(id: string): Promise<void> {
     const deadline = Date.now() + this.timeoutMs;
     for (;;) {
-      const { status_code, status } = await this.call<{ status_code: string; status?: string }>('GET', `/${id}`, {
+      const { status_code, status } = await this.retrying<{ status_code: string; status?: string }>('GET', `/${id}`, {
         fields: 'status_code,status',
       });
       if (status_code === 'FINISHED' || status_code === 'PUBLISHED') return;

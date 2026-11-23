@@ -1,5 +1,5 @@
 {
-  "hook": "Você aplica o Mounjaro sempre no mesmo ponto?",
+  "hook": "Aplicar o Mounjaro sempre no mesmo ponto marca a pele.",
   "hookIcon": "pele",
   "slides": [
     {
@@ -49,10 +49,10 @@
     {
       "chip": "a mania",
       "kicker": "toda semana",
-      "title": "Sempre no mesmo",
-      "accent": "ponto da barriga?",
+      "title": "Sempre no mesmo ponto",
+      "accent": "marca a pele",
       "tone": "vermelho",
-      "speech": "Você aplica o Mounjaro sempre no mesmo ponto?",
+      "speech": "Aplicar o Mounjaro sempre no mesmo ponto marca a pele.",
       "visual": {
         "type": "icone",
         "icon": "alvo",

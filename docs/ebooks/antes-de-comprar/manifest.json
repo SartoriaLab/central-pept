@@ -1,0 +1,47 @@
+{
+  "slug": "antes-de-comprar",
+  "title": "Não Compre Antes de Checar Isto",
+  "files": [
+    {
+      "file": "00-comece-aqui.html",
+      "title": "Comece aqui"
+    },
+    {
+      "file": "01-original-manipulado-pesquisa.html",
+      "title": "1. Original, manipulado e \"de pesquisa\": o que cada um garante"
+    },
+    {
+      "file": "02-as-12-checagens.html",
+      "title": "2. As 12 checagens: embalagem, lote, laudo e cadeia de frio"
+    },
+    {
+      "file": "03-custo-por-mg-dose-mes.html",
+      "title": "3. Custo por mg, por dose e por mês"
+    },
+    {
+      "file": "04-perda-dos-28-dias.html",
+      "title": "4. A perda dos 28 dias na conta"
+    },
+    {
+      "file": "05-sinais-de-golpe.html",
+      "title": "5. Sinais de golpe"
+    },
+    {
+      "file": "06-o-que-perguntar-ao-vendedor.html",
+      "title": "6. O que perguntar ao vendedor"
+    },
+    {
+      "file": "90-bonus-checklist.html",
+      "title": "Bônus: checklist das 12 checagens"
+    },
+    {
+      "file": "91-bonus-planilha-custo-por-mg.html",
+      "title": "Bônus: planilha de custo por mg"
+    },
+    {
+      "file": "99-fontes.html",
+      "title": "Fontes"
+    }
+  ],
+  "subtitle": "12 checagens para não levar produto falso nem pagar mais caro por mg."
+}

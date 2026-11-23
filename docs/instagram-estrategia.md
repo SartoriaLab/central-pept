@@ -48,6 +48,40 @@ O sucesso de cada Reels foi medido em views divididas pela mediana da própria c
 | 5 | 1 Reels por dia no pico, mais o carrossel das 12h: 14 posts por semana, a faixa de maior crescimento | Agendador (já ligado). Falta pôr carrossel na fila |
 | 6 | Métricas por post, assim que a permissão existir | `scripts/social/metricas.ts` |
 
+## Restrição de 23/11/2026
+
+O Status da conta mostrou "Qualificação de recomendação" com alerta: o Reels "Parou a caneta e a
+fome voltou?" (rebote ao parar a tirzepatida) foi sinalizado. Com a conta inelegível, nenhum post é
+mostrado a quem não segue. As diretrizes de recomendação tiram de recomendação conteúdo que vende
+produto com alegação de saúde (o exemplo do Instagram é emagrecimento) e produto regulado, e postar
+isso repetidamente tira a conta inteira.
+
+| # | Decisão | Onde |
+|---|---|---|
+| 7 | Apagar o Reels sinalizado (dono, no app) | Status da conta |
+| 8 | Post sem guia pago: chamada só das calculadoras grátis | `GUIDE_IN_POSTS` (`ebook-cta.ts`) |
+| 9 | Validador barra emagrecer, perda e reganho de peso, quilos e antes e depois | `BANNED` (`validate.ts`) |
+| 10 | Temas só de semaglutida, tirzepatida e liraglutida e uso geral; sem rebote, manipulado, peptídeo sem aprovação | `topics.ts` |
+
+Rever quando o Status da conta voltar a verde por 2 semanas seguidas.
+
+## Teste de gancho: afirmação contra pergunta (24/11 a 05/12)
+
+Motivo: no nicho, os perfis com mais views por seguidor são explicadores animados (@biosintetiza
+2,92; @medcaetano 1,57; médicos de rosto 0,01 a 0,22), e os maiores Reels do @biosintetiza abrem
+com afirmação. No nosso levantamento a pergunta deu 1,5x a mediana (17 Reels); num estudo com
+marcas (Vista Social) deu de −2% a −9%. Os dados não decidem, então testamos no perfil.
+
+| Gancho | Dias |
+|---|---|
+| Afirmação | 24/11, 26/11, 28/11, 30/11, 01/12, 04/12 |
+| Pergunta | 25/11, 27/11, 29/11, 02/12, 03/12, 05/12 |
+
+Leitura em 06/12: mediana de views de cada grupo (views públicas do Reels, ou
+`scripts/social/metricas.ts` com a permissão de insights). Só o gancho e a 1ª cena mudaram; o
+resto do vídeo é igual. Seis Reels por grupo é pouco: diferença menor que 2x não decide, repita o
+teste. A nota de `viral.ts` ainda dá ponto para pergunta; recalibre depois do resultado.
+
 ## O que depende do dono
 
 1. **Nome do perfil (campo pesquisável):** "Dose Certa | Mounjaro e Ozempic". O nome entra na

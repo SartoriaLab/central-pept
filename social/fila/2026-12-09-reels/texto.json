@@ -1,0 +1,192 @@
+{
+  "hook": "Você aplica o Ozempic de manhã, antes de sair?",
+  "hookIcon": "relogio",
+  "slides": [
+    {
+      "title": "O enjoo vem a semana inteira igual",
+      "layout": "mito",
+      "body": "Não vem. Segundo a fonte, a náusea do Ozempic é mais intensa nas 12 a 24 horas depois da aplicação.",
+      "icon": "errado"
+    },
+    {
+      "title": "12 a 24 horas",
+      "layout": "numero",
+      "body": "É o pico do enjoo depois da aplicação. Quem aplica de manhã atravessa esse pico no trabalho, no trânsito, no almoço com pressa.",
+      "icon": "ampulheta"
+    },
+    {
+      "title": "Manhã x noite",
+      "layout": "lado",
+      "body": "De manhã: o pico pega você no meio do dia\nÀ noite: muitos preferem, para dormir durante o pico",
+      "icon": "balanca"
+    },
+    {
+      "title": "Posso mudar o dia também?",
+      "layout": "pergunta",
+      "body": "A orientação é aplicar no mesmo dia da semana, sem variar. Alguns preferem sexta à noite, para passar o pior no fim de semana. Combine a escolha com o médico.",
+      "icon": "duvida"
+    },
+    {
+      "title": "Cola do horário",
+      "layout": "passos",
+      "body": "Escolha um dia fixo da semana\nConsidere a noite, para dormir no pico\nNáusea diária: fale com o médico antes de subir",
+      "icon": "certo"
+    }
+  ],
+  "scenes": [
+    {
+      "chip": "o horário",
+      "kicker": "na correria",
+      "title": "Ozempic",
+      "accent": "antes de sair?",
+      "tone": "vermelho",
+      "speech": "Você aplica o Ozempic de manhã, antes de sair?",
+      "visual": {
+        "type": "icone",
+        "icon": "relogio",
+        "note": "a aplicação no meio da pressa"
+      }
+    },
+    {
+      "chip": "o horário",
+      "kicker": "eu sei",
+      "title": "Parece",
+      "accent": "o mais prático",
+      "tone": "azul",
+      "speech": "Eu sei, parece o jeito mais prático de não esquecer.",
+      "visual": {
+        "type": "icone",
+        "icon": "pensando",
+        "note": "mas tem um detalhe"
+      }
+    },
+    {
+      "chip": "o horário",
+      "kicker": "fica até o fim",
+      "title": "O enjoo",
+      "accent": "tem horário",
+      "tone": "azul",
+      "speech": "Só que o enjoo do Ozempic tem hora marcada, e eu te conto qual no final.",
+      "visual": {
+        "type": "icone",
+        "icon": "enjoo",
+        "note": "o pico tem um horário"
+      }
+    },
+    {
+      "chip": "o pico",
+      "kicker": "o que a fonte diz",
+      "title": "Mais forte",
+      "accent": "logo depois",
+      "tone": "vermelho",
+      "speech": "A náusea é mais intensa nas 12 a 24 horas depois da aplicação.",
+      "visual": {
+        "type": "numero",
+        "value": "12 a 24 h",
+        "note": "o pico do enjoo após a aplicação"
+      }
+    },
+    {
+      "chip": "o pico",
+      "kicker": "quem aplica de manhã",
+      "title": "O pico",
+      "accent": "no meio do dia",
+      "tone": "vermelho",
+      "speech": "Aplicou de manhã? O pico cai no trabalho, no trânsito, no almoço com pressa.",
+      "visual": {
+        "type": "lista",
+        "items": [
+          { "text": "Trabalho", "mark": "nao" },
+          { "text": "Trânsito", "mark": "nao" },
+          { "text": "Almoço com pressa", "mark": "nao" }
+        ]
+      }
+    },
+    {
+      "chip": "a troca",
+      "kicker": "o que muita gente faz",
+      "title": "Aplicar",
+      "accent": "à noite",
+      "tone": "azul",
+      "speech": "Por isso muitos preferem aplicar à noite, para dormir durante o pico.",
+      "visual": {
+        "type": "icone",
+        "icon": "lua",
+        "note": "o pior passa enquanto você dorme"
+      }
+    },
+    {
+      "chip": "a troca",
+      "kicker": "pensa assim",
+      "title": "Viagem longa",
+      "accent": "de ônibus noturno",
+      "tone": "azul",
+      "speech": "É como viagem longa no ônibus da noite: você dorme a estrada e acorda chegando.",
+      "visual": {
+        "type": "carimbo",
+        "text": "DORME NO PICO",
+        "note": "a estrada passa sem você ver"
+      }
+    },
+    {
+      "chip": "a troca",
+      "kicker": "e o dia da semana",
+      "title": "Sempre",
+      "accent": "o mesmo dia",
+      "tone": "azul",
+      "speech": "E mantenha o mesmo dia da semana, sem ficar variando.",
+      "visual": {
+        "type": "linha",
+        "steps": [
+          "dia fixo",
+          "à noite",
+          "dorme"
+        ],
+        "current": 0,
+        "note": "alguns preferem sexta à noite"
+      }
+    },
+    {
+      "chip": "a dose",
+      "kicker": "se o enjoo for diário",
+      "title": "Não suba",
+      "accent": "com enjoo diário",
+      "tone": "vermelho",
+      "speech": "Se a náusea ainda é diária, não é hora de subir: repetir a etapa com o médico é aceitável.",
+      "visual": {
+        "type": "icone",
+        "icon": "estetoscopio",
+        "note": "a titulação é referência, não obrigação"
+      }
+    },
+    {
+      "chip": "quando procurar",
+      "kicker": "isso não é normal",
+      "title": "Dor forte",
+      "accent": "que não passa",
+      "tone": "vermelho",
+      "speech": "E dor abdominal forte e persistente pede médico, não troca de horário.",
+      "visual": {
+        "type": "icone",
+        "icon": "hospital",
+        "note": "também vômito que impede de se hidratar"
+      }
+    },
+    {
+      "chip": "pra lembrar",
+      "kicker": "na próxima aplicação",
+      "title": "Antes de sair?",
+      "accent": "Antes de dormir",
+      "tone": "azul",
+      "speech": "Então, Ozempic antes de sair de casa? Experimente antes de dormir, com o médico sabendo.",
+      "visual": {
+        "type": "icone",
+        "icon": "sono",
+        "note": "o pico passa durante o sono"
+      }
+    }
+  ],
+  "caption": "Eu sei, aplicar de manhã parece o jeito mais fácil de não esquecer. Mas a náusea do Ozempic é mais intensa nas 12 a 24 horas depois da aplicação, e quem aplica antes de sair atravessa esse pico no trabalho, no trânsito e no almoço com pressa.\n\n1️⃣ Muitos preferem aplicar à noite, para dormir durante o pico\n2️⃣ Mantenha o mesmo dia da semana, sem variar (alguns escolhem sexta à noite)\n3️⃣ Náusea ainda diária? Não suba a dose: repetir a etapa atual com o médico é aceitável\n\n⚠️ Dor abdominal forte e persistente, vômito que impede a hidratação por mais de 24 horas, febre ou pele amarelada pedem atendimento médico.",
+  "question": "Você aplica de manhã ou à noite?",
+  "share": "aquela amiga que aplica o Ozempic correndo antes do trabalho"
+}

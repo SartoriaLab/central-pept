@@ -1,0 +1,180 @@
+{
+  "hook": "Ozempic junto com insulina não é só mais um remédio.",
+  "hookIcon": "alerta",
+  "slides": [
+    {
+      "title": "Efeito colateral do Ozempic é só enjoo",
+      "layout": "mito",
+      "body": "O enjoo é o mais famoso, mas a lista da bula tem mais. Um deles depende do que você toma junto: a hipoglicemia, o açúcar baixo no sangue.",
+      "icon": "errado"
+    },
+    {
+      "title": "Quando o açúcar baixo aparece?",
+      "layout": "pergunta",
+      "body": "Nos documentos citados, a hipoglicemia aparece quando a semaglutida é combinada com insulina ou com sulfonilureias, remédios que também baixam a glicose.",
+      "icon": "duvida"
+    },
+    {
+      "title": "Sozinha x combinada",
+      "layout": "lado",
+      "body": "Semaglutida sozinha: os efeitos mais comuns são do estômago e do intestino\nCom insulina ou sulfonilureia: hipoglicemia entra nos efeitos comuns",
+      "icon": "balanca"
+    },
+    {
+      "title": "Antes de começar",
+      "layout": "passos",
+      "body": "Leve a lista de todos os seus remédios\nConte se usa insulina ou sulfonilureia\nPergunte o que observar no dia a dia",
+      "icon": "prancheta"
+    },
+    {
+      "title": "Não mexa sozinha",
+      "layout": "padrao",
+      "body": "Nem na caneta, nem na insulina, nem no comprimido. Qualquer ajuste quando os remédios se somam é decisão do médico.",
+      "icon": "estetoscopio"
+    }
+  ],
+  "scenes": [
+    {
+      "chip": "a combinação",
+      "kicker": "na lista de remédios",
+      "title": "Ozempic com",
+      "accent": "insulina",
+      "tone": "vermelho",
+      "speech": "Ozempic junto com insulina não é só mais um remédio.",
+      "visual": {
+        "type": "icone",
+        "icon": "alerta",
+        "note": "a combinação muda a conta"
+      }
+    },
+    {
+      "chip": "a combinação",
+      "kicker": "todo mundo pensa no enjoo",
+      "title": "Não é",
+      "accent": "o enjoo",
+      "tone": "azul",
+      "speech": "Todo mundo pensa no enjoo, que chega a 44% na dose do Wegovy.",
+      "visual": {
+        "type": "numero",
+        "value": "44%",
+        "note": "náusea na dose de 2,4 mg"
+      },
+      "source": "FDA Label Wegovy"
+    },
+    {
+      "chip": "a combinação",
+      "kicker": "fica até o fim",
+      "title": "O efeito",
+      "accent": "que depende de você",
+      "tone": "azul",
+      "speech": "Mas tem um efeito que depende do que você toma junto, e eu explico no final o que fazer.",
+      "visual": {
+        "type": "icone",
+        "icon": "pensando",
+        "note": "o que fazer vem no fim"
+      }
+    },
+    {
+      "chip": "o efeito",
+      "kicker": "o que a bula lista",
+      "title": "Açúcar",
+      "accent": "baixo demais",
+      "tone": "vermelho",
+      "speech": "É a hipoglicemia, o açúcar baixo no sangue.",
+      "visual": {
+        "type": "icone",
+        "icon": "grafico-desce",
+        "note": "glicose abaixo do normal"
+      },
+      "source": "FDA Label Ozempic"
+    },
+    {
+      "chip": "o efeito",
+      "kicker": "quando aparece",
+      "title": "Com insulina",
+      "accent": "ou sulfonilureia",
+      "tone": "vermelho",
+      "speech": "Ela aparece quando a semaglutida é combinada com insulina ou com sulfonilureias.",
+      "visual": {
+        "type": "lista",
+        "items": [
+          { "text": "Insulina", "mark": "nao" },
+          { "text": "Sulfonilureias", "mark": "nao" }
+        ]
+      }
+    },
+    {
+      "chip": "por que",
+      "kicker": "pensa assim",
+      "title": "Dois pés",
+      "accent": "no mesmo freio",
+      "tone": "azul",
+      "speech": "É como pisar com dois pés no mesmo freio: os dois remédios baixam a glicose.",
+      "visual": {
+        "type": "carimbo",
+        "text": "FREIO EM DOBRO",
+        "note": "dois remédios baixando a glicose"
+      }
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "na consulta",
+      "title": "Leve a lista",
+      "accent": "de remédios",
+      "tone": "azul",
+      "speech": "Por isso, leve ao médico a lista de todos os remédios que você usa.",
+      "visual": {
+        "type": "icone",
+        "icon": "prancheta",
+        "note": "inclusive os de glicose"
+      }
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "antes de começar",
+      "title": "Conte, pergunte,",
+      "accent": "observe",
+      "tone": "azul",
+      "speech": "Conte se usa insulina e pergunte o que você precisa observar no dia a dia.",
+      "visual": {
+        "type": "linha",
+        "steps": [
+          "contar",
+          "perguntar",
+          "observar"
+        ],
+        "current": 1,
+        "note": "a conversa antes da primeira dose"
+      }
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "o erro que eu prometi",
+      "title": "Não mexa",
+      "accent": "sozinha",
+      "tone": "vermelho",
+      "speech": "E não mexa sozinha em nenhum dos dois: ajuste é sempre com o médico.",
+      "visual": {
+        "type": "icone",
+        "icon": "estetoscopio",
+        "note": "nem na caneta, nem na insulina"
+      }
+    },
+    {
+      "chip": "pra lembrar",
+      "kicker": "na próxima consulta",
+      "title": "Não é só",
+      "accent": "mais um remédio",
+      "tone": "azul",
+      "speech": "Então, Ozempic com insulina? Não é só mais um remédio na lista: conta pro médico.",
+      "visual": {
+        "type": "carimbo",
+        "text": "CONTA PRO MÉDICO",
+        "note": "a combinação muda o cuidado"
+      }
+    }
+  ],
+  "caption": "Eu sei, a gente pensa no Ozempic como \"o remédio do enjoo\" e esquece do resto da lista. Mas a semaglutida combinada com insulina ou com sulfonilureias pode causar hipoglicemia, o açúcar baixo no sangue: os dois remédios baixam a glicose ao mesmo tempo.\n\n1️⃣ Leve ao médico a lista de todos os remédios que você usa\n2️⃣ Conte se usa insulina ou sulfonilureia\n3️⃣ Pergunte o que observar no dia a dia\n\n⚠️ Não mexa sozinha na caneta, na insulina nem no comprimido. Qualquer ajuste quando os remédios se somam é decisão do médico.",
+  "question": "Você já levou a lista completa dos seus remédios na consulta?",
+  "share": "aquela amiga que usa insulina e vai começar o Ozempic"
+}

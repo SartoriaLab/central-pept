@@ -1,0 +1,131 @@
+{
+  "hook": "Você anotou quanta água colocou no frasco de tirzepatida?",
+  "hookIcon": "gota",
+  "slides": [
+    {
+      "title": "Eu lembro quanta água coloquei",
+      "layout": "mito",
+      "body": "Sem a concentração anotada na etiqueta, não há como saber quantas unidades puxar na semana seguinte.",
+      "icon": "errado"
+    },
+    {
+      "title": "A mesma dose, dois números",
+      "layout": "lado",
+      "body": "10 mg com 2 ml: 2,5 mg são 50 unidades\n10 mg com 1 ml: 2,5 mg são 25 unidades",
+      "icon": "regua"
+    },
+    {
+      "title": "Por que muda tanto?",
+      "layout": "pergunta",
+      "body": "A água não muda a quantidade de remédio no frasco, só a concentração. Mais água, solução mais diluída, e a mesma dose ocupa mais unidades.",
+      "icon": "gota"
+    },
+    {
+      "title": "50 unidades",
+      "layout": "numero",
+      "body": "É a dose de 2,5 mg no frasco de 10 mg com 2 ml, na seringa U-100. A dose é a que o médico prescreveu; a conta só traduz em volume.",
+      "icon": "seringa"
+    },
+    {
+      "title": "Na etiqueta do frasco",
+      "layout": "passos",
+      "body": "mg do frasco\nml de água colocada\nConcentração em mg/ml\nData do preparo",
+      "icon": "prancheta"
+    }
+  ],
+  "scenes": [
+    {
+      "chip": "o frasco",
+      "kicker": "tirzepatida em frasco",
+      "title": "Anotou",
+      "accent": "quanta água?",
+      "tone": "vermelho",
+      "speech": "Você anotou quanta água colocou no frasco de tirzepatida?",
+      "visual": { "type": "frasco", "label": "TIRZEPATIDA", "liquid": "claro", "tag": "ÁGUA: ???" }
+    },
+    {
+      "chip": "o frasco",
+      "kicker": "a mania",
+      "title": "Ficou",
+      "accent": "na cabeça",
+      "tone": "vermelho",
+      "speech": "Eu sei, a gente acha que vai lembrar, e na semana seguinte bate a dúvida.",
+      "visual": { "type": "icone", "icon": "pensando", "note": "foi um ou dois ml?" }
+    },
+    {
+      "chip": "o frasco",
+      "kicker": "fica até o fim",
+      "title": "A água muda",
+      "accent": "o número",
+      "tone": "azul",
+      "speech": "E essa dúvida muda o número da seringa, já te mostro quanto.",
+      "visual": { "type": "icone", "icon": "seringa", "note": "o número vem já já" }
+    },
+    {
+      "chip": "a conta",
+      "kicker": "frasco de 10 mg, 2 ml",
+      "title": "2,5 mg viram",
+      "accent": "50 unidades",
+      "tone": "azul",
+      "speech": "No frasco de 10 mg com 2 ml de água, a dose de 2,5 mg dá 50 unidades.",
+      "visual": { "type": "numero", "value": "50 U", "note": "2,5 mg com 2 ml de água" }
+    },
+    {
+      "chip": "a conta",
+      "kicker": "mesmo frasco, 1 ml",
+      "title": "A mesma dose",
+      "accent": "vira 25 unidades",
+      "tone": "azul",
+      "speech": "No mesmo frasco com 1 ml, os mesmos 2,5 mg são 25 unidades.",
+      "visual": { "type": "barras", "bars": [ { "label": "Com 2 ml de água", "value": 50, "display": "50 U" }, { "label": "Com 1 ml de água", "value": 25, "display": "25 U" } ] }
+    },
+    {
+      "chip": "a conta",
+      "kicker": "pensa assim",
+      "title": "Suco concentrado",
+      "accent": "ou diluído",
+      "tone": "azul",
+      "speech": "É como suco de caixinha: mais água deixa mais fraco, e você precisa de um copo maior.",
+      "visual": { "type": "icone", "icon": "bebida", "note": "a água muda a concentração" }
+    },
+    {
+      "chip": "o risco",
+      "kicker": "se errar a lembrança",
+      "title": "O dobro",
+      "accent": "ou a metade",
+      "tone": "vermelho",
+      "speech": "Lembrou errado a água? Você pode puxar o dobro ou a metade da dose sem perceber.",
+      "visual": { "type": "carimbo", "text": "DOSE ERRADA", "note": "por um ml esquecido" }
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "na hora do preparo",
+      "title": "Etiqueta",
+      "accent": "no frasco",
+      "tone": "azul",
+      "speech": "O que resolve é uma etiqueta no frasco com os miligramas, a água e a concentração.",
+      "visual": { "type": "lista", "items": [ { "text": "mg do frasco", "mark": "ok" }, { "text": "ml de água", "mark": "ok" }, { "text": "concentração em mg/ml", "mark": "ok" } ] }
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "e a dose",
+      "title": "A dose é",
+      "accent": "a do médico",
+      "tone": "azul",
+      "speech": "A dose é a que o médico prescreveu; a conta só traduz essa dose em unidades.",
+      "visual": { "type": "icone", "icon": "estetoscopio", "note": "a conta não escolhe a dose" }
+    },
+    {
+      "chip": "pra lembrar",
+      "kicker": "no próximo preparo",
+      "title": "Quanta água?",
+      "accent": "Está na etiqueta",
+      "tone": "azul",
+      "speech": "Então, quanta água tem no seu frasco? A resposta tem que estar na etiqueta, não na cabeça.",
+      "visual": { "type": "frasco", "label": "TIRZEPATIDA", "liquid": "claro", "tag": "10 mg + 2 ml" }
+    }
+  ],
+  "caption": "Eu sei, na hora do preparo parece impossível esquecer quanta água foi no frasco. Mas na semana seguinte a dúvida aparece, e ela muda o número da seringa.\n\n1️⃣ Frasco de 10 mg com 2 ml de água: 2,5 mg de tirzepatida são 50 unidades na seringa U-100.\n2️⃣ O mesmo frasco com 1 ml: 2,5 mg são 25 unidades.\n3️⃣ Anote na etiqueta do frasco os mg, a água, a concentração em mg/ml e a data do preparo.\n\n⚠️ A água não muda a quantidade de remédio, só a concentração. A dose é a que o médico prescreveu; a conta só traduz essa dose em unidades.",
+  "question": "Você costuma etiquetar o frasco depois do preparo?",
+  "share": "aquela amiga que prepara o frasco e guarda a conta de cabeça"
+}

@@ -1,0 +1,57 @@
+{
+  "hook": "Você nunca pediu o laudo da tirzepatida manipulada?",
+  "hookIcon": "escudo",
+  "slides": [
+    {
+      "title": "Manipulada é o genérico do Mounjaro",
+      "layout": "mito",
+      "body": "Não é. A farmácia recebe a tirzepatida como matéria-prima e fraciona em frascos. É uma cópia, não um genérico, e não passa pelos mesmos controles da indústria.",
+      "icon": "frasco"
+    },
+    {
+      "title": "O que pode variar no frasco",
+      "layout": "padrao",
+      "body": "Pureza, estabilidade e esterilidade. Matéria-prima de fornecedor não farmacêutico pode ter impurezas acima de 2%, e não há estudos de estabilidade como os da indústria.",
+      "icon": "lupa"
+    },
+    {
+      "title": "±20%",
+      "layout": "numero",
+      "body": "É a variação que pode haver entre a dose real e a do rótulo. Por isso começar em dose baixa vale até para quem já usou Mounjaro.",
+      "icon": "regua"
+    },
+    {
+      "title": "Sinais de farmácia confiável",
+      "layout": "passos",
+      "body": "Registro na ANVISA e alvará visíveis\nCertificado de Análise (COA) com o frasco\nResultado de HPLC, o teste de pureza\nFarmacêutico responsável e receita obrigatória",
+      "icon": "prancheta"
+    },
+    {
+      "title": "E se não pedirem receita?",
+      "layout": "pergunta",
+      "body": "Sinal de alerta: farmácia confiável exige prescrição médica. E sem médico, ninguém acompanha peso, glicemia e pressão durante o uso.",
+      "icon": "alerta"
+    },
+    {
+      "title": "Caneta x frasco manipulado",
+      "layout": "lado",
+      "body": "Mounjaro: dose exata, caneta pronta para usar\nManipulada: qualidade variável, pede reconstituição e cálculo",
+      "icon": "balanca"
+    },
+    {
+      "title": "Se for usar a manipulada",
+      "layout": "passos",
+      "body": "Geladeira, de 2 a 8 °C, desde que chega\nReconstitua com água bacteriostática\nComece em dose baixa, com o médico\nAcompanhamento clínico periódico",
+      "icon": "certo"
+    }
+  ],
+  "narration": [
+    { "text": "Você nunca pediu o laudo da tirzepatida manipulada? Eu sei, a gente confia na farmácia." },
+    { "text": "Só que manipulada é cópia, não genérico: pureza e dose podem variar, e o laudo é o que mostra o que tem no frasco." },
+    { "text": "Farmácia confiável mostra registro, certificado de análise e farmacêutico, e exige receita. Comece em dose baixa, com o médico." },
+    { "text": "Então, da próxima vez, o laudo vem junto com o frasco." }
+  ],
+  "caption": "Eu sei, a gente confia na farmácia e nem pensa em pedir papel nenhum. Mas tirzepatida manipulada não é o genérico do Mounjaro: a farmácia recebe a molécula como matéria-prima e fraciona. Pureza, estabilidade e dose exata podem variar, e a dose real pode ficar até ±20% diferente do rótulo.\n\nO que uma farmácia confiável mostra:\n1️⃣ Registro na ANVISA e alvará da vigilância sanitária visíveis.\n2️⃣ Certificado de Análise (COA) do peptídeo com cada frasco.\n3️⃣ Resultado de HPLC, o teste de pureza.\n4️⃣ Farmacêutico responsável identificado e receita obrigatória.\n\n⚠️ Não pediram receita? Sinal de alerta.\n\nSe for usar: geladeira de 2 a 8 °C desde que chega, reconstituição com água bacteriostática, dose baixa no começo (mesmo para quem já usou Mounjaro) e acompanhamento clínico de peso, glicemia e pressão.",
+  "question": "A sua farmácia já te mostrou o certificado de análise do frasco?",
+  "share": "quem usa tirzepatida manipulada e nunca viu o laudo"
+}

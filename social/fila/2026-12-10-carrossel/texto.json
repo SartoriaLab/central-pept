@@ -1,0 +1,51 @@
+{
+  "hook": "Você acha que o Ozempic só mexe no estômago?",
+  "hookIcon": "pensando",
+  "slides": [
+    {
+      "title": "Ozempic é remédio de estômago",
+      "layout": "mito",
+      "body": "Não é só isso. O receptor de GLP-1, onde a semaglutida age, existe no pâncreas, no cérebro, no intestino e até no coração.",
+      "icon": "errado"
+    },
+    {
+      "title": "Estômago x cérebro",
+      "layout": "lado",
+      "body": "Estômago: esvazia mais devagar, a comida fica mais tempo lá\nCérebro: centros de saciedade avisam mais cedo que chega",
+      "icon": "cerebro"
+    },
+    {
+      "title": "E no pâncreas?",
+      "layout": "pergunta",
+      "body": "Ali a semaglutida aumenta a insulina de forma glicose-dependente: age mais quando a glicose está alta. E ainda segura o glucagon, que faz a glicose subir.",
+      "icon": "duvida"
+    },
+    {
+      "title": "2024",
+      "layout": "numero",
+      "body": "Ano em que a FDA aprovou a semaglutida também para reduzir risco cardiovascular em adultos com doença cardiovascular estabelecida, conforme a indicação.",
+      "icon": "coracao"
+    },
+    {
+      "title": "Por isso o enjoo faz sentido",
+      "layout": "padrao",
+      "body": "Estômago mais lento e cérebro avisando que chega: a mesma ação que dá saciedade explica a náusea, o efeito colateral mais comum.",
+      "icon": "enjoo"
+    },
+    {
+      "title": "Cola da semaglutida",
+      "layout": "passos",
+      "body": "Age no pâncreas, no cérebro, no intestino e no coração\nEnjoo vem da mesma ação que dá saciedade\nConte ao médico seu histórico de tireoide\nGestação: uso não recomendado",
+      "icon": "certo"
+    }
+  ],
+  "narration": [
+    { "text": "Você acha que o Ozempic só mexe no estômago? Eu sei, é o que todo mundo sente primeiro." },
+    { "text": "Mas o receptor onde a semaglutida age está no pâncreas, no cérebro, no intestino e até no coração." },
+    { "text": "No pâncreas, ela aumenta a insulina quando a glicose está alta. No cérebro, a saciedade chega mais cedo." },
+    { "text": "Então, Ozempic só no estômago? Não: ele conversa com o corpo todo. Por isso o acompanhamento é com o médico." }
+  ],
+  "caption": "Eu sei, o que a gente sente primeiro com o Ozempic é no estômago. Mas o receptor de GLP-1, onde a semaglutida age, está no pâncreas, no cérebro, no intestino e no coração.\n\n1️⃣ Estômago: o esvaziamento fica mais lento\n2️⃣ Cérebro: os centros de saciedade avisam mais cedo\n3️⃣ Pâncreas: mais insulina quando a glicose está alta, e menos glucagon\n\nEm 2024, a FDA também aprovou a semaglutida para reduzir risco cardiovascular em adultos com doença cardiovascular estabelecida, conforme a indicação.\n\n⚠️ Histórico pessoal ou familiar de carcinoma medular de tireoide ou NEM 2 contraindica o uso, e na gestação o uso não é recomendado. Conte seu histórico ao médico antes de começar.",
+  "question": "Qual efeito do Ozempic você sentiu primeiro?",
+  "share": "aquela amiga que acha que o Ozempic é só remédio de estômago"
+}

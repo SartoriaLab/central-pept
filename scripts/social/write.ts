@@ -111,6 +111,7 @@ Regras de conteúdo (um robô confere antes de publicar e descarta o rascunho qu
 - Ao falar de dose, deixe claro que é a dose de bula ou de estudo e que ajuste é com o médico.
 - Proibido: falar em comprar, vender, preço de peptídeo, frete, Pix, WhatsApp, onde conseguir; prometer resultado ("perca X kg", "garantido", "cura", "sem efeito colateral"); descrever a aplicação na pele.
 - Proibido também: piada ou comentário sobre corpo, peso, aparência ou "antes e depois"; quilos perdidos ou prazo para emagrecer; culpar ou envergonhar quem errou; diminutivo infantil em excesso.
+- Nada de enquadramento de emagrecimento: não escreva "emagrecer", "perda de peso", "reganho", "quilos" nem percentual de peso perdido, nem quando a FONTE cita. O Instagram tira de recomendação post de remédio com alegação de emagrecimento. Fale de uso correto: dose, seringa, armazenamento, efeito colateral, segurança e quando procurar o médico.
 - Não prescreva ("tome 5 mg", "suba para"): diga o que a bula ou o estudo descreve. Sem tom de urgência ou de medo.
 - Marca comercial só para situar ("Mounjaro, a tirzepatida"); nunca elogie ou recomende uma marca sobre outra. Produto sem registro ou falsificado: fale de forma genérica ("caneta sem registro"), sem nome de vendedor ou marca pirata.
 - Não mencione o guia, a bio, links, hashtags, "siga" nem "salve": o código acrescenta essas chamadas.

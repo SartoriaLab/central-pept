@@ -178,7 +178,13 @@ Feed, sitemap, busca, páginas de tag e imagem de compartilhamento saem sozinhos
    (`ensureTables` em `state.ts`, espelho de `drizzle/schema.ts`: mudou um, mude o outro). O webhook
    cria só `social_state` e `social_dms` (`ensureWebhookTables`), pois pode rodar antes do robô.
 5. Bio do perfil aponta para `/links` (noindex), com UTM `instagram/bio` (`bioUrl`).
-6. Estratégia de crescimento (dados e decisões de 21/11/2026): `docs/instagram-estrategia.md`. Resumo:
+6. Restrição de 23/11/2026: um Reels sobre reganho foi sinalizado e a conta saiu das recomendações
+   (Status da conta). Desde então, até a conta voltar: o post não cita guia pago (`GUIDE_IN_POSTS` em
+   `ebook-cta.ts`; sem guia, a chamada é das calculadoras grátis); o validador barra emagrecer, perda e
+   reganho de peso, quilos e antes e depois (`BANNED`); os temas são só semaglutida, tirzepatida e
+   liraglutida mais posts gerais de uso, sem rebote, manipulado, "peso" ou "emagrecer" no título
+   (`SAFE_PEPTIDES`, `RISKY_POST`, `RISKY_TITLE` em `topics.ts`). Não religue nada disso sem o dono pedir.
+7. Estratégia de crescimento (dados e decisões de 21/11/2026): `docs/instagram-estrategia.md`. Resumo:
    - Legenda sem preço e sem desconto (`ctaLine`), porque o Instagram não recomenda post que vende
      produto de saúde a quem não segue. Preço e cupom vão só no direct.
    - Marca (Mounjaro/Ozempic) no gancho quando o remédio é o de marca.

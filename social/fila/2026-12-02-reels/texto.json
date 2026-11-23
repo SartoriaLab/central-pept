@@ -1,173 +1,132 @@
 {
-  "hook": "O GHK-Cu do seu sérum é o mesmo do frasco?",
-  "hookIcon": "pele",
+  "hook": "Saxenda e Ozempic são a mesma coisa? Não.",
+  "hookIcon": "duvida",
   "slides": [
     {
-      "title": "Sérum e frasco são a mesma coisa?",
-      "layout": "pergunta",
-      "body": "A molécula é a mesma: o GHK-Cu, um peptídeo que carrega cobre e já existe no corpo. A situação dos dois é que é completamente diferente.",
-      "icon": "duvida"
-    },
-    {
-      "title": "O que ele faz no laboratório",
-      "layout": "padrao",
-      "body": "Estimula colágeno e elastina, que dão firmeza à pele. Em células, alterou a atividade de cerca de 4.000 genes. Isso é laboratório, não resultado em gente.",
-      "icon": "microscopio"
-    },
-    {
-      "title": "Funciona igual em todo mundo",
+      "title": "Saxenda e Ozempic são o mesmo remédio",
       "layout": "mito",
-      "body": "Os estudos em pessoas são pequenos. No maior deles, de fase 3 com 511 pacientes com úlcera de pé diabético, o GHK-Cu não superou o placebo.",
+      "body": "Não são. Saxenda e Victoza são liraglutida. Ozempic e Wegovy são semaglutida. As duas agem no receptor GLP-1, mas são moléculas diferentes.",
       "icon": "errado"
     },
     {
-      "title": "Tópico x injetável",
+      "title": "Quanto tempo ficam no corpo",
       "layout": "lado",
-      "body": "Sérum: ingrediente cosmético permitido, seguro em concentração baixa\nInjetável: sem aprovação da ANVISA nem da FDA para uso humano",
-      "icon": "balanca"
+      "body": "Liraglutida: meia-vida de cerca de 13h, uso diário\nSemaglutida: meia-vida de cerca de 7 dias, uso semanal",
+      "icon": "ampulheta"
     },
     {
-      "title": "Quem não deve usar",
+      "title": "Dá pra usar a dose de uma na outra?",
+      "layout": "pergunta",
+      "body": "Não. A liraglutida começa em 0,6 mg por dia; a semaglutida, em 0,25 mg por semana. Escalas diferentes, e troca de remédio é com o médico.",
+      "icon": "regua"
+    },
+    {
+      "title": "Efeitos colaterais",
       "layout": "padrao",
-      "body": "Quem tem alergia a cobre ou doença de Wilson, além de gestantes e lactantes, por falta de dados. No tópico, o relato mais comum é irritação local leve.",
-      "icon": "alerta"
+      "body": "Nas duas, náusea, vômito, diarreia e constipação são os mais comuns. A liraglutida também pode aumentar a frequência cardíaca.",
+      "icon": "enjoo"
     },
     {
-      "title": "A pergunta pro seu médico",
+      "title": "Cola das duas",
       "layout": "passos",
-      "body": "Isso é cosmético ou é pesquisa?\nTem registro e rótulo de verdade?\nFrasco \"só para pesquisa\" não é tratamento",
-      "icon": "estetoscopio"
+      "body": "Saxenda e Victoza: liraglutida, todo dia\nOzempic e Wegovy: semaglutida, uma vez por semana\nCada uma com a sua dose de bula\nTroca só com o médico",
+      "icon": "certo"
     }
   ],
   "scenes": [
     {
-      "chip": "o sérum",
-      "kicker": "a dúvida do momento",
-      "title": "Sérum e frasco",
+      "chip": "a dúvida",
+      "kicker": "a confusão mais comum",
+      "title": "Saxenda e Ozempic",
       "accent": "são iguais?",
       "tone": "vermelho",
-      "speech": "O GHK-Cu do seu sérum é o mesmo do frasco?",
-      "visual": {
-        "type": "frascos",
-        "left": { "label": "SÉRUM", "note": "creme, cosmético", "liquid": "claro" },
-        "right": { "label": "GHK-Cu", "note": "frasco injetável", "liquid": "po" },
-        "sign": "vs"
-      }
+      "speech": "Saxenda e Ozempic são a mesma coisa? Não.",
+      "visual": { "type": "frascos", "left": { "label": "SAXENDA", "liquid": "claro" }, "right": { "label": "OZEMPIC", "liquid": "claro" }, "sign": "≠" }
     },
     {
-      "chip": "a molécula",
-      "kicker": "o que ele é",
-      "title": "Peptídeo",
-      "accent": "que carrega cobre",
-      "tone": "azul",
-      "speech": "A molécula é a mesma: um peptídeo que carrega cobre e já existe no seu corpo.",
-      "visual": { "type": "icone", "icon": "dna", "note": "existe naturalmente no corpo" }
-    },
-    {
-      "chip": "a molécula",
-      "kicker": "guarda essa",
-      "title": "Uma pergunta",
-      "accent": "separa os dois",
-      "tone": "azul",
-      "speech": "Mas uma pergunta só separa os dois, e eu te conto qual é no final.",
-      "visual": { "type": "icone", "icon": "pensando" }
-    },
-    {
-      "chip": "o laboratório",
-      "kicker": "de onde vem a fama",
-      "title": "Mais colágeno",
-      "accent": "e elastina",
-      "tone": "azul",
-      "speech": "No laboratório, ele estimula colágeno e elastina, o que dá firmeza à pele.",
-      "visual": {
-        "type": "lista",
-        "items": [
-          { "text": "Colágeno", "mark": "ok" },
-          { "text": "Elastina", "mark": "ok" },
-          { "text": "Firmeza da pele", "mark": "ok" }
-        ]
-      }
-    },
-    {
-      "chip": "o laboratório",
-      "kicker": "o número que circula",
-      "title": "Mexeu em",
-      "accent": "4.000 genes",
-      "tone": "azul",
-      "speech": "Em células, mexeu com cerca de 4.000 genes, mas isso é laboratório, não gente.",
-      "visual": { "type": "numero", "value": "4.000", "note": "genes alterados em células tumorais" },
-      "source": "Connectivity Map"
-    },
-    {
-      "chip": "em pessoas",
-      "kicker": "no maior estudo",
-      "title": "511 pacientes",
-      "accent": "igual ao placebo",
+      "chip": "a dúvida",
+      "kicker": "fica até o fim",
+      "title": "A diferença",
+      "accent": "que muda a rotina",
       "tone": "vermelho",
-      "speech": "Em pessoas, os estudos são pequenos, e o maior, com 511 pacientes, não superou o placebo.",
-      "visual": { "type": "carimbo", "text": "IGUAL AO PLACEBO", "note": "fase 3, úlcera de pé diabético" },
-      "source": "ensaio de fase 3"
+      "speech": "E a diferença que mais pesa no seu dia a dia eu deixo para o final.",
+      "visual": { "type": "icone", "icon": "pensando", "note": "vem daqui a pouco" }
     },
     {
-      "chip": "o sérum",
-      "kicker": "no creme",
-      "title": "Cosmético",
-      "accent": "permitido",
+      "chip": "as moléculas",
+      "kicker": "o que tem dentro",
+      "title": "Liraglutida",
+      "accent": "e semaglutida",
       "tone": "azul",
-      "speech": "No sérum, ele é ingrediente cosmético permitido, considerado seguro em concentração baixa.",
-      "visual": { "type": "frasco", "label": "SÉRUM", "liquid": "claro", "tag": "COSMÉTICO" },
-      "source": "painel CIR, 2018"
+      "speech": "Saxenda e Victoza são liraglutida; Ozempic e Wegovy são semaglutida.",
+      "visual": { "type": "frascos", "left": { "label": "LIRAGLUTIDA", "note": "Saxenda, Victoza" }, "right": { "label": "SEMAGLUTIDA", "note": "Ozempic, Wegovy" }, "sign": "vs" }
     },
     {
-      "chip": "o frasco",
-      "kicker": "na forma injetável",
-      "title": "Sem aprovação",
-      "accent": "pra uso humano",
-      "tone": "vermelho",
-      "speech": "Já o injetável não tem aprovação da ANVISA nem da FDA para uso humano.",
-      "visual": { "type": "carimbo", "text": "NÃO APROVADO", "note": "GHK-Cu injetável" },
-      "source": "alerta da ANVISA, julho de 2026"
-    },
-    {
-      "chip": "o frasco",
-      "kicker": "o que vem no rótulo",
-      "title": "Só para",
-      "accent": "pesquisa",
-      "tone": "vermelho",
-      "speech": "E o frasco vem rotulado só para pesquisa, sem garantia de pureza nem de esterilidade.",
-      "visual": { "type": "frasco", "label": "GHK-Cu", "liquid": "po", "stamp": "SÓ PESQUISA" }
-    },
-    {
-      "chip": "a pergunta",
-      "kicker": "leva pra consulta",
-      "title": "Cosmético",
-      "accent": "ou pesquisa?",
+      "chip": "as moléculas",
+      "kicker": "o que elas têm em comum",
+      "title": "O mesmo alvo,",
+      "accent": "o receptor GLP-1",
       "tone": "azul",
-      "speech": "A pergunta é: isso é cosmético ou é pesquisa? Leva ela pro seu médico.",
-      "visual": {
-        "type": "lista",
-        "items": [
-          { "text": "Cosmético com rótulo", "mark": "ok" },
-          { "text": "Frasco só para pesquisa", "mark": "nao" }
-        ]
-      }
+      "speech": "As duas agem no mesmo receptor, o GLP-1, e deixam o estômago mais lento.",
+      "visual": { "type": "icone", "icon": "alvo", "note": "mesmo receptor, moléculas diferentes" }
+    },
+    {
+      "chip": "a diferença",
+      "kicker": "quanto tempo ficam no corpo",
+      "title": "Uma dura horas,",
+      "accent": "a outra dias",
+      "tone": "azul",
+      "speech": "A diferença está no tempo que cada uma fica no seu corpo.",
+      "visual": { "type": "barras", "bars": [ { "label": "semaglutida", "value": 168, "display": "~7 dias" }, { "label": "liraglutida", "value": 13, "display": "~13h" } ] },
+      "source": "meia-vida, fichas das moléculas"
+    },
+    {
+      "chip": "a diferença",
+      "kicker": "liraglutida",
+      "title": "Cerca de 13h",
+      "accent": "e já está baixando",
+      "tone": "azul",
+      "speech": "A liraglutida tem meia-vida de cerca de 13h, por isso o uso é diário.",
+      "visual": { "type": "numero", "value": "13h", "note": "meia-vida da liraglutida" }
+    },
+    {
+      "chip": "a diferença",
+      "kicker": "semaglutida",
+      "title": "Cerca de 7 dias",
+      "accent": "no corpo",
+      "tone": "azul",
+      "speech": "A semaglutida fica cerca de 7 dias, e por isso é uma vez por semana.",
+      "visual": { "type": "icone", "icon": "calendario", "note": "uma aplicação por semana" }
+    },
+    {
+      "chip": "o risco",
+      "kicker": "quem troca de caneta",
+      "title": "Levar a rotina",
+      "accent": "de uma para outra",
+      "tone": "vermelho",
+      "speech": "O erro é trocar de caneta e manter a rotina ou a dose da antiga.",
+      "visual": { "type": "carimbo", "text": "NÃO É IGUAL", "note": "dose e rotina mudam" }
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "na prática",
+      "title": "Cada caneta",
+      "accent": "com a sua bula",
+      "tone": "azul",
+      "speech": "Cada uma tem a sua dose de bula, e a troca de uma para outra é com o médico.",
+      "visual": { "type": "lista", "items": [ { "text": "Liraglutida: todo dia", "mark": "ok" }, { "text": "Semaglutida: uma vez por semana", "mark": "ok" }, { "text": "Trocar por conta própria", "mark": "nao" } ] }
     },
     {
       "chip": "pra lembrar",
       "kicker": "da próxima vez",
-      "title": "Mesmo nome",
-      "accent": "mundos diferentes",
-      "tone": "vermelho",
-      "speech": "Então, o GHK-Cu do sérum e o do frasco não são a mesma coisa.",
-      "visual": {
-        "type": "frascos",
-        "left": { "label": "SÉRUM", "note": "cosmético permitido", "liquid": "claro" },
-        "right": { "label": "GHK-Cu", "note": "só pesquisa", "liquid": "po" },
-        "sign": "≠"
-      }
+      "title": "Saxenda não é",
+      "accent": "Ozempic",
+      "tone": "azul",
+      "speech": "Então, Saxenda e Ozempic não são a mesma coisa: uma é diária, a outra é semanal.",
+      "visual": { "type": "icone", "icon": "certo", "note": "diária x semanal" }
     }
   ],
-  "caption": "Eu sei, o nome é o mesmo e dá pra confundir. O GHK-Cu é um peptídeo que carrega cobre e já existe no corpo. No laboratório, estimula colágeno e elastina; em células, alterou a atividade de cerca de 4.000 genes. Isso é laboratório, não resultado em pessoas.\n\nEm gente, os estudos são pequenos. No maior deles, de fase 3 com 511 pacientes com úlcera de pé diabético, o GHK-Cu não superou o placebo.\n\n⚠️ No sérum e no creme, o GHK-Cu é ingrediente cosmético permitido, considerado seguro em concentração baixa. A forma injetável não tem aprovação da ANVISA nem da FDA para uso humano, e os frascos vêm rotulados \"apenas para pesquisa\", sem garantia de pureza ou esterilidade. Alergia a cobre e doença de Wilson são contraindicações.\n\n1️⃣ Pergunte: isso é cosmético ou é pesquisa?\n2️⃣ Confira se tem registro e rótulo de verdade\n3️⃣ Converse com seu médico ou dermatologista antes de qualquer frasco",
-  "question": "Você já usou algum sérum com peptídeo de cobre?",
-  "share": "aquela amiga que acha que o GHK-Cu do frasco é igual ao do sérum"
+  "caption": "Eu sei, todo mundo coloca Saxenda e Ozempic no mesmo saco. Mas Saxenda e Victoza são liraglutida, e Ozempic e Wegovy são semaglutida: as duas agem no receptor GLP-1, só que são moléculas diferentes.\n\n1️⃣ A liraglutida tem meia-vida de cerca de 13h: uso diário, começando em 0,6 mg pela bula.\n2️⃣ A semaglutida tem meia-vida de cerca de 7 dias: uso semanal, começando em 0,25 mg pela bula.\n3️⃣ Efeitos colaterais mais comuns nas duas: náusea, vômito, diarreia e constipação.\n\n⚠️ Trocar de caneta e manter a rotina ou a dose da antiga é erro. A troca e qualquer ajuste de dose são com o médico.",
+  "question": "Você já usou Saxenda antes do Ozempic?",
+  "share": "aquela amiga que acha que Saxenda e Ozempic são a mesma coisa"
 }

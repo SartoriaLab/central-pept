@@ -1,0 +1,51 @@
+{
+  "hook": "Fez a glicada com um mês de Mounjaro? Cedo demais.",
+  "hookIcon": "prancheta",
+  "slides": [
+    {
+      "title": "Um mês de caneta já aparece no exame",
+      "layout": "mito",
+      "body": "A hemoglobina glicada é a média da glicose dos últimos meses. Exame feito cedo mistura o antes e o depois do Mounjaro e não mostra o efeito completo.",
+      "icon": "errado"
+    },
+    {
+      "title": "2 a 3 meses",
+      "layout": "numero",
+      "body": "É o período que a HbA1c resume. Por isso o exame só mostra o efeito completo da tirzepatida depois desse intervalo em dose estável.",
+      "icon": "calendario"
+    },
+    {
+      "title": "Sentir x medir",
+      "layout": "lado",
+      "body": "Sentir: menos fome e saciedade mais rápida já nos primeiros dias\nMedir: a glicada só conta a história depois de meses na mesma dose",
+      "icon": "balanca"
+    },
+    {
+      "title": "E o primeiro mês, entra na conta?",
+      "layout": "pergunta",
+      "body": "Entra pouco. As 4 primeiras semanas são de dose inicial, para o corpo se acostumar. No diabetes ela já reduz a glicose, mas não é dose de manutenção.",
+      "icon": "duvida"
+    },
+    {
+      "title": "Dose pulada atrapalha a leitura",
+      "layout": "padrao",
+      "body": "Doses puladas quebram a concentração estável. Aí o exame mede um tratamento irregular, e parece que o remédio fez menos do que faz.",
+      "icon": "alerta"
+    },
+    {
+      "title": "Cola antes do exame",
+      "layout": "passos",
+      "body": "Anote a data de cada aplicação e cada mudança de dose\nConte o tempo desde que a dose ficou estável\nLeve o registro e o exame à consulta\nAjuste de dose é decisão do médico",
+      "icon": "certo"
+    }
+  ],
+  "narration": [
+    { "text": "Fez a glicada com um mês de Mounjaro e achou que não mudou nada? Eu sei, a ansiedade é grande." },
+    { "text": "Só que a glicada é a média da glicose de 2 a 3 meses. Exame cedo mistura o antes e o depois." },
+    { "text": "O efeito completo aparece depois desse intervalo em dose estável, e dose pulada atrapalha a leitura." },
+    { "text": "Então, glicada com um mês de caneta? Cedo demais. Leve o registro e decida com o médico." }
+  ],
+  "caption": "Eu sei, dá vontade de fazer o exame logo para ver se o Mounjaro está funcionando. Mas a hemoglobina glicada (HbA1c) reflete a média da glicose dos últimos 2 a 3 meses: exame feito com um mês de tirzepatida ainda mistura o antes e o depois.\n\n1️⃣ As 4 primeiras semanas são de dose inicial: no diabetes ela já reduz a glicose, mas não é dose de manutenção.\n2️⃣ O efeito completo na glicada só aparece depois de 2 a 3 meses em dose estável.\n3️⃣ Anote cada aplicação e cada mudança de dose e leve ao médico junto com o exame.\n\n⚠️ Doses puladas quebram a concentração estável e deixam o resultado do exame mais difícil de ler. Ajuste de dose é sempre com o médico.",
+  "question": "Com quantos meses de tratamento você fez a primeira glicada?",
+  "share": "aquela amiga que fez o exame com um mês de Mounjaro e desanimou"
+}

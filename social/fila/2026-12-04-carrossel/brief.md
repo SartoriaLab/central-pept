@@ -9,105 +9,116 @@ Se sair "REPROVADO", corrija só o que a lista aponta e rode de novo.
 
 ## PEDIDO
 
-TEMA: TB-500: para que serve, protocolo e combinação com BPC-157
+TEMA: Como diluir tirzepatida em pó (5, 10, 15, 20 e 60 mg): unidades por dose
 
 FONTE:
-Título: TB-500: para que serve, protocolo e combinação com BPC-157
+Título: Como diluir tirzepatida em pó (5, 10, 15, 20 e 60 mg): unidades por dose
 
-Resumo: TB-500 é um fragmento sintético da Timosina Beta-4 promovido para recuperação tecidual, mas SEM aprovação regulatória e com evidência majoritariamente animal e in vitro. É proibido pela WADA dentro e fora de competição. Protocolos informais usam 2-5 mg/semana SC, frequentemente combinado com BPC-157. Produtos do mercado cinza têm pureza e dosagem incertas.
+Resumo: Frasco de 10 mg com 2 ml de água = 5 mg/ml. Dose de 2,5 mg = 50 unidades; 5 mg = 100 unidades. Para doses altas use menos água ou frasco maior. Dilua escorrendo a água pela parede, gire sem agitar e guarde de 2-8 °C por até 28 dias.
 
-O TB-500 aparece em fóruns e lojas online como um "peptídeo de recuperação" capaz de acelerar a cicatrização de músculos, tendões e ligamentos. A realidade é mais sóbria: trata-se de uma substância **sem aprovação para uso humano** em qualquer país, com evidência concentrada em animais e proibida no esporte. Este artigo explica o que é o TB-500, o que a ciência realmente mostra e por que a cautela é indispensável.
+O frasco de tirzepatida vem em pó liofilizado, e diluir (o termo técnico é reconstituir) é colocar a água que transforma esse pó em solução injetável. A dose que você aplica depende de **quanta água você coloca** e de **quantas unidades puxa na seringa**. Errar essa conta é o erro mais comum — e o mais perigoso — de quem sai da caneta, onde a dose vem pronta, para o frasco, onde a dose é você quem faz.
 
-o TB-500 **não** é aprovado para uso humano em nenhuma jurisdição e é **proibido pela WADA**, dentro e fora de competição. A maior parte da evidência vem de modelos animais e estudos in vitro. Este texto é informativo e não é indicação de uso.
+Este guia mostra o material, o passo a passo e uma tabela pronta com as unidades para cada combinação de frasco e dose. A fórmula por trás de tudo, para seringa de insulina de 100 U/ml, é: **unidades = dose (mg) × água (ml) × 100 ÷ mg do frasco**.
 
-## O que é o TB-500
+## Material
 
-O TB-500 é um **fragmento sintético da Timosina Beta-4 (Tβ4)**, uma proteína endógena de 43 aminoácidos com papel central na reparação tecidual, na migração celular e na angiogênese (formação de novos vasos). O marketing online o posiciona como agente de recuperação para lesões musculoesqueléticas, mas essa promessa não corresponde ao status regulatório: o TB-500 não possui aprovação em nenhuma jurisdição, e a maior parte da evidência é pré-clínica.
+- Frasco de tirzepatida liofilizada (5, 10, 15, 20 ou 60 mg)
+- Água bacteriostática (com 0,9% de álcool benzílico)
+- Seringa de 3 ml com agulha, para transferir a água
+- Seringas de insulina 100 U (de 30, 50 ou 100 U), uma por aplicação
+- Álcool 70% e algodão
 
-Para os dados técnicos completos — faixa de dose, referências e status regulatório — consulte a ficha técnica do TB-500.
+## Passo a passo
 
-## Como funciona (Timosina Beta-4 e a actina)
+1. Higienize as mãos e passe álcool 70% nas tampas de borracha dos dois frascos.
+2. Puxe a água na seringa de 3 ml: **1 ml para frasco de 5 mg**, **2 ml para frascos de 10, 15 e 20 mg**, **3 ml para frasco de 60 mg** (ou outro volume, conforme a tabela abaixo).
+3. Injete a água **devagar, escorrendo pela parede** do frasco. Nunca em jato direto no pó: bulas de medicamentos liofilizados orientam assim para evitar espuma.
+4. Gire suavemente o frasco entre as mãos. **Não agite.** O pó dissolve em 1-2 minutos e a solução fica límpida.
+5. Espere 5 minutos e olhe contra a luz: não pode haver partículas nem turvação.
+6. Etiquete o frasco com data e concentração. Exemplo: *"10 mg / 2 ml = 5 mg/ml"*. Sem isso, na semana seguinte você não sabe quantas unidades puxar.
+7. Geladeira, entre 2 e 8 °C, longe da porta e da luz.
 
-O principal mecanismo biológico descrito para a Tβ4 é o **sequestro de G-actina monomérica**: a molécula se liga à actina livre e regula a polimerização do citoesqueleto, o que favorece migração celular, remodelamento tecidual e exocitose. O motivo hexapeptídico 17-LKKTET-23 é o domínio essencial dessa ligação à actina.
+## Tabela pronta: unidades na seringa por dose
 
-Descrevem-se ainda efeitos sobre a angiogênese via modulação da via Notch/NF-κB, aumento da expressão de VEGF em hipóxia por meio do óxido nítrico, e inibição da ativação de NF-κB induzida por TNF-α, com redução de IL-8. É importante frisar: **nenhum desses efeitos tem validação clínica robusta em humanos** — eles descrevem o que se observou em laboratório, não um benefício comprovado em pessoas.
+| Frasco | Água | Concentração | 2,5 mg | 5 mg | 7,5 mg | 10 mg | 12,5 mg | 15 mg |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 5 mg | 1 ml | 5 mg/ml | 50 U | 100 U | — | — | — | — |
+| 10 mg | 1 ml | 10 mg/ml | 25 U | 50 U | 75 U | 100 U | — | — |
+| 10 mg | 2 ml | 5 mg/ml | 50 U | 100 U | — | — | — | — |
+| 15 mg | 1,5 ml | 10 mg/ml | 25 U | 50 U | 75 U | 100 U | — | — |
+| 15 mg | 3 ml | 5 mg/ml | 50 U | 100 U | — | — | — | — |
+| 20 mg | 1 ml | 20 mg/ml | 12,5 U | 25 U | 37,5 U | 50 U | 62,5 U | 75 U |
+| 20 mg | 2 ml | 10 mg/ml | 25 U | 50 U | 75 U | 100 U | — | — |
+| 60 mg | 2 ml | 30 mg/ml | 8,3 U | 16,7 U | 25 U | 33,3 U | 41,7 U | 50 U |
+| 60 mg | 3 ml | 20 mg/ml | 12,5 U | 25 U | 37,5 U | 50 U | 62,5 U | 75 U |
 
-## Para que é usado e o que a evidência mostra
+**"—"** = a dose não cabe em uma seringa de 100 U nessa concentração. Use menos água ou divida em duas aplicações no mesmo momento. Doses de 12,5 e 15 mg pedem concentração de 10 mg/ml (125 U e 150 U, ou seja, duas seringas) ou frasco de 15 mg com apenas 1 ml de água (15 mg/ml: 12,5 mg = 83 U; 15 mg = 100 U).
 
-Nos círculos informais, o TB-500 é usado com a expectativa de acelerar a recuperação de lesões de tendões, ligamentos e músculos, reduzir inflamação e melhorar a cicatrização. O ponto que costuma ser omitido é a **qualidade da evidência**.
+Concentrações altas, como 30 mg/ml, deixam as doses baixas com menos de 10 unidades, difíceis de medir com precisão. Nesse caso, a seringa de 30 U tem marcações mais finas.
 
-- A maior parte dos dados vem de **modelos animais e estudos in vitro**.
-- Os poucos ensaios em humanos foram feitos com **Tβ4 recombinante** — não com o TB-500 vendido no mercado cinza — e em contextos clínicos específicos, não em recuperação esportiva.
-- Não há estudos que confirmem eficácia em recuperação musculoesquelética humana.
+Cada frasco tem uma página com a tabela completa e a duração: 5 mg, 10 mg, 15 mg, 20 mg e 60 mg. Para qualquer combinação fora da tabela, a calculadora de reconstituição faz a conta e desenha a seringa com a marcação exata.
 
-Em outras palavras, não existe validação clínica robusta que sustente as promessas feitas na venda do produto. Tratar o TB-500 como solução comprovada para lesões é ir muito além do que os dados permitem.
+## Quantas doses rende cada frasco
 
-## Protocolo informal e a combinação com BPC-157
+- **5 mg**: 2 doses de 2,5 mg
+- **10 mg**: 4 doses de 2,5 mg, 2 de 5 mg ou 1 de 10 mg
+- **15 mg**: 6 doses de 2,5 mg, 3 de 5 mg, 2 de 7,5 mg ou 1 de 15 mg
+- **20 mg**: 8 doses de 2,5 mg, 4 de 5 mg ou 2 de 10 mg
+- **60 mg**: 24 doses de 2,5 mg, 12 de 5 mg, 6 de 10 mg ou 4 de 15 mg
 
-Não existe dose de bula, porque o TB-500 não é aprovado. Os protocolos que circulam são informais e **sem respaldo clínico**: costumam usar **2 a 5 mg por semana** por via subcutânea, muitas vezes com uma fase de "carga" (cerca de 2 aplicações semanais) seguida de "manutenção" (1 aplicação semanal). Reforçando: esses números vêm da prática de usuários, não de diretrizes médicas.
+Lembre que o frasco reconstituído dura **28 dias** na geladeira. Um frasco de 15 mg na dose de 2,5 mg renderia 6 semanas — vai vencer antes de acabar. No frasco de 60 mg isso pesa mais: com aplicação semanal, só a dose de 15 mg acaba em 4 semanas. Em qualquer dose menor, parte do frasco passa do prazo, o que costuma anular a economia do frasco grande. Nessa fase inicial, o frasco de 10 mg fecha a conta certinha em 4 semanas. A comparação de custo por dose está em quanto custa tirzepatida.
 
-O TB-500 é frequentemente combinado com o BPC-157, outro peptídeo promovido para cicatrização. A lógica informal é somar mecanismos de reparo, mas nenhum dos dois tem aprovação para uso humano e não há estudos clínicos que validem a segurança ou a eficácia da combinação. Se você quer entender as diferenças entre eles, veja o comparativo BPC-157 vs TB-500; para a discussão de duração de ciclos frequentemente citada, há também o artigo sobre o ciclo e a duração do BPC-157.
+## Erros comuns
 
-Quem manipula esses peptídeos liofilizados costuma recorrer a uma calculadora de reconstituição para acertar a diluição — o que não torna o uso seguro nem legal, apenas reduz um dos vários pontos de erro.
+- **Agitar o frasco**: deixa a solução turva e forma espuma que atrapalha a medida. As bulas mandam girar, não agitar.
+- **Água destilada ou soro em vez de bacteriostática**: sem conservante, o frasco contamina em dias.
+- **Não anotar a concentração** e errar a dose na semana seguinte — para mais ou para menos.
+- **Confundir "unidades" com "mg"**: 50 unidades não são 50 mg; são 0,5 ml da solução que você preparou.
+- **Reutilizar seringa**: agulha romba dói mais e leva contaminação para dentro do frasco.
+- **Pular a titulação**: começar em 5 ou 7,5 mg multiplica náusea e vômito. A calculadora de titulação monta a escada a partir de 2,5 mg.
 
-## Efeitos colaterais e riscos
+## Armazenamento
 
-Como os dados de segurança em humanos são escassos, o perfil de risco do TB-500 é pouco caracterizado. Entre os pontos relatados e as preocupações teóricas:
+- **Pó liofilizado**: geladeira. Aceita alguns dias fora, por exemplo durante o transporte.
+- **Reconstituído**: geladeira entre 2 e 8 °C, até 28 dias, longe da luz. Nunca congele: o gelo destrói o peptídeo.
+- **Viagem**: bolsa térmica com gelo reutilizável, sem contato direto do frasco com o gelo.
 
-- Dados de segurança em humanos escassos (pequenos ensaios usaram Tβ4 recombinante, não TB-500).
-- Reações no local da injeção relatadas por usuários.
-- Preocupação teórica pró-angiogênica em contexto tumoral, com dados pré-clínicos mistos.
-- Produtos de mercado cinza frequentemente com contaminação e dosagem imprecisa.
+Os princípios são os mesmos das canetas de GLP-1; o guia de como guardar Ozempic e Wegovy detalha os cuidados com temperatura.
 
-O último ponto merece destaque: como não há controle regulatório, o que está no frasco pode não corresponder ao rótulo — em pureza ou em quantidade. Com um produto injetável, isso é um risco relevante. O uso é especialmente desaconselhado para **atletas sujeitos ao código WADA** (proibição absoluta), **gestantes e lactantes** (ausência total de dados) e **pessoas com neoplasias ativas ou histórico oncológico**.
+P: O frasco de tirzepatida vem quase vazio. É normal?
+R: Sim. A tirzepatida em pó (liofilizada) vem como uma pequena camada ou pastilha branca no fundo do frasco, e parece pouca coisa. Alguns miligramas de peptídeo ocupam pouquíssimo espaço. O frasco só ganha volume quando você coloca a água bacteriostática.
+P: Quantos ml vem no frasco de tirzepatida?
+R: Nenhum: o frasco liofilizado vem só com o pó. O volume é a quantidade de água que você adiciona, e ela não muda os miligramas do frasco, só a concentração. Um frasco de 15 mg com 1,5 ml de água tem 10 mg/ml; com 3 ml, 5 mg/ml. Anote no rótulo quanto colocou.
+P: Qual água usar para diluir a tirzepatida?
+R: Água bacteriostática (água estéril com 0,9% de álcool benzílico), que impede a contaminação durante as semanas de uso. Água para injeção serve só se o frasco for usado inteiro no mesmo dia. Soro fisiológico, água destilada ou filtrada não servem.
+P: Como medir 3,75 mg de tirzepatida na seringa de 50 unidades?
+R: Depende da concentração. Frasco de 10 mg com 1 ml de água (10 mg/ml): 3,75 mg = 37,5 unidades, cabe na seringa de 50. Frasco de 10 mg com 2 ml (5 mg/ml): 75 unidades, não cabe na seringa de 50. Frasco de 20 mg com 1 ml (20 mg/ml): 18,75 unidades. A conta é unidades = dose × água × 100 ÷ mg do frasco.
+P: Mounjaro também vem em pó para diluir?
+R: Não. O Mounjaro da Lilly vendido no Brasil é caneta com solução pronta, que não se dilui. Tirzepatida em pó é produto de farmácia de manipulação ou de outras origens, sem a mesma garantia de pureza e dose. Veja os cuidados em tirzepatida manipulada.
+P: Posso usar 1 ml ou 2 ml de água, tanto faz?
+R: A dose final é a mesma; o que muda é o volume que você puxa na seringa. Com mais água, a concentração fica menor e as doses baixas ocupam mais unidades, o que facilita medir com precisão. Com menos água, doses altas cabem em uma única seringa. Escolha pela dose que vai usar e anote a concentração no frasco.
+P: Ficou turvo, e agora?
+R: Não use. Tirzepatida reconstituída corretamente fica límpida e incolor. Turvação, partículas ou cor amarelada indicam contaminação, peptídeo degradado ou agitação excessiva. Descarte e reconstitua um frasco novo.
+P: Quantas unidades são 5 mg de tirzepatida?
+R: Depende da concentração. A 5 mg/ml (frasco de 10 mg com 2 ml de água), 5 mg = 100 unidades. A 10 mg/ml (frasco de 10 mg com 1 ml), 5 mg = 50 unidades. Sem saber quanta água foi usada, não existe resposta — por isso a etiqueta no frasco é obrigatória.
+P: Posso reconstituir com água para injeção comum?
+R: Só se for usar o frasco inteiro no mesmo dia. Água para injeção não tem conservante; em poucos dias o frasco contamina. Para uso ao longo de semanas, a água bacteriostática (com 0,9% de álcool benzílico) é a única opção segura.
+P: Tirzepatida reconstituída dura quanto tempo?
+R: A convenção de segurança é 28 dias na geladeira, entre 2 e 8 °C, protegida da luz. Não é que o peptídeo deixe de existir no dia 29, mas a partir daí a perda de potência e o risco microbiológico deixam de ser previsíveis.
 
-## É liberado no Brasil? E no esporte?
+Peptídeo: Tirzepatida
+Categoria: GLP-1 / Emagrecimento
+Resumo: Agonista duplo GIP/GLP-1 (Mounjaro, Zepbound). Usado para controle glicêmico e perda de peso.
+Dose típica: 2.5 mg, 1x por semana
+Faixa de dose: 2,5-15 mg/semana (subcutâneo, titulação a cada ≥4 semanas)
+Meia-vida: ~5 dias
+Frascos comuns: 5 mg, 10 mg, 15 mg, 20 mg, 60 mg
+Status regulatório: Aprovado FDA
+Descrição: A tirzepatida é um agonista dual dos receptores de GIP e GLP-1, aprovada pela FDA em 2022 como Mounjaro (diabetes tipo 2) e em 2023 como Zepbound (obesidade). Peptídeo sintético de 39 aminoácidos ligado a ácido graxo diácido C20, com ligação à albumina e administração subcutânea semanal.
 
-No Brasil, o TB-500 **não tem registro na ANVISA** e não é aprovado para uso humano — o mesmo vale para todas as outras jurisdições, onde é classificado como substância de pesquisa.
+Os programas SURPASS (diabetes) e SURMOUNT (obesidade) demonstraram perda ponderal média de até ~20,9% com 15 mg/semana em 72 semanas (SURMOUNT-1), superior aos agonistas GLP-1 puros em comparações diretas. Indicada para adultos com DM2 e adultos com obesidade/sobrepeso com comorbidade.
+Mecanismo: Ativa simultaneamente os receptores GIP e GLP-1, ambos da família de receptores acoplados à proteína G classe B. Ativação do GLP-1: insulina glicose-dependente, supressão de glucagon, retardo do esvaziamento gástrico, saciedade central. A coativação de GIP contribui para sensibilidade à insulina e metabolismo lipídico, embora a sinergia exata ainda esteja sob investigação.
 
-No esporte, a situação é ainda mais explícita: o TB-500 está proibido pela WADA na **Seção S2 da Lista Proibida, dentro e fora de competição**, e ainda incide na cláusula S0 (substâncias não aprovadas). Para um atleta testado, isso significa proibição absoluta e risco de sanção. Diante da ausência de aprovação e da evidência majoritariamente pré-clínica, a decisão informada passa por reconhecer o quanto ainda não se sabe sobre essa substância.
-
-P: TB-500 é liberado no Brasil?
-R: Não. O TB-500 não tem registro na ANVISA e não é aprovado para uso humano em nenhuma jurisdição — é classificado como substância de pesquisa (research-only). Os produtos oferecidos online vêm do mercado cinza, sem controle regulatório e com problemas frequentes de pureza e rotulagem imprecisa.
-P: Posso usar TB-500 e BPC-157 juntos?
-R: A combinação é popular em protocolos informais, mas nenhum dos dois peptídeos tem aprovação para uso humano e não existem estudos clínicos que validem a segurança ou a eficácia de usá-los juntos. Além disso, ambos são proibidos pela WADA. Somar mecanismos "no papel" não equivale a benefício comprovado — este texto é informativo e não é indicação de uso.
-P: TB-500 realmente funciona? O que diz a ciência?
-R: A maior parte da evidência vem de modelos animais e estudos in vitro. A Timosina Beta-4 tem mecanismos descritos em laboratório (sequestro de actina, angiogênese), mas nenhum desses efeitos tem validação clínica robusta em humanos. Os poucos ensaios em pessoas usaram Tβ4 recombinante, não o TB-500 do mercado cinza. Ou seja, não há prova sólida de que ele funcione como se promete na venda.
-P: TB-500 é detectado no exame antidoping?
-R: O TB-500 está proibido pela WADA na Seção S2 da Lista Proibida, dentro e fora de competição, e ainda incide na cláusula S0 (substâncias não aprovadas). Para atletas sujeitos ao código WADA, a proibição é absoluta e um resultado positivo pode gerar sanção — ele é alvo dos controles antidoping.
-P: Qual a dose de TB-500?
-R: Não existe dose de bula, porque o TB-500 não é aprovado. Os protocolos que circulam são informais e sem respaldo clínico: costumam usar 2 a 5 mg por semana por via subcutânea, às vezes com uma fase de carga (2x/semana) seguida de manutenção (1x/semana). Esses números vêm da prática de usuários, não de diretrizes médicas.
-
-Peptídeo: TB-500 (Timosina Beta-4)
-Categoria: Cicatrização
-Resumo: Promove recuperação tecidual, reduz inflamação e auxilia na cicatrização.
-Dose típica: 2.5 mg, 2x por semana (carga), 1x por semana (manutenção)
-Faixa de dose: Protocolos informais: 2-5 mg/semana SC (sem respaldo clínico)
-Meia-vida: ~0,5-2 h (Tβ4 recombinante IV em humanos; o fragmento TB-500 não foi caracterizado)
-Frascos comuns: 5 mg, 10 mg
-Status regulatório: Apenas pesquisa
-Proibido pela WADA no esporte.
-Descrição: TB-500 é um fragmento sintético da Timosina Beta-4 (Tβ4), proteína endógena de 43 aminoácidos com papel central em reparação tecidual, migração celular e angiogênese. Apesar do marketing online que o posiciona como agente de recuperação para lesões musculoesqueléticas, o TB-500 não possui aprovação regulatória em nenhuma jurisdição — a maior parte da evidência vem de modelos animais e estudos in vitro.
-
-Está explicitamente proibido pela WADA (Seção S2 da Lista Proibida) dentro e fora de competição, além de incidir na cláusula S0 (substâncias não aprovadas). Produtos comercializados online frequentemente apresentam problemas de pureza e rotulagem imprecisa.
-Mecanismo: O principal mecanismo biológico descrito para a Tβ4 é o sequestro de G-actina monomérica, regulando a polimerização do citoesqueleto e favorecendo migração celular, remodelamento tecidual e exocitose. O motivo hexapeptídico 17-LKKTET-23 é o domínio essencial de ligação à actina.
-
-Promove angiogênese via modulação da via Notch/NF-κB, aumenta expressão de VEGF em hipóxia via óxido nítrico e inibe ativação de NF-κB induzida por TNF-α, reduzindo IL-8. Nenhum desses efeitos tem validação clínica robusta em humanos.
-Efeitos colaterais: Dados de segurança em humanos são escassos (pequenos ensaios com Tβ4 recombinante, não TB-500); Reações no local da injeção relatadas por usuários; Preocupação teórica pró-angiogênica em contexto tumoral (dados pré-clínicos mistos); Produtos de mercado cinza frequentemente apresentam contaminação e dosagem imprecisa
-Contraindicações: Atletas sujeitos ao código WADA (proibição absoluta); Gestantes e lactantes (ausência total de dados); Pacientes com neoplasias ativas ou histórico oncológico; Uso fora de protocolos de pesquisa aprovados
-
-Peptídeo: BPC-157
-Categoria: Cicatrização
-Resumo: Peptídeo de proteção corporal. Promove cicatrização de tecidos, tendões e ligamentos.
-Dose típica: 250 mcg, 1-2x por dia
-Faixa de dose: 200-500 mcg/dia
-Meia-vida: ~4h (subcutâneo)
-Frascos comuns: 5 mg
-Status regulatório: Apenas pesquisa
-Proibido pela WADA no esporte.
-Descrição: BPC-157 ("Body Protection Compound") é um fragmento de 15 aminoácidos derivado de uma proteína encontrada no suco gástrico humano. Estudado em modelos animais pelo potencial de acelerar reparo de tendões, ligamentos, músculo e mucosa gastrointestinal.
-
-Sem aprovação pelo FDA para uso humano — classificado pela WADA como proibido no esporte desde 2022. Uso em humanos é off-label / pesquisa.
-Mecanismo: Os mecanismos propostos incluem promoção de angiogênese via upregulation do VEGFR2, modulação do sistema nitric-oxide, aumento da expressão de fatores de crescimento (FGF, EGF) e interação com o eixo dopaminérgico/serotoninérgico. Boa parte dos dados vem de modelos animais.
-Efeitos colaterais: Dados em humanos são limitados — perfil de segurança baseado principalmente em estudos animais; Relatos anedóticos de reações no local da injeção, náusea leve; Interações farmacológicas não bem caracterizadas
-Contraindicações: Gestantes e lactantes (sem estudos); Histórico de câncer ativo (angiogênese teórica); Uso concomitante de anticoagulantes sem acompanhamento
+A conjugação ao ácido graxo C20 confere meia-vida de ~5 dias.
+Efeitos colaterais: Náusea; Diarreia; Vômito; Constipação; Diminuição do apetite; Dispepsia / dor abdominal
+Contraindicações: História pessoal ou familiar de carcinoma medular de tireoide (CMT); Síndrome de Neoplasia Endócrina Múltipla tipo 2 (NEM 2); Hipersensibilidade grave (anafilaxia e angioedema relatados)

@@ -15,15 +15,9 @@
       "layout": "padrao"
     },
     {
-      "title": "Peso nos estudos: média, não promessa",
-      "body": "Semaglutida 2,4 mg (STEP-1): ~14,9% em 68 semanas\nTirzepatida 15 mg (SURMOUNT-1): ~20,9% em 72 semanas",
-      "icon": "grafico-desce",
-      "layout": "lado"
-    },
-    {
-      "title": "E quando compararam frente a frente?",
-      "body": "No SURMOUNT-5, que colocou as duas no mesmo estudo, a média foi de ~20,2% com tirzepatida e ~13,7% com semaglutida após 72 semanas.",
-      "icon": "microscopio",
+      "title": "A dose de uma vale pra outra?",
+      "body": "Não. A semaglutida começa em 0,25 mg por semana; a tirzepatida, em 2,5 mg. Cada uma tem a própria escada na bula, e troca de remédio é com o médico.",
+      "icon": "regua",
       "layout": "pergunta"
     },
     {
@@ -40,7 +34,7 @@
     },
     {
       "title": "Mesmo remédio? Não. A cola",
-      "body": "Semaglutida: só GLP-1, meia-vida de ~7 dias\nTirzepatida: GLP-1 + GIP, ~5 dias\nNúmero de estudo ajuda a conversa\nQuem escolhe com você, pelo seu histórico, é o médico",
+      "body": "Semaglutida: só GLP-1, meia-vida de ~7 dias\nTirzepatida: GLP-1 + GIP, ~5 dias\nDose de uma não vira dose da outra\nQuem escolhe com você, pelo seu histórico, é o médico",
       "icon": "estetoscopio",
       "layout": "passos"
     }
@@ -70,11 +64,11 @@
     },
     {
       "chip": "a confusão",
-      "kicker": "e tem um estudo nisso",
+      "kicker": "todo mundo fala assim",
       "title": "Toda caneta",
       "accent": "vira Ozempic",
       "tone": "vermelho",
-      "speech": "Eu sei, todo mundo chama toda caneta de Ozempic. E um estudo tira essa dúvida.",
+      "speech": "Eu sei, todo mundo chama toda caneta de Ozempic. Mas não é bem assim.",
       "visual": {
         "type": "frasco",
         "label": "OZEMPIC?",
@@ -152,58 +146,48 @@
       }
     },
     {
-      "chip": "frente a frente",
-      "kicker": "as duas no mesmo estudo",
-      "title": "SURMOUNT-5",
-      "accent": "lado a lado",
+      "chip": "o tempo",
+      "kicker": "quanto fica no corpo",
+      "title": "Meia-vida",
+      "accent": "diferente",
       "tone": "azul",
-      "speech": "Agora o estudo: o SURMOUNT-5 colocou as duas lado a lado, por 72 semanas.",
-      "visual": {
-        "type": "linha",
-        "steps": [
-          "início",
-          "72 semanas"
-        ],
-        "current": 1,
-        "note": "tirzepatida e semaglutida no mesmo estudo"
-      },
-      "source": "SURMOUNT-5, NEJM, 2025"
-    },
-    {
-      "chip": "frente a frente",
-      "kicker": "perda média de peso",
-      "title": "Uma diferença",
-      "accent": "que apareceu",
-      "tone": "azul",
-      "speech": "A perda média foi de 20,2% com tirzepatida, contra 13,7% com semaglutida.",
+      "speech": "A semaglutida tem meia-vida de cerca de 7 dias. A tirzepatida, de cerca de 5 dias.",
       "visual": {
         "type": "barras",
         "bars": [
           {
-            "label": "tirzepatida",
-            "value": 20.2,
-            "display": "20,2%"
+            "label": "semaglutida",
+            "value": 7,
+            "display": "~7 dias"
           },
           {
-            "label": "semaglutida",
-            "value": 13.7,
-            "display": "13,7%"
+            "label": "tirzepatida",
+            "value": 5,
+            "display": "~5 dias"
           }
         ]
-      },
-      "source": "SURMOUNT-5, NEJM, 2025"
+      }
     },
     {
-      "chip": "frente a frente",
-      "kicker": "antes de sair contando",
-      "title": "Média de estudo",
-      "accent": "não é promessa",
+      "chip": "a dose",
+      "kicker": "cada uma com sua escada",
+      "title": "Dose de uma",
+      "accent": "não vira da outra",
       "tone": "vermelho",
-      "speech": "Mas calma: isso é média de estudo, não é promessa para ninguém.",
+      "speech": "E a dose de uma não vale pra outra: cada uma tem a própria escada na bula.",
       "visual": {
-        "type": "carimbo",
-        "text": "MÉDIA",
-        "note": "não é resultado individual"
+        "type": "frascos",
+        "left": {
+          "label": "SEMAGLUTIDA",
+          "note": "início 0,25 mg",
+          "liquid": "claro"
+        },
+        "right": {
+          "label": "TIRZEPATIDA",
+          "note": "início 2,5 mg",
+          "liquid": "claro"
+        },
+        "sign": "≠"
       }
     },
     {
@@ -267,7 +251,7 @@
       }
     }
   ],
-  "caption": "Eu sei, todo mundo chama tudo de “Ozempic”. Mas o Ozempic é a semaglutida, que age só no receptor GLP-1, e o Mounjaro é a tirzepatida, que age no GLP-1 e no GIP. São moléculas diferentes, com bula, meia-vida e escada de dose próprias.\n\n1️⃣ Meia-vida: ~7 dias na semaglutida, ~5 dias na tirzepatida. As duas são semanais.\n2️⃣ Peso nos estudos: ~14,9% em 68 semanas no STEP-1 (semaglutida 2,4 mg) e ~20,9% em 72 semanas no SURMOUNT-1 (tirzepatida 15 mg). No SURMOUNT-5, frente a frente: ~20,2% e ~13,7%.\n3️⃣ Efeito colateral: nas duas, sobretudo náusea, diarreia, vômito e constipação. Náusea em 44% e 31% nos estudos de referência, comparação só aproximada.\n\n⚠️ Nenhuma das duas é para quem tem histórico pessoal ou familiar de carcinoma medular de tireoide, síndrome NEM 2 ou está grávida. Média de estudo não é promessa individual: a escolha é com o médico.",
+  "caption": "Eu sei, todo mundo chama tudo de “Ozempic”. Mas o Ozempic é a semaglutida, que age só no receptor GLP-1, e o Mounjaro é a tirzepatida, que age no GLP-1 e no GIP. São moléculas diferentes, com bula, meia-vida e escada de dose próprias.\n\n1️⃣ Meia-vida: ~7 dias na semaglutida, ~5 dias na tirzepatida. As duas são semanais.\n2️⃣ Doses: a semaglutida começa em 0,25 mg por semana e a tirzepatida em 2,5 mg. A dose de uma não vira dose da outra.\n3️⃣ Efeito colateral: nas duas, sobretudo náusea, diarreia, vômito e constipação. Náusea em 44% e 31% nos estudos de referência, comparação só aproximada.\n\n⚠️ Nenhuma das duas é para quem tem histórico pessoal ou familiar de carcinoma medular de tireoide, síndrome NEM 2 ou está grávida. Escolher ou trocar de remédio é decisão do médico.",
   "question": "Antes deste vídeo, você achava que Ozempic e Mounjaro eram a mesma coisa?",
   "share": "quem chama toda caneta semanal de “Ozempic”"
 }

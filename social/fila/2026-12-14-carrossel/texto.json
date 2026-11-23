@@ -1,0 +1,51 @@
+{
+  "hook": "O Saxenda é \"mais fraco\" que o Ozempic, então é pior?",
+  "hookIcon": "balanca",
+  "slides": [
+    {
+      "title": "Mais antigo quer dizer pior",
+      "layout": "mito",
+      "body": "Na eficácia, a liraglutida fica atrás da semaglutida. Mas tem o maior histórico de segurança da classe GLP-1.",
+      "icon": "errado"
+    },
+    {
+      "title": "12 anos",
+      "layout": "numero",
+      "body": "A liraglutida tem uso pediátrico a partir de 12 anos. É parte do histórico longo que ela acumulou.",
+      "icon": "escudo"
+    },
+    {
+      "title": "O ritmo de cada uma",
+      "layout": "lado",
+      "body": "Liraglutida: meia-vida de ~13h, aplicação diária\nSemaglutida: meia-vida de ~7 dias, aplicação semanal",
+      "icon": "relogio"
+    },
+    {
+      "title": "Mais parecida com o hormônio?",
+      "layout": "pergunta",
+      "body": "A liraglutida tem 97% de homologia com o GLP-1 que o corpo produz. As duas são agonistas do mesmo receptor.",
+      "icon": "dna"
+    },
+    {
+      "title": "Os efeitos são da mesma família",
+      "layout": "padrao",
+      "body": "Náusea, diarreia, constipação e vômito são os mais comuns nas duas. A bula da liraglutida cita ainda aumento da frequência cardíaca.",
+      "icon": "enjoo"
+    },
+    {
+      "title": "Antes de comparar",
+      "layout": "passos",
+      "body": "Eficácia não é a única régua\nHistórico e rotina também contam\nA escolha é com o médico",
+      "icon": "certo"
+    }
+  ],
+  "narration": [
+    { "text": "O Saxenda é mais fraco que o Ozempic, então é pior? Não é tão simples assim." },
+    { "text": "Na eficácia, a liraglutida fica atrás. Mas tem o maior histórico de segurança da classe." },
+    { "text": "Ela também tem uso pediátrico a partir de 12 anos, e é aplicada todo dia, não uma vez por semana." },
+    { "text": "Então, mais fraco não quer dizer pior: a escolha é com o médico." }
+  ],
+  "caption": "Eu sei, a gente ouve que o Saxenda é \"mais fraco\" e já descarta. Mas eficácia não é a única régua para comparar dois remédios.\n\n1️⃣ A liraglutida (Saxenda, Victoza) fica atrás da semaglutida (Ozempic, Wegovy) em eficácia.\n2️⃣ Em compensação, tem o maior histórico de segurança da classe, com uso pediátrico a partir de 12 anos.\n3️⃣ O ritmo muda: liraglutida com meia-vida de ~13h, aplicação diária; semaglutida com ~7 dias, semanal.\n\n⚠️ Náusea, diarreia, constipação e vômito são comuns nas duas. Qual faz mais sentido para você é conversa com o médico.",
+  "question": "Para você pesa mais a aplicação diária ou a semanal?",
+  "share": "aquela amiga que acha que o Saxenda não serve pra nada"
+}

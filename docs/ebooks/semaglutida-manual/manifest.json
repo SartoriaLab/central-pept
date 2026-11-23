@@ -1,0 +1,55 @@
+{
+  "slug": "semaglutida-manual",
+  "title": "Semaglutida: O Manual Que Não Vem na Caixa",
+  "files": [
+    {
+      "file": "00-comece-aqui.html",
+      "title": "Comece aqui"
+    },
+    {
+      "file": "01-como-age.html",
+      "title": "Como a semaglutida age e por que a dose sobe devagar"
+    },
+    {
+      "file": "02-escada-de-doses.html",
+      "title": "A escada de doses, etapa por etapa"
+    },
+    {
+      "file": "03-normal-ou-alerta.html",
+      "title": "O que é normal sentir em cada etapa e o que é sinal de alerta"
+    },
+    {
+      "file": "04-nausea-constipacao-refluxo.html",
+      "title": "Náusea, constipação e refluxo: o que as bulas e os estudos recomendam"
+    },
+    {
+      "file": "05-dose-esquecida-viagem-armazenamento.html",
+      "title": "Dose esquecida, viagem e armazenamento"
+    },
+    {
+      "file": "06-comprimido-diario.html",
+      "title": "Comprimido diário: como difere da injeção"
+    },
+    {
+      "file": "07-nove-erros.html",
+      "title": "Os 9 erros que fazem desistir no meio"
+    },
+    {
+      "file": "08-perguntas-ao-medico.html",
+      "title": "Perguntas para levar ao médico"
+    },
+    {
+      "file": "90-bonus-escada-de-doses.html",
+      "title": "Bônus: escada de doses para imprimir"
+    },
+    {
+      "file": "90-bonus-diario-16-semanas.html",
+      "title": "Bônus: diário de sintomas de 16 semanas"
+    },
+    {
+      "file": "99-fontes.html",
+      "title": "Fontes"
+    }
+  ],
+  "subtitle": "Semana a semana, de 0,25 mg até a manutenção: o que esperar em cada etapa, como atravessar a náusea e os 9 erros que fazem desistir no meio."
+}

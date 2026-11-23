@@ -1,0 +1,138 @@
+{
+  "hook": "O erro é comparar seu Mounjaro com o da amiga.",
+  "hookIcon": "balanca",
+  "slides": [
+    {
+      "title": "A amiga sentiu antes, então o meu não funciona",
+      "layout": "mito",
+      "body": "Cada pessoa está num degrau da dose. Quem está em 2,5 ou 5 mg não deve se comparar com quem já chegou a 15 mg.",
+      "icon": "errado"
+    },
+    {
+      "title": "21ª semana",
+      "layout": "numero",
+      "body": "É quando chega à dose de 15 mg quem sobe 2,5 mg a cada 4 semanas. Cinco meses depois de começar.",
+      "icon": "calendario"
+    },
+    {
+      "title": "Quando dá pra avaliar?",
+      "layout": "pergunta",
+      "body": "Antes de 3 meses em dose estável de manutenção, é cedo para concluir. E a decisão de subir a dose é do médico.",
+      "icon": "pensando"
+    },
+    {
+      "title": "No lugar de comparar",
+      "layout": "passos",
+      "body": "Veja em qual degrau você está\nConte há quanto tempo está nele\nLeve o registro das doses ao médico",
+      "icon": "certo"
+    }
+  ],
+  "scenes": [
+    {
+      "chip": "a comparação",
+      "kicker": "na primeira fase",
+      "title": "Seu Mounjaro",
+      "accent": "não é o da amiga",
+      "tone": "vermelho",
+      "speech": "O erro é comparar seu Mounjaro com o da amiga.",
+      "visual": {
+        "type": "frascos",
+        "left": { "label": "VOCÊ", "note": "começou agora", "liquid": "claro" },
+        "right": { "label": "AMIGA", "note": "meses na frente", "liquid": "claro" },
+        "sign": "vs"
+      }
+    },
+    {
+      "chip": "a comparação",
+      "kicker": "eu sei",
+      "title": "Ela já sente,",
+      "accent": "você ainda não",
+      "tone": "vermelho",
+      "speech": "Eu sei, ela conta que já sente tudo e você fica achando que o seu não está funcionando.",
+      "visual": { "type": "icone", "icon": "pensando", "note": "a dúvida mais comum do começo" }
+    },
+    {
+      "chip": "a comparação",
+      "kicker": "pensa assim",
+      "title": "Largadas",
+      "accent": "em dias diferentes",
+      "tone": "azul",
+      "speech": "É como comparar duas corredoras que largaram em dias diferentes: uma ainda está no começo da pista.",
+      "visual": { "type": "icone", "icon": "alvo", "note": "cada uma no seu ponto da pista" }
+    },
+    {
+      "chip": "a bula",
+      "kicker": "como o tratamento sobe",
+      "title": "Degrau",
+      "accent": "por degrau",
+      "tone": "azul",
+      "speech": "A dose começa baixa e sobe aos poucos, com pelo menos 4 semanas em cada degrau.",
+      "visual": { "type": "linha", "steps": ["2,5 mg", "5 mg", "...", "15 mg"], "current": 0, "note": "ao menos 4 semanas por degrau" },
+      "source": "bula do Zepbound"
+    },
+    {
+      "chip": "a bula",
+      "kicker": "quem vai até a dose máxima",
+      "title": "Só chega",
+      "accent": "na 21ª semana",
+      "tone": "azul",
+      "speech": "Quem vai até a dose máxima só chega lá na 21ª semana, cinco meses depois de começar.",
+      "visual": { "type": "numero", "value": "21ª sem", "note": "para chegar à dose de 15 mg" }
+    },
+    {
+      "chip": "o problema",
+      "kicker": "e ninguém pergunta isso",
+      "title": "Em qual degrau",
+      "accent": "ela está?",
+      "tone": "vermelho",
+      "speech": "Então, antes de se comparar, a pergunta é outra: em qual degrau a sua amiga está?",
+      "visual": {
+        "type": "lista",
+        "items": [
+          { "text": "Mesma dose?", "mark": "duvida" },
+          { "text": "Mesmo tempo na dose?", "mark": "duvida" },
+          { "text": "Mesmo corpo e rotina?", "mark": "nao" }
+        ]
+      }
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "pra avaliar o seu",
+      "title": "Três meses",
+      "accent": "em dose estável",
+      "tone": "azul",
+      "speech": "Pra avaliar o seu, a referência é estar 3 meses em dose estável de manutenção antes de concluir.",
+      "visual": { "type": "icone", "icon": "ampulheta", "note": "antes disso, é cedo para concluir" }
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "o que não acelera",
+      "title": "Subir por conta",
+      "accent": "não adianta",
+      "tone": "vermelho",
+      "speech": "Subir a dose por conta própria só aumenta os efeitos colaterais, sem acelerar o resultado.",
+      "visual": { "type": "carimbo", "text": "NÃO ACELERA", "note": "só aumenta o efeito colateral" }
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "na consulta",
+      "title": "O registro",
+      "accent": "vai pro médico",
+      "tone": "azul",
+      "speech": "Leve o registro das suas doses à consulta: quem decide subir é o médico.",
+      "visual": { "type": "icone", "icon": "estetoscopio", "note": "a decisão de subir é do médico" }
+    },
+    {
+      "chip": "pra lembrar",
+      "kicker": "da próxima conversa",
+      "title": "Seu degrau,",
+      "accent": "seu ritmo",
+      "tone": "azul",
+      "speech": "Então, o erro não é o seu Mounjaro: é comparar com o da amiga sem saber o degrau dela.",
+      "visual": { "type": "icone", "icon": "calendario", "note": "compare com você mesma, semana a semana" }
+    }
+  ],
+  "caption": "Eu sei, a amiga conta que já sente tudo e você fica achando que o seu Mounjaro não está funcionando. Só que cada pessoa está num degrau: a tirzepatida começa em 2,5 mg e sobe aos poucos, com pelo menos 4 semanas em cada dose. Quem vai até 15 mg só chega lá na 21ª semana.\n\n1️⃣ Veja em qual degrau você está e há quanto tempo.\n2️⃣ Antes de 3 meses em dose estável de manutenção, é cedo para concluir.\n3️⃣ Leve o registro das doses à consulta: a decisão de subir é do médico.\n\n⚠️ Não aumente a dose por conta própria nem encurte o intervalo entre degraus: isso aumenta os efeitos colaterais sem acelerar o resultado.",
+  "question": "Em qual degrau de dose você está hoje?",
+  "share": "aquela amiga que se compara com quem começou meses antes"
+}

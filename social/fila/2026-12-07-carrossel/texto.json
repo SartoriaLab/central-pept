@@ -1,0 +1,51 @@
+{
+  "hook": "Vai fazer exame com sedação e não contou do Mounjaro?",
+  "hookIcon": "hospital",
+  "slides": [
+    {
+      "title": "Caneta semanal não tem nada a ver com anestesia",
+      "layout": "mito",
+      "body": "Tem. A tirzepatida deixa o esvaziamento do estômago mais lento, e a bula alerta para o risco de aspiração em anestesia e sedação.",
+      "icon": "errado"
+    },
+    {
+      "title": "O que é aspiração?",
+      "layout": "pergunta",
+      "body": "É quando o conteúdo do estômago volta e vai para o pulmão durante a sedação. Com o estômago mais lento, pode ter comida lá dentro mesmo com o jejum feito.",
+      "icon": "pulmao"
+    },
+    {
+      "title": "Quando avisar",
+      "layout": "passos",
+      "body": "Cirurgia, mesmo pequena\nEndoscopia ou colonoscopia com sedação\nQualquer exame em que você vai dormir",
+      "icon": "prancheta"
+    },
+    {
+      "title": "Esquecer x avisar",
+      "layout": "lado",
+      "body": "Esquecer: a equipe planeja como se o estômago esvaziasse no tempo normal\nAvisar: a equipe sabe do Mounjaro e decide o preparo",
+      "icon": "balanca"
+    },
+    {
+      "title": "Não pare por conta própria",
+      "layout": "padrao",
+      "body": "Avisar não é suspender a caneta sozinha. Quem decide se muda alguma coisa antes do procedimento é o médico, junto com a equipe da anestesia.",
+      "icon": "estetoscopio"
+    },
+    {
+      "title": "Cola do procedimento",
+      "layout": "passos",
+      "body": "Conte que usa tirzepatida e qual a dose\nDiga o dia da última aplicação\nPergunte se o preparo muda\nSiga o que a equipe orientar",
+      "icon": "certo"
+    }
+  ],
+  "narration": [
+    { "text": "Vai fazer endoscopia ou cirurgia e nem lembrou de contar do Mounjaro? Eu sei, a caneta é semanal e some da cabeça." },
+    { "text": "Só que a tirzepatida deixa o estômago mais lento, e a bula alerta para o risco de aspiração na sedação." },
+    { "text": "Por isso a equipe precisa saber antes. Quem decide se algo muda no preparo é o médico, não você sozinha." },
+    { "text": "Então, exame com sedação? A primeira frase da consulta é: eu uso Mounjaro." }
+  ],
+  "caption": "Eu sei, a caneta é uma vez por semana e quase ninguém lembra dela na hora de marcar exame. Mas a tirzepatida (Mounjaro) deixa o esvaziamento do estômago mais lento, e a bula alerta para o risco de aspiração em anestesia: o conteúdo do estômago voltar e ir para o pulmão durante a sedação.\n\n1️⃣ Conte à equipe que usa tirzepatida, qual a dose e o dia da última aplicação\n2️⃣ Vale para cirurgia, endoscopia, colonoscopia e qualquer exame com sedação\n3️⃣ Pergunte se o preparo muda e siga o que a equipe orientar\n\n⚠️ Avisar não é parar a caneta por conta própria: qualquer mudança antes do procedimento é decisão do médico.",
+  "question": "Você já precisou avisar sobre a caneta antes de algum exame?",
+  "share": "aquela amiga que usa Mounjaro e tem endoscopia marcada"
+}

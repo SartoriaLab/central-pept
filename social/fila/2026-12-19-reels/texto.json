@@ -1,0 +1,139 @@
+{
+  "hook": "Você usa pílula junto com o Mounjaro? Erro comum.",
+  "hookIcon": "comprimido",
+  "slides": [
+    {
+      "title": "A pílula funciona igual com o Mounjaro",
+      "layout": "mito",
+      "body": "A tirzepatida pode reduzir a absorção do anticoncepcional oral. A bula traz uma orientação específica para isso.",
+      "icon": "errado"
+    },
+    {
+      "title": "4 semanas",
+      "layout": "numero",
+      "body": "Depois do início e depois de cada aumento de dose: a bula orienta método não oral ou somar método de barreira nesse período.",
+      "icon": "calendario"
+    },
+    {
+      "title": "Por que justo na subida?",
+      "layout": "pergunta",
+      "body": "A tirzepatida deixa o esvaziamento do estômago mais lento, e o que é tomado pela boca pode ser absorvido de outro jeito.",
+      "icon": "pensando"
+    },
+    {
+      "title": "Cola da pílula",
+      "layout": "passos",
+      "body": "Conte ao médico que usa pílula\nMarque no calendário cada aumento de dose\nNas 4 semanas, a orientação da bula",
+      "icon": "certo"
+    }
+  ],
+  "scenes": [
+    {
+      "chip": "a pílula",
+      "kicker": "o que ninguém conta",
+      "title": "Pílula junto",
+      "accent": "com o Mounjaro?",
+      "tone": "vermelho",
+      "speech": "Você usa pílula junto com o Mounjaro? Erro comum.",
+      "visual": { "type": "icone", "icon": "comprimido", "note": "anticoncepcional oral" }
+    },
+    {
+      "chip": "a pílula",
+      "kicker": "eu sei",
+      "title": "Toma certinho",
+      "accent": "e acha que basta",
+      "tone": "vermelho",
+      "speech": "Eu sei, você toma a pílula certinho todo dia e nem pensa nisso.",
+      "visual": { "type": "icone", "icon": "relogio", "note": "mesmo horário, todo dia" }
+    },
+    {
+      "chip": "a bula",
+      "kicker": "o que a bula avisa",
+      "title": "Absorção",
+      "accent": "pode cair",
+      "tone": "azul",
+      "speech": "Só que a bula avisa: a tirzepatida pode reduzir a absorção do anticoncepcional oral.",
+      "visual": { "type": "carimbo", "text": "ABSORÇÃO MENOR", "note": "anticoncepcional oral" },
+      "source": "bula da tirzepatida"
+    },
+    {
+      "chip": "por que",
+      "kicker": "o que o remédio faz",
+      "title": "Estômago",
+      "accent": "mais lento",
+      "tone": "azul",
+      "speech": "Ela deixa o estômago esvaziar mais devagar, e o que vai pela boca pode ser absorvido de outro jeito.",
+      "visual": { "type": "icone", "icon": "ampulheta", "note": "esvaziamento gástrico mais lento" }
+    },
+    {
+      "chip": "por que",
+      "kicker": "pensa assim",
+      "title": "Fila no caixa",
+      "accent": "andando devagar",
+      "tone": "azul",
+      "speech": "É como uma fila de mercado que anda devagar: a pílula entra, mas não sai no tempo de sempre.",
+      "visual": {
+        "type": "frascos",
+        "left": { "label": "PÍLULA", "note": "tomada pela boca", "liquid": "claro" },
+        "right": { "label": "TIRZEPATIDA", "note": "estômago mais lento", "liquid": "claro" },
+        "sign": "+"
+      }
+    },
+    {
+      "chip": "quando",
+      "kicker": "os períodos da bula",
+      "title": "No início",
+      "accent": "e a cada subida",
+      "tone": "azul",
+      "speech": "A bula pede atenção em dois momentos: no começo do tratamento e depois de cada aumento de dose.",
+      "visual": { "type": "linha", "steps": ["início", "subida", "subida", "subida"], "current": 0, "note": "cada aumento reabre o período" }
+    },
+    {
+      "chip": "quando",
+      "kicker": "por quanto tempo",
+      "title": "Quatro semanas",
+      "accent": "de cada vez",
+      "tone": "azul",
+      "speech": "Nesses momentos, por 4 semanas, ela orienta um método não oral ou somar um método de barreira.",
+      "visual": { "type": "numero", "value": "4 sem", "note": "após o início e após cada aumento" },
+      "source": "bula da tirzepatida"
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "na consulta",
+      "title": "Conte que",
+      "accent": "usa pílula",
+      "tone": "azul",
+      "speech": "O que fazer: contar ao médico que você usa pílula e combinar com ele o método nessas semanas.",
+      "visual": {
+        "type": "lista",
+        "items": [
+          { "text": "Contar ao médico sobre a pílula", "mark": "ok" },
+          { "text": "Marcar cada aumento de dose", "mark": "ok" },
+          { "text": "Achar que a pílula basta", "mark": "nao" }
+        ]
+      }
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "e a gravidez",
+      "title": "Gravidez",
+      "accent": "não é recomendada",
+      "tone": "vermelho",
+      "speech": "Isso importa porque, na gravidez e na amamentação, o uso da tirzepatida não é recomendado.",
+      "visual": { "type": "icone", "icon": "estetoscopio", "note": "planejamento é com o médico" }
+    },
+    {
+      "chip": "pra lembrar",
+      "kicker": "a cada subida de dose",
+      "title": "Pílula e caneta:",
+      "accent": "fale com o médico",
+      "tone": "azul",
+      "speech": "Então, você usa pílula junto com o Mounjaro? A cada subida de dose, lembra dessas 4 semanas.",
+      "visual": { "type": "icone", "icon": "calendario", "note": "marque cada aumento de dose" }
+    }
+  ],
+  "caption": "Eu sei, quem toma a pílula certinho nem pensa nisso. Mas a bula avisa: a tirzepatida, do Mounjaro, pode reduzir a absorção do anticoncepcional oral, porque deixa o estômago esvaziar mais devagar.\n\n1️⃣ A bula orienta usar método não oral ou acrescentar método de barreira por 4 semanas após o início do tratamento.\n2️⃣ O mesmo vale por 4 semanas após cada aumento de dose.\n3️⃣ Conte ao médico que você usa pílula e combine com ele o método.\n\n⚠️ Na gravidez e na amamentação o uso da tirzepatida não é recomendado. Outros efeitos, como náusea e diarreia, são os mais comuns e costumam aparecer na fase de subida de dose.",
+  "question": "Seu médico já falou com você sobre pílula e Mounjaro?",
+  "share": "aquela amiga que usa pílula e começou o Mounjaro"
+}

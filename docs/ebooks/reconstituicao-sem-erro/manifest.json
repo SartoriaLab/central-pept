@@ -1,0 +1,55 @@
+{
+  "slug": "reconstituicao-sem-erro",
+  "title": "Você Tem Certeza de Que Entende Seu Frasco?",
+  "files": [
+    {
+      "file": "00-comece-aqui.html",
+      "title": "Comece aqui"
+    },
+    {
+      "file": "01-mg-mcg-ml-ui.html",
+      "title": "mg, mcg, ml e UI sem confusão"
+    },
+    {
+      "file": "02-os-7-passos.html",
+      "title": "Os 7 passos, do frasco à seringa"
+    },
+    {
+      "file": "03-agua-bacteriostatica.html",
+      "title": "Água bacteriostática: quanto e por quê"
+    },
+    {
+      "file": "04-seringas.html",
+      "title": "Seringas de 30, 50 e 100 unidades"
+    },
+    {
+      "file": "05-os-7-erros.html",
+      "title": "Os 7 erros que mudam a dose sem você perceber"
+    },
+    {
+      "file": "06-armazenamento-28-dias.html",
+      "title": "Armazenamento e validade de 28 dias"
+    },
+    {
+      "file": "07-mistura-no-mesmo-frasco.html",
+      "title": "Mistura no mesmo frasco"
+    },
+    {
+      "file": "08-tabelas-por-frasco.html",
+      "title": "Tabelas por tamanho de frasco"
+    },
+    {
+      "file": "90-bonus-tabela-de-unidades.html",
+      "title": "Bônus: tabela de unidades para imprimir"
+    },
+    {
+      "file": "91-bonus-checklist-de-bancada.html",
+      "title": "Bônus: checklist de bancada"
+    },
+    {
+      "file": "99-fontes.html",
+      "title": "Fontes"
+    }
+  ],
+  "subtitle": "Os 7 erros de interpretação que mudam sua dose sem você perceber. Do frasco à seringa, com a tabela de unidades para imprimir."
+}

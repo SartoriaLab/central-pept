@@ -1,57 +1,57 @@
 {
-  "hook": "Você viu 28,3% de retatrutida? Não é promessa.",
-  "hookIcon": "lupa",
+  "hook": "Saxenda e Mounjaro se aplicam do mesmo jeito?",
+  "hookIcon": "duvida",
   "slides": [
     {
-      "title": "Agonista triplo: o que isso quer dizer",
-      "layout": "padrao",
-      "body": "A retatrutida ativa três receptores ao mesmo tempo: GLP-1, GIP e glucagon. A semaglutida ativa só o GLP-1; a tirzepatida, GLP-1 e GIP.",
-      "icon": "dna"
-    },
-    {
-      "title": "28,3%",
-      "layout": "numero",
-      "body": "Perda média no TRIUMPH-1, em 80 semanas com 12 mg, só entre quem manteve o tratamento. Contando todos os participantes, foi 25,0%.",
-      "icon": "grafico-desce"
-    },
-    {
-      "title": "Esse número vale para qualquer pessoa",
+      "title": "GLP-1 é tudo igual, muda só o nome",
       "layout": "mito",
-      "body": "São médias de ensaio, com acompanhamento e titulação controlados. Cada pessoa responde de um jeito.",
-      "icon": "microscopio"
+      "body": "Não é. A liraglutida (Victoza, Saxenda) age só no receptor GLP-1. A tirzepatida (Mounjaro) é dupla: ativa GIP e GLP-1 ao mesmo tempo.",
+      "icon": "errado"
     },
     {
-      "title": "E o glucagon, faz o quê?",
+      "title": "Quanto tempo cada uma fica no corpo",
+      "layout": "lado",
+      "body": "Liraglutida: meia-vida de cerca de 13h, por isso é diária\nTirzepatida: meia-vida de cerca de 5 dias, por isso é semanal",
+      "icon": "ampulheta"
+    },
+    {
+      "title": "Posso aplicar a liraglutida uma vez por semana?",
       "layout": "pergunta",
-      "body": "A hipótese é que aumente o gasto de energia e a queima de gordura no fígado. Os próprios autores tratam isso como hipótese, não como fato.",
-      "icon": "fogo"
+      "body": "Não. Com meia-vida curta, ela é feita para uso diário. Levar a rotina de uma para a outra é o erro que mais confunde quem troca de remédio.",
+      "icon": "calendario"
     },
     {
-      "title": "Dose de estudo não é dose de bula",
+      "title": "Dose de bula, cada uma na sua escala",
+      "layout": "lado",
+      "body": "Liraglutida: começa em 0,6 mg por dia, até 3 mg no Saxenda\nTirzepatida: começa em 2,5 mg por semana, até 15 mg",
+      "icon": "regua"
+    },
+    {
+      "title": "4 semanas",
+      "layout": "numero",
+      "body": "É o tempo mínimo em cada etapa da tirzepatida antes de subir, pela bula. Na liraglutida, a titulação é semanal. Quem decide a subida é o médico.",
+      "icon": "grafico-sobe"
+    },
+    {
+      "title": "Efeitos colaterais parecidos",
       "layout": "padrao",
-      "body": "Na fase 3, as doses-alvo foram 4, 9 e 12 mg por semana, começando em 2 mg e subindo a cada 4 semanas. Não existe dose de bula: o remédio não foi aprovado.",
-      "icon": "prancheta"
+      "body": "Nas duas, náusea, diarreia, vômito e constipação são os mais comuns. A liraglutida também pode aumentar a frequência cardíaca. Vômito que não passa pede o médico.",
+      "icon": "enjoo"
     },
     {
-      "title": "Já dá para usar no Brasil?",
-      "layout": "pergunta",
-      "body": "Não. Não tem registro na ANVISA nem pedido de registro. Produto com esse nome fora de ensaio clínico não tem garantia de identidade, pureza ou dose.",
-      "icon": "proibido"
-    },
-    {
-      "title": "Cola da retatrutida",
+      "title": "Cola das duas",
       "layout": "passos",
-      "body": "Experimental: sem aprovação de FDA, EMA ou ANVISA\nNúmero de estudo não é promessa\nEfeitos mais comuns: do estômago, como náusea\nObesidade ou diabetes: fale com o médico",
+      "body": "Liraglutida: uma vez por dia\nTirzepatida: uma vez por semana\nCada uma com a sua dose de bula\nTrocar de uma para outra só com o médico",
       "icon": "certo"
     }
   ],
   "narration": [
-    { "text": "Você viu 28,3% de retatrutida? Não é promessa. Eu sei, o número impressiona." },
-    { "text": "Ela ativa três receptores, e esse resultado é a média de um ensaio, só entre quem manteve o tratamento, com acompanhamento." },
-    { "text": "E ela segue experimental: sem aprovação da ANVISA, da FDA ou da EMA, e sem dose de bula." },
-    { "text": "Então, viu o número no anúncio? É média de estudo, não promessa." }
+    { "text": "Saxenda e Mounjaro se aplicam do mesmo jeito? Eu sei, parece tudo GLP-1. Mas não é." },
+    { "text": "A liraglutida sai do corpo em cerca de 13h e é diária. A tirzepatida dura cerca de 5 dias e é semanal." },
+    { "text": "As doses de bula também são de escalas diferentes: 0,6 mg por dia numa, 2,5 mg por semana na outra." },
+    { "text": "Então, cada caneta tem a sua rotina. Troca de uma para a outra, só com o médico." }
   ],
-  "caption": "Eu sei, o número da retatrutida impressiona e aparece em todo lugar. Mas ele precisa de contexto. No TRIUMPH-1, ensaio de fase 3 de 80 semanas, a perda média com 12 mg foi de 28,3% entre quem manteve o tratamento e de 25,0% contando todos os participantes. São médias de ensaio, com acompanhamento e titulação controlados, e cada pessoa responde de um jeito.\n\nO que ela é: um agonista triplo da Eli Lilly, que ativa GLP-1, GIP e glucagon. O papel do glucagon (mais gasto de energia) ainda é hipótese dos próprios autores.\n\n1️⃣ Não tem aprovação da FDA, da EMA nem da ANVISA.\n2️⃣ Não existe dose de bula: as doses de 4, 9 e 12 mg foram as dos ensaios, sempre começando em 2 mg.\n3️⃣ Os efeitos mais comuns são do estômago, como nos outros GLP-1.\n\n⚠️ Produto com esse nome fora de ensaio clínico não tem garantia de identidade, pureza ou dose. Para tratar obesidade ou diabetes, converse com o médico sobre os remédios aprovados.",
-  "question": "Você já tinha visto esse número da retatrutida em algum anúncio?",
-  "share": "aquela amiga que viu o número da retatrutida e se empolgou"
+  "caption": "Eu sei, todo mundo junta tudo no saco do GLP-1. Mas a liraglutida (Victoza, Saxenda) e a tirzepatida (Mounjaro) funcionam e se usam de jeitos diferentes.\n\n1️⃣ A liraglutida age só no GLP-1 e tem meia-vida de cerca de 13h: uso diário, começando em 0,6 mg pela bula.\n2️⃣ A tirzepatida ativa GIP e GLP-1, tem meia-vida de cerca de 5 dias: uso semanal, começando em 2,5 mg, com pelo menos 4 semanas em cada etapa.\n3️⃣ Efeitos colaterais mais comuns nas duas: náusea, diarreia, vômito e constipação.\n\n⚠️ Levar a rotina ou a dose de uma para a outra é erro. Troca de remédio e ajuste de dose são sempre com o médico.",
+  "question": "Você já usou liraglutida antes da tirzepatida?",
+  "share": "aquela amiga que acha que toda caneta de GLP-1 é igual"
 }

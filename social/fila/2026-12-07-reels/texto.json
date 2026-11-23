@@ -1,0 +1,191 @@
+{
+  "hook": "Água destilada na semaglutida? Esse erro custa o frasco.",
+  "hookIcon": "gota",
+  "slides": [
+    {
+      "title": "Água é tudo igual",
+      "layout": "mito",
+      "body": "Não é. A água bacteriostática tem álcool benzílico, um conservante. A destilada não tem nada que segure a contaminação do frasco.",
+      "icon": "errado"
+    },
+    {
+      "title": "24 horas",
+      "layout": "numero",
+      "body": "É o tempo, segundo a fonte, para um frasco feito com água destilada contaminar. Sem conservante, ele não aguenta o mês de uso.",
+      "icon": "ampulheta"
+    },
+    {
+      "title": "Destilada x bacteriostática",
+      "layout": "lado",
+      "body": "Destilada: sem conservante, contamina em cerca de 24 horas\nBacteriostática: com álcool benzílico, o frasco vale 28 dias na geladeira",
+      "icon": "balanca"
+    },
+    {
+      "title": "E a caneta de Ozempic?",
+      "layout": "pergunta",
+      "body": "A caneta já vem pronta e não leva água nenhuma. Essa conta vale só para o frasco com pó de semaglutida.",
+      "icon": "duvida"
+    },
+    {
+      "title": "Cola da água",
+      "layout": "passos",
+      "body": "Só água bacteriostática\nÁlcool 70% nas duas tampas\nEtiqueta com data e concentração\nDúvida na dose: fale com o médico",
+      "icon": "certo"
+    }
+  ],
+  "scenes": [
+    {
+      "chip": "a água",
+      "kicker": "no preparo do frasco",
+      "title": "Água",
+      "accent": "destilada?",
+      "tone": "vermelho",
+      "speech": "Água destilada na semaglutida? Esse erro custa o frasco.",
+      "visual": {
+        "type": "icone",
+        "icon": "gota",
+        "note": "a água que parece igual"
+      }
+    },
+    {
+      "chip": "a água",
+      "kicker": "eu sei, parece igual",
+      "title": "Toda água",
+      "accent": "parece igual",
+      "tone": "azul",
+      "speech": "Eu sei, é tudo transparente e parece a mesma coisa.",
+      "visual": {
+        "type": "icone",
+        "icon": "pensando",
+        "note": "mas tem uma diferença escondida"
+      }
+    },
+    {
+      "chip": "a água",
+      "kicker": "fica até o fim",
+      "title": "A diferença",
+      "accent": "não aparece",
+      "tone": "azul",
+      "speech": "Só que existe uma diferença que você não vê, e ela decide quanto o frasco dura.",
+      "visual": {
+        "type": "icone",
+        "icon": "lupa",
+        "note": "o que muda está dentro da água"
+      }
+    },
+    {
+      "chip": "o conservante",
+      "kicker": "na água certa",
+      "title": "Bacteriostática",
+      "accent": "tem conservante",
+      "tone": "azul",
+      "speech": "A água bacteriostática tem álcool benzílico, um conservante que segura a contaminação.",
+      "visual": {
+        "type": "carimbo",
+        "text": "COM CONSERVANTE",
+        "note": "álcool benzílico"
+      }
+    },
+    {
+      "chip": "o conservante",
+      "kicker": "pensa assim",
+      "title": "Pão caseiro",
+      "accent": "sem conservante",
+      "tone": "vermelho",
+      "speech": "A destilada é como pão caseiro sem conservante: estraga rápido.",
+      "visual": {
+        "type": "icone",
+        "icon": "lampada",
+        "note": "nada segura os micróbios"
+      }
+    },
+    {
+      "chip": "o problema",
+      "kicker": "o que a fonte diz",
+      "title": "Contamina",
+      "accent": "em um dia",
+      "tone": "vermelho",
+      "speech": "Com água destilada, o frasco contamina em cerca de 24 horas.",
+      "visual": {
+        "type": "numero",
+        "value": "24 horas",
+        "note": "frasco feito com água destilada"
+      }
+    },
+    {
+      "chip": "o problema",
+      "kicker": "e o resto do frasco",
+      "title": "Você usa",
+      "accent": "por semanas",
+      "tone": "vermelho",
+      "speech": "E você ainda vai puxar dose desse frasco por semanas.",
+      "visual": {
+        "type": "lista",
+        "items": [
+          { "text": "Primeira dose: frasco recém-feito", "mark": "ok" },
+          { "text": "Doses seguintes: frasco contaminado", "mark": "nao" }
+        ]
+      }
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "com a água certa",
+      "title": "Até 28 dias",
+      "accent": "na geladeira",
+      "tone": "azul",
+      "speech": "Com a bacteriostática, o frasco reconstituído dura 28 dias na geladeira.",
+      "visual": {
+        "type": "numero",
+        "value": "28 dias",
+        "note": "prateleira central, nunca na porta"
+      }
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "no preparo",
+      "title": "Tampa limpa,",
+      "accent": "frasco etiquetado",
+      "tone": "azul",
+      "speech": "Limpe as duas tampas com álcool e anote no frasco a data e a concentração.",
+      "visual": {
+        "type": "linha",
+        "steps": [
+          "água certa",
+          "tampa limpa",
+          "etiqueta"
+        ],
+        "current": 2,
+        "note": "a etiqueta salva a conta depois"
+      }
+    },
+    {
+      "chip": "o que fazer",
+      "kicker": "e a caneta?",
+      "title": "Caneta não",
+      "accent": "leva água",
+      "tone": "azul",
+      "speech": "A caneta de Ozempic já vem pronta: isso vale só para o frasco em pó.",
+      "visual": {
+        "type": "icone",
+        "icon": "seringa",
+        "note": "só o frasco com pó é reconstituído"
+      }
+    },
+    {
+      "chip": "pra lembrar",
+      "kicker": "no próximo frasco",
+      "title": "Destilada?",
+      "accent": "Nunca mais",
+      "tone": "vermelho",
+      "speech": "Então, água destilada no frasco de semaglutida? Nunca mais: só a bacteriostática.",
+      "visual": {
+        "type": "carimbo",
+        "text": "SÓ BACTERIOSTÁTICA",
+        "note": "a água decide quanto o frasco dura"
+      }
+    }
+  ],
+  "caption": "Eu sei, água é tudo transparente e parece a mesma coisa. Mas a água bacteriostática tem álcool benzílico, um conservante, e a destilada não tem nada: com ela, o frasco de semaglutida contamina em cerca de 24 horas, e você ainda vai puxar dose dele por semanas.\n\n1️⃣ Reconstitua só com água bacteriostática\n2️⃣ Limpe as duas tampas com álcool 70% e etiquete o frasco com data e concentração\n3️⃣ Guarde na geladeira, na prateleira central: o frasco reconstituído dura 28 dias\n\n⚠️ A caneta de Ozempic ou Wegovy já vem pronta e não leva água: isso vale só para o frasco em pó. Dose e titulação são sempre com o médico.",
+  "question": "Qual água você usou no seu primeiro frasco?",
+  "share": "aquela amiga que vai preparar o primeiro frasco de semaglutida"
+}

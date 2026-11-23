@@ -1,0 +1,57 @@
+{
+  "hook": "O rótulo do seu Ozempic é impresso ou é adesivo?",
+  "hookIcon": "lupa",
+  "slides": [
+    {
+      "title": "Se a caixa está perfeita, a caneta também está",
+      "layout": "mito",
+      "body": "A caixa é só metade da conferência. A própria caneta tem sinais que quase ninguém olha antes da primeira aplicação.",
+      "icon": "errado"
+    },
+    {
+      "title": "Caneta original e caneta suspeita",
+      "layout": "lado",
+      "body": "Original: rótulo impresso de fábrica\nSuspeita: rótulo colado como adesivo",
+      "icon": "balanca"
+    },
+    {
+      "title": "Como deve estar a solução?",
+      "layout": "pergunta",
+      "body": "Cristalina, sem partículas. Viu algo boiando ou a solução turva? Não aplique.",
+      "icon": "gota"
+    },
+    {
+      "title": "Gire o seletor de dose",
+      "layout": "padrao",
+      "body": "Na caneta original, o seletor gira livremente, sem travar. E o lote impresso no corpo da caneta precisa ser o mesmo da caixa.",
+      "icon": "seringa"
+    },
+    {
+      "title": "Desconfiou?",
+      "layout": "passos",
+      "body": "Não aplique\nTire fotos da caixa e da caneta\nNotifique a ANVISA pelo Notivisa",
+      "icon": "alerta"
+    },
+    {
+      "title": "E se já aplicou?",
+      "layout": "pergunta",
+      "body": "Se aparecerem sintomas anormais depois de aplicar um produto suspeito, procure o pronto-socorro.",
+      "icon": "hospital"
+    },
+    {
+      "title": "Cola da caneta",
+      "layout": "passos",
+      "body": "Rótulo impresso, não adesivo\nSolução cristalina, sem partículas\nSeletor gira sem travar\nLote da caneta igual ao da caixa",
+      "icon": "certo"
+    }
+  ],
+  "narration": [
+    { "text": "O rótulo do seu Ozempic é impresso ou é adesivo? A gente confere a caixa e esquece a caneta." },
+    { "text": "Na original, o rótulo é impresso de fábrica, a solução é cristalina e o seletor gira sem travar." },
+    { "text": "Desconfiou? Não aplique, fotografe e notifique a ANVISA pelo Notivisa." },
+    { "text": "Então, antes da primeira dose, olha o rótulo da caneta, não só a caixa." }
+  ],
+  "caption": "Eu sei, a gente confere a caixa e já parte para a aplicação. Mas a caneta de Ozempic também tem sinais próprios de que pode ser falsa, e eles levam menos de um minuto para conferir.\n\n1️⃣ Rótulo impresso de fábrica, não adesivo.\n2️⃣ Solução cristalina, sem partículas.\n3️⃣ Seletor de dose girando livremente, sem travar, e lote da caneta igual ao da caixa.\n\n⚠️ Desconfiou? Não aplique. Fotografe a caixa e a caneta e notifique a ANVISA pelo Notivisa. Se já aplicou e surgirem sintomas anormais, procure o pronto-socorro.",
+  "question": "Você já olhou o rótulo da caneta ou só confere a caixa?",
+  "share": "aquela amiga que abre a caixa e já vai direto para a aplicação"
+}

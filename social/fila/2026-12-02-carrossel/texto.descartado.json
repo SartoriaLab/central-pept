@@ -1,0 +1,57 @@
+{
+  "hook": "Você viu 28,3% de retatrutida? Não é promessa.",
+  "hookIcon": "lupa",
+  "slides": [
+    {
+      "title": "Agonista triplo: o que isso quer dizer",
+      "layout": "padrao",
+      "body": "A retatrutida ativa três receptores ao mesmo tempo: GLP-1, GIP e glucagon. A semaglutida ativa só o GLP-1; a tirzepatida, GLP-1 e GIP.",
+      "icon": "dna"
+    },
+    {
+      "title": "28,3%",
+      "layout": "numero",
+      "body": "Perda média no TRIUMPH-1, em 80 semanas com 12 mg, só entre quem manteve o tratamento. Contando todos os participantes, foi 25,0%.",
+      "icon": "grafico-desce"
+    },
+    {
+      "title": "Esse número vale para qualquer pessoa",
+      "layout": "mito",
+      "body": "São médias de ensaio, com acompanhamento e titulação controlados. Cada pessoa responde de um jeito.",
+      "icon": "microscopio"
+    },
+    {
+      "title": "E o glucagon, faz o quê?",
+      "layout": "pergunta",
+      "body": "A hipótese é que aumente o gasto de energia e a queima de gordura no fígado. Os próprios autores tratam isso como hipótese, não como fato.",
+      "icon": "fogo"
+    },
+    {
+      "title": "Dose de estudo não é dose de bula",
+      "layout": "padrao",
+      "body": "Na fase 3, as doses-alvo foram 4, 9 e 12 mg por semana, começando em 2 mg e subindo a cada 4 semanas. Não existe dose de bula: o remédio não foi aprovado.",
+      "icon": "prancheta"
+    },
+    {
+      "title": "Já dá para usar no Brasil?",
+      "layout": "pergunta",
+      "body": "Não. Não tem registro na ANVISA nem pedido de registro. Produto com esse nome fora de ensaio clínico não tem garantia de identidade, pureza ou dose.",
+      "icon": "proibido"
+    },
+    {
+      "title": "Cola da retatrutida",
+      "layout": "passos",
+      "body": "Experimental: sem aprovação de FDA, EMA ou ANVISA\nNúmero de estudo não é promessa\nEfeitos mais comuns: do estômago, como náusea\nObesidade ou diabetes: fale com o médico",
+      "icon": "certo"
+    }
+  ],
+  "narration": [
+    { "text": "Você viu 28,3% de retatrutida? Não é promessa. Eu sei, o número impressiona." },
+    { "text": "Ela ativa três receptores, e esse resultado é a média de um ensaio, só entre quem manteve o tratamento, com acompanhamento." },
+    { "text": "E ela segue experimental: sem aprovação da ANVISA, da FDA ou da EMA, e sem dose de bula." },
+    { "text": "Então, viu o número no anúncio? É média de estudo, não promessa." }
+  ],
+  "caption": "Eu sei, o número da retatrutida impressiona e aparece em todo lugar. Mas ele precisa de contexto. No TRIUMPH-1, ensaio de fase 3 de 80 semanas, a perda média com 12 mg foi de 28,3% entre quem manteve o tratamento e de 25,0% contando todos os participantes. São médias de ensaio, com acompanhamento e titulação controlados, e cada pessoa responde de um jeito.\n\nO que ela é: um agonista triplo da Eli Lilly, que ativa GLP-1, GIP e glucagon. O papel do glucagon (mais gasto de energia) ainda é hipótese dos próprios autores.\n\n1️⃣ Não tem aprovação da FDA, da EMA nem da ANVISA.\n2️⃣ Não existe dose de bula: as doses de 4, 9 e 12 mg foram as dos ensaios, sempre começando em 2 mg.\n3️⃣ Os efeitos mais comuns são do estômago, como nos outros GLP-1.\n\n⚠️ Produto com esse nome fora de ensaio clínico não tem garantia de identidade, pureza ou dose. Para tratar obesidade ou diabetes, converse com o médico sobre os remédios aprovados.",
+  "question": "Você já tinha visto esse número da retatrutida em algum anúncio?",
+  "share": "aquela amiga que viu o número da retatrutida e se empolgou"
+}

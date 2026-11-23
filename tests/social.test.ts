@@ -13,7 +13,7 @@ import {
 } from '@/lib/instagram-dm';
 import { EXIT_COUPON } from '@/lib/ebooks';
 import crypto from 'node:crypto';
-import { ctaFor } from '@/scripts/social/ebook-cta';
+import { ctaFor, guideFor, GUIDE_IN_POSTS } from '@/scripts/social/ebook-cta';
 import { FB_BASE, IG_BASE, InstagramClient, tokenShape } from '@/scripts/social/instagram';
 import { cliEnv, parseCliOutput } from '@/scripts/social/write';
 import { captionAt, carouselSlide, toSpeech } from '@/scripts/social/render';
@@ -253,6 +253,13 @@ describe('validateDraft', () => {
     expect(validateDraft(draft({ caption: 'Para secar 5 kg' }), source).join()).toContain('perda de peso');
     // "boca seca" no fim da linha seguida de item numerado não é promessa.
     expect(validateDraft(draft({ caption: 'Boca muito seca\n3 sinais de alerta' }), source).join()).not.toContain('perda de peso');
+    // Enquadramento de peso (conta saiu das recomendações em 23/11/2026).
+    for (const t of ['Ajuda a emagrecer', 'A perda média de peso', 'ligado à perda rápida de peso', 'O reganho depois de parar', 'Recupera o peso em um ano', 'Dois quilos', 'Antes e depois', 'qual perdeu mais peso?']) {
+      expect(validateDraft(draft({ caption: t }), source).join(), t).toMatch(/emagrecer|peso|quilos|antes e depois/);
+    }
+    for (const t of ['Pesou a dose na balança da farmácia?', 'O peso da caneta', 'Seringa de 50 unidades']) {
+      expect(validateDraft(draft({ caption: t }), source).join(), t).not.toMatch(/emagrecer|perda de peso|reganho|quilos/);
+    }
   });
 
   it('barra ilustração fora da lista', () => {
@@ -330,22 +337,26 @@ describe('ctaFor', () => {
   const pep = (slug: string): Topic => ({ ...topic(slug), peptides: [slug] });
 
   it('usa o guia do peptídeo quando ativo', () => {
-    const cta = ctaFor(pep('tirzepatida'), all);
+    const cta = guideFor(pep('tirzepatida'), all);
     expect(cta?.slug).toBe('tirzepatida-antes-de-subir-a-dose');
     expect(cta?.others).toBeGreaterThan(0);
   });
 
   it('guia inativo cai para o kit', () => {
-    const cta = ctaFor(pep('tirzepatida'), new Set(['kit-comeco-seguro', 'semaglutida-manual']));
+    const cta = guideFor(pep('tirzepatida'), new Set(['kit-comeco-seguro', 'semaglutida-manual']));
     expect(cta?.slug).toBe('kit-comeco-seguro');
   });
 
+  it('com a chave desligada, o post não cita guia (calculadoras grátis)', () => {
+    expect(ctaFor(pep('tirzepatida'), all)).toBe(GUIDE_IN_POSTS ? guideFor(pep('tirzepatida'), all) : null);
+  });
+
   it('nenhum guia ativo: sem CTA de guia', () => {
-    expect(ctaFor(pep('tirzepatida'), new Set())).toBeNull();
+    expect(guideFor(pep('tirzepatida'), new Set())).toBeNull();
   });
 
   it('nunca usa a tabela personalizada como guia', () => {
-    const cta = ctaFor(pep('tirzepatida'), new Set(['tabela-personalizada']));
+    const cta = guideFor(pep('tirzepatida'), new Set(['tabela-personalizada']));
     expect(cta).toBeNull();
   });
 });
@@ -406,6 +417,31 @@ describe('InstagramClient', () => {
     const ig = new InstagramClient({ ...opts, fetchFn: fn });
     await expect(ig.publishReel('https://x/r.mp4', 'l')).rejects.toThrow('ERROR');
     expect(calls.some((c) => c.url.includes('media_publish'))).toBe(false);
+  });
+
+  it('carrossel tenta de novo o item que a Meta recusou por timeout ou conexão caída', async () => {
+    let n = 0;
+    const calls: string[] = [];
+    const fn = (async (url: string, init?: RequestInit) => {
+      calls.push(`${url} ${init?.body ?? ''}`);
+      n++;
+      if (n === 2) throw new TypeError('fetch failed'); // ECONNRESET no 2º item
+      if (n === 3) return new Response(JSON.stringify({ error: { message: 'Timeout', code: -2 } }), { status: 400 });
+      const next = [{ id: 'c1' }, null, null, { id: 'c2' }, { status_code: 'FINISHED' }, { status_code: 'FINISHED' }, { id: 'car' }, { status_code: 'FINISHED' }, { id: 'post9' }][n - 1];
+      return new Response(JSON.stringify(next), { status: 200 });
+    }) as unknown as typeof fetch;
+    const ig = new InstagramClient({ ...opts, fetchFn: fn });
+    expect(await ig.publishCarousel(['https://x/1.jpg', 'https://x/2.jpg'], 'l')).toBe('post9');
+    expect(calls.filter((c) => c.includes('image_url=https%3A%2F%2Fx%2F2.jpg'))).toHaveLength(3);
+  });
+
+  it('não repete a publicação nem erro definitivo (token)', async () => {
+    const pub = fakeFetch([{ id: 'r1' }, { status_code: 'FINISHED' }, { error: { message: 'Timeout', code: -2 } }]);
+    await expect(new InstagramClient({ ...opts, fetchFn: pub.fn }).publishReel('https://x/r.mp4', 'l')).rejects.toThrow('Timeout');
+    expect(pub.calls.filter((c) => c.url.includes('media_publish'))).toHaveLength(1);
+    const tok = fakeFetch([{ error: { message: 'Invalid OAuth access token', code: 190 } }]);
+    await expect(new InstagramClient({ ...opts, fetchFn: tok.fn }).publishReel('https://x/r.mp4', 'l')).rejects.toThrow('OAuth');
+    expect(tok.calls).toHaveLength(1);
   });
 
   it('erro da API vira exceção com a mensagem da Meta', async () => {
