@@ -1,7 +1,9 @@
 // Legenda final: gancho + corpo (IA) + chamada da bio + aviso + hashtags (código). Puro.
-import { INSTAGRAM_HANDLE } from '@/lib/site';
+import { INSTAGRAM_HANDLE, SITE_URL } from '@/lib/site';
 import { DM_KEYWORD } from '@/lib/instagram-dm';
-import type { Cta, Draft, Topic } from './types';
+import type { Cta, Draft, Platform, Topic } from './types';
+
+export type { Platform };
 
 export const MAX_CAPTION = 2200;
 export const MAX_HASHTAGS = 5;
@@ -84,6 +86,50 @@ export function buildCaption(draft: Draft, topic: Topic, cta: Cta | null): strin
   let body = draft.caption.trim();
   if (body.length > room) body = `${body.slice(0, Math.max(0, room - 1)).trimEnd()}…`;
   return `${head}${body}\n${tail}`;
+}
+
+export const SHORTS_TITLE_MAX = 100;
+export const SHORTS_DESCRIPTION_MAX = 5000;
+
+/** Link do site com UTM do YouTube (o link da descrição do Shorts é o que aparece ao abrir a descrição). */
+export function youtubeUrl(pathname: string): string {
+  const qs = new URLSearchParams({ utm_source: 'youtube', utm_medium: 'shorts', utm_campaign: 'shorts' });
+  return `${SITE_URL}${pathname}?${qs}`;
+}
+
+/**
+ * Título do Shorts: o gancho (o YouTube pede título; o Instagram não tem). Sem "<" e ">", que a
+ * API recusa, e com no máximo 100 caracteres.
+ */
+export function shortsTitle(draft: Draft): string {
+  const hook = draft.hook.replace(/[<>]/g, '').replace(/\s+/g, ' ').trim().replace(/[.]+$/, '');
+  return hook.length <= SHORTS_TITLE_MAX ? hook : `${hook.slice(0, SHORTS_TITLE_MAX - 1).trimEnd()}…`;
+}
+
+/**
+ * Descrição do Shorts: gancho → corpo → pergunta → link do assunto no site → guia ou calculadoras →
+ * aviso → hashtags. Sem "comenta GUIA" (não há direct no YouTube) e sem preço, como no Instagram.
+ */
+export function shortsDescription(draft: Draft, topic: Topic, cta: Cta | null): string {
+  const more = cta
+    ? `📘 Guia "${cta.title}": ${youtubeUrl(`/ebooks/${cta.slug}`)}`
+    : `🧮 Calculadoras grátis: ${youtubeUrl('/ferramentas')}`;
+  const tail = [
+    '', `💬 ${draft.question.trim()} Me conta nos comentários 👇`, '', `🔗 Explicado no site: ${youtubeUrl(topic.url)}`, more, '',
+    `💧 Se inscreve: todo dia uma dúvida de Mounjaro, Ozempic e peptídeos explicada sem achismo, com fonte.`, '',
+    DISCLAIMER, '', ['#shorts', ...hashtagsFor(topic)].join(' '),
+  ].join('\n');
+  const head = `${draft.hook.trim()}\n\n`;
+  const room = SHORTS_DESCRIPTION_MAX - head.length - tail.length - 1;
+  let body = draft.caption.trim().replace(/[<>]/g, '');
+  if (body.length > room) body = `${body.slice(0, Math.max(0, room - 1)).trimEnd()}…`;
+  return `${head}${body}\n${tail}`.replace(/[<>]/g, '');
+}
+
+/** Última fala do Shorts: o link fica no canal (no Shorts o link da descrição não abre direto). */
+export function shortsSpeech(cta: Cta | null, share?: string): string {
+  const what = cta ? 'O guia completo tá no link do canal.' : 'As calculadoras grátis tão no link do canal.';
+  return `${what} Se inscreve pra ver a próxima dúvida. E manda esse vídeo pra ${shareTarget(share)}.`;
 }
 
 /**

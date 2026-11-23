@@ -7,7 +7,13 @@ import { buildTopics } from '@/scripts/social/topics';
 import { COOLDOWN_DAYS, PEPTIDE_GAP_DAYS, pickTopic, topicPriority, VIRAL_RANK } from '@/scripts/social/pick';
 import { dateRange, formatsOn, planQueue, reservedFrom, slotTime } from '@/scripts/social/queue';
 import { extractQuantities, validateDraft } from '@/scripts/social/validate';
-import { MAX_CAPTION, MAX_HASHTAGS, SHARE_FALLBACK, buildCaption, ctaLine, ctaSpeech, shareLine } from '@/scripts/social/caption';
+import {
+  MAX_CAPTION, MAX_HASHTAGS, SHARE_FALLBACK, SHORTS_DESCRIPTION_MAX, SHORTS_TITLE_MAX, buildCaption, ctaLine, ctaSpeech, shareLine,
+  shortsDescription, shortsSpeech, shortsTitle, youtubeUrl,
+} from '@/scripts/social/caption';
+import { YouTubeClient, insertBody, privacyFrom, youtubeEnv } from '@/scripts/social/youtube';
+import fsp from 'node:fs/promises';
+import os from 'node:os';
 import {
   DM_KEYWORD, PUBLIC_REPLIES, dmText, ebookFromCaption, fallbackEbook, guideRequests, guideUrl, publicReply, validSignature, wantsGuide,
 } from '@/lib/instagram-dm';
@@ -820,5 +826,81 @@ describe('nota do gancho: acentos', () => {
   it('"você" e "não é" contam mesmo com acento no fim', () => {
     expect(hookScore('Você aplica o Mounjaro sempre no mesmo ponto?').hits).toContain('fala com a pessoa');
     expect(hookScore('Frasco não é Mounjaro.').hits).toContain('erro/não');
+  });
+});
+
+describe('Shorts do YouTube', () => {
+  const t: Topic = { ...topic('tirzepatida'), peptides: ['tirzepatida'], url: '/peptideos/tirzepatida' };
+  const cta = { id: 'KIT', slug: 'kit', title: 'Kit Começo Seguro', priceLabel: 'R$ 69,90', cover: '', others: 4 };
+
+  it('título é o gancho, sem "<>", até 100 caracteres', () => {
+    expect(shortsTitle(draft({ hook: 'Você <está> diluindo errado.' }))).toBe('Você está diluindo errado');
+    const long = shortsTitle(draft({ hook: 'a'.repeat(150) }));
+    expect(long.length).toBeLessThanOrEqual(SHORTS_TITLE_MAX);
+  });
+
+  it('descrição: link do site com UTM do YouTube, sem "comenta GUIA" nem preço', () => {
+    for (const c of [cta, null]) {
+      const d = shortsDescription(draft(), t, c);
+      expect(d).toContain(youtubeUrl('/peptideos/tirzepatida'));
+      expect(d).toContain('utm_source=youtube');
+      expect(d).toContain('#shorts');
+      expect(d).toContain('Não substitui orientação médica');
+      expect(d).not.toMatch(/comenta|R\$|direct/i);
+      expect(d).not.toMatch(/[<>]/);
+    }
+    expect(shortsDescription(draft(), t, cta)).toContain('/ebooks/kit?');
+    expect(shortsDescription(draft(), t, null)).toContain('/ferramentas?');
+    expect(shortsDescription(draft({ caption: 'x'.repeat(9000) }), t, null).length).toBeLessThanOrEqual(SHORTS_DESCRIPTION_MAX);
+  });
+
+  it('fala final aponta o link do canal, sem pedir comentário', () => {
+    const s = shortsSpeech(null, 'aquela amiga que come correndo');
+    expect(s).toContain('link do canal');
+    expect(s).toContain('manda esse vídeo pra aquela amiga que come correndo');
+    expect(s).not.toMatch(/comenta|direct/i);
+    expect(shortsSpeech(cta)).toContain('guia');
+  });
+
+  it('variáveis: as três ou nada; privacidade padrão pública', () => {
+    expect(youtubeEnv({ YT_CLIENT_ID: 'a', YT_CLIENT_SECRET: 'b' })).toBeNull();
+    expect(youtubeEnv({ YT_CLIENT_ID: 'a', YT_CLIENT_SECRET: 'b', YT_REFRESH_TOKEN: ' c ' })).toMatchObject({ refreshToken: 'c' });
+    expect(privacyFrom(undefined)).toBe('public');
+    expect(privacyFrom('Private')).toBe('private');
+    expect(privacyFrom('xyz')).toBe('public');
+  });
+
+  it('metadados: educação, não é para crianças, aviso de voz sintética', () => {
+    const b = insertBody({ title: 'T', description: 'D', tags: ['x'] });
+    expect(b.snippet.categoryId).toBe('27');
+    expect(b.status).toMatchObject({ privacyStatus: 'public', selfDeclaredMadeForKids: false, containsSyntheticMedia: true });
+  });
+
+  it('upload: token → sessão retomável → PUT do arquivo; repete o PUT em erro 5xx', async () => {
+    const file = path.join(os.tmpdir(), `short-teste-${process.pid}.mp4`);
+    await fsp.writeFile(file, Buffer.from('mp4'));
+    const calls: { url: string; method?: string; headers?: Record<string, string>; body?: unknown }[] = [];
+    let puts = 0;
+    const fetchFn = (async (url: string, init?: RequestInit) => {
+      calls.push({ url, method: init?.method, headers: init?.headers as Record<string, string>, body: init?.body });
+      if (url.startsWith('https://oauth2')) return new Response(JSON.stringify({ access_token: 'tok' }));
+      if (url.startsWith('https://www.googleapis.com/upload')) return new Response('', { status: 200, headers: { location: 'https://up/sessao' } });
+      puts++;
+      return puts === 1 ? new Response('{}', { status: 503 }) : new Response(JSON.stringify({ id: 'abc123' }));
+    }) as typeof fetch;
+    const yt = new YouTubeClient({ clientId: 'c', clientSecret: 's', refreshToken: 'r', fetchFn, sleep: async () => {} });
+    const id = await yt.uploadShort(file, { title: 'T', description: 'D', tags: [] });
+    await fsp.rm(file);
+    expect(id).toBe('abc123');
+    expect(String(calls[0].body)).toContain('grant_type=refresh_token');
+    expect(calls[1].url).toContain('uploadType=resumable');
+    expect(calls[1].headers?.['X-Upload-Content-Length']).toBe('3');
+    expect(calls[2]).toMatchObject({ url: 'https://up/sessao', method: 'PUT' });
+    expect(calls).toHaveLength(4);
+  });
+
+  it('refresh token revogado explica como gerar outro', async () => {
+    const fetchFn = (async () => new Response(JSON.stringify({ error: 'invalid_grant' }), { status: 400 })) as unknown as typeof fetch;
+    await expect(new YouTubeClient({ clientId: 'c', clientSecret: 's', refreshToken: 'r', fetchFn }).accessToken()).rejects.toThrow(/youtube-auth/);
   });
 });

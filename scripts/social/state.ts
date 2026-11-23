@@ -3,7 +3,7 @@
 import { desc, eq, gte, inArray, and, sql } from 'drizzle-orm';
 import { db } from '@/lib/db';
 import { socialDms, socialPosts, socialState } from '@/drizzle/schema';
-import type { Format, HistoryEntry } from './types';
+import type { Format, HistoryEntry, Platform } from './types';
 
 const TOKEN_KEY = 'ig_token';
 
@@ -25,6 +25,8 @@ export async function ensureTables(): Promise<void> {
       error text,
       created_at timestamp DEFAULT now() NOT NULL
     )`);
+  // Shorts do YouTube (23/11/2026): mesma tabela, uma linha por plataforma.
+  await db.execute(sql`ALTER TABLE social_posts ADD COLUMN IF NOT EXISTS platform varchar(12) DEFAULT 'instagram' NOT NULL`);
   await db.execute(sql`CREATE INDEX IF NOT EXISTS social_posts_created_at_idx ON social_posts (created_at)`);
   await ensureWebhookTables();
 }
@@ -78,14 +80,15 @@ export async function releaseDm(commentId: string): Promise<void> {
   await db.delete(socialDms).where(eq(socialDms.commentId, commentId));
 }
 
-/** Já saiu um post deste formato no dia `day` (AAAA-MM-DD, horário de Brasília)? */
-export async function publishedOn(format: Format, day: string): Promise<boolean> {
+/** Já saiu um post deste formato nesta plataforma no dia `day` (AAAA-MM-DD, horário de Brasília)? */
+export async function publishedOn(format: Format, day: string, platform: Platform = 'instagram'): Promise<boolean> {
   const rows = await db
     .select({ id: socialPosts.id })
     .from(socialPosts)
     .where(
       and(
         eq(socialPosts.format, format),
+        eq(socialPosts.platform, platform),
         eq(socialPosts.status, 'publicado'),
         // created_at é gravado em UTC (now() do Postgres na Neon).
         sql`(${socialPosts.createdAt} AT TIME ZONE 'UTC' AT TIME ZONE 'America/Sao_Paulo')::date = ${day}::date`,
@@ -95,19 +98,24 @@ export async function publishedOn(format: Format, day: string): Promise<boolean>
   return rows.length > 0;
 }
 
-/** Publicados e reprovados dos últimos `days` dias (ambos contam na quarentena do tema). */
+/**
+ * Publicados e reprovados dos últimos `days` dias (ambos contam na quarentena do tema). Só o
+ * Instagram: o Shorts repete o tema do Reels do dia e não pode contar em dobro.
+ */
 export async function getHistory(days = 120): Promise<HistoryEntry[]> {
   const since = new Date(Date.now() - days * 86_400_000);
   const rows = await db
     .select()
     .from(socialPosts)
-    .where(and(gte(socialPosts.createdAt, since), inArray(socialPosts.status, ['publicado', 'invalido'])))
+    .where(and(gte(socialPosts.createdAt, since), eq(socialPosts.platform, 'instagram'), inArray(socialPosts.status, ['publicado', 'invalido'])))
     .orderBy(desc(socialPosts.createdAt));
   return rows.map((r) => ({ topicId: r.topicId, format: r.format as Format, category: r.category, at: r.createdAt }));
 }
 
 export async function record(entry: {
   format: Format;
+  /** Padrão instagram. No YouTube, igMediaId guarda o id do vídeo. */
+  platform?: Platform;
   topicId: string;
   category: string;
   status: 'publicado' | 'erro' | 'invalido';

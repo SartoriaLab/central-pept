@@ -9,14 +9,14 @@ import { createElement } from 'react';
 import satori from 'satori';
 import { Resvg } from '@resvg/resvg-js';
 import { CAROUSEL, CaptionPill, PaperCover, PaperCta, PaperSlide, REEL, ReelCta, ReelScene, type Size } from './papel';
-import { ctaSpeech } from './caption';
+import { ctaSpeech, shortsSpeech } from './caption';
 import { beatsFor, chunkWords } from './captions';
 import { KIND_CHIP, scenesFor, splitTitle, visualForSlide } from './scenes';
 import { speakCached, voiceLabel } from './voice';
 import { LAYOUT_TAG } from './layouts';
 import type { Clock } from './motion';
 import { relabel, speechPlan } from './pronuncia';
-import type { Cta, Draft, Scene, SceneVisual, Topic } from './types';
+import type { Cta, Draft, Platform, Scene, SceneVisual, Topic } from './types';
 
 const run = promisify(execFile);
 
@@ -219,9 +219,13 @@ export async function reelCover(outDir: string): Promise<string | null> {
  * Reels explicador: uma cena por frase, animada quadro a quadro (motion.ts): título entra linha
  * a linha e sai subindo, desenho entra por partes no ritmo da fala e flutua, legenda em pílula
  * que pula a cada bloco. Fundo, selo e marca não cortam; desenho igual ao da cena vizinha
- * continua na tela. No fim, "comenta GUIA" + envio. Capa em capa.png. MP4 H.264/AAC 1080×1920 30 fps.
+ * continua na tela. No fim, "comenta GUIA" + envio (no Shorts, "link no canal"). Capa em capa.png.
+ * MP4 H.264/AAC 1080×1920 30 fps: reel.mp4 (Instagram) ou short.mp4 (YouTube). A voz das cenas sai
+ * do cache (voice.ts): o Shorts só paga a fala final.
  */
-export async function renderReel(draft: Draft, topic: Topic, cta: Cta | null, outDir: string): Promise<string> {
+export async function renderReel(
+  draft: Draft, topic: Topic, cta: Cta | null, outDir: string, platform: Platform = 'instagram',
+): Promise<string> {
   await fs.mkdir(outDir, { recursive: true });
   const scenes = scenesFor(draft, topic);
   if (scenes.length === 0) throw new Error('rascunho sem cenas nem falas para o Reels');
@@ -234,7 +238,10 @@ export async function renderReel(draft: Draft, topic: Topic, cta: Cta | null, ou
       visualKey: JSON.stringify(scene.visual),
       frame: (caption, clock) => createElement(ReelScene, { scene, caption, clock }),
     })),
-    { speech: ctaSpeech(cta, draft.share), frame: (caption, clock) => createElement(ReelCta, { cta, caption, clock }) },
+    {
+      speech: platform === 'youtube' ? shortsSpeech(cta, draft.share) : ctaSpeech(cta, draft.share),
+      frame: (caption, clock) => createElement(ReelCta, { cta, caption, clock, platform }),
+    },
   ];
   console.log(`Voz: ${voiceLabel()} · ${parts.length} cenas`);
   const timed: Timed[] = [];
@@ -257,7 +264,7 @@ export async function renderReel(draft: Draft, topic: Topic, cta: Cta | null, ou
     f.push('[voz]anull[a]');
   }
 
-  const out = path.join(outDir, 'reel.mp4');
+  const out = path.join(outDir, platform === 'youtube' ? 'short.mp4' : 'reel.mp4');
   await ffmpeg([
     ...inputs,
     '-filter_complex', f.join(';'),

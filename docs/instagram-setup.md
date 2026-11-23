@@ -246,6 +246,50 @@ O que a pesquisa de 2026 (Instagram, GLP-1, mulheres de 30 a 55) mostrou e já e
 
 ---
 
+## Parte 9 — Shorts no YouTube (o mesmo Reels)
+
+Com as três variáveis abaixo no `.env.local`, toda execução do Reels também sobe o vídeo como
+Shorts (`scripts/social/youtube.ts`). O vídeo é o mesmo, mas o fechamento muda para "link no canal",
+porque no YouTube não existe o direct do "comenta GUIA". O arquivo sai em `social/out/<data>-reels/short.mp4`;
+a voz das cenas vem do cache e só a fala final é gerada de novo. Instagram e YouTube contam separado
+em `social_posts` (coluna `platform`): se um falhar, rodar de novo publica só o que faltou.
+
+1. **Canal**: em youtube.com, com a conta Google que vai ser dona, crie o canal "Dose Certa"
+   (foto, banner e, em *Personalização → Informações básicas → Links*, o link `/links` do site).
+   O link do canal é o que o Shorts manda a pessoa clicar.
+2. **Projeto no Google Cloud**: console.cloud.google.com → novo projeto "Dose Certa Publicador" →
+   *APIs e serviços → Biblioteca* → ative **YouTube Data API v3**.
+3. **Tela de consentimento OAuth**: tipo *Externo*, nome do app, seu email. Escopo
+   `.../auth/youtube.upload`. Depois clique em **Publicar app** ("Em produção"): em modo de teste o
+   refresh token vence em 7 dias e o robô para.
+4. **Credencial**: *Credenciais → Criar → ID do cliente OAuth → App para computador*. Copie o ID e a
+   chave secreta para o `.env.local`:
+
+   ```
+   YT_CLIENT_ID=...apps.googleusercontent.com
+   YT_CLIENT_SECRET=...
+   ```
+
+5. **Refresh token** (uma vez): rode o comando abaixo, entre com a conta do canal e aceite. O
+   Google avisa que o app não foi verificado: *Avançado → Acessar*. Copie a linha `YT_REFRESH_TOKEN=...`
+   que aparece no terminal para o `.env.local`.
+
+   ```
+   node_modules/.bin/tsx scripts/social/youtube-auth.ts
+   ```
+
+6. **Auditoria**: projeto de API não auditado pode ter o vídeo travado como privado. Peça a
+   auditoria no formulário "YouTube API Services - Audit and Quota Extension". Enquanto não sai,
+   use `YT_PRIVACY=private` (ou `unlisted`) para testar sem publicar ao público.
+7. **Testar sem publicar**: `run.ts reels --dry --shorts` gera o `short.mp4` e a
+   `descricao-youtube.txt` sem subir nada.
+
+Cota: o upload tem cota própria de cerca de 100 por dia; o robô usa 1. O vídeo sai marcado como
+conteúdo gerado (`containsSyntheticMedia`, por causa da voz sintética), categoria Educação e não
+destinado a crianças. A descrição leva o link do assunto no site com UTM `youtube/shorts`, sem preço.
+
+---
+
 ## Me mande
 
 Não cole os valores aqui no chat. Coloque direto nos segredos do GitHub, que eu já uso no

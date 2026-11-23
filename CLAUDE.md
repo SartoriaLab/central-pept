@@ -178,6 +178,11 @@ Feed, sitemap, busca, páginas de tag e imagem de compartilhamento saem sozinhos
    (`ensureTables` em `state.ts`, espelho de `drizzle/schema.ts`: mudou um, mude o outro). O webhook
    cria só `social_state` e `social_dms` (`ensureWebhookTables`), pois pode rodar antes do robô.
 5. Bio do perfil aponta para `/links` (noindex), com UTM `instagram/bio` (`bioUrl`).
+   Shorts no YouTube (`youtube.ts`, setup na Parte 9): com `YT_CLIENT_ID`, `YT_CLIENT_SECRET` e `YT_REFRESH_TOKEN`
+   o Reels também sobe como Shorts depois do Instagram, renderizado de novo como `short.mp4` com o fechamento
+   "link no canal" (`shortsSpeech`, `ReelCta platform="youtube"`): não há direct no YouTube. Título é o gancho
+   (`shortsTitle`) e a descrição leva o link do site com UTM `youtube/shorts` (`shortsDescription`). `social_posts.platform`
+   separa as duas: `publishedOn` e o histórico do tema (`getHistory`, só Instagram) contam cada uma à parte.
 6. Restrição de 23/11/2026: um Reels sobre reganho foi sinalizado e a conta saiu das recomendações
    (Status da conta). Desde então, até a conta voltar: o post não cita guia pago (`GUIDE_IN_POSTS` em
    `ebook-cta.ts`; sem guia, a chamada é das calculadoras grátis); o validador barra emagrecer, perda e

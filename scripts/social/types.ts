@@ -5,6 +5,9 @@ import type { SlideLayout } from './layouts';
 
 export type Format = 'carrossel' | 'reels';
 
+/** Onde o vídeo sai: Reels do Instagram ou Shorts do YouTube (mesmas cenas, fechamento próprio). */
+export type Platform = 'instagram' | 'youtube';
+
 /** Um assunto publicável, com o texto do site que a IA pode usar (e nada além dele). */
 export type Topic = {
   /** "post:<slug>", "peptide:<slug>" ou "comparison:<slug>". */

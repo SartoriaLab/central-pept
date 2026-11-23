@@ -105,10 +105,11 @@ export const socialPosts = pgTable(
   {
     id: serial('id').primaryKey(),
     format: varchar('format', { length: 12 }).notNull(), // carrossel | reels
+    platform: varchar('platform', { length: 12 }).default('instagram').notNull(), // instagram | youtube (Shorts)
     topicId: varchar('topic_id', { length: 120 }).notNull(), // post:<slug> | peptide:<slug> | comparison:<slug>
     category: varchar('category', { length: 30 }).notNull(),
     status: varchar('status', { length: 12 }).notNull(), // publicado | erro | invalido
-    igMediaId: varchar('ig_media_id', { length: 40 }),
+    igMediaId: varchar('ig_media_id', { length: 40 }), // no YouTube, o id do vídeo
     caption: text('caption'),
     error: text('error'),
     createdAt: timestamp('created_at').defaultNow().notNull(),

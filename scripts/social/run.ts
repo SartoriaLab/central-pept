@@ -10,6 +10,8 @@
 // --fila sem texto válido para hoje sai com código 3 (agendado.ps1 não publica; com -ComIA escreve na hora).
 // Variáveis: DATABASE_URL, IG_USER_ID, IG_ACCESS_TOKEN, BLOB_READ_WRITE_TOKEN e, para o texto,
 // ANTHROPIC_API_KEY ou o Claude Code deste computador (write.ts). Lidas do .env.local, se existir.
+// Shorts: com YT_CLIENT_ID, YT_CLIENT_SECRET e YT_REFRESH_TOKEN, o Reels também sai no YouTube
+// (short.mp4, fechamento "link no canal"; youtube.ts). --shorts gera o short.mp4 no --dry sem as variáveis.
 // Agendado no Windows: scripts/social/agendar.ps1.
 import fs from 'node:fs/promises';
 import path from 'node:path';
@@ -18,11 +20,12 @@ import { pickTopic } from './pick';
 import { QueuedDraftSchema, SYSTEM, draftJsonSchema, userMessage, writeDraft } from './write';
 import { validateDraft } from './validate';
 import { hookScore } from './viral';
-import { buildCaption } from './caption';
+import { buildCaption, hashtagsFor, shortsDescription, shortsTitle } from './caption';
 import { ctaFor, fetchActiveEbookSlugs } from './ebook-cta';
 import { reelCover, renderCarousel, renderReel } from './render';
 import { dateRange, planQueue, queueKey, reservedFrom, type QueueItem } from './queue';
-import type { Draft, Format, HistoryEntry, Topic } from './types';
+import { privacyFrom, youtubeEnv } from './youtube';
+import type { Draft, Format, HistoryEntry, Platform, Topic } from './types';
 
 const MAX_TOPICS = 3;
 /** Estilo visual atual (papel.tsx). */
@@ -228,23 +231,32 @@ async function plan(): Promise<void> {
 
 type Rendered = { files: string[]; caption: string };
 
+/** Reels também vai ao YouTube: variáveis do YouTube no .env.local ou --shorts (só gera). */
+function wantsShorts(format: Format): boolean {
+  return format === 'reels' && (!!youtubeEnv() || process.argv.includes('--shorts'));
+}
+
 /**
  * Imagens/vídeo e legenda em `outDir`. Se a prévia (`run.ts previa`) já gerou ali o mesmo texto
  * com o mesmo guia, reaproveita: o Reels não é renderizado (nem a voz paga) duas vezes.
+ * `youtube`: short.mp4 + descricao-youtube.txt, com registro próprio (rascunho-youtube.json).
  */
 async function renderTo(
-  draft: Draft, topic: Topic, format: Format, outDir: string, active: Set<string>,
+  draft: Draft, topic: Topic, format: Format, outDir: string, active: Set<string>, platform: Platform = 'instagram',
 ): Promise<Rendered & { reused: boolean }> {
   const cta = ctaFor(topic, active);
-  const caption = buildCaption(draft, topic, cta);
+  const yt = platform === 'youtube';
+  const caption = yt ? shortsDescription(draft, topic, cta) : buildCaption(draft, topic, cta);
+  const recordFile = path.join(outDir, yt ? 'rascunho-youtube.json' : 'rascunho.json');
+  const captionFile = path.join(outDir, yt ? 'descricao-youtube.txt' : 'legenda.txt');
   // `visual` muda quando o estilo muda: a prévia feita no estilo antigo é renderizada de novo.
   const record = { topic: topic.id, cta: cta?.id ?? null, visual: VISUAL, draft };
   try {
-    const saved = JSON.parse(await fs.readFile(path.join(outDir, 'rascunho.json'), 'utf8')) as typeof record & { files?: string[] };
+    const saved = JSON.parse(await fs.readFile(recordFile, 'utf8')) as typeof record & { files?: string[] };
     const files = (saved.files ?? []).map((f) => path.join(outDir, f));
     const same = JSON.stringify({ topic: saved.topic, cta: saved.cta, visual: saved.visual, draft: saved.draft }) === JSON.stringify(record);
     if (same && files.length && (await Promise.all(files.map((f) => fs.stat(f).then(() => true, () => false)))).every(Boolean)) {
-      await fs.writeFile(path.join(outDir, 'legenda.txt'), caption);
+      await fs.writeFile(captionFile, caption);
       return { files, caption, reused: true };
     }
   } catch {
@@ -252,10 +264,10 @@ async function renderTo(
   }
   await fs.mkdir(outDir, { recursive: true });
   const files =
-    format === 'carrossel' ? await renderCarousel(draft, topic, cta, outDir) : [await renderReel(draft, topic, cta, outDir)];
-  await fs.writeFile(path.join(outDir, 'legenda.txt'), caption);
+    format === 'carrossel' ? await renderCarousel(draft, topic, cta, outDir) : [await renderReel(draft, topic, cta, outDir, platform)];
+  await fs.writeFile(captionFile, caption);
   await fs.writeFile(
-    path.join(outDir, 'rascunho.json'),
+    recordFile,
     JSON.stringify({ ...record, files: files.map((f) => path.relative(outDir, f)) }, null, 2),
   );
   return { files, caption, reused: false };
@@ -281,8 +293,13 @@ async function preview(): Promise<void> {
       continue;
     }
     try {
-      const r = await renderTo(checked.draft, checked.topic, item.format, path.join(process.cwd(), 'social', 'out', key), active);
+      const dir = path.join(process.cwd(), 'social', 'out', key);
+      const r = await renderTo(checked.draft, checked.topic, item.format, dir, active);
       console.log(`${key}: ${r.reused ? 'já gerado' : 'gerado'} (${r.files.length} arquivo${r.files.length > 1 ? 's' : ''})`);
+      if (wantsShorts(item.format)) {
+        const s = await renderTo(checked.draft, checked.topic, item.format, dir, active, 'youtube');
+        console.log(`${key}: Shorts ${s.reused ? 'já gerado' : 'gerado'}`);
+      }
       ok++;
     } catch (e) {
       console.log(`${key}: ERRO ${(e as Error).message}`);
@@ -332,9 +349,16 @@ async function main() {
   const useDb = !dry || !!process.env.DATABASE_URL;
   const state = useDb ? await import('./state') : null;
   if (state) await state.ensureTables();
-  if (state && !dry && !force && (await state.publishedOn(format, today()))) {
-    console.log(`Já saiu ${format} hoje (${today()}): nada a fazer. Use --force para publicar outro.`);
-    return;
+  const yt = format === 'reels' ? youtubeEnv() : null;
+  // Instagram e YouTube contam separado: se um falhou, a nova tentativa publica só o que faltou.
+  let igDone = false;
+  if (state && !dry && !force) {
+    igDone = await state.publishedOn(format, today());
+    const ytDone = yt ? await state.publishedOn(format, today(), 'youtube') : true;
+    if (igDone && ytDone) {
+      console.log(`Já saiu ${format} hoje (${today()}): nada a fazer. Use --force para publicar outro.`);
+      return;
+    }
   }
   const history: HistoryEntry[] = state ? await state.getHistory() : [];
   const topics = buildTopics();
@@ -408,11 +432,17 @@ async function main() {
   console.log(`Arquivos em ${outDir}${reused ? ' (da prévia)' : ''}`);
 
   if (dry || !state) {
+    if (wantsShorts(format)) {
+      const s = await renderTo(draft, topic, format, outDir, active, 'youtube');
+      console.log(`Shorts: ${s.files[0]}${s.reused ? ' (da prévia)' : ''}`);
+    }
     console.log('--dry: não publicado.');
     return;
   }
 
-  try {
+  let igError: unknown = null;
+  if (igDone) console.log('Instagram já saiu hoje: só o YouTube.');
+  else try {
     const { InstagramClient } = await import('./instagram');
     const { upload, remove } = await import('./blob');
 
@@ -453,8 +483,31 @@ async function main() {
     console.log(`Publicado: ${mediaId} (${topic.id})`);
   } catch (e) {
     await state.record({ format, topicId: topic.id, category: topic.category, status: 'erro', caption, error: (e as Error).stack ?? String(e) });
-    throw e;
+    igError = e;
   }
+
+  // Shorts depois do Reels, com o mesmo tema; falha de um não impede o outro.
+  if (yt) {
+    let description: string | undefined;
+    try {
+      const { YouTubeClient } = await import('./youtube');
+      const short = await renderTo(draft, topic, format, outDir, active, 'youtube');
+      description = short.caption;
+      const id = await new YouTubeClient(yt).uploadShort(short.files[0], {
+        title: shortsTitle(draft),
+        description,
+        tags: hashtagsFor(topic).map((t) => t.slice(1)),
+        privacy: privacyFrom(process.env.YT_PRIVACY),
+      });
+      await state.record({ format, platform: 'youtube', topicId: topic.id, category: topic.category, status: 'publicado', igMediaId: id, caption: description });
+      console.log(`Shorts publicado: https://youtube.com/shorts/${id}`);
+    } catch (e) {
+      await state.record({ format, platform: 'youtube', topicId: topic.id, category: topic.category, status: 'erro', caption: description, error: (e as Error).stack ?? String(e) });
+      console.error(`Shorts não publicado: ${(e as Error).message}`);
+      if (!igError) process.exitCode = 1;
+    }
+  }
+  if (igError) throw igError;
 }
 
 main()

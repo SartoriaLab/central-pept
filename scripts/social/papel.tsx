@@ -11,7 +11,7 @@ import DropCheck from '@/components/brand/DropCheck';
 import { illustrationSrc } from './illustrations';
 import { splitTitle } from './scenes';
 import { clamp, countUp, easeBack, easeInOut, easeOut, exitAt, idle, pacing, partStart, prog, titleLine, VISUAL_START, wobble, type Clock } from './motion';
-import type { Cta, Scene, SceneVisual, VialSpec } from './types';
+import type { Cta, Platform, Scene, SceneVisual, VialSpec } from './types';
 
 export type Size = { width: number; height: number };
 export const CAROUSEL: Size = { width: 1080, height: 1350 };
@@ -475,8 +475,8 @@ export function ReelScene({ scene, caption, clock }: { scene: Scene; caption?: R
   );
 }
 
-/** Fechamento do Reels: o guia (ou as calculadoras) e "comenta GUIA". */
-export function ReelCta({ cta, caption, clock }: { cta: Cta | null; caption?: React.ReactNode; clock?: Clock }) {
+/** Fechamento do Reels: o guia (ou as calculadoras) e "comenta GUIA"; no Shorts, "link no canal". */
+export function ReelCta({ cta, caption, clock, platform = 'instagram' }: { cta: Cta | null; caption?: React.ReactNode; clock?: Clock; platform?: Platform }) {
   const inner = REEL.width - 2 * R.side;
   const c = clock ?? STILL;
   const card = easeOut(prog(c.t, 0.3, 0.55));
@@ -493,7 +493,7 @@ export function ReelCta({ cta, caption, clock }: { cta: Cta | null; caption?: Re
         <div style={{ display: 'flex', flexDirection: 'column', flex: 1, opacity: card, transform: `translate(0px, ${px(80 * (1 - card))})` }}>
           {cta ? <GuideCover cta={cta} /> : <div style={{ display: 'flex', fontSize: 40, fontWeight: 700, lineHeight: 1.3, color: P.ink2 }}>Calculadoras grátis de reconstituição, dose e custo.</div>}
           <div style={{ display: 'flex', alignSelf: 'flex-start', marginTop: 30, padding: '18px 34px', borderRadius: 999, background: P.blue, color: P.white, fontSize: 40, fontWeight: 800, ...popStyle(c.t, 0.7, 0.45, 0.5), ...(pulse !== 1 ? { transform: `scale(${pulse.toFixed(4)})` } : {}) }}>
-            {`Comenta ${DM_KEYWORD}`}
+            {platform === 'youtube' ? 'Link no canal' : `Comenta ${DM_KEYWORD}`}
           </div>
         </div>
       </div>
