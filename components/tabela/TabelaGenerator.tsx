@@ -143,7 +143,7 @@ export default function TabelaGenerator({ peptides }: { peptides: Peptide[] }) {
           que a gente reenvia.
         </p>
         <Link href="/ebooks/tabela-personalizada" className="btn-teal mt-4">
-          Ver a tabela personalizada · R$ 9,90
+          Ver a tabela personalizada · R$ 14,90
         </Link>
       </div>
     );

@@ -135,6 +135,12 @@ export const KIT_UPSELL = { price: 39.9, checkoutUrl: 'https://pay.kiwify.com.br
 /** Preço de um ebook quando entra como oferta extra (order bump) no checkout. */
 export const BUMP_PRICE = 14.9;
 
+/**
+ * Bump entre a tabela e o guia T1, nos dois sentidos: o guia no checkout da tabela e a tabela
+ * no checkout do guia. Ofertas próprias na Kiwify ("bump da tabela" e "bump do guia").
+ */
+export const TABLE_PAIR_BUMP_PRICE = 9.9;
+
 export const KIND_LABELS: Record<EbookKind, string> = {
   individual: 'Guia em PDF',
   categoria: 'Guia comparativo em PDF',
@@ -1112,7 +1118,7 @@ export const EBOOKS: Ebook[] = [
     hook:
       'A conta que você acabou de fazer, pronta para imprimir: unidades de cada dose, as datas de cada aplicação até o descarte e a etiqueta do frasco.',
     line: 'Seus números num PDF para a geladeira: doses, calendário do frasco e etiqueta.',
-    price: 9.9,
+    price: 14.9,
     pages: 2,
     forWho: [
       'Reconstitui frasco e quer os números à mão na hora de aplicar, sem abrir o site.',
@@ -1144,7 +1150,7 @@ export const EBOOKS: Ebook[] = [
       'A data de cada aplicação e o dia exato de jogar o frasco fora (calendário)',
       'Quanto sobra no frasco a cada aplicação, para saber quando comprar o próximo (calendário)',
     ],
-    anchor: 'Um frasco de 10 mg aplicado depois de vencer, ou jogado fora antes da hora, custa R$ 500 a R$ 900. A tabela custa R$ 9,90.',
+    anchor: 'Um frasco de 10 mg aplicado depois de vencer, ou jogado fora antes da hora, custa R$ 500 a R$ 900. A tabela custa R$ 14,90.',
     revised: 'novembro de 2026',
     bonuses: ['Etiqueta do frasco', 'Checklist de bancada'],
     sources: [
@@ -1394,7 +1400,7 @@ const TABLE_ID = 'TAB';
 /**
  * Oferta do resultado da calculadora de reconstituição: a tabela com os números que a pessoa
  * acabou de digitar (preço de impulso). O guia do frasco entra como oferta extra no checkout
- * dela (order bump na Kiwify, por BUMP_PRICE): `addon` avisa disso. null sem checkout da tabela:
+ * dela (order bump na Kiwify, por TABLE_PAIR_BUMP_PRICE): `addon` avisa disso. null sem checkout da tabela:
  * a calculadora volta a oferecer o guia.
  */
 export function tableOffer(): EbookOffer | null {
@@ -1405,7 +1411,7 @@ export function tableOffer(): EbookOffer | null {
   if (!guide || !checkoutUrl(guide)) return offer;
   return {
     ...offer,
-    addon: `No checkout, você pode levar junto o guia "${guide.title}" por ${formatPrice(BUMP_PRICE)} (avulso, ${formatPrice(guide.price)}).`,
+    addon: `No checkout, você pode levar junto o guia "${guide.title}" por ${formatPrice(TABLE_PAIR_BUMP_PRICE)} (avulso, ${formatPrice(guide.price)}).`,
   };
 }
 

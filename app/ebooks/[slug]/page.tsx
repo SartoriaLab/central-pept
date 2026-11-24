@@ -12,6 +12,7 @@ import {
   BUMP_PRICE,
   EBOOK_FAQ,
   KIND_LABELS,
+  TABLE_PAIR_BUMP_PRICE,
   checkoutUrl,
   coverLabel,
   formatPrice,
@@ -424,7 +425,7 @@ export default async function EbookPage({ params }: { params: Promise<Params> })
                 ) : (
                   <strong className="text-ink">{b.title}</strong>
                 )}{' '}
-                por {formatPrice(b.kind === 'tabela' ? b.price : BUMP_PRICE)}
+                por {formatPrice(b.kind === 'tabela' || e.kind === 'tabela' ? TABLE_PAIR_BUMP_PRICE : BUMP_PRICE)}
               </span>
             ))}
             .

@@ -104,8 +104,10 @@ Feed, sitemap, busca, páginas de tag e imagem de compartilhamento saem sozinhos
    Não trave o resultado atrás da pergunta (testado e desfeito em 21/11/2026). Evento `Quiz Frasco`. Ordem da tela: número e seringa → oferta (copy com o nome do peptídeo, prop `subject`; botão verde direto no checkout, botão para a página) → detalhes do frasco.
    Preço de lançamento: `launch` no ebook gera a frase "R$ X nas N primeiras unidades. Depois, R$ Y". Só vale
    enquanto o aumento vai acontecer: ao subir o preço na Kiwify, apague `launch` e ponha `price: after` no mesmo dia.
-   Tabela personalizada (`TAB`, R$ 9,90): é a oferta do **resultado** (`tableOffer()` → prop `tableOffer`), com o
-   guia como oferta extra no checkout dela (frase `addon`, preço `BUMP_PRICE`; mudou o bump na Kiwify → mude lá).
+   Tabela personalizada (`TAB`, R$ 14,90 desde 24/11/2026): é a oferta do **resultado** (`tableOffer()` → prop `tableOffer`), com o
+   guia como oferta extra no checkout dela (frase `addon`, preço `TABLE_PAIR_BUMP_PRICE`, R$ 9,90, que também é o preço
+   da tabela como bump no checkout do T1; ofertas próprias na Kiwify; mudou o bump lá → mude aqui). Os outros bumps
+   de T1 seguem em `BUMP_PRICE`.
    O guia T1 segue na calculadora vazia, na home e como reserva (peptídeo personalizado ou de `NO_EBOOK_PEPTIDES`,
    que a página da tabela não lista). No checkout do T1 a tabela continua como oferta extra.
    Produto "digital" na Kiwify que redireciona para `/tabela-personalizada?k=<chave>` (só o hash da chave fica
