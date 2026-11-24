@@ -399,8 +399,8 @@ export const PEPTIDES: Peptide[] = [
     shortDescription: 'Análogo do GHRH. Reduz gordura visceral abdominal.',
     commonAmounts: [2],
     category: 'gh',
-    doseRange: '2 mg/dia SC (dose fixa aprovada)',
-    halfLife: '~26-38 min',
+    doseRange: 'Bula: 1,4 mg/dia SC (Egrifta SV) ou 1,28 mg/dia (Egrifta WR); 2 mg era a formulação original',
+    halfLife: '~8 min (Egrifta SV) e ~11 min (Egrifta WR); 26-38 min na formulação original',
     longDescription:
       'Tesamorelina é um análogo sintético do GHRH humano, composto por 44 aminoácidos com modificação N-terminal (ácido trans-3-hexenoico no Tyr1) que confere resistência à DPP-4 e prolonga a meia-vida funcional. Aprovada pela FDA em 2010 como Egrifta, com formulação atualizada Egrifta WR aprovada posteriormente.\n\nA indicação aprovada é específica: redução de excesso de gordura abdominal visceral (lipodistrofia) em adultos HIV-positivos em terapia antirretroviral. Estudos pivotais demonstraram reduções médias de ~15-18% no tecido adiposo visceral após 26 semanas. Uso em outras populações (anti-envelhecimento, performance, perda de gordura geral) é off-label e não avaliado em ensaios regulatórios. Proibida pela WADA na categoria S2.',
     mechanism:
@@ -556,15 +556,15 @@ export const PEPTIDES: Peptide[] = [
     typicalDose: 1.75,
     doseUnit: 'mg',
     frequency: 'Conforme necessário (máx 1x a cada 24h)',
-    shortDescription: 'Agonista do receptor MC4. Usado para disfunção sexual.',
+    shortDescription: 'Agonista não seletivo de melanocortina (bremelanotida). Aprovado só para desejo sexual hipoativo em mulheres na pré-menopausa.',
     commonAmounts: [10],
     category: 'sexual',
-    doseRange: '1,75 mg SC conforme necessário; máx 1 dose/24h e 8 doses/mês',
+    doseRange: 'Bula: 1,75 mg SC conforme necessário; até 1 dose/24h; mais de 8 doses/mês não recomendado',
     halfLife: '~2,7h (terminal)',
     longDescription:
       'Bremelanotida (PT-141), comercializada como Vyleesi®, é um peptídeo agonista dos receptores de melanocortina aprovado pela FDA em 21/06/2019 para Transtorno do Desejo Sexual Hipoativo (TDSH) adquirido e generalizado em mulheres na pré-menopausa. Primeiro tratamento aprovado para uso "conforme necessário" dessa condição (Palatin Technologies/AMAG Pharmaceuticals).\n\nApresentação aprovada: autoinjetor SC de dose única (1,75 mg), administrado no abdome ou coxa ≥45 min antes da atividade sexual prevista. Não usar mais de 1× em 24h ou >8× por mês. Diferente de tratamentos para disfunção erétil masculina, atua no SNC — não sobre vasculatura genital. Qualquer uso fora da indicação aprovada (inclusive em homens) é off-label e sem respaldo regulatório.',
     mechanism:
-      'Agonista não seletivo dos receptores de melanocortina (MC1R, MC3R, MC4R e MC5R). Acredita-se que o efeito sobre o desejo sexual seja mediado principalmente pela ativação de MC4R em vias hipotalâmicas e límbicas envolvidas na motivação sexual, embora o mecanismo preciso permaneça não completamente elucidado.\n\nA ativação de receptores de melanocortina também explica os efeitos adversos: elevação transitória da pressão arterial (via MC4R em núcleos autonômicos), redução da frequência cardíaca, náusea e rubor facial — que tipicamente se resolvem em até 12h.',
+      'Agonista não seletivo dos receptores de melanocortina (MC1R, MC3R, MC4R e MC5R). Acredita-se que o efeito sobre o desejo sexual seja mediado principalmente pela ativação de MC4R em vias hipotalâmicas e límbicas envolvidas na motivação sexual, embora o mecanismo preciso permaneça não completamente elucidado.\n\nA ativação de receptores de melanocortina também explica os efeitos adversos: elevação transitória da pressão arterial (via MC4R em núcleos autonômicos), redução da frequência cardíaca, náusea e rubor facial. Pela bula, pressão e frequência cardíaca voltam ao normal em até 12 h; a náusea dura cerca de 2 h.',
     sideEffects: [
       'Náusea (efeito adverso mais comum, ~40% dos pacientes em ensaios)',
       'Rubor facial (flushing)',

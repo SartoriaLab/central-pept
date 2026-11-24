@@ -1,0 +1,83 @@
+{
+  "title": "Os Segredos do PT-141 Que Ninguém Te Conta",
+  "formerTitles": ["PT-141: Leia Antes da Primeira Dose"],
+  "altTitle": "PT-141 Sem Mito",
+  "subtitle": "O que quem vende \"para homens\" não conta: para quem a bula aprovou, o tamanho real do efeito, a náusea, a pressão, a pele e o que existe no Brasil.",
+  "hook": "Aprovado só para mulheres antes da menopausa. Efeito médio de 0,35 ponto numa escala de 1,2 a 6, náusea em 40% e pressão que sobe a cada dose.",
+  "line": "O que a bula do PT-141 diz e o que o anúncio esconde. Guia em PDF.",
+  "price": 29.9,
+  "pages": 48,
+  "revised": "novembro de 2026",
+  "forWho": [
+    "Viu o PT-141 à venda \"para homens\" ou \"para todo mundo\" e quer saber o que a bula diz de verdade.",
+    "Tem pressão alta, doença do coração ou usa naltrexona e quer entender por que isso pesa aqui.",
+    "Convive com desejo baixo e quer saber o tamanho real do efeito antes de conversar com o médico."
+  ],
+  "notFor": [
+    "Procura dose, preparo ou protocolo: o guia cita a dose da bula só como fato e não ensina a usar.",
+    "Quer indicação de onde comprar, de marca ou de \"lote bom\"."
+  ],
+  "pains": [
+    {
+      "erro": "Achar que o PT-141 é aprovado \"para todo mundo\"",
+      "custo": "A bula do Vyleesi diz que ele não é indicado para homens, para mulheres depois da menopausa nem para melhorar o desempenho sexual. Os 1.267 participantes dos estudos de aprovação eram mulheres na pré-menopausa."
+    },
+    {
+      "erro": "Esperar um efeito forte",
+      "custo": "Nos estudos de fase 3, o desejo subiu cerca de 0,35 ponto acima do placebo numa escala de 1,2 a 6, e o número de experiências sexuais satisfatórias não mudou. Cerca de 40% abandonaram antes do fim no grupo do remédio."
+    },
+    {
+      "erro": "Ignorar a pressão e a náusea",
+      "custo": "Pela bula, a pressão sobe até 6/3 mmHg depois de cada dose e o remédio é contraindicado com pressão alta não controlada ou doença do coração. A náusea atingiu 40%, e 18% interromperam por efeito adverso, contra 2% no placebo."
+    }
+  ],
+  "reveals": [
+    "O tamanho real do efeito nos estudos RECONNECT, número por número, e o resultado que quase ninguém mostra (cap. 2)",
+    "As frases da bula que excluem homens e o uso para desempenho, e os limites de 24 horas e de 8 doses por mês (cap. 3)",
+    "Por que a pele pode escurecer no rosto e na gengiva: 1% com uso espaçado, 38% com uso diário por 8 dias (cap. 4)",
+    "O que existe de estudo em homens, por que o spray nasal foi abandonado e o alerta de 2023 sobre o maior estudo (cap. 5)",
+    "A interação com a naltrexona que a bula manda evitar, e outros remédios afetados (cap. 6)"
+  ],
+  "anchor": "O PT-141 vendido como pesquisa não é o remédio da bula: não localizamos registro na ANVISA, costuma vir em pó, sem esterilidade garantida, e é usado justamente por quem a bula exclui. O guia custa R$ 29,90 e mostra o que a bula diz antes de qualquer decisão.",
+  "toc": [
+    "O que é o PT-141 e de onde ele veio",
+    "O que os estudos mediram, e o tamanho real do efeito",
+    "O que a bula aprova, e o que ela não aprova",
+    "Náusea, pressão e pele: os efeitos que a bula conta",
+    "E nos homens? O que existe de estudo",
+    "Interações e situações de cautela",
+    "Brasil, WADA e \"produto de pesquisa\": o que muda fora da bula",
+    "As perguntas para fazer antes de decidir"
+  ],
+  "tocNotes": [
+    "PT-141, bremelanotida e Vyleesi; a origem na família do melanotan II; os receptores e a linha do tempo até a aprovação de 2019",
+    "Os dois estudos de fase 3 com 1.267 mulheres, o que cada escala mede, as diferenças contra o placebo e quem saiu antes",
+    "A indicação, as limitações de uso escritas na bula, os limites de dose como fato do documento, rins, fígado, gestação e amamentação",
+    "A tabela de efeitos contra placebo, a náusea, quem desistiu, a pressão depois de cada dose e as manchas que podem não sumir",
+    "Os estudos de 2004 a 2008, a preocupação da FDA com a pressão, o fim do spray nasal e o alerta da revista em 2023",
+    "Estômago mais lento, naltrexona, antibióticos, álcool e as situações em que a bula contraindica ou pede cautela",
+    "Registro no Brasil, Lista Proibida da WADA, a diferença entre o Vyleesi e o frasco de pesquisa e como ler um laudo",
+    "6 perguntas para você responder e 4 para levar ao médico"
+  ],
+  "bonuses": ["Bula contra anúncio", "Checklist de segurança para a consulta"],
+  "sources": [
+    "Bula do Vyleesi aprovada pela FDA em 2019 e a versão em vigor, de novembro de 2026",
+    "Artigo dos estudos de fase 3 RECONNECT (Obstetrics & Gynecology, 2019) e estudos em homens indexados no PubMed",
+    "Registros no ClinicalTrials.gov e reportagens da imprensa especializada sobre o desenvolvimento",
+    "Notícias da ANVISA de 2026 e a Lista Proibida da WADA de 2026"
+  ],
+  "faq": [
+    {
+      "q": "O guia ensina a usar ou diz onde comprar PT-141?",
+      "a": "Não. O guia cita a dose da bula do Vyleesi só como fato do documento oficial, para comparação. Não traz dose para o leitor, preparo, aplicação nem indicação de fornecedor."
+    },
+    {
+      "q": "O PT-141 não é aprovado pela FDA?",
+      "a": "A bremelanotida é aprovada nos Estados Unidos desde 2019, como Vyleesi, só para desejo sexual baixo com sofrimento em mulheres na pré-menopausa. A bula diz que ela não é indicada para homens nem para melhorar o desempenho. No Brasil, não localizamos registro na ANVISA até novembro de 2026."
+    },
+    {
+      "q": "De onde vêm os números?",
+      "a": "Da bula do Vyleesi, do artigo dos estudos de fase 3, dos artigos em homens, do ClinicalTrials.gov, da ANVISA e da WADA. Cada número tem a fonte com link na seção Fontes, e o texto avisa quando um dado não foi publicado ou não foi localizado."
+    }
+  ]
+}

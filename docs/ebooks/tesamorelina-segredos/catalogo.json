@@ -1,0 +1,83 @@
+{
+  "title": "Os Segredos da Tesamorelina Que Ninguém Te Conta",
+  "formerTitles": ["Tesamorelina: O Único Peptídeo de GH Aprovado"],
+  "altTitle": "Tesamorelina: O Que a Aprovação Não Cobre",
+  "subtitle": "O que quem vende fora da bula não conta: para quem a FDA aprovou, o que os estudos mediram, o que volta ao parar e a situação no Brasil.",
+  "hook": "Aprovada só para gordura abdominal em adultos com HIV. Peso sem mudança nos estudos, gordura que volta ao parar e uma bula com 7 alertas.",
+  "line": "O que a aprovação da tesamorelina cobre e o que ela não cobre. Guia em PDF.",
+  "price": 29.9,
+  "pages": 50,
+  "revised": "novembro de 2026",
+  "forWho": [
+    "Ouviu falar da tesamorelina para gordura da barriga e quer saber o que os estudos mostraram.",
+    "Viu a tesamorelina à venda como \"peptídeo de pesquisa\" e quer entender a diferença para o remédio aprovado.",
+    "Pratica esporte com controle antidoping."
+  ],
+  "notFor": [
+    "Procura um protocolo para emagrecer ou ganhar músculo: a bula diz que ela não é indicada para perda de peso, e o guia não ensina a usar.",
+    "Quer indicação de onde comprar, de marca ou de \"lote bom\"."
+  ],
+  "pains": [
+    {
+      "erro": "Usar a tesamorelina para emagrecer",
+      "custo": "Nos dois estudos de registro, com 816 pessoas, o peso não mudou em 26 semanas. A bula diz que ela tem \"efeito neutro sobre o peso\" e não é indicada para perda de peso."
+    },
+    {
+      "erro": "Achar que o resultado fica depois de um ciclo",
+      "custo": "Quem trocou a tesamorelina por placebo viu a gordura visceral voltar a subir 16% a 22% em 6 meses, segundo a bula da FDA."
+    },
+    {
+      "erro": "Acreditar que \"aprovado pela FDA\" quer dizer seguro para qualquer um",
+      "custo": "Mesmo num grupo sem diabetes, 47% ficaram com IGF-1 acima do normal e o risco de chegar à faixa de diabetes foi 3,3 vezes o do placebo. No Brasil, não localizamos registro na ANVISA."
+    }
+  ],
+  "reveals": [
+    "Para quem a aprovação vale, quem ficou fora dos estudos e por que a Europa e o Brasil não aprovaram (cap. 2)",
+    "O que a tomografia mediu e o que aconteceu com peso, cintura, gordura embaixo da pele e massa magra (cap. 3)",
+    "O teste com sorteio que mostrou a gordura voltando quando as pessoas pararam (cap. 4)",
+    "IGF-1, glicose e anticorpos: os números da bula que quem vende não mostra (cap. 5)",
+    "O que existe de estudo em fígado gorduroso, memória, estética e esporte, e onde não existe nenhum (cap. 6)"
+  ],
+  "anchor": "A tesamorelina não tem registro localizado no Brasil, e o frasco vendido como \"pesquisa\" não é o Egrifta aprovado nos Estados Unidos: não tem bula nem quantidade garantida. O guia custa R$ 29,90 e mostra o que a aprovação cobre antes de qualquer decisão.",
+  "toc": [
+    "O que é a tesamorelina e como ela age",
+    "Para quem ela foi aprovada, e para quem não foi",
+    "O que os estudos de fase 3 mediram de verdade",
+    "O que acontece quando o tratamento para",
+    "Efeitos e riscos: o que está na bula",
+    "Fora da bula: fígado, memória, estética e esporte",
+    "Brasil, WADA, frasco de pesquisa, preço e laudo",
+    "As perguntas para fazer antes de decidir"
+  ],
+  "tocNotes": [
+    "O análogo do GHRH que faz a hipófise liberar GH, as três apresentações do Egrifta e a meia-vida de minutos",
+    "A indicação e as limitações da bula, quem entrou nos estudos e as decisões da Europa, do Canadá, do México e do Brasil",
+    "Gordura visceral por tomografia, peso, cintura, gordura embaixo da pele, massa magra e quem não respondeu",
+    "A fase de extensão com sorteio, a gordura que voltou, o IGF-1 e os anticorpos depois da parada",
+    "A tabela de efeitos, os 7 alertas e as 4 contraindicações da bula, com os números",
+    "Os estudos em fígado gorduroso, obesidade abdominal e memória, os registrados sem resultado e o que não existe",
+    "Registro no Brasil, a Lista Proibida da WADA, remédio aprovado contra frasco de pesquisa, preço e o que um laudo prova",
+    "6 perguntas para você responder e 5 para levar ao médico"
+  ],
+  "bonuses": ["A bula em uma página", "Checklist \"remédio aprovado ou frasco de pesquisa\""],
+  "sources": [
+    "Bulas da FDA do Egrifta, do Egrifta SV e do Egrifta WR (2025)",
+    "Estudos de registro e análises publicados no New England Journal of Medicine, no Journal of Clinical Endocrinology and Metabolism e na Clinical Infectious Diseases",
+    "Estudos fora da indicação indexados no PubMed e registros no ClinicalTrials.gov",
+    "Agência Europeia de Medicamentos, Health Canada, lei brasileira e a Lista Proibida da WADA de 2026"
+  ],
+  "faq": [
+    {
+      "q": "O guia ensina a usar ou diz onde comprar tesamorelina?",
+      "a": "Não. O guia cita a dose da bula americana como fato da bula e descreve as doses dos estudos, mas não traz protocolo, preparo, aplicação nem indicação de fornecedor. A tesamorelina não tem registro localizado na ANVISA."
+    },
+    {
+      "q": "A tesamorelina não é aprovada pela FDA?",
+      "a": "É, desde 2010, mas só para reduzir o excesso de gordura abdominal em adultos com HIV e lipodistrofia, com o produto Egrifta. A aprovação não vale para outros usos nem para o frasco vendido como \"pesquisa\". O capítulo 2 mostra o que a bula diz."
+    },
+    {
+      "q": "De onde vêm os números?",
+      "a": "Das bulas da FDA, dos artigos originais dos estudos, do ClinicalTrials.gov, da Agência Europeia de Medicamentos, da Health Canada e da WADA. Cada número tem a fonte com link na seção Fontes, e o texto avisa quando um dado não foi publicado ou não foi confirmado."
+    }
+  ]
+}
