@@ -68,7 +68,7 @@ export function ebookFromCaption(caption: string | undefined, active: Ebook[] = 
   const m = caption?.match(/📘[^\n]*?["“]([^"”\n]+)["”]/u);
   if (!m) return null;
   const title = m[1].trim().toLowerCase();
-  return active.find((e) => e.title.toLowerCase() === title) ?? null;
+  return active.find((e) => [e.title, ...(e.formerTitles ?? [])].some((t) => t.toLowerCase() === title)) ?? null;
 }
 
 /** Sem guia na legenda: o kit (cobre o começo de GLP-1); sem kit ativo, nenhum. */

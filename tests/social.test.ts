@@ -584,6 +584,8 @@ describe('comenta GUIA (direct)', () => {
     const robot = buildCaption(draft(), t, { id: 'I2', slug: tirze.slug, title: tirze.title, priceLabel: 'R$ 29,90', cover: '', others: 6 });
     expect(ebookFromCaption(robot, all)?.id).toBe('I2');
     expect(ebookFromCaption(`📘 Guia "${tirze.title}" (R$ 29,90) e calculadoras grátis no link da bio.`, all)?.id).toBe('I2');
+    // legenda publicada antes da troca de nome (24/11/2026) ainda acha o guia
+    expect(ebookFromCaption('📘 Guia "Tirzepatida: Não Suba a Dose Antes de Ler Isto" no link da bio.', all)?.id).toBe('I2');
     expect(ebookFromCaption('sem guia aqui', all)).toBeNull();
     expect(ebookFromCaption(`📘 Guia "${tirze.title}"`, [])).toBeNull(); // guia sem checkout ativo
     expect(fallbackEbook(all)?.id).toBe('KIT');

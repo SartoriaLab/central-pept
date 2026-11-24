@@ -18,6 +18,11 @@ export type Ebook = {
   slug: string;
   kind: EbookKind;
   title: string;
+  /**
+   * Títulos antigos (troca para "Os Segredos do X Que Ninguém Te Conta" em 24/11/2026). Legenda
+   * já publicada no Instagram cita o título da época: `ebookFromCaption` aceita os dois.
+   */
+  formerTitles?: string[];
   /** Título para teste A/B (não usado no site ainda). */
   altTitle: string;
   subtitle: string;
@@ -189,7 +194,8 @@ export const EBOOKS: Ebook[] = [
     id: 'I1',
     slug: 'semaglutida-manual',
     kind: 'individual',
-    title: 'Semaglutida: O Manual Que Não Vem na Caixa',
+    title: 'Os Segredos da Semaglutida Que Ninguém Te Conta',
+    formerTitles: ['Semaglutida: O Manual Que Não Vem na Caixa'],
     altTitle: 'Antes da Sua Próxima Dose de Semaglutida',
     subtitle:
       'Semana a semana, de 0,25 mg até a manutenção: o que esperar em cada etapa, como atravessar a náusea e os 9 erros que fazem desistir no meio.',
@@ -274,7 +280,8 @@ export const EBOOKS: Ebook[] = [
     id: 'I2',
     slug: 'tirzepatida-antes-de-subir-a-dose',
     kind: 'individual',
-    title: 'Tirzepatida: Não Suba a Dose Antes de Ler Isto',
+    title: 'Os Segredos da Tirzepatida Que Ninguém Te Conta',
+    formerTitles: ['Tirzepatida: Não Suba a Dose Antes de Ler Isto'],
     altTitle: 'Tirzepatida: O Manual Que Não Vem na Caixa',
     subtitle:
       'De 2,5 mg a 15 mg, semana a semana: quando subir, quando segurar e os 9 erros que custam frasco, dinheiro e semanas de enjoo.',
@@ -357,7 +364,8 @@ export const EBOOKS: Ebook[] = [
     id: 'I3',
     slug: 'retatrutida-verdade',
     kind: 'individual',
-    title: 'Retatrutida: A Verdade Antes da Aprovação',
+    title: 'Os Segredos da Retatrutida Que Ninguém Te Conta',
+    formerTitles: ['Retatrutida: A Verdade Antes da Aprovação'],
     altTitle: 'Retatrutida: O Que Não Te Contam nos Grupos',
     subtitle: 'O que os estudos já mediram, o que ainda não tem resposta e o que estão te vendendo antes da hora.',
     hook: 'Sem aprovação em nenhum país. O que os estudos mediram, por que o 28% vira 25% e o que ninguém confere no que está à venda.',
@@ -475,7 +483,8 @@ export const EBOOKS: Ebook[] = [
     id: 'I5',
     slug: 'ghk-cu-rotina',
     kind: 'individual',
-    title: 'GHK-Cu Sem Marketing',
+    title: 'Os Segredos do GHK-Cu Que Ninguém Te Conta',
+    formerTitles: ['GHK-Cu Sem Marketing'],
     altTitle: 'GHK-Cu: O Que o Rótulo Não Explica',
     subtitle:
       'Como encaixar o peptídeo de cobre na rotina com vitamina C, ácidos e retinol: o que tem estudo de verdade, o que é só precaução e o que é marketing de cosmético.',
@@ -1204,8 +1213,8 @@ export const EBOOKS: Ebook[] = [
     ],
     notFor: ['Procura uma prescrição.', 'Espera promessa de quilos perdidos.'],
     toc: [
-      'Semaglutida: O Manual Que Não Vem na Caixa',
-      'Tirzepatida: Não Suba a Dose Antes de Ler Isto',
+      'Os Segredos da Semaglutida Que Ninguém Te Conta',
+      'Os Segredos da Tirzepatida Que Ninguém Te Conta',
       'Você Tem Certeza de Que Entende Seu Frasco?',
       'Não Compre Antes de Checar Isto',
     ],
@@ -1215,8 +1224,8 @@ export const EBOOKS: Ebook[] = [
       { erro: 'Subir de dose no automático, com a náusea da etapa anterior', custo: 'Enjoo empilhado por semanas e a vontade de largar tudo antes de chegar à dose que funciona.' },
     ],
     reveals: [
-      'A escada de 0,25 a 2,4 mg e os 9 erros que fazem desistir no meio (Semaglutida: O Manual Que Não Vem na Caixa)',
-      'Quando segurar a dose e qual frasco casa com cada etapa (Tirzepatida: Não Suba a Dose Antes de Ler Isto)',
+      'A escada de 0,25 a 2,4 mg e os 9 erros que fazem desistir no meio (Os Segredos da Semaglutida Que Ninguém Te Conta)',
+      'Quando segurar a dose e qual frasco casa com cada etapa (Os Segredos da Tirzepatida Que Ninguém Te Conta)',
       'Os 7 erros em que a conta está certa e a dose não (Você Tem Certeza de Que Entende Seu Frasco?)',
       'As 12 checagens e o custo real por mg, por dose e por mês (Não Compre Antes de Checar Isto)',
       'Escadas, diários de 16 e 20 semanas, tabelas de unidades, checklists e planilha para imprimir (os 4 guias)',
