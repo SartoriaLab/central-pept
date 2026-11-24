@@ -156,7 +156,7 @@ describe('reserva quando o guia não está à venda', () => {
 
   it('guia inativo cai para o de reconstituição', () => {
     stub(['T1', 'KIT']);
-    expect(offerFor(ebookForPeptide('bpc-157'))?.id).toBe('T1');
+    expect(offerFor(ebookForPeptide('tb-500'))?.id).toBe('T1');
   });
 
   it('página de caneta cai para o kit', () => {
@@ -176,7 +176,7 @@ describe('reserva quando o guia não está à venda', () => {
 
   it('sem nenhum checkout, nada', () => {
     stub([]);
-    expect(offerFor(ebookForPeptide('bpc-157'))).toBeNull();
+    expect(offerFor(ebookForPeptide('tb-500'))).toBeNull();
   });
 });
 

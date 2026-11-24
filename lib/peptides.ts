@@ -86,8 +86,8 @@ export const PEPTIDES: Peptide[] = [
     shortDescription: 'Peptídeo de proteção corporal. Promove cicatrização de tecidos, tendões e ligamentos.',
     commonAmounts: [5],
     category: 'healing',
-    doseRange: '200-500 mcg/dia',
-    halfLife: '~4h (subcutâneo)',
+    doseRange: 'Protocolos informais: 200-500 mcg/dia (sem respaldo clínico)',
+    halfLife: 'Não caracterizada em humanos (em ratos e cães, por via injetada, minutos)',
     longDescription:
       'BPC-157 ("Body Protection Compound") é um fragmento de 15 aminoácidos derivado de uma proteína encontrada no suco gástrico humano. Estudado em modelos animais pelo potencial de acelerar reparo de tendões, ligamentos, músculo e mucosa gastrointestinal.\n\nSem aprovação pelo FDA para uso humano — classificado pela WADA como proibido no esporte desde 2022. Uso em humanos é off-label / pesquisa.',
     mechanism:
@@ -103,7 +103,8 @@ export const PEPTIDES: Peptide[] = [
       'Uso concomitante de anticoagulantes sem acompanhamento',
     ],
     references: [
-      { title: 'Seiwerth S, et al. BPC 157 and standard angiogenic growth factors. Curr Pharm Des. 2018.', url: 'https://pubmed.ncbi.nlm.nih.gov/29769001/' },
+      { title: 'Seiwerth S, et al. BPC 157 and standard angiogenic growth factors. Curr Pharm Des. 2018.', url: 'https://pubmed.ncbi.nlm.nih.gov/29998800/' },
+      { title: 'He L, et al. Pharmacokinetics, distribution, metabolism, and excretion of body-protective compound 157. Front Pharmacol. 2022.', url: 'https://doi.org/10.3389/fphar.2022.1026182' },
       { title: 'WADA Prohibited List', url: 'https://www.wada-ama.org/en/prohibited-list' },
     ],
     lastReviewed: '2026-04-16',

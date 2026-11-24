@@ -98,6 +98,10 @@ Feed, sitemap, busca, páginas de tag e imagem de compartilhamento saem sozinhos
    desfeita no mesmo dia. Não suavize a oferta sem ele pedir.
    Capa (`EbookCover`) tem cara de livro; a landing mostra a página de amostra atrás dela.
 5. `npm test` (`tests/ebooks.test.ts`) confere slugs, referências e uma oferta por página.
+   Série "Os Segredos do X Que Ninguém Te Conta" (decisão do dono em 24/11/2026): um guia por peptídeo, R$ 29,90,
+   escrito com fontes (sem dose para o leitor). Prontos: semaglutida, tirzepatida, retatrutida, GHK-Cu e BPC-157
+   (molde em `docs/ebooks/bpc-157-sem-achismo/`, passo a passo da Kiwify em `docs/ebooks/README.md`). Os guias de
+   categoria (C1–C6) dão lugar a um guia por peptídeo. Título antigo vai para `formerTitles` (legendas do Instagram).
 6. Calculadora de reconstituição: oferta do guia T1 ("Você Tem Certeza de Que Entende Seu Frasco?"). No primeiro
    cálculo da visita o número aparece na hora e o topo da oferta traz uma pergunta opcional com os números da pessoa
    (`lib/quiz-frasco.ts`, `FrascoQuiz`; desliga em `QUIZ_GATE_ENABLED`); a resposta vira a explicação no lugar dela.

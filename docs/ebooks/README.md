@@ -21,6 +21,7 @@ pre, code, hr, figure, figcaption`. `style` só em `span`, `div` e `p`, e só co
 | KIT kit-comeco-seguro | 7fec0672-78f0-4997-8da7-0cfca55ca91b | e7aaee64-87f8-4011-a8dd-5b719da6e58a | af8e979e-b77f-4370-9cf4-5c90d21163c0 |
 | I3 retatrutida-verdade | 14383ba1-2dff-411b-b04f-3ebe49f8c89d | 05d5fbe3-b28a-4e0f-882f-e1c6e52d62a4 | c463994c-dd6c-480e-b868-6c895402ccd6 |
 | I5 ghk-cu-rotina | b9874a68-b0d9-427e-b231-a0a42bf4a2c2 | e9f65496-fb77-4277-aaee-43381ef23a84 | 49d35ccc-444a-4553-8262-da1c405ffb41 |
+| I4 bpc-157-sem-achismo | 861db833-e599-4dc9-b8b8-d3a43b8c0055 | a908351c-cc01-44c1-bb3c-76be7ba9df2e | 743b8866-aaf5-4deb-8dad-95e1cf0a088a |
 
 ## Produtos e checkout
 
@@ -34,6 +35,12 @@ pre, code, hr, figure, figcaption`. `style` só em `span`, `div` e `p`, e só co
 | KIT | 6fad40e0-dfc6-11f1-af23-a9366f1cb294 | https://pay.kiwify.com.br/KjyINY8 (`KIWIFY_CHECKOUT_KIT`) | — |
 | I3 | 7cbc7730-e069-11f1-8857-8d1aae0a9d8c | https://pay.kiwify.com.br/f3dqjCt (`KIWIFY_CHECKOUT_RETATRUTIDA`) | — |
 | I5 | 906a27a0-e069-11f1-8857-8d1aae0a9d8c | https://pay.kiwify.com.br/5bz91E3 (`KIWIFY_CHECKOUT_GHKCU`) | — |
+| I4 | 8691fcc0-e853-11f1-b19a-4fa90a94ea91 | https://pay.kiwify.com.br/EGOLOmS (`KIWIFY_CHECKOUT_BPC157`, ou `checkoutDefault`) | — |
+
+Série "Os Segredos do X Que Ninguém Te Conta" (desde 24/11/2026): um guia por peptídeo, R$ 29,90, bump T1
+(oferta `mTo3uEg`), cupom `SAIDA10`, afiliados 40%. O produto de área de membros já pode ser criado pelo MCP
+(`product_create` com `kind: club`, que cria a área junto). Molde: `bpc-157-sem-achismo/` (capítulos com
+"O segredo deste capítulo" no topo, `catalogo.json` com os campos da landing).
 
 Bumps: I1 e I2 oferecem T1 e T3; T1 oferece T2; T2 oferece T1; KIT oferece T3; I3 e I5 não têm bump (I3 trata de droga sem aprovação; I5 é de uso tópico). A descrição do produto
 T2 na Kiwify é neutra porque o filtro da Kiwify bloqueou "lote"/"golpe" ao criar o produto.
