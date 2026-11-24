@@ -17,7 +17,7 @@ export type Size = { width: number; height: number };
 export const CAROUSEL: Size = { width: 1080, height: 1350 };
 export const REEL: Size = { width: 1080, height: 1920 };
 
-export const P = {
+const PAPEL = {
   paper: '#efe9dc',
   grid: 'rgba(29,35,64,0.07)',
   ink: '#1d2340',
@@ -31,7 +31,54 @@ export const P = {
   white: '#ffffff',
   track: '#dcd6c8',
   green: '#22c55e',
-} as const;
+};
+type Palette = typeof PAPEL;
+
+/**
+ * Temas do fundo e das cores (desde 23/11/2026): o mesmo molde todo dia parece canal feito em
+ * série, que o YouTube trata como "conteúdo inautêntico". Todos claros, com texto escuro (o
+ * desenho e a legenda continuam legíveis); muda o fundo, o padrão e o par de destaques.
+ * `pattern`: grade (caderno quadriculado), pauta (linhas + margem), pontos ou nenhum.
+ */
+export const THEMES = {
+  papel: { palette: PAPEL, pattern: 'grade', layout: 'topo' },
+  pautado: {
+    palette: { ...PAPEL, paper: '#fbf3d0', grid: 'rgba(36,86,184,0.16)', red: '#d23a2a', blue: '#2456b8', track: '#eadfb4', cap: '#d23a2a' },
+    pattern: 'pauta',
+    layout: 'topo',
+  },
+  quadro: {
+    palette: { ...PAPEL, paper: '#f6f7f9', grid: 'rgba(29,35,64,0.16)', ink: '#1b2430', ink2: '#46505e', red: '#e8590c', blue: '#0f8a5f', blueSoft: '#7ee2b8', track: '#e1e5ea', cap: '#e8590c' },
+    pattern: 'pontos',
+    layout: 'base',
+  },
+  kraft: {
+    palette: { ...PAPEL, paper: '#dcc7a1', grid: 'rgba(80,50,20,0.08)', ink: '#2a1d12', ink2: '#5a4430', ink3: '#8c735a', red: '#b3261e', blue: '#1f3b73', track: '#c9b28a', white: '#fffaf0', cap: '#b3261e' },
+    pattern: 'nenhum',
+    layout: 'base',
+  },
+} satisfies Record<string, { palette: Palette; pattern: 'grade' | 'pauta' | 'pontos' | 'nenhum'; layout: 'topo' | 'base' }>;
+export type ThemeId = keyof typeof THEMES;
+export const THEME_IDS = Object.keys(THEMES) as ThemeId[];
+
+/** Cores do tema atual. Mutável de propósito: `setTheme` troca antes de cada render (sequencial). */
+export const P: Palette = { ...PAPEL };
+let pattern: (typeof THEMES)[ThemeId]['pattern'] = 'grade';
+/** Cena do Reels: título em cima e desenho embaixo ("topo") ou desenho em cima e título centralizado embaixo ("base"). */
+let layout: (typeof THEMES)[ThemeId]['layout'] = 'topo';
+
+export function setTheme(id: ThemeId): void {
+  Object.assign(P, THEMES[id].palette);
+  pattern = THEMES[id].pattern;
+  layout = THEMES[id].layout;
+}
+
+/** Tema do post: fixo por tema (prévia e publicação, Reels e Shorts saem iguais). Puro. */
+export function themeFor(topicId: string): ThemeId {
+  let h = 0;
+  for (const ch of topicId) h = (h * 31 + ch.charCodeAt(0)) >>> 0;
+  return THEME_IDS[h % THEME_IDS.length];
+}
 
 export const toneColor = (tone: Scene['tone']) => (tone === 'vermelho' ? P.red : P.blue);
 
@@ -63,11 +110,43 @@ const TITLE_WIDTH = 940;
 const GRID = 54;
 function Paper({ size, children }: { size: Size; children: React.ReactNode }) {
   const line = (key: string, style: React.CSSProperties) => <div key={key} style={{ position: 'absolute', display: 'flex', background: P.grid, ...style }} />;
+  const cols = Math.ceil(size.width / GRID);
+  const rows = Math.ceil(size.height / GRID);
+  const PAUTA = 64;
+  const DOT = 72;
   return (
     <div style={{ width: size.width, height: size.height, display: 'flex', position: 'relative', background: P.paper, color: P.ink, fontFamily: 'Inter' }}>
-      {Array.from({ length: Math.ceil(size.width / GRID) }, (_, i) => line(`v${i}`, { left: i * GRID, top: 0, width: 2, height: size.height }))}
-      {Array.from({ length: Math.ceil(size.height / GRID) }, (_, i) => line(`h${i}`, { left: 0, top: i * GRID, width: size.width, height: 2 }))}
+      {pattern === 'grade' && Array.from({ length: cols }, (_, i) => line(`v${i}`, { left: i * GRID, top: 0, width: 2, height: size.height }))}
+      {pattern === 'grade' && Array.from({ length: rows }, (_, i) => line(`h${i}`, { left: 0, top: i * GRID, width: size.width, height: 2 }))}
+      {pattern === 'pauta' && Array.from({ length: Math.ceil(size.height / PAUTA) }, (_, i) => line(`p${i}`, { left: 0, top: 40 + i * PAUTA, width: size.width, height: 2 }))}
+      {pattern === 'pauta' && <div style={{ position: 'absolute', display: 'flex', left: 44, top: 0, width: 3, height: size.height, background: 'rgba(210,58,42,0.35)' }} />}
+      {pattern === 'pontos' &&
+        Array.from({ length: Math.ceil(size.height / DOT) }, (_, r) =>
+          Array.from({ length: Math.ceil(size.width / DOT) }, (_, c) => line(`d${r}-${c}`, { left: 24 + c * DOT, top: 24 + r * DOT, width: 6, height: 6, borderRadius: 6 })),
+        )}
       {children}
+    </div>
+  );
+}
+
+/**
+ * Celular com a página real do site rolando devagar (print do navegador headless, sites.ts):
+ * imagem de verdade no meio dos desenhos. `ratio` = altura ÷ largura do print.
+ */
+export function PhoneScreen({ src, ratio, h, clock = STILL }: { src: string; ratio: number; h: number; clock?: Clock }) {
+  const bezel = 18;
+  const w = Math.round(h * 0.5);
+  const sw = w - 2 * bezel;
+  const sh = h - 2 * bezel;
+  const imgH = Math.round(sw * ratio);
+  const enter = easeOut(prog(clock.t, 0.25, 0.5));
+  // Rola até 55% do que sobra, devagar e com pausa no começo (como alguém lendo).
+  const scroll = Math.max(0, imgH - sh) * 0.55 * easeInOut(prog(clock.t, 1.2, Math.max(1.5, clock.dur - 2)));
+  return (
+    <div style={{ display: 'flex', width: w, height: h, padding: bezel, borderRadius: 64, background: P.ink, opacity: enter, transform: `translate(0px, ${px(60 * (1 - enter))})` }}>
+      <div style={{ display: 'flex', width: sw, height: sh, borderRadius: 48, overflow: 'hidden', background: '#ffffff', position: 'relative' }}>
+        <img src={src} width={sw} height={imgH} style={{ position: 'absolute', left: 0, top: -Math.round(scroll) }} />
+      </div>
     </div>
   );
 }
@@ -106,11 +185,11 @@ function Brand({ small = false }: { small?: boolean }) {
   );
 }
 
-function Kicker({ text, clock = STILL }: { text: string; clock?: Clock }) {
+function Kicker({ text, clock = STILL, center = false }: { text: string; clock?: Clock; center?: boolean }) {
   if (!text) return <div style={{ display: 'flex', height: 36 }} />;
   const p = easeOut(prog(clock.t, 0, 0.35));
   return (
-    <div style={{ display: 'flex', alignItems: 'center', height: 36, fontSize: 28, color: P.ink2, opacity: p, transform: `translate(${px(-24 * (1 - p))}, 0px)` }}>
+    <div style={{ display: 'flex', alignItems: 'center', alignSelf: center ? 'center' : 'flex-start', height: 36, fontSize: 28, color: P.ink2, opacity: p, transform: `translate(${px(-24 * (1 - p))}, 0px)` }}>
       <div style={{ display: 'flex', width: 34, height: 4, background: P.ink2, marginRight: 14 }} />
       {text}
     </div>
@@ -118,13 +197,13 @@ function Kicker({ text, clock = STILL }: { text: string; clock?: Clock }) {
 }
 
 /** Título de duas linhas; com `clock`, cada linha sobe de trás de uma máscara. */
-function Title({ a, b, color, max, clock = STILL }: { a: string; b: string; color: string; max: number; clock?: Clock }) {
+function Title({ a, b, color, max, clock = STILL, center = false }: { a: string; b: string; color: string; max: number; clock?: Clock; center?: boolean }) {
   const fs = titleSize(a.toUpperCase(), b.toUpperCase(), max);
   const lines = [{ text: nobreak(a).toUpperCase(), color: P.ink }, ...(b ? [{ text: nobreak(b).toUpperCase(), color }] : [])];
   const lh = Math.round(fs * 1.08);
   const pad = Math.round(fs * 0.2); // folga para acento, que passa da altura da linha
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', marginTop: 10 }}>
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: center ? 'center' : 'flex-start', marginTop: 10 }}>
       {lines.map((l, i) => {
         const { y, opacity } = titleLine(clock, i);
         const moving = y !== 0 || opacity < 1;
@@ -420,7 +499,7 @@ export function Visual({ v, w, h, clock = STILL }: { v: SceneVisual; w: number; 
 // ——— Reels ———————————————————————————————————————————————————————————————————
 
 /** Posições fixas no quadro do Reels (a interface do Instagram cobre o topo e o rodapé). */
-const R = { side: 70, chipY: 130, brandY: 200, kickerY: 320, visualY: 640, visualH: 700, sourceY: 1352, captionY: 1420 };
+const R = { side: 70, chipY: 130, brandY: 200, kickerY: 320, visualY: 640, visualH: 700, sourceY: 1352, captionY: 1420, baseVisualY: 300, baseVisualH: 640, baseTitleY: 990 };
 
 /** Legenda em pílula escura: as palavras do bloco, a falada em azul-claro; `age` = segundos desde que o bloco entrou (pula de leve). */
 export function CaptionPill({ words, active, age = 1 }: { words: string[]; active: number; age?: number }) {
@@ -452,17 +531,18 @@ export function ReelScene({ scene, caption, clock }: { scene: Scene; caption?: R
   const float = clock ? idle(c.t).y : 0;
   const visualExit = c.keepOut ? {} : exitStyle(c);
   const src = clock ? easeOut(prog(c.t, 0.55, 0.4)) : 1;
+  const base = layout === 'base';
   return (
     <Paper size={REEL}>
       <div style={{ position: 'absolute', left: R.side, top: R.chipY, display: 'flex' }}><Chip text={scene.chip} /></div>
       <div style={{ position: 'absolute', left: 0, top: R.brandY, width: REEL.width, display: 'flex', justifyContent: 'center' }}><Brand /></div>
-      <div style={{ position: 'absolute', left: R.side, top: R.kickerY, width: inner, display: 'flex', flexDirection: 'column', ...exitStyle(c) }}>
-        <Kicker text={scene.kicker} clock={c} />
-        <Title a={scene.title} b={scene.accent} color={toneColor(scene.tone)} max={112} clock={c} />
+      <div style={{ position: 'absolute', left: R.side, top: base ? R.baseTitleY : R.kickerY, width: inner, display: 'flex', flexDirection: 'column', ...exitStyle(c) }}>
+        <Kicker text={scene.kicker} clock={c} center={base} />
+        <Title a={scene.title} b={scene.accent} color={toneColor(scene.tone)} max={base ? 104 : 112} clock={c} center={base} />
       </div>
-      <div style={{ position: 'absolute', left: R.side, top: R.visualY, display: 'flex', ...visualExit }}>
+      <div style={{ position: 'absolute', left: R.side, top: base ? R.baseVisualY : R.visualY, display: 'flex', ...visualExit }}>
         <div style={{ display: 'flex', transform: `translate(0px, ${px(float)})` }}>
-          <Visual v={scene.visual} w={inner} h={R.visualH} clock={c} />
+          <Visual v={scene.visual} w={inner} h={base ? R.baseVisualH : R.visualH} clock={c} />
         </div>
       </div>
       {scene.source && (
@@ -476,7 +556,12 @@ export function ReelScene({ scene, caption, clock }: { scene: Scene; caption?: R
 }
 
 /** Fechamento do Reels: o guia (ou as calculadoras) e "comenta GUIA"; no Shorts, "link no canal". */
-export function ReelCta({ cta, caption, clock, platform = 'instagram' }: { cta: Cta | null; caption?: React.ReactNode; clock?: Clock; platform?: Platform }) {
+export function ReelCta({ cta, caption, clock, platform = 'instagram', screen }: {
+  cta: Cta | null; caption?: React.ReactNode; clock?: Clock; platform?: Platform;
+  /** Print da página do assunto no site: sem guia, o fechamento mostra o celular com ela. */
+  screen?: { src: string; ratio: number } | null;
+}) {
+  if (!cta && screen) return <ReelScreenCta screen={screen} caption={caption} clock={clock} platform={platform} />;
   const inner = REEL.width - 2 * R.side;
   const c = clock ?? STILL;
   const card = easeOut(prog(c.t, 0.3, 0.55));
@@ -493,6 +578,37 @@ export function ReelCta({ cta, caption, clock, platform = 'instagram' }: { cta: 
         <div style={{ display: 'flex', flexDirection: 'column', flex: 1, opacity: card, transform: `translate(0px, ${px(80 * (1 - card))})` }}>
           {cta ? <GuideCover cta={cta} /> : <div style={{ display: 'flex', fontSize: 40, fontWeight: 700, lineHeight: 1.3, color: P.ink2 }}>Calculadoras grátis de reconstituição, dose e custo.</div>}
           <div style={{ display: 'flex', alignSelf: 'flex-start', marginTop: 30, padding: '18px 34px', borderRadius: 999, background: P.blue, color: P.white, fontSize: 40, fontWeight: 800, ...popStyle(c.t, 0.7, 0.45, 0.5), ...(pulse !== 1 ? { transform: `scale(${pulse.toFixed(4)})` } : {}) }}>
+            {platform === 'youtube' ? 'Link no canal' : `Comenta ${DM_KEYWORD}`}
+          </div>
+        </div>
+      </div>
+      <div style={{ position: 'absolute', left: 0, top: R.captionY, width: REEL.width, display: 'flex', justifyContent: 'center' }}>{caption}</div>
+    </Paper>
+  );
+}
+
+/** Fechamento sem guia: título curto em cima, o celular com a página real e o botão ao lado. */
+function ReelScreenCta({ screen, caption, clock, platform }: {
+  screen: { src: string; ratio: number }; caption?: React.ReactNode; clock?: Clock; platform: Platform;
+}) {
+  const c = clock ?? STILL;
+  const inner = REEL.width - 2 * R.side;
+  const phoneTop = R.kickerY + 300;
+  const phoneH = R.captionY - phoneTop - 40;
+  const pulse = clock && c.t > 1.2 ? 1 + 0.045 * Math.sin((2 * Math.PI * (c.t - 1.2)) / 0.9) : 1;
+  return (
+    <Paper size={REEL}>
+      <div style={{ position: 'absolute', left: R.side, top: R.chipY, display: 'flex' }}><Chip text="tá no site" /></div>
+      <div style={{ position: 'absolute', left: 0, top: R.brandY, width: REEL.width, display: 'flex', justifyContent: 'center' }}><Brand /></div>
+      <div style={{ position: 'absolute', left: R.side, top: R.kickerY, width: inner, display: 'flex', flexDirection: 'column' }}>
+        <Title a="Explicado" b="com fonte" color={P.blue} max={104} clock={c} />
+      </div>
+      <div style={{ position: 'absolute', left: R.side, top: phoneTop, width: inner, height: phoneH, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <PhoneScreen src={screen.src} ratio={screen.ratio} h={phoneH} clock={c} />
+        <div style={{ display: 'flex', flexDirection: 'column', width: inner - Math.round(phoneH * 0.5) - 40, alignItems: 'flex-start' }}>
+          <div style={{ display: 'flex', fontSize: 38, fontWeight: 700, lineHeight: 1.3, color: P.ink2 }}>{SITE_HOST}</div>
+          <div style={{ display: 'flex', marginTop: 16, fontSize: 32, lineHeight: 1.35, color: P.ink2 }}>Calculadoras grátis de dose, frasco e seringa.</div>
+          <div style={{ display: 'flex', marginTop: 30, padding: '18px 30px', borderRadius: 999, background: P.blue, color: P.white, fontSize: 36, fontWeight: 800, ...popStyle(c.t, 0.7, 0.45, 0.5), ...(pulse !== 1 ? { transform: `scale(${pulse.toFixed(4)})` } : {}) }}>
             {platform === 'youtube' ? 'Link no canal' : `Comenta ${DM_KEYWORD}`}
           </div>
         </div>

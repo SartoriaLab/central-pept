@@ -30,10 +30,27 @@ import type { Draft, Format, HistoryEntry, Platform, Topic } from './types';
 const MAX_TOPICS = 3;
 /** Estilo visual atual (papel.tsx). */
 // Mudou o visual ou a fala final (ctaSpeech) → troque, senão a publicação reaproveita a prévia antiga.
-const VISUAL = 'papel-animado-2';
+const VISUAL = 'temas-tela-1';
 const REFRESH_BEFORE_DAYS = 15;
 /** Código de saída do --fila sem texto pronto e válido para hoje. */
 const NO_QUEUE = 3;
+/** Código de saída do --fila quando o dono pediu para refazer o texto (revisao.json do painel). */
+const HELD = 7;
+
+/**
+ * Nota do "refazer" pedido no painel gerenciador-social (social/fila/<pasta>/revisao.json), ou
+ * null se o post pode sair. Texto reescrito depois do pedido (texto.json mais novo) anula o pedido.
+ */
+async function heldNote(dir: string): Promise<string | null> {
+  try {
+    const r = JSON.parse((await fs.readFile(path.join(dir, 'revisao.json'), 'utf8')).replace(/^﻿/, '')) as { decisao?: string; nota?: string; em?: string };
+    if (r.decisao !== 'refazer' || !r.em) return null;
+    const text = await fs.stat(path.join(dir, 'texto.json'));
+    return text.mtimeMs > Date.parse(r.em) + 1000 ? null : r.nota || 'sem nota';
+  } catch {
+    return null;
+  }
+}
 
 function today(): string {
   return new Date().toLocaleDateString('sv-SE', { timeZone: 'America/Sao_Paulo' });
@@ -399,6 +416,13 @@ async function main() {
   // Texto pronto da fila para hoje. Sem ele (ou reprovado), código 3: a tarefa escreve na hora.
   if (process.argv.includes('--fila')) {
     const dir = path.join(queueRoot(), queueKey(today(), format));
+    // Código 7: segurado na tela Fila do painel; reescrever o texto.json libera (--force também).
+    const held = force ? null : await heldNote(dir);
+    if (held) {
+      console.log(`SEGURADO ${queueKey(today(), format)}: o dono pediu para refazer no painel (${held}). Reescreva o texto.json para liberar.`);
+      process.exitCode = HELD;
+      return;
+    }
     const checked = await checkDir(dir, topics);
     if (!checked.draft) {
       console.log(`SEM FILA para ${queueKey(today(), format)}:\n- ${checked.problems.join('\n- ')}`);

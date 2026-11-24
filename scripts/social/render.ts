@@ -8,7 +8,8 @@ import { promisify } from 'node:util';
 import { createElement } from 'react';
 import satori from 'satori';
 import { Resvg } from '@resvg/resvg-js';
-import { CAROUSEL, CaptionPill, PaperCover, PaperCta, PaperSlide, REEL, ReelCta, ReelScene, type Size } from './papel';
+import { CAROUSEL, CaptionPill, PaperCover, PaperCta, PaperSlide, REEL, ReelCta, ReelScene, setTheme, themeFor, type Size } from './papel';
+import { siteScreen } from './sites';
 import { ctaSpeech, shortsSpeech } from './caption';
 import { beatsFor, chunkWords } from './captions';
 import { KIND_CHIP, scenesFor, splitTitle, visualForSlide } from './scenes';
@@ -92,6 +93,7 @@ function titled(t: string) {
 /** Carrossel: capa + conteúdo + guia, em JPEG. Devolve os caminhos na ordem. */
 export async function renderCarousel(draft: Draft, topic: Topic, cta: Cta | null, outDir: string): Promise<string[]> {
   await fs.mkdir(outDir, { recursive: true });
+  setTheme(themeFor(topic.id));
   const chip = KIND_CHIP[topic.kind];
   const total = draft.slides.length + 2;
   const coverIcon = draft.hookIcon ?? draft.slides[0]?.icon;
@@ -227,7 +229,11 @@ export async function renderReel(
   draft: Draft, topic: Topic, cta: Cta | null, outDir: string, platform: Platform = 'instagram',
 ): Promise<string> {
   await fs.mkdir(outDir, { recursive: true });
+  setTheme(themeFor(topic.id));
+  console.log(`Tema: ${themeFor(topic.id)}`);
   const scenes = scenesFor(draft, topic);
+  // Sem guia, o fechamento mostra a página real do assunto num celular (sites.ts).
+  const screen = cta ? null : await siteScreen(topic.url);
   if (scenes.length === 0) throw new Error('rascunho sem cenas nem falas para o Reels');
   await fs.writeFile(path.join(outDir, 'capa.png'), await renderPng(createElement(ReelScene, { scene: scenes[0] }), REEL));
   await reelCover(outDir);
@@ -240,7 +246,7 @@ export async function renderReel(
     })),
     {
       speech: platform === 'youtube' ? shortsSpeech(cta, draft.share) : ctaSpeech(cta, draft.share),
-      frame: (caption, clock) => createElement(ReelCta, { cta, caption, clock, platform }),
+      frame: (caption, clock) => createElement(ReelCta, { cta, caption, clock, platform, screen }),
     },
   ];
   console.log(`Voz: ${voiceLabel()} · ${parts.length} cenas`);

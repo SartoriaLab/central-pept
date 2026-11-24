@@ -132,6 +132,10 @@ Feed, sitemap, busca, páginas de tag e imagem de compartilhamento saem sozinhos
    `ANTHROPIC_API_KEY`): não volte o `schedule` lá, seriam dois robôs. As tarefas do app Claude
    (`dosecerta-carrossel`, `dosecerta-reels`; `--brief` + `--draft`, a conversa escreve) ficaram
    desativadas: ligar as duas junto com o Agendador = dois robôs.
+   Revisão no painel (`C:\dev\apps\gerenciador-social`, tela Fila): `revisao.json` com `"refazer"` na pasta da fila
+   segura o post (`heldNote` em `run.ts`, código 7) até o `texto.json` ser reescrito. Atraso: `agendado.ps1` não
+   publica antes do horário do dia nem, com mais de 90 min de atraso, fora de 8h–22h (código 8; `-ForaDaJanela`
+   ignora), e tenta de novo uma vez após 10 min quando falha (menos se o erro foi no `media_publish`).
    Pausa: `npm run social:agendar -- -Remover` ou `SOCIAL_PAUSED=1`. Setup: `docs/instagram-setup.md` (Parte 7).
    Fila (Parte 8): `run.ts <formato> --fila` (código 3 = sem texto válido). `run.ts plano --dias 30`
    monta a fila (`queue.ts`, mesma escolha de tema do robô) e `--check <pasta>` só valida.
