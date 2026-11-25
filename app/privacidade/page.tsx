@@ -12,7 +12,7 @@ export default function PrivacidadePage() {
   return (
     <div className="max-w-3xl mx-auto px-4 md:px-6 py-12 prose-article">
       <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-2">Política de Privacidade</h1>
-      <p className="text-ink-3 text-sm mb-8">Última atualização: 13 de novembro de 2026</p>
+      <p className="text-ink-3 text-sm mb-8">Última atualização: 25 de novembro de 2026</p>
 
       <p>
         Este documento explica, de forma direta, quais dados a Central Peptídeos
@@ -71,6 +71,50 @@ export default function PrivacidadePage() {
         <li>Cada email traz um link de descadastro; ao usá-lo, seu endereço é apagado</li>
         <li>Não vendemos nem compartilhamos a lista com terceiros</li>
         <li>Os dados ficam em um banco de dados hospedado em provedor de nuvem contratado pelo site</li>
+      </ul>
+
+      <h2 id="tiktok">Publicação no TikTok (app Gerenciador Social)</h2>
+      <p>
+        O Gerenciador Social é a ferramenta interna que publica os vídeos das
+        nossas próprias contas (Dose Certa e Palavra do Dia) no TikTok, pela API
+        oficial (Login Kit e Content Posting API). Ela não é oferecida ao público
+        e não acessa contas de terceiros.
+      </p>
+      <ul>
+        <li>
+          <strong>Conexão da conta:</strong> o dono da conta autoriza o app pela
+          tela oficial do TikTok, com os escopos <code>user.info.basic</code> (nome
+          e foto do perfil, mostrados antes de cada post) e{' '}
+          <code>video.publish</code> (publicar o vídeo aprovado).
+        </li>
+        <li>
+          <strong>Tokens:</strong> o token de acesso e o de renovação ficam
+          guardados só no servidor da ferramenta, em arquivo local protegido, nunca
+          no navegador, em banco de terceiros ou em registros. São usados apenas
+          para publicar e para mostrar o nome da conta.
+        </li>
+        <li>
+          <strong>Configurações de postagem:</strong> antes de cada post o dono
+          escolhe quem pode ver o vídeo, a legenda, se permite comentários, dueto e
+          costura, e se o conteúdo é comercial. O vídeo só é enviado com essa
+          aprovação, e no horário marcado.
+        </li>
+        <li>
+          <strong>Dados guardados:</strong> o identificador do post devolvido pelo
+          TikTok, a data e as escolhas de postagem, para não publicar o mesmo vídeo
+          duas vezes. Não coletamos dados de seguidores nem de outros usuários.
+        </li>
+        <li>
+          <strong>Desconectar e revogar:</strong> o acesso pode ser revogado a
+          qualquer momento no app do TikTok (Configurações e privacidade →
+          Segurança → Apps e serviços) ou pedindo pelo email abaixo. Ao revogar ou
+          pedir, apagamos os tokens em até 7 dias.
+        </li>
+        <li>
+          <strong>Retenção:</strong> os tokens ficam enquanto a conexão estiver
+          ativa; o histórico de publicações (identificador, data e escolhas) fica
+          enquanto a conta for gerenciada pela ferramenta e é apagado a pedido.
+        </li>
       </ul>
 
       <h2>O que não fazemos</h2>

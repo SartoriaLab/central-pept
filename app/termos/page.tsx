@@ -11,7 +11,7 @@ export default function TermosPage() {
   return (
     <div className="max-w-3xl mx-auto px-4 md:px-6 py-12 prose-article">
       <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-2">Termos de Uso</h1>
-      <p className="text-ink-3 text-sm mb-8">Última atualização: 16 de abril de 2026</p>
+      <p className="text-ink-3 text-sm mb-8">Última atualização: 25 de novembro de 2026</p>
 
       <div className="not-prose p-5 rounded-xl bg-amber-50 border-2 border-amber-200 mb-8 text-amber-900 leading-relaxed">
         <strong>Aviso crítico:</strong> o conteúdo deste site é exclusivamente
@@ -71,18 +71,32 @@ export default function TermosPage() {
         diretamente nas agências relevantes para o seu país.
       </p>
 
-      <h2>7. Alterações</h2>
+      <h2 id="tiktok">7. Ferramenta de publicação no TikTok (Gerenciador Social)</h2>
+      <p>
+        O Gerenciador Social é uma ferramenta interna, de uso exclusivo dos donos
+        das contas Dose Certa e Palavra do Dia, que publica os vídeos dessas contas
+        no TikTok pela API oficial. Não é oferecida a terceiros.
+      </p>
+      <ul>
+        <li>A conta TikTok é conectada pelo próprio dono, na tela de autorização do TikTok.</li>
+        <li>Cada vídeo só é publicado depois de o dono escolher a privacidade, a legenda, as interações (comentários, dueto, costura) e informar se o conteúdo é comercial.</li>
+        <li>Ao publicar, o dono concorda com a Confirmação de Uso de Música do TikTok e, em conteúdo de marca, com a Política de Conteúdo de Marca do TikTok.</li>
+        <li>O dono pode desconectar a ferramenta a qualquer momento no app do TikTok (Configurações e privacidade → Segurança → Apps e serviços). Os tokens e o histórico são tratados como descrito na <Link href="/privacidade#tiktok">política de privacidade</Link>.</li>
+        <li>O uso do TikTok continua sujeito aos Termos de Serviço e às Diretrizes da Comunidade do TikTok.</li>
+      </ul>
+
+      <h2>8. Alterações</h2>
       <p>
         Podemos alterar estes termos sem aviso prévio. Uso continuado do site após
         alterações implica aceitação.
       </p>
 
-      <h2>8. Jurisdição</h2>
+      <h2>9. Jurisdição</h2>
       <p>
         Estes termos são regidos pela legislação brasileira.
       </p>
 
-      <h2>9. Contato</h2>
+      <h2>10. Contato</h2>
       <p>
         Para correções, sugestões ou questões legais, veja a{' '}
         <Link href="/contato">página de contato</Link>.
